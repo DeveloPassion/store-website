@@ -1,11 +1,69 @@
 # Store Website Implementation Plan
 
+**Status**: 🔄 In Progress - Phase 0 (Content Extraction)
+**Last Updated**: 2026-01-05
+
 **Goal:** Build a high-converting e-commerce store at store.dsebastien.net that replaces Gumroad as the primary storefront while maintaining exact URL compatibility, increasing conversions through superior UI/UX, SEO, and AI SEO optimization.
 
 **Repository:** ~/wks/store-website
 **Tech Stack:** Vite + React 19 + TypeScript + Tailwind CSS 4 (clone tools-website architecture)
 **Hosting:** GitHub Pages
 **Domain:** store.dsebastien.net (immediate cutover from Gumroad)
+
+---
+
+## 📊 Current Implementation Status
+
+### Phase 0: Content Extraction ⏳ IN PROGRESS
+**Objective**: Extract all product sales copy from Obsidian notes into structured documentation.
+
+**Progress: 2/21 products (9.5%)**
+
+#### ✅ Completed Products:
+1. **Obsidian Starter Kit** (mghmmj) - €49.99/€118.99
+   - Full PAS framework copy
+   - 194 assets copied
+   - 3 hero testimonials selected
+   - Cross-sell strategy defined
+
+2. **Knowii Voice AI** (tbdlrt) - €49
+   - Full PAS framework copy
+   - Demo video linked (YouTube)
+   - Assets hosted externally
+   - Cross-sell strategy defined
+
+#### 🔲 Remaining Products: 19
+- Knowledge Management for Beginners
+- Knowledge Worker Kit
+- Knowii Complete System
+- Obsidian Starter Course
+- 5 Workshops (Journaling, Personal Org, Clarity, AI Prompt, MCP)
+- AI Ghostwriter Guide
+- Dev Concepts (3 items)
+- PKM Library
+- IT Concepts Wall
+- PKM Coaching
+- 2 Free Resources
+- Everything Bundle
+- Buy Me Coffee
+
+**Estimated Time**: ~14 hours remaining at current pace (~45 min/product)
+
+---
+
+### Phase 1: OSK Landing Page Template ⏸️ PENDING
+**Status**: Waiting for Phase 0 completion (OSK sales copy ready)
+
+**Next Steps**:
+1. Clone tools-website structure (excluding .git)
+2. Configure project with identical branding
+3. Build OSK page as perfect template
+4. Test Gumroad overlay integration
+
+---
+
+### Phase 2-5: Not Started
+All subsequent phases pending Phase 1 completion.
 
 ---
 
@@ -34,11 +92,11 @@ A static, highly-optimized product showcase website with:
 ## 1. Product Inventory
 
 ### Paid Products (16)
-| Product | Gumroad Permalink | Price | Type |
-|---------|------------------|-------|------|
-| Knowii Voice AI | tbdlrt | €99.99 | Tool |
-| OSK + Community | mghmmj | €49.99 | Kit |
-| OSK Course | nolle | $69.99 | Course |
+| Product | Gumroad Permalink | Price | Type | Sales Copy Status |
+|---------|------------------|-------|------|-------------------|
+| Knowii Voice AI | tbdlrt | €49 | Tool | ✅ Complete |
+| OSK Essentials/Premium | mghmmj | €49.99/€118.99 | Kit | ✅ Complete |
+| OSK Course | nolle | €69.99 | Course | 🔲 Pending |
 | Knowledge Worker Kit | pyjrr | €149.99 | Kit |
 | KM for Beginners | wazqkq | €69.99 | Course |
 | Knowii System | xjpgo | €4.99-999.99 | Community |

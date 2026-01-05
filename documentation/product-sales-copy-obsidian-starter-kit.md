@@ -338,7 +338,26 @@ A: Yes, absolutely. Many consultants, project managers, and knowledge workers us
 8. ✅ **CTA Button Text**: "Get Obsidian Starter Kit - €[PRICE]"
 9. ✅ **Variant Differentiator**: Premium adds 2h20m video course only
 
-**Still Need from User**:
-1. **dSebastien Article Link**: Is there a primary article about OSK on dsebastien.net? (mentioned: "Introducing the Obsidian Starter Kit (Article)")
-2. **Urgency Elements**: Should we add? (e.g., "Join 10,000+ users", "Lifetime updates included")
-3. **Related Products Cross-Sell**: Which products to recommend at bottom? (Knowledge Management for Beginners? Everything Bundle? Knowledge Worker Kit?)
+**Final Decisions - ALL COMPLETE** ✅:
+10. ✅ **dSebastien Article**: https://www.dsebastien.net/obsidian-starter-kit-v3/ (link prominently)
+11. ✅ **Urgency Elements**: "Lifetime updates included" + value emphasis messaging
+12. ✅ **Cross-Sell Products**: Both "Knowledge Management for Beginners" (€69.99) AND "Everything Knowledge Bundle" (€299.99)
+
+**Urgency Messaging to Include**:
+- "All future updates free forever - your investment compounds over time"
+- "Evergreen project - continuously improving with new features and content"
+- "One-time payment, lifetime value"
+- "Join 10,000+ knowledge workers already transforming their note-taking"
+
+**Cross-Sell Section** (at page bottom):
+```
+## Take Your Knowledge Management Further
+
+### Go Deeper: Knowledge Management for Beginners
+Master the complete PKM methodology. Learn the theory behind OSK's design.
+**€69.99** - [View Course →]
+
+### Save Big: Everything Knowledge Bundle
+Get OSK + KM Course + Knowledge Worker Kit + all workshops and more.
+**€299.99** (Save €XXX) - [View Bundle →]
+```
