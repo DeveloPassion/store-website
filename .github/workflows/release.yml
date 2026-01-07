@@ -78,8 +78,14 @@ jobs:
             - name: Extract changelog for release notes
               id: changelog
               run: |
-                  # Extract the latest version section from CHANGELOG.md
-                  NOTES=$(awk '/^## \[?[0-9]/{if(p) exit; p=1} p' CHANGELOG.md)
+                  # Check if CHANGELOG.md exists
+                  if [ -f CHANGELOG.md ]; then
+                      # Extract the latest version section from CHANGELOG.md
+                      NOTES=$(awk '/^## \[?[0-9]/{if(p) exit; p=1} p' CHANGELOG.md)
+                  else
+                      # Provide default notes if CHANGELOG.md doesn't exist
+                      NOTES="Release ${{ steps.tag.outputs.name }}"
+                  fi
                   # Handle multi-line output
                   echo "notes<<EOF" >> $GITHUB_OUTPUT
                   echo "$NOTES" >> $GITHUB_OUTPUT

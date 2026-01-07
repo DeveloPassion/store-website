@@ -69,14 +69,22 @@ npm run release:changelog
 
 # Show changes
 print_info "Changes to be committed:"
-git diff package.json package-lock.json CHANGELOG.md
+if [ -f CHANGELOG.md ]; then
+    git diff package.json package-lock.json CHANGELOG.md
+else
+    print_info "CHANGELOG.md will be created"
+    git diff package.json package-lock.json
+fi
 
 # Confirm before committing
 read -p "Commit these changes? (Y/n) " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Nn]$ ]]; then
     print_warning "Release cancelled"
-    git restore package.json package-lock.json CHANGELOG.md 2>/dev/null || true
+    git restore package.json package-lock.json 2>/dev/null || true
+    if [ -f CHANGELOG.md ]; then
+        git restore CHANGELOG.md 2>/dev/null || true
+    fi
     exit 1
 fi
 
