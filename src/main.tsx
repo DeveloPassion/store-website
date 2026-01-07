@@ -5,7 +5,6 @@ import './styles/index.css'
 
 import AppLayout from './components/layout/app-layout'
 import HomePage from './pages/home-ecommerce'
-import ChangelogPage from './pages/changelog'
 import ProductsPage from './pages/products'
 import ProductPage from './pages/product'
 
@@ -23,7 +22,6 @@ ReactDOM.createRoot(rootElement).render(
                     <Route path='/' element={<HomePage />} />
                     <Route path='/tool/:toolId' element={<HomePage />} />
                     <Route path='/label/:labelName' element={<HomePage />} />
-                    <Route path='/changelog' element={<ChangelogPage />} />
                     <Route path='/products' element={<ProductsPage />} />
                     <Route path='/l/:productSlug' element={<ProductPage />} />
                 </Route>

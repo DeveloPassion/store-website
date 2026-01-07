@@ -155,14 +155,6 @@ const Footer: React.FC = () => {
                                         GitHub Issues
                                     </a>
                                 </li>
-                                <li>
-                                    <Link
-                                        to='/changelog'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Changelog
-                                    </Link>
-                                </li>
                             </ul>
                         </div>
 
