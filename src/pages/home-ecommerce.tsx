@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router'
-import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap } from 'react-icons/fa'
+import { FaShieldAlt, FaRocket, FaClock, FaGraduationCap } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
@@ -62,10 +62,6 @@ const HomeEcommerce: React.FC = () => {
                 <div className='mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:gap-12'>
                     {/* Hero Content */}
                     <div className='flex flex-col justify-center'>
-                        <div className='bg-secondary/10 border-secondary/30 mb-4 inline-flex items-center gap-2 self-start rounded-full border px-4 py-1 text-sm font-semibold'>
-                            <FaStar className='text-secondary h-4 w-4' />
-                            <span>Bestseller</span>
-                        </div>
                         <h1 className='mb-4 text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl'>
                             {heroProduct ? (
                                 <>

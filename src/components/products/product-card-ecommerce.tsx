@@ -58,14 +58,22 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                     </div>
                 )}
 
-                {/* Badge */}
-                {badge && (
-                    <div
-                        className={`absolute top-3 left-3 rounded-full ${badge.color} px-3 py-1 text-xs font-bold text-white shadow-lg`}
-                    >
-                        {badge.text}
-                    </div>
-                )}
+                {/* Badges */}
+                <div className='absolute top-3 left-3 flex flex-col gap-2'>
+                    {badge && (
+                        <div
+                            className={`rounded-full ${badge.color} px-3 py-1 text-xs font-bold text-white shadow-lg`}
+                        >
+                            {badge.text}
+                        </div>
+                    )}
+                    {product.featured && (
+                        <div className='flex items-center gap-1 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white shadow-lg'>
+                            <FaStar className='h-3 w-3' />
+                            <span>BESTSELLER</span>
+                        </div>
+                    )}
+                </div>
 
                 {/* Wishlist Button */}
                 <button
