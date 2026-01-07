@@ -177,10 +177,25 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
         })
     }, [commands, query])
 
-    // Reset selection when filtered results change
+    // Get displayed commands for keyboard navigation
+    const displayedCommandsForNav = useMemo(() => {
+        const productCommands = filteredCommands.filter((c) => c.type === 'product')
+        const actionCommands = filteredCommands.filter((c) => c.type === 'action')
+        const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
+        const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
+
+        return [
+            ...productCommands.slice(0, 8),
+            ...actionCommands,
+            ...categoryCommands,
+            ...tagCommands.slice(0, 6)
+        ]
+    }, [filteredCommands])
+
+    // Reset selection when displayed results change
     useEffect(() => {
         setSelectedIndex(0)
-    }, [filteredCommands])
+    }, [displayedCommandsForNav])
 
     // Focus input when opened
     useEffect(() => {
@@ -202,7 +217,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 case 'ArrowDown':
                     e.preventDefault()
                     setSelectedIndex((prev) =>
-                        prev < filteredCommands.length - 1 ? prev + 1 : prev
+                        prev < displayedCommandsForNav.length - 1 ? prev + 1 : prev
                     )
                     break
                 case 'ArrowUp':
@@ -211,8 +226,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                     break
                 case 'Enter':
                     e.preventDefault()
-                    if (filteredCommands[selectedIndex]) {
-                        filteredCommands[selectedIndex].action()
+                    if (displayedCommandsForNav[selectedIndex]) {
+                        displayedCommandsForNav[selectedIndex].action()
                     }
                     break
                 case 'Escape':
@@ -224,12 +239,14 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
 
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
-    }, [isOpen, filteredCommands, selectedIndex, onClose])
+    }, [isOpen, displayedCommandsForNav, selectedIndex, onClose])
 
     // Scroll selected item into view
     useEffect(() => {
         if (listRef.current) {
-            const selectedElement = listRef.current.children[selectedIndex] as HTMLElement
+            // Get all command items (elements with role="option")
+            const items = listRef.current.querySelectorAll('[role="option"]')
+            const selectedElement = items[selectedIndex] as HTMLElement
             if (selectedElement) {
                 selectedElement.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
             }
@@ -251,8 +268,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
     const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
     const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
 
-    let globalIndex = 0
-    const getGlobalIndex = () => globalIndex++
+    // Track current index for navigation
+    let currentIndex = 0
 
     return (
         <div
@@ -298,7 +315,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                         Products ({productCommands.length})
                                     </div>
                                     {productCommands.slice(0, 8).map((cmd) => {
-                                        const idx = getGlobalIndex()
+                                        const idx = currentIndex++
                                         return (
                                             <CommandItem
                                                 key={cmd.id}
@@ -324,7 +341,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                         Actions
                                     </div>
                                     {actionCommands.map((cmd) => {
-                                        const idx = getGlobalIndex()
+                                        const idx = currentIndex++
                                         return (
                                             <CommandItem
                                                 key={cmd.id}
@@ -345,7 +362,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                         Categories
                                     </div>
                                     {categoryCommands.map((cmd) => {
-                                        const idx = getGlobalIndex()
+                                        const idx = currentIndex++
                                         return (
                                             <CommandItem
                                                 key={cmd.id}
@@ -366,7 +383,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                         Tags ({tagCommands.length})
                                     </div>
                                     {tagCommands.slice(0, 6).map((cmd) => {
-                                        const idx = getGlobalIndex()
+                                        const idx = currentIndex++
                                         return (
                                             <CommandItem
                                                 key={cmd.id}
