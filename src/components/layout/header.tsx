@@ -1,189 +1,255 @@
-import { useState } from 'react'
-import { Link } from 'react-router'
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router'
+import {
+    FaSearch,
+    FaBars,
+    FaTimes,
+    FaGraduationCap,
+    FaBoxOpen,
+    FaChalkboardTeacher,
+    FaBox,
+    FaGift,
+    FaFolder,
+    FaTag,
+    FaStore
+} from 'react-icons/fa'
+import type { NavLink } from '@/types/nav-link.intf'
 
 interface HeaderProps {
     onOpenCommandPalette: () => void
 }
 
+// Links that go into the hamburger menu
+const menuLinks: NavLink[] = [
+    {
+        to: '/',
+        label: 'All Products',
+        icon: <FaStore className='h-5 w-5' />,
+        color: 'bg-primary/10 hover:bg-primary/20'
+    },
+    {
+        to: '/categories/courses',
+        label: 'Courses',
+        icon: <FaGraduationCap className='h-5 w-5' />,
+        color: 'text-blue-400 bg-blue-500/10 hover:bg-blue-500/20'
+    },
+    {
+        to: '/categories/kits-and-templates',
+        label: 'Kits & Templates',
+        icon: <FaBoxOpen className='h-5 w-5' />,
+        color: 'text-purple-400 bg-purple-500/10 hover:bg-purple-500/20'
+    },
+    {
+        to: '/categories/workshops',
+        label: 'Workshops',
+        icon: <FaChalkboardTeacher className='h-5 w-5' />,
+        color: 'text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20'
+    },
+    {
+        to: '/categories/bundles',
+        label: 'Bundles',
+        icon: <FaBox className='h-5 w-5' />,
+        color: 'text-amber-400 bg-amber-500/10 hover:bg-amber-500/20'
+    },
+    {
+        to: '/categories/free',
+        label: 'Free Resources',
+        icon: <FaGift className='h-5 w-5' />,
+        color: 'text-rose-400 bg-rose-500/10 hover:bg-rose-500/20'
+    },
+    {
+        to: '/categories',
+        label: 'Categories',
+        icon: <FaFolder className='h-5 w-5' />,
+        color: 'text-cyan-400 bg-cyan-500/10 hover:bg-cyan-500/20'
+    },
+    {
+        to: '/tags',
+        label: 'Tags',
+        icon: <FaTag className='h-5 w-5' />,
+        color: 'text-green-400 bg-green-500/10 hover:bg-green-500/20'
+    }
+]
+
 const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const location = useLocation()
 
-    const categories = [
-        { name: 'All Products', path: '/' },
-        { name: 'Courses', path: '/categories/courses' },
-        { name: 'Kits & Templates', path: '/categories/kits-and-templates' },
-        { name: 'Workshops', path: '/categories/workshops' },
-        { name: 'Bundles', path: '/categories/bundles' },
-        { name: 'Free Resources', path: '/categories/free' }
-    ]
+    // Close menu on route change
+    useEffect(() => {
+        setMobileMenuOpen(false)
+    }, [location.pathname])
+
+    // Prevent body scroll when menu is open and handle ESC key
+    useEffect(() => {
+        if (!mobileMenuOpen) {
+            document.body.style.overflow = ''
+            return
+        }
+
+        document.body.style.overflow = 'hidden'
+
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setMobileMenuOpen(false)
+            }
+        }
+        window.addEventListener('keydown', handleEsc)
+        return () => {
+            document.body.style.overflow = ''
+            window.removeEventListener('keydown', handleEsc)
+        }
+    }, [mobileMenuOpen])
 
     return (
-        <header className='border-primary/10 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b shadow-lg shadow-black/5 backdrop-blur-md'>
-            {/* Top announcement banner */}
-            <div className='bg-secondary/10 border-secondary/20 border-b px-4 py-2 text-center text-sm'>
-                <p className='text-primary/80'>
-                    🎉 <span className='font-semibold'>New Year Sale!</span> Get 20% off all courses
-                    and bundles{' '}
-                    <Link to='/' className='text-secondary hover:text-secondary-text underline'>
-                        Shop Now →
-                    </Link>
-                </p>
-            </div>
+        <>
+            <header className='border-primary/10 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b shadow-lg shadow-black/5 backdrop-blur-md'>
+                {/* Top announcement banner */}
+                <div className='bg-secondary/10 border-secondary/20 border-b px-4 py-2 text-center text-sm'>
+                    <p className='text-primary/80'>
+                        🎉 <span className='font-semibold'>New Year Sale!</span> Get 20% off all
+                        courses and bundles{' '}
+                        <Link to='/' className='text-secondary hover:text-secondary-text underline'>
+                            Shop Now →
+                        </Link>
+                    </p>
+                </div>
 
-            {/* Main header */}
-            <div className='mx-auto max-w-7xl'>
-                <div className='flex h-16 items-center justify-between gap-4 px-4 sm:h-20 sm:px-6 md:gap-6 md:px-8 lg:px-12 xl:px-20'>
-                    {/* Logo */}
-                    <Link
-                        to='/'
-                        className='flex shrink-0 items-center gap-2 transition-opacity hover:opacity-90 sm:gap-3'
-                    >
-                        <img
-                            src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
-                            alt='dSebastien Knowledge Forge'
-                            className='h-8 w-8 rounded-full object-contain sm:h-10 sm:w-10'
-                        />
-                        <div className='flex flex-col'>
-                            <span className='text-base leading-tight font-bold sm:text-lg md:text-xl'>
-                                dSebastien
-                            </span>
-                            <span className='text-primary/60 text-xs leading-tight'>
-                                Knowledge Forge
-                            </span>
-                        </div>
-                    </Link>
-
-                    {/* Desktop Navigation */}
-                    <nav className='hidden items-center gap-1 lg:flex'>
-                        {categories.map((category) => (
+                {/* Main header */}
+                <nav className='mx-auto max-w-7xl'>
+                    <div className='flex h-16 items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8 lg:px-12 xl:px-16'>
+                        {/* Logo */}
+                        <div className='flex items-center'>
                             <Link
-                                key={category.name}
-                                to={category.path}
-                                className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
+                                to='/'
+                                className='flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 sm:gap-4'
                             >
-                                {category.name}
+                                <img
+                                    src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
+                                    alt='dSebastien Knowledge Forge'
+                                    className='h-8 w-8 rounded-full object-contain sm:h-10 sm:w-10 md:h-12 md:w-12'
+                                />
+                                <div className='flex flex-col'>
+                                    <span className='text-base leading-tight font-bold sm:text-lg md:text-xl'>
+                                        dSebastien
+                                    </span>
+                                    <span className='text-primary/60 text-xs leading-tight'>
+                                        Knowledge Forge
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
+
+                        {/* Navigation Links */}
+                        <div className='flex items-center gap-1 sm:gap-2'>
+                            {/* Search Bar - Desktop */}
+                            <button
+                                onClick={onOpenCommandPalette}
+                                className='hidden max-w-md flex-1 md:block'
+                                title='Search products'
+                            >
+                                <div className='relative'>
+                                    <div className='bg-primary/5 border-primary/10 placeholder:text-primary/40 hover:border-secondary/50 hover:bg-primary/10 flex h-10 w-full cursor-pointer items-center rounded-lg border px-4 pr-10 text-left text-sm transition-colors'>
+                                        <span className='text-primary/40'>Search products...</span>
+                                        <div className='border-primary/20 bg-primary/5 absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-1 rounded border px-1.5 py-0.5 text-xs'>
+                                            <kbd className='text-primary/60'>/</kbd>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+
+                            {/* Search icon for mobile */}
+                            <button
+                                onClick={onOpenCommandPalette}
+                                className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg p-2 transition-colors md:hidden'
+                                title='Search products'
+                            >
+                                <FaSearch className='h-5 w-5' />
+                            </button>
+
+                            {/* Website Link - always visible */}
+                            <a
+                                href='https://www.dsebastien.net'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg p-2 transition-colors sm:px-3 sm:py-2 xl:px-4'
+                                title='DeveloPassion Website'
+                            >
+                                <img
+                                    src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
+                                    alt='DeveloPassion'
+                                    className='h-5 w-5 rounded-full object-contain'
+                                />
+                                <span className='hidden xl:inline'>Website</span>
+                            </a>
+
+                            {/* Hamburger Menu Button - always visible */}
+                            <button
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                                aria-expanded={mobileMenuOpen}
+                            >
+                                {mobileMenuOpen ? (
+                                    <FaTimes className='h-5 w-5' />
+                                ) : (
+                                    <FaBars className='h-5 w-5' />
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            {/* Fullscreen Overlay Menu */}
+            <div
+                className={`bg-background/98 fixed inset-0 z-[60] flex flex-col backdrop-blur-md transition-all duration-300 ${
+                    mobileMenuOpen
+                        ? 'visible opacity-100'
+                        : 'pointer-events-none invisible opacity-0'
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+            >
+                {/* Close button */}
+                <div className='flex justify-end p-4 sm:p-6' onClick={(e) => e.stopPropagation()}>
+                    <button
+                        onClick={() => setMobileMenuOpen(false)}
+                        className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                        aria-label='Close menu'
+                    >
+                        <FaTimes className='h-5 w-5' />
+                    </button>
+                </div>
+
+                <div
+                    className='flex-1 overflow-y-auto px-6 pb-6'
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {/* Grid on desktop, compact list on mobile */}
+                    <div className='mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6'>
+                        {menuLinks.map((link) => (
+                            <Link
+                                key={link.to}
+                                to={link.to}
+                                className={`flex flex-col items-center justify-center gap-2 rounded-xl p-4 text-center transition-all hover:scale-105 sm:gap-3 sm:p-6 md:p-8 ${link.color}`}
+                            >
+                                <span className='text-2xl sm:text-3xl md:text-4xl'>
+                                    {link.icon}
+                                </span>
+                                <span className='text-sm font-medium sm:text-base md:text-lg'>
+                                    {link.label}
+                                </span>
                             </Link>
                         ))}
-                        <Link
-                            to='/categories'
-                            className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
-                        >
-                            Categories
-                        </Link>
-                        <Link
-                            to='/tags'
-                            className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
-                        >
-                            Tags
-                        </Link>
-                    </nav>
-
-                    {/* Search Bar - Click to open command palette */}
-                    <button
-                        onClick={onOpenCommandPalette}
-                        className='hidden max-w-md flex-1 md:block'
-                    >
-                        <div className='relative'>
-                            <div className='bg-primary/5 border-primary/10 placeholder:text-primary/40 hover:border-secondary/50 hover:bg-primary/10 flex h-10 w-full cursor-pointer items-center rounded-lg border px-4 pr-10 text-left text-sm transition-colors'>
-                                <span className='text-primary/40'>Search products...</span>
-                                <div className='border-primary/20 bg-primary/5 absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-1 rounded border px-1.5 py-0.5 text-xs'>
-                                    <kbd className='text-primary/60'>/</kbd>
-                                </div>
-                            </div>
-                        </div>
-                    </button>
-
-                    {/* Right Actions */}
-                    <div className='flex items-center gap-2 sm:gap-3'>
-                        {/* Search icon for mobile */}
-                        <button
-                            onClick={onOpenCommandPalette}
-                            className='hover:bg-primary/10 rounded-lg p-2 transition-colors md:hidden'
-                        >
-                            <FaSearch className='h-5 w-5' />
-                        </button>
-
-                        {/* Website Link */}
-                        <a
-                            href='https://www.dsebastien.net'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='bg-primary/10 hover:bg-primary/20 hidden items-center gap-2 rounded-lg px-4 py-2 transition-colors sm:flex'
-                        >
-                            <img
-                                src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
-                                alt='DeveloPassion'
-                                className='h-5 w-5 rounded-full object-contain'
-                            />
-                            <span className='hidden sm:inline'>Website</span>
-                        </a>
-
-                        {/* Mobile Menu Toggle */}
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className='hover:bg-primary/10 rounded-lg p-2 transition-colors lg:hidden'
-                        >
-                            {mobileMenuOpen ? (
-                                <FaTimes className='h-5 w-5' />
-                            ) : (
-                                <FaBars className='h-5 w-5' />
-                            )}
-                        </button>
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
-                {mobileMenuOpen && (
-                    <div className='border-primary/10 border-t px-4 py-4 lg:hidden'>
-                        {/* Mobile Search Button */}
-                        <button
-                            onClick={() => {
-                                onOpenCommandPalette()
-                                setMobileMenuOpen(false)
-                            }}
-                            className='mb-4 w-full md:hidden'
-                        >
-                            <div className='bg-primary/5 border-primary/10 hover:border-secondary/50 hover:bg-primary/10 flex h-10 w-full items-center rounded-lg border px-4 text-left transition-colors'>
-                                <FaSearch className='text-primary/40 mr-3 h-4 w-4' />
-                                <span className='text-primary/40 text-sm'>Search products...</span>
-                                <div className='border-primary/20 bg-primary/5 ml-auto flex items-center gap-1 rounded border px-1.5 py-0.5 text-xs'>
-                                    <kbd className='text-primary/60'>/</kbd>
-                                </div>
-                            </div>
-                        </button>
-
-                        {/* Mobile Categories */}
-                        <nav className='flex flex-col gap-1'>
-                            {categories.map((category) => (
-                                <Link
-                                    key={category.name}
-                                    to={category.path}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
-                                >
-                                    {category.name}
-                                </Link>
-                            ))}
-                            <Link
-                                to='/categories'
-                                onClick={() => setMobileMenuOpen(false)}
-                                className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
-                            >
-                                Categories
-                            </Link>
-                            <Link
-                                to='/tags'
-                                onClick={() => setMobileMenuOpen(false)}
-                                className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
-                            >
-                                Tags
-                            </Link>
-                        </nav>
-                    </div>
-                )}
+                {/* Close hint */}
+                <div className='text-primary/40 shrink-0 py-4 text-center text-sm'>
+                    Tap anywhere or press ESC to close
+                </div>
             </div>
-        </header>
+        </>
     )
 }
 
