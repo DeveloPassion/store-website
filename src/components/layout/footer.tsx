@@ -298,8 +298,15 @@ const Footer: React.FC = () => {
                             . All rights reserved.
                         </p>
                         <p className='flex items-center gap-1'>
-                            Made with <FaHeart className='text-secondary h-4 w-4' /> by Sébastien
-                            Dubois
+                            Made with <FaHeart className='text-secondary h-4 w-4' /> by{' '}
+                            <a
+                                href='https://www.dsebastien.net'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='hover:text-secondary transition-colors'
+                            >
+                                Sébastien Dubois
+                            </a>
                         </p>
                     </div>
                 </div>
