@@ -12,24 +12,6 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const BASE_URL = 'https://store.dsebastien.net'
 
-interface Tool {
-    id: string
-    name: string
-    description: string
-    labels: string[]
-    category: string
-    url: string
-    free: boolean
-    technologies: string[]
-    license?: string
-    sourceCodeUrl?: string
-    docsUrl?: string
-}
-
-interface ToolsData {
-    tools: Tool[]
-}
-
 interface Product {
     id: string
     name: string
@@ -50,16 +32,12 @@ interface Product {
 
 interface ProductsData extends Array<Product> {}
 
-// Load tools data
-const toolsJsonPath = join(__dirname, '../src/data/tools.json')
-const toolsData: ToolsData = JSON.parse(readFileSync(toolsJsonPath, 'utf-8'))
-
 // Load products data
 const productsJsonPath = join(__dirname, '../src/data/products.json')
 const productsData: ProductsData = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
-// Extract all unique labels
-const allLabels = Array.from(new Set(toolsData.tools.flatMap((tool) => tool.labels))).sort()
+// Extract all unique tags
+const allTags = Array.from(new Set(productsData.flatMap((product) => product.tags))).sort()
 
 const distDir = join(__dirname, '../dist')
 
@@ -192,129 +170,31 @@ function generateProductSchema(product: Product): string {
 }
 
 /**
- * Map tool category to Schema.org applicationCategory
+ * Generate CollectionPage JSON-LD schema for a tag page
  */
-function mapCategory(category: string): string {
-    const categoryMap: Record<string, string> = {
-        'Productivity': 'ProductivityApplication',
-        'AI Tools': 'UtilitiesApplication',
-        'Courses': 'EducationalApplication',
-        'Obsidian Plugins': 'BrowserApplication',
-        'CLI Tools': 'DeveloperApplication',
-        'Web Apps': 'WebApplication',
-        'Templates': 'DesignApplication'
-    }
-    return categoryMap[category] || 'WebApplication'
-}
-
-/**
- * Generate SoftwareApplication JSON-LD schema for a tool
- */
-function generateToolSchema(tool: Tool): string {
-    const toolUrl = `${BASE_URL}/tool/${tool.id}`
-    const today = new Date().toISOString().split('T')[0]
-
-    const schema = {
-        '@context': 'https://schema.org',
-        '@graph': [
-            {
-                '@type': 'SoftwareApplication',
-                '@id': `${toolUrl}#software`,
-                'name': tool.name,
-                'description': tool.description,
-                'url': tool.url,
-                'applicationCategory': mapCategory(tool.category),
-                'operatingSystem': 'Web',
-                'author': { '@id': `${BASE_URL}/#person` },
-                'publisher': { '@id': `${BASE_URL}/#organization` },
-                'provider': {
-                    '@type': 'Organization',
-                    'name': "dSebastien's Toolbox",
-                    'url': BASE_URL
-                },
-                'offers': {
-                    '@type': 'Offer',
-                    'price': tool.free ? '0' : undefined,
-                    'priceCurrency': 'USD',
-                    'availability': 'https://schema.org/InStock'
-                },
-                'datePublished': today,
-                'dateModified': today,
-                'inLanguage': 'en',
-                'keywords': tool.labels.join(', '),
-                'isPartOf': {
-                    '@type': 'WebSite',
-                    '@id': `${BASE_URL}/#website`,
-                    'name': "dSebastien's Toolbox",
-                    'url': BASE_URL
-                },
-                ...(tool.license && { license: tool.license }),
-                ...(tool.sourceCodeUrl && {
-                    codeRepository: tool.sourceCodeUrl,
-                    isAccessibleForFree: true
-                }),
-                ...(tool.technologies.length > 0 && {
-                    runtimePlatform: tool.technologies.join(', ')
-                })
-            },
-            authorSchema,
-            publisherSchema,
-            {
-                '@type': 'BreadcrumbList',
-                '@id': `${toolUrl}#breadcrumb`,
-                'itemListElement': [
-                    {
-                        '@type': 'ListItem',
-                        'position': 1,
-                        'name': 'Home',
-                        'item': BASE_URL
-                    },
-                    {
-                        '@type': 'ListItem',
-                        'position': 2,
-                        'name': tool.category,
-                        'item': `${BASE_URL}/?category=${encodeURIComponent(tool.category)}`
-                    },
-                    {
-                        '@type': 'ListItem',
-                        'position': 3,
-                        'name': tool.name,
-                        'item': toolUrl
-                    }
-                ]
-            }
-        ]
-    }
-
-    return JSON.stringify(schema, null, 12)
-}
-
-/**
- * Generate CollectionPage JSON-LD schema for a label page
- */
-function generateLabelSchema(label: string, encodedLabel: string): string {
-    const labelUrl = `${BASE_URL}/label/${encodedLabel}`
+function generateTagSchema(tag: string, encodedTag: string): string {
+    const tagUrl = `${BASE_URL}/tag/${encodedTag}`
 
     const schema = {
         '@context': 'https://schema.org',
         '@graph': [
             {
                 '@type': 'CollectionPage',
-                '@id': `${labelUrl}#collection`,
-                'name': `${label} - dSebastien's Toolbox`,
-                'description': `Tools labeled with "${label}"`,
-                'url': labelUrl,
+                '@id': `${tagUrl}#collection`,
+                'name': `${tag} - DeveloPassion Store`,
+                'description': `Products tagged with "${tag}"`,
+                'url': tagUrl,
                 'creator': { '@id': `${BASE_URL}/#person` },
                 'publisher': { '@id': `${BASE_URL}/#organization` },
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
-                    'name': "dSebastien's Toolbox",
+                    'name': 'DeveloPassion Store',
                     'url': BASE_URL
                 },
                 'about': {
                     '@type': 'Thing',
-                    'name': label
+                    'name': tag
                 },
                 'inLanguage': 'en'
             },
@@ -322,7 +202,7 @@ function generateLabelSchema(label: string, encodedLabel: string): string {
             publisherSchema,
             {
                 '@type': 'BreadcrumbList',
-                '@id': `${labelUrl}#breadcrumb`,
+                '@id': `${tagUrl}#breadcrumb`,
                 'itemListElement': [
                     {
                         '@type': 'ListItem',
@@ -333,8 +213,8 @@ function generateLabelSchema(label: string, encodedLabel: string): string {
                     {
                         '@type': 'ListItem',
                         'position': 2,
-                        'name': label,
-                        'item': labelUrl
+                        'name': tag,
+                        'item': tagUrl
                     }
                 ]
             }
@@ -345,63 +225,38 @@ function generateLabelSchema(label: string, encodedLabel: string): string {
 }
 
 /**
- * Generate noscript content for a tool page
+ * Generate noscript content for a tag page
  */
-function generateToolNoscript(tool: Tool): string {
-    return `
-    <noscript>
-        <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
-            <h1>${escapeHtml(tool.name)}</h1>
-            <p><em>${escapeHtml(tool.description)}</em></p>
-            <p><strong>Category:</strong> ${escapeHtml(tool.category)}</p>
-            <p><strong>Labels:</strong> ${tool.labels.map((l) => `<a href="/label/${encodeURIComponent(l)}">${escapeHtml(l)}</a>`).join(', ')}</p>
-            <p><strong>Price:</strong> ${tool.free ? 'Free' : 'Paid'}</p>
-            ${tool.technologies.length > 0 ? `<p><strong>Technologies:</strong> ${tool.technologies.map(escapeHtml).join(', ')}</p>` : ''}
-            ${tool.license ? `<p><strong>License:</strong> ${escapeHtml(tool.license)}</p>` : ''}
-            <h2>Links</h2>
-            <ul>
-                <li><a href="${tool.url}" target="_blank" rel="noopener">Visit ${escapeHtml(tool.name)}</a></li>
-                ${tool.sourceCodeUrl ? `<li><a href="${tool.sourceCodeUrl}" target="_blank" rel="noopener">Source Code</a></li>` : ''}
-                ${tool.docsUrl ? `<li><a href="${tool.docsUrl}" target="_blank" rel="noopener">Documentation</a></li>` : ''}
-            </ul>
-            <p><a href="/">← Back to all tools</a></p>
-        </article>
-    </noscript>`
-}
-
-/**
- * Generate noscript content for a label page
- */
-function generateLabelNoscript(label: string): string {
-    const labeledTools = toolsData.tools.filter((t) => t.labels.includes(label))
+function generateTagNoscript(tag: string): string {
+    const taggedProducts = productsData.filter((p) => p.tags.includes(tag))
 
     return `
     <noscript>
         <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
-            <h1>${escapeHtml(label)} - Tools</h1>
-            <p>Tools labeled with "${escapeHtml(label)}"</p>
-            <p><strong>Total tools:</strong> ${labeledTools.length}</p>
-            <h2>Tools</h2>
+            <h1>${escapeHtml(tag)} - Products</h1>
+            <p>Products tagged with "${escapeHtml(tag)}"</p>
+            <p><strong>Total products:</strong> ${taggedProducts.length}</p>
+            <h2>Products</h2>
             <ul>
-${labeledTools
+${taggedProducts
     .map(
-        (t) =>
-            `                <li><a href="/tool/${t.id}">${escapeHtml(t.name)}</a>${t.free ? ' (Free)' : ''} - ${escapeHtml(t.description)}</li>`
+        (p) =>
+            `                <li><a href="/l/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
     )
     .join('\n')}
             </ul>
-            <p><a href="/">← Back to all tools</a></p>
+            <p><a href="/">← Back to store</a></p>
         </article>
     </noscript>`
 }
 
 /**
- * Generate customized HTML for a tool page with appropriate meta tags
+ * Generate customized HTML for a tag page with appropriate meta tags
  */
-function generateToolPageHtml(tool: Tool): string {
-    const toolUrl = `${BASE_URL}/tool/${tool.id}`
-    const title = `${tool.name} - dSebastien's Toolbox`
-    const description = tool.description
+function generateTagPageHtml(tag: string, encodedTag: string): string {
+    const tagUrl = `${BASE_URL}/tag/${encodedTag}`
+    const title = `${tag} - dSebastien's Toolbox`
+    const description = `Products tagged with "${tag}"`
 
     let html = indexHtml
 
@@ -411,7 +266,7 @@ function generateToolPageHtml(tool: Tool): string {
     // Update canonical URL
     html = html.replace(
         /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
-        `<link rel="canonical" href="${toolUrl}" />`
+        `<link rel="canonical" href="${tagUrl}" />`
     )
 
     // Update meta description
@@ -423,7 +278,7 @@ function generateToolPageHtml(tool: Tool): string {
     // Update Open Graph tags
     html = html.replace(
         /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
-        `<meta property="og:url" content="${toolUrl}" />`
+        `<meta property="og:url" content="${tagUrl}" />`
     )
     html = html.replace(
         /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
@@ -437,74 +292,7 @@ function generateToolPageHtml(tool: Tool): string {
     // Update Twitter tags
     html = html.replace(
         /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/,
-        `<meta name="twitter:url" content="${toolUrl}" />`
-    )
-    html = html.replace(
-        /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
-        `<meta name="twitter:title" content="${escapeHtml(title)}" />`
-    )
-    html = html.replace(
-        /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
-        `<meta name="twitter:description" content="${escapeHtml(description)}" />`
-    )
-
-    // Replace JSON-LD schema with SoftwareApplication schema
-    const toolSchema = generateToolSchema(tool)
-    html = html.replace(
-        /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-        `<script type="application/ld+json">\n${toolSchema}\n        </script>`
-    )
-
-    // Add noscript content before </body>
-    const noscriptContent = generateToolNoscript(tool)
-    html = html.replace('</body>', `${noscriptContent}\n    </body>`)
-
-    return html
-}
-
-/**
- * Generate customized HTML for a label page with appropriate meta tags
- */
-function generateLabelPageHtml(label: string, encodedLabel: string): string {
-    const labelUrl = `${BASE_URL}/label/${encodedLabel}`
-    const title = `${label} - dSebastien's Toolbox`
-    const description = `Tools labeled with "${label}"`
-
-    let html = indexHtml
-
-    // Update <title>
-    html = html.replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
-
-    // Update canonical URL
-    html = html.replace(
-        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
-        `<link rel="canonical" href="${labelUrl}" />`
-    )
-
-    // Update meta description
-    html = html.replace(
-        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
-        `<meta name="description" content="${escapeHtml(description)}" />`
-    )
-
-    // Update Open Graph tags
-    html = html.replace(
-        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
-        `<meta property="og:url" content="${labelUrl}" />`
-    )
-    html = html.replace(
-        /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
-        `<meta property="og:title" content="${escapeHtml(title)}" />`
-    )
-    html = html.replace(
-        /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
-        `<meta property="og:description" content="${escapeHtml(description)}" />`
-    )
-
-    // Update Twitter tags
-    html = html.replace(
-        /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/,
-        `<meta name="twitter:url" content="${labelUrl}" />`
+        `<meta name="twitter:url" content="${tagUrl}" />`
     )
     html = html.replace(
         /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
@@ -516,14 +304,14 @@ function generateLabelPageHtml(label: string, encodedLabel: string): string {
     )
 
     // Replace JSON-LD schema with CollectionPage schema
-    const labelSchema = generateLabelSchema(label, encodedLabel)
+    const tagSchema = generateTagSchema(tag, encodedTag)
     html = html.replace(
         /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-        `<script type="application/ld+json">\n${labelSchema}\n        </script>`
+        `<script type="application/ld+json">\n${tagSchema}\n        </script>`
     )
 
     // Add noscript content before </body>
-    const noscriptContent = generateLabelNoscript(label)
+    const noscriptContent = generateTagNoscript(tag)
     html = html.replace('</body>', `${noscriptContent}\n    </body>`)
 
     return html
@@ -614,33 +402,21 @@ function generateProductPageHtml(product: Product): string {
     return html
 }
 
-// Create directories and generate customized HTML for each tool
-console.log('Generating static pages for tools...')
-let toolCount = 0
-for (const tool of toolsData.tools) {
-    const toolDir = join(distDir, 'tool', tool.id)
-    mkdirSync(toolDir, { recursive: true })
-    const toolHtml = generateToolPageHtml(tool)
-    writeFileSync(join(toolDir, 'index.html'), toolHtml)
-    toolCount++
-}
-console.log(`  ✓ Created ${toolCount} tool pages`)
+// Create directories and generate customized HTML for each tag
+console.log('Generating static pages for tags...')
+let tagCount = 0
+for (const tag of allTags) {
+    // URL-encode the tag for the directory name
+    const encodedTag = encodeURIComponent(tag)
+    const tagDir = join(distDir, 'tag', encodedTag)
+    mkdirSync(tagDir, { recursive: true })
 
-// Create directories and generate customized HTML for each label
-console.log('Generating static pages for labels...')
-let labelCount = 0
-for (const label of allLabels) {
-    // URL-encode the label for the directory name
-    const encodedLabel = encodeURIComponent(label)
-    const labelDir = join(distDir, 'label', encodedLabel)
-    mkdirSync(labelDir, { recursive: true })
-
-    // Generate customized HTML with label-specific meta tags
-    const labelHtml = generateLabelPageHtml(label, encodedLabel)
-    writeFileSync(join(labelDir, 'index.html'), labelHtml)
-    labelCount++
+    // Generate customized HTML with tag-specific meta tags
+    const tagHtml = generateTagPageHtml(tag, encodedTag)
+    writeFileSync(join(tagDir, 'index.html'), tagHtml)
+    tagCount++
 }
-console.log(`  ✓ Created ${labelCount} label pages`)
+console.log(`  ✓ Created ${tagCount} tag pages`)
 
 // Create directories and generate customized HTML for each product
 console.log('Generating static pages for products...')
@@ -658,9 +434,8 @@ console.log(`  ✓ Created ${productCount} product pages`)
 writeFileSync(join(distDir, '404.html'), indexHtml)
 console.log('  ✓ Created 404.html fallback')
 
-console.log(`\n✓ Static pages generated: ${toolCount + labelCount + productCount + 2} total`)
+console.log(`\n✓ Static pages generated: ${tagCount + productCount + 2} total`)
 console.log(`  - Homepage: 1`)
-console.log(`  - Tools: ${toolCount}`)
-console.log(`  - Labels: ${labelCount}`)
+console.log(`  - Tags: ${tagCount}`)
 console.log(`  - Products: ${productCount}`)
 console.log(`  - 404 fallback: 1`)

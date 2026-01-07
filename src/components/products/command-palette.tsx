@@ -147,7 +147,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 subtitle: `View products tagged with "${tag}"`,
                 icon: <FaTag className='text-secondary h-5 w-5' />,
                 action: () => {
-                    navigate(`/?q=${encodeURIComponent(tag)}`)
+                    navigate(`/tag/${encodeURIComponent(tag)}`)
                     onClose()
                 }
             })
@@ -184,12 +184,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
         const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
         const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
 
-        return [
-            ...productCommands.slice(0, 8),
-            ...actionCommands,
-            ...categoryCommands,
-            ...tagCommands.slice(0, 6)
-        ]
+        return [...productCommands, ...actionCommands, ...categoryCommands, ...tagCommands]
     }, [filteredCommands])
 
     // Reset selection when displayed results change
@@ -314,7 +309,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                     <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
                                         Products ({productCommands.length})
                                     </div>
-                                    {productCommands.slice(0, 8).map((cmd) => {
+                                    {productCommands.map((cmd) => {
                                         const idx = currentIndex++
                                         return (
                                             <CommandItem
@@ -326,11 +321,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                             />
                                         )
                                     })}
-                                    {productCommands.length > 8 && (
-                                        <div className='text-primary/40 px-3 py-2 text-sm'>
-                                            + {productCommands.length - 8} more products
-                                        </div>
-                                    )}
                                 </div>
                             )}
 
@@ -382,7 +372,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                     <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
                                         Tags ({tagCommands.length})
                                     </div>
-                                    {tagCommands.slice(0, 6).map((cmd) => {
+                                    {tagCommands.map((cmd) => {
                                         const idx = currentIndex++
                                         return (
                                             <CommandItem
@@ -394,11 +384,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                             />
                                         )
                                     })}
-                                    {tagCommands.length > 6 && (
-                                        <div className='text-primary/40 px-3 py-2 text-sm'>
-                                            + {tagCommands.length - 6} more tags
-                                        </div>
-                                    )}
                                 </div>
                             )}
                         </>

@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 /**
- * Generates a sitemap.xml for the tools website.
- * Includes the homepage, all tool detail pages, and all label pages.
+ * Generates a sitemap.xml for the store website.
+ * Includes the homepage, all product detail pages, and all tag pages.
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
@@ -10,30 +10,6 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const BASE_URL = 'https://store.dsebastien.net'
-
-interface Tool {
-    id: string
-    name: string
-    description: string
-    labels: string[]
-    category: string
-    url: string
-    free: boolean
-    technologies: string[]
-    featured: boolean
-    status: string
-    license?: string
-    sourceCodeUrl?: string
-    docsUrl?: string
-    coverImage?: string
-    icon?: string
-}
-
-interface ToolsData {
-    tools: Tool[]
-    categories: string[]
-    statuses: Record<string, { label: string; color: string; description: string }>
-}
 
 interface Product {
     id: string
@@ -56,16 +32,12 @@ interface SitemapUrl {
     priority: string
 }
 
-// Read tools data
-const toolsJsonPath = join(__dirname, '../src/data/tools.json')
-const toolsData: ToolsData = JSON.parse(readFileSync(toolsJsonPath, 'utf-8'))
-
 // Read products data
 const productsJsonPath = join(__dirname, '../src/data/products.json')
 const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
-// Extract all unique labels
-const allLabels = Array.from(new Set(toolsData.tools.flatMap((tool) => tool.labels))).sort()
+// Extract all unique tags
+const allTags = Array.from(new Set(productsData.flatMap((product) => product.tags))).sort()
 
 // Get current date in YYYY-MM-DD format
 const today = new Date().toISOString().split('T')[0]
@@ -90,16 +62,6 @@ function generateSitemap(): string {
         priority: '0.9'
     })
 
-    // Add each tool page (using clean URLs without hash)
-    for (const tool of toolsData.tools) {
-        urls.push({
-            loc: `${BASE_URL}/tool/${tool.id}`,
-            lastmod: today,
-            changefreq: 'monthly',
-            priority: '0.8'
-        })
-    }
-
     // Add each product page
     for (const product of productsData) {
         urls.push({
@@ -110,10 +72,10 @@ function generateSitemap(): string {
         })
     }
 
-    // Add each label page
-    for (const label of allLabels) {
+    // Add each tag page
+    for (const tag of allTags) {
         urls.push({
-            loc: `${BASE_URL}/label/${encodeURIComponent(label)}`,
+            loc: `${BASE_URL}/tag/${encodeURIComponent(tag)}`,
             lastmod: today,
             changefreq: 'weekly',
             priority: '0.6'
@@ -155,12 +117,9 @@ function writeSitemap(): void {
     console.log(`✓ Sitemap generated: ${sitemapPath}`)
     console.log(`  - Homepage: 1 URL`)
     console.log(`  - Help page: 1 URL`)
-    console.log(`  - Tools: ${toolsData.tools.length} URLs`)
     console.log(`  - Products: ${productsData.length} URLs`)
-    console.log(`  - Labels: ${allLabels.length} URLs`)
-    console.log(
-        `  - Total: ${toolsData.tools.length + productsData.length + allLabels.length + 2} URLs`
-    )
+    console.log(`  - Tags: ${allTags.length} URLs`)
+    console.log(`  - Total: ${productsData.length + allTags.length + 2} URLs`)
 }
 
 writeSitemap()

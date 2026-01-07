@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import './styles/index.css'
 
 import AppLayout from './components/layout/app-layout'
-import HomePage from './pages/home-ecommerce'
+import HomePage from './pages/home'
 import ProductsPage from './pages/products'
 import ProductPage from './pages/product'
 import HelpPage from './pages/help'
@@ -21,8 +21,7 @@ ReactDOM.createRoot(rootElement).render(
             <Routes>
                 <Route element={<AppLayout />}>
                     <Route path='/' element={<HomePage />} />
-                    <Route path='/tool/:toolId' element={<HomePage />} />
-                    <Route path='/label/:labelName' element={<HomePage />} />
+                    <Route path='/tag/:tagName' element={<HomePage />} />
                     <Route path='/products' element={<ProductsPage />} />
                     <Route path='/l/:productSlug' element={<ProductPage />} />
                     <Route path='/help' element={<HelpPage />} />

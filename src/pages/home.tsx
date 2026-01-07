@@ -1,488 +1,310 @@
-import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
-import { useParams, useNavigate, useSearchParams } from 'react-router'
-import { FaGithub, FaLinkedin, FaRocket, FaYoutube, FaEnvelope } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { useMemo } from 'react'
+import { Link, useSearchParams, useParams } from 'react-router'
+import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap } from 'react-icons/fa'
 import Section from '@/components/ui/section'
-import ToolCard from '@/components/tools/tool-card'
-import ToolsFilter from '@/components/tools/tools-filter'
-import ToolDetailModal from '@/components/tools/tool-detail-modal'
-import CommandPalette from '@/components/tools/command-palette'
-import toolsData from '@/data/tools.json'
-import type { Tool, ToolStatus, ToolsData } from '@/types/tool'
+import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
+import productsData from '@/data/products.json'
+import type { Product } from '@/types/product'
+import { sortProductsByPriority } from '@/lib/product-sort'
 
-const typedToolsData = toolsData as ToolsData
+const HomeEcommerce: React.FC = () => {
+    const [searchParams] = useSearchParams()
+    const { tagName } = useParams<{ tagName?: string }>()
+    const decodedTagName = tagName ? decodeURIComponent(tagName) : null
+    const categoryFilter = searchParams.get('category') || null
+    const searchQuery = searchParams.get('q') || ''
 
-const HomePage: React.FC = () => {
-    const { toolId, labelName } = useParams<{ toolId?: string; labelName?: string }>()
-    const navigate = useNavigate()
-    const [searchParams, setSearchParams] = useSearchParams()
+    // Filter and sort products based on URL params
+    const filteredProducts = useMemo(() => {
+        let products = productsData as Product[]
 
-    // Decode the label name for display and filtering
-    const decodedLabelName = labelName ? decodeURIComponent(labelName) : null
-
-    // Derive filter state from URL search params
-    const searchQueryFromUrl = searchParams.get('q') || ''
-    const selectedCategory = searchParams.get('category') || 'All'
-    const selectedLabels = useMemo(() => {
-        const labels = searchParams.get('labels')
-        return labels ? labels.split(',').filter(Boolean) : []
-    }, [searchParams])
-    const selectedStatuses = useMemo(() => {
-        const statuses = searchParams.get('status')
-        return statuses ? (statuses.split(',').filter(Boolean) as ToolStatus[]) : []
-    }, [searchParams])
-    const showFreeOnly = searchParams.get('free') === 'true'
-    const viewMode = (searchParams.get('view') as 'grid' | 'list') || 'grid'
-
-    // Local state for search input (for smooth typing)
-    const [localSearchQuery, setLocalSearchQuery] = useState(searchQueryFromUrl)
-    const searchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-    // Sync local search query when URL changes (e.g., browser back/forward)
-    useEffect(() => {
-        setLocalSearchQuery(searchQueryFromUrl)
-    }, [searchQueryFromUrl])
-
-    // Use local state for filtering (immediate feedback while typing)
-    const searchQuery = localSearchQuery
-
-    // Helper to update search params while preserving others
-    const updateSearchParam = useCallback(
-        (key: string, value: string | null) => {
-            setSearchParams(
-                (prev) => {
-                    const newParams = new URLSearchParams(prev)
-                    if (value === null || value === '' || value === 'All' || value === 'grid') {
-                        newParams.delete(key)
-                    } else {
-                        newParams.set(key, value)
-                    }
-                    return newParams
-                },
-                { replace: true }
+        // Apply search filter
+        if (searchQuery) {
+            const query = searchQuery.toLowerCase()
+            products = products.filter(
+                (p) =>
+                    p.name.toLowerCase().includes(query) ||
+                    p.tagline.toLowerCase().includes(query) ||
+                    p.tags.some((t) => t.toLowerCase().includes(query))
             )
-        },
-        [setSearchParams]
-    )
-
-    // Filter state setters that update URL
-    const setSearchQuery = useCallback(
-        (query: string) => {
-            // Update local state immediately for smooth typing
-            setLocalSearchQuery(query)
-
-            // Debounce the URL update
-            if (searchDebounceRef.current) {
-                clearTimeout(searchDebounceRef.current)
-            }
-            searchDebounceRef.current = setTimeout(() => {
-                updateSearchParam('q', query)
-            }, 300)
-        },
-        [updateSearchParam]
-    )
-
-    // Cleanup debounce timer on unmount
-    useEffect(() => {
-        return () => {
-            if (searchDebounceRef.current) {
-                clearTimeout(searchDebounceRef.current)
-            }
-        }
-    }, [])
-    const setSelectedCategory = useCallback(
-        (category: string) => updateSearchParam('category', category),
-        [updateSearchParam]
-    )
-    const setSelectedLabels = useCallback(
-        (labels: string[]) =>
-            updateSearchParam('labels', labels.length > 0 ? labels.join(',') : null),
-        [updateSearchParam]
-    )
-    const setSelectedStatuses = useCallback(
-        (statuses: ToolStatus[]) =>
-            updateSearchParam('status', statuses.length > 0 ? statuses.join(',') : null),
-        [updateSearchParam]
-    )
-    const setShowFreeOnly = useCallback(
-        (free: boolean) => updateSearchParam('free', free ? 'true' : null),
-        [updateSearchParam]
-    )
-    const setViewMode = useCallback(
-        (mode: 'grid' | 'list') => updateSearchParam('view', mode),
-        [updateSearchParam]
-    )
-
-    // Command palette state
-    const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
-
-    // Derive modal state from URL
-    const selectedTool = useMemo(() => {
-        if (!toolId) return null
-        return typedToolsData.tools.find((t) => t.id === toolId) || null
-    }, [toolId])
-
-    const isDetailModalOpen = !!selectedTool
-
-    // Get all unique labels from tools
-    const allLabels = useMemo(() => {
-        const labels = new Set<string>()
-        typedToolsData.tools.forEach((tool) => {
-            tool.labels.forEach((label) => labels.add(label))
-        })
-        return Array.from(labels).sort()
-    }, [])
-
-    // Filter tools
-    const filteredTools = useMemo(() => {
-        return typedToolsData.tools.filter((tool) => {
-            // Search query
-            if (searchQuery) {
-                const query = searchQuery.toLowerCase()
-                const matchesSearch =
-                    tool.name.toLowerCase().includes(query) ||
-                    tool.description.toLowerCase().includes(query) ||
-                    tool.labels.some((l) => l.toLowerCase().includes(query)) ||
-                    tool.technologies.some((t) => t.toLowerCase().includes(query))
-                if (!matchesSearch) return false
-            }
-
-            // Category filter
-            if (selectedCategory !== 'All' && tool.category !== selectedCategory) {
-                return false
-            }
-
-            // Label page filter (from URL route)
-            if (decodedLabelName && !tool.labels.includes(decodedLabelName)) {
-                return false
-            }
-
-            // Labels filter (from search params)
-            if (
-                selectedLabels.length > 0 &&
-                !selectedLabels.some((label) => tool.labels.includes(label))
-            ) {
-                return false
-            }
-
-            // Status filter
-            if (selectedStatuses.length > 0 && !selectedStatuses.includes(tool.status)) {
-                return false
-            }
-
-            // Free only filter
-            if (showFreeOnly && !tool.free) {
-                return false
-            }
-
-            return true
-        })
-    }, [
-        searchQuery,
-        selectedCategory,
-        decodedLabelName,
-        selectedLabels,
-        selectedStatuses,
-        showFreeOnly
-    ])
-
-    // Sort: featured first, then by name
-    const sortedTools = useMemo(() => {
-        return [...filteredTools].sort((a, b) => {
-            if (a.featured && !b.featured) return -1
-            if (!a.featured && b.featured) return 1
-            return a.name.localeCompare(b.name)
-        })
-    }, [filteredTools])
-
-    // Handle keyboard shortcut for command palette
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            // Open command palette with '/' key (unless in input)
-            if (
-                e.key === '/' &&
-                !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)
-            ) {
-                e.preventDefault()
-                setIsCommandPaletteOpen(true)
-            }
-
-            // Also support Cmd/Ctrl + K
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault()
-                setIsCommandPaletteOpen(true)
-            }
         }
 
-        document.addEventListener('keydown', handleKeyDown)
-        return () => document.removeEventListener('keydown', handleKeyDown)
+        // Apply tag filter (from URL route)
+        if (decodedTagName) {
+            products = products.filter((p) => p.tags.includes(decodedTagName))
+        }
+
+        // Apply category filter
+        if (categoryFilter) {
+            const normalizedFilter = categoryFilter.toLowerCase()
+            products = products.filter((p) => {
+                if (normalizedFilter === 'courses') return p.type === 'course'
+                if (normalizedFilter === 'kits') return p.type === 'kit'
+                if (normalizedFilter === 'workshops') return p.type === 'workshop'
+                if (normalizedFilter === 'bundles') return p.type === 'bundle'
+                if (normalizedFilter === 'free resources')
+                    return p.priceTier === 'free' || p.price === 0
+                return true
+            })
+        }
+
+        // Sort by priority (highest to lowest), with randomization within same priority
+        return sortProductsByPriority(products)
+    }, [searchQuery, categoryFilter, decodedTagName])
+
+    // Get featured products, sorted by priority
+    const featuredProducts = useMemo(() => {
+        const featured = (productsData as Product[]).filter((p) => p.featured)
+        const sorted = sortProductsByPriority(featured)
+        return sorted.slice(0, 3)
     }, [])
 
-    const handleShowDetails = useCallback(
-        (tool: Tool) => {
-            // Preserve search params when opening modal
-            const params = searchParams.toString()
-            navigate(`/tool/${tool.id}${params ? `?${params}` : ''}`)
-        },
-        [navigate, searchParams]
-    )
-
-    const handleCloseDetails = useCallback(() => {
-        // Preserve search params when closing modal
-        const params = searchParams.toString()
-        navigate(`/${params ? `?${params}` : ''}`)
-    }, [navigate, searchParams])
-
-    // Stats
-    const totalTools = typedToolsData.tools.length
-    const freeTools = typedToolsData.tools.filter((t) => t.free).length
-    const activeTools = typedToolsData.tools.filter((t) => t.status === 'active').length
-
-    // Update document title based on the current page
-    useEffect(() => {
-        if (decodedLabelName) {
-            document.title = `${decodedLabelName} - dSebastien's Toolbox`
-        } else {
-            document.title =
-                "dSebastien's Toolbox - Free & Paid Productivity Tools, Plugins & Utilities"
-        }
-    }, [decodedLabelName])
+    // Get hero product (first featured product)
+    const heroProduct = featuredProducts[0]
 
     return (
         <>
             {/* Hero Section */}
-            <Section className='pt-16 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20'>
-                <div className='mx-auto max-w-4xl text-center'>
-                    {decodedLabelName ? (
-                        <>
-                            <h1 className='mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
-                                <span className='text-primary/60'>Label:</span> {decodedLabelName}
-                            </h1>
-                            <p className='text-primary/70 mx-auto mb-8 max-w-2xl text-lg sm:text-xl md:text-2xl'>
-                                Tools labeled with "{decodedLabelName}"
-                            </p>
-                        </>
-                    ) : (
-                        <>
-                            <h1 className='mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
-                                Tools by{' '}
-                                <a
-                                    href='https://www.dsebastien.net'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-primary hover:text-secondary transition-colors'
-                                >
-                                    dSebastien
-                                </a>
-                            </h1>
-                            <p className='text-primary/70 mx-auto mb-8 max-w-2xl text-lg sm:text-xl md:text-2xl'>
-                                A collection of free and paid tools, plugins, and utilities I've
-                                created to boost productivity and solve real problems.
-                            </p>
-                        </>
-                    )}
+            <Section className='from-secondary/10 to-background bg-gradient-to-br via-purple-500/10 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20'>
+                <div className='mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:gap-12'>
+                    {/* Hero Content */}
+                    <div className='flex flex-col justify-center'>
+                        {decodedTagName && (
+                            <div className='bg-secondary/10 border-secondary/30 mb-4 inline-flex items-center gap-2 self-start rounded-full border px-4 py-1 text-sm font-semibold'>
+                                <FaStar className='text-secondary h-4 w-4' />
+                                <span>Tag: {decodedTagName}</span>
+                            </div>
+                        )}
+                        <h1 className='mb-4 text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl'>
+                            {decodedTagName ? (
+                                <>
+                                    <span className='text-secondary'>{decodedTagName}</span>{' '}
+                                    Products
+                                </>
+                            ) : heroProduct ? (
+                                <>
+                                    Build Your{' '}
+                                    <span className='text-secondary'>Knowledge System</span> Today
+                                </>
+                            ) : (
+                                <>
+                                    Transform Your{' '}
+                                    <span className='text-secondary'>Productivity</span>
+                                </>
+                            )}
+                        </h1>
+                        <p className='text-primary/70 mb-6 text-lg sm:text-xl'>
+                            {decodedTagName
+                                ? `Explore all products tagged with "${decodedTagName}"`
+                                : heroProduct
+                                  ? heroProduct.tagline
+                                  : 'Professional courses, templates, and tools for knowledge workers.'}
+                        </p>
 
-                    {/* Stats - only show on main page */}
-                    {!decodedLabelName && (
-                        <div className='mb-10 flex flex-wrap justify-center gap-6 sm:gap-10'>
-                            <div className='text-center'>
-                                <div className='text-secondary text-3xl font-bold sm:text-4xl'>
-                                    {totalTools}
+                        {/* Stats */}
+                        <div className='mb-8 grid grid-cols-2 gap-4'>
+                            <div>
+                                <div className='text-2xl font-bold text-green-400 sm:text-3xl'>
+                                    2K+
                                 </div>
-                                <div className='text-primary/60 text-sm'>Total Tools</div>
+                                <div className='text-primary/60 text-sm'>Students</div>
                             </div>
-                            <div className='text-center'>
-                                <div className='text-3xl font-bold text-green-400 sm:text-4xl'>
-                                    {freeTools}
+                            <div>
+                                <div className='text-secondary text-2xl font-bold sm:text-3xl'>
+                                    4.9/5
                                 </div>
-                                <div className='text-primary/60 text-sm'>Free & Open Source</div>
+                                <div className='text-primary/60 text-sm'>Rating</div>
                             </div>
-                            <div className='text-center'>
-                                <div className='text-3xl font-bold text-blue-400 sm:text-4xl'>
-                                    {activeTools}
-                                </div>
-                                <div className='text-primary/60 text-sm'>Actively Maintained</div>
+                        </div>
+
+                        {/* CTA Buttons */}
+                        <div className='flex flex-wrap gap-4'>
+                            {heroProduct && (
+                                <Link
+                                    to={`/l/${heroProduct.id}`}
+                                    className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold text-white transition-all hover:scale-105'
+                                >
+                                    Shop Now
+                                    <FaRocket className='h-5 w-5' />
+                                </Link>
+                            )}
+                            <Link
+                                to='/?category=Free%20Resources'
+                                className='bg-primary/10 hover:bg-primary/20 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold transition-colors'
+                            >
+                                Browse Free Resources
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Hero Image/Product Card */}
+                    {heroProduct && (
+                        <div className='flex items-center justify-center lg:justify-end'>
+                            <div className='w-full max-w-md'>
+                                <ProductCardEcommerce product={heroProduct} />
                             </div>
                         </div>
                     )}
+                </div>
+            </Section>
 
-                    {/* Quick tip */}
-                    <div className='bg-secondary/10 border-secondary/20 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm'>
-                        <FaRocket className='text-secondary h-4 w-4' />
-                        <span className='text-primary/70'>
-                            Press{' '}
-                            <kbd className='bg-secondary/20 mx-1 rounded px-1.5 py-0.5 font-mono text-xs'>
-                                /
-                            </kbd>{' '}
-                            to quickly search and navigate
-                        </span>
+            {/* Trust Badges */}
+            <Section className='border-primary/10 border-b py-8'>
+                <div className='mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-8 sm:gap-12'>
+                    <div className='flex items-center gap-3'>
+                        <FaShieldAlt className='text-secondary h-8 w-8' />
+                        <div>
+                            <div className='font-semibold'>30-Day Guarantee</div>
+                            <div className='text-primary/60 text-sm'>Risk-free purchase</div>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-3'>
+                        <FaClock className='text-secondary h-8 w-8' />
+                        <div>
+                            <div className='font-semibold'>Lifetime Access</div>
+                            <div className='text-primary/60 text-sm'>Buy once, use forever</div>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-3'>
+                        <FaGraduationCap className='text-secondary h-8 w-8' />
+                        <div>
+                            <div className='font-semibold'>Expert Created</div>
+                            <div className='text-primary/60 text-sm'>20+ years experience</div>
+                        </div>
                     </div>
                 </div>
             </Section>
 
-            {/* Tools Section */}
-            <Section className='py-8 sm:py-12'>
-                {/* Filters */}
-                <div className='mb-8'>
-                    <ToolsFilter
-                        searchQuery={searchQuery}
-                        onSearchChange={setSearchQuery}
-                        selectedCategory={selectedCategory}
-                        onCategoryChange={setSelectedCategory}
-                        selectedLabels={selectedLabels}
-                        onLabelsChange={setSelectedLabels}
-                        selectedStatuses={selectedStatuses}
-                        onStatusesChange={setSelectedStatuses}
-                        showFreeOnly={showFreeOnly}
-                        onShowFreeOnlyChange={setShowFreeOnly}
-                        viewMode={viewMode}
-                        onViewModeChange={setViewMode}
-                        categories={typedToolsData.categories}
-                        allLabels={allLabels}
-                        statuses={typedToolsData.statuses}
-                        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-                    />
-                </div>
-
-                {/* Results count */}
-                <div className='text-primary/60 mb-6 text-sm'>
-                    Showing {sortedTools.length} of {totalTools} tools
-                    {searchQuery && ` matching "${searchQuery}"`}
-                </div>
-
-                {/* Tools Grid/List */}
-                {sortedTools.length > 0 ? (
-                    <div
-                        className={
-                            viewMode === 'grid'
-                                ? 'grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
-                                : 'flex flex-col gap-3'
+            {/* Categories Section */}
+            <Section className='py-12 sm:py-16'>
+                <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
+                    Shop by Category
+                </h2>
+                <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+                    {[
+                        {
+                            name: 'Courses',
+                            path: '/?category=Courses',
+                            emoji: '🎓',
+                            color: 'from-blue-500/20 to-blue-600/20'
+                        },
+                        {
+                            name: 'Kits & Templates',
+                            path: '/?category=Kits',
+                            emoji: '🛠️',
+                            color: 'from-purple-500/20 to-purple-600/20'
+                        },
+                        {
+                            name: 'Workshops',
+                            path: '/?category=Workshops',
+                            emoji: '⚡',
+                            color: 'from-secondary/20 to-pink-600/20'
+                        },
+                        {
+                            name: 'Bundles',
+                            path: '/?category=Bundles',
+                            emoji: '📦',
+                            color: 'from-green-500/20 to-green-600/20'
                         }
-                    >
-                        {sortedTools.map((tool) => (
-                            <ToolCard
-                                key={tool.id}
-                                tool={tool}
-                                statuses={typedToolsData.statuses}
-                                onShowDetails={handleShowDetails}
-                                viewMode={viewMode}
-                            />
+                    ].map((category) => (
+                        <Link
+                            key={category.name}
+                            to={category.path}
+                            className={`group border-primary/10 flex flex-col items-center justify-center rounded-xl border bg-gradient-to-br ${category.color} hover:border-secondary/30 hover:shadow-secondary/10 p-8 transition-all hover:scale-105 hover:shadow-xl`}
+                        >
+                            <div className='mb-3 text-5xl'>{category.emoji}</div>
+                            <div className='group-hover:text-secondary text-lg font-bold'>
+                                {category.name}
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </Section>
+
+            {/* Featured Products Section */}
+            {!categoryFilter && !searchQuery && !decodedTagName && featuredProducts.length > 0 && (
+                <Section className='bg-primary/5 py-12 sm:py-16'>
+                    <div className='mb-8 flex items-center justify-between'>
+                        <h2 className='text-3xl font-bold sm:text-4xl'>Featured Products</h2>
+                        <Link
+                            to='/'
+                            className='text-secondary hover:text-secondary-text hidden text-sm font-semibold sm:block'
+                        >
+                            View All →
+                        </Link>
+                    </div>
+                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                        {featuredProducts.map((product) => (
+                            <ProductCardEcommerce key={product.id} product={product} />
+                        ))}
+                    </div>
+                </Section>
+            )}
+
+            {/* All Products Section */}
+            <Section className='py-12 sm:py-16'>
+                <div className='mb-8'>
+                    <h2 className='mb-2 text-3xl font-bold sm:text-4xl'>
+                        {decodedTagName
+                            ? `${decodedTagName}`
+                            : categoryFilter
+                              ? `${categoryFilter}`
+                              : 'All Products'}
+                        {searchQuery && ` - "${searchQuery}"`}
+                    </h2>
+                    <p className='text-primary/60'>
+                        {filteredProducts.length}{' '}
+                        {filteredProducts.length === 1 ? 'product' : 'products'} found
+                    </p>
+                </div>
+
+                {filteredProducts.length > 0 ? (
+                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                        {filteredProducts.map((product) => (
+                            <ProductCardEcommerce key={product.id} product={product} />
                         ))}
                     </div>
                 ) : (
                     <div className='py-16 text-center'>
-                        <div className='mb-4 text-5xl'>🔍</div>
-                        <h3 className='mb-2 text-xl font-semibold'>No tools found</h3>
-                        <p className='text-primary/60'>
-                            Try adjusting your search or filters to find what you're looking for.
+                        <div className='mb-4 text-6xl'>🔍</div>
+                        <h3 className='mb-2 text-xl font-semibold'>No products found</h3>
+                        <p className='text-primary/60 mb-4'>
+                            Try adjusting your search or browse all products.
                         </p>
+                        <Link
+                            to='/'
+                            className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white'
+                        >
+                            Browse All Products
+                        </Link>
                     </div>
                 )}
             </Section>
 
-            {/* About Section */}
-            <Section className='border-primary/10 border-t py-16 sm:py-20'>
-                <div className='mx-auto max-w-3xl text-center'>
-                    <h2 className='mb-6 text-2xl font-bold sm:text-3xl'>About the Creator</h2>
-                    <div className='mb-6 flex justify-center'>
-                        <img
-                            src='/assets/images/2025-11-03-Seb.png'
-                            alt='Sébastien Dubois'
-                            className='border-secondary/30 h-24 w-24 rounded-full border-2 object-cover sm:h-32 sm:w-32'
-                        />
-                    </div>
-                    <p className='text-primary/70 mb-6 leading-relaxed'>
-                        Hi! I'm Sébastien Dubois, a software crafter with 20+ years of IT
-                        experience. I love building tools that solve real problems and boost
-                        productivity. Most of my tools are open source and free to use. Some are
-                        paid products that help support my work.
-                    </p>
-                    {/* Primary links */}
-                    <div className='mb-4 flex flex-wrap justify-center gap-3'>
-                        <a
-                            href='https://www.dsebastien.net'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='bg-secondary hover:bg-secondary/90 flex items-center gap-2 rounded-lg px-4 py-2 text-white transition-colors'
-                        >
-                            <img
-                                src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
-                                alt='DeveloPassion'
-                                className='h-5 w-5 rounded-full object-contain'
-                            />
-                            Website
-                        </a>
-                        <a
-                            href='https://www.youtube.com/@dsebastien'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='flex items-center gap-2 rounded-lg bg-red-500/20 px-4 py-2 text-red-400 transition-colors hover:bg-red-500/30'
-                        >
-                            <FaYoutube className='h-5 w-5' />
-                            YouTube
-                        </a>
-                        <a
-                            href='https://www.dsebastien.net/newsletter/'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='flex items-center gap-2 rounded-lg bg-amber-500/20 px-4 py-2 text-amber-400 transition-colors hover:bg-amber-500/30'
-                        >
-                            <FaEnvelope className='h-5 w-5' />
-                            Newsletter
-                        </a>
-                    </div>
-                    {/* Social links */}
-                    <div className='flex flex-wrap justify-center gap-3'>
-                        <a
-                            href='https://github.com/dsebastien'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg px-4 py-2 transition-colors'
-                        >
-                            <FaGithub className='h-5 w-5' />
-                            GitHub
-                        </a>
-                        <a
-                            href='https://x.com/dsebastien'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg px-4 py-2 transition-colors'
-                        >
-                            <FaXTwitter className='h-5 w-5' />X
-                        </a>
-                        <a
-                            href='https://www.linkedin.com/in/sebastiend'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg px-4 py-2 transition-colors'
-                        >
-                            <FaLinkedin className='h-5 w-5' />
-                            LinkedIn
-                        </a>
+            {/* Social Proof Section */}
+            <Section className='border-primary/10 bg-secondary/5 border-y py-12 sm:py-16'>
+                <div className='mx-auto max-w-4xl text-center'>
+                    <h2 className='mb-8 text-3xl font-bold sm:text-4xl'>
+                        Trusted by Knowledge Workers Worldwide
+                    </h2>
+                    <div className='grid gap-6 sm:grid-cols-3'>
+                        <div className='bg-primary/5 rounded-xl p-6'>
+                            <div className='text-secondary mb-3 text-4xl font-bold'>10,000+</div>
+                            <div className='font-semibold'>Happy Customers</div>
+                        </div>
+                        <div className='bg-primary/5 rounded-xl p-6'>
+                            <div className='text-secondary mb-3 text-4xl font-bold'>4.9/5</div>
+                            <div className='font-semibold'>Average Rating</div>
+                        </div>
+                        <div className='bg-primary/5 rounded-xl p-6'>
+                            <div className='text-secondary mb-3 text-4xl font-bold'>2,300+</div>
+                            <div className='font-semibold'>Newsletter Subscribers</div>
+                        </div>
                     </div>
                 </div>
             </Section>
-
-            {/* Detail Modal */}
-            <ToolDetailModal
-                tool={selectedTool}
-                statuses={typedToolsData.statuses}
-                isOpen={isDetailModalOpen}
-                onClose={handleCloseDetails}
-            />
-
-            {/* Command Palette */}
-            <CommandPalette
-                isOpen={isCommandPaletteOpen}
-                onClose={() => setIsCommandPaletteOpen(false)}
-                tools={typedToolsData.tools}
-                onShowDetails={handleShowDetails}
-                onSetViewMode={setViewMode}
-                onSetCategory={setSelectedCategory}
-                categories={typedToolsData.categories}
-            />
         </>
     )
 }
 
-export default HomePage
+export default HomeEcommerce
