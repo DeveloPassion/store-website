@@ -1,5 +1,12 @@
 import { Link } from 'react-router'
-import { FaArrowLeft, FaQuestionCircle, FaEnvelope, FaBook, FaUndo } from 'react-icons/fa'
+import {
+    FaArrowLeft,
+    FaQuestionCircle,
+    FaEnvelope,
+    FaBook,
+    FaUndo,
+    FaFileInvoice
+} from 'react-icons/fa'
 import Section from '@/components/ui/section'
 
 const HelpPage: React.FC = () => {
@@ -77,6 +84,55 @@ const HelpPage: React.FC = () => {
                                     >
                                         <FaEnvelope className='h-4 w-4' />
                                         Request a Refund
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Invoice Requests */}
+                        <div className='border-primary/10 rounded-lg border p-6 sm:p-8'>
+                            <div className='mb-4 flex items-start gap-3'>
+                                <div className='bg-secondary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg'>
+                                    <FaFileInvoice className='text-secondary h-5 w-5' />
+                                </div>
+                                <div>
+                                    <h2 className='mb-2 text-xl font-semibold'>Need an Invoice?</h2>
+                                    <p className='text-primary/70 mb-4'>
+                                        All purchases are processed through Gumroad. To get an
+                                        invoice for your purchase:
+                                    </p>
+                                    <ol className='text-primary/70 mb-4 list-inside list-decimal space-y-2'>
+                                        <li>
+                                            Check your email for the purchase receipt from Gumroad
+                                        </li>
+                                        <li>
+                                            Click the "View receipt" or "View invoice" link in the
+                                            email
+                                        </li>
+                                        <li>
+                                            You can download or print your invoice from the Gumroad
+                                            receipt page
+                                        </li>
+                                    </ol>
+                                    <p className='text-primary/70 mb-4'>
+                                        If you can't find your receipt email or need additional
+                                        help, visit the{' '}
+                                        <a
+                                            href='https://gumroad.com/help/article/194-i-need-an-invoice'
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='text-secondary hover:text-secondary-text underline transition-colors'
+                                        >
+                                            Gumroad invoice help guide
+                                        </a>{' '}
+                                        or contact me directly.
+                                    </p>
+                                    <a
+                                        href='mailto:sebastien@developassion.be?subject=Invoice Request'
+                                        className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-4 py-2 font-semibold text-white transition-colors'
+                                    >
+                                        <FaEnvelope className='h-4 w-4' />
+                                        Request Invoice Help
                                     </a>
                                 </div>
                             </div>
@@ -169,16 +225,6 @@ const HelpPage: React.FC = () => {
                                         className='text-secondary hover:text-secondary-text transition-colors'
                                     >
                                         → Subscribe to my newsletter
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href='https://github.com/dsebastien'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='text-secondary hover:text-secondary-text transition-colors'
-                                    >
-                                        → Report issues on GitHub
                                     </a>
                                 </li>
                             </ul>
