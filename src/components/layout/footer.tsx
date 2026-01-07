@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/?category=Courses'
+                                        to='/categories/courses'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Courses
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/?category=Kits'
+                                        to='/categories/kits-and-templates'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Kits & Templates
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/?category=Workshops'
+                                        to='/categories/workshops'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Workshops
@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/?category=Bundles'
+                                        to='/categories/bundles'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Bundles
@@ -124,7 +124,7 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/?category=Free%20Resources'
+                                        to='/categories/free'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Free Resources

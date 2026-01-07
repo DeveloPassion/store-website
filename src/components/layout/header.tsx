@@ -11,11 +11,11 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
     const categories = [
         { name: 'All Products', path: '/' },
-        { name: 'Courses', path: '/?category=Courses' },
-        { name: 'Kits & Templates', path: '/?category=Kits' },
-        { name: 'Workshops', path: '/?category=Workshops' },
-        { name: 'Bundles', path: '/?category=Bundles' },
-        { name: 'Free Resources', path: '/?category=Free Resources' }
+        { name: 'Courses', path: '/categories/courses' },
+        { name: 'Kits & Templates', path: '/categories/kits-and-templates' },
+        { name: 'Workshops', path: '/categories/workshops' },
+        { name: 'Bundles', path: '/categories/bundles' },
+        { name: 'Free Resources', path: '/categories/free' }
     ]
 
     return (
