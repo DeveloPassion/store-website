@@ -318,6 +318,148 @@ function generateTagPageHtml(tag: string, encodedTag: string): string {
 }
 
 /**
+ * Generate CollectionPage JSON-LD schema for the tags index page
+ */
+function generateTagsIndexSchema(): string {
+    const tagsUrl = `${BASE_URL}/tags`
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'CollectionPage',
+                '@id': `${tagsUrl}#collection`,
+                'name': 'Tags - DeveloPassion Store',
+                'description': 'Browse products by tag',
+                'url': tagsUrl,
+                'creator': { '@id': `${BASE_URL}/#person` },
+                'publisher': { '@id': `${BASE_URL}/#organization` },
+                'isPartOf': {
+                    '@type': 'WebSite',
+                    '@id': `${BASE_URL}/#website`,
+                    'name': 'DeveloPassion Store',
+                    'url': BASE_URL
+                },
+                'inLanguage': 'en'
+            },
+            authorSchema,
+            publisherSchema,
+            {
+                '@type': 'BreadcrumbList',
+                '@id': `${tagsUrl}#breadcrumb`,
+                'itemListElement': [
+                    {
+                        '@type': 'ListItem',
+                        'position': 1,
+                        'name': 'Home',
+                        'item': BASE_URL
+                    },
+                    {
+                        '@type': 'ListItem',
+                        'position': 2,
+                        'name': 'Tags',
+                        'item': tagsUrl
+                    }
+                ]
+            }
+        ]
+    }
+
+    return JSON.stringify(schema, null, 12)
+}
+
+/**
+ * Generate noscript content for the tags index page
+ */
+function generateTagsIndexNoscript(): string {
+    return `
+    <noscript>
+        <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
+            <h1>Tags</h1>
+            <p>Browse products by tag</p>
+            <p><strong>Total tags:</strong> ${allTags.length}</p>
+            <h2>All Tags</h2>
+            <ul>
+${allTags
+    .map(
+        (tag) =>
+            `                <li><a href="/tag/${encodeURIComponent(tag)}">${escapeHtml(tag)}</a></li>`
+    )
+    .join('\n')}
+            </ul>
+            <p><a href="/">← Back to store</a></p>
+        </article>
+    </noscript>`
+}
+
+/**
+ * Generate customized HTML for the tags index page with appropriate meta tags
+ */
+function generateTagsIndexPageHtml(): string {
+    const tagsUrl = `${BASE_URL}/tags`
+    const title = "Tags - dSebastien's Store"
+    const description = 'Browse all product tags to find what you need'
+
+    let html = indexHtml
+
+    // Update <title>
+    html = html.replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
+
+    // Update canonical URL
+    html = html.replace(
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+        `<link rel="canonical" href="${tagsUrl}" />`
+    )
+
+    // Update meta description
+    html = html.replace(
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update Open Graph tags
+    html = html.replace(
+        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:url" content="${tagsUrl}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update Twitter tags
+    html = html.replace(
+        /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:url" content="${tagsUrl}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Replace JSON-LD schema with CollectionPage schema
+    const tagsIndexSchema = generateTagsIndexSchema()
+    html = html.replace(
+        /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+        `<script type="application/ld+json">\n${tagsIndexSchema}\n        </script>`
+    )
+
+    // Add noscript content before </body>
+    const noscriptContent = generateTagsIndexNoscript()
+    html = html.replace('</body>', `${noscriptContent}\n    </body>`)
+
+    return html
+}
+
+/**
  * Generate noscript content for a product page
  */
 function generateProductNoscript(product: Product): string {
@@ -402,8 +544,16 @@ function generateProductPageHtml(product: Product): string {
     return html
 }
 
+// Create directory and generate customized HTML for the tags index page
+console.log('Generating static page for tags index...')
+const tagsDir = join(distDir, 'tags')
+mkdirSync(tagsDir, { recursive: true })
+const tagsIndexHtml = generateTagsIndexPageHtml()
+writeFileSync(join(tagsDir, 'index.html'), tagsIndexHtml)
+console.log('  ✓ Created tags index page')
+
 // Create directories and generate customized HTML for each tag
-console.log('Generating static pages for tags...')
+console.log('Generating static pages for individual tags...')
 let tagCount = 0
 for (const tag of allTags) {
     // URL-encode the tag for the directory name
@@ -416,7 +566,7 @@ for (const tag of allTags) {
     writeFileSync(join(tagDir, 'index.html'), tagHtml)
     tagCount++
 }
-console.log(`  ✓ Created ${tagCount} tag pages`)
+console.log(`  ✓ Created ${tagCount} individual tag pages`)
 
 // Create directories and generate customized HTML for each product
 console.log('Generating static pages for products...')
@@ -434,8 +584,9 @@ console.log(`  ✓ Created ${productCount} product pages`)
 writeFileSync(join(distDir, '404.html'), indexHtml)
 console.log('  ✓ Created 404.html fallback')
 
-console.log(`\n✓ Static pages generated: ${tagCount + productCount + 2} total`)
+console.log(`\n✓ Static pages generated: ${tagCount + productCount + 3} total`)
 console.log(`  - Homepage: 1`)
-console.log(`  - Tags: ${tagCount}`)
+console.log(`  - Tags index: 1`)
+console.log(`  - Individual tag pages: ${tagCount}`)
 console.log(`  - Products: ${productCount}`)
 console.log(`  - 404 fallback: 1`)

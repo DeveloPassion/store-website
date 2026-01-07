@@ -8,6 +8,7 @@ import HomePage from './pages/home'
 import ProductsPage from './pages/products'
 import ProductPage from './pages/product'
 import HelpPage from './pages/help'
+import TagsPage from './pages/tags'
 
 const rootElement = document.getElementById('root')
 
@@ -22,6 +23,8 @@ ReactDOM.createRoot(rootElement).render(
                 <Route element={<AppLayout />}>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/tag/:tagName' element={<HomePage />} />
+                    <Route path='/tags' element={<TagsPage />} />
+                    <Route path='/tags/:tagId' element={<TagsPage />} />
                     <Route path='/products' element={<ProductsPage />} />
                     <Route path='/l/:productSlug' element={<ProductPage />} />
                     <Route path='/help' element={<HelpPage />} />

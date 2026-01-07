@@ -11,6 +11,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
     const categories = [
         { name: 'All Products', path: '/' },
+        { name: 'Tags', path: '/tags' },
         { name: 'Courses', path: '/?category=Courses' },
         { name: 'Kits & Templates', path: '/?category=Kits' },
         { name: 'Workshops', path: '/?category=Workshops' },
