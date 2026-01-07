@@ -37,7 +37,7 @@ Every product must include:
 
 **Taxonomy:**
 - `type` (enum) - One of: course, kit, community, guide, workshop, coaching, bundle, tool, resource, book, lead-magnet, service
-- `pillars` (array) - At least one of: knowledge-management, content-creation, productivity, ai-tools, development, learning, obsidian, personal-development, bundle, community, coaching
+- `categories` (array) - At least one of: ai-mastery, ai-tools, bundles, coaching, community, content-creation, courses, free, kits-and-templates, knowledge-management, knowledge-work, learning, obsidian, personal-development, personal-organization, productivity, dev-and-it, workshops
 - `tags` (array) - At least one tag
 
 **Marketing (PAS Framework):**

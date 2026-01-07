@@ -1,3 +1,5 @@
+import type { CategoryId } from './category'
+
 export type ProductType =
     | 'course'
     | 'kit'
@@ -14,18 +16,8 @@ export type ProductType =
 
 export type PriceTier = 'free' | 'budget' | 'standard' | 'premium' | 'enterprise' | 'subscription'
 
-export type ProductPillar =
-    | 'knowledge-management'
-    | 'content-creation'
-    | 'productivity'
-    | 'ai-tools'
-    | 'development'
-    | 'learning'
-    | 'obsidian'
-    | 'personal-development'
-    | 'bundle'
-    | 'community'
-    | 'coaching'
+// Categories are now defined in category.ts (single source of truth)
+export type ProductCategory = CategoryId
 
 export type ProductStatus = 'active' | 'coming-soon' | 'archived'
 
@@ -54,7 +46,7 @@ export interface Product {
 
     // Taxonomy (multi-dimensional filtering)
     type: ProductType
-    pillars: ProductPillar[]
+    categories: ProductCategory[]
     tags: string[]
 
     // Marketing Copy (PAS Framework)

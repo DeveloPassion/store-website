@@ -25,6 +25,8 @@
         "tsc:watch": "tsc --noEmit --watch --preserveWatchOutput",
         "tscw": "npm run tsc:watch",
         "validate:products": "tsx scripts/validate-products.ts",
+        "validate:categories": "tsx scripts/validate-categories.ts",
+        "validate:all": "npm run validate:categories && npm run validate:products",
         "commit": "cz",
         "cm": "npm run commit",
         "commit:lint": "commitlint --from HEAD~1 --to HEAD --verbose",

@@ -26,7 +26,6 @@
             }
         ],
         "type": "kit",
-        "pillars": ["knowledge-management", "productivity"],
         "tags": ["obsidian", "pkm", "templates", "productivity", "zettelkasten", "para"],
         "problem": "Obsidian is powerful but overwhelming. Most people spend weeks or months figuring out how to organize their notes, what plugins to use, and how to build productive workflows.",
         "problemPoints": [
@@ -186,7 +185,8 @@
             "obsidian plugins"
         ],
         "videoUrl": "https://www.youtube.com/watch?v=d1otSlcHUhE",
-        "priority": 100
+        "priority": 100,
+        "categories": ["knowledge-management", "productivity"]
     },
     {
         "id": "knowledge-worker-kit",
@@ -199,7 +199,6 @@
         "priceTier": "premium",
         "gumroadUrl": "https://store.dsebastien.net/l/knowledge-worker-kit",
         "type": "kit",
-        "pillars": ["knowledge-management", "productivity"],
         "tags": [
             "knowledge-work",
             "pkm",
@@ -366,7 +365,8 @@
             "community"
         ],
         "landingPageUrl": "https://www.dsebastien.net",
-        "priority": 85
+        "priority": 85,
+        "categories": ["knowledge-management", "productivity"]
     },
     {
         "id": "ai-ghostwriter-guide",
@@ -379,7 +379,6 @@
         "priceTier": "standard",
         "gumroadUrl": "https://store.dsebastien.net/l/ai-ghostwriter-guide",
         "type": "guide",
-        "pillars": ["content-creation", "ai-tools"],
         "tags": [
             "ai",
             "writing",
@@ -527,7 +526,8 @@
             "content scaling",
             "ai copywriting"
         ],
-        "priority": 75
+        "priority": 75,
+        "categories": ["content-creation", "ai-tools"]
     },
     {
         "id": "pkm-library",
@@ -540,7 +540,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://store.dsebastien.net/l/PersonalKnowledgeManagementLibrary",
         "type": "resource",
-        "pillars": ["knowledge-management", "learning"],
         "tags": [
             "pkm",
             "knowledge-management",
@@ -699,7 +698,8 @@
             "curated resources"
         ],
         "videoUrl": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
-        "priority": 70
+        "priority": 70,
+        "categories": ["knowledge-management", "learning"]
     },
     {
         "id": "obsidian-starter-course",
@@ -712,7 +712,6 @@
         "priceTier": "standard",
         "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-course",
         "type": "course",
-        "pillars": ["knowledge-management"],
         "tags": [
             "obsidian",
             "pkm",
@@ -873,7 +872,8 @@
             "second brain",
             "obsidian beginner"
         ],
-        "priority": 80
+        "priority": 80,
+        "categories": ["knowledge-management"]
     },
     {
         "id": "knowii-voice-ai",
@@ -886,7 +886,6 @@
         "priceTier": "standard",
         "gumroadUrl": "https://store.dsebastien.net/l/knowii-voice-ai",
         "type": "tool",
-        "pillars": ["productivity", "ai-tools"],
         "tags": ["voice-to-text", "speech-recognition", "ai", "productivity", "privacy", "offline"],
         "problem": "Your keyboard is the bottleneck between your thoughts and getting things done. Average typing: 40 wpm vs speaking: 150 wpm. You speak 3.75x faster than you type.",
         "problemPoints": [
@@ -1048,7 +1047,8 @@
         ],
         "videoUrl": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
         "demoUrl": "https://docs.voice-ai.knowii.net/",
-        "priority": 60
+        "priority": 60,
+        "categories": ["productivity", "ai-tools"]
     },
     {
         "id": "knowledge-management-for-beginners",
@@ -1061,7 +1061,6 @@
         "priceTier": "standard",
         "gumroadUrl": "https://store.dsebastien.net/l/knowledge-management-for-beginners",
         "type": "course",
-        "pillars": ["knowledge-management", "productivity"],
         "tags": [
             "pkm",
             "personal-knowledge-management",
@@ -1251,7 +1250,8 @@
             "information management",
             "lifelong learning"
         ],
-        "priority": 90
+        "priority": 90,
+        "categories": ["knowledge-management", "productivity"]
     },
     {
         "id": "journaling-deep-dive",
@@ -1264,7 +1264,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://store.dsebastien.net/l/knowii-journaling-deep-dive",
         "type": "workshop",
-        "pillars": ["productivity", "personal-development"],
         "tags": [
             "journaling",
             "interstitial-journaling",
@@ -1397,7 +1396,8 @@
             "knowledge management",
             "intentional living"
         ],
-        "priority": 65
+        "priority": 65,
+        "categories": ["productivity", "personal-development"]
     },
     {
         "id": "personal-organization-101",
@@ -1409,7 +1409,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-personal-organization-101",
         "type": "workshop",
-        "pillars": ["productivity", "personal-development"],
         "tags": [
             "personal-organization",
             "productivity",
@@ -1523,7 +1522,8 @@
             "clarity system",
             "information management"
         ],
-        "priority": 65
+        "priority": 65,
+        "categories": ["productivity", "personal-development"]
     },
     {
         "id": "clarity-101",
@@ -1536,7 +1536,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-clarity-101",
         "type": "workshop",
-        "pillars": ["personal-development"],
         "tags": [
             "clarity",
             "life-design",
@@ -1663,7 +1662,8 @@
             "design thinking",
             "life goals"
         ],
-        "priority": 65
+        "priority": 65,
+        "categories": ["personal-development"]
     },
     {
         "id": "ai-master-prompt",
@@ -1676,7 +1676,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-ai-master-prompt",
         "type": "workshop",
-        "pillars": ["ai-tools", "productivity"],
         "tags": [
             "ai",
             "llms",
@@ -1799,7 +1798,8 @@
             "claude prompts",
             "personal ai"
         ],
-        "priority": 65
+        "priority": 65,
+        "categories": ["ai-tools", "productivity"]
     },
     {
         "id": "model-context-protocol",
@@ -1812,7 +1812,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp",
         "type": "workshop",
-        "pillars": ["ai-tools", "productivity"],
         "tags": [
             "mcp",
             "model-context-protocol",
@@ -1944,7 +1943,8 @@
             "llm capabilities",
             "ai automation"
         ],
-        "priority": 65
+        "priority": 65,
+        "categories": ["ai-tools", "productivity"]
     },
     {
         "id": "knowii-community",
@@ -1957,7 +1957,6 @@
         "priceTier": "subscription",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii",
         "type": "community",
-        "pillars": ["knowledge-management", "community"],
         "tags": ["pkm", "knowledge-management", "community", "obsidian", "courses", "second-brain"],
         "problem": "Information chaos sabotaging productivity. Drowning, can't find anything, forget what you learned.",
         "problemPoints": [
@@ -2107,7 +2106,8 @@
                 "gumroadUrl": "https://www.knowii.net/checkout/knowledge-master"
             }
         ],
-        "priority": 35
+        "priority": 35,
+        "categories": ["knowledge-management", "community"]
     },
     {
         "id": "it-concepts-wall",
@@ -2119,7 +2119,6 @@
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/it-concepts-wall",
         "type": "resource",
-        "pillars": ["learning"],
         "tags": [
             "it-fundamentals",
             "programming",
@@ -2177,7 +2176,8 @@
             "it fundamentals",
             "visual learning"
         ],
-        "priority": 50
+        "priority": 50,
+        "categories": ["learning"]
     },
     {
         "id": "pkm-coaching",
@@ -2190,7 +2190,6 @@
         "priceTier": "premium",
         "gumroadUrl": "https://www.store.dsebastien.net/l/pkm-coaching",
         "type": "service",
-        "pillars": ["knowledge-management", "coaching"],
         "tags": [
             "pkm",
             "coaching",
@@ -2286,7 +2285,8 @@
             "obsidian coaching",
             "coaching"
         ],
-        "priority": 55
+        "priority": 55,
+        "categories": ["knowledge-management", "coaching"]
     },
     {
         "id": "knowledge-system-checklist",
@@ -2299,7 +2299,6 @@
         "priceTier": "free",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowledge-system-checklist",
         "type": "lead-magnet",
-        "pillars": ["knowledge-management"],
         "tags": [
             "pkm",
             "knowledge-management",
@@ -2384,7 +2383,8 @@
             "free resource",
             "second brain checklist"
         ],
-        "priority": 40
+        "priority": 40,
+        "categories": ["knowledge-management"]
     },
     {
         "id": "beginners-guide-obsidian",
@@ -2397,7 +2397,6 @@
         "priceTier": "free",
         "gumroadUrl": "https://www.store.dsebastien.net/l/beginners-guide-to-obsidian",
         "type": "lead-magnet",
-        "pillars": ["knowledge-management", "obsidian"],
         "tags": [
             "obsidian",
             "free-guide",
@@ -2493,7 +2492,8 @@
             "obsidian tutorial",
             "note-taking guide"
         ],
-        "priority": 40
+        "priority": 40,
+        "categories": ["knowledge-management", "obsidian"]
     },
     {
         "id": "everything-knowledge-bundle",
@@ -2506,7 +2506,6 @@
         "priceTier": "premium",
         "gumroadUrl": "https://www.store.dsebastien.net/l/everything-knowledge-bundle",
         "type": "bundle",
-        "pillars": ["knowledge-management", "bundle"],
         "tags": [
             "bundle",
             "pkm",
@@ -2623,6 +2622,7 @@
             "obsidian bundle",
             "lifetime access"
         ],
-        "priority": 95
+        "priority": 95,
+        "categories": ["knowledge-management", "bundles"]
     }
 ]

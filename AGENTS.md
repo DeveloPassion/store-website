@@ -119,7 +119,7 @@ To use the skill in Claude Code, simply mention keywords like "product", "produc
 The Zod schema validates:
 
 - Required fields (id, name, pricing, marketing copy, features, etc.)
-- Enum values (type, priceTier, pillars, status)
+- Enum values (type, priceTier, categories, status)
 - URL formats (gumroadUrl, videoUrl, etc.)
 - Array constraints (minimum items, valid content)
 - Data types and structure

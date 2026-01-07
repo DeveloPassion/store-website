@@ -59,8 +59,11 @@ const TagsPage: React.FC = () => {
             newIndex = currentIndex < filteredTags.length - 1 ? currentIndex + 1 : 0
         }
 
-        setSelectedTag(filteredTags[newIndex])
-        updateUrl(filteredTags[newIndex].name)
+        const newTag = filteredTags[newIndex] ?? null
+        setSelectedTag(newTag)
+        if (newTag) {
+            updateUrl(newTag.name)
+        }
     }
 
     // Update URL with tag
@@ -232,7 +235,7 @@ const TagsPage: React.FC = () => {
                                         </div>
                                         <div className='bg-primary/10 h-2 overflow-hidden rounded-full'>
                                             <div
-                                                className={`h-full transition-all duration-500 ${iconColors[colorIndex].replace('text-', 'bg-')}`}
+                                                className={`h-full transition-all duration-500 ${(iconColors[colorIndex] || '').replace('text-', 'bg-')}`}
                                                 style={{ width: `${displayPercentage}%` }}
                                             />
                                         </div>

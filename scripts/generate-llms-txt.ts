@@ -17,7 +17,7 @@ interface Product {
     description: string
     tags: string[]
     type: string
-    pillars: string[]
+    categories: string[]
     price: number
     priceDisplay: string
 }

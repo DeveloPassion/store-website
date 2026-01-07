@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { CategoryIdSchema } from './category.schema.js'
 
 /**
  * Zod schema for product validation
@@ -33,19 +34,8 @@ export const PriceTierSchema = z.enum([
     'subscription'
 ])
 
-export const ProductPillarSchema = z.enum([
-    'knowledge-management',
-    'content-creation',
-    'productivity',
-    'ai-tools',
-    'development',
-    'learning',
-    'obsidian',
-    'personal-development',
-    'bundle',
-    'community',
-    'coaching'
-])
+// Categories are now defined in category.schema.ts (single source of truth)
+export const ProductCategorySchema = CategoryIdSchema
 
 export const ProductStatusSchema = z.enum(['active', 'coming-soon', 'archived'])
 
@@ -86,7 +76,7 @@ export const ProductSchema = z.object({
 
     // Taxonomy (multi-dimensional filtering)
     type: ProductTypeSchema,
-    pillars: z.array(ProductPillarSchema).min(1, 'At least one pillar is required'),
+    categories: z.array(ProductCategorySchema).min(1, 'At least one category is required'),
     tags: z.array(z.string()).min(1, 'At least one tag is required'),
 
     // Marketing Copy (PAS Framework)
@@ -146,7 +136,7 @@ export const ProductsArraySchema = z.array(ProductSchema)
 // Export TypeScript types derived from Zod schemas
 export type ProductType = z.infer<typeof ProductTypeSchema>
 export type PriceTier = z.infer<typeof PriceTierSchema>
-export type ProductPillar = z.infer<typeof ProductPillarSchema>
+export type ProductCategory = z.infer<typeof ProductCategorySchema>
 export type ProductStatus = z.infer<typeof ProductStatusSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>

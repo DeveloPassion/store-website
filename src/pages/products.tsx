@@ -4,13 +4,13 @@ import { motion } from 'framer-motion'
 import { FaStar, FaFilter, FaTimes } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import productsData from '@/data/products.json'
-import type { Product, ProductType, ProductPillar, PriceTier } from '@/types/product'
+import type { Product, ProductType, ProductCategory, PriceTier } from '@/types/product'
 import { sortProductsByPriority } from '@/lib/product-sort'
 
 const ProductsPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedType, setSelectedType] = useState<ProductType | 'all'>('all')
-    const [selectedPillar, setSelectedPillar] = useState<ProductPillar | 'all'>('all')
+    const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
     const [selectedTier, setSelectedTier] = useState<PriceTier | 'all'>('all')
     const [showFilters, setShowFilters] = useState(false)
 
@@ -18,7 +18,7 @@ const ProductsPage: React.FC = () => {
 
     // Get unique values for filters
     const types = Array.from(new Set(products.map((p) => p.type))).sort()
-    const pillars = Array.from(new Set(products.flatMap((p) => p.pillars))).sort()
+    const categories = Array.from(new Set(products.flatMap((p) => p.categories))).sort()
     const tiers = Array.from(new Set(products.map((p) => p.priceTier))).sort()
 
     // Filter products
@@ -43,8 +43,8 @@ const ProductsPage: React.FC = () => {
                 return false
             }
 
-            // Pillar filter
-            if (selectedPillar !== 'all' && !product.pillars.includes(selectedPillar)) {
+            // Category filter
+            if (selectedCategory !== 'all' && !product.categories.includes(selectedCategory)) {
                 return false
             }
 
@@ -55,7 +55,7 @@ const ProductsPage: React.FC = () => {
 
             return true
         })
-    }, [products, searchQuery, selectedType, selectedPillar, selectedTier])
+    }, [products, searchQuery, selectedType, selectedCategory, selectedTier])
 
     // Sort by priority (highest to lowest), with randomization within same priority
     const sortedProducts = useMemo(() => {
@@ -70,12 +70,15 @@ const ProductsPage: React.FC = () => {
     const clearFilters = () => {
         setSearchQuery('')
         setSelectedType('all')
-        setSelectedPillar('all')
+        setSelectedCategory('all')
         setSelectedTier('all')
     }
 
     const hasActiveFilters =
-        searchQuery || selectedType !== 'all' || selectedPillar !== 'all' || selectedTier !== 'all'
+        searchQuery ||
+        selectedType !== 'all' ||
+        selectedCategory !== 'all' ||
+        selectedTier !== 'all'
 
     return (
         <>
@@ -176,27 +179,27 @@ const ProductsPage: React.FC = () => {
                                     </select>
                                 </div>
 
-                                {/* Pillar Filter */}
+                                {/* Category Filter */}
                                 <div>
                                     <label className='text-primary/70 mb-2 block text-sm font-medium'>
                                         Category
                                     </label>
                                     <select
-                                        value={selectedPillar}
+                                        value={selectedCategory}
                                         onChange={(e) =>
-                                            setSelectedPillar(
-                                                e.target.value as ProductPillar | 'all'
+                                            setSelectedCategory(
+                                                e.target.value as ProductCategory | 'all'
                                             )
                                         }
                                         className='border-primary/20 bg-background focus:border-secondary focus:ring-secondary w-full rounded-lg border px-3 py-2 transition-colors focus:ring-2 focus:outline-none'
                                     >
                                         <option value='all'>All Categories</option>
-                                        {pillars.map((pillar) => (
-                                            <option key={pillar} value={pillar}>
-                                                {pillar
+                                        {categories.map((category) => (
+                                            <option key={category} value={category}>
+                                                {category
                                                     .split('-')
                                                     .map(
-                                                        (word) =>
+                                                        (word: string) =>
                                                             word.charAt(0).toUpperCase() +
                                                             word.slice(1)
                                                     )
@@ -280,12 +283,12 @@ const ProductsPage: React.FC = () => {
 
                                     {/* Tags */}
                                     <div className='flex flex-wrap gap-1'>
-                                        {product.pillars.slice(0, 2).map((pillar) => (
+                                        {product.categories.slice(0, 2).map((category: string) => (
                                             <span
-                                                key={pillar}
+                                                key={category}
                                                 className='bg-primary/10 text-primary/70 rounded-full px-2 py-0.5 text-xs'
                                             >
-                                                {pillar.split('-').join(' ')}
+                                                {category.split('-').join(' ')}
                                             </span>
                                         ))}
                                     </div>

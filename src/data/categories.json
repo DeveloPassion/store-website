@@ -1,0 +1,128 @@
+[
+    {
+        "id": "ai-mastery",
+        "name": "AI Mastery",
+        "description": "Master AI tools and techniques to supercharge your productivity and creativity",
+        "icon": "FaRobot",
+        "color": "#FF6B6B"
+    },
+    {
+        "id": "ai-tools",
+        "name": "AI Tools",
+        "description": "Practical AI tools and integrations for everyday knowledge work",
+        "icon": "FaTools",
+        "color": "#4ECDC4"
+    },
+    {
+        "id": "bundles",
+        "name": "Bundles",
+        "description": "Curated bundles combining multiple resources for maximum value",
+        "icon": "FaBoxOpen",
+        "color": "#95E1D3"
+    },
+    {
+        "id": "coaching",
+        "name": "Coaching",
+        "description": "One-on-one coaching and mentorship services for personalized guidance",
+        "icon": "FaChalkboardTeacher",
+        "color": "#F38181"
+    },
+    {
+        "id": "community",
+        "name": "Community",
+        "description": "Join communities of like-minded knowledge workers and learners",
+        "icon": "FaUsers",
+        "color": "#AA96DA"
+    },
+    {
+        "id": "content-creation",
+        "name": "Content Creation",
+        "description": "Tools and resources for creating compelling content that resonates",
+        "icon": "FaPen",
+        "color": "#FCBAD3"
+    },
+    {
+        "id": "courses",
+        "name": "Courses",
+        "description": "Comprehensive courses to master new skills and knowledge domains",
+        "icon": "FaGraduationCap",
+        "color": "#FFFFD2"
+    },
+    {
+        "id": "free",
+        "name": "Free Resources",
+        "description": "High-quality free resources to get started on your learning journey",
+        "icon": "FaGift",
+        "color": "#A8D8EA"
+    },
+    {
+        "id": "kits-and-templates",
+        "name": "Kits & Templates",
+        "description": "Ready-to-use kits and templates for instant productivity gains",
+        "icon": "FaTools",
+        "color": "#FFD93D"
+    },
+    {
+        "id": "knowledge-management",
+        "name": "Knowledge Management",
+        "description": "Build and maintain your personal knowledge management system",
+        "icon": "FaBrain",
+        "color": "#6BCB77"
+    },
+    {
+        "id": "knowledge-work",
+        "name": "Knowledge Work",
+        "description": "Excel at knowledge work in the modern digital age",
+        "icon": "FaLightbulb",
+        "color": "#4D96FF"
+    },
+    {
+        "id": "learning",
+        "name": "Learning",
+        "description": "Learn how to learn more effectively and efficiently",
+        "icon": "FaBook",
+        "color": "#FF6B9D"
+    },
+    {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "description": "Master Obsidian for powerful note-taking and knowledge management",
+        "icon": "SiObsidian",
+        "color": "#7C3AED"
+    },
+    {
+        "id": "personal-development",
+        "name": "Personal Development",
+        "description": "Grow personally and professionally with intentional development",
+        "icon": "FaStar",
+        "color": "#FFB6C1"
+    },
+    {
+        "id": "personal-organization",
+        "name": "Personal Organization",
+        "description": "Organize your life and work effectively with proven systems",
+        "icon": "FaCheckSquare",
+        "color": "#98D8C8"
+    },
+    {
+        "id": "productivity",
+        "name": "Productivity",
+        "description": "Get more done with less stress using battle-tested productivity systems",
+        "icon": "FaRocket",
+        "color": "#F7B801"
+    },
+    {
+        "id": "dev-and-it",
+        "name": "Software Development & IT",
+        "description": "Resources for developers and IT professionals to level up their skills",
+        "icon": "FaCode",
+        "color": "#5F27CD"
+    },
+    {
+        "id": "workshops",
+        "name": "Workshops",
+        "description": "Interactive workshops for hands-on learning and skill development",
+        "icon": "FaChalkboardTeacher",
+        "color": "#48DBFB"
+    }
+]
