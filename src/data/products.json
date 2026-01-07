@@ -182,11 +182,12 @@
             "para method",
             "note-taking system",
             "second brain",
-            "obsidian plugins"
+            "obsidian plugins",
+            "osk"
         ],
         "videoUrl": "https://www.youtube.com/watch?v=d1otSlcHUhE",
         "priority": 100,
-        "categories": ["knowledge-management", "productivity"]
+        "categories": ["knowledge-management", "kits-and-templates", "obsidian", "productivity"]
     },
     {
         "id": "knowledge-worker-kit",

@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import { FaShoppingCart, FaHeart, FaStar } from 'react-icons/fa'
 import type { Product } from '@/types/product'
+import categoriesData from '@/data/categories.json'
+import type { Category } from '@/types/category'
 
 interface ProductCardEcommerceProps {
     product: Product
@@ -38,6 +40,17 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
     }
 
     const badge = getBadge()
+
+    // Get all categories for display
+    const categories = categoriesData as Category[]
+    const productCategories = product.categories
+        .map((catId) => categories.find((c) => c.id === catId))
+        .filter((cat): cat is Category => cat !== undefined)
+
+    const handleCategoryClick = (e: React.MouseEvent) => {
+        e.preventDefault()
+        e.stopPropagation()
+    }
 
     return (
         <Link
@@ -94,8 +107,18 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
 
             {/* Content */}
             <div className='flex flex-1 flex-col p-4'>
-                {/* Type Badge */}
-                <div className='mb-2'>
+                {/* Category Badges */}
+                <div className='mb-2 flex flex-wrap items-center gap-2'>
+                    {productCategories.map((category) => (
+                        <Link
+                            key={category.id}
+                            to={`/categories/${category.id}`}
+                            onClick={handleCategoryClick}
+                            className='bg-primary/10 text-primary/70 hover:bg-secondary/10 hover:text-secondary rounded px-2 py-0.5 text-xs font-medium transition-colors'
+                        >
+                            {category.name}
+                        </Link>
+                    ))}
                     <span className='bg-primary/10 text-primary/70 rounded px-2 py-0.5 text-xs font-medium capitalize'>
                         {product.type}
                     </span>
