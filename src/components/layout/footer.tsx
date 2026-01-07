@@ -74,6 +74,14 @@ const Footer: React.FC = () => {
                             <ul className='space-y-2 text-sm'>
                                 <li>
                                     <Link
+                                        to='/'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        All Products
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
                                         to='/?category=Courses'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
@@ -131,9 +139,7 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <a
-                                        href='https://www.dsebastien.net/contact'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
+                                        href='mailto:sebastien@developassion.be'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Contact Us
