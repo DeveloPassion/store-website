@@ -1,3 +1,9 @@
+## [0.0.3](https://github.com/DeveloPassion/store-website/compare/0.0.2...0.0.3) (2026-01-07)
+
+### Features
+
+* **all:** improve and cleanup categories and add categories.json ([557c75a](https://github.com/DeveloPassion/store-website/commit/557c75a4d8a10eb36f8d7536f1ef56858b88deb7))
+* **all:** replaced social media card and icon ([2c75aa1](https://github.com/DeveloPassion/store-website/commit/2c75aa1001ef6ca72ef597c35dd0c4bee016f186))
 ## [0.0.2](https://github.com/DeveloPassion/store-website/compare/0.0.1...0.0.2) (2026-01-07)
 
 ### Features
