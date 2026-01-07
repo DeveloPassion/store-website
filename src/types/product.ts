@@ -9,8 +9,10 @@ export type ProductType =
     | 'tool'
     | 'resource'
     | 'book'
+    | 'lead-magnet'
+    | 'service'
 
-export type PriceTier = 'free' | 'budget' | 'standard' | 'premium' | 'enterprise'
+export type PriceTier = 'free' | 'budget' | 'standard' | 'premium' | 'enterprise' | 'subscription'
 
 export type ProductPillar =
     | 'knowledge-management'
@@ -18,6 +20,12 @@ export type ProductPillar =
     | 'productivity'
     | 'ai-tools'
     | 'development'
+    | 'learning'
+    | 'obsidian'
+    | 'personal-development'
+    | 'bundle'
+    | 'community'
+    | 'coaching'
 
 export type ProductStatus = 'active' | 'coming-soon' | 'archived'
 

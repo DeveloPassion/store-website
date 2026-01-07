@@ -24,6 +24,7 @@
         "tsc": "tsc --noEmit",
         "tsc:watch": "tsc --noEmit --watch --preserveWatchOutput",
         "tscw": "npm run tsc:watch",
+        "validate:products": "tsx scripts/validate-products.ts",
         "commit": "cz",
         "cm": "npm run commit",
         "commit:lint": "commitlint --from HEAD~1 --to HEAD --verbose",
@@ -83,6 +84,7 @@
         "tsx": "^4.21.0",
         "typescript": "^5.9.3",
         "typescript-eslint": "8.48.0",
-        "vite": "7.2.4"
+        "vite": "7.2.4",
+        "zod": "^4.3.5"
     }
 }
