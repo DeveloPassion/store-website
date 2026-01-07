@@ -1,0 +1,311 @@
+import { useState } from 'react'
+import { Link } from 'react-router'
+import {
+    FaHeart,
+    FaShieldAlt,
+    FaCreditCard,
+    FaGithub,
+    FaLinkedin,
+    FaYoutube,
+    FaEnvelope
+} from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
+
+const Footer: React.FC = () => {
+    const currentYear = new Date().getFullYear()
+    const [email, setEmail] = useState('')
+    const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success'>('idle')
+
+    const handleNewsletterSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (email.trim()) {
+            // Redirect to Ghost newsletter page
+            window.open('https://www.dsebastien.net/newsletter/', '_blank')
+            setSubscribeStatus('success')
+            setEmail('')
+        }
+    }
+
+    return (
+        <footer className='border-primary/10 bg-background border-t'>
+            {/* Newsletter Section */}
+            <div className='bg-secondary/5 border-primary/10 border-b py-12 sm:py-16'>
+                <div className='mx-auto max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20'>
+                    <div className='mx-auto max-w-2xl text-center'>
+                        <h3 className='mb-2 text-2xl font-bold sm:text-3xl'>
+                            Stay Updated with Knowledge Tips
+                        </h3>
+                        <p className='text-primary/70 mb-6 text-sm sm:text-base'>
+                            Join 2,300+ knowledge workers getting weekly insights on PKM,
+                            productivity, and lifelong learning.
+                        </p>
+                        {subscribeStatus === 'success' ? (
+                            <div className='bg-secondary/10 border-secondary/30 rounded-lg border px-6 py-4'>
+                                <p className='text-secondary font-semibold'>
+                                    ✓ Thank you! Please check the new tab to complete your
+                                    subscription.
+                                </p>
+                            </div>
+                        ) : (
+                            <form
+                                onSubmit={handleNewsletterSubmit}
+                                className='mx-auto flex max-w-md flex-col gap-3 sm:flex-row'
+                            >
+                                <input
+                                    type='email'
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder='Enter your email'
+                                    required
+                                    className='bg-primary/5 border-primary/10 text-primary placeholder:text-primary/40 focus:border-secondary/50 flex-1 rounded-lg border px-4 py-3 text-sm transition-colors outline-none'
+                                />
+                                <button
+                                    type='submit'
+                                    className='bg-secondary hover:bg-secondary/90 rounded-lg px-6 py-3 font-semibold whitespace-nowrap text-white transition-colors'
+                                >
+                                    Subscribe
+                                </button>
+                            </form>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Footer Content */}
+            <div className='py-12 sm:py-16'>
+                <div className='mx-auto max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20'>
+                    <div className='grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12'>
+                        {/* Shop */}
+                        <div>
+                            <h4 className='mb-4 font-bold'>Shop</h4>
+                            <ul className='space-y-2 text-sm'>
+                                <li>
+                                    <Link
+                                        to='/?category=Courses'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Courses
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/?category=Kits'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Kits & Templates
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/?category=Workshops'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Workshops
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/?category=Bundles'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Bundles
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/?category=Free%20Resources'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Free Resources
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Support */}
+                        <div>
+                            <h4 className='mb-4 font-bold'>Support</h4>
+                            <ul className='space-y-2 text-sm'>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net/about'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Help Center
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net/contact'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://github.com/dsebastien'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        GitHub Issues
+                                    </a>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/changelog'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Changelog
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Company */}
+                        <div>
+                            <h4 className='mb-4 font-bold'>Company</h4>
+                            <ul className='space-y-2 text-sm'>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net/about'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        About
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.youtube.com/@dsebastien'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        YouTube
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net/newsletter'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Newsletter
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Connect */}
+                        <div>
+                            <h4 className='mb-4 font-bold'>Connect</h4>
+                            <div className='flex flex-wrap gap-3'>
+                                <a
+                                    href='https://github.com/dsebastien'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                    aria-label='GitHub'
+                                >
+                                    <FaGithub className='h-5 w-5' />
+                                </a>
+                                <a
+                                    href='https://x.com/dsebastien'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                    aria-label='X (Twitter)'
+                                >
+                                    <FaXTwitter className='h-5 w-5' />
+                                </a>
+                                <a
+                                    href='https://www.linkedin.com/in/sebastiend'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                    aria-label='LinkedIn'
+                                >
+                                    <FaLinkedin className='h-5 w-5' />
+                                </a>
+                                <a
+                                    href='https://www.youtube.com/@dsebastien'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                    aria-label='YouTube'
+                                >
+                                    <FaYoutube className='h-5 w-5' />
+                                </a>
+                                <a
+                                    href='https://www.dsebastien.net/newsletter'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                    aria-label='Newsletter'
+                                >
+                                    <FaEnvelope className='h-5 w-5' />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Trust Badges */}
+                    <div className='border-primary/10 mt-12 flex flex-wrap items-center justify-center gap-6 border-t pt-8 sm:mt-16 sm:pt-12'>
+                        <div className='text-primary/60 flex items-center gap-2 text-sm'>
+                            <FaShieldAlt className='h-5 w-5' />
+                            <span>Secure Checkout</span>
+                        </div>
+                        <div className='text-primary/60 flex items-center gap-2 text-sm'>
+                            <FaCreditCard className='h-5 w-5' />
+                            <span>Gumroad Payment</span>
+                        </div>
+                        <div className='text-primary/60 flex items-center gap-2 text-sm'>
+                            <FaHeart className='text-secondary h-5 w-5' />
+                            <span>30-Day Guarantee</span>
+                        </div>
+                    </div>
+
+                    {/* Bottom Bar */}
+                    <div className='border-primary/10 text-primary/70 mt-8 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center text-sm sm:flex-row sm:text-left'>
+                        <p>
+                            © {currentYear}{' '}
+                            <a
+                                href='https://www.dsebastien.net'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='hover:text-secondary transition-colors'
+                            >
+                                dSebastien
+                            </a>
+                            . All rights reserved.
+                        </p>
+                        <p className='flex items-center gap-1'>
+                            Made with <FaHeart className='text-secondary h-4 w-4' /> by Sébastien
+                            Dubois
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    )
+}
+
+export default Footer

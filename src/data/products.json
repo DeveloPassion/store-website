@@ -1,0 +1,2628 @@
+[
+    {
+        "id": "obsidian-starter-kit",
+        "permalink": "mghmmj",
+        "name": "Obsidian Starter Kit",
+        "tagline": "Stop Wasting Time Configuring Obsidian. Start Being Productive Today.",
+        "secondaryTagline": "Transform Chaos Into Clarity in 30 Minutes",
+        "price": 49.99,
+        "priceDisplay": "€49.99-€118.99",
+        "priceTier": "standard",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit",
+        "variants": [
+            {
+                "name": "Essentials",
+                "price": 49.99,
+                "priceDisplay": "€49.99",
+                "description": "Vault + comprehensive user guide",
+                "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
+            },
+            {
+                "name": "Premium",
+                "price": 118.99,
+                "priceDisplay": "€118.99",
+                "description": "Essentials + 2h20m Obsidian Starter Course video",
+                "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
+            }
+        ],
+        "type": "kit",
+        "pillars": ["knowledge-management", "productivity"],
+        "tags": ["obsidian", "pkm", "templates", "productivity", "zettelkasten", "para"],
+        "problem": "Obsidian is powerful but overwhelming. Most people spend weeks or months figuring out how to organize their notes, what plugins to use, and how to build productive workflows.",
+        "problemPoints": [
+            "Spend weeks figuring out folder structure",
+            "Trial-and-error with dozens of plugins",
+            "Manually build templates from scratch",
+            "Learn PKM methods through scattered articles",
+            "Struggle with inconsistent organization"
+        ],
+        "agitate": "Time Cost: 100+ hours of setup + 10 hours/month ongoing maintenance. Scattered resources, no clear 'right way', plugin overwhelm (1,000+ available), templates that don't auto-file, starting from scratch feels like reinventing the wheel.",
+        "agitatePoints": [
+            "100+ hours of setup time",
+            "Scattered resources across hundreds of articles",
+            "No clear 'right way' to organize",
+            "Plugin overwhelm - 1,000+ available",
+            "Templates that don't auto-file",
+            "Starting from scratch feels like reinventing the wheel"
+        ],
+        "solution": "A complete, battle-tested system that gives you sophisticated personal knowledge management on day one.",
+        "solutionPoints": [
+            "Battle-tested system, ready in 30 minutes",
+            "Carefully curated plugins, pre-configured",
+            "40+ smart templates that auto-file notes",
+            "Complete PKM education built-in",
+            "Scales from 10 notes to 10,000+ notes"
+        ],
+        "description": "The Obsidian Starter Kit is a comprehensive knowledge system that transforms Obsidian into a complete productivity and learning environment. It combines proven methodologies (PARA, Zettelkasten, Johnny Decimal, GTD) with a battle-tested organization that scales from 10 notes to 10,000+ notes. Stop wasting hours searching for notes. Start with a system used by 10,000+ knowledge workers.",
+        "features": [
+            "Clearly defined note types with structured properties and automation",
+            "40+ specialized templates for every content type",
+            "Powerful journaling system with habit and health tracking",
+            "Mature knowledge organization system from content capture to long-lasting wisdom",
+            "Complete action system from goals to tasks with decision matrices",
+            "People & relationship management with interaction tracking",
+            "Integrated workflows for all content types",
+            "Zero manual filing - everything organizes automatically",
+            "Pre-configured settings optimized for productivity",
+            "State of the Art AI integration with prompt library and automation",
+            "Solid and Scalable Structure - AI can find it all easily",
+            "Hierarchical Tags - Find any note in 3 seconds",
+            "Icons for every note type - Recognize notes at a glance",
+            "First-Class Obsidian Bases Support - Database-like views",
+            "First-class Visual Thinking Support"
+        ],
+        "benefits": {
+            "immediate": [
+                "Start being productive on day one",
+                "No weeks of research, setup and configuration",
+                "Battle-tested workflows that actually work"
+            ],
+            "systematic": [
+                "Handles small personal notes to huge knowledge bases",
+                "Grows with your knowledge and needs",
+                "Maintains structure as your vault expands",
+                "Clear workflows for every type of information",
+                "Automated organization reduces decision fatigue",
+                "Find anything quickly with multiple discovery methods"
+            ],
+            "longTerm": [
+                "Systems for capturing and connecting insights and wisdom",
+                "Cross-pollination between different knowledge areas",
+                "Visual thinking integration with drawings and diagrams"
+            ]
+        },
+        "included": [
+            "Complete Obsidian Vault with solid structure",
+            "40+ Smart Templates",
+            "Carefully picked and pre-configured plugins",
+            "Hierarchical tags system",
+            "Icons for every note type",
+            "First-class Obsidian Bases support",
+            "First-class visual thinking support",
+            "Zettelkasten, PARA, GTD, and journaling methodologies built-in",
+            "Comprehensive User Guide (100+ pages)",
+            "Migration guides from v2 or custom setups",
+            "Video Course (Premium tier): 2h20m covering Obsidian + PKM",
+            "Lifetime access to Knowii Community",
+            "Free lifetime updates"
+        ],
+        "testimonialIds": [
+            "obsidian-starter-kit-testimonial-1",
+            "obsidian-starter-kit-testimonial-2",
+            "obsidian-starter-kit-testimonial-3",
+            "obsidian-starter-kit-testimonial-4",
+            "obsidian-starter-kit-testimonial-5",
+            "obsidian-starter-kit-testimonial-6"
+        ],
+        "statsProof": {
+            "userCount": "10,000+ users",
+            "timeSaved": "100+ hours setup + 10 hours/month ongoing",
+            "rating": "4.9/5 stars"
+        },
+        "faqIds": [
+            "obsidian-starter-kit-faq-1",
+            "obsidian-starter-kit-faq-2",
+            "obsidian-starter-kit-faq-3",
+            "obsidian-starter-kit-faq-4",
+            "obsidian-starter-kit-faq-5",
+            "obsidian-starter-kit-faq-6",
+            "obsidian-starter-kit-faq-7"
+        ],
+        "targetAudience": [
+            "You're just starting with Obsidian and want a proven system",
+            "You're overwhelmed by options and need expert guidance",
+            "You want to learn PKM methods through hands-on examples",
+            "You're migrating from another tool and need a solid foundation",
+            "You value your time and prefer learning from refined expertise",
+            "Knowledge workers managing complex information",
+            "Entrepreneurs managing ideas and business operations",
+            "Lifelong learners committed to development",
+            "Researchers and academics",
+            "Content creators",
+            "Students"
+        ],
+        "perfectFor": [
+            "Just starting with Obsidian",
+            "Overwhelmed by Obsidian options",
+            "Want to learn PKM methods hands-on",
+            "Migrating from another tool",
+            "Value your time over trial-and-error"
+        ],
+        "notForYou": [
+            "You enjoy spending months building from scratch",
+            "You already have a perfect system"
+        ],
+        "landingPageUrl": "https://obsidianstarterkit.com",
+        "dsebastienUrl": "https://www.dsebastien.net/obsidian-starter-kit-v3/",
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "30-Day Money-Back Guarantee",
+            "Lifetime Updates",
+            "Secure Checkout - Powered by Gumroad",
+            "10,000+ Users",
+            "4.9/5 Rating",
+            "Beginner Friendly"
+        ],
+        "guarantees": [
+            "30-day money-back guarantee - full refund, no questions asked",
+            "Free lifetime updates - all future versions included",
+            "Lifetime community access",
+            "Priority support via email and community"
+        ],
+        "crossSellIds": ["knowledge-management-for-beginners", "everything-knowledge-bundle"],
+        "metaTitle": "Obsidian Starter Kit - Transform Chaos Into Clarity in 30 Minutes | dSebastien",
+        "metaDescription": "Battle-tested Obsidian vault with 40+ templates, pre-configured plugins, and comprehensive PKM guide. Join 10,000+ knowledge workers. 30-day guarantee.",
+        "keywords": [
+            "obsidian starter kit",
+            "obsidian templates",
+            "pkm system",
+            "personal knowledge management",
+            "obsidian vault",
+            "zettelkasten",
+            "para method",
+            "note-taking system",
+            "second brain",
+            "obsidian plugins"
+        ],
+        "videoUrl": "https://www.youtube.com/watch?v=d1otSlcHUhE",
+        "priority": 100
+    },
+    {
+        "id": "knowledge-worker-kit",
+        "permalink": "pyjrr",
+        "name": "Knowledge Worker Kit",
+        "tagline": "Your Personal Shield Against AI Obsolescence",
+        "secondaryTagline": "Become a Top 1% Knowledge Worker with Battle-Tested Systems",
+        "price": 149.99,
+        "priceDisplay": "€149.99",
+        "priceTier": "premium",
+        "gumroadUrl": "https://store.dsebastien.net/l/knowledge-worker-kit",
+        "type": "kit",
+        "pillars": ["knowledge-management", "productivity"],
+        "tags": [
+            "knowledge-work",
+            "pkm",
+            "community",
+            "productivity",
+            "career-development",
+            "ai",
+            "learning",
+            "systems"
+        ],
+        "problem": "Being a Knowledge Worker today is more challenging than ever, facing information overload, AI revolution, and no clear path forward. Without proper systems, you're stuck in reactive mode, burning out trying to keep up.",
+        "problemPoints": [
+            "Feeling overwhelmed by the pace of innovation",
+            "Lost, disorganized, or unproductive",
+            "Facing AI revolution - staying relevant when AI can seemingly do it all",
+            "Information overload drowning you",
+            "No clear path forward in your career",
+            "Scattered knowledge, no system that scales",
+            "Starting from scratch repeatedly"
+        ],
+        "agitate": "Hours wasted on busywork instead of meaningful progress. Can't leverage AI effectively without the foundation. Stuck in reactive mode, never getting ahead. Skills feel outdated as AI advances. No clear career trajectory. Working hard but not seeing results. Burning out trying to keep up.",
+        "agitatePoints": [
+            "Hours wasted on busywork instead of meaningful progress",
+            "Can't leverage AI effectively - missing the foundation",
+            "Stuck in reactive mode, never getting ahead",
+            "Skills feel outdated as AI advances",
+            "No clear career trajectory",
+            "Working hard but not seeing results",
+            "Burning out trying to keep up"
+        ],
+        "solution": "Knowledge Worker Kit: Your complete system for becoming a top-tier knowledge worker in the AI era. A second brain system, comprehensive guide, and private community with proven, battle-tested systems.",
+        "solutionPoints": [
+            "Personal shield against AI obsolescence - stay relevant",
+            "Second brain system that transforms how you process knowledge",
+            "13 comprehensive topic areas covering everything",
+            "Private community with like-minded knowledge workers",
+            "270+ in bonuses included",
+            "Lifetime access to all content and future updates"
+        ],
+        "description": "The Knowledge Worker Kit is a private community (part of Knowii Community) and deep dive guide exploring everything you need to become and remain a top-tier Knowledge Worker. Based on 20+ years of experience from Sébastien Dubois, this is a proven, battle-tested system that works in real life. Private community + detailed guide (Notion space) exploring Knowledge Work, AI, Knowledge Management, Personal Organization, Learning, Time Management, Project Management. Evergreen project with continuous expansion.",
+        "features": [
+            "Private Community Access - Exclusive Knowii community for knowledge workers",
+            "Comprehensive Guide - Notion space with systems, templates, guidance (13 topic areas)",
+            "Clarity - Values, behaviors, goals, priorities, intentions",
+            "Habits & Systems - Routines, processes, methods for effortless productivity",
+            "Career Management - Mindset, anticipation, responsibility",
+            "Learning - How you learn, effectiveness, research, AI/LLM leverage",
+            "PKM & Journaling - Personal knowledge management, note-taking/making, tools, structures",
+            "Projects Organization - Information architecture, documentation, backlogs",
+            "Planning & Prioritization - Project/task planning, deadlines, prioritization methods",
+            "Task Management - Personal/professional tasks at scale",
+            "Focus & Action - Time management, attention, daily execution techniques",
+            "Personal Development - Mind and body wellness",
+            "Control - Progress tracking, trajectory adjustment",
+            "Personal Organization - Zen techniques, information management",
+            "Work - Doing the work, attitude, results, collaboration",
+            "All Past & Future Events - Workshops, meetups, knowledge-sharing sessions, invited talks, AMAs"
+        ],
+        "benefits": {
+            "immediate": [
+                "Proven systems you can implement today",
+                "Clear path forward (no more confusion)",
+                "Community support from day one",
+                "270+ in bonuses immediately available"
+            ],
+            "systematic": [
+                "Become Top 1% - Systems used by elite knowledge workers",
+                "AI-Proof Your Career - Develop skills AI can't replicate",
+                "10x Your Productivity - Without burning out",
+                "Build Your Second Brain - Knowledge that compounds",
+                "Enhance Creativity & Insight - What AI can't replace",
+                "Learn Faster - Effective learning systems",
+                "Navigate Your Career - Clear trajectory in AI era",
+                "Collaborate Like Pro - With humans AND AIs"
+            ],
+            "longTerm": [
+                "Lifelong learning system that scales",
+                "Career-proof skillset",
+                "Intellectual assets that grow in value",
+                "Community of practice for continued growth",
+                "Freedom from information overwhelm"
+            ]
+        },
+        "included": [
+            "Private Community Membership (Knowii Community)",
+            "Deep Dive Guide - Comprehensive Notion space (13 topic areas)",
+            "All Past & Future Events - Workshops, meetups, knowledge-sharing sessions",
+            "Ask Me Anything (AMA) - Direct Q&As with Sébastien",
+            "Obsidian Starter Kit - Battle-tested vault + templates",
+            "Obsidian Starter Course - 2h20m video course",
+            "PKM Library - Curated resources for knowledge management",
+            "Journaling Deep Dive Workshop",
+            "Personal Organization 101",
+            "Clarity 101 Workshop",
+            "AI Master Prompt Masterclass",
+            "Model Context Protocol (MCP) Masterclass",
+            "Knowledge Base - 1,700+ concepts, frameworks, mental models",
+            "Lifetime access to all future content, events, and updates"
+        ],
+        "testimonialIds": [
+            "knowledge-worker-kit-testimonial-1",
+            "knowledge-worker-kit-testimonial-2"
+        ],
+        "statsProof": {
+            "userCount": "Growing community",
+            "timeSaved": "Hours saved weekly with systems",
+            "rating": "Highly rated by members"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "Entrepreneurs, founders, executives, leaders",
+            "Knowledge workers dealing with information overload",
+            "Lifelong learners committed to continuous growth",
+            "Those who want community and collaboration",
+            "People facing AI revolution needing to adapt"
+        ],
+        "perfectFor": [
+            "Managing complex responsibilities",
+            "Need scalable systems that work",
+            "Want to stay ahead of curve",
+            "Dealing with information overload",
+            "Want to be top performer"
+        ],
+        "notForYou": [
+            "Looking for quick fix (this is a complete system)",
+            "Not willing to implement systems",
+            "Prefer working in isolation"
+        ],
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "One-Time Payment - €149.99, own forever",
+            "Lifetime Access - All past, present, future content",
+            "270+ in Bonuses - Immediate access",
+            "Evergreen Content - Continuously updated",
+            "Private Community - Exclusive access",
+            "20+ Years Experience - Battle-tested systems",
+            "13 Comprehensive Topics - Everything covered",
+            "Proven Track Record - Creator with multiple successful products"
+        ],
+        "guarantees": [
+            "Lifetime access to all content",
+            "All future updates included",
+            "Evergreen project that continuously grows"
+        ],
+        "crossSellIds": [
+            "obsidian-starter-kit",
+            "knowledge-management-for-beginners",
+            "pkm-library"
+        ],
+        "metaTitle": "Knowledge Worker Kit - Become a Top 1% Knowledge Worker | Complete System + Community",
+        "metaDescription": "€149.99 one-time for lifetime access. Private community + 13-topic guide + €270 bonuses (OSK, courses, workshops). Battle-tested systems from 20+ years experience. AI-proof your career.",
+        "keywords": [
+            "knowledge worker",
+            "knowledge work",
+            "productivity system",
+            "career development",
+            "pkm system",
+            "obsidian",
+            "personal organization",
+            "knowledge management",
+            "ai tools",
+            "learning system",
+            "community"
+        ],
+        "landingPageUrl": "https://www.dsebastien.net",
+        "priority": 85
+    },
+    {
+        "id": "ai-ghostwriter-guide",
+        "permalink": "vsrnk",
+        "name": "Build Your AI Ghostwriter",
+        "tagline": "Stop Using AI Like a Dummy. Start Training It.",
+        "secondaryTagline": "Transform any AI into your personal ghostwriter that writes with your exact voice, style, and expertise",
+        "price": 49.99,
+        "priceDisplay": "€49.99",
+        "priceTier": "standard",
+        "gumroadUrl": "https://store.dsebastien.net/l/ai-ghostwriter-guide",
+        "type": "guide",
+        "pillars": ["content-creation", "ai-tools"],
+        "tags": [
+            "ai",
+            "writing",
+            "ghostwriting",
+            "content-creation",
+            "personal-brand",
+            "claude",
+            "chatgpt"
+        ],
+        "problem": "AI gives you generic slop, not your voice. You spend more time editing than writing from scratch. Every piece needs heavy editing, and you haven't taught AI to write like YOU.",
+        "problemPoints": [
+            "This doesn't sound like me at all",
+            "Generic text that could apply to anyone",
+            "Spend MORE time editing than writing from scratch",
+            "Throwing random prompts, hoping for magic",
+            "Every piece needs heavy editing",
+            "Frustrated with AI - it doesn't work"
+        ],
+        "agitate": "You've tried ChatGPT, Claude, Gemini—every time, same feeling: disappointment. Generic prompts lead to generic content. You spend hours editing AI-generated content that doesn't match your voice. Missing content opportunities because you can't scale content creation. Generic content doesn't connect with your audience.",
+        "agitatePoints": [
+            "Hours wasted editing AI-generated content",
+            "Inconsistent voice across your content",
+            "Can't scale content creation",
+            "Missing content opportunities",
+            "Generic content doesn't connect with audience",
+            "Eventually abandoning AI tools",
+            "Back to doing everything manually"
+        ],
+        "solution": "Proven step-by-step system to train AI to write with your exact voice, style, and expertise. When you open your AI assistant, you get content that sounds like YOU, understands your unique perspective, and knows your business inside out.",
+        "solutionPoints": [
+            "Sounds like YOU - your signature sentences and personality",
+            "Understands you and your unique perspective",
+            "Knows your content strategy and creates highly relevant content",
+            "Knows your business, products, services, audience",
+            "Creates content across ALL your formats",
+            "Evolves and improves over time",
+            "AI ghostwriter has created hundreds of pieces in YOUR voice"
+        ],
+        "description": "A comprehensive step-by-step guide showing exactly how to create a personal AI ghostwriter that captures your unique voice, understands your expertise, and produces content that sounds like YOU—not generic AI slop. Whether you're a content creator, author, or business owner, learn the proven process to train AI on your writing style, create content templates for every format, and build an intelligent assistant that knows your products, audience, and brand inside out.",
+        "features": [
+            "Clear Step-by-Step Guide - No fluff, just the system that works",
+            "Personality Description - Comprehensive profile of your unique voice",
+            "Writing Style Analysis - Exact patterns, quirks, and preferences",
+            "Content Strategy - What you create, who for, and why",
+            "Content Types - Templates for every format you use",
+            "Business Context - Products, services, audience understanding",
+            "Evolution System - Improves over time as you use it",
+            "Ready-to-Use Prompts - All included",
+            "Document Templates - Templates for all components",
+            "Multiple AI Platform Support - ChatGPT, Claude, Gemini, DeepSeek, NotebookLM",
+            "Advanced Techniques - Power user options for deeper integration",
+            "Private Community Access - Questions, updates, knowledge sharing"
+        ],
+        "benefits": {
+            "immediate": [
+                "2-3 hours basic setup - Start using immediately",
+                "Works with any AI platform that accepts custom instructions",
+                "No technical skills required",
+                "Proven system used daily by creator"
+            ],
+            "systematic": [
+                "Scale Content Creation - Without losing your voice",
+                "Stop Editing AI Slop - Get quality output first try",
+                "Consistent Voice - Across all content types",
+                "Save Hours Weekly - Less editing, more creating",
+                "Better Engagement - Content that sounds like YOU connects better",
+                "Sustainable System - Improves over time"
+            ],
+            "longTerm": [
+                "Content creation becomes 10x faster",
+                "Quality stays consistently high",
+                "AI truly becomes your assistant",
+                "Can focus on strategy, not execution",
+                "Time savings compound"
+            ]
+        },
+        "included": [
+            "Complete System Blueprint - Step-by-step implementation",
+            "Personality Profiling - How to analyze and document your voice",
+            "Writing Style Extraction - Techniques to capture your patterns",
+            "Content Strategy Documentation - Framework for all content types",
+            "AI Training Process - How to teach AI your voice",
+            "Ready-to-Use Prompts - For analyzing, creating, training",
+            "Document Templates - All components needed",
+            "Real Examples - From creator's implementation",
+            "Model Context Protocol (MCP) Integration - Advanced techniques",
+            "Private Community Access - Part of Knowii",
+            "Updates and Improvements - As guide evolves"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Active users",
+            "timeSaved": "Hours saved weekly on content editing",
+            "rating": "Proven system used daily"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "Content creators creating regularly",
+            "Business owners needing content marketing system",
+            "Authors and writers",
+            "Frustrated AI users spending too much time editing",
+            "Anyone wanting to scale without losing voice"
+        ],
+        "perfectFor": [
+            "Create regularly: articles, essays, newsletters, social posts",
+            "Want to scale without losing voice",
+            "Have products/services to promote",
+            "Write in specific style/voice",
+            "Spend too much time editing AI output"
+        ],
+        "notForYou": [
+            "Never create content / no interest in writing",
+            "Prefer writing everything manually",
+            "Don't have existing writing samples",
+            "Looking for magic button"
+        ],
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "Proven System - Used daily by creator for months",
+            "Hundreds of Pieces Created - Not theory, production-tested",
+            "No Technical Skills Required - Simple copy-paste implementation",
+            "Works with All Major AIs - ChatGPT, Claude, Gemini, DeepSeek",
+            "Community Access - Private community for questions",
+            "Complete Templates - Everything you need included",
+            "Quick Setup - 2-3 hours to basic functionality"
+        ],
+        "guarantees": [
+            "Proven system used daily for months",
+            "Works with all major AI platforms",
+            "Private community access included"
+        ],
+        "crossSellIds": ["knowledge-management-for-beginners", "knowledge-worker-kit"],
+        "metaTitle": "Build Your AI Ghostwriter - Train AI to Write in Your Exact Voice | Step-by-Step Guide",
+        "metaDescription": "Stop editing AI slop. €49.99 guide teaches proven system to train ChatGPT, Claude, or any AI to write with YOUR voice, style, and expertise. Used to create hundreds of pieces.",
+        "keywords": [
+            "ai ghostwriter",
+            "ai writing assistant",
+            "chatgpt writing",
+            "claude writing",
+            "personal ai writer",
+            "content creation ai",
+            "ai voice training",
+            "writing automation",
+            "content scaling",
+            "ai copywriting"
+        ],
+        "priority": 75
+    },
+    {
+        "id": "pkm-library",
+        "permalink": "PersonalKnowledgeManagementLibrary",
+        "name": "PKM Library: Your Gateway to Information Management Mastery",
+        "tagline": "The Most Comprehensive PKM Resource Collection Ever Created",
+        "secondaryTagline": "Lifetime Access to 2,000+ Curated Resources About Personal Knowledge Management",
+        "price": 39.99,
+        "priceDisplay": "€39.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://store.dsebastien.net/l/PersonalKnowledgeManagementLibrary",
+        "type": "resource",
+        "pillars": ["knowledge-management", "learning"],
+        "tags": [
+            "pkm",
+            "knowledge-management",
+            "resources",
+            "directory",
+            "tools",
+            "curated",
+            "second-brain",
+            "zettelkasten"
+        ],
+        "problem": "Finding quality PKM resources is overwhelming. Don't know where to start. Too many tools—which one is right? Scattered articles across the internet. Wasting hours researching instead of learning.",
+        "problemPoints": [
+            "Don't know where to start with PKM",
+            "Too many tools - which one is right?",
+            "Scattered articles across the internet",
+            "Can't find quality courses or books",
+            "Missing the best communities and creators",
+            "Wasting hours researching instead of learning"
+        ],
+        "agitate": "You want to learn about PKM, SecondBrain, Zettelkasten, Evergreen notes—but where do you start? Hours wasted googling for resources. Finding the same mediocre articles repeatedly. Missing the best tools because you didn't know they exist. Can't distinguish quality content from noise. No clear learning path. Reinventing the wheel others have already perfected.",
+        "agitatePoints": [
+            "Hours wasted googling for resources",
+            "Finding the same mediocre articles repeatedly",
+            "Missing the best tools because you didn't know they exist",
+            "Can't distinguish quality content from noise",
+            "No clear learning path",
+            "Reinventing the wheel others have already perfected"
+        ],
+        "solution": "PKM Library: Solid database of the best resources you can find about Personal Knowledge Management across the entire Internet. 20+ years of research, 2,000+ resources, weekly updates, lifetime access.",
+        "solutionPoints": [
+            "20+ years of research - Curated by PKM expert",
+            "2,000+ resources - Tools, articles, videos, books, courses, communities",
+            "Weekly updates - New resources added every week",
+            "Organized database - Find what you need instantly",
+            "Lifetime access - Pay once, benefit forever",
+            "Community access - Connect with PKM enthusiasts"
+        ],
+        "description": "The Personal Knowledge Management Library is a comprehensive, curated collection of resources focused on exploring the world of Personal Knowledge Management. This Notion database is the result of extensive research conducted over 20+ years and continuously updated weekly. An invaluable resource for the Knowledge Management community, listing tools, communities, experts, makers, content creators, courses, books, videos, podcasts, and much more.",
+        "features": [
+            "290+ Tools - Complete directory of PKM tools (Obsidian, Notion, Roam, LogSeq, etc.)",
+            "350+ Articles - Best articles on PKM, note-taking, knowledge work",
+            "145+ Videos - Curated video content and tutorials",
+            "90+ Books - Learning, thinking, writing, note-taking, journaling, neuroscience",
+            "225+ Sites & Blogs - Top PKM websites and blogs",
+            "75+ YouTube Channels - Channels dedicated to PKM and productivity",
+            "90+ Courses - From beginner to advanced",
+            "90+ Newsletters - Stay updated with best PKM newsletters",
+            "40+ Podcasts - Audio learning from PKM experts",
+            "70+ Communities and Forums - Where PKM enthusiasts gather",
+            "~2,000 PKM Leaders - Influencers, makers, and enthusiasts to follow",
+            "100+ Twitter Hashtags - Topics to follow for latest discussions",
+            "50+ Starter Kits and Templates - Jump-start your PKM system",
+            "80+ Topics - Organized by subject with relevant articles, books, videos"
+        ],
+        "benefits": {
+            "immediate": [
+                "Skip months/years of research",
+                "Find the best tools for your needs immediately",
+                "Discover high-quality content instantly",
+                "Connect with top PKM creators"
+            ],
+            "systematic": [
+                "Clear Learning Path - Start with best resources",
+                "Avoid Mediocre Content - Only curated quality",
+                "Discover Hidden Gems - Resources you'd never find yourself",
+                "Save Hundreds of Hours - Research already done for you"
+            ],
+            "longTerm": [
+                "Living database that grows weekly",
+                "Always up-to-date with latest PKM developments",
+                "Community connections for ongoing learning",
+                "Reference library for entire PKM journey"
+            ]
+        },
+        "included": [
+            "Complete Resource Database - Notion space with 2,000+ resources",
+            "290+ Tools - Note-taking apps, knowledge management platforms",
+            "350+ Articles - PKM fundamentals, note-taking techniques, expert guides",
+            "145+ Videos - Curated video content and tutorials",
+            "90+ Books - Learning, thinking, writing, journaling, neuroscience, psychology, stoicism",
+            "90+ Courses - Structured learning from beginners to advanced",
+            "90+ Newsletters - Best newsletters to stay updated",
+            "75+ YouTube Channels - Video tutorials and explanations",
+            "40+ Podcasts - Podcast interviews with experts",
+            "70+ Communities - Forums and discussion groups",
+            "~2,000 PKM Leaders - Twitter influencers and thought leaders",
+            "50+ Starter Kits - Templates to get started",
+            "80+ Topics - Topic-specific resource collections",
+            "PKM Community Membership - Support and knowledge sharing",
+            "Weekly Updates - New resources every week",
+            "Lifetime Access - All future additions included"
+        ],
+        "testimonialIds": [
+            "pkm-library-testimonial-1",
+            "pkm-library-testimonial-2",
+            "pkm-library-testimonial-3"
+        ],
+        "statsProof": {
+            "userCount": "Knowledge Management community",
+            "timeSaved": "Hundreds of hours of research",
+            "rating": "5-star reviews from users"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "PKM beginners wanting to learn personal knowledge organization",
+            "Knowledge management enthusiasts curious about methodologies",
+            "Tool seekers overwhelmed by PKM options",
+            "Lifelong learners building long-term knowledge systems",
+            "Content creators wanting to discover other PKM creators"
+        ],
+        "perfectFor": [
+            "Want to learn personal knowledge organization",
+            "Curious about PKM, SecondBrain, Zettelkasten",
+            "Overwhelmed by PKM tool options",
+            "Improving knowledge management skills",
+            "Looking to discover other PKM creators"
+        ],
+        "notForYou": [
+            "Not interested in knowledge management",
+            "Prefer to research everything yourself",
+            "Don't see value in curated collections"
+        ],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "20+ Years Research - Decades of expertise",
+            "2,000+ Resources - Most comprehensive collection",
+            "Weekly Updates - Always current",
+            "One-Time Payment - €39.99, lifetime access",
+            "Community Access - Connect with PKM enthusiasts",
+            "All Skill Levels - Beginner to advanced",
+            "Global Coverage - Resources from worldwide PKM community"
+        ],
+        "guarantees": [
+            "Lifetime access to all resources",
+            "Weekly updates with new resources",
+            "Community support included"
+        ],
+        "crossSellIds": [
+            "knowledge-management-for-beginners",
+            "obsidian-starter-kit",
+            "knowledge-worker-kit"
+        ],
+        "metaTitle": "PKM Library - 2,000+ Curated Personal Knowledge Management Resources | Lifetime Access",
+        "metaDescription": "€39.99 for lifetime access to most comprehensive PKM resource collection. 290+ tools, 350+ articles, 90+ books, 145+ videos, 70+ communities. Updated weekly.",
+        "keywords": [
+            "pkm resources",
+            "personal knowledge management",
+            "second brain",
+            "zettelkasten",
+            "obsidian",
+            "notion",
+            "roam research",
+            "knowledge management tools",
+            "pkm directory",
+            "curated resources"
+        ],
+        "videoUrl": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
+        "priority": 70
+    },
+    {
+        "id": "obsidian-starter-course",
+        "permalink": "nolle",
+        "name": "Obsidian Starter Course",
+        "tagline": "From Obsidian Newbie to Obsidian Hero in 2h20",
+        "secondaryTagline": "Stop Guessing. Master Obsidian With a Complete Video Course.",
+        "price": 69.99,
+        "priceDisplay": "€69.99",
+        "priceTier": "standard",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-course",
+        "type": "course",
+        "pillars": ["knowledge-management"],
+        "tags": [
+            "obsidian",
+            "pkm",
+            "note-taking",
+            "zettelkasten",
+            "para-method",
+            "johnny-decimal",
+            "markdown",
+            "journaling",
+            "templates"
+        ],
+        "problem": "You know Obsidian is powerful, but figuring out the right way to use it takes months of trial and error. Overwhelmed by features and plugins. Worried about creating a messy, unsustainable system.",
+        "problemPoints": [
+            "Don't know where to start with Obsidian",
+            "Overwhelmed by all the features and plugins",
+            "Worried about creating a messy, unsustainable system",
+            "Spent weeks reading random articles and forum posts",
+            "Still don't understand how to organize notes properly",
+            "Frustrated by constant trial and error"
+        ],
+        "agitate": "Without proper guidance, weeks are wasted on trial and error. You create an overwhelming organizational mess. Build on approaches that don't scale. Don't know what Obsidian can really do. Can't figure out Zettelkasten, PARA, or Johnny Decimal. Ready to give up before seeing the benefits.",
+        "agitatePoints": [
+            "Weeks wasted on trial and error",
+            "Create an overwhelming organizational mess",
+            "Build on approaches that don't scale",
+            "Don't know what Obsidian can really do",
+            "Can't figure out Zettelkasten, PARA, or Johnny Decimal",
+            "Ready to give up before seeing the benefits"
+        ],
+        "solution": "Obsidian Starter Course: A 2h20 hands-on video course that takes you from Obsidian newbie to Obsidian hero with clear, practical training. Skip months of trial and error.",
+        "solutionPoints": [
+            "Complete training - 2h20 of step-by-step video instruction",
+            "All key concepts - Obsidian features, PKM methods, best practices",
+            "Practical demonstrations - See exactly how everything works",
+            "Proven approaches - Zettelkasten, PARA, Johnny Decimal, and more",
+            "Skip months of trial and error - Learn the right way immediately",
+            "Build solid foundations - System that scales"
+        ],
+        "description": "The Obsidian Starter Course is a comprehensive 2h20 video course providing hands-on guidance into Obsidian, Personal Knowledge Management (PKM), and the Obsidian Starter Kit. Whether you're brand new to note-taking, recently switched to Obsidian, or bought the Obsidian Starter Kit and want video training to get started—this course gives you the complete foundation you need.",
+        "features": [
+            "2h20 of Step-by-Step Video Content - Comprehensive training",
+            "Obsidian Fundamentals - Installation, UI, key features, plugins, automation",
+            "Markdown Syntax - Complete guide to formatting notes",
+            "YAML Metadata - Organize and query notes effectively",
+            "PKM Techniques - Proven frameworks and methods",
+            "Templating & Automation - Speed up note creation",
+            "Task Management - Track todos and projects",
+            "Journaling & Periodic Reviews - Daily, weekly, monthly, yearly systems",
+            "Johnny Decimal System - Organize everything with numbers",
+            "PARA Method - Projects, Areas, Resources, Archives",
+            "Zettelkasten Method - Build a thinking network",
+            "LIFT Principle - Findability and accessibility",
+            "Atomic Notes - One concept, one note",
+            "Maps of Content (MoCs) - Navigate your knowledge",
+            "Evergreen Notes - Notes that grow over time",
+            "Plugin Configuration - Essential plugins explained",
+            "Canvas and Visual Thinking - Visual organization tools"
+        ],
+        "benefits": {
+            "immediate": [
+                "Skip weeks/months of trial and error",
+                "Understand Obsidian's full potential immediately",
+                "Build proper foundations from day one",
+                "See exactly how PKM methods work in practice"
+            ],
+            "systematic": [
+                "Complete Knowledge - All key Obsidian features covered",
+                "PKM Mastery - Multiple proven frameworks explained",
+                "Practical Skills - Hands-on demonstrations, not theory",
+                "Scalable System - Build foundations that grow with you",
+                "Time Savings - 2h20 to learn what takes months on your own",
+                "Confidence - Know you're doing it right"
+            ],
+            "longTerm": [
+                "Solid note-taking system for life",
+                "Foundation for knowledge work excellence",
+                "Sustainable organizational practices",
+                "Continuous improvement mindset"
+            ]
+        },
+        "included": [
+            "Complete Video Course - 2h20 (140+ minutes)",
+            "Installation and Setup - Get Obsidian running",
+            "User Interface Walkthrough - Understand the layout",
+            "Markdown Syntax Guide - Formatting notes",
+            "Creating and Linking Notes - Build your network",
+            "Graph Views - Local and global visualization",
+            "Tagging and Organization - Multiple organization methods",
+            "Search and Discovery - Find your notes",
+            "Folder Structure - With Obsidian Starter Kit examples",
+            "Template Creation and Use - Speed up workflows",
+            "Plugin Configuration - Essential plugins covered",
+            "Automation Techniques - Let Obsidian work for you",
+            "Daily Notes and Journaling - Time-based organization",
+            "Periodic Review Systems - Reflect and improve",
+            "Task Management - Kanban and todo tracking",
+            "Canvas and Visual Thinking - Draw and organize visually",
+            "Practical Examples - Using actual vault",
+            "Tips and Tricks - From Obsidian expert"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Used by thousands",
+            "timeSaved": "Skip months of trial and error",
+            "rating": "Comprehensive training from expert"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "Obsidian beginners just getting started",
+            "Recently switched to Obsidian from another tool",
+            "Obsidian Starter Kit owners wanting video training",
+            "System builders wanting solid, scalable system",
+            "Time-conscious learners preferring structured learning"
+        ],
+        "perfectFor": [
+            "Just getting started with note-taking",
+            "Recently switched to Obsidian",
+            "Bought Obsidian Starter Kit",
+            "Want a solid system that scales",
+            "Curious about Zettelkasten, PARA, Johnny Decimal"
+        ],
+        "notForYou": [
+            "Already an Obsidian expert",
+            "Prefer figuring everything out yourself",
+            "Not willing to invest 2h20 in focused learning"
+        ],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "Complete Training - 2h20 comprehensive video",
+            "Multiple PKM Methods - Zettelkasten, PARA, Johnny Decimal, and more",
+            "Practical Demonstrations - Real examples throughout",
+            "Proven Approaches - From Obsidian expert",
+            "Skip Months of Trial and Error - Learn the right way immediately",
+            "Lifetime Access - Pay once, access forever"
+        ],
+        "guarantees": [
+            "Lifetime access to the video course",
+            "Complete training from Obsidian expert",
+            "Multiple proven frameworks included"
+        ],
+        "crossSellIds": [
+            "obsidian-starter-kit",
+            "knowledge-management-for-beginners",
+            "knowledge-worker-kit"
+        ],
+        "metaTitle": "Obsidian Starter Course - Master Obsidian in 2h20 | Complete Video Training €69.99",
+        "metaDescription": "€69.99 for 2h20 video course teaching Obsidian, PKM methods (Zettelkasten, PARA, Johnny Decimal), templates, automation. From newbie to hero.",
+        "keywords": [
+            "obsidian course",
+            "obsidian tutorial",
+            "zettelkasten method",
+            "para method",
+            "johnny decimal",
+            "pkm course",
+            "note-taking course",
+            "obsidian training",
+            "second brain",
+            "obsidian beginner"
+        ],
+        "priority": 80
+    },
+    {
+        "id": "knowii-voice-ai",
+        "permalink": "tbdlrt",
+        "name": "Knowii Voice AI",
+        "tagline": "You Think Faster Than You Type",
+        "secondaryTagline": "Your Keyboard Is Costing You Hours Every Week",
+        "price": 49,
+        "priceDisplay": "€49",
+        "priceTier": "standard",
+        "gumroadUrl": "https://store.dsebastien.net/l/knowii-voice-ai",
+        "type": "tool",
+        "pillars": ["productivity", "ai-tools"],
+        "tags": ["voice-to-text", "speech-recognition", "ai", "productivity", "privacy", "offline"],
+        "problem": "Your keyboard is the bottleneck between your thoughts and getting things done. Average typing: 40 wpm vs speaking: 150 wpm. You speak 3.75x faster than you type.",
+        "problemPoints": [
+            "Your fingers can't keep up with your brain",
+            "You hunt for keys while thoughts race ahead",
+            "Autocorrect changes words you didn't want changed",
+            "You stop to fix typos and lose train of thought",
+            "Five minutes pass, you've written three sentences",
+            "By noon you've typed 5,000 words and your hands hurt",
+            "By 3pm you're abbreviating because tired of typing"
+        ],
+        "agitate": "Writing 2 hours/day: Typing = 4,800 words. Speaking = 18,000 words. Difference: 13,200 more words OR get back 88 minutes per day. 7.3 hours per week wasted. 380 hours per year lost to keyboard bottleneck.",
+        "agitatePoints": [
+            "7.3 hours per week wasted on typing",
+            "380 hours per year lost to keyboard bottleneck",
+            "Tired hands and sore neck from typing",
+            "Email takes 10 minutes to type carefully",
+            "Blog posts - staring at blank page exhausting",
+            "Code documentation avoided because takes forever",
+            "Commit messages rushed and vague",
+            "You're the bottleneck, not AI"
+        ],
+        "solution": "Voice-to-text that runs entirely on your computer. One keyboard shortcut. Any application. Complete privacy.",
+        "solutionPoints": [
+            "Press Ctrl+Space, speak, release - words appear",
+            "Responses faster and more thorough",
+            "Clear inbox in half the time",
+            "Leave work with energy (not drained from typing)",
+            "First drafts spoken like explaining to a friend",
+            "1,200 words deep in 15 minutes",
+            "Detailed commit messages in 30 seconds"
+        ],
+        "description": "Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models (Whisper, Parakeet) process everything locally. No cloud. No subscription. No usage limits. Just €49 once, yours forever. Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.",
+        "features": [
+            "Universal Voice Input - Works in every application where you can type",
+            "Local AI Processing - Whisper and Parakeet models run on your computer",
+            "Offline Capable - No internet required after one-time model download",
+            "Customizable Shortcut - Default Ctrl+Space, change to whatever you want",
+            "Searchable History - Every transcription saved and searchable",
+            "Multiple AI Models - Choose between fast/accurate/balanced models",
+            "GPU Acceleration - Near-instant with NVIDIA GPU, 1-3 seconds on CPU",
+            "Multi-Language Support - English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Chinese, Japanese, Korean, and more",
+            "Complete Privacy - All processing on your computer, nothing sent to servers",
+            "One-Time Payment - €49 once, own forever",
+            "Lifetime Updates - All future features and improvements included",
+            "Commercial License - Use for personal and professional work"
+        ],
+        "benefits": {
+            "immediate": [
+                "3.75x faster output - Speak 150 wpm vs type 40 wpm",
+                "88 minutes back per day (for 2 hours of writing)",
+                "7.3 hours per week saved",
+                "380 hours per year recovered"
+            ],
+            "systematic": [
+                "Responses faster and more thorough",
+                "Clear inbox in half the time",
+                "Leave work with energy, not drained",
+                "No more tired hands or sore neck",
+                "Keep up with your mind - ideas flow at speed of thought",
+                "First drafts spoken naturally",
+                "No more blank page paralysis"
+            ],
+            "longTerm": [
+                "Your data stays yours - on your machine",
+                "No voice recordings training someone else's AI",
+                "Work offline, no internet dependency",
+                "Detailed documentation without the chore",
+                "AI prompts prepared rapidly - harness full power of AI"
+            ]
+        },
+        "included": [
+            "Full access to Knowii Voice AI (Windows version)",
+            "Buy, download, use today - no account creation needed",
+            "Commercial license included",
+            "All future updates free forever",
+            "Every new feature included (no upgrade fees)",
+            "All roadmap items included in purchase",
+            "Direct support from creator (email, no ticket system)",
+            "Knowii Community membership",
+            "30-day guarantee - not satisfied? Email for refund, no questions asked"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Early Access",
+            "timeSaved": "88 minutes/day for 2 hours of writing",
+            "rating": "New product - November 2025"
+        },
+        "faqIds": [
+            "knowii-voice-ai-faq-1",
+            "knowii-voice-ai-faq-2",
+            "knowii-voice-ai-faq-3",
+            "knowii-voice-ai-faq-4",
+            "knowii-voice-ai-faq-5",
+            "knowii-voice-ai-faq-6",
+            "knowii-voice-ai-faq-7",
+            "knowii-voice-ai-faq-8",
+            "knowii-voice-ai-faq-9",
+            "knowii-voice-ai-faq-10",
+            "knowii-voice-ai-faq-11",
+            "knowii-voice-ai-faq-12",
+            "knowii-voice-ai-faq-13"
+        ],
+        "targetAudience": [
+            "You communicate for work (emails, Slack, Teams, support tickets)",
+            "Your keyboard slows you down - ideas come faster than fingers can type",
+            "You want to fully leverage AI",
+            "You create content (blog posts, articles, scripts, social posts)",
+            "You write code for a living",
+            "You care about privacy"
+        ],
+        "perfectFor": [
+            "Communicate extensively for work",
+            "Keyboard slows down your thinking",
+            "Want to fully leverage AI",
+            "Create content regularly",
+            "Write code professionally",
+            "Care about privacy"
+        ],
+        "notForYou": [
+            "Not on Windows (yet - Linux/Mac coming soon)",
+            "Don't write/communicate frequently",
+            "Prefer typing"
+        ],
+        "landingPageUrl": "https://voice-ai.knowii.net",
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "30-Day Money-Back Guarantee",
+            "Lifetime Updates",
+            "Complete Privacy - Everything runs on your computer",
+            "Works Everywhere - Every application where you can type",
+            "Early Access - Help shape development, get lowest price ever",
+            "Creator Track Record - Built by Sébastien Dubois (OSK: 10,000+ users)",
+            "No Subscription - €49 once, own forever",
+            "GPU Accelerated - Near-instant transcription with NVIDIA"
+        ],
+        "guarantees": [
+            "30-day money-back guarantee - don't like it? Refund, no questions asked",
+            "All future updates free - no upgrade fees ever",
+            "Complete privacy - everything runs on your computer, no cloud",
+            "Works everywhere - every application where you can type"
+        ],
+        "crossSellIds": ["knowledge-worker-kit", "knowii-community"],
+        "metaTitle": "Knowii Voice AI - Voice-to-Text That Runs on Your Computer | Privacy-First Speech Recognition",
+        "metaDescription": "Speak 3.75x faster than typing. Local AI transcription in every app. No cloud, no subscription. €49 once, yours forever. Windows, Linux, Mac. 30-day guarantee.",
+        "keywords": [
+            "voice to text",
+            "speech to text",
+            "local ai",
+            "offline transcription",
+            "whisper ai",
+            "privacy voice recognition",
+            "voice typing",
+            "dictation software",
+            "speech recognition",
+            "knowledge worker tools",
+            "productivity tools"
+        ],
+        "videoUrl": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
+        "demoUrl": "https://docs.voice-ai.knowii.net/",
+        "priority": 60
+    },
+    {
+        "id": "knowledge-management-for-beginners",
+        "permalink": "wazqkq",
+        "name": "Knowledge Management for Beginners",
+        "tagline": "Stop Drowning in Information. Start Building Knowledge.",
+        "secondaryTagline": "Stop losing great ideas in a sea of tabs, notes, and documents. Start building a knowledge system that works for you – forever.",
+        "price": 69.99,
+        "priceDisplay": "€69.99",
+        "priceTier": "standard",
+        "gumroadUrl": "https://store.dsebastien.net/l/knowledge-management-for-beginners",
+        "type": "course",
+        "pillars": ["knowledge-management", "productivity"],
+        "tags": [
+            "pkm",
+            "personal-knowledge-management",
+            "course",
+            "learning",
+            "second-brain",
+            "obsidian",
+            "zettelkasten",
+            "para"
+        ],
+        "problem": "Information overload is drowning knowledge workers. Traditional methods fail.",
+        "problemPoints": [
+            "Drowning in browser tabs and scattered documents",
+            "Taking notes you can never find when you need them",
+            "Forgetting important ideas and insights",
+            "Feeling overwhelmed by sheer volume of information",
+            "Knowing you read something useful but can't remember where",
+            "Constantly forgetting important things",
+            "Wasting time searching for information"
+        ],
+        "agitate": "Hours wasted searching for that one note. Brilliant ideas lost forever. Feeling overwhelmed every single day. Can't make valuable connections between concepts. Starting from scratch on every new project. AI features lack context and connections.",
+        "agitatePoints": [
+            "Hours wasted searching for notes",
+            "Brilliant ideas lost forever",
+            "Feeling overwhelmed every day",
+            "Can't make connections between concepts",
+            "Starting from scratch on every project",
+            "Notes become isolated islands",
+            "Search only finds exact matches",
+            "Notes get buried and forgotten",
+            "Knowledge doesn't compound over time",
+            "AI features lack context"
+        ],
+        "solution": "Build a Personal Knowledge Management system where all your knowledge becomes connected, findable, and useful.",
+        "solutionPoints": [
+            "All your knowledge becomes connected",
+            "Find anything, even if you forgot the exact words",
+            "Discover unexpected connections between ideas",
+            "Knowledge stays relevant and accessible",
+            "Quick access to exactly what you need",
+            "Your knowledge grows and compounds",
+            "Build on previous work effortlessly",
+            "AI becomes dramatically more effective"
+        ],
+        "description": "Knowledge Management for Beginners is a comprehensive video course (10+ hours) that transforms how you think, learn, and leverage information. Based on years of Information and Knowledge Management practice, this course provides a complete blueprint for building your Personal Knowledge Management system. At its core, this course is about turning chaos into order, complexity into simplicity, and information into actionable knowledge. You'll learn a clear, proven process that takes you from information overload to systematic knowledge building. Join 1,000+ professionals who have transformed their workflows with this system.",
+        "features": [
+            "10+ hours of video content across 9 comprehensive modules",
+            "Engaging video lectures making complex concepts clear",
+            "Practical demonstrations of real-world applications",
+            "From theory to practice - understanding to implementation",
+            "Complete PKM Process: Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share",
+            "Start simple, build up - no need to change everything at once",
+            "Universal principles - tool-agnostic approach",
+            "Real-world examples - detailed walkthrough of creator's PKM system",
+            "Progressive curriculum: Foundation → Growth → Mastery",
+            "Lifetime access - return to material as needs evolve",
+            "Evergreen content - regular updates keep content fresh",
+            "Community support - connect with fellow learners",
+            "No special software required - start with tools you already have"
+        ],
+        "benefits": {
+            "immediate": [
+                "Have a reliable capture system for important ideas",
+                "Know exactly where to put new information",
+                "Find anything you need in seconds",
+                "Feel more organized and clear-headed",
+                "Start making valuable connections between ideas"
+            ],
+            "systematic": [
+                "Find anything in seconds - never lose another idea",
+                "Make smarter decisions - access right knowledge when needed",
+                "Learn faster and retain more - build system that helps absorb ideas",
+                "Reduce stress and overwhelm - free mind from clutter",
+                "Leverage AI effectively - integrate AI tools to supercharge knowledge",
+                "Knowledge compounds over time - every note increases in value",
+                "Build on previous work - stop starting from scratch"
+            ],
+            "longTerm": [
+                "Transform chaos into order",
+                "Build valuable intellectual assets",
+                "Create your personal Life OS",
+                "Connect ideas to foster creativity and innovation",
+                "Systematic approach to lifelong learning"
+            ]
+        },
+        "included": [
+            "Complete course curriculum: 10+ hours across 9 modules",
+            "Module 0: Foreword - Welcome and overview",
+            "Module 1: Introduction - Core challenges facing knowledge workers",
+            "Module 2: Knowledge Management Overview - Fundamental concepts",
+            "Module 3: Getting Started - Practical foundations",
+            "Module 4: The PKM Process - Master the complete workflow",
+            "Module 5: PKM Concepts - Deep dive into essential principles",
+            "Module 6: PKM Recommendations - Practical implementation strategies",
+            "Module 7: Building Your PKM System - Put it all together",
+            "Module 8: Going Further - Advanced techniques",
+            "Module 9: Conclusion - Wrap up and next steps",
+            "Example Obsidian vault with solid structure and automation",
+            "Free Obsidian templates pack",
+            "Complete course slides",
+            "Complete knowledge system checklist",
+            "Knowledge base of 1,700+ valuable concepts, frameworks, mental models, techniques"
+        ],
+        "testimonialIds": [
+            "knowledge-management-for-beginners-testimonial-1",
+            "knowledge-management-for-beginners-testimonial-2",
+            "knowledge-management-for-beginners-testimonial-3",
+            "knowledge-management-for-beginners-testimonial-4",
+            "knowledge-management-for-beginners-testimonial-5"
+        ],
+        "statsProof": {
+            "userCount": "1,000+ professionals",
+            "timeSaved": "Hours saved weekly on searching and organizing",
+            "rating": "Highly rated by students"
+        },
+        "faqIds": [
+            "knowledge-management-for-beginners-faq-1",
+            "knowledge-management-for-beginners-faq-2",
+            "knowledge-management-for-beginners-faq-3",
+            "knowledge-management-for-beginners-faq-4",
+            "knowledge-management-for-beginners-faq-5",
+            "knowledge-management-for-beginners-faq-6",
+            "knowledge-management-for-beginners-faq-7",
+            "knowledge-management-for-beginners-faq-8",
+            "knowledge-management-for-beginners-faq-9"
+        ],
+        "targetAudience": [
+            "Knowledge-intensive professionals (leaders, managers, consultants)",
+            "Overwhelmed learners buried under information avalanche",
+            "Innovative thinkers wanting to connect ideas and foster creativity",
+            "Lifelong learners committed to continuous growth",
+            "Busy professionals dealing with lots of information daily",
+            "Anyone who needs to make quick, informed decisions",
+            "Those who want to learn faster and work smarter",
+            "People feeling overwhelmed by digital clutter",
+            "Anyone tired of losing valuable insights",
+            "Those wanting to leverage AI effectively"
+        ],
+        "perfectFor": [
+            "Knowledge-intensive professionals",
+            "Overwhelmed learners",
+            "Innovative thinkers",
+            "Lifelong learners",
+            "Busy professionals"
+        ],
+        "notForYou": [
+            "Looking for a quick productivity hack (this is a complete system)",
+            "Not willing to invest 15-30 minutes/day initially",
+            "Prefer ad-hoc note-taking without structure"
+        ],
+        "landingPageUrl": "https://knowledge-management-for-beginners.com",
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "Full Refund Policy - Not satisfied? No questions asked",
+            "Lifetime Access - All future updates included",
+            "10+ Hours of Content - Comprehensive curriculum",
+            "1,000+ Professionals - Transformed workflows",
+            "1,700+ Concepts - Bonus knowledge base",
+            "Evergreen Content - Regular updates",
+            "Community Support - Connect with fellow learners",
+            "Tool-Agnostic - Works with what you have"
+        ],
+        "guarantees": [
+            "Full refund if not completely satisfied - no questions asked",
+            "Lifetime access - all future updates included",
+            "Tool-agnostic approach - works with any tools",
+            "Community support included"
+        ],
+        "crossSellIds": [
+            "obsidian-starter-kit",
+            "knowledge-worker-kit",
+            "everything-knowledge-bundle"
+        ],
+        "metaTitle": "Knowledge Management for Beginners - Stop Drowning in Information | Transform How You Learn",
+        "metaDescription": "10+ hour video course teaching Personal Knowledge Management. Build a second brain that helps you think better, learn faster, and actually use what you know. 1,000+ students. Lifetime access.",
+        "keywords": [
+            "knowledge management course",
+            "personal knowledge management",
+            "pkm course",
+            "second brain",
+            "note-taking system",
+            "obsidian course",
+            "zettelkasten",
+            "para method",
+            "knowledge graph",
+            "information management",
+            "lifelong learning"
+        ],
+        "priority": 90
+    },
+    {
+        "id": "journaling-deep-dive",
+        "permalink": "cdwol",
+        "name": "Knowii Journaling Deep Dive",
+        "tagline": "Transform Your Journal From Diary to Personal Operating System",
+        "secondaryTagline": "Stop Forgetting Your Life. Start Building Intentionally.",
+        "price": 29.99,
+        "priceDisplay": "€29.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://store.dsebastien.net/l/knowii-journaling-deep-dive",
+        "type": "workshop",
+        "pillars": ["productivity", "personal-development"],
+        "tags": [
+            "journaling",
+            "interstitial-journaling",
+            "periodic-reviews",
+            "productivity",
+            "zen-productivity",
+            "personal-organization",
+            "habits",
+            "routines",
+            "mindfulness"
+        ],
+        "problem": "You're losing your life, one forgotten moment at a time.",
+        "problemPoints": [
+            "Feel busy but unproductive",
+            "Beautiful moments disappear",
+            "End of months feel empty",
+            "Can't remember accomplishments",
+            "Life happens to you"
+        ],
+        "agitate": "Brain can't retain it. Ideas vanish. Insights disappear. Wins are lost. Moments fade. Clarity vanishes.",
+        "agitatePoints": [
+            "Ideas vanish",
+            "Insights disappear",
+            "Wins lost",
+            "Moments fade",
+            "Clarity vanishes",
+            "Everything disappears"
+        ],
+        "solution": "Journaling as Personal Operating System: Foundation of life organization.",
+        "solutionPoints": [
+            "Capture ideas",
+            "Track progress",
+            "Hold yourself accountable",
+            "Process experiences",
+            "Build knowledge",
+            "Find balance",
+            "Remember what matters"
+        ],
+        "description": "80-minute deep dive masterclass into journaling as complete life operating system. Systematic approach to capturing and building on valuable moments.",
+        "features": [
+            "80-Minute Video",
+            "System Visualization",
+            "Show Notes",
+            "40+ knowledge base notes",
+            "Real Examples",
+            "Brain science",
+            "Real workflows"
+        ],
+        "benefits": {
+            "immediate": [
+                "Stop blanking",
+                "Capture insights",
+                "See progress",
+                "Remember moments",
+                "Gain clarity"
+            ],
+            "systematic": [
+                "Memory Enhancement",
+                "Progress Tracking",
+                "Accountability",
+                "Experience Processing",
+                "Knowledge Compounding",
+                "Work-Life Balance",
+                "Intentional Living"
+            ],
+            "longTerm": [
+                "Better productivity",
+                "Clearer thinking",
+                "Intentional life",
+                "Sustainable system",
+                "Peace and focus"
+            ]
+        },
+        "included": [
+            "80-Minute Video",
+            "System Diagram",
+            "Show Notes",
+            "40+ knowledge base notes",
+            "Real Examples"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "10+ years refined",
+            "timeSaved": "Saves hours daily",
+            "rating": "Battle-tested"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "Overwhelmed professionals",
+            "Intentionality seekers",
+            "Idea losers",
+            "Experience builders",
+            "Journaling beginners"
+        ],
+        "perfectFor": [
+            "Feel busy but unproductive",
+            "Want intentionality",
+            "Forget ideas",
+            "Want to remember experiences",
+            "Never journaled"
+        ],
+        "notForYou": ["Happy with memory loss", "Prefer reactive", "Won't spend minutes daily"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "10+ Years Refined",
+            "80-Minute Video",
+            "40+ Resources",
+            "Real Examples",
+            "Practical",
+            "Works with busy life",
+            "Lifetime Access"
+        ],
+        "guarantees": [
+            "80-minute training",
+            "40+ knowledge notes",
+            "Real examples",
+            "Lifetime access"
+        ],
+        "crossSellIds": ["personal-organization-101", "clarity-101", "knowledge-worker-kit"],
+        "metaTitle": "Journaling Deep Dive - Transform Your Journal | 80-Min Workshop",
+        "metaDescription": "€29.99 for 80-minute workshop + 40+ resources. Learn journaling system for ideas, progress, knowledge.",
+        "keywords": [
+            "journaling system",
+            "daily notes",
+            "interstitial journaling",
+            "periodic reviews",
+            "personal organization",
+            "productivity",
+            "knowledge management",
+            "intentional living"
+        ],
+        "priority": 65
+    },
+    {
+        "id": "personal-organization-101",
+        "permalink": "zyuwjd",
+        "name": "Knowii Personal Organization 101",
+        "tagline": "Stop Drowning in Tasks. Start Living with Intention.",
+        "price": 19.99,
+        "priceDisplay": "€19.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-personal-organization-101",
+        "type": "workshop",
+        "pillars": ["productivity", "personal-development"],
+        "tags": [
+            "personal-organization",
+            "productivity",
+            "time-management",
+            "clarity",
+            "focus",
+            "habits",
+            "routines",
+            "gtd"
+        ],
+        "problem": "Working hard but overwhelmed. Can't prioritize what matters.",
+        "problemPoints": [
+            "Tired of feeling overwhelmed",
+            "Struggle to prioritize",
+            "System is chaos",
+            "Drowning in overload",
+            "Juggling projects",
+            "Managing alone"
+        ],
+        "agitate": "Hours wasted on busywork. Stuck in reactive mode. No clear path. Working hard without results. Burning out.",
+        "agitatePoints": [
+            "Wasted busywork hours",
+            "Reactive mode",
+            "No clear path",
+            "Hard work without results",
+            "Burning out"
+        ],
+        "solution": "3-Pillar Personal Organization System: 20+ years refined.",
+        "solutionPoints": [
+            "Clarity System",
+            "Information Management",
+            "Productivity System",
+            "Chaos to clarity",
+            "Overwhelm to intention"
+        ],
+        "description": "90-minute workshop revealing complete Personal Organization System refined over 20+ years. Covers Clarity, Information Management, Productivity with 40+ frameworks.",
+        "features": [
+            "90-Minute Video",
+            "3-Pillar System",
+            "Self-assessment",
+            "Clarity System",
+            "Information Management",
+            "Productivity techniques",
+            "Time management",
+            "Focus strategies",
+            "40+ frameworks",
+            "Visual overview",
+            "100+ resources"
+        ],
+        "benefits": {
+            "immediate": ["Clear assessment", "40+ frameworks", "Visual overview", "Real examples"],
+            "systematic": [
+                "Clarity on priorities",
+                "Organization everywhere",
+                "Productivity without willpower",
+                "Time management works",
+                "Focus mastery",
+                "Information under control",
+                "Alignment"
+            ],
+            "longTerm": [
+                "Living with intention",
+                "Sustainable system",
+                "Foundation for LifeOS",
+                "Continuous improvement"
+            ]
+        },
+        "included": [
+            "90-minute video",
+            "Visual overview",
+            "100+ resources",
+            "Practical techniques",
+            "Real examples"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "20+ years refined",
+            "timeSaved": "Hours saved weekly",
+            "rating": "Battle-tested"
+        },
+        "faqIds": [],
+        "targetAudience": ["Knowledge Workers", "Leaders", "Solopreneurs", "The Overwhelmed"],
+        "perfectFor": [
+            "Information overload",
+            "Multiple projects",
+            "Managing alone",
+            "Overwhelmed",
+            "Want intention"
+        ],
+        "notForYou": ["Already perfect", "Prefer chaos", "Won't implement"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "20+ Years Refined",
+            "90-Minute Video",
+            "100+ Resources",
+            "40+ Frameworks",
+            "Real Examples",
+            "Lifetime Access"
+        ],
+        "guarantees": ["90-minute training", "100+ resources", "40+ frameworks", "Lifetime access"],
+        "crossSellIds": ["clarity-101", "journaling-deep-dive", "knowledge-worker-kit"],
+        "metaTitle": "Personal Organization 101 - 3-Pillar System | 90-Min Workshop",
+        "metaDescription": "€19.99 for 90-minute workshop + 100+ resources. Learn 3-Pillar Personal Organization System. 20+ years refined.",
+        "keywords": [
+            "personal organization",
+            "productivity system",
+            "time management",
+            "gtd",
+            "para method",
+            "clarity system",
+            "information management"
+        ],
+        "priority": 65
+    },
+    {
+        "id": "clarity-101",
+        "permalink": "uysik",
+        "name": "Knowii Clarity 101",
+        "tagline": "Find Your Direction. Design Your Life.",
+        "secondaryTagline": "If You Feel Lost, Wonder What Should Come Next—Start Here",
+        "price": 19.99,
+        "priceDisplay": "€19.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-clarity-101",
+        "type": "workshop",
+        "pillars": ["personal-development"],
+        "tags": [
+            "clarity",
+            "life-design",
+            "values",
+            "goals",
+            "ikigai",
+            "personal-manifesto",
+            "design-thinking",
+            "smart-goals"
+        ],
+        "problem": "Feeling lost. Don't know where you're going. Can't make good decisions.",
+        "problemPoints": [
+            "Don't know direction",
+            "Can't decide",
+            "Unclear about values",
+            "Stuck",
+            "Regret choices",
+            "Paralyzed by options"
+        ],
+        "agitate": "Make decisions you regret. Waste time on wrong things. Can't set goals. Don't know priorities. Life happens to you.",
+        "agitatePoints": [
+            "Regrettable decisions",
+            "Wasted time",
+            "No goals",
+            "Wrong priorities",
+            "Life happens to you"
+        ],
+        "solution": "Clarity System: Complete approach to gain clarity about values, principles, life goals.",
+        "solutionPoints": [
+            "Understand where you are",
+            "Know where to go",
+            "Make right decisions",
+            "No regrets",
+            "Move forward"
+        ],
+        "description": "Workshop sharing complete approach to gain clarity about needs, values, principles, and life goals. Learn Design Thinking and create your Personal Manifesto.",
+        "features": [
+            "Complete Clarity Framework",
+            "Clarity basics",
+            "Personal Value System",
+            "Personal Principles",
+            "Personal Manifesto",
+            "Find Ikigai",
+            "Life design",
+            "Better decisions",
+            "Design Thinking",
+            "SMART Goals",
+            "Time horizons",
+            "Set priorities"
+        ],
+        "benefits": {
+            "immediate": [
+                "Understand where you are",
+                "Identify gravity problems",
+                "Uncover values",
+                "Define Manifesto"
+            ],
+            "systematic": [
+                "Find Ikigai",
+                "Envision futures",
+                "Prototype paths",
+                "Value-aligned choices",
+                "SMART goals",
+                "Right priorities"
+            ],
+            "longTerm": [
+                "Intentional design",
+                "Decisions without regrets",
+                "Clear path",
+                "Continuous improvement"
+            ]
+        },
+        "included": [
+            "Video workshop",
+            "Clarity framework",
+            "Practical exercises",
+            "Tools and techniques",
+            "Knowledge base resources"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Complete framework",
+            "timeSaved": "Time saved on decisions",
+            "rating": "Actionable"
+        },
+        "faqIds": [],
+        "targetAudience": ["The Lost", "Decision Makers", "Goal Seekers", "Life Designers"],
+        "perfectFor": [
+            "Feel lost",
+            "Want meaningful goals",
+            "Need priorities",
+            "Want intentional design"
+        ],
+        "notForYou": ["Have clarity", "Prefer reactive", "Won't do introspection"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "Complete Framework",
+            "Video Workshop",
+            "Actionable Techniques",
+            "Design Thinking",
+            "Lifetime Access"
+        ],
+        "guarantees": [
+            "Complete clarity framework",
+            "Video workshop",
+            "Actionable techniques",
+            "Lifetime access"
+        ],
+        "crossSellIds": [
+            "personal-organization-101",
+            "journaling-deep-dive",
+            "knowledge-worker-kit"
+        ],
+        "metaTitle": "Clarity 101 - Find Your Direction, Design Your Life",
+        "metaDescription": "€19.99 workshop teaching complete clarity framework. Discover values, Ikigai, SMART goals, better decisions.",
+        "keywords": [
+            "clarity",
+            "life design",
+            "personal values",
+            "ikigai",
+            "personal manifesto",
+            "smart goals",
+            "design thinking",
+            "life goals"
+        ],
+        "priority": 65
+    },
+    {
+        "id": "ai-master-prompt",
+        "permalink": "knowii-ai-master-prompt",
+        "name": "Knowii AI Master Prompt Workshop",
+        "tagline": "Transform AI From Generic Assistant to Your Personal Expert",
+        "secondaryTagline": "Stop Getting Generic AI Responses. Start Getting AI That Knows You.",
+        "price": 19.99,
+        "priceDisplay": "€19.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-ai-master-prompt",
+        "type": "workshop",
+        "pillars": ["ai-tools", "productivity"],
+        "tags": [
+            "ai",
+            "llms",
+            "prompt-engineering",
+            "ai-assistants",
+            "ai-prompts",
+            "master-prompts",
+            "claude",
+            "chatgpt"
+        ],
+        "problem": "AI gives generic responses that don't fit YOUR situation. AI doesn't understand your context.",
+        "problemPoints": [
+            "AI doesn't understand context",
+            "Re-explain yourself every time",
+            "Generic responses",
+            "Waste time on background",
+            "Can't get your style"
+        ],
+        "agitate": "Generic responses. Treats you like everyone else. Wasted time explaining. Missed opportunities. No personalization. Frustration.",
+        "agitatePoints": [
+            "Generic",
+            "Re-explaining",
+            "Missed opportunities",
+            "No personalization",
+            "Frustration"
+        ],
+        "solution": "AI Master Prompt System: Crafted prompt that provides AI right context and rules.",
+        "solutionPoints": [
+            "AI knows you",
+            "Consistent quality",
+            "Save time",
+            "Personalized",
+            "Better results",
+            "Powerful"
+        ],
+        "description": "Workshop revealing the complete approach to building an AI Master Prompt that transforms LLM work. Learn to provide context and rules that dramatically improve AI responses. Includes live demo.",
+        "features": [
+            "Complete Framework",
+            "LLMs - How they work",
+            "AI Prompts - Fundamentals",
+            "Prompt Engineering",
+            "AI Master Prompts",
+            "Create Personal Master Prompt",
+            "PKM integration",
+            "Use your Master Prompt",
+            "Model Context Protocol"
+        ],
+        "benefits": {
+            "immediate": ["Stop re-explaining", "Get personalized", "Save time", "Better outputs"],
+            "systematic": [
+                "Consistent Quality",
+                "Time Savings",
+                "Better Results",
+                "Personalization",
+                "Scalability",
+                "Integration"
+            ],
+            "longTerm": [
+                "Transform AI to assistant",
+                "Sustainable workflows",
+                "Compound improvements",
+                "Foundation"
+            ]
+        },
+        "included": [
+            "Video workshop",
+            "Live demo",
+            "Complete framework",
+            "Practical examples",
+            "Knowledge base",
+            "Implementation strategies"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Active AI users",
+            "timeSaved": "Hours saved",
+            "rating": "Proven"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "AI Power Users",
+            "Content Creators",
+            "Knowledge Workers",
+            "Productivity Seekers",
+            "Entrepreneurs"
+        ],
+        "perfectFor": [
+            "Use LLMs regularly",
+            "Write content",
+            "Need AI help",
+            "Tired of re-explaining",
+            "Juggle projects"
+        ],
+        "notForYou": ["Don't use AI", "Prefer generic", "Won't invest"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "Complete Framework",
+            "Video with demo",
+            "Real Examples",
+            "Practical",
+            "Knowledge Base",
+            "Lifetime Access"
+        ],
+        "guarantees": [
+            "Complete framework",
+            "Video with demo",
+            "Implementation strategies",
+            "Lifetime access"
+        ],
+        "crossSellIds": ["model-context-protocol", "ai-ghostwriter-guide", "knowledge-worker-kit"],
+        "metaTitle": "AI Master Prompt Workshop - Transform AI Into Your Personal Expert",
+        "metaDescription": "€19.99 workshop teaching how to create AI Master Prompts. Personalized, context-aware responses. ChatGPT, Claude, all LLMs.",
+        "keywords": [
+            "ai master prompt",
+            "prompt engineering",
+            "ai assistants",
+            "llm optimization",
+            "chatgpt prompts",
+            "claude prompts",
+            "personal ai"
+        ],
+        "priority": 65
+    },
+    {
+        "id": "model-context-protocol",
+        "permalink": "knowii-model-context-protocol-mcp",
+        "name": "Knowii Model Context Protocol (MCP) Masterclass",
+        "tagline": "Give AI Superpowers: Connect to Any Data Source or Tool",
+        "secondaryTagline": "Stop Copy-Pasting Context. Let AI Access What It Needs Automatically.",
+        "price": 19.99,
+        "priceDisplay": "€19.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp",
+        "type": "workshop",
+        "pillars": ["ai-tools", "productivity"],
+        "tags": [
+            "mcp",
+            "model-context-protocol",
+            "ai",
+            "llms",
+            "claude",
+            "ai-integration",
+            "obsidian",
+            "automation"
+        ],
+        "problem": "AI is powerful but blind. Can't access your data without manual copy-paste.",
+        "problemPoints": [
+            "Copy-paste files",
+            "AI can't read notes",
+            "Manually fetch data",
+            "No tool interaction",
+            "Limited to chat"
+        ],
+        "agitate": "Hours being AI's assistant. Can't read Obsidian. Can't access databases. Can't search web. Can't control browser. Can't use tools. You're middleman.",
+        "agitatePoints": [
+            "Can't read notes",
+            "Can't access databases",
+            "Can't search web",
+            "Can't control browser",
+            "Can't use tools",
+            "Can't scale"
+        ],
+        "solution": "Model Context Protocol (MCP): Open standard connecting AI to data and tools automatically.",
+        "solutionPoints": [
+            "AI reads notes",
+            "AI searches web",
+            "AI controls browser",
+            "AI queries databases",
+            "AI uses tools",
+            "You think strategically"
+        ],
+        "description": "Deep dive masterclass into Model Context Protocol (MCP). Learn what it is, why it matters, how it works, where to find servers, how to install. Includes 5 live demos.",
+        "features": [
+            "Complete Masterclass",
+            "What LLMs miss",
+            "What is MCP",
+            "How it works",
+            "MCP servers",
+            "MCP clients",
+            "Installation",
+            "Security",
+            "5 Live Demos"
+        ],
+        "benefits": {
+            "immediate": [
+                "Stop copy-pasting",
+                "Direct knowledge access",
+                "Auto web search",
+                "Browser control"
+            ],
+            "systematic": [
+                "Data Access",
+                "Tool Integration",
+                "Web Capabilities",
+                "Automation",
+                "Scalability",
+                "Productivity"
+            ],
+            "longTerm": [
+                "Transform to agent",
+                "Sustainable workflows",
+                "Integrate AI",
+                "Foundation"
+            ]
+        },
+        "included": [
+            "Video masterclass",
+            "5 Live Demos",
+            "Complete technical guide",
+            "Practical examples",
+            "Knowledge base",
+            "Tool directories"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Growing",
+            "timeSaved": "Hours saved",
+            "rating": "Open standard by Anthropic"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "AI Power Users",
+            "Knowledge Workers",
+            "Developers",
+            "Automation Enthusiasts",
+            "Early Adopters"
+        ],
+        "perfectFor": [
+            "Use LLMs",
+            "Have knowledge bases",
+            "Want AI to read notes",
+            "Love systems",
+            "Want AI agents"
+        ],
+        "notForYou": ["Don't use AI", "Prefer copy-paste", "Not interested"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": [
+            "Complete Masterclass",
+            "5 demos",
+            "Real Examples",
+            "Practical Guide",
+            "Security",
+            "Future-Ready",
+            "Lifetime Access"
+        ],
+        "guarantees": [
+            "Complete masterclass",
+            "5 demos",
+            "Technical guide",
+            "Security",
+            "Lifetime access"
+        ],
+        "crossSellIds": ["ai-master-prompt", "obsidian-starter-kit", "knowledge-worker-kit"],
+        "metaTitle": "Model Context Protocol (MCP) Masterclass - Give AI Superpowers",
+        "metaDescription": "€19.99 masterclass on Model Context Protocol. Connect AI to data and tools. 5 demos: Obsidian, Notion, web search, browser.",
+        "keywords": [
+            "model context protocol",
+            "mcp",
+            "ai integrations",
+            "claude mcp",
+            "obsidian ai",
+            "ai tools",
+            "llm capabilities",
+            "ai automation"
+        ],
+        "priority": 65
+    },
+    {
+        "id": "knowii-community",
+        "permalink": "xjpgo",
+        "name": "Knowii: Complete Knowledge System Community",
+        "tagline": "Transform Information Chaos Into Your Greatest Advantage",
+        "secondaryTagline": "Community + Premium Courses + Professional Tools = Your All-in-One Knowledge Solution",
+        "price": 19.99,
+        "priceDisplay": "From FREE (Explorer) to €39.99/month (Knowledge Master)",
+        "priceTier": "subscription",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/knowii",
+        "type": "community",
+        "pillars": ["knowledge-management", "community"],
+        "tags": ["pkm", "knowledge-management", "community", "obsidian", "courses", "second-brain"],
+        "problem": "Information chaos sabotaging productivity. Drowning, can't find anything, forget what you learned.",
+        "problemPoints": [
+            "Drowning in tabs",
+            "Can't find anything",
+            "Forget what you learned",
+            "Scattered chaos",
+            "Context switches",
+            "Lost ideas"
+        ],
+        "agitate": "41% overwhelmed EVERY DAY. 23 context switches per day. 60% of ideas lost. More time searching than using.",
+        "agitatePoints": [
+            "Ideas vanish",
+            "Learnings forgotten",
+            "Time wasted",
+            "Bad decisions",
+            "No growth",
+            "Mental clutter"
+        ],
+        "solution": "Knowii Community: Complete knowledge transformation system with community, courses, and tools.",
+        "solutionPoints": [
+            "Find anything",
+            "Remember what matters",
+            "Reduce mental load",
+            "Make better decisions",
+            "Knowledge compounds",
+            "Integrate AI",
+            "Think in systems"
+        ],
+        "description": "Comprehensive community of hundreds of knowledge creators and lifelong learners committed to breaking free from information overload. Delivers: Community + Premium courses + Professional tools + Expert guidance.",
+        "features": [
+            "3 Membership Tiers",
+            "Explorer FREE",
+            "Knowledge Builder €19.99/month",
+            "Knowledge Master €39.99/month",
+            "Live events",
+            "Templates",
+            "Expert guidance",
+            "Implementation support"
+        ],
+        "benefits": {
+            "immediate": [
+                "Stop wasting time",
+                "Proven systems",
+                "Connect with people",
+                "Expert access"
+            ],
+            "systematic": [
+                "Complete System",
+                "Proven Approaches",
+                "Implementation Support",
+                "Continuous Learning",
+                "AI Integration",
+                "Scalable"
+            ],
+            "longTerm": [
+                "Sustainable management",
+                "Professional advancement",
+                "Mental clarity",
+                "Compound growth"
+            ]
+        },
+        "included": [
+            "3 membership tiers",
+            "Explorer FREE tier",
+            "Knowledge Builder €19.99/month",
+            "Knowledge Master €39.99/month",
+            "Private community",
+            "Live events",
+            "Event recordings",
+            "Templates",
+            "Expert masterclasses"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Hundreds",
+            "timeSaved": "Hours saved weekly",
+            "rating": "Growing"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "Knowledge Workers",
+            "Overwhelmed Professionals",
+            "Career Builders",
+            "Career Changers",
+            "Team Leaders",
+            "Executives",
+            "Founders",
+            "Consultants",
+            "Researchers",
+            "Content Creators"
+        ],
+        "perfectFor": [
+            "Feel overwhelmed",
+            "Want systematic",
+            "Need community",
+            "Value learning",
+            "Want transformation"
+        ],
+        "notForYou": ["Work alone", "Don't struggle", "Want only tools"],
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "Complete System",
+            "$150-500 Bonuses",
+            "Expert-Led",
+            "Growing Community",
+            "Live Events",
+            "Flexible",
+            "Free Tier"
+        ],
+        "guarantees": ["Flexible membership", "Free tier", "All resources", "Continuous content"],
+        "crossSellIds": [
+            "obsidian-starter-kit",
+            "knowledge-management-for-beginners",
+            "everything-knowledge-bundle"
+        ],
+        "metaTitle": "Knowii Community - Transform Information Chaos Into Clarity",
+        "metaDescription": "Join Knowii: Community + courses + tools. From FREE to €39.99/month. Fix information overload.",
+        "keywords": [
+            "knowledge management community",
+            "pkm community",
+            "information overload",
+            "second brain",
+            "obsidian community"
+        ],
+        "variants": [
+            {
+                "name": "Explorer",
+                "price": 0,
+                "priceDisplay": "FREE",
+                "description": "Community, KM guidance, 1700+ concepts",
+                "gumroadUrl": "https://www.knowii.net"
+            },
+            {
+                "name": "Knowledge Builder",
+                "price": 19.99,
+                "priceDisplay": "€19.99/month",
+                "description": "Workshops, Obsidian Starter Kit, courses, $150+",
+                "gumroadUrl": "https://www.knowii.net/checkout/knowledge-builder"
+            },
+            {
+                "name": "Knowledge Master",
+                "price": 39.99,
+                "priceDisplay": "€39.99/month",
+                "description": "Exclusive events, coaching, all courses, tools ($500+)",
+                "gumroadUrl": "https://www.knowii.net/checkout/knowledge-master"
+            }
+        ],
+        "priority": 35
+    },
+    {
+        "id": "it-concepts-wall",
+        "permalink": "mwdbm",
+        "name": "IT Concepts Wall",
+        "tagline": "Essential IT Concepts at Your Fingertips",
+        "price": 9.99,
+        "priceDisplay": "€9.99",
+        "priceTier": "budget",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/it-concepts-wall",
+        "type": "resource",
+        "pillars": ["learning"],
+        "tags": [
+            "it-fundamentals",
+            "programming",
+            "concepts",
+            "reference",
+            "wall-chart",
+            "visual-learning"
+        ],
+        "problem": "IT concepts scattered. Can't quickly reference. Information scattered.",
+        "problemPoints": [
+            "Can't quickly reference",
+            "Scattered information",
+            "Need visual aids",
+            "Want at-a-glance understanding"
+        ],
+        "agitate": "Hours wasted searching. Information scattered. Can't find overview.",
+        "agitatePoints": ["Hours wasted", "Scattered info", "Can't find overview"],
+        "solution": "IT Concepts Wall: Visual reference of essential IT concepts.",
+        "solutionPoints": ["Quick reference", "Visual aid", "Reduce search", "Desk reference"],
+        "description": "Visual reference resource presenting essential IT and programming concepts in organized, easy-to-reference format. Perfect for developers, students, and IT learners.",
+        "features": [
+            "Comprehensive Coverage",
+            "Visual Format",
+            "Quick Reference",
+            "Digital Format",
+            "Lifetime Access"
+        ],
+        "benefits": {
+            "immediate": ["Quick reference", "Visual aid", "Reduce search"],
+            "systematic": ["Organized", "Easy visuals", "Scalable"],
+            "longTerm": ["Build IT knowledge"]
+        },
+        "included": ["Digital IT Concepts Wall", "Printable format", "Lifetime access"],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Students and developers",
+            "timeSaved": "Time saved",
+            "rating": "Comprehensive"
+        },
+        "faqIds": [],
+        "targetAudience": ["Developers", "Students", "Visual learners", "IT learners"],
+        "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
+        "notForYou": ["Not interested in IT", "Prefer text-only"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
+        "guarantees": ["Comprehensive", "Printable", "Lifetime access"],
+        "crossSellIds": [],
+        "metaTitle": "IT Concepts Wall - Essential IT Reference | Visual Learning",
+        "metaDescription": "€9.99 digital IT concepts wall. Quick reference for programming fundamentals. Printable visual learning.",
+        "keywords": [
+            "it concepts",
+            "programming reference",
+            "coding cheat sheet",
+            "it fundamentals",
+            "visual learning"
+        ],
+        "priority": 50
+    },
+    {
+        "id": "pkm-coaching",
+        "permalink": "mwldmd",
+        "name": "Personal Knowledge Management Coaching",
+        "tagline": "Expert 1-on-1 Guidance to Transform Your Knowledge System",
+        "secondaryTagline": "Stop Struggling Alone. Get Personalized PKM Coaching From an Expert.",
+        "price": 99.99,
+        "priceDisplay": "€99.99 per session",
+        "priceTier": "premium",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/pkm-coaching",
+        "type": "service",
+        "pillars": ["knowledge-management", "coaching"],
+        "tags": [
+            "pkm",
+            "coaching",
+            "knowledge-management",
+            "personal-coaching",
+            "1-on-1",
+            "consultation"
+        ],
+        "problem": "Generic advice doesn't fit YOUR situation. Tried courses but stuck.",
+        "problemPoints": [
+            "Courses didn't help",
+            "Generic advice doesn't apply",
+            "Need personalized guidance",
+            "Want expert feedback",
+            "Struggling to implement",
+            "Need accountability"
+        ],
+        "agitate": "Generic doesn't work. Courses teach theory. Articles scattered. No guidance. Feeling stuck.",
+        "agitatePoints": [
+            "Generic doesn't fit",
+            "Courses teach theory",
+            "Articles scattered",
+            "No guidance",
+            "Feeling stuck"
+        ],
+        "solution": "1-on-1 PKM Coaching: Personalized expert guidance for YOUR challenges.",
+        "solutionPoints": [
+            "Expert Guidance",
+            "Personalized",
+            "Specific Solutions",
+            "System Review",
+            "Actionable Plan",
+            "Direct Support"
+        ],
+        "description": "Personal 1-on-1 coaching session with Sébastien Dubois, Knowledge Management expert and creator of Obsidian Starter Kit, Knowledge Worker Kit, and Knowii Community. Get personalized guidance for your situation.",
+        "features": [
+            "1-on-1 Session",
+            "Personalized Consultation",
+            "Expert Review",
+            "Tailored Solutions",
+            "Implementation Guidance",
+            "Q&A"
+        ],
+        "benefits": {
+            "immediate": [
+                "Expert feedback",
+                "Solutions for challenges",
+                "Clear plan",
+                "Direct answers"
+            ],
+            "systematic": [
+                "Optimized system",
+                "Implementation direction",
+                "Confidence",
+                "Continuous improvement"
+            ],
+            "longTerm": ["Professional system", "Career advancement", "Sustainable systems"]
+        },
+        "included": [
+            "1-on-1 coaching session",
+            "Personalized consultation",
+            "Expert review",
+            "Tailored solutions",
+            "Implementation guidance",
+            "Action plan"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Expert coach",
+            "timeSaved": "Hours saved",
+            "rating": "Proven"
+        },
+        "faqIds": [],
+        "targetAudience": ["The Stuck", "The Optimizer", "The Beginner", "The Professional"],
+        "perfectFor": [
+            "Courses didn't work",
+            "Want optimization",
+            "Starting fresh",
+            "Need personalized"
+        ],
+        "notForYou": ["Not ready", "Prefer self-directed", "Haven't tried basics"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": ["Expert Coach", "1-on-1 Personalized", "Specific Solutions", "Proven"],
+        "guarantees": ["Expert coach", "Personalized", "Specific solutions", "Clear plan"],
+        "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
+        "metaTitle": "PKM Coaching - Expert 1-on-1 Knowledge Management Guidance",
+        "metaDescription": "€99.99 per session. Personalized PKM coaching from expert. Solutions for your knowledge management challenges.",
+        "keywords": [
+            "pkm coaching",
+            "knowledge management coaching",
+            "personal coaching",
+            "obsidian coaching",
+            "coaching"
+        ],
+        "priority": 55
+    },
+    {
+        "id": "knowledge-system-checklist",
+        "permalink": "qctpj",
+        "name": "Knowledge Management System Checklist",
+        "tagline": "Build Your Knowledge System With Confidence",
+        "secondaryTagline": "FREE Checklist to Ensure You Have All Essential Components",
+        "price": 0,
+        "priceDisplay": "FREE",
+        "priceTier": "free",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/knowledge-system-checklist",
+        "type": "lead-magnet",
+        "pillars": ["knowledge-management"],
+        "tags": [
+            "pkm",
+            "knowledge-management",
+            "checklist",
+            "free-resource",
+            "lead-magnet",
+            "system-building"
+        ],
+        "problem": "Building is overwhelming. How do you know if you're covering everything?",
+        "problemPoints": [
+            "Don't know what you need",
+            "Worried about missing",
+            "Not sure if complete",
+            "Want validation"
+        ],
+        "agitate": "Overwhelming start. Missing components. No validation. Don't know what's essential.",
+        "agitatePoints": [
+            "Overwhelming",
+            "Missing components",
+            "No validation",
+            "Don't know essential"
+        ],
+        "solution": "Knowledge System Checklist: FREE comprehensive checklist covering all essential components.",
+        "solutionPoints": [
+            "Complete Checklist",
+            "FREE",
+            "Instant Access",
+            "Validation",
+            "Gap Analysis",
+            "Implementation Guide"
+        ],
+        "description": "The Knowledge Management System Checklist is a FREE comprehensive resource listing all essential components of an effective personal knowledge management system. Use it to validate, identify gaps, or plan your system.",
+        "features": [
+            "Complete System Coverage",
+            "Essential Components",
+            "How to Use",
+            "Audit setup",
+            "Identify gaps",
+            "Plan next steps"
+        ],
+        "benefits": {
+            "immediate": [
+                "Know what complete includes",
+                "Identify missing",
+                "Plan implementation",
+                "Validate setup"
+            ],
+            "systematic": [
+                "Build comprehensive",
+                "Avoid gaps",
+                "Systematic improvement",
+                "Confidence"
+            ],
+            "longTerm": ["Complete system", "Sustainable"]
+        },
+        "included": ["Complete checklist", "Components guide", "Gap analysis framework"],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Free resource",
+            "timeSaved": "Saves planning time",
+            "rating": "Comprehensive"
+        },
+        "faqIds": [],
+        "targetAudience": ["System Builders", "System Auditors", "Improvers", "Learners"],
+        "perfectFor": [
+            "Starting from scratch",
+            "Auditing system",
+            "Improving",
+            "Learning about PKM"
+        ],
+        "notForYou": ["Don't care about systems", "Prefer ad-hoc"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": ["100% FREE", "Instant Access", "Comprehensive", "Expert Created"],
+        "guarantees": ["Completely free", "Comprehensive", "No credit card"],
+        "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
+        "metaTitle": "FREE Knowledge Management System Checklist | Complete PKM Guide",
+        "metaDescription": "FREE comprehensive checklist for building complete knowledge management system. Identify gaps, plan implementation.",
+        "keywords": [
+            "pkm checklist",
+            "knowledge management checklist",
+            "free resource",
+            "second brain checklist"
+        ],
+        "priority": 40
+    },
+    {
+        "id": "beginners-guide-obsidian",
+        "permalink": "imkjic",
+        "name": "Beginner's Guide to Mastering Obsidian",
+        "tagline": "Start Your Obsidian Journey With Confidence",
+        "secondaryTagline": "FREE Guide From Obsidian Beginner to Confident User",
+        "price": 0,
+        "priceDisplay": "FREE",
+        "priceTier": "free",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/beginners-guide-to-obsidian",
+        "type": "lead-magnet",
+        "pillars": ["knowledge-management", "obsidian"],
+        "tags": [
+            "obsidian",
+            "free-guide",
+            "lead-magnet",
+            "beginner",
+            "note-taking",
+            "pkm",
+            "getting-started"
+        ],
+        "problem": "Obsidian is powerful but don't know where to start. Looks complex.",
+        "problemPoints": [
+            "Looks complex",
+            "Don't know where to begin",
+            "Worried about mistakes",
+            "Need clear guidance",
+            "Want to avoid pitfalls"
+        ],
+        "agitate": "Overwhelmed. Don't know where to start. Worried about mistakes. No clear path.",
+        "agitatePoints": [
+            "Overwhelmed",
+            "Don't know where",
+            "Worried about mistakes",
+            "No clear path"
+        ],
+        "solution": "Beginner's Guide to Mastering Obsidian: FREE comprehensive guide for confident use.",
+        "solutionPoints": [
+            "Complete Guide",
+            "FREE",
+            "Instant Access",
+            "Step-by-Step",
+            "Avoid Pitfalls",
+            "Confident Start"
+        ],
+        "description": "The Beginner's Guide to Mastering Obsidian is a FREE comprehensive guide based on a popular Obsidian article by Sébastien Dubois, creator of Obsidian Starter Kit. Get clear, step-by-step guidance for starting your Obsidian journey.",
+        "features": [
+            "Complete Getting-Started Guide",
+            "Getting started",
+            "Essential features",
+            "Basic note-taking",
+            "Organization fundamentals",
+            "Linking",
+            "Avoid mistakes",
+            "Next steps"
+        ],
+        "benefits": {
+            "immediate": [
+                "Clear starting point",
+                "Avoid pitfalls",
+                "Understand concepts",
+                "Confident start"
+            ],
+            "systematic": [
+                "Proper foundations",
+                "Scalable approach",
+                "Ready for advanced",
+                "Path to mastery"
+            ],
+            "longTerm": ["Solid note-taking"]
+        },
+        "included": [
+            "Complete Beginner's Guide",
+            "Step-by-step instructions",
+            "Essential concepts",
+            "Common pitfalls",
+            "Next steps"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "Free resource",
+            "timeSaved": "Saves learning hours",
+            "rating": "Based on popular article"
+        },
+        "faqIds": [],
+        "targetAudience": ["Obsidian Beginners", "The Curious", "Note-Takers", "Learners"],
+        "perfectFor": [
+            "Just downloaded",
+            "Heard about it",
+            "Switching from other",
+            "Want to do right"
+        ],
+        "notForYou": ["Already expert", "Don't use note-taking"],
+        "featured": false,
+        "status": "active",
+        "trustBadges": ["100% FREE", "Instant Access", "Beginner-Friendly", "Expert Created"],
+        "guarantees": ["Completely free", "Step-by-step", "No credit card"],
+        "crossSellIds": ["obsidian-starter-course", "obsidian-starter-kit"],
+        "metaTitle": "FREE Beginner's Guide to Mastering Obsidian | Get Started",
+        "metaDescription": "FREE guide for Obsidian beginners. Step-by-step getting started, concepts, avoid mistakes. Instant download.",
+        "keywords": [
+            "obsidian beginner guide",
+            "free obsidian guide",
+            "obsidian getting started",
+            "obsidian tutorial",
+            "note-taking guide"
+        ],
+        "priority": 40
+    },
+    {
+        "id": "everything-knowledge-bundle",
+        "permalink": "lbocum",
+        "name": "Everything Knowledge Bundle",
+        "tagline": "Every Knowledge Tool, Course, and Workshop in One Complete Package",
+        "secondaryTagline": "Save €200+ and Get Lifetime Access to the Complete Knowledge System",
+        "price": 299.99,
+        "priceDisplay": "€299.99 (Save €200+)",
+        "priceTier": "premium",
+        "gumroadUrl": "https://www.store.dsebastien.net/l/everything-knowledge-bundle",
+        "type": "bundle",
+        "pillars": ["knowledge-management", "bundle"],
+        "tags": [
+            "bundle",
+            "pkm",
+            "knowledge-management",
+            "complete-system",
+            "all-products",
+            "lifetime-access",
+            "best-value"
+        ],
+        "problem": "Want complete system but buying separately is €500+. Don't want ongoing subscription.",
+        "problemPoints": [
+            "Costs €500+ separately",
+            "Don't want subscription",
+            "Want everything at once",
+            "Prefer lifetime access",
+            "Don't want to decide"
+        ],
+        "agitate": "Buying separately costs €500+. Prices add up. Want everything but don't want subscriptions. Prefer ownership.",
+        "agitatePoints": [
+            "€500+ separately",
+            "Prices add up",
+            "Don't want subscriptions",
+            "Want ownership"
+        ],
+        "solution": "Everything Knowledge Bundle: Every product, course, workshop—current and future—for €299.99.",
+        "solutionPoints": [
+            "Complete System",
+            "Lifetime Access",
+            "Save €200+",
+            "Future-Proof",
+            "No Subscriptions",
+            "Everything Integrated"
+        ],
+        "description": "The Everything Knowledge Bundle includes every knowledge management product, course, workshop, and tool available—both current releases and all future additions—for one low price. Get complete system without subscriptions and save €200+.",
+        "features": [
+            "Complete Product Collection",
+            "Knowledge Worker Kit",
+            "Obsidian Starter Kit Premium",
+            "Knowledge Management for Beginners",
+            "Obsidian Starter Course",
+            "All Workshops",
+            "AI Ghostwriter Guide",
+            "PKM Library",
+            "Free Bonuses",
+            "Future Additions"
+        ],
+        "benefits": {
+            "immediate": ["Complete system", "Save €200+", "No decisions", "Everything works"],
+            "systematic": [
+                "Complete Coverage",
+                "Integrated System",
+                "Lifetime Access",
+                "Future-Proof",
+                "Best Value",
+                "No Subscriptions"
+            ],
+            "longTerm": [
+                "Complete transformation",
+                "Sustainable",
+                "Continuous improvements",
+                "No extra costs"
+            ]
+        },
+        "included": [
+            "Every knowledge product",
+            "Knowledge Worker Kit",
+            "Obsidian Starter Kit Premium",
+            "Knowledge Management for Beginners",
+            "Obsidian Starter Course",
+            "All 5 Workshops",
+            "AI Ghostwriter Guide",
+            "PKM Library",
+            "Free bonuses",
+            "All future additions"
+        ],
+        "testimonialIds": [],
+        "statsProof": {
+            "userCount": "€500+ value",
+            "timeSaved": "Save over €200",
+            "rating": "Complete system"
+        },
+        "faqIds": [],
+        "targetAudience": [
+            "Value Seekers",
+            "Lifetime Access Fans",
+            "Completionists",
+            "Serious Practitioners"
+        ],
+        "perfectFor": [
+            "Want complete system",
+            "Don't want €500+",
+            "Prefer lifetime",
+            "Want everything"
+        ],
+        "notForYou": ["Want community events", "Prefer monthly", "Only need specific"],
+        "featured": true,
+        "status": "active",
+        "trustBadges": [
+            "€500+ Value",
+            "Save €200+",
+            "Lifetime Access",
+            "Future Additions",
+            "Complete System",
+            "Instant Access"
+        ],
+        "guarantees": ["€500+ value", "Lifetime access", "All future additions", "All updates"],
+        "crossSellIds": ["knowledge-worker-kit", "obsidian-starter-kit"],
+        "metaTitle": "Everything Knowledge Bundle - Complete PKM System | €299.99",
+        "metaDescription": "€299.99 for lifetime access to every knowledge product. €500+ value. All current + future additions.",
+        "keywords": [
+            "knowledge management bundle",
+            "pkm bundle",
+            "complete knowledge system",
+            "obsidian bundle",
+            "lifetime access"
+        ],
+        "priority": 95
+    }
+]

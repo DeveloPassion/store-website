@@ -1,0 +1,33 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import './styles/index.css'
+
+import AppLayout from './components/layout/app-layout'
+import HomePage from './pages/home-ecommerce'
+import ChangelogPage from './pages/changelog'
+import ProductsPage from './pages/products'
+import ProductPage from './pages/product'
+
+const rootElement = document.getElementById('root')
+
+if (!rootElement) {
+    throw new Error('Root element not found')
+}
+
+ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route element={<AppLayout />}>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/tool/:toolId' element={<HomePage />} />
+                    <Route path='/label/:labelName' element={<HomePage />} />
+                    <Route path='/changelog' element={<ChangelogPage />} />
+                    <Route path='/products' element={<ProductsPage />} />
+                    <Route path='/l/:productSlug' element={<ProductPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
+)

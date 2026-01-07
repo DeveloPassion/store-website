@@ -1,0 +1,164 @@
+[
+    {
+        "id": "testimonial-1",
+        "productId": "obsidian-starter-kit",
+        "author": "Dwayne Appleby",
+        "rating": 5,
+        "quote": "The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for keeping track of all the details. The templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-2",
+        "productId": "obsidian-starter-kit",
+        "author": "Cal Desmond-Pearson",
+        "twitterHandle": "CalSocialHermit",
+        "twitterUrl": "https://x.com/CalSocialHermit/status/1527755690894409728",
+        "rating": 5,
+        "quote": "Finally clicked how awesome Obsidian is! Thanks to your excellent Obsidian Starter Kit!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-3",
+        "productId": "obsidian-starter-kit",
+        "author": "Michael Aaron",
+        "rating": 5,
+        "quote": "As someone who has bounced around trying to find the right Knowledge tool, I've realized many of my issues have been related to complexity. The structure, design and explanations in OSK have finally given me the foundation I needed. 100% worth it.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-4",
+        "productId": "obsidian-starter-kit",
+        "author": "Blake Holder",
+        "rating": 5,
+        "quote": "Starting as an absolute beginner, this kit allowed me to jump to what I feel is an intermediate level of Obsidian understanding and effective note taking in the span of 1-2 days, and I am grateful that I found it.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-5",
+        "productId": "obsidian-starter-kit",
+        "author": "Miriam G",
+        "rating": 5,
+        "quote": "Easy, complete and FANTASTIC!!!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-6",
+        "productId": "obsidian-starter-kit",
+        "author": "Franjo Pehar",
+        "rating": 5,
+        "quote": "The Obsidian Starter Kit is an excellent resource for anyone interested in Personal Knowledge Management (PKM) and building their own 'second brain.' A must-have for those looking to take control of their knowledge and productivity!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-7",
+        "productId": "knowledge-management-for-beginners",
+        "author": "Sofia",
+        "rating": 5,
+        "quote": "Fantastic program that rings true on so many levels bringing out the true power offloading your memory in a frictionless way",
+        "featured": true
+    },
+    {
+        "id": "testimonial-8",
+        "productId": "knowledge-management-for-beginners",
+        "author": "Olivier Larue",
+        "rating": 5,
+        "quote": "Don't let the 'Beginners' title fool you—this course is a comprehensive guide to building a fully functional Second Brain. Sebastien goes far beyond simple note-taking; he teaches a complete lifecycle: from the 'Capture Habit' and preventing the 'Collector's Fallacy' to actually leveraging your knowledge for creative output. While the course offers great theoretical frameworks (PARA, Johnny Decimal, Zettelkasten), I loved how practical it got with Obsidian. The sections on automating workflows (Templater, Dataview) and the deep dive into integrating AI (Claude, MCP, NotebookLM) were absolute game-changers. I walked away not just with a set of notes, but with a 'Life OS' that I can actually trust. Highly recommended!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-9",
+        "productId": "knowledge-management-for-beginners",
+        "author": "Roger Frei",
+        "rating": 5,
+        "quote": "I have worked in information systems since the 1980's and stumbled on some of these things haphazardly in both my personal and professional lives. I have never seen all these (knowledge and skills) teachings together before in countless books, videos and courses over the decades. I don't think that most of this knowledge even existed most of my life. This instructor is doing a great job of teaching me what I've been looking for (pretty intensely) since I was fourteen years old, and making me look forward to living the last (hopefully) third of my life with more focused clarity to reach my life's goals and purpose. I consider it an ideal gift for any (young) person who is serious about growing a more productive life with peace of mind.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-10",
+        "productId": "knowledge-management-for-beginners",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "Currently primarily focused on getting started properly with Obsidian… did start to go through your Knowledge Management for Beginners course this weekend. It's been really valuable, and has helped me to understand the setup you present in the Starter Kit/Course on a much deeper level. As I'm exploring more of your content and what you share I can really say that I'm very happy that I came across your work, and grateful to you for sharing your knowledge. I'm excited to integrate several of the things that you've shared moving forward. It aligns very well with my personal and professional needs at the moment, and gives me clarity on how to actually execute several of the 'loose ideas' that I've had.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-11",
+        "productId": "knowledge-management-for-beginners",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "Very Honest Man. Labors to explain so much at a granular level. Have patience and listen to his reasoning for explaining his logic and system process.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-12",
+        "productId": "knowledge-worker-kit",
+        "author": "Julien Dambron",
+        "rating": 5,
+        "quote": "Superbly crafted material that consistently grows and improves with time, demonstrating a relentless commitment to excellence and constant refinement. The community is still new and not so active, but it will keep improving!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-13",
+        "productId": "knowledge-worker-kit",
+        "author": "Richard Elliott",
+        "rating": 5,
+        "quote": "Sebastien's writing is exceptional and I look forward to each new article",
+        "featured": false
+    },
+    {
+        "id": "testimonial-14",
+        "productId": "pkm-library",
+        "author": "Miriam",
+        "rating": 5,
+        "quote": "This is a super complete work and one that I will use in each of my areas of interest. Perfect, really!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-15",
+        "productId": "pkm-library",
+        "author": "Martin Adams",
+        "rating": 5,
+        "quote": "This is a great collection of resources that can really help you find the best content out there on personal knowledge management. As a content creator myself, it's great to use this to discover others who share the same passions and see what they're up to and potentially collaborate. What I really like about it is that it isn't just a collection of note taking resources, related fields such as thinking and psychology.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-16",
+        "productId": "pkm-library",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "The most comprehensive PKM article collection I have ever seen",
+        "featured": false
+    },
+    {
+        "id": "testimonial-17",
+        "productId": "pkm-library",
+        "author": "Brigitte Roujol",
+        "rating": 5,
+        "quote": "A very good ressource !",
+        "featured": false
+    },
+    {
+        "id": "testimonial-18",
+        "productId": "pkm-library",
+        "author": "Joao Tapadinhas",
+        "rating": 5,
+        "quote": "Amazingly good list of resources in Personal Knowledge Management.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-19",
+        "productId": "obsidian-starter-course",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "The perfect tool to start using the full power of Obsidian.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-20",
+        "productId": "knowii-community",
+        "author": "Sofia",
+        "rating": 5,
+        "quote": "You've given me a lot of inspiration in how to actually do that as well simply through everything that you've built! Happy that I found your work and came across this community - such a gold mine 🙏",
+        "featured": true
+    }
+]
