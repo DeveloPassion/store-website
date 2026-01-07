@@ -1,15 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
-import {
-    FaHeart,
-    FaShieldAlt,
-    FaCreditCard,
-    FaGithub,
-    FaLinkedin,
-    FaYoutube,
-    FaEnvelope
-} from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaHeart, FaShieldAlt, FaCreditCard } from 'react-icons/fa'
+import ToolIcon from '@/components/tools/tool-icon'
+import socialsData from '@/data/socials.json'
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear()
@@ -218,51 +211,19 @@ const Footer: React.FC = () => {
                         <div>
                             <h4 className='mb-4 font-bold'>Connect</h4>
                             <div className='flex flex-wrap gap-3'>
-                                <a
-                                    href='https://github.com/dsebastien'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
-                                    aria-label='GitHub'
-                                >
-                                    <FaGithub className='h-5 w-5' />
-                                </a>
-                                <a
-                                    href='https://x.com/dsebastien'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
-                                    aria-label='X (Twitter)'
-                                >
-                                    <FaXTwitter className='h-5 w-5' />
-                                </a>
-                                <a
-                                    href='https://www.linkedin.com/in/sebastiend'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
-                                    aria-label='LinkedIn'
-                                >
-                                    <FaLinkedin className='h-5 w-5' />
-                                </a>
-                                <a
-                                    href='https://www.youtube.com/@dsebastien'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
-                                    aria-label='YouTube'
-                                >
-                                    <FaYoutube className='h-5 w-5' />
-                                </a>
-                                <a
-                                    href='https://www.dsebastien.net/newsletter'
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='bg-primary/5 hover:bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
-                                    aria-label='Newsletter'
-                                >
-                                    <FaEnvelope className='h-5 w-5' />
-                                </a>
+                                {socialsData.socials.map((social) => (
+                                    <a
+                                        key={social.url}
+                                        href={social.url}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='transition-transform hover:scale-110'
+                                        aria-label={social.name}
+                                        title={social.name}
+                                    >
+                                        <ToolIcon icon={social.icon} category='' size='md' />
+                                    </a>
+                                ))}
                             </div>
                         </div>
                     </div>
