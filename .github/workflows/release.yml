@@ -1,0 +1,97 @@
+name: Create Release
+
+on:
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Tag name (e.g., 1.0.0, 2024-01-15, release-candidate-1)'
+                required: true
+                type: string
+    push:
+        tags:
+            - '**'
+
+permissions:
+    contents: write
+
+jobs:
+    release:
+        name: Create Tag and Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Configure Git
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            - name: Create and push tag
+              if: github.event_name == 'workflow_dispatch'
+              run: |
+                  git tag "${{ inputs.tag }}"
+                  git push origin "${{ inputs.tag }}"
+
+            - name: Determine tag name
+              id: tag
+              run: |
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                      echo "name=${{ inputs.tag }}" >> $GITHUB_OUTPUT
+                  else
+                      echo "name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Update version and changelog (workflow_dispatch only)
+              if: github.event_name == 'workflow_dispatch'
+              run: |
+                  # Update package.json version
+                  npm run release:update-version ${{ steps.tag.outputs.name }}
+
+                  # Update package-lock.json
+                  npm install --package-lock-only
+
+                  # Generate changelog
+                  npm run release:changelog
+
+                  # Commit changes
+                  git add package.json package-lock.json CHANGELOG.md
+                  git commit -m "chore(release): ${{ steps.tag.outputs.name }}"
+                  git push origin HEAD:main
+
+                  # Update tag to point to the new commit
+                  git tag -f "${{ steps.tag.outputs.name }}"
+                  git push -f origin "${{ steps.tag.outputs.name }}"
+
+            - name: Extract changelog for release notes
+              id: changelog
+              run: |
+                  # Extract the latest version section from CHANGELOG.md
+                  NOTES=$(awk '/^## \[?[0-9]/{if(p) exit; p=1} p' CHANGELOG.md)
+                  # Handle multi-line output
+                  echo "notes<<EOF" >> $GITHUB_OUTPUT
+                  echo "$NOTES" >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
+
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: ${{ steps.tag.outputs.name }}
+                  name: Release ${{ steps.tag.outputs.name }}
+                  body: ${{ steps.changelog.outputs.notes }}
+                  draft: false
+                  prerelease: false
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
