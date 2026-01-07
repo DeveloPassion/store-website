@@ -1,4 +1,9 @@
-## 0.0.1 (2026-01-07)
+## [0.0.2](https://github.com/DeveloPassion/store-website/compare/0.0.1...0.0.2) (2026-01-07)
+
+### Features
+
+* **all:** updated footer links ([07ec987](https://github.com/DeveloPassion/store-website/commit/07ec9873ccac624a82fbca165854924d13f38645))
+## [0.0.1](https://github.com/DeveloPassion/store-website/compare/cccfe2f3323ef4a6cbbc0faa627f8f42f189e446...0.0.1) (2026-01-07)
 
 ### Features
 
