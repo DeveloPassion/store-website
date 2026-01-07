@@ -7,6 +7,7 @@ import AppLayout from './components/layout/app-layout'
 import HomePage from './pages/home-ecommerce'
 import ProductsPage from './pages/products'
 import ProductPage from './pages/product'
+import HelpPage from './pages/help'
 
 const rootElement = document.getElementById('root')
 
@@ -24,6 +25,7 @@ ReactDOM.createRoot(rootElement).render(
                     <Route path='/label/:labelName' element={<HomePage />} />
                     <Route path='/products' element={<ProductsPage />} />
                     <Route path='/l/:productSlug' element={<ProductPage />} />
+                    <Route path='/help' element={<HelpPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

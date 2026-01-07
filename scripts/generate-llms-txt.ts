@@ -72,6 +72,7 @@ License: Various (see individual tools)
 - / - Homepage with searchable tools grid
 - /tool/{id} - Individual tool pages with details
 - /label/{name} - Label-filtered views showing related tools
+- /help - Help and support page
 
 ## Categories
 ${categories

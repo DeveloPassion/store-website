@@ -82,6 +82,14 @@ function generateSitemap(): string {
         priority: '1.0'
     })
 
+    // Add help page
+    urls.push({
+        loc: `${BASE_URL}/help`,
+        lastmod: today,
+        changefreq: 'monthly',
+        priority: '0.9'
+    })
+
     // Add each tool page (using clean URLs without hash)
     for (const tool of toolsData.tools) {
         urls.push({
@@ -146,11 +154,12 @@ function writeSitemap(): void {
     writeFileSync(sitemapPath, sitemap)
     console.log(`✓ Sitemap generated: ${sitemapPath}`)
     console.log(`  - Homepage: 1 URL`)
+    console.log(`  - Help page: 1 URL`)
     console.log(`  - Tools: ${toolsData.tools.length} URLs`)
     console.log(`  - Products: ${productsData.length} URLs`)
     console.log(`  - Labels: ${allLabels.length} URLs`)
     console.log(
-        `  - Total: ${toolsData.tools.length + productsData.length + allLabels.length + 1} URLs`
+        `  - Total: ${toolsData.tools.length + productsData.length + allLabels.length + 2} URLs`
     )
 }
 

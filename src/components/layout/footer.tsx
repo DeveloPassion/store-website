@@ -128,14 +128,12 @@ const Footer: React.FC = () => {
                             <h4 className='mb-4 font-bold'>Support</h4>
                             <ul className='space-y-2 text-sm'>
                                 <li>
-                                    <a
-                                        href='https://www.dsebastien.net/about'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
+                                    <Link
+                                        to='/help'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Help Center
-                                    </a>
+                                        Help
+                                    </Link>
                                 </li>
                                 <li>
                                     <a
