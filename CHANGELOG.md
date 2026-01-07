@@ -1,3 +1,10 @@
+## [0.0.5](https://github.com/DeveloPassion/store-website/compare/0.0.4...0.0.5) (2026-01-07)
+
+### Features
+
+* **all:** added categories and category pages ([85dc809](https://github.com/DeveloPassion/store-website/commit/85dc8098d67c65e9b847ffaa3ce8e27ef0224976))
+* **all:** added script ([a4c36d6](https://github.com/DeveloPassion/store-website/commit/a4c36d69987d67874e72f7f85ae88695eefa6362))
+* **all:** updated menu and footer links ([f656ccd](https://github.com/DeveloPassion/store-website/commit/f656ccdbf1c8b257d744b91f5aac86babef1472d))
 ## [0.0.4](https://github.com/DeveloPassion/store-website/compare/0.0.3...0.0.4) (2026-01-07)
 
 ### Features
