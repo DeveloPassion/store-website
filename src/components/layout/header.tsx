@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
-import { FaShoppingCart, FaHeart, FaUser, FaSearch, FaBars, FaTimes } from 'react-icons/fa'
+import { FaSearch, FaBars, FaTimes } from 'react-icons/fa'
 
 interface HeaderProps {
     onOpenCommandPalette: () => void
@@ -92,29 +92,20 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             <FaSearch className='h-5 w-5' />
                         </button>
 
-                        {/* Wishlist */}
-                        <button className='hover:bg-primary/10 hidden rounded-lg p-2 transition-colors sm:block'>
-                            <FaHeart className='h-5 w-5' />
-                        </button>
-
-                        {/* Account */}
+                        {/* Website Link */}
                         <a
                             href='https://www.dsebastien.net'
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='hover:bg-primary/10 hidden rounded-lg p-2 transition-colors sm:block'
-                            title='Visit dSebastien.net'
+                            className='bg-primary/10 hover:bg-primary/20 hidden items-center gap-2 rounded-lg px-4 py-2 transition-colors sm:flex'
                         >
-                            <FaUser className='h-5 w-5' />
+                            <img
+                                src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
+                                alt='DeveloPassion'
+                                className='h-5 w-5 rounded-full object-contain'
+                            />
+                            <span className='hidden sm:inline'>Website</span>
                         </a>
-
-                        {/* Cart */}
-                        <button className='bg-secondary/10 hover:bg-secondary/20 relative rounded-lg p-2 transition-colors'>
-                            <FaShoppingCart className='text-secondary h-5 w-5' />
-                            <span className='bg-secondary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold text-white'>
-                                0
-                            </span>
-                        </button>
 
                         {/* Mobile Menu Toggle */}
                         <button
@@ -163,23 +154,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 </Link>
                             ))}
                         </nav>
-
-                        {/* Mobile Account Links */}
-                        <div className='border-primary/10 mt-4 flex gap-2 border-t pt-4'>
-                            <a
-                                href='https://www.dsebastien.net'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='bg-primary/5 hover:bg-primary/10 flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors'
-                            >
-                                <FaUser className='h-4 w-4' />
-                                Account
-                            </a>
-                            <button className='bg-primary/5 hover:bg-primary/10 flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm transition-colors'>
-                                <FaHeart className='h-4 w-4' />
-                                Wishlist
-                            </button>
-                        </div>
                     </div>
                 )}
             </div>
