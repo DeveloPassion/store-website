@@ -174,7 +174,7 @@ const TagsPage: React.FC = () => {
                                                 .replace(/[^a-z0-9]+/g, '-')
                                             navigate(`/tags/${tagId}`)
                                         }}
-                                        className={`group border-primary/10 hover:border-secondary/30 flex flex-col gap-3 rounded-xl border bg-gradient-to-br p-4 text-left transition-all hover:scale-102 hover:shadow-lg ${cardColors[colorIndex]}`}
+                                        className={`group border-primary/10 hover:border-secondary/30 flex cursor-pointer flex-col gap-3 rounded-xl border bg-gradient-to-br p-4 text-left transition-all hover:scale-102 hover:shadow-lg ${cardColors[colorIndex]}`}
                                     >
                                         <div className='flex items-start justify-between'>
                                             <FaTag

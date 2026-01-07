@@ -192,7 +192,7 @@ const CategoriesPage: React.FC = () => {
                                         onClick={() => {
                                             navigate(`/categories/${category.id}`)
                                         }}
-                                        className='group border-primary/10 hover:border-secondary/30 flex flex-col gap-4 rounded-xl border p-6 text-left transition-all hover:scale-102 hover:shadow-lg'
+                                        className='group border-primary/10 hover:border-secondary/30 flex cursor-pointer flex-col gap-4 rounded-xl border p-6 text-left transition-all hover:scale-102 hover:shadow-lg'
                                         style={{
                                             background: `linear-gradient(135deg, ${category.color}15, ${category.color}05)`
                                         }}
