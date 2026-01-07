@@ -83,7 +83,7 @@ function generateSitemap(): string {
     // Add each tag page
     for (const tag of allTags) {
         urls.push({
-            loc: `${BASE_URL}/tag/${encodeURIComponent(tag)}`,
+            loc: `${BASE_URL}/tags/${encodeURIComponent(tag)}`,
             lastmod: today,
             changefreq: 'weekly',
             priority: '0.6'

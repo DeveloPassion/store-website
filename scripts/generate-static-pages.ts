@@ -173,7 +173,7 @@ function generateProductSchema(product: Product): string {
  * Generate CollectionPage JSON-LD schema for a tag page
  */
 function generateTagSchema(tag: string, encodedTag: string): string {
-    const tagUrl = `${BASE_URL}/tag/${encodedTag}`
+    const tagUrl = `${BASE_URL}/tags/${encodedTag}`
 
     const schema = {
         '@context': 'https://schema.org',
@@ -254,7 +254,7 @@ ${taggedProducts
  * Generate customized HTML for a tag page with appropriate meta tags
  */
 function generateTagPageHtml(tag: string, encodedTag: string): string {
-    const tagUrl = `${BASE_URL}/tag/${encodedTag}`
+    const tagUrl = `${BASE_URL}/tags/${encodedTag}`
     const title = `${tag} - dSebastien's Toolbox`
     const description = `Products tagged with "${tag}"`
 
@@ -383,7 +383,7 @@ function generateTagsIndexNoscript(): string {
 ${allTags
     .map(
         (tag) =>
-            `                <li><a href="/tag/${encodeURIComponent(tag)}">${escapeHtml(tag)}</a></li>`
+            `                <li><a href="/tags/${encodeURIComponent(tag)}">${escapeHtml(tag)}</a></li>`
     )
     .join('\n')}
             </ul>
@@ -558,7 +558,7 @@ let tagCount = 0
 for (const tag of allTags) {
     // URL-encode the tag for the directory name
     const encodedTag = encodeURIComponent(tag)
-    const tagDir = join(distDir, 'tag', encodedTag)
+    const tagDir = join(distDir, 'tags', encodedTag)
     mkdirSync(tagDir, { recursive: true })
 
     // Generate customized HTML with tag-specific meta tags

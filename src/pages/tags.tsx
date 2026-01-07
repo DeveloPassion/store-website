@@ -1,15 +1,21 @@
-import { useMemo, useState, useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { useMemo } from 'react'
+import { Link, useSearchParams, useNavigate } from 'react-router'
 import { FaArrowLeft, FaTag, FaSearch, FaArrowRight } from 'react-icons/fa'
 import Section from '@/components/ui/section'
-import TagDetailModal, { type TagData } from '@/components/products/tag-detail-modal'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
+
+export interface TagData {
+    name: string
+    count: number
+    percentage: number
+    products: Product[]
+}
 
 const TagsPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchQuery = searchParams.get('q') || ''
-    const [selectedTag, setSelectedTag] = useState<TagData | null>(null)
+    const navigate = useNavigate()
 
     // Build tag data from products
     const allTags = useMemo(() => {
@@ -46,55 +52,6 @@ const TagsPage: React.FC = () => {
         const query = searchQuery.toLowerCase()
         return allTags.filter((tag) => tag.name.toLowerCase().includes(query))
     }, [allTags, searchQuery])
-
-    // Handle tag navigation in modal
-    const handleNavigate = (direction: 'prev' | 'next') => {
-        if (!selectedTag) return
-        const currentIndex = filteredTags.findIndex((t) => t.name === selectedTag.name)
-        let newIndex: number
-
-        if (direction === 'prev') {
-            newIndex = currentIndex > 0 ? currentIndex - 1 : filteredTags.length - 1
-        } else {
-            newIndex = currentIndex < filteredTags.length - 1 ? currentIndex + 1 : 0
-        }
-
-        const newTag = filteredTags[newIndex] ?? null
-        setSelectedTag(newTag)
-        if (newTag) {
-            updateUrl(newTag.name)
-        }
-    }
-
-    // Update URL with tag
-    const updateUrl = (tagName: string) => {
-        const tagId = tagName.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-        window.history.pushState({}, '', `/tags/${tagId}`)
-    }
-
-    // Handle browser back/forward
-    useEffect(() => {
-        const handlePopState = () => {
-            const path = window.location.pathname
-            if (path === '/tags') {
-                setSelectedTag(null)
-            } else {
-                const match = path.match(/\/tags\/([^/]+)/)
-                if (match) {
-                    const tagId = match[1]
-                    const tag = allTags.find(
-                        (t) => t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === tagId
-                    )
-                    if (tag) {
-                        setSelectedTag(tag)
-                    }
-                }
-            }
-        }
-
-        window.addEventListener('popstate', handlePopState)
-        return () => window.removeEventListener('popstate', handlePopState)
-    }, [allTags])
 
     // Handle search input change
     const handleSearchChange = (value: string) => {
@@ -212,8 +169,10 @@ const TagsPage: React.FC = () => {
                                     <button
                                         key={tag.name}
                                         onClick={() => {
-                                            setSelectedTag(tag)
-                                            updateUrl(tag.name)
+                                            const tagId = tag.name
+                                                .toLowerCase()
+                                                .replace(/[^a-z0-9]+/g, '-')
+                                            navigate(`/tags/${tagId}`)
                                         }}
                                         className={`group border-primary/10 hover:border-secondary/30 flex flex-col gap-3 rounded-xl border bg-gradient-to-br p-4 text-left transition-all hover:scale-102 hover:shadow-lg ${cardColors[colorIndex]}`}
                                     >
@@ -258,19 +217,6 @@ const TagsPage: React.FC = () => {
                     )}
                 </div>
             </Section>
-
-            {/* Tag Detail Modal */}
-            {selectedTag && (
-                <TagDetailModal
-                    tag={selectedTag}
-                    allTags={filteredTags}
-                    onClose={() => {
-                        setSelectedTag(null)
-                        window.history.pushState({}, '', '/tags')
-                    }}
-                    onNavigate={handleNavigate}
-                />
-            )}
         </>
     )
 }

@@ -66,7 +66,7 @@ Store: https://store.dsebastien.net
 ## Content Structure
 - / - Homepage with products
 - /l/{id} - Individual product pages
-- /tag/{name} - Tag-filtered views showing related products
+- /tags/{name} - Tag pages showing related products
 - /help - Help and support page
 
 ## Product Types
