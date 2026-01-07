@@ -28,6 +28,14 @@ interface ProductsData extends Array<Product> {}
 const productsJsonPath = join(__dirname, '../src/data/products.json')
 const productsData: ProductsData = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
+// Load categories data
+const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
+interface Category {
+    id: string
+    name: string
+}
+const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, 'utf-8'))
+
 // Get unique product types
 const types = Array.from(new Set(productsData.map((p) => p.type))).sort()
 
@@ -66,7 +74,10 @@ Store: https://store.dsebastien.net
 ## Content Structure
 - / - Homepage with products
 - /l/{id} - Individual product pages
+- /tags - Browse all tags
 - /tags/{name} - Tag pages showing related products
+- /categories - Browse all categories
+- /categories/{id} - Category pages showing related products
 - /help - Help and support page
 
 ## Product Types
@@ -79,6 +90,9 @@ ${types
 
 ## Key Tags
 ${topTags.map(([tag, count]) => `- ${tag} (${count} products)`).join('\n')}
+
+## Categories
+${categoriesData.map((cat) => `- ${cat.name} (${cat.id})`).join('\n')}
 
 ## Products Overview
 

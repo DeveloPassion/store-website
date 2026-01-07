@@ -36,6 +36,14 @@ interface SitemapUrl {
 const productsJsonPath = join(__dirname, '../src/data/products.json')
 const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
+// Read categories data
+const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
+interface Category {
+    id: string
+    name: string
+}
+const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, 'utf-8'))
+
 // Extract all unique tags
 const allTags = Array.from(new Set(productsData.flatMap((product) => product.tags))).sort()
 
@@ -70,6 +78,14 @@ function generateSitemap(): string {
         priority: '0.7'
     })
 
+    // Add categories page
+    urls.push({
+        loc: `${BASE_URL}/categories`,
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.7'
+    })
+
     // Add each product page
     for (const product of productsData) {
         urls.push({
@@ -84,6 +100,16 @@ function generateSitemap(): string {
     for (const tag of allTags) {
         urls.push({
             loc: `${BASE_URL}/tags/${encodeURIComponent(tag)}`,
+            lastmod: today,
+            changefreq: 'weekly',
+            priority: '0.6'
+        })
+    }
+
+    // Add each category page
+    for (const category of categoriesData) {
+        urls.push({
+            loc: `${BASE_URL}/categories/${category.id}`,
             lastmod: today,
             changefreq: 'weekly',
             priority: '0.6'
@@ -126,9 +152,13 @@ function writeSitemap(): void {
     console.log(`  - Homepage: 1 URL`)
     console.log(`  - Help page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
+    console.log(`  - Categories page: 1 URL`)
     console.log(`  - Products: ${productsData.length} URLs`)
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
-    console.log(`  - Total: ${productsData.length + allTags.length + 3} URLs`)
+    console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
+    console.log(
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 4} URLs`
+    )
 }
 
 writeSitemap()

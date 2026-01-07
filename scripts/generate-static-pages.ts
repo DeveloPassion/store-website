@@ -36,6 +36,15 @@ interface ProductsData extends Array<Product> {}
 const productsJsonPath = join(__dirname, '../src/data/products.json')
 const productsData: ProductsData = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
+// Load categories data
+const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
+interface Category {
+    id: string
+    name: string
+    description: string
+}
+const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, 'utf-8'))
+
 // Extract all unique tags
 const allTags = Array.from(new Set(productsData.flatMap((product) => product.tags))).sort()
 
@@ -460,6 +469,289 @@ function generateTagsIndexPageHtml(): string {
 }
 
 /**
+ * Generate CollectionPage JSON-LD schema for a category page
+ */
+function generateCategorySchema(category: Category): string {
+    const categoryUrl = `${BASE_URL}/categories/${category.id}`
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'CollectionPage',
+                '@id': `${categoryUrl}#collection`,
+                'name': `${category.name} - DeveloPassion Store`,
+                'description': category.description,
+                'url': categoryUrl,
+                'creator': { '@id': `${BASE_URL}/#person` },
+                'publisher': { '@id': `${BASE_URL}/#organization` },
+                'isPartOf': {
+                    '@type': 'WebSite',
+                    '@id': `${BASE_URL}/#website`,
+                    'name': 'DeveloPassion Store',
+                    'url': BASE_URL
+                },
+                'about': {
+                    '@type': 'Thing',
+                    'name': category.name
+                },
+                'inLanguage': 'en'
+            },
+            authorSchema,
+            publisherSchema,
+            {
+                '@type': 'BreadcrumbList',
+                '@id': `${categoryUrl}#breadcrumb`,
+                'itemListElement': [
+                    {
+                        '@type': 'ListItem',
+                        'position': 1,
+                        'name': 'Home',
+                        'item': BASE_URL
+                    },
+                    {
+                        '@type': 'ListItem',
+                        'position': 2,
+                        'name': category.name,
+                        'item': categoryUrl
+                    }
+                ]
+            }
+        ]
+    }
+
+    return JSON.stringify(schema, null, 12)
+}
+
+/**
+ * Generate noscript content for a category page
+ */
+function generateCategoryNoscript(category: Category): string {
+    const categoryProducts = productsData.filter((p) => p.categories.includes(category.id as any))
+
+    return `
+    <noscript>
+        <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
+            <h1>${escapeHtml(category.name)} - Products</h1>
+            <p>${escapeHtml(category.description)}</p>
+            <p><strong>Total products:</strong> ${categoryProducts.length}</p>
+            <h2>Products</h2>
+            <ul>
+${categoryProducts
+    .map(
+        (p) =>
+            `                <li><a href="/l/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
+    )
+    .join('\n')}
+            </ul>
+            <p><a href="/">← Back to store</a></p>
+        </article>
+    </noscript>`
+}
+
+/**
+ * Generate customized HTML for a category page with appropriate meta tags
+ */
+function generateCategoryPageHtml(category: Category): string {
+    const categoryUrl = `${BASE_URL}/categories/${category.id}`
+    const title = `${category.name} - Knowledge Forge`
+    const description = category.description
+
+    let html = indexHtml
+
+    // Update <title>
+    html = html.replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
+
+    // Update canonical URL
+    html = html.replace(
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+        `<link rel="canonical" href="${categoryUrl}" />`
+    )
+
+    // Update meta description
+    html = html.replace(
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update OG tags
+    html = html.replace(
+        /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:description" content="${escapeHtml(description)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:url" content="${categoryUrl}" />`
+    )
+
+    // Update Twitter tags
+    html = html.replace(
+        /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Add JSON-LD schema
+    const categorySchema = generateCategorySchema(category)
+    html = html.replace(
+        /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+        `<script type="application/ld+json">\n${categorySchema}\n        </script>`
+    )
+
+    // Add noscript content before </body>
+    const noscriptContent = generateCategoryNoscript(category)
+    html = html.replace('</body>', `${noscriptContent}\n    </body>`)
+
+    return html
+}
+
+/**
+ * Generate CollectionPage JSON-LD schema for the categories index page
+ */
+function generateCategoriesIndexSchema(): string {
+    const categoriesUrl = `${BASE_URL}/categories`
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'CollectionPage',
+                '@id': `${categoriesUrl}#collection`,
+                'name': 'Categories - DeveloPassion Store',
+                'description': 'Browse products by category',
+                'url': categoriesUrl,
+                'creator': { '@id': `${BASE_URL}/#person` },
+                'publisher': { '@id': `${BASE_URL}/#organization` },
+                'isPartOf': {
+                    '@type': 'WebSite',
+                    '@id': `${BASE_URL}/#website`,
+                    'name': 'DeveloPassion Store',
+                    'url': BASE_URL
+                },
+                'inLanguage': 'en'
+            },
+            authorSchema,
+            publisherSchema,
+            {
+                '@type': 'BreadcrumbList',
+                '@id': `${categoriesUrl}#breadcrumb`,
+                'itemListElement': [
+                    {
+                        '@type': 'ListItem',
+                        'position': 1,
+                        'name': 'Home',
+                        'item': BASE_URL
+                    },
+                    {
+                        '@type': 'ListItem',
+                        'position': 2,
+                        'name': 'Categories',
+                        'item': categoriesUrl
+                    }
+                ]
+            }
+        ]
+    }
+
+    return JSON.stringify(schema, null, 12)
+}
+
+/**
+ * Generate noscript content for the categories index page
+ */
+function generateCategoriesIndexNoscript(): string {
+    return `
+    <noscript>
+        <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
+            <h1>Categories</h1>
+            <p>Browse products by category</p>
+            <p><strong>Total categories:</strong> ${categoriesData.length}</p>
+            <h2>All Categories</h2>
+            <ul>
+${categoriesData
+    .map(
+        (cat) =>
+            `                <li><a href="/categories/${cat.id}">${escapeHtml(cat.name)}</a> - ${escapeHtml(cat.description)}</li>`
+    )
+    .join('\n')}
+            </ul>
+            <p><a href="/">← Back to store</a></p>
+        </article>
+    </noscript>`
+}
+
+/**
+ * Generate customized HTML for the categories index page with appropriate meta tags
+ */
+function generateCategoriesIndexPageHtml(): string {
+    const categoriesUrl = `${BASE_URL}/categories`
+    const title = 'Categories - Knowledge Forge'
+    const description =
+        'Browse products by category. Find courses, kits, templates, and tools organized by topic.'
+
+    let html = indexHtml
+
+    // Update <title>
+    html = html.replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
+
+    // Update canonical URL
+    html = html.replace(
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+        `<link rel="canonical" href="${categoriesUrl}" />`
+    )
+
+    // Update meta description
+    html = html.replace(
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update OG tags
+    html = html.replace(
+        /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:description" content="${escapeHtml(description)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:url" content="${categoriesUrl}" />`
+    )
+
+    // Update Twitter tags
+    html = html.replace(
+        /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Add JSON-LD schema
+    const categoriesIndexSchema = generateCategoriesIndexSchema()
+    html = html.replace(
+        /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+        `<script type="application/ld+json">\n${categoriesIndexSchema}\n        </script>`
+    )
+
+    // Add noscript content before </body>
+    const noscriptContent = generateCategoriesIndexNoscript()
+    html = html.replace('</body>', `${noscriptContent}\n    </body>`)
+
+    return html
+}
+
+/**
  * Generate noscript content for a product page
  */
 function generateProductNoscript(product: Product): string {
@@ -568,6 +860,28 @@ for (const tag of allTags) {
 }
 console.log(`  ✓ Created ${tagCount} individual tag pages`)
 
+// Create directory and generate customized HTML for the categories index page
+console.log('Generating static page for categories index...')
+const categoriesDir = join(distDir, 'categories')
+mkdirSync(categoriesDir, { recursive: true })
+const categoriesIndexHtml = generateCategoriesIndexPageHtml()
+writeFileSync(join(categoriesDir, 'index.html'), categoriesIndexHtml)
+console.log('  ✓ Created categories index page')
+
+// Create directories and generate customized HTML for each category
+console.log('Generating static pages for individual categories...')
+let categoryCount = 0
+for (const category of categoriesData) {
+    const categoryDir = join(distDir, 'categories', category.id)
+    mkdirSync(categoryDir, { recursive: true })
+
+    // Generate customized HTML with category-specific meta tags
+    const categoryHtml = generateCategoryPageHtml(category)
+    writeFileSync(join(categoryDir, 'index.html'), categoryHtml)
+    categoryCount++
+}
+console.log(`  ✓ Created ${categoryCount} individual category pages`)
+
 // Create directories and generate customized HTML for each product
 console.log('Generating static pages for products...')
 let productCount = 0
@@ -584,9 +898,11 @@ console.log(`  ✓ Created ${productCount} product pages`)
 writeFileSync(join(distDir, '404.html'), indexHtml)
 console.log('  ✓ Created 404.html fallback')
 
-console.log(`\n✓ Static pages generated: ${tagCount + productCount + 3} total`)
+console.log(`\n✓ Static pages generated: ${tagCount + categoryCount + productCount + 4} total`)
 console.log(`  - Homepage: 1`)
 console.log(`  - Tags index: 1`)
 console.log(`  - Individual tag pages: ${tagCount}`)
+console.log(`  - Categories index: 1`)
+console.log(`  - Individual category pages: ${categoryCount}`)
 console.log(`  - Products: ${productCount}`)
 console.log(`  - 404 fallback: 1`)
