@@ -33,6 +33,7 @@
         "release": "bash scripts/release.sh",
         "release:update-version": "tsx scripts/update-version.ts",
         "release:changelog": "tsx scripts/generate-changelog.ts",
+        "add": "npm run format && git add -A && npm run commit",
         "push": "git push && git push --tags"
     },
     "lint-staged": {
