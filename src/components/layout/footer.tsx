@@ -1,6 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
-import { FaHeart, FaShieldAlt, FaCreditCard } from 'react-icons/fa'
+import {
+    FaHeart,
+    FaShieldAlt,
+    FaCreditCard,
+    FaUser,
+    FaEnvelope,
+    FaStickyNote,
+    FaUsers,
+    FaHandshake,
+    FaGithub
+} from 'react-icons/fa'
 import ToolIcon from '@/components/tools/tool-icon'
 import socialsData from '@/data/socials.json'
 
@@ -82,14 +92,6 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/tags'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Tags
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
                                         to='/?category=Courses'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
@@ -128,6 +130,14 @@ const Footer: React.FC = () => {
                                         Free Resources
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        to='/tags'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Tags
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
@@ -164,48 +174,74 @@ const Footer: React.FC = () => {
                             </ul>
                         </div>
 
-                        {/* Company */}
+                        {/* Resources */}
                         <div>
-                            <h4 className='mb-4 font-bold'>Company</h4>
+                            <h4 className='mb-4 font-bold'>Resources</h4>
                             <ul className='space-y-2 text-sm'>
                                 <li>
                                     <a
-                                        href='https://www.dsebastien.net/about'
+                                        href='https://www.dsebastien.net/about/'
                                         target='_blank'
                                         rel='noopener noreferrer'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
-                                        About
+                                        <FaUser className='h-4 w-4' />
+                                        About Me
                                     </a>
                                 </li>
                                 <li>
                                     <a
-                                        href='https://www.dsebastien.net'
+                                        href='https://www.dsebastien.net/newsletter/'
                                         target='_blank'
                                         rel='noopener noreferrer'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href='https://www.youtube.com/@dsebastien'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        YouTube
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href='https://www.dsebastien.net/newsletter'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
+                                        <FaEnvelope className='h-4 w-4' />
                                         Newsletter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://notes.dsebastien.net/'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <FaStickyNote className='h-4 w-4' />
+                                        Public Notes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net/join-the-knowii-community-and-fix-your-information-overload-problem/'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <FaUsers className='h-4 w-4' />
+                                        Knowii Community
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.dsebastien.net/knowii-affiliate-program/'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <FaHandshake className='h-4 w-4' />
+                                        Affiliate Program
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://github.com/dsebastien'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <FaGithub className='h-4 w-4' />
+                                        GitHub Profile
                                     </a>
                                 </li>
                             </ul>

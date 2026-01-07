@@ -11,7 +11,6 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
     const categories = [
         { name: 'All Products', path: '/' },
-        { name: 'Tags', path: '/tags' },
         { name: 'Courses', path: '/?category=Courses' },
         { name: 'Kits & Templates', path: '/?category=Kits' },
         { name: 'Workshops', path: '/?category=Workshops' },
@@ -66,6 +65,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 {category.name}
                             </Link>
                         ))}
+                        <Link
+                            to='/tags'
+                            className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
+                        >
+                            Tags
+                        </Link>
                     </nav>
 
                     {/* Search Bar - Click to open command palette */}
