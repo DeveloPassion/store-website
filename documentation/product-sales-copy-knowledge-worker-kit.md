@@ -1,6 +1,7 @@
 # Knowledge Worker Kit - Sales Copy
 
 ## Product Identity
+
 - **ID**: knowledge-worker-kit
 - **Permalink**: pyjrr
 - **Name**: Knowledge Worker Kit
@@ -13,6 +14,7 @@
 - **Featured**: true
 
 ## Pricing
+
 - **Price**: €149.99
 - **Currency**: EUR (€)
 - **Price Display**: €149.99
@@ -20,6 +22,7 @@
 - **Gumroad URL**: https://store.dsebastien.net/l/knowledge-worker-kit
 
 **Important Notes**:
+
 - One-time payment, lifetime access
 - Evergreen project - continuous content updates
 - $270+ in included bonuses
@@ -28,9 +31,11 @@
 ## Marketing Copy - PAS Framework
 
 ### Problem
+
 **The Challenge**: Being a Knowledge Worker today is more challenging than ever.
 
 **Pain Points**:
+
 - 😰 Feeling overwhelmed by the pace of innovation
 - 😰 Lost, disorganized, or unproductive
 - 😰 Facing AI revolution - staying relevant when AI can seemingly do it all
@@ -40,15 +45,18 @@
 - 😰 Starting from scratch repeatedly
 
 **Why Traditional Approaches Fail**:
+
 - Getting started isn't easy - many traps to avoid
 - No proven systems to follow
 - Missing the "how" - scattered advice doesn't create a system
 - Can't keep up with constant change
 
 ### Agitate
+
 **The Cost of Not Having a System**:
 
 **Daily Reality**:
+
 - Hours wasted on busywork instead of meaningful progress
 - Can't leverage AI effectively - missing the foundation
 - Stuck in reactive mode, never getting ahead
@@ -58,21 +66,25 @@
 - Burning out trying to keep up
 
 **The AI Revolution Amplifies Everything**:
+
 - AI is great at crunching data, but you need to know HOW to use it
 - Without proper knowledge systems, AI features lack context
 - Your creativity and insight are your edge - but only if organized
 - Skills that AI can't replicate need to be developed systematically
 
 **What You're Missing**:
+
 - A second brain that remembers everything AND helps you think
 - Proven, battle-tested systems that scale
 - Community of like-minded knowledge workers
 - Guidance from someone who's done it all (with 9-5 job + 3 kids!)
 
 ### Solution
+
 **Knowledge Worker Kit**: Your complete system for becoming a top-tier knowledge worker in the AI era.
 
 **What You Get**:
+
 - 🛡️ **Personal shield against AI obsolescence**: Stay relevant, enhance what AI can't replace
 - 🧠 **Second brain system**: Not just organizing info, but transforming how you process and create knowledge
 - 📚 **Comprehensive guide**: 13 topic areas covering everything from clarity to execution
@@ -82,6 +94,7 @@
 
 **The Transformation**:
 After exploring the guide, you'll have:
+
 - ✅ Clarity in your life and obvious path forward
 - ✅ Solid habits, routines, and systems
 - ✅ Clear ideas about career management
@@ -94,12 +107,15 @@ After exploring the guide, you'll have:
 - ✅ Work methods that propel career forward
 
 ## Description
+
 The Knowledge Worker Kit is a private community (part of Knowii Community) and deep dive guide exploring everything you need to become and remain a top-tier Knowledge Worker. Based on 20+ years of experience from Sébastien Dubois (author, entrepreneur, coach, CTO, father of 3), this is a proven, battle-tested system that works in real life.
 
 **TL;DR**: Private community + detailed guide (Notion space) exploring Knowledge Work, AI, Knowledge Management, Personal Organization, Learning, Time Management, Project Management, and more. Evergreen project with continuous expansion. Buy once, lifetime access to all content, resources, workshops, and events.
 
 ## Features
+
 ### Core Components
+
 - **Private Community Access**: Exclusive Knowii community for knowledge workers
 - **Comprehensive Guide**: Notion space with detailed explanations, systems, templates, references, resources
 - **13 Topic Areas**: From clarity and habits to career management and execution
@@ -107,6 +123,7 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 - **All Past & Future Events**: Workshops, meetups, knowledge-sharing sessions, invited talks, AMAs, recorded sessions
 
 ### The Guide Covers
+
 1. **Clarity**: Values, behaviors, goals, priorities, intentions
 2. **Habits & Systems**: Routines, processes, methods for effortless productivity
 3. **Career Management**: Mindset, anticipation, responsibility
@@ -122,19 +139,23 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 13. **Work**: Doing the work, attitude, results, recognition, collaboration
 
 ### Access Model
+
 - **One-time payment**: €149.99
 - **Lifetime access**: Never pay again
 - **Continuous growth**: New guides, videos, explanations added regularly
 - **Community of practice**: Living, evolving ecosystem
 
 ## Benefits
+
 ### Immediate Wins
+
 - Proven systems you can implement today
 - Clear path forward (no more confusion)
 - Community support from day one
 - $270+ in bonuses immediately available
 
 ### Transformational Benefits
+
 - 🎯 **Become Top 1%**: Systems used by elite knowledge workers
 - 🛡️ **AI-Proof Your Career**: Develop skills AI can't replicate
 - 🚀 **10x Your Productivity**: Without burning out
@@ -146,6 +167,7 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 - ⚖️ **Work-Life Balance**: Achieve goals without sacrificing family/health
 
 ### Long-Term Impact
+
 - Lifelong learning system that scales
 - Career-proof skillset
 - Intellectual assets that grow in value
@@ -153,13 +175,16 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 - Freedom from information overwhelm
 
 ## What's Included
+
 ### Core Access
+
 ✅ **Private Community Membership** (Knowii Community)
 ✅ **Deep Dive Guide** - Comprehensive Notion space with systems, templates, guidance
 ✅ **All Past & Future Events** - Workshops, meetups, knowledge-sharing sessions, invited talks, AMAs
 ✅ **Ask Me Anything (AMA)** - Direct Q&As with Sébastien
 
 ### Included Bonuses ($270+ Value)
+
 - ✅ **Obsidian Starter Kit** ($49.99) - Battle-tested vault + templates
 - ✅ **Obsidian Starter Course** ($69.99) - 2h20m video course
 - ✅ **PKM Library** ($39.99) - Curated resources for knowledge management
@@ -174,6 +199,7 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 **Total bonus value: $270+**
 
 ### Future Updates Included
+
 - New guide sections and deep dives
 - Additional workshops and masterclasses
 - New bonuses and resources
@@ -182,33 +208,39 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 - Everything, forever, no additional cost
 
 ## Target Audience
+
 ### Perfect For:
 
 #### 🎯 Entrepreneurs, Founders, Executives, Leaders
+
 - Managing complex responsibilities
 - Need scalable systems that work
 - Want to stay ahead of curve
 - **This kit**: Provides battle-tested systems from someone who's done it
 
 #### 📊 Knowledge Workers
+
 - Dealing with information overload
 - Need to stay relevant in AI era
 - Want to be top performer
 - **This kit**: Complete system for knowledge work mastery
 
 #### 🌱 Lifelong Learners
+
 - Committed to continuous growth
 - Want efficient learning systems
 - Building long-term knowledge assets
 - **This kit**: Foundation for lifelong learning
 
 #### 🤝 Those Who Want Community
+
 - Learn with like-minded people
 - Exchange ideas and insights
 - Collaborate and grow together
 - **This kit**: Exclusive community access
 
 ### Specific Indicators You Need This:
+
 - Feel lost, overwhelmed, disorganized, or unproductive
 - Want to be top performer and stay ahead
 - Need solid system that scales
@@ -216,6 +248,7 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 - Facing AI revolution and need to adapt
 
 ### Not For You If:
+
 - Looking for quick fix (this is a complete system requiring commitment)
 - Not willing to implement systems
 - Prefer working in isolation (community is core component)
@@ -223,6 +256,7 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 ## Social Proof
 
 ### Stats Proof
+
 - **20+ years** of experience distilled
 - **$270+** in included bonuses
 - **13 topic areas** comprehensively covered
@@ -231,7 +265,9 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 - **Proven track record**: Author of 3 books, 300+ articles, multiple successful products
 
 ### Creator Credibility
+
 **Sébastien Dubois** has:
+
 - 20+ years in Knowledge Management, Learning, Personal Organization
 - Published 3 books
 - Created 300+ articles and newsletters
@@ -245,19 +281,23 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 ### Testimonials
 
 #### ⭐⭐⭐⭐⭐ "Superbly Crafted - Constantly Improving"
+
 "Superbly crafted material that consistently grows and improves with time, demonstrating a relentless commitment to excellence and constant refinement. The community is still new and not so active, but it will keep improving!"
 **— Julien Dambron**
 
 #### ⭐⭐⭐⭐⭐ "Exceptional Writing"
+
 "Sebastien's writing is exceptional and I look forward to each new article"
 **— Richard Elliott**
 
 ## Media Assets
 
 ### Visualization
+
 - **Parts visualization**: `Knowledge Worker Kit - Parts visualization.png` (QUESTION: Where is this file?)
 
 ### Assets Location
+
 **QUESTION**: Are there other promotional images, videos, or screenshots? Where are they located?
 
 ## FAQs
@@ -293,6 +333,7 @@ A: Yes - free with Knowii Community paid subscriptions. Also part of Everything 
 A: It won't. This is an evergreen project that continuously updates. Lifetime access means you always have the latest.
 
 ## Trust Badges & Guarantees
+
 - 💰 **One-Time Payment** - €149.99, own forever
 - ✅ **Lifetime Access** - All past, present, future content
 - 🎁 **$270+ in Bonuses** - Immediate access
@@ -303,6 +344,7 @@ A: It won't. This is an evergreen project that continuously updates. Lifetime ac
 - 🎓 **Proven Track Record** - Creator with multiple successful products
 
 ## External Links
+
 - **Purchase**: https://store.dsebastien.net/l/knowledge-worker-kit
 - **Creator Website**: https://www.dsebastien.net
 - **Newsletter**: https://dsebastien.net/newsletter
@@ -310,25 +352,26 @@ A: It won't. This is an evergreen project that continuously updates. Lifetime ac
 
 ## Value Comparison
 
-| What You Get                     | If Purchased Separately | KWK Price |
-| -------------------------------- | ----------------------- | --------- |
-| Obsidian Starter Kit             | $49.99                  | ✅ Included |
-| Obsidian Starter Course          | $69.99                  | ✅ Included |
-| PKM Library                      | $39.99                  | ✅ Included |
-| Journaling Workshop              | $29.99                  | ✅ Included |
-| Personal Org 101                 | $19.99                  | ✅ Included |
-| Clarity 101                      | $19.99                  | ✅ Included |
-| AI Master Prompt                 | $19.99                  | ✅ Included |
-| MCP Masterclass                  | $19.99                  | ✅ Included |
-| Knowledge Base (1700+ concepts)  | Priceless               | ✅ Included |
-| Private Community (Lifetime)     | Priceless               | ✅ Included |
-| Deep Dive Guide (13 topics)      | Priceless               | ✅ Included |
-| All Future Events & Workshops    | Priceless               | ✅ Included |
-| **TOTAL VALUE**                  | **$270+ (tangible)**    | **€149.99** |
+| What You Get                    | If Purchased Separately | KWK Price   |
+| ------------------------------- | ----------------------- | ----------- |
+| Obsidian Starter Kit            | $49.99                  | ✅ Included |
+| Obsidian Starter Course         | $69.99                  | ✅ Included |
+| PKM Library                     | $39.99                  | ✅ Included |
+| Journaling Workshop             | $29.99                  | ✅ Included |
+| Personal Org 101                | $19.99                  | ✅ Included |
+| Clarity 101                     | $19.99                  | ✅ Included |
+| AI Master Prompt                | $19.99                  | ✅ Included |
+| MCP Masterclass                 | $19.99                  | ✅ Included |
+| Knowledge Base (1700+ concepts) | Priceless               | ✅ Included |
+| Private Community (Lifetime)    | Priceless               | ✅ Included |
+| Deep Dive Guide (13 topics)     | Priceless               | ✅ Included |
+| All Future Events & Workshops   | Priceless               | ✅ Included |
+| **TOTAL VALUE**                 | **$270+ (tangible)**    | **€149.99** |
 
 **Savings: $120+ on bonuses alone** - Plus priceless community and guide access
 
 ## SEO Metadata
+
 - **Meta Title**: Knowledge Worker Kit - Become a Top 1% Knowledge Worker | Complete System + Community
 - **Meta Description**: €149.99 one-time for lifetime access. Private community + 13-topic guide + $270 bonuses (OSK, courses, workshops). Battle-tested systems from 20+ years experience. AI-proof your career.
 - **Keywords**: knowledge worker, knowledge work, productivity system, career development, pkm system, obsidian, personal organization, knowledge management, ai tools, learning system, community
@@ -338,12 +381,14 @@ A: It won't. This is an evergreen project that continuously updates. Lifetime ac
 ## IMPLEMENTATION NOTES - COMPLETE ✅
 
 **Decisions Made**:
+
 1. ✅ **Price**: €149.99 EUR (one-time, lifetime)
 2. ✅ **Included Bonuses**: $270+ value documented
 3. ✅ **13 Topic Areas**: Complete curriculum outlined
 4. ✅ **Target Audience**: 4 primary personas
 
 **Cross-Sell Section** (at page bottom):
+
 ```
 ## Complete Your Knowledge Ecosystem
 
@@ -357,11 +402,13 @@ Knowledge Worker Kit + all other products + courses + workshops.
 ```
 
 **Urgency Messaging**:
+
 - "Lifetime access - Buy once, access forever"
 - "$270+ in bonuses included - Limited time value"
 - "Evergreen project - Value grows over time"
 - "Join growing community of knowledge workers"
 
 **QUESTIONS FOR USER**:
+
 1. **Visualization Image**: Where is `Knowledge Worker Kit - Parts visualization.png`? Need to copy to assets.
 2. **Promotional Assets**: Any other images, videos, or screenshots for the kit?

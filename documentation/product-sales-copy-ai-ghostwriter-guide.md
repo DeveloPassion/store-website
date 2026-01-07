@@ -1,6 +1,7 @@
 # AI Ghostwriter Guide - Sales Copy
 
 ## Product Identity
+
 - **ID**: ai-ghostwriter-guide
 - **Permalink**: vsrnk
 - **Name**: Build Your AI Ghostwriter
@@ -13,6 +14,7 @@
 - **Featured**: true
 
 ## Pricing
+
 - **Price**: €49.99
 - **Currency**: EUR (€)
 - **Price Display**: €49.99
@@ -22,9 +24,11 @@
 ## Marketing Copy - PAS Framework
 
 ### Problem
+
 **The Challenge**: AI gives you generic slop, not YOUR voice.
 
 **Pain Points**:
+
 - 😤 "This doesn't sound like me at all"
 - 😤 Generic text that could apply to anyone
 - 😤 Spend MORE time editing than writing from scratch
@@ -33,6 +37,7 @@
 - 😤 Frustrated with AI - "it doesn't work"
 
 **Why It's Not Working**:
+
 - Using AI like everyone else
 - Generic prompts hoping for unique content
 - Starting over with new prompts every time
@@ -40,6 +45,7 @@
 - You haven't TAUGHT AI to write like YOU
 
 ### Agitate
+
 **The Daily Frustration**:
 
 You've tried them all: ChatGPT. Claude. Gemini.
@@ -47,6 +53,7 @@ You've tried them all: ChatGPT. Claude. Gemini.
 Every time, same feeling: disappointment.
 
 **Common Mistakes**:
+
 - ❌ Generic prompts → generic content
 - ❌ Starting from scratch every time
 - ❌ Heavy editing required (defeats the purpose!)
@@ -54,6 +61,7 @@ Every time, same feeling: disappointment.
 - ❌ Back to doing everything manually
 
 **The Cost**:
+
 - Hours wasted editing AI-generated content
 - Inconsistent voice across your content
 - Can't scale content creation
@@ -63,10 +71,12 @@ Every time, same feeling: disappointment.
 **You're not alone. Everyone faces this problem—because they're using AI wrong.**
 
 ### Solution
+
 **AI Ghostwriter System**: Proven step-by-step system to train AI to write with YOUR exact voice, style, and expertise.
 
 **What Changes**:
 When you open your AI assistant, you get content that:
+
 - ✅ Sounds like YOU
 - ✅ Uses your signature sentences and personality quirks
 - ✅ Understands you and your unique perspective
@@ -78,6 +88,7 @@ When you open your AI assistant, you get content that:
 **The Result**: AI Ghostwriter has helped create hundreds of pieces: notes, articles, newsletters, podcasts, course scripts, emails, letters—all in YOUR voice.
 
 ## Description
+
 A comprehensive step-by-step guide showing exactly how to create a personal AI ghostwriter that captures your unique voice, understands your expertise, and produces content that sounds like YOU—not generic AI slop.
 
 Whether you're a content creator, author, or business owner, you'll learn the proven process to train AI on your writing style, create content templates for every format you need, and build an intelligent assistant that knows your products, audience, and brand inside out.
@@ -85,13 +96,16 @@ Whether you're a content creator, author, or business owner, you'll learn the pr
 Months of perfection distilled into an actionable system. Used daily. Works flawlessly.
 
 ## Features
+
 ### Complete Step-by-Step Guide
+
 - **Clear Explanations**: No fluff, just the system that works
 - **AI Prompts Included**: Ready-to-use prompts to create your documents
 - **Document Templates**: Templates for all components
 - **Advanced Techniques**: Power user options for deeper integration
 
 ### The System Creates
+
 - **Personality Description**: Comprehensive profile of YOUR unique voice
 - **Writing Style Analysis**: Exact patterns, quirks, and preferences
 - **Content Strategy**: What you create, who for, and why
@@ -100,18 +114,22 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 - **Evolution System**: Improves over time as you use it
 
 ### Bonus Resources
+
 - ✅ **Private Community Access**: Questions, updates, knowledge sharing
 - ✅ **Real Examples**: Taken from creator's own implementation
 - ✅ **Multiple AI Platform Support**: ChatGPT, Claude, Gemini, DeepSeek, NotebookLM, etc.
 
 ## Benefits
+
 ### Immediate Wins
+
 - **2-3 hours basic setup** → Start using immediately
 - **Works with any AI platform** that accepts custom instructions/files
 - **No technical skills required** (advanced options available)
 - **Proven system** used daily by creator
 
 ### Transformational Benefits
+
 - ✅ **Scale Content Creation**: Without losing your voice
 - ✅ **Stop Editing AI Slop**: Get quality output first try
 - ✅ **Consistent Voice**: Across all content types
@@ -120,6 +138,7 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 - ✅ **Sustainable System**: Improves over time
 
 ### Long-Term Impact
+
 - Content creation becomes 10x faster
 - Quality stays consistently high
 - AI truly becomes your assistant (not more work)
@@ -127,7 +146,9 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 - Time savings compound
 
 ## What's Included
+
 ### Core Guide
+
 - **Complete System Blueprint**: Step-by-step implementation
 - **Personality Profiling**: How to analyze and document your voice
 - **Writing Style Extraction**: Techniques to capture your patterns
@@ -136,51 +157,60 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 - **Templates for Everything**: All documents needed
 
 ### AI Prompts & Resources
+
 - Ready-to-use prompts for:
-  - Analyzing your writing samples
-  - Creating personality profiles
-  - Extracting writing style patterns
-  - Building content type templates
-  - Training AI on your voice
+    - Analyzing your writing samples
+    - Creating personality profiles
+    - Extracting writing style patterns
+    - Building content type templates
+    - Training AI on your voice
 - Document templates for all components
 - Real examples from creator's implementation
 
 ### Advanced Implementation
+
 - **Model Context Protocol (MCP)** integration
 - Power user techniques
 - Automation options
 - Evolution and improvement systems
 
 ### Community & Support
+
 - Private community access (part of Knowii)
 - Questions and knowledge sharing
 - Updates and improvements
 - Real user implementations
 
 ## Target Audience
+
 ### Perfect For:
 
 #### ✅ Content Creators
+
 - Create regularly: articles, essays, newsletters, social posts
 - Want to scale without losing voice
 - **Result**: 10x content output with consistent quality
 
 #### ✅ Business Owners
+
 - Have products/services to promote
 - Need content marketing system
 - **Result**: Sustainable content creation at scale
 
 #### ✅ Authors & Writers
+
 - Write in specific style/voice
 - Want AI assistance without losing identity
 - **Result**: AI that enhances, doesn't replace
 
 #### ✅ Frustrated AI Users
+
 - Spend too much time editing AI output
 - Generic content doesn't work
 - **Result**: Quality output that needs minimal editing
 
 ### Not For You If:
+
 - ❌ Never create content / no interest in writing
 - ❌ Prefer writing everything manually (no AI)
 - ❌ Don't have existing writing samples
@@ -189,12 +219,14 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 ## Social Proof
 
 ### Creator Proof
+
 - **Hundreds of pieces created**: Notes, articles, newsletters, podcasts, course scripts, emails, letters
 - **Used daily**: Not theory—proven in production
 - **Months of perfection**: System refined over time
 - **Documented from start**: Every detail captured
 
 ### Stats
+
 - **2-3 hours**: Basic setup time
 - **Weekend**: Advanced MCP implementation
 - **Time savings compound**: Every piece gets easier
@@ -202,10 +234,12 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 ## Media Assets
 
 ### Cover Image
+
 - **Source**: `AI Ghostwriter Guide - Cover fun.png`
 - **Location**: QUESTION: Where is this file? Need to copy to documentation/assets/
 
 ### Other Assets
+
 **QUESTION**: Are there other screenshots, examples, or promotional images?
 
 ## FAQs
@@ -235,6 +269,7 @@ A: Yes, through the private community. As the guide improves, you get access to 
 A: Yes—private community access for questions and knowledge sharing.
 
 ## Trust Badges & Guarantees
+
 - ✅ **Proven System** - Used daily by creator for months
 - ✅ **Hundreds of Pieces Created** - Not theory, production-tested
 - 🎓 **No Technical Skills Required** - Simple copy-paste implementation
@@ -244,24 +279,26 @@ A: Yes—private community access for questions and knowledge sharing.
 - ⚡ **Quick Setup** - 2-3 hours to basic functionality
 
 ## External Links
+
 - **Purchase**: https://store.dsebastien.net/l/ai-ghostwriter-guide
 - **Creator Website**: https://www.dsebastien.net
 - **Newsletter**: https://dsebastien.net/newsletter
 
 ## Comparison: Before vs After
 
-| Aspect                   | Before (Generic AI)                  | After (AI Ghostwriter)           |
-| ------------------------ | ------------------------------------ | -------------------------------- |
-| **Voice**                | Generic, could be anyone             | Sounds exactly like YOU          |
-| **Editing time**         | Heavy editing required               | Minimal tweaks needed            |
-| **Consistency**          | Every piece different                | Consistent across all content    |
-| **Setup per piece**      | New prompts every time               | One system, all formats          |
-| **Quality**              | "Good enough" at best                | High quality first draft         |
-| **Business context**     | AI doesn't know your products        | Knows business, brand, audience  |
-| **Improvement**          | No learning between sessions         | Evolves and improves over time   |
-| **Content strategy**     | You figure it out each time          | AI understands your strategy     |
+| Aspect               | Before (Generic AI)           | After (AI Ghostwriter)          |
+| -------------------- | ----------------------------- | ------------------------------- |
+| **Voice**            | Generic, could be anyone      | Sounds exactly like YOU         |
+| **Editing time**     | Heavy editing required        | Minimal tweaks needed           |
+| **Consistency**      | Every piece different         | Consistent across all content   |
+| **Setup per piece**  | New prompts every time        | One system, all formats         |
+| **Quality**          | "Good enough" at best         | High quality first draft        |
+| **Business context** | AI doesn't know your products | Knows business, brand, audience |
+| **Improvement**      | No learning between sessions  | Evolves and improves over time  |
+| **Content strategy** | You figure it out each time   | AI understands your strategy    |
 
 ## SEO Metadata
+
 - **Meta Title**: Build Your AI Ghostwriter - Train AI to Write in Your Exact Voice | Step-by-Step Guide
 - **Meta Description**: Stop editing AI slop. €49.99 guide teaches proven system to train ChatGPT, Claude, or any AI to write with YOUR voice, style, and expertise. Used to create hundreds of pieces.
 - **Keywords**: ai ghostwriter, ai writing assistant, chatgpt writing, claude writing, personal ai writer, content creation ai, ai voice training, writing automation, content scaling, ai copywriting
@@ -271,11 +308,13 @@ A: Yes—private community access for questions and knowledge sharing.
 ## IMPLEMENTATION NOTES - COMPLETE ✅
 
 **Decisions Made**:
+
 1. ✅ **Price**: €49.99 EUR
 2. ✅ **Target Audiences**: Content creators, business owners, authors, frustrated AI users
 3. ✅ **Core Value**: Train AI to write in YOUR voice (not generic)
 
 **Cross-Sell Section** (at page bottom):
+
 ```
 ## Scale Your Entire Content System
 
@@ -289,11 +328,13 @@ AI Ghostwriter + OSK + PKM + all workshops + community access.
 ```
 
 **Urgency Messaging**:
+
 - "Proven system used daily for months"
 - "Hundreds of pieces already created with this method"
 - "Stop wasting time editing AI slop"
 - "Private community access included"
 
 **QUESTION FOR USER**:
+
 1. **Cover Image**: Where is `AI Ghostwriter Guide - Cover fun.png`? Need file path.
 2. **Article Link**: Is there a blog post about creating AI ghostwriters on dsebastien.net to link?
