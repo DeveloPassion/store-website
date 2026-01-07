@@ -66,6 +66,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             </Link>
                         ))}
                         <Link
+                            to='/categories'
+                            className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
+                        >
+                            Categories
+                        </Link>
+                        <Link
                             to='/tags'
                             className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
                         >
@@ -159,6 +165,20 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                     {category.name}
                                 </Link>
                             ))}
+                            <Link
+                                to='/categories'
+                                onClick={() => setMobileMenuOpen(false)}
+                                className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
+                            >
+                                Categories
+                            </Link>
+                            <Link
+                                to='/tags'
+                                onClick={() => setMobileMenuOpen(false)}
+                                className='hover:bg-primary/10 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
+                            >
+                                Tags
+                            </Link>
                         </nav>
                     </div>
                 )}

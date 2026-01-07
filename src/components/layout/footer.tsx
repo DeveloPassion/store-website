@@ -132,6 +132,14 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
+                                        to='/categories'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Categories
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
                                         to='/tags'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
