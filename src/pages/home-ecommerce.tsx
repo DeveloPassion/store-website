@@ -86,10 +86,10 @@ const HomeEcommerce: React.FC = () => {
                         </p>
 
                         {/* Stats */}
-                        <div className='mb-8 grid grid-cols-3 gap-4'>
+                        <div className='mb-8 grid grid-cols-2 gap-4'>
                             <div>
                                 <div className='text-2xl font-bold text-green-400 sm:text-3xl'>
-                                    10K+
+                                    2K+
                                 </div>
                                 <div className='text-primary/60 text-sm'>Students</div>
                             </div>
@@ -98,12 +98,6 @@ const HomeEcommerce: React.FC = () => {
                                     4.9/5
                                 </div>
                                 <div className='text-primary/60 text-sm'>Rating</div>
-                            </div>
-                            <div>
-                                <div className='text-2xl font-bold text-purple-400 sm:text-3xl'>
-                                    19
-                                </div>
-                                <div className='text-primary/60 text-sm'>Products</div>
                             </div>
                         </div>
 
