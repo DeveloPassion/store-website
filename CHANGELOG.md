@@ -1,3 +1,8 @@
+## [0.0.4](https://github.com/DeveloPassion/store-website/compare/0.0.3...0.0.4) (2026-01-07)
+
+### Features
+
+* **all:** added tags and tag pages ([5582057](https://github.com/DeveloPassion/store-website/commit/55820576d4dd8c800ba046ee9f9edcbcd349338e))
 ## [0.0.3](https://github.com/DeveloPassion/store-website/compare/0.0.2...0.0.3) (2026-01-07)
 
 ### Features
