@@ -273,6 +273,494 @@ This document outlines a complete migration strategy from Gumroad (developassion
 
 ---
 
+## 2A. CUSTOMIZED STRATEGY: 10-30 Subscribers with 100% Retention Requirement
+
+**YOUR SPECIFIC SCENARIO:**
+
+- 10-30 active subscribers
+- Subscriptions = ~20% of revenue (~$200-600/mo)
+- 100% retention is non-negotiable
+- Multiple critical reasons (high-value customers, early supporters, core to business growth, financial constraints)
+- No time pressure for migration
+- Technically comfortable with setup
+
+### Why Standard Migration Won't Work for You
+
+Standard subscription migration approaches (forced migration, dual-run with aggressive timeline) typically result in 20-40% churn. With your 100% retention requirement, you need a completely different strategy.
+
+### Your Custom Strategy: "Zero-Pressure Indefinite Dual-Run"
+
+**Core Principle:** Never force subscribers to migrate. Ever.
+
+**Phase 1: Months 0-6 (Protection Phase)**
+
+**Goal:** Migrate everything EXCEPT existing subscribers
+
+**Month 1-4: Build & Test Shopify**
+
+- [ ] Set up Shopify on temporary domain
+- [ ] Install all apps (Sky Pilot, Appstle, UpPromote for affiliates, etc.)
+- [ ] Create all products
+- [ ] Design branded store (address your customization frustration!)
+- [ ] Beta test with 5-10 non-subscriber customers
+- [ ] Fix all issues
+- [ ] **DO NOT mention migration to existing subscribers yet**
+
+**Month 4: DNS Migration (One-Time Sales Only)**
+
+- [ ] Point store.dsebastien.net to Shopify
+- [ ] Set up all product redirects
+- [ ] **Keep Gumroad account active** for existing subscriptions
+- [ ] All NEW one-time purchases → Shopify
+- [ ] All NEW subscriptions → Shopify
+- [ ] Existing 10-30 subscribers → Still on Gumroad (zero disruption!)
+
+**Month 5-6: Prove Shopify Works**
+
+- [ ] Monitor new customer experience closely
+- [ ] Ensure digital delivery is flawless
+- [ ] Track new Shopify subscriptions (if any)
+- [ ] Verify subscription billing works perfectly
+- [ ] Build confidence in platform stability
+- [ ] **Existing subscribers still unaware, still happy**
+
+**Phase 2: Months 7-12 (Soft Introduction Phase)**
+
+**Goal:** Introduce Shopify option with zero pressure
+
+**Month 7: Create Migration Path**
+
+- [ ] Build dedicated migration landing page:
+    - "Interested in trying the new store? Here's what's better..."
+    - Showcase new features, better UX, improved downloads
+    - Show testimonials from NEW subscribers loving Shopify
+    - Clear migration instructions with video walkthrough
+    - Support contact prominently displayed
+
+- [ ] Create irresistible migration incentive (choose one):
+    - **Option A:** 3 months completely free (worth $X)
+    - **Option B:** Lifetime 50% discount when you migrate
+    - **Option C:** Exclusive bonus product bundle ($X value)
+    - **Option D:** Combination of above
+
+- [ ] Set up personal migration tracking spreadsheet:
+    ```
+    | Name | Email | Current Plan | MRR | Status | Contact Date | Migrated Date | Notes |
+    |------|-------|--------------|-----|--------|--------------|---------------|-------|
+    | John | john@... | Pro | $50 | Not contacted | - | - | VIP, early supporter |
+    ```
+
+**Month 8: First Soft Outreach (Email Campaign)**
+
+- [ ] Send "Update: I've Moved to a New Platform" email (see Template 6A below)
+- [ ] Make it 100% informational, zero pressure
+- [ ] Include migration landing page link
+- [ ] Mention incentive briefly
+- [ ] Emphasize: "No need to do anything, your subscription continues as normal"
+- [ ] Track who clicks, who responds
+
+**Month 9-10: Monitor & Support**
+
+- [ ] Wait for natural interest
+- [ ] Respond immediately to anyone asking about migration
+- [ ] Provide white-glove support to any migrator
+- [ ] Track migration rate: Target 10-20% (1-3 people) = success!
+- [ ] Continue providing excellent service on both platforms
+
+**Month 11-12: Identify VIPs for Personal Outreach**
+
+- [ ] Segment your 10-30 subscribers by:
+    - Revenue: High ($50+/mo), Medium ($20-50/mo), Low (<$20/mo)
+    - Tenure: Long-term (12+ months), Medium (6-12mo), Recent (<6mo)
+    - Engagement: Active (uses product), Passive (subscribed but quiet)
+
+- [ ] Start with top 5 VIPs (high revenue + long tenure)
+- [ ] Personal email or phone call (see Template 6B below)
+- [ ] Offer to help them migrate personally
+- [ ] Screen share session if needed
+- [ ] Premium incentive for VIPs (4 months free + bonus)
+
+**Phase 3: Months 13-24 (Gradual Migration Phase)**
+
+**Goal:** Achieve 50-70% voluntary migration through personal touch
+
+**Month 13-15: Systematic Personal Outreach**
+
+- [ ] Contact subscribers in waves:
+    - **Wave 1:** Remaining high-value (not yet migrated)
+    - **Wave 2:** Medium-value + long tenure
+    - **Wave 3:** Everyone else
+
+- [ ] For each subscriber:
+    - [ ] Personal email (not automated)
+    - [ ] Reference their specific situation/history
+    - [ ] Explain benefits specific to them
+    - [ ] Offer personalized help
+    - [ ] Give them custom migration code (100% off first month)
+    - [ ] Follow up once if no response
+
+**Month 16-18: Migration Support Phase**
+
+- [ ] Provide exceptional support to migrating subscribers:
+    - [ ] Screen share setup calls if needed
+    - [ ] Test their access personally before canceling Gumroad
+    - [ ] Give 1 month overlap (access to both platforms)
+    - [ ] Check in after 1 week: "How's the new platform?"
+    - [ ] Only cancel Gumroad after they confirm satisfaction
+
+- [ ] Document migration process for each person
+- [ ] Refine approach based on feedback
+
+**Month 19-24: Acceptance & Natural Attrition**
+
+- [ ] Accept that some subscribers want to stay on Gumroad (and that's OK!)
+- [ ] Continue providing excellent service on both platforms
+- [ ] As Gumroad subscribers naturally cancel over time:
+    - Don't replace them on Gumroad
+    - New subscriptions only go to Shopify
+    - Gradually reduce Gumroad percentage
+
+- [ ] Expected result by Month 24:
+    - 40-60% voluntarily migrated to Shopify
+    - 30-50% still happily on Gumroad
+    - 10% natural churn (unavoidable, not migration-related)
+    - **Actual migration-related churn: <5% (nearly 100% retention!)**
+
+**Phase 4: Months 25+ (Long-Term Dual-Run)**
+
+**Goal:** Maintain both platforms until natural convergence
+
+**Ongoing Strategy:**
+
+- [ ] Continue accepting both platforms indefinitely
+- [ ] Gumroad subscribers slowly decrease through natural churn
+- [ ] All new subscriptions → Shopify only
+- [ ] Maybe 1-3 "forever Gumroad" loyalists (and that's fine!)
+
+**Cost of Dual-Run:**
+
+- Gumroad: $0/mo (free for existing subscriptions, only charges on new sales)
+- Shopify: $140/mo fixed costs (as calculated earlier)
+- Time: ~30min/month managing Gumroad subscribers
+- **Total incremental cost: Minimal**
+
+**Benefit of Dual-Run:**
+
+- ✅ 100% subscriber retention achieved
+- ✅ Zero forced migration stress
+- ✅ Subscribers feel respected and valued
+- ✅ You sleep well at night knowing no one was forced out
+
+### Detailed Checklist: Month-by-Month
+
+**MONTH 1-2: Foundation**
+
+- [ ] Sign up for Shopify trial
+- [ ] Choose Shopify Basic plan ($79/mo)
+- [ ] Install essential apps:
+    - [ ] Sky Pilot ($15/mo) - digital delivery
+    - [ ] Appstle ($10/mo) - subscriptions
+    - [ ] UpPromote ($29/mo) - affiliates
+    - [ ] Easy Redirects ($7/mo)
+    - [ ] Klaviyo (free <250 contacts)
+- [ ] Choose and customize theme (Dawn recommended for speed)
+- [ ] Set up payment gateway (Shopify Payments)
+- [ ] Configure tax settings
+- [ ] Create legal pages (privacy, terms, refunds)
+
+**MONTH 2-3: Product Setup**
+
+- [ ] Create all products in Shopify (match Gumroad offerings)
+- [ ] Upload digital files to Sky Pilot
+- [ ] Set up affiliate program in UpPromote:
+    - [ ] Match commission structure from Gumroad
+    - [ ] Create affiliate dashboard
+    - [ ] Test affiliate tracking
+- [ ] Create subscription products in Appstle:
+    - [ ] Match Gumroad pricing
+    - [ ] Set billing frequencies
+    - [ ] Configure cancellation policies
+- [ ] Set up URL mapping spreadsheet (Gumroad URLs → Shopify URLs)
+- [ ] Configure all redirect rules (don't activate yet)
+
+**MONTH 3-4: Testing**
+
+- [ ] Complete 10+ test purchases (different scenarios)
+- [ ] Test digital delivery for all product types
+- [ ] Test subscription signup and billing
+- [ ] Test affiliate tracking and commission calculation
+- [ ] Beta test with 5-10 trusted non-subscriber customers
+- [ ] Collect feedback and fix issues
+- [ ] Test mobile experience thoroughly
+- [ ] Run Google PageSpeed test (target >80 mobile)
+
+**MONTH 4: DNS Migration (One-Time Products Only)**
+
+- [ ] Week 1: Final preparation
+    - [ ] Verify all tests passed
+    - [ ] Set up Google Analytics tracking
+    - [ ] Prepare DNS change documentation
+    - [ ] Create rollback procedure
+
+- [ ] Week 2: DNS change (Wednesday 2 AM)
+    - [ ] Change DNS: store.dsebastien.net → Shopify
+    - [ ] Monitor DNS propagation (24-48h)
+    - [ ] Verify SSL certificate provisions
+    - [ ] Test all redirects live
+
+- [ ] Week 3: Monitor new Shopify customers
+    - [ ] Check digital delivery success rate
+    - [ ] Monitor any 404 errors
+    - [ ] Address customer issues immediately
+    - [ ] Verify analytics tracking
+
+- [ ] Week 4: First review
+    - [ ] Compare conversion rates (Shopify vs Gumroad baseline)
+    - [ ] Check customer feedback
+    - [ ] Identify any issues
+    - [ ] **Confirm existing subscribers unaffected**
+
+**MONTH 5-6: Prove Stability**
+
+- [ ] Accumulate 10+ new Shopify customers
+- [ ] Achieve 100% digital delivery success rate
+- [ ] Get 2-3 new Shopify subscriptions (if possible)
+- [ ] Verify subscription billing works flawlessly
+- [ ] Set up abandoned cart recovery (Klaviyo)
+- [ ] Implement email marketing automations
+- [ ] Optimize product pages based on analytics
+- [ ] **Continue zero communication to existing subscribers**
+
+**MONTH 7: Prepare Migration Path**
+
+- [ ] Create migration landing page:
+    - [ ] Write compelling copy about benefits
+    - [ ] Showcase new features/improvements
+    - [ ] Include testimonials from new Shopify customers
+    - [ ] Embed 3-minute video walkthrough
+    - [ ] Show before/after comparison
+    - [ ] FAQ section
+    - [ ] Live chat widget for questions
+
+- [ ] Create irresistible incentive offer
+- [ ] Generate custom discount codes for each subscriber
+- [ ] Set up tracking spreadsheet for migration campaign
+- [ ] Prepare email templates (see Section 13A)
+- [ ] Create supporting materials (PDF guide, video tutorials)
+
+**MONTH 8: Soft Introduction**
+
+- [ ] Send first informational email (Template 6A)
+- [ ] Post update on social media (if relevant)
+- [ ] Add subtle banner to Gumroad product pages
+- [ ] Monitor responses and clicks
+- [ ] Track who visits migration landing page
+- [ ] Respond to any questions within 2 hours
+
+**MONTH 9-10: Support Early Adopters**
+
+- [ ] Provide white-glove support to anyone who shows interest
+- [ ] Personally help each migrator through process:
+    - [ ] Send custom discount code
+    - [ ] Offer screen share setup call
+    - [ ] Verify they can access all their content
+    - [ ] Keep their Gumroad active for 1 month (overlap)
+    - [ ] Check in after 1 week
+    - [ ] Only cancel Gumroad after they confirm satisfaction
+
+- [ ] Document lessons learned from early migrators
+- [ ] Refine migration process based on feedback
+- [ ] Target: 2-4 successful migrations (20-40% of 10-30)
+
+**MONTH 11-12: VIP Personal Outreach**
+
+- [ ] Create VIP list (top 5 by revenue/tenure)
+- [ ] Research each VIP:
+    - [ ] When they subscribed
+    - [ ] What products they've purchased
+    - [ ] Any support interactions
+    - [ ] Engagement level
+
+- [ ] Contact each VIP personally:
+    - [ ] Personal email (Template 6B) or phone call
+    - [ ] Reference their specific history
+    - [ ] Explain why new platform is better for them specifically
+    - [ ] Offer premium incentive (4 months free + bonus)
+    - [ ] Schedule call if interested
+
+- [ ] For VIPs who migrate:
+    - [ ] Full white-glove service
+    - [ ] Priority support going forward
+    - [ ] Ask for feedback on migration experience
+    - [ ] Send thank you note + surprise bonus
+
+**MONTH 13-18: Systematic Outreach**
+
+- [ ] Contact remaining subscribers in waves:
+
+    **Wave 1 (Month 13): High-value non-VIPs**
+    - [ ] Personal emails to high-value subscribers
+    - [ ] Offer 3 months free
+    - [ ] Provide personal support
+
+    **Wave 2 (Month 14-15): Medium-value + long-tenure**
+    - [ ] Semi-personal emails (reference their tenure)
+    - [ ] Offer 2 months free
+    - [ ] Provide dedicated migration support
+
+    **Wave 3 (Month 16-17): Everyone else**
+    - [ ] Personalized emails (use their name and history)
+    - [ ] Offer 1 month free
+    - [ ] Provide standard migration support
+
+- [ ] For each wave:
+    - [ ] Send initial email
+    - [ ] Wait 7 days
+    - [ ] Send follow-up to non-responders (once only)
+    - [ ] Track responses and migrations
+    - [ ] Provide promised support to migrators
+
+**MONTH 19-24: Natural Attrition Phase**
+
+- [ ] Accept that 30-50% may prefer to stay on Gumroad
+- [ ] Continue excellent service on both platforms
+- [ ] Don't send any more migration prompts (they know it's available)
+- [ ] As Gumroad subscribers naturally cancel:
+    - [ ] Don't try to keep them on Gumroad
+    - [ ] Offer Shopify as re-subscribe option
+    - [ ] Track natural churn rate
+
+- [ ] Monthly monitoring:
+    - [ ] Gumroad subscriber count
+    - [ ] Shopify subscriber count
+    - [ ] Total subscriber count (should remain stable!)
+    - [ ] Churn rate (should be low <5%)
+
+**MONTH 25+: Long-Term Maintenance**
+
+- [ ] Accept 1-5 "forever Gumroad" subscribers
+- [ ] Maintain both platforms with minimal overhead
+- [ ] All new subscriptions → Shopify only
+- [ ] Eventually (year 2-3), 90%+ will be on Shopify through natural turnover
+
+### Success Metrics for Your Scenario
+
+**Primary Metric: Total Subscriber Retention**
+
+- Target: >95% (lose <5% across entire migration period)
+- Measure: (Current subscribers + new - churned) / Current subscribers
+- Track monthly
+
+**Secondary Metrics:**
+
+**Migration Rate (Voluntary):**
+
+- Month 8: 0-10% (1-3 people showing interest)
+- Month 12: 20-40% (2-12 people migrated)
+- Month 18: 40-60% (4-18 people migrated)
+- Month 24: 50-70% (5-21 people migrated)
+
+**Customer Satisfaction:**
+
+- Survey after migration: >4.5/5 stars
+- Zero negative feedback about forced migration
+- Testimonials from successful migrators
+
+**Platform Performance:**
+
+- Shopify digital delivery success: 100%
+- Shopify subscription billing success: 100%
+- Support response time: <2 hours
+- Customer issue resolution: <24 hours
+
+### Red Flags & When to Pause
+
+**STOP migration campaign if:**
+
+- ⚠️ Any subscriber expresses frustration about migration talk
+- ⚠️ You see ANY migration-related churn (even 1 person)
+- ⚠️ Shopify subscription billing fails for new subscribers
+- ⚠️ Digital delivery has ANY failures
+- ⚠️ You're feeling rushed or pressured
+
+**What to do if you see red flags:**
+
+- Pause all outreach immediately
+- Fix underlying issues first
+- Return to "prove stability" phase
+- Wait 2-3 months before trying again
+- Consider if migration is truly necessary
+
+### White-Glove Migration Protocol (for each subscriber)
+
+**Step 1: Pre-Migration (Before They Commit)**
+
+- [ ] Personal email or call
+- [ ] Explain benefits specific to them
+- [ ] Answer all questions
+- [ ] Show them the new platform (screen share demo)
+- [ ] Explain incentive clearly
+- [ ] Give them time to decide (no pressure)
+
+**Step 2: Migration Setup (Once They Agree)**
+
+- [ ] Send custom discount code (100% off first month)
+- [ ] Send detailed written instructions with screenshots
+- [ ] Offer screen share setup call
+- [ ] Schedule call at their convenience
+- [ ] During call:
+    - [ ] Guide them through signup
+    - [ ] Apply discount code
+    - [ ] Set up payment method
+    - [ ] Verify they can access all content
+    - [ ] Show them how to download products
+    - [ ] Answer any questions
+    - [ ] Bookmark new store
+
+**Step 3: Overlap Period (1 Month)**
+
+- [ ] Keep both subscriptions active for 1 month
+- [ ] They have access to both platforms
+- [ ] They can use whichever they prefer
+- [ ] This removes risk and anxiety
+- [ ] Cost to you: 1 month of duplicate subscription (~$20-50)
+- [ ] Value: Peace of mind for subscriber = priceless
+
+**Step 4: Verification (End of Overlap)**
+
+- [ ] Email: "How's the new platform working for you?"
+- [ ] Check if they've used it
+- [ ] Address any issues
+- [ ] Ask: "Are you comfortable canceling the old subscription?"
+- [ ] Only proceed if they confirm yes
+
+**Step 5: Gumroad Cancellation**
+
+- [ ] Cancel their Gumroad subscription
+- [ ] Send confirmation email
+- [ ] Remind them: "You're now on Shopify, here's your login..."
+- [ ] Provide support contact prominently
+
+**Step 6: Follow-Up (1 Week Later)**
+
+- [ ] Check-in email: "Just making sure everything's working well!"
+- [ ] Quick survey: "How was the migration experience?" (1-5 stars)
+- [ ] Ask for feedback/suggestions
+- [ ] Thank them for migrating
+- [ ] Consider small surprise bonus (e.g., extra month free)
+
+**Time Investment Per Subscriber:**
+
+- Pre-migration: 15-30 minutes
+- Setup call: 30-45 minutes
+- Follow-up: 10-15 minutes
+- **Total: ~1-1.5 hours per subscriber**
+- **For 10-30 subscribers: 10-45 hours total over 18 months**
+
+**Worth it?** Absolutely. 100% retention = ~$200-600/mo preserved revenue = $2,400-7,200/year value = $20,000-60,000 over 10 years. Your time investment of 10-45 hours has an ROI of 100-1000x.
+
+---
+
 ## 3. Link Preservation Strategy
 
 **CRITICAL FOR:** SEO, user experience, existing marketing materials, email campaigns, social posts

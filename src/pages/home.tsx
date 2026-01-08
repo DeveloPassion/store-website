@@ -4,8 +4,12 @@ import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap } from 'react-i
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
+import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
+import type { Category } from '@/types/category'
 import { sortProductsByPriority } from '@/lib/product-sort'
+import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
+import { CategoryCard } from '@/components/categories/category-card'
 
 const HomeEcommerce: React.FC = () => {
     const [searchParams] = useSearchParams()
@@ -61,6 +65,11 @@ const HomeEcommerce: React.FC = () => {
 
     // Get hero product (first featured product)
     const heroProduct = featuredProducts[0]
+
+    // Get featured categories
+    const featuredCategories = useMemo(() => {
+        return getFeaturedCategoriesSorted(categoriesData as Category[])
+    }, [])
 
     return (
         <>
@@ -181,42 +190,8 @@ const HomeEcommerce: React.FC = () => {
                     Shop by Category
                 </h2>
                 <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-                    {[
-                        {
-                            name: 'Courses',
-                            path: '/?category=Courses',
-                            emoji: '🎓',
-                            color: 'from-blue-500/20 to-blue-600/20'
-                        },
-                        {
-                            name: 'Kits & Templates',
-                            path: '/?category=Kits',
-                            emoji: '🛠️',
-                            color: 'from-purple-500/20 to-purple-600/20'
-                        },
-                        {
-                            name: 'Workshops',
-                            path: '/?category=Workshops',
-                            emoji: '⚡',
-                            color: 'from-secondary/20 to-pink-600/20'
-                        },
-                        {
-                            name: 'Bundles',
-                            path: '/?category=Bundles',
-                            emoji: '📦',
-                            color: 'from-green-500/20 to-green-600/20'
-                        }
-                    ].map((category) => (
-                        <Link
-                            key={category.name}
-                            to={category.path}
-                            className={`group border-primary/10 flex flex-col items-center justify-center rounded-xl border bg-gradient-to-br ${category.color} hover:border-secondary/30 hover:shadow-secondary/10 p-8 transition-all hover:scale-105 hover:shadow-xl`}
-                        >
-                            <div className='mb-3 text-5xl'>{category.emoji}</div>
-                            <div className='group-hover:text-secondary text-lg font-bold'>
-                                {category.name}
-                            </div>
-                        </Link>
+                    {featuredCategories.map((category) => (
+                        <CategoryCard key={category.id} category={category} variant='simple' />
                     ))}
                 </div>
             </Section>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router'
 import {
     FaHeart,
@@ -13,11 +13,19 @@ import {
 } from 'react-icons/fa'
 import ToolIcon from '@/components/tools/tool-icon'
 import socialsData from '@/data/socials.json'
+import categoriesData from '@/data/categories.json'
+import type { Category } from '@/types/category'
+import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear()
     const [email, setEmail] = useState('')
     const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success'>('idle')
+
+    // Get featured categories
+    const featuredCategories = useMemo(() => {
+        return getFeaturedCategoriesSorted(categoriesData as Category[])
+    }, [])
 
     const handleNewsletterSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -90,46 +98,16 @@ const Footer: React.FC = () => {
                                         All Products
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link
-                                        to='/categories/courses'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Courses
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to='/categories/kits-and-templates'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Kits & Templates
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to='/categories/workshops'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Workshops
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to='/categories/bundles'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Bundles
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to='/categories/free'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        Free Resources
-                                    </Link>
-                                </li>
+                                {featuredCategories.map((cat) => (
+                                    <li key={cat.id}>
+                                        <Link
+                                            to={`/categories/${cat.id}`}
+                                            className='text-primary/70 hover:text-secondary transition-colors'
+                                        >
+                                            {cat.name}
+                                        </Link>
+                                    </li>
+                                ))}
                                 <li>
                                     <Link
                                         to='/categories'

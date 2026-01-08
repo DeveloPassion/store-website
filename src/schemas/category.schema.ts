@@ -35,7 +35,9 @@ export const CategorySchema = z.object({
     name: z.string().min(1, 'Category name is required'),
     description: z.string().min(1, 'Category description is required'),
     icon: z.string().optional(),
-    color: z.string().optional()
+    color: z.string().optional(),
+    featured: z.boolean(),
+    priority: z.number().int().min(1)
 })
 
 export const CategoriesArraySchema = z.array(CategorySchema)

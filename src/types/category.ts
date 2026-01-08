@@ -24,4 +24,6 @@ export interface Category {
     description: string
     icon?: string
     color?: string
+    featured: boolean
+    priority: number
 }

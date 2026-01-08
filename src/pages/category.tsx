@@ -8,43 +8,7 @@ import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import { sortProductsByPriority } from '@/lib/product-sort'
-
-// Icon mapping for categories
-import {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare
-} from 'react-icons/fa'
-import { SiObsidian } from 'react-icons/si'
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare,
-    SiObsidian
-}
+import { getCategoryIcon } from '@/lib/category-icons'
 
 const CategoryPage: React.FC = () => {
     const { categoryId } = useParams<{ categoryId: string }>()
@@ -135,7 +99,7 @@ const CategoryPage: React.FC = () => {
         )
     }
 
-    const IconComponent = category.icon ? iconMap[category.icon] : undefined
+    const IconComponent = getCategoryIcon(category.icon)
     const totalProducts = categoryProducts.length
     const totalAllProducts = (productsData as Product[]).length
     const percentage = (totalProducts / totalAllProducts) * 100

@@ -1,50 +1,13 @@
 import { useMemo, useEffect } from 'react'
-import { Link, useSearchParams, useNavigate } from 'react-router'
-import { FaArrowLeft, FaSearch, FaArrowRight } from 'react-icons/fa'
+import { Link, useSearchParams } from 'react-router'
+import { FaArrowLeft, FaSearch, FaStar, FaRocket } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
-
-// Icon mapping for categories
-import {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare,
-    FaStar
-} from 'react-icons/fa'
-import { SiObsidian } from 'react-icons/si'
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare,
-    FaStar,
-    SiObsidian
-}
+import { sortCategoriesByPriority } from '@/lib/category-utils'
+import { CategoryCard } from '@/components/categories/category-card'
 
 export interface CategoryData extends Category {
     count: number
@@ -54,7 +17,6 @@ export interface CategoryData extends Category {
 const CategoriesPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchQuery = searchParams.get('q') || ''
-    const navigate = useNavigate()
     const categories = categoriesData as Category[]
 
     // Set page title
@@ -70,8 +32,8 @@ const CategoriesPage: React.FC = () => {
         }
     }, [])
 
-    // Build category data with product counts
-    const allCategories = useMemo(() => {
+    // Build category data with product counts and separate featured/non-featured
+    const { featuredCategories, nonFeaturedCategories } = useMemo(() => {
         const products = productsData as Product[]
         const totalProducts = products.length
 
@@ -84,20 +46,33 @@ const CategoriesPage: React.FC = () => {
             }
         })
 
-        // Sort by count (highest first)
-        return categoriesWithCounts.sort((a, b) => b.count - a.count)
+        const featured = sortCategoriesByPriority(categoriesWithCounts.filter((c) => c.featured))
+        const nonFeatured = sortCategoriesByPriority(
+            categoriesWithCounts.filter((c) => !c.featured)
+        )
+
+        return { featuredCategories: featured, nonFeaturedCategories: nonFeatured }
     }, [categories])
 
     // Filter categories based on search
-    const filteredCategories = useMemo(() => {
-        if (!searchQuery) return allCategories
+    const { filteredFeatured, filteredNonFeatured } = useMemo(() => {
+        if (!searchQuery) {
+            return {
+                filteredFeatured: featuredCategories,
+                filteredNonFeatured: nonFeaturedCategories
+            }
+        }
+
         const query = searchQuery.toLowerCase()
-        return allCategories.filter(
-            (category) =>
-                category.name.toLowerCase().includes(query) ||
-                category.description.toLowerCase().includes(query)
-        )
-    }, [allCategories, searchQuery])
+        const filterFn = (category: CategoryData) =>
+            category.name.toLowerCase().includes(query) ||
+            category.description.toLowerCase().includes(query)
+
+        return {
+            filteredFeatured: featuredCategories.filter(filterFn),
+            filteredNonFeatured: nonFeaturedCategories.filter(filterFn)
+        }
+    }, [featuredCategories, nonFeaturedCategories, searchQuery])
 
     // Handle search input change
     const handleSearchChange = (value: string) => {
@@ -141,7 +116,7 @@ const CategoriesPage: React.FC = () => {
                     <div className='mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                         <div className='bg-primary/5 rounded-lg p-4'>
                             <div className='text-3xl font-bold text-green-400'>
-                                {allCategories.length}
+                                {featuredCategories.length + nonFeaturedCategories.length}
                             </div>
                             <div className='text-primary/60 text-sm'>Total Categories</div>
                         </div>
@@ -154,7 +129,7 @@ const CategoriesPage: React.FC = () => {
                         {searchQuery && (
                             <div className='bg-primary/5 rounded-lg p-4'>
                                 <div className='text-3xl font-bold text-purple-400'>
-                                    {filteredCategories.length}
+                                    {filteredFeatured.length + filteredNonFeatured.length}
                                 </div>
                                 <div className='text-primary/60 text-sm'>Matching Categories</div>
                             </div>
@@ -178,66 +153,51 @@ const CategoriesPage: React.FC = () => {
             {/* Categories Grid */}
             <Section className='pb-16 sm:pb-24'>
                 <div className='mx-auto max-w-7xl'>
-                    {filteredCategories.length > 0 ? (
-                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                            {filteredCategories.map((category) => {
-                                const IconComponent = category.icon
-                                    ? iconMap[category.icon]
-                                    : undefined
-                                const displayPercentage = Math.min(category.percentage, 100)
-
-                                return (
-                                    <button
-                                        key={category.id}
-                                        onClick={() => {
-                                            navigate(`/categories/${category.id}`)
-                                        }}
-                                        className='group border-primary/10 hover:border-secondary/30 flex cursor-pointer flex-col gap-4 rounded-xl border p-6 text-left transition-all hover:scale-102 hover:shadow-lg'
-                                        style={{
-                                            background: `linear-gradient(135deg, ${category.color}15, ${category.color}05)`
-                                        }}
-                                    >
-                                        <div className='flex items-start justify-between'>
-                                            {IconComponent && (
-                                                <div
-                                                    className='flex h-12 w-12 items-center justify-center rounded-lg'
-                                                    style={{
-                                                        backgroundColor: `${category.color}20`
-                                                    }}
-                                                >
-                                                    <div style={{ color: category.color }}>
-                                                        <IconComponent className='h-6 w-6' />
-                                                    </div>
-                                                </div>
-                                            )}
-                                            <FaArrowRight className='text-primary/40 group-hover:text-secondary h-4 w-4 transition-colors' />
-                                        </div>
-                                        <div>
-                                            <h3 className='mb-2 text-lg font-semibold'>
-                                                {category.name}
-                                            </h3>
-                                            <p className='text-primary/70 mb-3 text-sm'>
-                                                {category.description}
-                                            </p>
-                                            <p className='text-primary/60 text-sm'>
-                                                {category.count}{' '}
-                                                {category.count === 1 ? 'product' : 'products'} •{' '}
-                                                {category.percentage.toFixed(1)}%
-                                            </p>
-                                        </div>
-                                        <div className='bg-primary/10 h-2 overflow-hidden rounded-full'>
-                                            <div
-                                                className='h-full transition-all duration-500'
-                                                style={{
-                                                    width: `${displayPercentage}%`,
-                                                    backgroundColor: category.color
-                                                }}
+                    {filteredFeatured.length > 0 || filteredNonFeatured.length > 0 ? (
+                        <>
+                            {/* Featured Categories Section */}
+                            {filteredFeatured.length > 0 && (
+                                <>
+                                    <h2 className='mb-6 flex items-center gap-2 text-2xl font-bold'>
+                                        <FaStar className='text-secondary h-6 w-6' />
+                                        Featured Categories
+                                    </h2>
+                                    <div className='mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                        {filteredFeatured.map((category) => (
+                                            <CategoryCard
+                                                key={category.id}
+                                                category={category}
+                                                count={category.count}
+                                                percentage={category.percentage}
+                                                showFeaturedBadge={true}
+                                                variant='detailed'
                                             />
-                                        </div>
-                                    </button>
-                                )
-                            })}
-                        </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+
+                            {/* Non-Featured Categories Section */}
+                            {filteredNonFeatured.length > 0 && (
+                                <>
+                                    {filteredFeatured.length > 0 && (
+                                        <h2 className='mb-6 text-2xl font-bold'>More Categories</h2>
+                                    )}
+                                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                        {filteredNonFeatured.map((category) => (
+                                            <CategoryCard
+                                                key={category.id}
+                                                category={category}
+                                                count={category.count}
+                                                percentage={category.percentage}
+                                                showFeaturedBadge={false}
+                                                variant='detailed'
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </>
                     ) : (
                         <div className='py-16 text-center'>
                             <div className='mb-4 text-6xl'>🔍</div>
