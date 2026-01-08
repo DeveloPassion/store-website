@@ -2926,6 +2926,1147 @@ _Only if migrating subscriptions. Skip if using dual-run indefinitely._
 
 ---
 
+## 8A. ALTERNATIVE PLATFORMS: Detailed Comparison
+
+Before committing to Shopify, you should evaluate alternatives that may better fit your specific needs. Here's a comprehensive comparison of viable alternatives for digital product creators.
+
+### Overview Table
+
+| Platform               | Best For                                | Monthly Cost      | Transaction Fees  | Complexity       | Migration Ease  |
+| ---------------------- | --------------------------------------- | ----------------- | ----------------- | ---------------- | --------------- |
+| **Lemon Squeezy**      | Digital products, subscriptions, MoR    | $0-$50            | 5% + payment fees | ⭐⭐ Simple      | ⭐⭐⭐⭐ Easy   |
+| **Podia**              | Courses + digital products + community  | $39-89            | 0% (!)            | ⭐⭐ Simple      | ⭐⭐⭐⭐ Easy   |
+| **Shopify**            | Full e-commerce, scaling, customization | $79-299           | 2.9% + $0.30      | ⭐⭐⭐⭐ Complex | ⭐⭐ Moderate   |
+| **Gumroad** (baseline) | Simple digital sales                    | $0                | 10%               | ⭐ Very simple   | N/A             |
+| **ThriveCart**         | High-ticket funnels, one-time payment   | $495-690 one-time | 0%                | ⭐⭐⭐ Moderate  | ⭐⭐⭐ Moderate |
+| **Teachable**          | Online courses primarily                | $59-249           | 0%                | ⭐⭐ Simple      | ⭐⭐⭐ Moderate |
+| **Kajabi**             | All-in-one course + marketing platform  | $149-399          | 0%                | ⭐⭐⭐ Moderate  | ⭐⭐ Moderate   |
+
+### 1. Lemon Squeezy (Top Alternative for Your Situation)
+
+**Website:** lemonsqueezy.com
+
+**What It Is:**
+A modern Gumroad alternative specifically designed for software and digital product creators. Acts as "Merchant of Record" (handles all tax compliance automatically).
+
+**Pricing:**
+
+- Free plan: $0/mo + 5% transaction fee
+- $50k/year revenue: Free
+- Above $50k: Contact for pricing (still lower than Gumroad at scale)
+- Payment processing: Stripe fees (2.9% + 30¢)
+
+**Key Features:**
+
+- ✅ Built-in tax compliance (VAT, sales tax globally) - HUGE benefit
+- ✅ Native subscription management
+- ✅ Native affiliate system
+- ✅ License key generation for software
+- ✅ Webhook system for automation
+- ✅ Embeddable checkout (works on any website)
+- ✅ No apps needed - everything built-in
+- ✅ API access for customization
+- ✅ Multi-currency support
+- ✅ Customer portal built-in
+
+**Pros for Your Situation:**
+
+- ✅ Much simpler than Shopify (closer to Gumroad UX)
+- ✅ Cheaper than Shopify below $50k/year revenue
+- ✅ Handles tax compliance automatically (save hours of work)
+- ✅ Built-in affiliate program (no extra app needed)
+- ✅ Easy subscription migration (can import from Gumroad)
+- ✅ Better analytics than Gumroad, simpler than Shopify
+- ✅ 100% digital-product focused (unlike Shopify's e-commerce focus)
+- ✅ Modern, creator-friendly interface
+
+**Cons:**
+
+- ❌ Less customization than Shopify (can't fully customize storefront)
+- ❌ Smaller ecosystem (fewer integrations vs Shopify's 8,000+ apps)
+- ❌ Newer platform (founded 2021, less mature than Shopify)
+- ❌ Merchant of Record means they control customer data (vs you owning it)
+- ❌ Limited email marketing (need external tool like ConvertKit)
+
+**Subscription Migration:**
+
+- Import subscribers via API or CSV
+- Can replicate subscription plans exactly
+- Manual payment method re-entry required (unavoidable with any platform)
+- Less risky than Shopify due to simpler process
+
+**Best if:**
+
+- You want simpler than Shopify but more powerful than Gumroad
+- You sell primarily digital products (not physical goods)
+- You're under $50k/year revenue (free!)
+- You want tax compliance handled automatically
+- You value simplicity over maximum customization
+
+**Your Verdict:** ⭐⭐⭐⭐⭐ **Top recommendation** - Better fit than Shopify for your needs. Simpler migration, built-in features you need, cheaper at your revenue level.
+
+---
+
+### 2. Podia
+
+**Website:** podia.com
+
+**What It Is:**
+All-in-one platform for courses, digital downloads, community, and subscriptions. Think "Teachable + Gumroad + Circle combined."
+
+**Pricing:**
+
+- Mover: $39/mo - Basic features
+- Shaker: $89/mo - Full features (affiliates, coupons, drip content)
+- Earthquaker: $199/mo - Advanced features
+- **0% transaction fees** on all plans
+
+**Key Features:**
+
+- ✅ Unlimited products and courses
+- ✅ Unlimited students/customers
+- ✅ Built-in email marketing (basic)
+- ✅ Built-in community/membership area
+- ✅ Native affiliates ($89+ plan)
+- ✅ Drip content for courses
+- ✅ Webinar hosting
+- ✅ Coaching/booking integration
+- ✅ 24/7 live chat support
+- ✅ Custom domain
+- ✅ Zero transaction fees (huge!)
+
+**Pros for Your Situation:**
+
+- ✅ All-in-one (no apps to juggle like Shopify)
+- ✅ Zero transaction fees (vs 2.9% on Shopify)
+- ✅ Simple migration (easier than Shopify)
+- ✅ Built-in email marketing (saves $20-100/mo)
+- ✅ Built-in community (if you want to add this later)
+- ✅ Beautiful templates (good customization without coding)
+- ✅ Focus on creator economy (vs Shopify's e-commerce focus)
+
+**Cons:**
+
+- ❌ Less customization than Shopify (template-based)
+- ❌ No subscription import tool (manual migration)
+- ❌ Analytics less powerful than Shopify
+- ❌ Smaller integration ecosystem
+- ❌ $39-89/mo fixed cost even at low revenue
+
+**Subscription Migration:**
+
+- No automated import
+- Manual migration process: export from Gumroad, recreate on Podia
+- Offer existing subscribers discount code to migrate
+- Similar difficulty to Shopify migration
+
+**Best if:**
+
+- You plan to create online courses (not just selling products)
+- You want an all-in-one solution (vs managing multiple tools)
+- You value zero transaction fees
+- You want to add community features later
+- You prefer simplicity over maximum flexibility
+
+**Your Verdict:** ⭐⭐⭐⭐ Good alternative - More expensive than Lemon Squeezy at your revenue level ($39-89/mo vs $0), but all-in-one value is strong. Great if you plan to expand into courses/community.
+
+---
+
+### 3. ThriveCart
+
+**Website:** thrivecart.com
+
+**What It Is:**
+One-time payment software focused on cart abandonment recovery and high-converting checkout funnels. Popular with high-ticket digital product sellers.
+
+**Pricing:**
+
+- Standard: $495 one-time (lifetime access)
+- Pro: $690 one-time (includes affiliate platform, automation)
+- **0% transaction fees forever**
+
+**Key Features:**
+
+- ✅ One-time payment (no monthly fees!)
+- ✅ Cart abandonment recovery built-in
+- ✅ A/B testing for checkout pages
+- ✅ Bump offers and upsells
+- ✅ Subscription management
+- ✅ Affiliate management (Pro plan)
+- ✅ Integration with major email platforms
+- ✅ Course delivery integration
+- ✅ Dunning management for failed payments
+
+**Pros for Your Situation:**
+
+- ✅ One-time payment = massive long-term savings
+- ✅ Zero monthly fees (vs $79-140/mo Shopify)
+- ✅ Built-in affiliate platform (Pro plan)
+- ✅ Excellent for digital products
+- ✅ High-converting checkout (better than Shopify default)
+- ✅ Automatic cart abandonment recovery
+
+**Cons:**
+
+- ❌ No storefront (you need separate website/landing pages)
+- ❌ High upfront cost ($495-690)
+- ❌ Not a full platform (it's just the cart/checkout)
+- ❌ Requires external course hosting if selling courses
+- ❌ Subscription migration complex (no import tools)
+- ❌ Less suitable if you want branded storefront
+
+**Subscription Migration:**
+
+- No automated import
+- Complex manual process
+- Would need to recreate all subscription products
+- Requires customers to re-subscribe
+
+**Best if:**
+
+- You have high-ticket products ($200+)
+- You already have a website (just need checkout)
+- You want to avoid monthly fees long-term
+- You're focused on conversion optimization
+- You plan to run sales funnels
+
+**Your Verdict:** ⭐⭐⭐ Not ideal for your situation - Better for sellers with existing websites who need just the checkout. You want a complete platform with storefront. High upfront cost also risky.
+
+---
+
+### 4. Teachable
+
+**Website:** teachable.com
+
+**What It Is:**
+Leading platform specifically for creating and selling online courses. Increasingly supporting digital downloads and memberships.
+
+**Pricing:**
+
+- Basic: $59/mo - $1 + 10% per transaction
+- Pro: $159/mo - 5% transaction fee
+- Pro+: $249/mo - 0% transaction fee
+- Business: $665/mo - Enterprise features
+
+**Key Features:**
+
+- ✅ Unlimited courses and students
+- ✅ Drag-and-drop course builder
+- ✅ Quizzes and certificates
+- ✅ Drip content scheduling
+- ✅ Student comments and community
+- ✅ Basic email marketing
+- ✅ Coupons and promotions
+- ✅ Affiliate reporting
+- ✅ Custom domain
+- ✅ Compliance (GDPR, CCPA)
+
+**Pros:**
+
+- ✅ Best course creation tools
+- ✅ Student engagement features
+- ✅ Polished course delivery experience
+- ✅ Strong brand (trusted by students)
+- ✅ Good analytics for courses
+
+**Cons for Your Situation:**
+
+- ❌ **Course-first platform** (not ideal for diverse digital products)
+- ❌ Transaction fees on lower plans (Basic = 10%!)
+- ❌ Less flexible for non-course products
+- ❌ $59-249/mo costs higher than alternatives
+- ❌ Not designed for simple digital downloads
+- ❌ Subscription migration complex
+
+**Best if:**
+
+- Your primary product is online courses
+- You need robust course delivery (videos, quizzes, certificates)
+- You want student community features
+- You're willing to pay for course-specific features
+
+**Your Verdict:** ⭐⭐ Not recommended - Too course-focused. You have diverse digital products, not just courses. Lemon Squeezy or Podia better fit.
+
+---
+
+### 5. Kajabi
+
+**Website:** kajabi.com
+
+**What It Is:**
+Premium all-in-one platform for knowledge commerce. Combines courses, marketing, email, funnels, and community in one expensive package.
+
+**Pricing:**
+
+- Basic: $149/mo (3 products, 1,000 members)
+- Growth: $199/mo (15 products, 10,000 members)
+- Pro: $399/mo (Unlimited)
+- **0% transaction fees**
+
+**Key Features:**
+
+- ✅ Complete marketing suite (email, automations, pipelines)
+- ✅ Course and membership platform
+- ✅ Landing page and funnel builder
+- ✅ Built-in CRM
+- ✅ Webinar hosting
+- ✅ Podcast hosting
+- ✅ Assessment and quiz tools
+- ✅ Analytics and reporting
+- ✅ Mobile app for students
+- ✅ 24/7 support
+
+**Pros:**
+
+- ✅ Truly all-in-one (replace 10+ tools)
+- ✅ Powerful marketing automation
+- ✅ Beautiful templates and themes
+- ✅ Enterprise-grade features
+- ✅ Excellent customer support
+
+**Cons for Your Situation:**
+
+- ❌ **Extremely expensive** ($149-399/mo!)
+- ❌ Overkill for your needs (you don't need all features)
+- ❌ Steep learning curve
+- ❌ Product limits on lower plans
+- ❌ Designed for larger course creators ($100k+/year)
+
+**Best if:**
+
+- You're making $100k+/year already
+- You want to replace all your tools (email, CRM, courses, website)
+- You're building a knowledge empire
+- Budget isn't a concern
+
+**Your Verdict:** ⭐ **Not recommended** - Way too expensive ($149/mo minimum) for your revenue level ($1-3k/mo). Massive overkill.
+
+---
+
+### 6. Stan Store
+
+**Website:** stan.store
+
+**What It Is:**
+Mobile-first platform popular with influencers and content creators. Think "Link in bio that's also a store."
+
+**Pricing:**
+
+- Creator: $29/mo
+- Creator Pro: $99/mo
+- **0% transaction fees**
+
+**Key Features:**
+
+- ✅ Mobile-optimized storefront
+- ✅ Link-in-bio functionality
+- ✅ Digital product sales
+- ✅ Calendar/booking
+- ✅ Courses and memberships
+- ✅ Email capture
+- ✅ Upsells and cross-sells
+- ✅ Instagram/TikTok integration
+
+**Pros:**
+
+- ✅ Very affordable ($29/mo)
+- ✅ Zero transaction fees
+- ✅ Perfect for social media creators
+- ✅ Quick setup (minutes)
+- ✅ Mobile-first design
+
+**Cons for Your Situation:**
+
+- ❌ Limited customization
+- ❌ Very basic analytics
+- ❌ No custom domain on basic plan
+- ❌ Designed for influencers (not traditional businesses)
+- ❌ Limited features vs alternatives
+- ❌ No affiliate program
+
+**Your Verdict:** ⭐⭐ Not recommended - Too basic for your needs. Better for Instagram influencers selling simple digital products.
+
+---
+
+### RECOMMENDATION MATRIX: Which Platform for Your Situation?
+
+**Your Requirements:**
+
+- Revenue: $1-3k/mo
+- Subscriptions: 20% of revenue, 10-30 subscribers, 100% retention required
+- Pain points: Customization, analytics, email marketing, costs
+- Technical: Comfortable with setup
+- Uses: Affiliate program
+
+**Platform Rankings:**
+
+**1. 🥇 Lemon Squeezy** - 95/100
+
+- ✅ Free at your revenue level
+- ✅ Built-in affiliate program
+- ✅ Tax compliance handled
+- ✅ Easy subscription migration
+- ✅ Better analytics than Gumroad
+- ✅ Digital-product focused
+- ✅ Simple enough (learning curve < Shopify)
+- ❌ Less customization than Shopify (but more than Gumroad)
+- **Best for:** Your exact situation. Perfect middle ground.
+
+**2. 🥈 Podia** - 88/100
+
+- ✅ All-in-one platform
+- ✅ Zero transaction fees
+- ✅ Built-in email marketing
+- ✅ Community features (future-proof)
+- ❌ $39-89/mo fixed cost
+- ❌ No automated subscription import
+- **Best for:** If you plan to add courses/community later.
+
+**3. 🥉 Shopify** - 82/100
+
+- ✅ Maximum customization
+- ✅ Best analytics
+- ✅ Scales to infinity
+- ❌ Most complex
+- ❌ Requires multiple apps
+- ❌ $79/mo + apps = $140/mo total
+- ❌ Harder subscription migration
+- **Best for:** If you value customization above all else and plan to scale past $10k/mo.
+
+**4. ThriveCart** - 68/100
+
+- ✅ One-time payment
+- ✅ Great for high-ticket
+- ❌ No storefront
+- ❌ High upfront cost
+- ❌ Not a complete platform
+- **Best for:** High-ticket sellers with existing website.
+
+**5. Teachable** - 55/100
+
+- ✅ Best for courses
+- ❌ Course-focused (not versatile)
+- ❌ Transaction fees
+- ❌ Expensive
+- **Best for:** Pure course creators.
+
+**6. Kajabi** - 45/100
+
+- ✅ All-in-one powerhouse
+- ❌ Extremely expensive
+- ❌ Massive overkill
+- **Best for:** Established course creators ($100k+/year).
+
+---
+
+### MIGRATION COMPLEXITY COMPARISON
+
+**Easiest → Hardest:**
+
+1. **Lemon Squeezy** ⭐⭐⭐⭐⭐
+    - Time: 2-4 weeks
+    - Subscription migration: API import available, relatively smooth
+    - Effort: Low-moderate
+
+2. **Podia** ⭐⭐⭐⭐
+    - Time: 3-6 weeks
+    - Subscription migration: Manual, but simpler than Shopify
+    - Effort: Moderate
+
+3. **Shopify** ⭐⭐⭐
+    - Time: 12-16 weeks (your customized plan)
+    - Subscription migration: Complex, requires dual-run
+    - Effort: High
+
+4. **ThriveCart** ⭐⭐
+    - Time: 4-8 weeks
+    - Subscription migration: Complex manual process
+    - Effort: Moderate-high
+
+5. **Teachable/Kajabi** ⭐⭐
+    - Time: 6-10 weeks
+    - Subscription migration: Manual, course-specific challenges
+    - Effort: Moderate-high
+
+---
+
+### FINAL RECOMMENDATION
+
+**For your specific situation (10-30 subscribers, $1-3k/mo revenue, 100% retention requirement, need for customization/analytics):**
+
+**PRIMARY RECOMMENDATION: Lemon Squeezy**
+
+**Why:**
+
+1. **FREE at your revenue level** (vs $79-140/mo Shopify)
+2. **Easier subscription migration** (less risky for your 100% retention goal)
+3. **Built-in affiliate program** (no extra app needed)
+4. **Tax compliance automated** (saves hours of work)
+5. **Better analytics than Gumroad** (addresses your pain point)
+6. **More customization than Gumroad** (addresses your pain point)
+7. **Simpler than Shopify** (less setup time, easier to manage)
+8. **Digital-product focused** (vs Shopify's broader e-commerce focus)
+
+**SECONDARY RECOMMENDATION: Podia** ($39-89/mo)
+
+**Why:**
+
+- All-in-one value
+- Zero transaction fees
+- Future-proof if you add courses/community
+- Simpler than Shopify, more features than Lemon Squeezy
+
+**THIRD OPTION: Shopify** ($140/mo total)
+
+**Why:**
+
+- Maximum customization (if this is your top priority)
+- Best-in-class analytics
+- Scales infinitely
+- Worth it if you expect to grow past $3,500/mo soon
+
+---
+
+### ACTION STEP
+
+**Before committing to Shopify, I recommend:**
+
+1. **Try Lemon Squeezy first** (it's FREE at your revenue level!)
+    - Sign up today
+    - Import 2-3 products
+    - Test the checkout flow
+    - Compare to Shopify
+    - Time investment: 2-3 hours
+    - Cost: $0
+
+2. **Try Podia** (14-day free trial)
+    - Test the platform
+    - See if all-in-one value appeals to you
+    - Compare to Lemon Squeezy and Shopify
+    - Time investment: 2-3 hours
+    - Cost: $0
+
+3. **Then decide:**
+    - If Lemon Squeezy feels right: **Migrate there** (saves $140/mo, easier migration)
+    - If Podia feels right: **Migrate there** (saves $51-101/mo, all-in-one value)
+    - If neither feels right: **Proceed with Shopify** (maximum power, worth the cost/complexity)
+
+**Expected outcome:** 70% chance you'll prefer Lemon Squeezy over Shopify for your specific needs. Test before committing!
+
+---
+
+## 8B. CUSTOM STORE WEBSITE APPROACH: Gumroad + Custom Frontend
+
+**Status:** Alternative Strategy
+**Complexity:** Low-Medium
+**Risk Level:** Low
+**Timeline:** 2-4 Weeks
+
+### Overview
+
+This approach combines the best of both worlds: keep Gumroad as your payment processor and digital delivery platform while using your custom store website (store.dsebastien.net) as the main storefront and marketing platform.
+
+**Key Concept:**
+
+- **Custom website:** Primary public-facing store (React-based, full control)
+- **Gumroad:** Backend payment processor and digital delivery
+- **User flow:** Browse on your site → Click "Buy Now" → Redirect to Gumroad checkout → Purchase completes on Gumroad
+
+### What This Looks Like
+
+1. Customer visits `store.dsebastien.net` (your custom website)
+2. Browses products with your custom design, filtering, search, etc.
+3. Clicks "Buy Now" or "Purchase" button
+4. Gets redirected to `developassion.gumroad.com/l/product-name`
+5. Completes purchase on Gumroad's checkout page
+6. Receives product via Gumroad's delivery system
+
+### Architecture Changes Required
+
+**Domain Configuration:**
+
+1. Remove custom domain from Gumroad (no more store.dsebastien.net → Gumroad)
+2. Point store.dsebastien.net to your custom website hosting
+3. All Gumroad links revert to `developassion.gumroad.com/l/*`
+
+**Website Updates:**
+
+1. Update all "Buy" buttons to link to Gumroad product URLs
+2. Add clear messaging that checkout happens on Gumroad
+3. Implement Gumroad API integration for dynamic pricing/availability (optional)
+4. Add analytics tracking for buy button clicks
+
+---
+
+### Cost-Benefit Analysis
+
+#### What You GAIN
+
+**Complete Frontend Control:**
+
+- ✅ Full design freedom (React + Tailwind CSS)
+- ✅ Custom product browsing experience
+- ✅ Advanced filtering, search, and categorization
+- ✅ Command palette and keyboard shortcuts
+- ✅ Responsive design exactly as you want it
+- ✅ Custom landing pages and marketing funnels
+- ✅ Blog integration for content marketing
+
+**Gumroad Benefits Retained:**
+
+- ✅ Simple payment processing (10% fee, no monthly cost)
+- ✅ Built-in affiliate program
+- ✅ License key generation
+- ✅ Digital file hosting and delivery
+- ✅ Automatic VAT/tax handling
+- ✅ Customer support for payment issues
+- ✅ Existing subscriber base stays intact
+- ✅ Zero subscription migration risk
+- ✅ EU VAT MOSS compliance
+
+**Technical Advantages:**
+
+- ✅ Version control for your store (Git)
+- ✅ Modern development workflow
+- ✅ Static site performance (fast loading)
+- ✅ Full SEO control
+- ✅ Custom analytics implementation
+- ✅ A/B testing capabilities
+- ✅ Progressive Web App potential
+
+**Marketing & Analytics:**
+
+- ✅ Google Analytics/Plausible integration
+- ✅ Heatmaps and user behavior tracking
+- ✅ Custom conversion funnels
+- ✅ Email capture before checkout
+- ✅ Content marketing integration
+- ✅ Social proof and testimonials placement
+
+**Cost Savings:**
+
+- ✅ No monthly platform fees (vs $79-299/mo for Shopify)
+- ✅ No app subscription costs (vs $50-150/mo for Shopify apps)
+- ✅ Minimal hosting costs ($0-20/mo for static hosting)
+- ✅ Keep Gumroad's simple 10% transaction fee
+
+#### What You LOSE
+
+**Limited E-Commerce Features:**
+
+- ❌ No native shopping cart (single-item purchases only, unless custom built)
+- ❌ No abandoned cart recovery
+- ❌ No native discount codes (must use Gumroad's discount system)
+- ❌ No built-in email marketing automation
+- ❌ No native upsell/cross-sell (must implement manually)
+
+**Checkout Experience:**
+
+- ❌ Redirect to different domain for checkout (slight friction)
+- ❌ Gumroad branding on checkout page (not fully white-labeled)
+- ❌ Less control over checkout flow and fields
+- ❌ Payment page design controlled by Gumroad
+
+**Technical Limitations:**
+
+- ❌ Manual product data management (no admin panel, edit JSON/config files)
+- ❌ No real-time inventory sync (not relevant for digital products)
+- ❌ Limited customer account features (Gumroad Library provides this)
+- ❌ Need to sync product data manually between your site and Gumroad
+
+**Analytics Gaps:**
+
+- ❌ Checkout funnel analytics split across two domains
+- ❌ No automatic conversion tracking (requires UTM parameters and Gumroad webhooks)
+- ❌ Customer data lives in Gumroad, not your system
+
+**Support Complexity:**
+
+- ❌ Need to support two systems (your site + Gumroad)
+- ❌ Customer confusion about two different domains
+- ❌ Payment issues require Gumroad support
+
+---
+
+### Cost Comparison
+
+#### Current Gumroad Setup
+
+- **Monthly cost:** $0 fixed
+- **Transaction fees:** 10% of sales
+- **Example at $2,000/mo revenue:** $200/mo total cost
+
+#### Custom Website + Gumroad
+
+**One-Time Costs:**
+
+- Domain: $0 (already owned)
+- Development time: $0 (DIY) or $500-2,000 (if hiring)
+- **Total one-time: $0-2,000**
+
+**Monthly Recurring:**
+
+- Hosting (GitHub Pages/Netlify/Vercel): $0-20/mo
+- Gumroad transaction fees: 10% of sales (same as before)
+- Email service (optional, Mailchimp/ConvertKit): $0-50/mo
+- Analytics (optional, beyond free tier): $0-20/mo
+- **Total monthly: $0-90/mo + 10% transaction fees**
+
+**Example at $2,000/mo revenue:**
+
+- Transaction fees: $200/mo (10%)
+- Fixed costs: $0-90/mo
+- **Total: $200-290/mo**
+
+#### Shopify Setup (for comparison)
+
+- **Monthly cost:** $171-501/mo fixed
+- **Transaction fees:** ~$60/mo at $2,000 revenue (2.9% + $0.30)
+- **Total at $2,000/mo revenue: $231-561/mo**
+
+**Conclusion:** Custom website + Gumroad is the cheapest option at any revenue level, while maintaining most of Gumroad's simplicity.
+
+---
+
+### Implementation Plan
+
+#### Phase 1: Website Preparation (Week 1)
+
+**1. Update Product Data**
+
+- [ ] Ensure all products in `/src/data/products.json` have correct Gumroad URLs
+- [ ] Add `gumroadUrl` field to all products if not present
+- [ ] Validate URLs point to `developassion.gumroad.com/l/*` format
+- [ ] Run validation: `npm run validate:products`
+
+**2. Update Buy Button Behavior**
+
+- [ ] Modify buy button component to open Gumroad URLs
+- [ ] Add external link icon/indicator
+- [ ] Add analytics tracking for button clicks
+- [ ] Implement UTM parameters for conversion tracking
+    ```typescript
+    const gumroadUrl = `${product.gumroadUrl}?wanted=true&referrer=store`
+    ```
+
+**3. Add Checkout Messaging**
+
+- [ ] Add notice: "Secure checkout powered by Gumroad"
+- [ ] Add trust badges/security icons
+- [ ] Create FAQ section explaining the checkout process
+- [ ] Add customer testimonials to build trust
+
+**4. Implement Analytics**
+
+- [ ] Set up Google Analytics 4 or Plausible
+- [ ] Track "Buy" button clicks as events
+- [ ] Set up conversion goals for Gumroad traffic
+- [ ] Add UTM parameters to all Gumroad links
+
+#### Phase 2: Domain Migration (Week 2)
+
+**1. Remove Gumroad Custom Domain**
+
+- [ ] Go to Gumroad settings → Custom Domain
+- [ ] Remove `store.dsebastien.net` custom domain
+- [ ] Confirm all product links revert to `developassion.gumroad.com/l/*`
+- [ ] Test all product URLs are accessible
+
+**2. Point Domain to Custom Website**
+
+- [ ] Update DNS A/CNAME records to point to your hosting provider
+    - GitHub Pages: `185.199.108.153` (and other IPs)
+    - Netlify: CNAME to `your-site.netlify.app`
+    - Vercel: CNAME to `cname.vercel-dns.com`
+- [ ] Wait for DNS propagation (usually 1-24 hours)
+- [ ] Verify SSL certificate is active
+
+**3. Test End-to-End Flow**
+
+- [ ] Visit `store.dsebastien.net` → Should load your custom website
+- [ ] Click "Buy" on several products → Should redirect to Gumroad
+- [ ] Test checkout flow on Gumroad
+- [ ] Verify purchase confirmation and digital delivery work
+
+#### Phase 3: Communication & Launch (Week 3)
+
+**1. Update External Links**
+
+- [ ] Update links on your main website (dsebastien.net)
+- [ ] Update social media profiles (Twitter, LinkedIn, etc.)
+- [ ] Update email signatures
+- [ ] Update newsletter links
+- [ ] Update YouTube video descriptions
+- [ ] Update course platforms (if applicable)
+
+**2. Customer Communication**
+
+- [ ] Send email to existing customers announcing new store
+- [ ] Explain the improved browsing experience
+- [ ] Reassure them checkout/subscriptions unchanged
+- [ ] Provide support contact for questions
+
+**3. SEO Updates**
+
+- [ ] Submit new sitemap to Google Search Console
+- [ ] Update meta descriptions and titles
+- [ ] Implement structured data (schema.org) for products
+- [ ] Set up 301 redirects if needed (old blog posts linking to store)
+
+#### Phase 4: Optimization (Week 4+)
+
+**1. Analytics & Tracking**
+
+- [ ] Monitor buy button click-through rates
+- [ ] Track conversion rates (visitors → Gumroad clicks → purchases)
+- [ ] Identify drop-off points
+- [ ] A/B test different button text/placement
+
+**2. Content Enhancement**
+
+- [ ] Add detailed product comparison pages
+- [ ] Create buying guides and blog content
+- [ ] Add video demos/previews
+- [ ] Implement social proof (customer counts, testimonials)
+
+**3. Conversion Optimization**
+
+- [ ] Test different call-to-action button designs
+- [ ] Optimize product page layouts
+- [ ] Add exit-intent popups (optional)
+- [ ] Implement email capture (lead magnets)
+
+**4. Gumroad Integration (Optional Advanced)**
+
+- [ ] Use Gumroad API to fetch product data dynamically
+- [ ] Display real-time purchase counts
+- [ ] Show dynamic pricing based on sales/discounts
+- [ ] Sync product availability status
+
+---
+
+### Technical Requirements
+
+#### Frontend (Already Built)
+
+- ✅ React 19+ with TypeScript
+- ✅ Vite for building
+- ✅ Tailwind CSS v4
+- ✅ React Router (HashRouter for GitHub Pages)
+- ✅ Product data structure in JSON
+- ✅ Responsive design
+- ✅ Command palette
+- ✅ Search and filtering
+
+#### Hosting Options
+
+**Option A: GitHub Pages (Current Setup)**
+
+- **Cost:** Free
+- **Pros:** Simple, integrated with GitHub, free SSL
+- **Cons:** Static only, uses HashRouter (#/ URLs)
+- **Setup:** Already configured via `.github/workflows/deploy.yml`
+
+**Option B: Netlify**
+
+- **Cost:** Free tier available
+- **Pros:** Better build process, clean URLs (no #), form handling, edge functions
+- **Cons:** Need to migrate from GitHub Pages
+- **Setup:** Connect GitHub repo, configure build command
+
+**Option C: Vercel**
+
+- **Cost:** Free tier available
+- **Pros:** Excellent performance, clean URLs, serverless functions, great DX
+- **Cons:** Need to migrate from GitHub Pages
+- **Setup:** Connect GitHub repo, auto-detects Vite config
+
+**Recommendation:** Start with GitHub Pages (already working), migrate to Netlify or Vercel later if you need clean URLs or serverless features.
+
+#### Gumroad Product URL Format
+
+All product URLs should follow this pattern:
+
+```
+https://developassion.gumroad.com/l/product-slug
+```
+
+**With tracking parameters:**
+
+```
+https://developassion.gumroad.com/l/product-slug?wanted=true&referrer=custom-store
+```
+
+**Available Gumroad URL parameters:**
+
+- `wanted=true` - Pre-fills quantity
+- `referrer=source` - Tracks referral source
+- Custom parameters for analytics
+
+---
+
+### Migration Checklist
+
+#### Pre-Migration
+
+- [ ] Review all products in `products.json`
+- [ ] Verify all Gumroad URLs are correct and working
+- [ ] Back up current Gumroad domain settings
+- [ ] Set up analytics tracking on custom website
+- [ ] Test website build and deployment process
+- [ ] Create staging environment for testing (optional)
+
+#### Domain Migration
+
+- [ ] Remove custom domain from Gumroad settings
+- [ ] Update DNS records to point to hosting provider
+- [ ] Wait for DNS propagation (check with `dig store.dsebastien.net`)
+- [ ] Verify SSL certificate is working
+- [ ] Test HTTPS redirect
+- [ ] Test www redirect (if applicable)
+
+#### Website Updates
+
+- [ ] Update all buy buttons to link to Gumroad URLs
+- [ ] Add checkout messaging and trust indicators
+- [ ] Implement analytics event tracking
+- [ ] Add UTM parameters to Gumroad links
+- [ ] Test responsive design on mobile devices
+- [ ] Test all navigation and internal links
+
+#### External Links Update
+
+- [ ] Update main website links
+- [ ] Update social media profiles
+- [ ] Update email signatures
+- [ ] Update newsletter templates
+- [ ] Update video descriptions
+- [ ] Update any affiliate links (if applicable)
+
+#### Communication
+
+- [ ] Draft customer announcement email
+- [ ] Announce on social media
+- [ ] Update support documentation
+- [ ] Add FAQ section about checkout process
+- [ ] Monitor support channels for questions
+
+#### Post-Launch
+
+- [ ] Monitor analytics for 7 days
+- [ ] Track buy button click-through rates
+- [ ] Monitor customer support tickets
+- [ ] Check for broken links or errors
+- [ ] Gather customer feedback
+- [ ] Optimize based on data
+
+---
+
+### Risk Assessment
+
+**Very Low Risk:**
+
+- ✅ No payment system migration
+- ✅ No subscription disruption
+- ✅ No customer data migration
+- ✅ Reversible changes (can add custom domain back to Gumroad)
+
+**Potential Issues:**
+
+| Risk                                    | Likelihood | Impact | Mitigation                                         |
+| --------------------------------------- | ---------- | ------ | -------------------------------------------------- |
+| DNS propagation delay                   | Medium     | Low    | Plan for 24-48 hour buffer, announce in advance    |
+| Customers confused by checkout redirect | Medium     | Low    | Clear messaging, FAQ section, trust indicators     |
+| Broken Gumroad URLs                     | Low        | Medium | Validate all URLs before launch, monitor 404s      |
+| Analytics tracking gaps                 | Medium     | Low    | Implement UTM parameters, test tracking thoroughly |
+| SEO ranking fluctuation                 | Low        | Medium | Set up proper redirects, submit new sitemap        |
+| Hosting downtime                        | Very Low   | Medium | Use reliable hosting (GitHub Pages/Netlify/Vercel) |
+
+---
+
+### Success Metrics
+
+**Week 1-2 (Baseline):**
+
+- [ ] Store website loads < 2 seconds
+- [ ] Zero broken Gumroad links
+- [ ] Analytics tracking works for 100% of buy button clicks
+- [ ] Zero critical customer support issues
+
+**Month 1:**
+
+- [ ] Buy button click-through rate: Track baseline
+- [ ] Conversion rate (clicks → purchases): Compare to previous Gumroad-only
+- [ ] Page load time: < 2 seconds on mobile
+- [ ] Bounce rate: < 60%
+
+**Month 3:**
+
+- [ ] Organic search traffic: +20% (from SEO improvements)
+- [ ] Direct traffic: +30% (from improved branding)
+- [ ] Customer satisfaction: No complaints about checkout process
+- [ ] Site performance: 90+ Lighthouse score
+
+---
+
+### When This Approach Makes Sense
+
+**This is IDEAL if you:**
+
+- ✅ Want full control over store design and user experience
+- ✅ Are comfortable with basic web development (or have a developer)
+- ✅ Want to keep Gumroad's simplicity for payments/delivery
+- ✅ Have low/medium revenue ($0-5k/mo) where Gumroad's 10% is reasonable
+- ✅ Don't need advanced e-commerce features (cart, abandoned cart recovery, etc.)
+- ✅ Want to minimize migration risk and complexity
+- ✅ Want to keep costs very low (no monthly platform fees)
+- ✅ Value development flexibility and version control
+
+**This is NOT ideal if you:**
+
+- ❌ Need a fully white-labeled checkout experience
+- ❌ Want all-in-one analytics (checkout + storefront)
+- ❌ Need advanced subscription management features
+- ❌ Want abandoned cart recovery and email automation
+- ❌ Prefer a no-code/low-code solution
+- ❌ Have high revenue (>$10k/mo) where Gumroad's 10% becomes expensive
+- ❌ Need multi-item shopping cart functionality
+- ❌ Want built-in CRM and customer management tools
+
+---
+
+### Comparison: Custom Website + Gumroad vs Full Migration
+
+| Factor                      | Custom Website + Gumroad | Shopify           | Lemon Squeezy |
+| --------------------------- | ------------------------ | ----------------- | ------------- |
+| **Monthly Cost**            | $0-90                    | $171-501          | $0-100        |
+| **Transaction Fees**        | 10%                      | 2.9% + $0.30      | 5% + $0.50    |
+| **Setup Complexity**        | Low                      | High              | Medium        |
+| **Migration Risk**          | Very Low                 | High              | Medium        |
+| **Design Control**          | Full                     | High              | Medium        |
+| **Checkout Control**        | Low (Gumroad)            | Full              | Medium        |
+| **Development Required**    | Medium                   | Low (apps)        | Low           |
+| **SEO Control**             | Full                     | High              | Medium        |
+| **Analytics Control**       | High                     | High              | Medium        |
+| **Subscription Management** | Basic (Gumroad)          | Advanced          | Advanced      |
+| **Email Marketing**         | External tool needed     | Integrated (apps) | Integrated    |
+| **Time to Launch**          | 2-4 weeks                | 8-12 weeks        | 4-6 weeks     |
+
+---
+
+### Recommended Next Steps
+
+**If you choose this approach:**
+
+1. **Week 1: Preparation**
+    - Review and validate all product data in `products.json`
+    - Ensure all Gumroad URLs are correct
+    - Set up analytics (Google Analytics or Plausible)
+    - Test the current website locally
+
+2. **Week 2: Domain Migration**
+    - Remove custom domain from Gumroad
+    - Update DNS to point to hosting provider
+    - Wait for DNS propagation
+    - Test end-to-end flow
+
+3. **Week 3: Communication**
+    - Update all external links
+    - Send announcement email
+    - Monitor support channels
+    - Gather initial feedback
+
+4. **Week 4+: Optimization**
+    - Analyze conversion data
+    - A/B test buy button placement/design
+    - Add content marketing (blog posts, guides)
+    - Implement advanced features (email capture, etc.)
+
+**Decision Point:**
+
+This approach is **strongly recommended** if:
+
+- You already have the custom website built (you do!)
+- You want to minimize risk and costs
+- You're comfortable with the two-domain checkout flow
+- You value design control and technical flexibility
+
+**Cost savings over 12 months:**
+
+- vs Shopify: Save $2,052 - $6,012/year in platform costs
+- vs Lemon Squeezy: Save $0 - $1,200/year (but less features)
+
+---
+
+### Advanced: Optional Gumroad API Integration
+
+**For more sophisticated integration, you can use the Gumroad API to:**
+
+1. **Fetch Product Data Dynamically**
+
+    ```javascript
+    // Fetch all products from Gumroad API
+    fetch('https://api.gumroad.com/v2/products', {
+        headers: { Authorization: 'Bearer YOUR_ACCESS_TOKEN' }
+    })
+    ```
+
+2. **Display Real-Time Sales Data**
+    - Show "X people bought this today"
+    - Display current discount information
+    - Show stock status (for physical products)
+
+3. **Webhook Integration**
+    - Listen for purchase events
+    - Trigger custom automations (email sequences, Discord notifications, etc.)
+    - Update your own analytics database
+
+4. **Custom Checkout Overlays**
+    - Use Gumroad's overlay checkout instead of redirect
+    - Keeps user on your domain (feels more seamless)
+    ```javascript
+    <a href="https://gum.co/product" class="gumroad-button">Buy</a>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+    ```
+
+**Resources:**
+
+- Gumroad API Documentation: https://app.gumroad.com/api
+- Gumroad Overlay Checkout: https://help.gumroad.com/article/106-using-the-overlay
+- Webhooks Setup: https://help.gumroad.com/article/269-webhooks
+
+---
+
+### Conclusion: Custom Website + Gumroad Approach
+
+**Summary:**
+
+This hybrid approach offers the best balance of control, cost, and simplicity for your situation. You get:
+
+- Full design and UX control via your custom React website
+- Continued use of Gumroad's proven payment and delivery infrastructure
+- Minimal migration risk (no subscription transfers, no payment system changes)
+- Very low costs ($0-90/mo vs $171-501/mo for Shopify)
+- Fast implementation timeline (2-4 weeks vs 12-16 weeks for Shopify)
+
+**Trade-offs:**
+
+You sacrifice some e-commerce conveniences (abandoned cart recovery, all-in-one analytics, white-labeled checkout) in exchange for simplicity, lower cost, and reduced risk.
+
+**Recommendation for Your Situation:**
+
+Given that:
+
+1. You already have a custom store website built
+2. You have 10-30 subscribers (high retention requirement)
+3. Your revenue is $1-3k/mo (Gumroad's 10% is cost-effective)
+4. You value design control and technical flexibility
+5. You want to minimize migration complexity
+
+**This approach is likely your best option.** Consider it before committing to a full platform migration.
+
+---
+
 ## 9. Recommended Tools & Apps
 
 ### Essential Shopify Apps
@@ -3385,6 +4526,290 @@ Thanks for understanding.
 - dSebastien
 
 P.S. If you have any concerns or feedback about this change, I genuinely want to hear it. Reply anytime.
+```
+
+### Template 6A: Soft Introduction for 10-30 Subscriber Scenario (Month 8)
+
+**Purpose:** Zero-pressure informational update about new platform
+**Audience:** All 10-30 existing subscribers
+**Tone:** Casual, informational, no urgency
+
+```
+Subject: Update: I've moved to a new store platform (no action needed!)
+
+Hi [First Name],
+
+Quick update I wanted to share with you:
+
+I've moved my store to a new platform at https://store.dsebastien.net
+
+IMPORTANT: Your subscription continues exactly as it is. Nothing changes for you unless you want it to.
+
+WHY I MOVED:
+
+After a lot of thought, I migrated to Shopify because:
+✅ Better customization and branding (finally looks professional!)
+✅ Deeper analytics to understand what you all actually want
+✅ Better email tools to share updates and new content
+✅ Faster downloads and improved customer experience
+
+THE NEW EXPERIENCE:
+
+Here's what's different on Shopify:
+• Cleaner, more professional design
+• Better download speeds
+• Easier subscription management (pause, update billing, etc.)
+• Improved mobile experience
+• More features coming soon
+
+WHAT THIS MEANS FOR YOU:
+
+Right now? Absolutely nothing.
+
+Your Gumroad subscription continues working perfectly. You don't need to do anything.
+
+BUT... if you're curious or interested in trying the new platform:
+
+🎁 SPECIAL OFFER FOR EXISTING SUBSCRIBERS:
+- Migrate to Shopify: Get 3 MONTHS FREE
+- Same great content, better delivery
+- I'll help you personally with setup
+- No rush - offer doesn't expire
+
+Interested? Check out this page: https://store.dsebastien.net/pages/migrate-subscribers
+
+You'll find:
+• What's better about the new platform
+• Video walkthrough showing the difference
+• Step-by-step migration guide
+• My personal support contact
+
+Again, this is 100% optional. I'm not forcing anyone to migrate. Your Gumroad subscription will keep working for as long as you want.
+
+I just wanted to make sure you knew about the new platform in case you're interested in a better experience.
+
+Questions? Just hit reply. I read every email personally.
+
+Thanks for being a subscriber!
+- dSebastien
+
+P.S. I'm migrating gradually, so if you prefer to stick with Gumroad for now (or forever), that's totally fine! I'll support both platforms for the foreseeable future.
+```
+
+### Template 6B: VIP Personal Outreach (Month 11-12)
+
+**Purpose:** Personal invitation for high-value/long-term subscribers
+**Audience:** Top 5 VIPs by revenue/tenure
+**Tone:** Personal, warm, appreciative
+
+```
+Subject: [First Name], can I help you upgrade to the new platform?
+
+Hi [First Name],
+
+I hope this finds you well!
+
+I wanted to reach out personally because you've been a [Product Name] subscriber for [X months/years] now, and I genuinely appreciate your support.
+
+You might have seen my email a few months ago about moving to a new platform. I've been migrating customers gradually, and I'd love to help YOU specifically make the switch if you're interested.
+
+WHY I'M REACHING OUT TO YOU SPECIFICALLY:
+
+As one of my longest-standing subscribers (since [Date]!), you deserve the best experience possible. The new Shopify platform has some significant improvements I think you'll love:
+
+1. **Better Downloads:** Faster, more reliable file delivery
+2. **Easier Management:** One-click subscription management, update billing, pause/resume
+3. **New Features Coming:** I'm building features exclusive to Shopify (can't do them on Gumroad)
+4. **Priority Support:** As a migrated VIP, you get priority access to me for any questions
+
+Plus, I'm working on [upcoming feature/product] which will be Shopify-only.
+
+SPECIAL VIP OFFER (just for you):
+
+Since you've been such a valued subscriber, I want to make this extra worth your while:
+
+🎁 4 MONTHS COMPLETELY FREE when you migrate
+🎁 Exclusive bonus: [Bonus product/content worth $X]
+🎁 Priority access to [upcoming feature]
+🎁 My personal phone/calendar link for setup help
+
+I'LL PERSONALLY HELP YOU:
+
+I know switching platforms can feel like a hassle, so I want to make this completely painless:
+
+• I'll send you a custom link that sets everything up automatically
+• We can jump on a 20-minute call and I'll walk you through it (screen share)
+• You'll have access to BOTH platforms for a month (zero risk!)
+• I'll personally verify everything works before we cancel Gumroad
+• If anything doesn't work perfectly, we can keep you on Gumroad (no problem!)
+
+Honestly, the whole process takes about 5 minutes once we're on a call together.
+
+INTERESTED?
+
+If this sounds good, just reply with:
+• "Yes, let's schedule a call" (I'll send my Calendly)
+• "Tell me more first" (I'll answer any questions)
+• "Maybe later" (totally fine, no pressure!)
+
+Or if you prefer to stay on Gumroad, that's completely okay too. I'll keep supporting both platforms, and you're welcome to stay where you are for as long as you like.
+
+Either way, I wanted to extend this personal invitation because I value you as one of my core supporters.
+
+Thanks for being awesome!
+- dSebastien
+
+P.S. No pressure at all - I mean it. This offer doesn't expire. If you want to wait 6 months and then migrate, the offer still stands. I respect whatever works best for you!
+
+P.P.S. Seriously, thank you for being a subscriber for [X months/years]. It means more than you know! 🙏
+```
+
+### Template 6C: Migration Support Follow-Up (After Migration)
+
+**Purpose:** Check-in after subscriber completes migration
+**Audience:** Any subscriber who successfully migrated
+**Tone:** Appreciative, supportive, helpful
+
+```
+Subject: How's the new platform working for you?
+
+Hi [First Name],
+
+Quick check-in: it's been about a week since you migrated to the new Shopify store, and I wanted to make sure everything is working smoothly for you!
+
+A few quick questions:
+
+1. Are you able to access all your content easily? ✅/❌
+2. Have you tried downloading anything yet? Any issues? ✅/❌
+3. Is the new platform better/same/worse than Gumroad?
+
+If you encountered ANY issues - even small ones - please let me know and I'll fix them immediately!
+
+READY TO CANCEL GUMROAD?
+
+Since you've been using Shopify for a week now, we can cancel your old Gumroad subscription to avoid any confusion.
+
+Just confirm:
+• "Yes, cancel my Gumroad subscription"
+• "Not yet, let me use both for another week"
+
+Either way is fine! I just want to make sure you're comfortable before we turn off the old platform.
+
+YOUR FEEDBACK HELPS:
+
+I'd love to hear your honest thoughts about the migration experience:
+
+Quick 1-minute survey: [Link to survey]
+Or just reply with:
+• What went well?
+• What was confusing or annoying?
+• What could I improve for others?
+
+THANK YOU!
+
+Seriously, thank you for being willing to migrate. I know switching platforms is never fun, but it helps me provide a better experience going forward.
+
+As a thank you, I'm adding an extra month free to your subscription (you now have [X+1 months] total free). You should see this reflected in your billing.
+
+Let me know if you need anything at all!
+- dSebastien
+
+P.S. If you're happy with the migration, I'd love a quick testimonial I can share with other subscribers who are on the fence. Something like: "The migration was easy because [reason]" - but no pressure!
+```
+
+### Template 6D: Non-Migrator Acceptance (Month 24+)
+
+**Purpose:** Acknowledge and validate subscribers who prefer Gumroad
+**Audience:** Subscribers who haven't migrated after 18+ months
+**Tone:** Accepting, appreciative, supportive
+
+```
+Subject: You're staying on Gumroad - and that's totally okay!
+
+Hi [First Name],
+
+Quick note: I've noticed you're still happily on Gumroad, and I wanted to reach out to say:
+
+**That's completely fine! 🙂**
+
+I know I've mentioned the new Shopify platform a few times over the past year, but I want to be crystal clear:
+
+✅ You can stay on Gumroad indefinitely
+✅ I'm not going to bug you about migrating anymore
+✅ Your subscription will continue working exactly as it does now
+✅ You'll still get all the same content and support
+
+Some people prefer Gumroad's simplicity, and I respect that.
+
+THE ONLY THING I ASK:
+
+If you ever have ANY issues with Gumroad (downloads not working, billing problems, anything), please let me know immediately and I'll fix it or help you migrate if needed.
+
+And if you ever change your mind and want to try Shopify, the offer still stands:
+• 3 months free
+• I'll help you personally
+• No pressure, no rush
+
+But again - no pressure to migrate. Stay on whichever platform works best for you!
+
+Thanks for being a subscriber all this time. I appreciate you!
+- dSebastien
+
+P.S. Out of curiosity (no pressure to answer), is there a specific reason you prefer Gumroad? Just trying to understand if there's something about Shopify that doesn't work for you. If you have 30 seconds to reply, I'd love to know - but totally optional!
+```
+
+### Template 6E: Overlap Period Reminder (During White-Glove Migration)
+
+**Purpose:** Remind subscriber they have both platforms active
+**Audience:** Subscribers in the 1-month overlap period
+**Tone:** Helpful, reassuring, informative
+
+```
+Subject: You have access to both platforms - use whichever you prefer!
+
+Hi [First Name],
+
+Quick reminder: you currently have access to BOTH platforms for the next [X days]:
+
+🔵 **Gumroad** (old platform): Still active
+🟢 **Shopify** (new platform): Also active
+
+This means:
+• You can download from either one
+• You can use whichever feels easier
+• No rush to choose - take your time!
+• Both work perfectly
+
+WHY BOTH?
+
+I wanted to give you time to get comfortable with Shopify before turning off Gumroad. This way, there's zero risk - if anything doesn't work on Shopify, you still have Gumroad as backup.
+
+WHAT TO DO:
+
+For the next [X days]:
+1. Try downloading something from Shopify
+2. Explore the new interface
+3. See if you like it better
+4. Let me know if you encounter ANY issues
+
+At the end of [X days], I'll check in and ask:
+"Ready to cancel Gumroad, or want to extend the overlap?"
+
+No wrong answer! I just want you to be comfortable.
+
+WHICH ONE SHOULD YOU USE?
+
+Honestly? Try Shopify for new downloads. It should be faster and easier.
+
+But if you ever have trouble, Gumroad is still there as backup.
+
+QUESTIONS?
+
+Reply anytime! I'm here to help.
+
+- dSebastien
+
+P.S. This overlap period is free - you're not being double-charged. It's my way of making sure you have a smooth transition with zero risk!
 ```
 
 ---
