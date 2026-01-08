@@ -1,3 +1,13 @@
+## [0.0.6](https://github.com/DeveloPassion/store-website/compare/0.0.5...0.0.6) (2026-01-08)
+
+### Features
+
+* **all:** implemented featured categories ([ecc307b](https://github.com/DeveloPassion/store-website/commit/ecc307b9d4e5b60cc5c2b171b2f2b189f844bbf7))
+* **all:** improve links to categories in hamburger and footer to use cat pages ([67be47e](https://github.com/DeveloPassion/store-website/commit/67be47e027f67717f7497900f020c7214e4b99b4))
+* **all:** improved hamburger menu (cards, icons,etc) ([e116864](https://github.com/DeveloPassion/store-website/commit/e116864ad06cfe5503789b8503e5939b9ed14f38))
+* **all:** made cards smaller in the hamburger menu ([225111b](https://github.com/DeveloPassion/store-website/commit/225111be2c10fa23ec922d5e7d59a168c27db50b))
+* **all:** pointer cursor on hover no tags and categories ([de8e10d](https://github.com/DeveloPassion/store-website/commit/de8e10d983453082b5aba8afe5db81810f0befd1))
+* **all:** updated ([6e96f2e](https://github.com/DeveloPassion/store-website/commit/6e96f2e732b519bf8a4bd5fbe1b76479062bce29))
 ## [0.0.5](https://github.com/DeveloPassion/store-website/compare/0.0.4...0.0.5) (2026-01-07)
 
 ### Features
