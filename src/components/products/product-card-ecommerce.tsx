@@ -52,7 +52,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
         .filter((cat): cat is Category => cat !== undefined)
 
     const handleCategoryClick = (e: React.MouseEvent) => {
-        e.preventDefault()
+        // Stop propagation to prevent card click, but allow navigation
         e.stopPropagation()
     }
 

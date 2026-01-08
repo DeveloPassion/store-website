@@ -199,6 +199,10 @@
             {
                 "id": "productivity",
                 "distant": true
+            },
+            {
+                "id": "journaling",
+                "distant": false
             }
         ]
     },
@@ -374,19 +378,32 @@
             "knowledge management",
             "ai tools",
             "learning system",
-            "community"
+            "community",
+            "journaling"
         ],
         "landingPageUrl": "https://www.dsebastien.net",
-        "priority": 85,
+        "priority": 90,
         "id": "knowledge-worker-kit",
-        "mainCategory": "kits-and-templates",
+        "mainCategory": "knowledge-work",
         "secondaryCategories": [
             {
                 "id": "knowledge-management",
-                "distant": true
+                "distant": false
             },
             {
                 "id": "productivity",
+                "distant": true
+            },
+            {
+                "id": "community",
+                "distant": false
+            },
+            {
+                "id": "learning",
+                "distant": true
+            },
+            {
+                "id": "journaling",
                 "distant": true
             }
         ]
@@ -1464,11 +1481,15 @@
         "secondaryCategories": [
             {
                 "id": "productivity",
-                "distant": true
+                "distant": false
             },
             {
                 "id": "personal-development",
-                "distant": true
+                "distant": false
+            },
+            {
+                "id": "journaling",
+                "distant": false
             }
         ]
     },

@@ -96,6 +96,15 @@
         "icon": "FaLightbulb",
         "color": "#4D96FF",
         "featured": true,
+        "priority": 18
+    },
+    {
+        "id": "journaling",
+        "name": "Journaling",
+        "description": "Harness the power of journaling for reflection, growth, creativity and productivity",
+        "icon": "FaBookOpen",
+        "color": "#CDB4DB",
+        "featured": false,
         "priority": 6
     },
     {
