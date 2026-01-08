@@ -1,3 +1,10 @@
+## [0.0.7](https://github.com/DeveloPassion/store-website/compare/0.0.6...0.0.7) (2026-01-08)
+
+### Features
+
+* **all:** enabled clicking on the category on product cards ([70a25ca](https://github.com/DeveloPassion/store-website/commit/70a25caaab38da5149615239679ddb0b4f2a9efd))
+* **all:** improved categories and removed type ([5d3d448](https://github.com/DeveloPassion/store-website/commit/5d3d448dee5947576860756fae77480246c84a56))
+* **all:** removed percentage and progress bars ([68af5ab](https://github.com/DeveloPassion/store-website/commit/68af5ab8647ae83e9efde52a70892389b0a8244b))
 ## [0.0.6](https://github.com/DeveloPassion/store-website/compare/0.0.5...0.0.6) (2026-01-08)
 
 ### Features
