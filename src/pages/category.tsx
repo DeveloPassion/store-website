@@ -20,11 +20,14 @@ const CategoryPage: React.FC = () => {
         return categories.find((c) => c.id === categoryId)
     }, [categoryId, categories])
 
-    // Get products for this category
+    // Get products for this category (matches mainCategory or any secondaryCategory)
     const categoryProducts = useMemo(() => {
         if (!category) return []
         const products = productsData as Product[]
-        return products.filter((p) => p.categories.includes(category.id))
+        return products.filter((p) => {
+            const allCategories = [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)]
+            return allCategories.includes(category.id)
+        })
     }, [category])
 
     // Separate featured and non-featured products

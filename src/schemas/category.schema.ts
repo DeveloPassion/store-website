@@ -17,7 +17,10 @@ export const CategoryIdSchema = z.enum([
     'community',
     'content-creation',
     'courses',
+    'databases',
+    'dev-and-it',
     'free',
+    'guides',
     'kits-and-templates',
     'knowledge-management',
     'knowledge-work',
@@ -26,7 +29,8 @@ export const CategoryIdSchema = z.enum([
     'personal-development',
     'personal-organization',
     'productivity',
-    'dev-and-it',
+    'services',
+    'tools',
     'workshops'
 ])
 

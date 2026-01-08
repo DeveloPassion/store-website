@@ -35,15 +35,19 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
     const getBadge = () => {
         if (product.featured) return { text: 'FEATURED', color: 'bg-secondary' }
         if (isFree) return { text: 'FREE', color: 'bg-green-500' }
-        if (product.type === 'bundle') return { text: 'BUNDLE', color: 'bg-purple-500' }
+        if (product.mainCategory === 'bundles') return { text: 'BUNDLE', color: 'bg-purple-500' }
         return null
     }
 
     const badge = getBadge()
 
-    // Get all categories for display
+    // Get all categories for display (mainCategory + non-distant secondaryCategories)
     const categories = categoriesData as Category[]
-    const productCategories = product.categories
+    const visibleCategoryIds = [
+        product.mainCategory,
+        ...product.secondaryCategories.filter((sc) => !sc.distant).map((sc) => sc.id)
+    ]
+    const productCategories = visibleCategoryIds
         .map((catId) => categories.find((c) => c.id === catId))
         .filter((cat): cat is Category => cat !== undefined)
 
@@ -119,9 +123,6 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                             {category.name}
                         </Link>
                     ))}
-                    <span className='bg-primary/10 text-primary/70 rounded px-2 py-0.5 text-xs font-medium capitalize'>
-                        {product.type}
-                    </span>
                 </div>
 
                 {/* Title */}

@@ -90,7 +90,11 @@ const TagPage: React.FC = () => {
         // Group ALL products (including featured) by category
         const categoryMap = new Map<string, Product[]>()
         tagData.products.forEach((product) => {
-            product.categories.forEach((categoryId) => {
+            const allCategories = [
+                product.mainCategory,
+                ...product.secondaryCategories.map((sc) => sc.id)
+            ]
+            allCategories.forEach((categoryId) => {
                 if (!categoryMap.has(categoryId)) {
                     categoryMap.set(categoryId, [])
                 }

@@ -153,6 +153,42 @@
         "priority": 11
     },
     {
+        "id": "tools",
+        "name": "Tools",
+        "description": "Software tools and applications to enhance your productivity and workflows",
+        "icon": "FaTools",
+        "color": "#FF9F43",
+        "featured": true,
+        "priority": 8
+    },
+    {
+        "id": "guides",
+        "name": "Guides",
+        "description": "Comprehensive guides to master specific topics and techniques",
+        "icon": "FaBookOpen",
+        "color": "#54A0FF",
+        "featured": false,
+        "priority": 19
+    },
+    {
+        "id": "databases",
+        "name": "Databases",
+        "description": "Curated databases and resource collections for reference and learning",
+        "icon": "FaDatabase",
+        "color": "#00D2D3",
+        "featured": false,
+        "priority": 20
+    },
+    {
+        "id": "services",
+        "name": "Services",
+        "description": "Professional services including consulting, coaching, and custom solutions",
+        "icon": "FaHandshake",
+        "color": "#5F27CD",
+        "featured": false,
+        "priority": 21
+    },
+    {
         "id": "workshops",
         "name": "Workshops",
         "description": "Interactive workshops for hands-on learning and skill development",

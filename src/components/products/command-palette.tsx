@@ -170,9 +170,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             const titleMatch = cmd.title.toLowerCase().includes(lowerQuery)
             const subtitleMatch = cmd.subtitle?.toLowerCase().includes(lowerQuery)
             const productTags = cmd.product?.tags.some((t) => t.toLowerCase().includes(lowerQuery))
-            const productCategories = cmd.product?.categories.some((c) =>
-                c.toLowerCase().includes(lowerQuery)
-            )
+            const productCategories = cmd.product
+                ? [
+                      cmd.product.mainCategory,
+                      ...cmd.product.secondaryCategories.map((sc) => sc.id)
+                  ].some((c) => c.toLowerCase().includes(lowerQuery))
+                : false
             return titleMatch || subtitleMatch || productTags || productCategories
         })
     }, [commands, query])

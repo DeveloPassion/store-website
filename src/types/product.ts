@@ -1,23 +1,14 @@
 import type { CategoryId } from './category'
 
-export type ProductType =
-    | 'course'
-    | 'kit'
-    | 'community'
-    | 'guide'
-    | 'workshop'
-    | 'coaching'
-    | 'bundle'
-    | 'tool'
-    | 'resource'
-    | 'book'
-    | 'lead-magnet'
-    | 'service'
-
 export type PriceTier = 'free' | 'budget' | 'standard' | 'premium' | 'enterprise' | 'subscription'
 
 // Categories are now defined in category.ts (single source of truth)
 export type ProductCategory = CategoryId
+
+export interface SecondaryCategory {
+    id: CategoryId
+    distant?: boolean
+}
 
 export type ProductStatus = 'active' | 'coming-soon' | 'archived'
 
@@ -45,8 +36,8 @@ export interface Product {
     variants?: ProductVariant[] // For products with multiple tiers
 
     // Taxonomy (multi-dimensional filtering)
-    type: ProductType
-    categories: ProductCategory[]
+    mainCategory: ProductCategory
+    secondaryCategories: SecondaryCategory[]
     tags: string[]
 
     // Marketing Copy (PAS Framework)

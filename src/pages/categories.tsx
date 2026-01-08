@@ -38,7 +38,10 @@ const CategoriesPage: React.FC = () => {
         const totalProducts = products.length
 
         const categoriesWithCounts: CategoryData[] = categories.map((category) => {
-            const categoryProducts = products.filter((p) => p.categories.includes(category.id))
+            const categoryProducts = products.filter((p) => {
+                const allCategories = [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)]
+                return allCategories.includes(category.id)
+            })
             return {
                 ...category,
                 count: categoryProducts.length,

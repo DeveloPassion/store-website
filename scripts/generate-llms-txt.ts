@@ -16,8 +16,8 @@ interface Product {
     tagline: string
     description: string
     tags: string[]
-    type: string
-    categories: string[]
+    mainCategory: string
+    secondaryCategories: Array<{ id: string; distant?: boolean }>
     price: number
     priceDisplay: string
 }
@@ -36,8 +36,8 @@ interface Category {
 }
 const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, 'utf-8'))
 
-// Get unique product types
-const types = Array.from(new Set(productsData.map((p) => p.type))).sort()
+// Get unique main categories
+const mainCategories = Array.from(new Set(productsData.map((p) => p.mainCategory))).sort()
 
 // Count tags
 const tagCounts = new Map<string, number>()
@@ -52,12 +52,12 @@ const topTags = Array.from(tagCounts.entries())
     .sort((a, b) => b[1] - a[1])
     .slice(0, 15)
 
-// Group products by type
-const productsByType = new Map<string, Product[]>()
-types.forEach((type) => {
-    productsByType.set(
-        type,
-        productsData.filter((p) => p.type === type)
+// Group products by mainCategory
+const productsByCategory = new Map<string, Product[]>()
+mainCategories.forEach((category) => {
+    productsByCategory.set(
+        category,
+        productsData.filter((p) => p.mainCategory === category)
     )
 })
 
@@ -80,11 +80,15 @@ Store: https://store.dsebastien.net
 - /categories/{id} - Category pages showing related products
 - /help - Help and support page
 
-## Product Types
-${types
-    .map((type) => {
-        const count = productsByType.get(type)?.length || 0
-        return `- ${type} (${count} products)`
+## Product Categories
+${mainCategories
+    .map((category) => {
+        const count = productsByCategory.get(category)?.length || 0
+        const categoryName = category
+            .split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ')
+        return `- ${categoryName} (${count} products)`
     })
     .join('\n')}
 
@@ -96,11 +100,15 @@ ${categoriesData.map((cat) => `- ${cat.name} (${cat.id})`).join('\n')}
 
 ## Products Overview
 
-${types
-    .map((type) => {
-        const typeProducts = productsByType.get(type) || []
-        return `### ${type.charAt(0).toUpperCase() + type.slice(1)}
-${typeProducts
+${mainCategories
+    .map((category) => {
+        const categoryProducts = productsByCategory.get(category) || []
+        const categoryName = category
+            .split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ')
+        return `### ${categoryName}
+${categoryProducts
     .map(
         (product) => `- **${product.name}**: ${product.tagline}
   Price: ${product.priceDisplay}

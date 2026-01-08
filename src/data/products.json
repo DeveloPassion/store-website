@@ -1,6 +1,5 @@
 [
     {
-        "id": "obsidian-starter-kit",
         "permalink": "mghmmj",
         "name": "Obsidian Starter Kit",
         "tagline": "Stop Wasting Time Configuring Obsidian. Start Being Productive Today.",
@@ -25,7 +24,6 @@
                 "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
             }
         ],
-        "type": "kit",
         "tags": ["obsidian", "pkm", "templates", "productivity", "zettelkasten", "para"],
         "problem": "Obsidian is powerful but overwhelming. Most people spend weeks or months figuring out how to organize their notes, what plugins to use, and how to build productive workflows.",
         "problemPoints": [
@@ -187,10 +185,24 @@
         ],
         "videoUrl": "https://www.youtube.com/watch?v=d1otSlcHUhE",
         "priority": 100,
-        "categories": ["knowledge-management", "kits-and-templates", "obsidian", "productivity"]
+        "id": "obsidian-starter-kit",
+        "mainCategory": "kits-and-templates",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": true
+            },
+            {
+                "id": "obsidian",
+                "distant": false
+            },
+            {
+                "id": "productivity",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "knowledge-worker-kit",
         "permalink": "pyjrr",
         "name": "Knowledge Worker Kit",
         "tagline": "Your Personal Shield Against AI Obsolescence",
@@ -199,7 +211,6 @@
         "priceDisplay": "€149.99",
         "priceTier": "premium",
         "gumroadUrl": "https://store.dsebastien.net/l/knowledge-worker-kit",
-        "type": "kit",
         "tags": [
             "knowledge-work",
             "pkm",
@@ -367,10 +378,20 @@
         ],
         "landingPageUrl": "https://www.dsebastien.net",
         "priority": 85,
-        "categories": ["knowledge-management", "productivity"]
+        "id": "knowledge-worker-kit",
+        "mainCategory": "kits-and-templates",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": true
+            },
+            {
+                "id": "productivity",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "ai-ghostwriter-guide",
         "permalink": "vsrnk",
         "name": "Build Your AI Ghostwriter",
         "tagline": "Stop Using AI Like a Dummy. Start Training It.",
@@ -379,7 +400,6 @@
         "priceDisplay": "€49.99",
         "priceTier": "standard",
         "gumroadUrl": "https://store.dsebastien.net/l/ai-ghostwriter-guide",
-        "type": "guide",
         "tags": [
             "ai",
             "writing",
@@ -528,10 +548,20 @@
             "ai copywriting"
         ],
         "priority": 75,
-        "categories": ["content-creation", "ai-tools"]
+        "id": "ai-ghostwriter-guide",
+        "mainCategory": "guides",
+        "secondaryCategories": [
+            {
+                "id": "content-creation",
+                "distant": true
+            },
+            {
+                "id": "ai-tools",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "pkm-library",
         "permalink": "PersonalKnowledgeManagementLibrary",
         "name": "PKM Library: Your Gateway to Information Management Mastery",
         "tagline": "The Most Comprehensive PKM Resource Collection Ever Created",
@@ -540,7 +570,6 @@
         "priceDisplay": "€39.99",
         "priceTier": "budget",
         "gumroadUrl": "https://store.dsebastien.net/l/PersonalKnowledgeManagementLibrary",
-        "type": "resource",
         "tags": [
             "pkm",
             "knowledge-management",
@@ -700,10 +729,20 @@
         ],
         "videoUrl": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
         "priority": 70,
-        "categories": ["knowledge-management", "learning"]
+        "id": "pkm-library",
+        "mainCategory": "databases",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": false
+            },
+            {
+                "id": "learning",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "obsidian-starter-course",
         "permalink": "nolle",
         "name": "Obsidian Starter Course",
         "tagline": "From Obsidian Newbie to Obsidian Hero in 2h20",
@@ -712,7 +751,6 @@
         "priceDisplay": "€69.99",
         "priceTier": "standard",
         "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-course",
-        "type": "course",
         "tags": [
             "obsidian",
             "pkm",
@@ -874,10 +912,16 @@
             "obsidian beginner"
         ],
         "priority": 80,
-        "categories": ["knowledge-management"]
+        "id": "obsidian-starter-course",
+        "mainCategory": "courses",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "knowii-voice-ai",
         "permalink": "tbdlrt",
         "name": "Knowii Voice AI",
         "tagline": "You Think Faster Than You Type",
@@ -886,7 +930,6 @@
         "priceDisplay": "€49",
         "priceTier": "standard",
         "gumroadUrl": "https://store.dsebastien.net/l/knowii-voice-ai",
-        "type": "tool",
         "tags": ["voice-to-text", "speech-recognition", "ai", "productivity", "privacy", "offline"],
         "problem": "Your keyboard is the bottleneck between your thoughts and getting things done. Average typing: 40 wpm vs speaking: 150 wpm. You speak 3.75x faster than you type.",
         "problemPoints": [
@@ -1049,10 +1092,20 @@
         "videoUrl": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
         "demoUrl": "https://docs.voice-ai.knowii.net/",
         "priority": 60,
-        "categories": ["productivity", "ai-tools"]
+        "id": "knowii-voice-ai",
+        "mainCategory": "tools",
+        "secondaryCategories": [
+            {
+                "id": "productivity",
+                "distant": true
+            },
+            {
+                "id": "ai-tools",
+                "distant": false
+            }
+        ]
     },
     {
-        "id": "knowledge-management-for-beginners",
         "permalink": "wazqkq",
         "name": "Knowledge Management for Beginners",
         "tagline": "Stop Drowning in Information. Start Building Knowledge.",
@@ -1061,7 +1114,6 @@
         "priceDisplay": "€69.99",
         "priceTier": "standard",
         "gumroadUrl": "https://store.dsebastien.net/l/knowledge-management-for-beginners",
-        "type": "course",
         "tags": [
             "pkm",
             "personal-knowledge-management",
@@ -1252,10 +1304,20 @@
             "lifelong learning"
         ],
         "priority": 90,
-        "categories": ["knowledge-management", "productivity"]
+        "id": "knowledge-management-for-beginners",
+        "mainCategory": "courses",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": false
+            },
+            {
+                "id": "productivity",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "journaling-deep-dive",
         "permalink": "cdwol",
         "name": "Knowii Journaling Deep Dive",
         "tagline": "Transform Your Journal From Diary to Personal Operating System",
@@ -1264,7 +1326,6 @@
         "priceDisplay": "€29.99",
         "priceTier": "budget",
         "gumroadUrl": "https://store.dsebastien.net/l/knowii-journaling-deep-dive",
-        "type": "workshop",
         "tags": [
             "journaling",
             "interstitial-journaling",
@@ -1398,10 +1459,20 @@
             "intentional living"
         ],
         "priority": 65,
-        "categories": ["productivity", "personal-development"]
+        "id": "journaling-deep-dive",
+        "mainCategory": "workshops",
+        "secondaryCategories": [
+            {
+                "id": "productivity",
+                "distant": true
+            },
+            {
+                "id": "personal-development",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "personal-organization-101",
         "permalink": "zyuwjd",
         "name": "Knowii Personal Organization 101",
         "tagline": "Stop Drowning in Tasks. Start Living with Intention.",
@@ -1409,7 +1480,6 @@
         "priceDisplay": "€19.99",
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-personal-organization-101",
-        "type": "workshop",
         "tags": [
             "personal-organization",
             "productivity",
@@ -1524,10 +1594,24 @@
             "information management"
         ],
         "priority": 65,
-        "categories": ["productivity", "personal-development"]
+        "id": "personal-organization-101",
+        "mainCategory": "workshops",
+        "secondaryCategories": [
+            {
+                "id": "productivity",
+                "distant": true
+            },
+            {
+                "id": "personal-development",
+                "distant": true
+            },
+            {
+                "id": "personal-organization",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "clarity-101",
         "permalink": "uysik",
         "name": "Knowii Clarity 101",
         "tagline": "Find Your Direction. Design Your Life.",
@@ -1536,7 +1620,6 @@
         "priceDisplay": "€19.99",
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-clarity-101",
-        "type": "workshop",
         "tags": [
             "clarity",
             "life-design",
@@ -1664,10 +1747,16 @@
             "life goals"
         ],
         "priority": 65,
-        "categories": ["personal-development"]
+        "id": "clarity-101",
+        "mainCategory": "workshops",
+        "secondaryCategories": [
+            {
+                "id": "personal-development",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "ai-master-prompt",
         "permalink": "knowii-ai-master-prompt",
         "name": "Knowii AI Master Prompt Workshop",
         "tagline": "Transform AI From Generic Assistant to Your Personal Expert",
@@ -1676,7 +1765,6 @@
         "priceDisplay": "€19.99",
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-ai-master-prompt",
-        "type": "workshop",
         "tags": [
             "ai",
             "llms",
@@ -1800,10 +1888,20 @@
             "personal ai"
         ],
         "priority": 65,
-        "categories": ["ai-tools", "productivity"]
+        "id": "ai-master-prompt",
+        "mainCategory": "workshops",
+        "secondaryCategories": [
+            {
+                "id": "ai-mastery",
+                "distant": false
+            },
+            {
+                "id": "productivity",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "model-context-protocol",
         "permalink": "knowii-model-context-protocol-mcp",
         "name": "Knowii Model Context Protocol (MCP) Masterclass",
         "tagline": "Give AI Superpowers: Connect to Any Data Source or Tool",
@@ -1812,7 +1910,6 @@
         "priceDisplay": "€19.99",
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp",
-        "type": "workshop",
         "tags": [
             "mcp",
             "model-context-protocol",
@@ -1945,10 +2042,24 @@
             "ai automation"
         ],
         "priority": 65,
-        "categories": ["ai-tools", "productivity"]
+        "id": "model-context-protocol",
+        "mainCategory": "workshops",
+        "secondaryCategories": [
+            {
+                "id": "ai-tools",
+                "distant": false
+            },
+            {
+                "id": "productivity",
+                "distant": true
+            },
+            {
+                "id": "ai-mastery",
+                "distant": false
+            }
+        ]
     },
     {
-        "id": "knowii-community",
         "permalink": "xjpgo",
         "name": "Knowii: Complete Knowledge System Community",
         "tagline": "Transform Information Chaos Into Your Greatest Advantage",
@@ -1957,7 +2068,6 @@
         "priceDisplay": "From FREE (Explorer) to €39.99/month (Knowledge Master)",
         "priceTier": "subscription",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowii",
-        "type": "community",
         "tags": ["pkm", "knowledge-management", "community", "obsidian", "courses", "second-brain"],
         "problem": "Information chaos sabotaging productivity. Drowning, can't find anything, forget what you learned.",
         "problemPoints": [
@@ -2108,10 +2218,16 @@
             }
         ],
         "priority": 35,
-        "categories": ["knowledge-management", "community"]
+        "id": "knowii-community",
+        "mainCategory": "community",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": false
+            }
+        ]
     },
     {
-        "id": "it-concepts-wall",
         "permalink": "mwdbm",
         "name": "IT Concepts Wall",
         "tagline": "Essential IT Concepts at Your Fingertips",
@@ -2119,7 +2235,6 @@
         "priceDisplay": "€9.99",
         "priceTier": "budget",
         "gumroadUrl": "https://www.store.dsebastien.net/l/it-concepts-wall",
-        "type": "resource",
         "tags": [
             "it-fundamentals",
             "programming",
@@ -2178,10 +2293,16 @@
             "visual learning"
         ],
         "priority": 50,
-        "categories": ["learning"]
+        "id": "it-concepts-wall",
+        "mainCategory": "dev-and-it",
+        "secondaryCategories": [
+            {
+                "id": "learning",
+                "distant": true
+            }
+        ]
     },
     {
-        "id": "pkm-coaching",
         "permalink": "mwldmd",
         "name": "Personal Knowledge Management Coaching",
         "tagline": "Expert 1-on-1 Guidance to Transform Your Knowledge System",
@@ -2190,7 +2311,6 @@
         "priceDisplay": "€99.99 per session",
         "priceTier": "premium",
         "gumroadUrl": "https://www.store.dsebastien.net/l/pkm-coaching",
-        "type": "service",
         "tags": [
             "pkm",
             "coaching",
@@ -2287,10 +2407,20 @@
             "coaching"
         ],
         "priority": 55,
-        "categories": ["knowledge-management", "coaching"]
+        "id": "pkm-coaching",
+        "mainCategory": "coaching",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": false
+            },
+            {
+                "id": "services",
+                "distant": false
+            }
+        ]
     },
     {
-        "id": "knowledge-system-checklist",
         "permalink": "qctpj",
         "name": "Knowledge Management System Checklist",
         "tagline": "Build Your Knowledge System With Confidence",
@@ -2299,7 +2429,6 @@
         "priceDisplay": "FREE",
         "priceTier": "free",
         "gumroadUrl": "https://www.store.dsebastien.net/l/knowledge-system-checklist",
-        "type": "lead-magnet",
         "tags": [
             "pkm",
             "knowledge-management",
@@ -2385,10 +2514,16 @@
             "second brain checklist"
         ],
         "priority": 40,
-        "categories": ["knowledge-management"]
+        "id": "knowledge-system-checklist",
+        "mainCategory": "free",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": false
+            }
+        ]
     },
     {
-        "id": "beginners-guide-obsidian",
         "permalink": "imkjic",
         "name": "Beginner's Guide to Mastering Obsidian",
         "tagline": "Start Your Obsidian Journey With Confidence",
@@ -2397,7 +2532,6 @@
         "priceDisplay": "FREE",
         "priceTier": "free",
         "gumroadUrl": "https://www.store.dsebastien.net/l/beginners-guide-to-obsidian",
-        "type": "lead-magnet",
         "tags": [
             "obsidian",
             "free-guide",
@@ -2494,10 +2628,20 @@
             "note-taking guide"
         ],
         "priority": 40,
-        "categories": ["knowledge-management", "obsidian"]
+        "id": "beginners-guide-obsidian",
+        "mainCategory": "free",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": true
+            },
+            {
+                "id": "obsidian",
+                "distant": false
+            }
+        ]
     },
     {
-        "id": "everything-knowledge-bundle",
         "permalink": "lbocum",
         "name": "Everything Knowledge Bundle",
         "tagline": "Every Knowledge Tool, Course, and Workshop in One Complete Package",
@@ -2506,7 +2650,6 @@
         "priceDisplay": "€299.99 (Save €200+)",
         "priceTier": "premium",
         "gumroadUrl": "https://www.store.dsebastien.net/l/everything-knowledge-bundle",
-        "type": "bundle",
         "tags": [
             "bundle",
             "pkm",
@@ -2624,6 +2767,13 @@
             "lifetime access"
         ],
         "priority": 95,
-        "categories": ["knowledge-management", "bundles"]
+        "id": "everything-knowledge-bundle",
+        "mainCategory": "bundles",
+        "secondaryCategories": [
+            {
+                "id": "knowledge-management",
+                "distant": false
+            }
+        ]
     }
 ]

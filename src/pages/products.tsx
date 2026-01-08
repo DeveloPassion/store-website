@@ -4,12 +4,13 @@ import { motion } from 'framer-motion'
 import { FaStar, FaFilter, FaTimes } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import productsData from '@/data/products.json'
-import type { Product, ProductType, ProductCategory, PriceTier } from '@/types/product'
+import type { Product, ProductCategory, PriceTier } from '@/types/product'
+import type { CategoryId } from '@/types/category'
 import { sortProductsByPriority } from '@/lib/product-sort'
 
 const ProductsPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('')
-    const [selectedType, setSelectedType] = useState<ProductType | 'all'>('all')
+    const [selectedMainCategory, setSelectedMainCategory] = useState<CategoryId | 'all'>('all')
     const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
     const [selectedTier, setSelectedTier] = useState<PriceTier | 'all'>('all')
     const [showFilters, setShowFilters] = useState(false)
@@ -17,8 +18,12 @@ const ProductsPage: React.FC = () => {
     const products = productsData as Product[]
 
     // Get unique values for filters
-    const types = Array.from(new Set(products.map((p) => p.type))).sort()
-    const categories = Array.from(new Set(products.flatMap((p) => p.categories))).sort()
+    const mainCategories = Array.from(new Set(products.map((p) => p.mainCategory))).sort()
+    const categories = Array.from(
+        new Set(
+            products.flatMap((p) => [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)])
+        )
+    ).sort()
     const tiers = Array.from(new Set(products.map((p) => p.priceTier))).sort()
 
     // Filter products
@@ -38,14 +43,20 @@ const ProductsPage: React.FC = () => {
                 if (!matchesSearch) return false
             }
 
-            // Type filter
-            if (selectedType !== 'all' && product.type !== selectedType) {
+            // Main category filter
+            if (selectedMainCategory !== 'all' && product.mainCategory !== selectedMainCategory) {
                 return false
             }
 
-            // Category filter
-            if (selectedCategory !== 'all' && !product.categories.includes(selectedCategory)) {
-                return false
+            // Category filter (matches mainCategory or any secondaryCategory)
+            if (selectedCategory !== 'all') {
+                const allCategories = [
+                    product.mainCategory,
+                    ...product.secondaryCategories.map((sc) => sc.id)
+                ]
+                if (!allCategories.includes(selectedCategory)) {
+                    return false
+                }
             }
 
             // Price tier filter
@@ -55,7 +66,7 @@ const ProductsPage: React.FC = () => {
 
             return true
         })
-    }, [products, searchQuery, selectedType, selectedCategory, selectedTier])
+    }, [products, searchQuery, selectedMainCategory, selectedCategory, selectedTier])
 
     // Sort by priority (highest to lowest), with randomization within same priority
     const sortedProducts = useMemo(() => {
@@ -69,14 +80,14 @@ const ProductsPage: React.FC = () => {
 
     const clearFilters = () => {
         setSearchQuery('')
-        setSelectedType('all')
+        setSelectedMainCategory('all')
         setSelectedCategory('all')
         setSelectedTier('all')
     }
 
     const hasActiveFilters =
         searchQuery ||
-        selectedType !== 'all' ||
+        selectedMainCategory !== 'all' ||
         selectedCategory !== 'all' ||
         selectedTier !== 'all'
 
@@ -158,22 +169,31 @@ const ProductsPage: React.FC = () => {
                                 )}
                             </div>
                             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                                {/* Type Filter */}
+                                {/* Main Category Filter */}
                                 <div>
                                     <label className='text-primary/70 mb-2 block text-sm font-medium'>
-                                        Type
+                                        Main Category
                                     </label>
                                     <select
-                                        value={selectedType}
+                                        value={selectedMainCategory}
                                         onChange={(e) =>
-                                            setSelectedType(e.target.value as ProductType | 'all')
+                                            setSelectedMainCategory(
+                                                e.target.value as CategoryId | 'all'
+                                            )
                                         }
                                         className='border-primary/20 bg-background focus:border-secondary focus:ring-secondary w-full rounded-lg border px-3 py-2 transition-colors focus:ring-2 focus:outline-none'
                                     >
-                                        <option value='all'>All Types</option>
-                                        {types.map((type) => (
-                                            <option key={type} value={type}>
-                                                {type.charAt(0).toUpperCase() + type.slice(1)}
+                                        <option value='all'>All Main Categories</option>
+                                        {mainCategories.map((category) => (
+                                            <option key={category} value={category}>
+                                                {category
+                                                    .split('-')
+                                                    .map(
+                                                        (word: string) =>
+                                                            word.charAt(0).toUpperCase() +
+                                                            word.slice(1)
+                                                    )
+                                                    .join(' ')}
                                             </option>
                                         ))}
                                     </select>
@@ -283,14 +303,21 @@ const ProductsPage: React.FC = () => {
 
                                     {/* Tags */}
                                     <div className='flex flex-wrap gap-1'>
-                                        {product.categories.slice(0, 2).map((category: string) => (
-                                            <span
-                                                key={category}
-                                                className='bg-primary/10 text-primary/70 rounded-full px-2 py-0.5 text-xs'
-                                            >
-                                                {category.split('-').join(' ')}
-                                            </span>
-                                        ))}
+                                        {[
+                                            product.mainCategory,
+                                            ...product.secondaryCategories
+                                                .filter((sc) => !sc.distant)
+                                                .map((sc) => sc.id)
+                                        ]
+                                            .slice(0, 2)
+                                            .map((category: string) => (
+                                                <span
+                                                    key={category}
+                                                    className='bg-primary/10 text-primary/70 rounded-full px-2 py-0.5 text-xs'
+                                                >
+                                                    {category.split('-').join(' ')}
+                                                </span>
+                                            ))}
                                     </div>
                                 </Link>
                             ))}

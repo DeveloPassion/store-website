@@ -4,26 +4,11 @@ import { CategoryIdSchema } from './category.schema.js'
 /**
  * Zod schema for product validation
  * Source of truth: src/types/product.ts
- * Last updated: 2026-01-07
+ * Last updated: 2026-01-08
  *
  * This schema validates products.json entries to ensure data integrity.
  * Keep this schema in sync with the TypeScript types in src/types/product.ts
  */
-
-export const ProductTypeSchema = z.enum([
-    'course',
-    'kit',
-    'community',
-    'guide',
-    'workshop',
-    'coaching',
-    'bundle',
-    'tool',
-    'resource',
-    'book',
-    'lead-magnet',
-    'service'
-])
 
 export const PriceTierSchema = z.enum([
     'free',
@@ -36,6 +21,12 @@ export const PriceTierSchema = z.enum([
 
 // Categories are now defined in category.schema.ts (single source of truth)
 export const ProductCategorySchema = CategoryIdSchema
+
+// Secondary category with optional distant flag
+export const SecondaryCategorySchema = z.object({
+    id: CategoryIdSchema,
+    distant: z.boolean().optional()
+})
 
 export const ProductStatusSchema = z.enum(['active', 'coming-soon', 'archived'])
 
@@ -75,8 +66,8 @@ export const ProductSchema = z.object({
     variants: z.array(ProductVariantSchema).optional(),
 
     // Taxonomy (multi-dimensional filtering)
-    type: ProductTypeSchema,
-    categories: z.array(ProductCategorySchema).min(1, 'At least one category is required'),
+    mainCategory: ProductCategorySchema,
+    secondaryCategories: z.array(SecondaryCategorySchema),
     tags: z.array(z.string()).min(1, 'At least one tag is required'),
 
     // Marketing Copy (PAS Framework)
@@ -134,9 +125,9 @@ export const ProductSchema = z.object({
 export const ProductsArraySchema = z.array(ProductSchema)
 
 // Export TypeScript types derived from Zod schemas
-export type ProductType = z.infer<typeof ProductTypeSchema>
 export type PriceTier = z.infer<typeof PriceTierSchema>
 export type ProductCategory = z.infer<typeof ProductCategorySchema>
+export type SecondaryCategory = z.infer<typeof SecondaryCategorySchema>
 export type ProductStatus = z.infer<typeof ProductStatusSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>

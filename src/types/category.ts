@@ -6,7 +6,10 @@ export type CategoryId =
     | 'community'
     | 'content-creation'
     | 'courses'
+    | 'databases'
+    | 'dev-and-it'
     | 'free'
+    | 'guides'
     | 'kits-and-templates'
     | 'knowledge-management'
     | 'knowledge-work'
@@ -15,7 +18,8 @@ export type CategoryId =
     | 'personal-development'
     | 'personal-organization'
     | 'productivity'
-    | 'dev-and-it'
+    | 'services'
+    | 'tools'
     | 'workshops'
 
 export interface Category {

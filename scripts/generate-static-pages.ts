@@ -527,7 +527,10 @@ function generateCategorySchema(category: Category): string {
  * Generate noscript content for a category page
  */
 function generateCategoryNoscript(category: Category): string {
-    const categoryProducts = productsData.filter((p) => p.categories.includes(category.id as any))
+    const categoryProducts = productsData.filter((p) => {
+        const allCategories = [p.mainCategory, ...p.secondaryCategories.map((sc: any) => sc.id)]
+        return allCategories.includes(category.id as any)
+    })
 
     return `
     <noscript>

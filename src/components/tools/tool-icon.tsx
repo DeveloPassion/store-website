@@ -35,7 +35,10 @@ import {
     FaMedium,
     FaLinkedin,
     FaHackerNews,
-    FaPodcast
+    FaPodcast,
+    FaGift,
+    FaRocket,
+    FaStar
 } from 'react-icons/fa'
 import { SiObsidian, SiAngular, SiNotion, SiTrello, SiSubstack, SiBluesky } from 'react-icons/si'
 import { FaXTwitter, FaThreads } from 'react-icons/fa6'
@@ -79,6 +82,9 @@ const iconMap: Record<string, IconType> = {
     FaLinkedin,
     FaHackerNews,
     FaPodcast,
+    FaGift,
+    FaRocket,
+    FaStar,
     // Simple Icons
     SiObsidian,
     SiAngular,
@@ -126,6 +132,10 @@ const iconColors: Record<string, string> = {
     FaLinkedin: 'text-blue-500',
     FaHackerNews: 'text-orange-500',
     FaPodcast: 'text-purple-400',
+    FaGift: 'text-pink-400',
+    FaRocket: 'text-orange-500',
+    FaStar: 'text-yellow-400',
+    FaDatabase: 'text-cyan-400',
     SiSubstack: 'text-orange-400',
     SiBluesky: 'text-sky-400',
     FaXTwitter: 'text-gray-200',

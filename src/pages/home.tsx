@@ -42,10 +42,10 @@ const HomeEcommerce: React.FC = () => {
         if (categoryFilter) {
             const normalizedFilter = categoryFilter.toLowerCase()
             products = products.filter((p) => {
-                if (normalizedFilter === 'courses') return p.type === 'course'
-                if (normalizedFilter === 'kits') return p.type === 'kit'
-                if (normalizedFilter === 'workshops') return p.type === 'workshop'
-                if (normalizedFilter === 'bundles') return p.type === 'bundle'
+                if (normalizedFilter === 'courses') return p.mainCategory === 'courses'
+                if (normalizedFilter === 'kits') return p.mainCategory === 'kits-and-templates'
+                if (normalizedFilter === 'workshops') return p.mainCategory === 'workshops'
+                if (normalizedFilter === 'bundles') return p.mainCategory === 'bundles'
                 if (normalizedFilter === 'free resources')
                     return p.priceTier === 'free' || p.price === 0
                 return true
