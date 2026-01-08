@@ -11,7 +11,6 @@ import { CategoryCard } from '@/components/categories/category-card'
 
 export interface CategoryData extends Category {
     count: number
-    percentage: number
 }
 
 const CategoriesPage: React.FC = () => {
@@ -35,7 +34,6 @@ const CategoriesPage: React.FC = () => {
     // Build category data with product counts and separate featured/non-featured
     const { featuredCategories, nonFeaturedCategories } = useMemo(() => {
         const products = productsData as Product[]
-        const totalProducts = products.length
 
         const categoriesWithCounts: CategoryData[] = categories.map((category) => {
             const categoryProducts = products.filter((p) => {
@@ -44,8 +42,7 @@ const CategoriesPage: React.FC = () => {
             })
             return {
                 ...category,
-                count: categoryProducts.length,
-                percentage: (categoryProducts.length / totalProducts) * 100
+                count: categoryProducts.length
             }
         })
 
@@ -171,7 +168,6 @@ const CategoriesPage: React.FC = () => {
                                                 key={category.id}
                                                 category={category}
                                                 count={category.count}
-                                                percentage={category.percentage}
                                                 showFeaturedBadge={true}
                                                 variant='detailed'
                                             />
@@ -192,7 +188,6 @@ const CategoriesPage: React.FC = () => {
                                                 key={category.id}
                                                 category={category}
                                                 count={category.count}
-                                                percentage={category.percentage}
                                                 showFeaturedBadge={false}
                                                 variant='detailed'
                                             />

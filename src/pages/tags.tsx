@@ -8,7 +8,6 @@ import type { Product } from '@/types/product'
 export interface TagData {
     name: string
     count: number
-    percentage: number
     products: Product[]
 }
 
@@ -33,12 +32,10 @@ const TagsPage: React.FC = () => {
             })
         })
 
-        const totalProducts = products.length
         const tags: TagData[] = Array.from(tagMap.entries())
             .map(([name, data]) => ({
                 name,
                 count: data.count,
-                percentage: (data.count / totalProducts) * 100,
                 products: data.products
             }))
             .sort((a, b) => b.count - a.count)
@@ -163,7 +160,6 @@ const TagsPage: React.FC = () => {
                         <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
                             {filteredTags.map((tag, index) => {
                                 const colorIndex = index % cardColors.length
-                                const displayPercentage = Math.min(tag.percentage, 100)
 
                                 return (
                                     <button
@@ -188,15 +184,8 @@ const TagsPage: React.FC = () => {
                                             </h3>
                                             <p className='text-primary/60 text-sm'>
                                                 {tag.count}{' '}
-                                                {tag.count === 1 ? 'product' : 'products'} •{' '}
-                                                {tag.percentage.toFixed(1)}%
+                                                {tag.count === 1 ? 'product' : 'products'}
                                             </p>
-                                        </div>
-                                        <div className='bg-primary/10 h-2 overflow-hidden rounded-full'>
-                                            <div
-                                                className={`h-full transition-all duration-500 ${(iconColors[colorIndex] || '').replace('text-', 'bg-')}`}
-                                                style={{ width: `${displayPercentage}%` }}
-                                            />
                                         </div>
                                     </button>
                                 )

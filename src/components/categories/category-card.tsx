@@ -6,7 +6,6 @@ import type { Category } from '@/types/category'
 interface CategoryCardProps {
     category: Category
     count?: number
-    percentage?: number
     showFeaturedBadge?: boolean
     variant?: 'simple' | 'detailed'
 }
@@ -14,12 +13,10 @@ interface CategoryCardProps {
 export const CategoryCard: React.FC<CategoryCardProps> = ({
     category,
     count,
-    percentage,
     showFeaturedBadge = false,
     variant = 'detailed'
 }) => {
     const IconComponent = getCategoryIcon(category.icon)
-    const displayPercentage = percentage ? Math.min(percentage, 100) : undefined
 
     if (variant === 'simple') {
         // Simple variant for homepage
@@ -93,22 +90,12 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
             {/* Description */}
             <p className='text-primary/70 text-sm'>{category.description}</p>
 
-            {/* Stats (only if count and percentage provided) */}
-            {count !== undefined && displayPercentage !== undefined && (
-                <div className='mt-auto'>
-                    <div className='text-primary/50 mb-2 flex items-center justify-between text-xs'>
-                        <span>{count} products</span>
-                        <span>{displayPercentage.toFixed(1)}%</span>
-                    </div>
-                    <div className='bg-primary/10 h-2 overflow-hidden rounded-full'>
-                        <div
-                            className='h-full rounded-full transition-all'
-                            style={{
-                                width: `${displayPercentage}%`,
-                                backgroundColor: category.color || '#e5007d'
-                            }}
-                        />
-                    </div>
+            {/* Stats (only if count provided) */}
+            {count !== undefined && (
+                <div className='text-primary/50 mt-auto text-xs'>
+                    <span>
+                        {count} {count === 1 ? 'product' : 'products'}
+                    </span>
                 </div>
             )}
         </Link>

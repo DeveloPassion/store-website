@@ -73,7 +73,6 @@ const TagPage: React.FC = () => {
         return {
             name: matchingTag,
             count: tagProducts.length,
-            percentage: (tagProducts.length / products.length) * 100,
             products: tagProducts
         }
     }, [tagId])
@@ -195,8 +194,7 @@ const TagPage: React.FC = () => {
                                 {tagData.name}
                             </h1>
                             <p className='text-primary/70 mt-1'>
-                                {tagData.count} {tagData.count === 1 ? 'product' : 'products'} •{' '}
-                                {tagData.percentage.toFixed(1)}% of all products
+                                {tagData.count} {tagData.count === 1 ? 'product' : 'products'}
                             </p>
                         </div>
                     </div>

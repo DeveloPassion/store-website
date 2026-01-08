@@ -104,8 +104,6 @@ const CategoryPage: React.FC = () => {
 
     const IconComponent = getCategoryIcon(category.icon)
     const totalProducts = categoryProducts.length
-    const totalAllProducts = (productsData as Product[]).length
-    const percentage = (totalProducts / totalAllProducts) * 100
 
     return (
         <>
@@ -136,8 +134,7 @@ const CategoryPage: React.FC = () => {
                             </h1>
                             <p className='text-primary/70 mt-2 text-lg'>{category.description}</p>
                             <p className='text-primary/60 mt-2'>
-                                {totalProducts} {totalProducts === 1 ? 'product' : 'products'} •{' '}
-                                {percentage.toFixed(1)}% of all products
+                                {totalProducts} {totalProducts === 1 ? 'product' : 'products'}
                             </p>
                         </div>
                     </div>
