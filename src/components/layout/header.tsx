@@ -1,79 +1,68 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link, useLocation } from 'react-router'
-import {
-    FaSearch,
-    FaBars,
-    FaTimes,
-    FaGraduationCap,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaBox,
-    FaGift,
-    FaFolder,
-    FaTag,
-    FaStore
-} from 'react-icons/fa'
+import { FaSearch, FaBars, FaTimes, FaFolder, FaTag, FaStore } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
+import categoriesData from '@/data/categories.json'
+import type { Category } from '@/types/category'
+import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
+import { getCategoryIcon } from '@/lib/category-icons'
 
 interface HeaderProps {
     onOpenCommandPalette: () => void
 }
 
-// Links that go into the hamburger menu
-const menuLinks: NavLink[] = [
-    {
-        to: '/',
-        label: 'All Products',
-        icon: <FaStore className='h-5 w-5' />,
-        color: 'bg-primary/10 hover:bg-primary/20'
-    },
-    {
-        to: '/categories/courses',
-        label: 'Courses',
-        icon: <FaGraduationCap className='h-5 w-5' />,
-        color: 'text-blue-400 bg-blue-500/10 hover:bg-blue-500/20'
-    },
-    {
-        to: '/categories/kits-and-templates',
-        label: 'Kits & Templates',
-        icon: <FaBoxOpen className='h-5 w-5' />,
-        color: 'text-purple-400 bg-purple-500/10 hover:bg-purple-500/20'
-    },
-    {
-        to: '/categories/workshops',
-        label: 'Workshops',
-        icon: <FaChalkboardTeacher className='h-5 w-5' />,
-        color: 'text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20'
-    },
-    {
-        to: '/categories/bundles',
-        label: 'Bundles',
-        icon: <FaBox className='h-5 w-5' />,
-        color: 'text-amber-400 bg-amber-500/10 hover:bg-amber-500/20'
-    },
-    {
-        to: '/categories/free',
-        label: 'Free Resources',
-        icon: <FaGift className='h-5 w-5' />,
-        color: 'text-rose-400 bg-rose-500/10 hover:bg-rose-500/20'
-    },
-    {
-        to: '/categories',
-        label: 'Categories',
-        icon: <FaFolder className='h-5 w-5' />,
-        color: 'text-cyan-400 bg-cyan-500/10 hover:bg-cyan-500/20'
-    },
-    {
-        to: '/tags',
-        label: 'Tags',
-        icon: <FaTag className='h-5 w-5' />,
-        color: 'text-green-400 bg-green-500/10 hover:bg-green-500/20'
-    }
-]
-
 const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const location = useLocation()
+
+    // Get featured categories
+    const featuredCategories = useMemo(() => {
+        return getFeaturedCategoriesSorted(categoriesData as Category[])
+    }, [])
+
+    // Generate menu links dynamically
+    const menuLinks: NavLink[] = useMemo(() => {
+        // Static link: All Products
+        const allProductsLink: NavLink = {
+            to: '/',
+            label: 'All Products',
+            icon: <FaStore className='h-5 w-5' />,
+            color: 'bg-primary/10 hover:bg-primary/20'
+        }
+
+        // Generate featured category links
+        const categoryLinks: NavLink[] = featuredCategories.map((cat) => {
+            const IconComponent = getCategoryIcon(cat.icon)
+            return {
+                to: `/categories/${cat.id}`,
+                label: cat.name,
+                icon: IconComponent ? (
+                    <IconComponent className='h-5 w-5' />
+                ) : (
+                    <FaFolder className='h-5 w-5' />
+                ),
+                color: 'bg-primary/10 hover:bg-primary/20'
+            }
+        })
+
+        // Static links: Categories, Tags
+        const staticLinks: NavLink[] = [
+            {
+                to: '/categories',
+                label: 'Categories',
+                icon: <FaFolder className='h-5 w-5' />,
+                color: 'text-cyan-400 bg-cyan-500/10 hover:bg-cyan-500/20'
+            },
+            {
+                to: '/tags',
+                label: 'Tags',
+                icon: <FaTag className='h-5 w-5' />,
+                color: 'text-green-400 bg-green-500/10 hover:bg-green-500/20'
+            }
+        ]
+
+        return [allProductsLink, ...categoryLinks, ...staticLinks]
+    }, [featuredCategories])
 
     // Close menu on route change
     useEffect(() => {
@@ -231,12 +220,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             <Link
                                 key={link.to}
                                 to={link.to}
-                                className={`flex flex-col items-center justify-center gap-2 rounded-xl p-4 text-center transition-all hover:scale-105 sm:gap-3 sm:p-6 md:p-8 ${link.color}`}
+                                className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-3 text-center transition-all hover:scale-105 sm:gap-2 sm:p-5 md:p-6 ${link.color}`}
                             >
-                                <span className='text-2xl sm:text-3xl md:text-4xl'>
-                                    {link.icon}
-                                </span>
-                                <span className='text-sm font-medium sm:text-base md:text-lg'>
+                                <span className='text-xl sm:text-2xl md:text-3xl'>{link.icon}</span>
+                                <span className='text-xs font-medium sm:text-sm md:text-base'>
                                     {link.label}
                                 </span>
                             </Link>
