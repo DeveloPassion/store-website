@@ -153,6 +153,67 @@ The website uses Tailwind CSS v4 with custom theme variables defined in `/src/st
 }
 ```
 
+## Responsive Design
+
+**CRITICAL RULE**: Always ensure responsive UI works seamlessly across all device sizes - mobile, tablets, desktops, and large/ultra-wide desktops.
+
+### Breakpoint Strategy
+
+The website defines custom breakpoints in `/src/styles/index.css`:
+
+```css
+--breakpoint-sm: 600px;
+--breakpoint-md: 960px;
+--breakpoint-lg: 1280px;
+--breakpoint-xg: 1600px;
+--breakpoint-xl: 1920px;
+--breakpoint-2xl: 2440px;
+```
+
+### Layout Guidelines
+
+1. **Container Widths**
+    - Use the `Section` component (`/src/components/ui/section.tsx`) for consistent page sections
+    - Default max-width: `max-w-[1800px]` with `2xl:max-w-[2200px]` for ultra-wide screens
+    - For full-width sections, use `fullWidth={true}` prop
+
+2. **Grid Layouts**
+    - **Product Grids**: Use progressive columns to maximize screen space
+        ```tsx
+        // Standard pattern for product grids
+        className = 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'
+        ```
+    - **Category Grids**: Can support even more columns
+        ```tsx
+        // Pattern for category/tag grids
+        className = 'grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'
+        ```
+    - **Menu/Navigation**: Hamburger menu overlay should adapt
+        ```tsx
+        // Pattern for navigation menus
+        className =
+            'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7'
+        ```
+
+3. **Avoid Restrictive Constraints**
+    - Don't use small `max-w-*` values (like `max-w-4xl` or `max-w-7xl`) on grid containers
+    - Let grids expand to use available Section width: use `w-full` instead
+    - Reserve smaller max-widths (`max-w-[1400px]`, `max-w-[1600px]`) for hero sections and centered text content
+
+4. **Testing Requirements**
+    - Test at mobile (320px-600px)
+    - Test at tablet (600px-960px)
+    - Test at desktop (960px-1920px)
+    - Test at ultra-wide (1920px-2440px+)
+    - Ensure grids don't have excessive whitespace on large screens
+    - Ensure content remains readable and doesn't overflow on small screens
+
+### Component-Specific Guidelines
+
+- **Header**: Should span up to `max-w-[1800px] 2xl:max-w-[2200px]` to match Section widths
+- **Product Cards**: Should maintain consistent aspect ratios and padding across all breakpoints
+- **Forms and Filters**: Should collapse into single column on mobile, expand on desktop
+
 ## Managing Products
 
 Products are managed as individual JSON files in `/src/data/products/` directory. At build time, these files are automatically aggregated into `products.json` for optimal performance.
