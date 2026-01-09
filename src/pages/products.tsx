@@ -138,7 +138,7 @@ const ProductsPage: React.FC = () => {
                             placeholder='Search products...'
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className='border-primary/20 bg-background/50 focus:border-secondary focus:ring-secondary flex-1 rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none sm:max-w-md'
+                            className='border-primary/20 bg-background/50 focus:border-secondary focus:ring-secondary flex-1 rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none'
                         />
                         <button
                             onClick={() => setShowFilters(!showFilters)}
