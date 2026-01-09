@@ -147,7 +147,7 @@ const HomeEcommerce: React.FC = () => {
                                             })
                                         }
                                     }}
-                                    className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold text-white transition-all hover:scale-105'
+                                    className='bg-secondary hover:bg-secondary/90 inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold text-white transition-all hover:scale-105'
                                 >
                                     Shop Now
                                     <FaRocket className='h-5 w-5' />
