@@ -1,5 +1,4 @@
 export type TagId =
-    | '1-on-1'
     | 'ai'
     | 'ai-assistants'
     | 'ai-integration'

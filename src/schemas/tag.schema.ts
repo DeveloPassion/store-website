@@ -10,7 +10,6 @@ import { z } from 'zod'
  */
 
 export const TagIdSchema = z.enum([
-    '1-on-1',
     'ai',
     'ai-assistants',
     'ai-integration',

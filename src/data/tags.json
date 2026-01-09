@@ -1,13 +1,4 @@
 {
-    "1-on-1": {
-        "id": "1-on-1",
-        "name": "1 On 1",
-        "description": "Resources and tools for 1 on 1",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 21
-    },
     "ai": {
         "id": "ai",
         "name": "AI",

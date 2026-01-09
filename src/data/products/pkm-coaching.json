@@ -7,14 +7,7 @@
     "priceDisplay": "€99.99 per session",
     "priceTier": "premium",
     "gumroadUrl": "https://www.store.dsebastien.net/l/pkm-coaching",
-    "tags": [
-        "pkm",
-        "coaching",
-        "knowledge-management",
-        "personal-coaching",
-        "1-on-1",
-        "consultation"
-    ],
+    "tags": ["pkm", "coaching", "knowledge-management", "personal-coaching", "consultation"],
     "problem": "Generic advice doesn't fit YOUR situation. Tried courses but stuck.",
     "problemPoints": [
         "Courses didn't help",
