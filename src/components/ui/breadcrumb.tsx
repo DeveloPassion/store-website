@@ -51,6 +51,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ className }) => {
             items.push({ label: tag?.name || 'Tag' })
         } else if (pathname === '/products') {
             items.push({ label: 'Products' })
+        } else if (pathname === '/most-value') {
+            items.push({ label: 'Best Value' })
         } else if (pathname === '/categories') {
             items.push({ label: 'Categories' })
         } else if (pathname === '/tags') {
