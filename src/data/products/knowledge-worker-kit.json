@@ -133,6 +133,7 @@
         "Prefer working in isolation"
     ],
     "featured": true,
+    "mostValue": true,
     "status": "active",
     "trustBadges": [
         "One-Time Payment - €149.99, own forever",

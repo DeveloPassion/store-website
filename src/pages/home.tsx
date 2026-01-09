@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link, useSearchParams, useParams } from 'react-router'
-import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap } from 'react-icons/fa'
+import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap, FaTrophy } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
@@ -61,6 +61,13 @@ const HomeEcommerce: React.FC = () => {
     const featuredProducts = useMemo(() => {
         const featured = (productsData as Product[]).filter((p) => p.featured)
         const sorted = sortProductsByPriority(featured)
+        return sorted.slice(0, 3)
+    }, [])
+
+    // Get most value products, sorted by priority
+    const mostValueProducts = useMemo(() => {
+        const mostValue = (productsData as Product[]).filter((p) => p.mostValue)
+        const sorted = sortProductsByPriority(mostValue)
         return sorted.slice(0, 3)
     }, [])
 
@@ -211,6 +218,34 @@ const HomeEcommerce: React.FC = () => {
                     </div>
                     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {featuredProducts.map((product) => (
+                            <ProductCardEcommerce key={product.id} product={product} />
+                        ))}
+                    </div>
+                </Section>
+            )}
+
+            {/* Most Value Products Section */}
+            {!categoryFilter && !searchQuery && !decodedTagName && mostValueProducts.length > 0 && (
+                <Section className='py-12 sm:py-16'>
+                    <div className='mb-8 flex items-center justify-between'>
+                        <div className='flex items-center gap-3'>
+                            <div className='flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10'>
+                                <FaTrophy className='h-5 w-5 text-blue-500' />
+                            </div>
+                            <h2 className='text-3xl font-bold sm:text-4xl'>Best Value Products</h2>
+                        </div>
+                        <Link
+                            to='/most-value'
+                            className='text-secondary hover:text-secondary-text hidden text-sm font-semibold sm:block'
+                        >
+                            View All →
+                        </Link>
+                    </div>
+                    <p className='text-primary/60 mb-8 text-lg'>
+                        Get the most bang for your buck with our carefully curated value picks
+                    </p>
+                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                        {mostValueProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}
                     </div>

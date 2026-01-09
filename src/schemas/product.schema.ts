@@ -107,6 +107,7 @@ export const ProductSchema = z.object({
 
     // Meta
     featured: z.boolean(),
+    mostValue: z.boolean(),
     status: ProductStatusSchema,
     priority: z.number().int().min(0).max(100, 'Priority must be between 0 and 100'),
 

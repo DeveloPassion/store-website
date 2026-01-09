@@ -50,6 +50,7 @@
     "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
     "notForYou": ["Not interested in IT", "Prefer text-only"],
     "featured": false,
+    "mostValue": false,
     "status": "active",
     "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
     "guarantees": ["Comprehensive", "Printable", "Lifetime access"],

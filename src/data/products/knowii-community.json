@@ -108,6 +108,7 @@
     ],
     "notForYou": ["Work alone", "Don't struggle", "Want only tools"],
     "featured": true,
+    "mostValue": true,
     "status": "active",
     "trustBadges": [
         "Complete System",

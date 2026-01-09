@@ -102,6 +102,7 @@
     ],
     "notForYou": ["Have clarity", "Prefer reactive", "Won't do introspection"],
     "featured": false,
+    "mostValue": false,
     "status": "active",
     "trustBadges": [
         "Complete Framework",

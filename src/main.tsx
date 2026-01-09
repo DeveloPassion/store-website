@@ -6,6 +6,7 @@ import './styles/index.css'
 import AppLayout from './components/layout/app-layout'
 import HomePage from './pages/home'
 import ProductsPage from './pages/products'
+import MostValuePage from './pages/most-value'
 import ProductPage from './pages/product'
 import HelpPage from './pages/help'
 import TagsPage from './pages/tags'
@@ -30,6 +31,7 @@ ReactDOM.createRoot(rootElement).render(
                     <Route path='/categories' element={<CategoriesPage />} />
                     <Route path='/categories/:categoryId' element={<CategoryPage />} />
                     <Route path='/products' element={<ProductsPage />} />
+                    <Route path='/most-value' element={<MostValuePage />} />
                     <Route path='/l/:productSlug' element={<ProductPage />} />
                     <Route path='/help' element={<HelpPage />} />
                 </Route>

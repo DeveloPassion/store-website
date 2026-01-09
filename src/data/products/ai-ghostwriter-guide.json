@@ -124,6 +124,7 @@
         "Looking for magic button"
     ],
     "featured": true,
+    "mostValue": false,
     "status": "active",
     "trustBadges": [
         "Proven System - Used daily by creator for months",

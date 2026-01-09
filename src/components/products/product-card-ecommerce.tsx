@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { FaShoppingCart, FaHeart, FaStar } from 'react-icons/fa'
+import { FaShoppingCart, FaHeart, FaStar, FaTrophy } from 'react-icons/fa'
 import type { Product } from '@/types/product'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
@@ -88,6 +88,12 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                         <div className='flex items-center gap-1 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white shadow-lg'>
                             <FaStar className='h-3 w-3' />
                             <span>BESTSELLER</span>
+                        </div>
+                    )}
+                    {product.mostValue && (
+                        <div className='flex items-center gap-1 rounded-full bg-blue-500 px-3 py-1 text-xs font-bold text-white shadow-lg'>
+                            <FaTrophy className='h-3 w-3' />
+                            <span>MOST VALUE</span>
                         </div>
                     )}
                 </div>

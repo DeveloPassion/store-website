@@ -102,6 +102,7 @@
     ],
     "notForYou": ["Don't use AI", "Prefer generic", "Won't invest"],
     "featured": false,
+    "mostValue": false,
     "status": "active",
     "trustBadges": [
         "Complete Framework",

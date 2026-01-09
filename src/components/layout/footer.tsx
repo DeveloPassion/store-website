@@ -106,6 +106,14 @@ const Footer: React.FC = () => {
                                         All Products
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        to='/most-value'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        Most Value
+                                    </Link>
+                                </li>
                                 {featuredCategories.map((cat) => (
                                     <li key={cat.id}>
                                         <Link

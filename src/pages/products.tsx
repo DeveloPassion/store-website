@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { FaStar, FaFilter, FaTimes } from 'react-icons/fa'
+import { FaStar, FaFilter, FaTimes, FaTrophy } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import productsData from '@/data/products.json'
@@ -14,6 +14,7 @@ const ProductsPage: React.FC = () => {
     const [selectedMainCategory, setSelectedMainCategory] = useState<CategoryId | 'all'>('all')
     const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
     const [selectedTier, setSelectedTier] = useState<PriceTier | 'all'>('all')
+    const [showMostValueOnly, setShowMostValueOnly] = useState(false)
     const [showFilters, setShowFilters] = useState(false)
 
     const products = productsData as Product[]
@@ -65,9 +66,21 @@ const ProductsPage: React.FC = () => {
                 return false
             }
 
+            // Most Value filter
+            if (showMostValueOnly && !product.mostValue) {
+                return false
+            }
+
             return true
         })
-    }, [products, searchQuery, selectedMainCategory, selectedCategory, selectedTier])
+    }, [
+        products,
+        searchQuery,
+        selectedMainCategory,
+        selectedCategory,
+        selectedTier,
+        showMostValueOnly
+    ])
 
     // Sort by priority (highest to lowest), with randomization within same priority
     const sortedProducts = useMemo(() => {
@@ -84,13 +97,15 @@ const ProductsPage: React.FC = () => {
         setSelectedMainCategory('all')
         setSelectedCategory('all')
         setSelectedTier('all')
+        setShowMostValueOnly(false)
     }
 
     const hasActiveFilters =
         searchQuery ||
         selectedMainCategory !== 'all' ||
         selectedCategory !== 'all' ||
-        selectedTier !== 'all'
+        selectedTier !== 'all' ||
+        showMostValueOnly
 
     return (
         <>
@@ -251,6 +266,24 @@ const ProductsPage: React.FC = () => {
                                         ))}
                                     </select>
                                 </div>
+
+                                {/* Most Value Filter */}
+                                <div className='flex items-center'>
+                                    <label className='flex cursor-pointer items-center gap-3'>
+                                        <input
+                                            type='checkbox'
+                                            checked={showMostValueOnly}
+                                            onChange={(e) => setShowMostValueOnly(e.target.checked)}
+                                            className='border-primary/20 bg-background h-5 w-5 rounded transition-colors checked:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none'
+                                        />
+                                        <div className='flex items-center gap-2'>
+                                            <FaTrophy className='h-4 w-4 text-blue-500' />
+                                            <span className='text-primary/70 text-sm font-medium'>
+                                                Show Most Value Only
+                                            </span>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
                         </motion.div>
                     )}
@@ -270,15 +303,26 @@ const ProductsPage: React.FC = () => {
                                     to={`/l/${product.id}`}
                                     className='border-primary/10 bg-background/50 hover:border-secondary/50 group relative flex h-full flex-col rounded-xl border p-6 transition-all hover:shadow-lg'
                                 >
-                                    {/* Featured Badge */}
-                                    {product.featured && (
-                                        <div className='from-secondary to-secondary/80 absolute -top-2 -right-2 flex items-center gap-1 rounded-full bg-gradient-to-r px-3 py-1 text-xs font-medium text-white shadow-md'>
-                                            <FaStar className='h-2.5 w-2.5' />
-                                            Featured
-                                        </div>
-                                    )}
+                                    {/* Badges - Top Left */}
+                                    <div className='absolute top-4 left-4 flex flex-col gap-2'>
+                                        {/* Featured Badge */}
+                                        {product.featured && (
+                                            <div className='from-secondary to-secondary/80 flex items-center gap-1 rounded-full bg-gradient-to-r px-3 py-1 text-xs font-medium text-white shadow-md'>
+                                                <FaStar className='h-2.5 w-2.5' />
+                                                Featured
+                                            </div>
+                                        )}
 
-                                    {/* Status Badge */}
+                                        {/* Most Value Badge */}
+                                        {product.mostValue && (
+                                            <div className='flex items-center gap-1 rounded-full bg-blue-500 px-3 py-1 text-xs font-bold text-white shadow-md'>
+                                                <FaTrophy className='h-2.5 w-2.5' />
+                                                MOST VALUE
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Status Badge - Top Right */}
                                     {product.status === 'coming-soon' && (
                                         <div className='bg-primary/20 text-primary/80 absolute top-4 right-4 rounded-full px-2 py-1 text-xs'>
                                             Coming Soon

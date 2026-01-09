@@ -130,6 +130,7 @@
         "Don't see value in curated collections"
     ],
     "featured": false,
+    "mostValue": false,
     "status": "active",
     "trustBadges": [
         "20+ Years Research - Decades of expertise",

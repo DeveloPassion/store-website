@@ -103,6 +103,7 @@
     ],
     "notForYou": ["Want community events", "Prefer monthly", "Only need specific"],
     "featured": true,
+    "mostValue": true,
     "status": "active",
     "trustBadges": [
         "€500+ Value",

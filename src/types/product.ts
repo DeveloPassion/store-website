@@ -85,6 +85,7 @@ export interface Product {
 
     // Meta
     featured: boolean
+    mostValue: boolean
     status: ProductStatus
     priority: number // Higher number = higher priority in listings (0-100)
 
