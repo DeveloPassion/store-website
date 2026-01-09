@@ -176,7 +176,7 @@ const TagPage: React.FC = () => {
 
         return (
             <Section className='pt-16 pb-24 sm:pt-24'>
-                <div className='mx-auto max-w-7xl text-center'>
+                <div className='w-full text-center'>
                     <div className='mb-4 text-6xl'>🔍</div>
                     <h1 className='mb-4 text-3xl font-bold'>Tag Not Found</h1>
                     <p className='text-primary/60 mb-6'>
@@ -197,7 +197,7 @@ const TagPage: React.FC = () => {
         <>
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='w-full'>
                     <Breadcrumb />
                     <div className='flex items-center gap-4'>
                         {(() => {
@@ -233,12 +233,12 @@ const TagPage: React.FC = () => {
             {/* Featured Products Section */}
             {featuredProducts.length > 0 && (
                 <Section className='bg-secondary/5 py-12 sm:py-16'>
-                    <div className='mx-auto max-w-7xl'>
+                    <div className='w-full'>
                         <div className='mb-8 flex items-center gap-3'>
                             <FaStar className='text-secondary h-6 w-6' />
                             <h2 className='text-3xl font-bold'>Featured Products</h2>
                         </div>
-                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                             {featuredProducts.map((product) => (
                                 <ProductCardEcommerce key={product.id} product={product} />
                             ))}
@@ -256,7 +256,7 @@ const TagPage: React.FC = () => {
 
                 return (
                     <Section key={categoryId} className='py-12 sm:py-16'>
-                        <div className='mx-auto max-w-7xl'>
+                        <div className='w-full'>
                             <div className='mb-8 flex items-center gap-3'>
                                 {IconComponent && (
                                     <div
@@ -278,7 +278,7 @@ const TagPage: React.FC = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                            <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                 {products.map((product: Product) => (
                                     <ProductCardEcommerce key={product.id} product={product} />
                                 ))}
@@ -291,7 +291,7 @@ const TagPage: React.FC = () => {
             {/* Empty State */}
             {tagData.products.length === 0 && (
                 <Section className='py-16 sm:py-24'>
-                    <div className='mx-auto max-w-7xl text-center'>
+                    <div className='w-full text-center'>
                         <div className='mb-4 text-6xl'>📦</div>
                         <h3 className='mb-2 text-xl font-semibold'>No Products Yet</h3>
                         <p className='text-primary/60 mb-4'>

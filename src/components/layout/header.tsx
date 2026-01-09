@@ -111,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 <PromotionBanner />
 
                 {/* Main header */}
-                <nav className='mx-auto max-w-7xl'>
+                <nav className='mx-auto max-w-[1800px] 2xl:max-w-[2200px]'>
                     <div className='flex h-16 items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8 lg:px-12 xl:px-16'>
                         {/* Logo */}
                         <div className='flex items-center'>
@@ -221,7 +221,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Grid on desktop, compact list on mobile */}
-                    <div className='mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6'>
+                    <div className='mx-auto grid max-w-[1400px] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6 lg:max-w-[1600px] lg:grid-cols-5 lg:gap-8 xl:max-w-[1800px] xl:grid-cols-6 2xl:max-w-[2000px] 2xl:grid-cols-7'>
                         {menuLinks.map((link) => (
                             <Link
                                 key={link.to}

@@ -14,7 +14,7 @@ const Section: React.FC<SectionProps> = ({ children, className, fullWidth = fals
             className={cn(
                 'xg:py-24 py-12 sm:py-14 md:py-16 lg:py-20 xl:py-28',
                 !fullWidth &&
-                    'xg:px-24 mx-auto max-w-[1600px] px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32',
+                    'xg:px-24 mx-auto max-w-[1800px] px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 2xl:max-w-[2200px]',
                 className
             )}
         >

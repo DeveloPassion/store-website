@@ -95,7 +95,7 @@ const ProductsPage: React.FC = () => {
         <>
             {/* Hero Section */}
             <Section className='pt-16 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20'>
-                <div className='mx-auto max-w-4xl text-center'>
+                <div className='mx-auto max-w-[1400px] text-center'>
                     <Breadcrumb className='mb-8 flex justify-center' />
                     <h1 className='mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
                         Products & Resources
@@ -130,7 +130,7 @@ const ProductsPage: React.FC = () => {
 
             {/* Products Section */}
             <Section className='py-8 sm:py-12'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='w-full'>
                     {/* Search and Filter Toggle */}
                     <div className='mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
                         <input
@@ -250,7 +250,7 @@ const ProductsPage: React.FC = () => {
 
                     {/* Products Grid */}
                     {sortedProducts.length > 0 ? (
-                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                             {sortedProducts.map((product) => (
                                 <Link
                                     key={product.id}

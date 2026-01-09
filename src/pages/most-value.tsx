@@ -29,7 +29,7 @@ const MostValuePage: React.FC = () => {
         <>
             {/* Hero Section */}
             <Section className='pt-16 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20'>
-                <div className='mx-auto max-w-4xl text-center'>
+                <div className='mx-auto max-w-[1400px] text-center'>
                     <Breadcrumb className='mb-8 flex justify-center' />
 
                     {/* Icon */}
@@ -71,7 +71,7 @@ const MostValuePage: React.FC = () => {
 
             {/* Why Most Value Section */}
             <Section className='bg-primary/5 py-12 sm:py-16'>
-                <div className='mx-auto max-w-4xl'>
+                <div className='mx-auto max-w-[1400px]'>
                     <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
                         Why These Products?
                     </h2>
@@ -106,13 +106,13 @@ const MostValuePage: React.FC = () => {
 
             {/* Products Grid Section */}
             <Section className='py-12 sm:py-16'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='w-full'>
                     <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
                         Our Top Value Picks
                     </h2>
 
                     {mostValueProducts.length > 0 ? (
-                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                             {mostValueProducts.map((product) => (
                                 <ProductCardEcommerce key={product.id} product={product} />
                             ))}

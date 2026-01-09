@@ -83,7 +83,7 @@ const HomeEcommerce: React.FC = () => {
         <>
             {/* Hero Section */}
             <Section className='from-secondary/10 to-background bg-gradient-to-br via-purple-500/10 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20'>
-                <div className='mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:gap-12'>
+                <div className='mx-auto grid max-w-[1600px] gap-8 lg:grid-cols-2 lg:gap-12'>
                     {/* Hero Content */}
                     <div className='flex flex-col justify-center'>
                         {decodedTagName && (
@@ -175,7 +175,7 @@ const HomeEcommerce: React.FC = () => {
 
             {/* Trust Badges */}
             <Section className='border-primary/10 border-b py-8'>
-                <div className='mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-8 sm:gap-12'>
+                <div className='mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-8 sm:gap-12'>
                     <div className='flex items-center gap-3'>
                         <FaShieldAlt className='text-secondary h-8 w-8' />
                         <div>
@@ -205,7 +205,7 @@ const HomeEcommerce: React.FC = () => {
                 <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
                     Shop by Category
                 </h2>
-                <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+                <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
                     {featuredCategories.map((category) => (
                         <CategoryCard key={category.id} category={category} variant='simple' />
                     ))}
@@ -224,7 +224,7 @@ const HomeEcommerce: React.FC = () => {
                             View All →
                         </Link>
                     </div>
-                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                         {featuredProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}
@@ -252,7 +252,7 @@ const HomeEcommerce: React.FC = () => {
                     <p className='text-primary/60 mb-8 text-lg'>
                         Get the most bang for your buck with our carefully curated value picks
                     </p>
-                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                         {mostValueProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}
@@ -278,7 +278,7 @@ const HomeEcommerce: React.FC = () => {
                 </div>
 
                 {filteredProducts.length > 0 ? (
-                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                         {filteredProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}

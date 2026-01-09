@@ -119,7 +119,7 @@ const CategoriesPage: React.FC = () => {
         <>
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='w-full'>
                     <Breadcrumb />
                     <div className='flex items-center gap-4'>
                         <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
@@ -137,7 +137,7 @@ const CategoriesPage: React.FC = () => {
 
             {/* Stats and Search */}
             <Section className='pb-8'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='w-full'>
                     {/* Stats */}
                     <div className='mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                         <div className='bg-primary/5 rounded-lg p-4'>
@@ -178,7 +178,7 @@ const CategoriesPage: React.FC = () => {
 
             {/* Categories Grid */}
             <Section className='pb-16 sm:pb-24'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='w-full'>
                     {filteredFeatured.length > 0 || filteredNonFeatured.length > 0 ? (
                         <>
                             {/* Featured Categories Section */}
@@ -188,7 +188,7 @@ const CategoriesPage: React.FC = () => {
                                         <FaStar className='text-secondary h-6 w-6' />
                                         Featured Categories
                                     </h2>
-                                    <div className='mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                    <div className='mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                         {filteredFeatured.map((category) => (
                                             <CategoryCard
                                                 key={category.id}
@@ -208,7 +208,7 @@ const CategoriesPage: React.FC = () => {
                                     {filteredFeatured.length > 0 && (
                                         <h2 className='mb-6 text-2xl font-bold'>More Categories</h2>
                                     )}
-                                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                         {filteredNonFeatured.map((category) => (
                                             <CategoryCard
                                                 key={category.id}
