@@ -16,9 +16,10 @@
  *     npm run update:categories -- --operation add --name "Category Name" --description "..." [--id custom-id] [--icon FaIcon] [--color #FF6B6B] [--featured true] [--priority 15]
  *     npm run update:categories -- --operation modify --id "category-id" [--name "..."] [--description "..."] [--icon "..."] [--color "..."] [--featured true|false] [--priority 15]
  *     npm run update:categories -- --operation remove --id "category-id" [--force]
+ *     npm run update:categories -- --operation remove-unused [--force]
  *
  * Arguments:
- *   --operation <list|add|modify|remove>  Operation to perform (required for CLI mode)
+ *   --operation <list|add|modify|remove|remove-unused>  Operation to perform (required for CLI mode)
  *   --id <string>                         Category ID (required for modify/remove, optional for add)
  *   --name <string>                       Category name (required for add, optional for modify)
  *   --description <string>                Category description (required for add, optional for modify)
@@ -45,7 +46,7 @@ const CATEGORIES_FILE = resolve(__dirname, '../src/data/categories.json')
 const PRODUCTS_FILE = resolve(__dirname, '../src/data/products.json')
 
 interface CliArgs {
-    operation?: 'list' | 'add' | 'modify' | 'remove'
+    operation?: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused'
     id?: string
     name?: string
     description?: string
@@ -91,7 +92,12 @@ function parseArgs(): CliArgs {
             const key = arg.slice(2)
             switch (key) {
                 case 'operation':
-                    args.operation = nextArg as 'list' | 'add' | 'modify' | 'remove'
+                    args.operation = nextArg as
+                        | 'list'
+                        | 'add'
+                        | 'modify'
+                        | 'remove'
+                        | 'remove-unused'
                     break
                 case 'id':
                     args.id = nextArg
@@ -542,8 +548,8 @@ async function operationModify(
     // Show changes
     console.log('📊 Changes:')
     Object.keys(updates).forEach((key) => {
-        const oldVal = (existingCategory as any)[key]
-        const newVal = (updatedCategory as any)[key]
+        const oldVal = (existingCategory as Record<string, unknown>)[key]
+        const newVal = (updatedCategory as Record<string, unknown>)[key]
         console.log(`   ${key}: ${oldVal} → ${newVal}`)
     })
     console.log('')
@@ -676,21 +682,92 @@ async function operationRemove(
     }
 }
 
+// Remove unused operation
+async function operationRemoveUnused(
+    args: CliArgs,
+    rl?: ReturnType<typeof createReadlineInterface>
+): Promise<void> {
+    const categories = loadCategories()
+
+    console.log('\n🧹 Category Management Tool - Remove Unused Operation\n')
+
+    // Check if products file exists
+    if (!existsSync(PRODUCTS_FILE)) {
+        console.error('❌ Products file not found, cannot determine usage')
+        console.error(`   Expected: ${PRODUCTS_FILE}`)
+        console.error('   Run: npm run aggregate:products\n')
+        process.exit(1)
+    }
+
+    console.log('⚠️  Checking category usage across all products...\n')
+
+    // Find all unused categories
+    const unused: Category[] = []
+    for (const category of categories) {
+        const usage = checkCategoryUsage(category.id)
+        if (usage.asMain.length === 0 && usage.asSecondary.length === 0) {
+            unused.push(category)
+        }
+    }
+
+    if (unused.length === 0) {
+        console.log('✅ All categories are currently in use!')
+        console.log('   No unused categories to remove.\n')
+        process.exit(0)
+    }
+
+    console.log(`Found ${unused.length} unused category(ies):\n`)
+    unused.forEach((category) => {
+        console.log(`  • ${category.id} (${category.name})`)
+    })
+    console.log('')
+
+    // Confirm removal
+    if (rl) {
+        console.log('⚠️  This will remove all unused categories from categories.json')
+        console.log(
+            '   You will still need to update the schema enum at src/schemas/category.schema.ts\n'
+        )
+        const confirm = await prompt(rl, `Remove ${unused.length} unused category(ies)? [yes/no]: `)
+        if (confirm.toLowerCase() !== 'yes' && confirm.toLowerCase() !== 'y') {
+            console.log('❌ Operation cancelled')
+            process.exit(0)
+        }
+    } else if (!args.force) {
+        console.error('❌ In non-interactive mode, use --force to confirm removal')
+        process.exit(1)
+    }
+
+    // Remove unused categories
+    const unusedIds = new Set(unused.map((c) => c.id))
+    const filtered = categories.filter((cat) => !unusedIds.has(cat.id))
+    saveCategories(filtered)
+
+    console.log(`\n✅ Successfully removed ${unused.length} unused category(ies)!\n`)
+    console.log('⚠️  IMPORTANT: Update the schema enum at src/schemas/category.schema.ts')
+    console.log('   Remove the following IDs from the CategoryIdSchema enum array:')
+    unused.forEach((category) => {
+        console.log(`   - "${category.id}"`)
+    })
+    console.log('   Then run: npm run validate:categories\n')
+}
+
 // Interactive mode
 async function interactiveMode() {
     const rl = createReadlineInterface()
 
     console.log('\n📁 Category Management Tool - Interactive Mode\n')
     console.log('Operations:')
-    console.log('  1. list    - View all categories')
-    console.log('  2. add     - Add a new category')
-    console.log('  3. modify  - Modify an existing category')
-    console.log('  4. remove  - Remove a category')
+    console.log('  1. list          - View all categories')
+    console.log('  2. add           - Add a new category')
+    console.log('  3. modify        - Modify an existing category')
+    console.log('  4. remove        - Remove a category')
+    console.log('  5. remove-unused - Remove all unused categories')
     console.log('')
 
-    const operation = await prompt(rl, 'Select operation (1-4 or operation name): ')
+    const operation = await prompt(rl, 'Select operation (1-5 or operation name): ')
 
-    let op: 'list' | 'add' | 'modify' | 'remove'
+    let op: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused'
     switch (operation.toLowerCase()) {
         case '1':
         case 'list':
@@ -707,6 +784,10 @@ async function interactiveMode() {
         case '4':
         case 'remove':
             op = 'remove'
+            break
+        case '5':
+        case 'remove-unused':
+            op = 'remove-unused'
             break
         default:
             console.error('❌ Invalid operation')
@@ -729,6 +810,10 @@ async function interactiveMode() {
             break
         case 'remove':
             await operationRemove({}, rl)
+            rl.close()
+            break
+        case 'remove-unused':
+            await operationRemoveUnused({}, rl)
             rl.close()
             break
     }
@@ -757,6 +842,9 @@ async function cliMode(args: CliArgs) {
             break
         case 'remove':
             await operationRemove(args)
+            break
+        case 'remove-unused':
+            await operationRemoveUnused(args)
             break
         default:
             console.error(`❌ Unknown operation: ${args.operation}`)

@@ -23,6 +23,7 @@ import { readFileSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { PromotionConfigSchema } from '../src/schemas/promotion.schema.js'
+import type { PromotionConfig } from '../src/types/promotion'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -77,7 +78,7 @@ function main() {
     process.exit(1)
 }
 
-function displaySummary(config: any) {
+function displaySummary(config: PromotionConfig) {
     console.log('📊 Promotion Summary:')
     console.log(`   Banner Behavior: ${config.bannerBehavior}`)
     console.log(`   Promo Text: "${config.promoText}"`)

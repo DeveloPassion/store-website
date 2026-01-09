@@ -19,7 +19,7 @@ const BestSellersPage: React.FC = () => {
     const bestsellerProducts = useMemo(() => {
         const filtered = products.filter((p) => p.bestseller && p.status !== 'archived')
         return sortProductsIntelligently(filtered)
-    }, [])
+    }, [products])
 
     useEffect(() => {
         document.title = 'Best Sellers - Knowledge Forge'

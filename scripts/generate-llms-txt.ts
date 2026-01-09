@@ -22,11 +22,9 @@ interface Product {
     priceDisplay: string
 }
 
-interface ProductsData extends Array<Product> {}
-
 // Load products data
 const productsJsonPath = join(__dirname, '../src/data/products.json')
-const productsData: ProductsData = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
+const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
 // Load categories data
 const categoriesJsonPath = join(__dirname, '../src/data/categories.json')

@@ -32,19 +32,16 @@ interface Product {
     crossSellIds: string[]
     testimonialIds: string[]
     faqIds: string[]
-    [key: string]: any
 }
 
 interface Testimonial {
     id: string
     productId: string
-    [key: string]: any
 }
 
 interface FAQ {
     id: string
     productId: string
-    [key: string]: any
 }
 
 interface RelationshipError {

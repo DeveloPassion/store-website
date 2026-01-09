@@ -16,9 +16,10 @@
  *     npm run update:tags -- --operation add --name "Tag Name" --description "..." [--id custom-id] [--icon FaIcon] [--color #FF6B6B] [--featured true] [--priority 50]
  *     npm run update:tags -- --operation modify --id "tag-id" [--name "..."] [--description "..."] [--icon "..."] [--color "..."] [--featured true|false] [--priority 50]
  *     npm run update:tags -- --operation remove --id "tag-id" [--force]
+ *     npm run update:tags -- --operation remove-unused [--force]
  *
  * Arguments:
- *   --operation <list|add|modify|remove>  Operation to perform (required for CLI mode)
+ *   --operation <list|add|modify|remove|remove-unused>  Operation to perform (required for CLI mode)
  *   --id <string>                         Tag ID (required for modify/remove, optional for add)
  *   --name <string>                       Tag name (required for add, optional for modify)
  *   --description <string>                Tag description (required for add, optional for modify)
@@ -45,7 +46,7 @@ const TAGS_FILE = resolve(__dirname, '../src/data/tags.json')
 const PRODUCTS_FILE = resolve(__dirname, '../src/data/products.json')
 
 interface CliArgs {
-    operation?: 'list' | 'add' | 'modify' | 'remove'
+    operation?: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused'
     id?: string
     name?: string
     description?: string
@@ -86,7 +87,12 @@ function parseArgs(): CliArgs {
             const key = arg.slice(2)
             switch (key) {
                 case 'operation':
-                    args.operation = nextArg as 'list' | 'add' | 'modify' | 'remove'
+                    args.operation = nextArg as
+                        | 'list'
+                        | 'add'
+                        | 'modify'
+                        | 'remove'
+                        | 'remove-unused'
                     break
                 case 'id':
                     args.id = nextArg
@@ -502,8 +508,8 @@ async function operationModify(
     // Show changes
     console.log('📊 Changes:')
     Object.keys(updates).forEach((key) => {
-        const oldVal = (existingTag as any)[key]
-        const newVal = (updatedTag as any)[key]
+        const oldVal = (existingTag as Record<string, unknown>)[key]
+        const newVal = (updatedTag as Record<string, unknown>)[key]
         console.log(`   ${key}: ${oldVal} → ${newVal}`)
     })
     console.log('')
@@ -599,21 +605,94 @@ async function operationRemove(
     console.log('   Then run: npm run validate:tags\n')
 }
 
+// Remove unused operation
+async function operationRemoveUnused(
+    args: CliArgs,
+    rl?: ReturnType<typeof createReadlineInterface>
+): Promise<void> {
+    const tags = loadTags()
+
+    console.log('\n🧹 Tag Management Tool - Remove Unused Operation\n')
+
+    // Check if products file exists
+    if (!existsSync(PRODUCTS_FILE)) {
+        console.error('❌ Products file not found, cannot determine usage')
+        console.error(`   Expected: ${PRODUCTS_FILE}`)
+        console.error('   Run: npm run aggregate:products\n')
+        process.exit(1)
+    }
+
+    console.log('⚠️  Checking tag usage across all products...\n')
+
+    // Find all unused tags
+    const unused: Tag[] = []
+    for (const [tagId, tag] of Object.entries(tags)) {
+        const usage = checkTagUsage(tagId)
+        if (usage.length === 0) {
+            unused.push(tag)
+        }
+    }
+
+    if (unused.length === 0) {
+        console.log('✅ All tags are currently in use!')
+        console.log('   No unused tags to remove.\n')
+        process.exit(0)
+    }
+
+    console.log(`Found ${unused.length} unused tag(s):\n`)
+    unused.forEach((tag) => {
+        console.log(`  • ${tag.id} (${tag.name})`)
+    })
+    console.log('')
+
+    // Confirm removal
+    if (rl) {
+        console.log('⚠️  This will remove all unused tags from tags.json')
+        console.log(
+            '   You will still need to update the schema enum at src/schemas/tag.schema.ts\n'
+        )
+        const confirm = await prompt(rl, `Remove ${unused.length} unused tag(s)? [yes/no]: `)
+        if (confirm.toLowerCase() !== 'yes' && confirm.toLowerCase() !== 'y') {
+            console.log('❌ Operation cancelled')
+            process.exit(0)
+        }
+    } else if (!args.force) {
+        console.error('❌ In non-interactive mode, use --force to confirm removal')
+        process.exit(1)
+    }
+
+    // Remove unused tags
+    const unusedIds = new Set(unused.map((t) => t.id))
+    for (const tagId of unusedIds) {
+        delete tags[tagId as TagId]
+    }
+    saveTags(tags)
+
+    console.log(`\n✅ Successfully removed ${unused.length} unused tag(s)!\n`)
+    console.log('⚠️  IMPORTANT: Update the schema enum at src/schemas/tag.schema.ts')
+    console.log('   Remove the following IDs from the TagIdSchema enum array:')
+    unused.forEach((tag) => {
+        console.log(`   - "${tag.id}"`)
+    })
+    console.log('   Then run: npm run validate:tags\n')
+}
+
 // Interactive mode
 async function interactiveMode() {
     const rl = createReadlineInterface()
 
     console.log('\n🔖 Tag Management Tool - Interactive Mode\n')
     console.log('Operations:')
-    console.log('  1. list    - View all tags')
-    console.log('  2. add     - Add a new tag')
-    console.log('  3. modify  - Modify an existing tag')
-    console.log('  4. remove  - Remove a tag')
+    console.log('  1. list          - View all tags')
+    console.log('  2. add           - Add a new tag')
+    console.log('  3. modify        - Modify an existing tag')
+    console.log('  4. remove        - Remove a tag')
+    console.log('  5. remove-unused - Remove all unused tags')
     console.log('')
 
-    const operation = await prompt(rl, 'Select operation (1-4 or operation name): ')
+    const operation = await prompt(rl, 'Select operation (1-5 or operation name): ')
 
-    let op: 'list' | 'add' | 'modify' | 'remove'
+    let op: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused'
     switch (operation.toLowerCase()) {
         case '1':
         case 'list':
@@ -630,6 +709,10 @@ async function interactiveMode() {
         case '4':
         case 'remove':
             op = 'remove'
+            break
+        case '5':
+        case 'remove-unused':
+            op = 'remove-unused'
             break
         default:
             console.error('❌ Invalid operation')
@@ -652,6 +735,10 @@ async function interactiveMode() {
             break
         case 'remove':
             await operationRemove({}, rl)
+            rl.close()
+            break
+        case 'remove-unused':
+            await operationRemoveUnused({}, rl)
             rl.close()
             break
     }
@@ -680,6 +767,9 @@ async function cliMode(args: CliArgs) {
             break
         case 'remove':
             await operationRemove(args)
+            break
+        case 'remove-unused':
+            await operationRemoveUnused(args)
             break
         default:
             console.error(`❌ Unknown operation: ${args.operation}`)

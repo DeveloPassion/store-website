@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import { FaTimes } from 'react-icons/fa'
 import promotionConfig from '@/data/promotion.json'
@@ -8,15 +8,10 @@ const STORAGE_KEY = 'promo-banner-dismissed'
 
 const PromotionBanner: React.FC = () => {
     const config = promotionConfig as PromotionConfig
-    const [isDismissed, setIsDismissed] = useState(false)
-
-    // Check session storage on mount
-    useEffect(() => {
-        const dismissed = sessionStorage.getItem(STORAGE_KEY)
-        if (dismissed === 'true') {
-            setIsDismissed(true)
-        }
-    }, [])
+    // Initialize state from sessionStorage (lazy initialization)
+    const [isDismissed, setIsDismissed] = useState(() => {
+        return sessionStorage.getItem(STORAGE_KEY) === 'true'
+    })
 
     // Handle dismiss
     const handleDismiss = () => {

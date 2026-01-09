@@ -107,7 +107,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     }, [featuredCategories])
 
     // Close menu on route change
+    // Note: setState in effect is necessary here to sync with React Router navigation
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMobileMenuOpen(false)
     }, [location.pathname])
 

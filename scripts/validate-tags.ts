@@ -58,46 +58,54 @@ function main() {
 
         // Parse individual tags to identify which ones have errors
         if (typeof tagsData === 'object' && tagsData !== null) {
-            Object.entries(tagsData).forEach(([tagId, tagData]: [string, any]) => {
-                const tagResult = TagSchema.safeParse(tagData)
-                if (!tagResult.success && tagResult.error?.errors) {
-                    const tagErrors = tagResult.error.errors.map((err) => {
-                        const path = err.path.join('.') || '[root]'
-                        const actualValue = err.path.reduce((obj: any, key) => obj?.[key], tagData)
-                        const actualValueStr =
-                            actualValue !== undefined
-                                ? ` (got: ${JSON.stringify(actualValue)})`
-                                : ''
+            Object.entries(tagsData).forEach(
+                ([tagId, tagData]: [string, Record<string, unknown>]) => {
+                    const tagResult = TagSchema.safeParse(tagData)
+                    if (!tagResult.success && tagResult.error?.errors) {
+                        const tagErrors = tagResult.error.errors.map((err) => {
+                            const path = err.path.join('.') || '[root]'
+                            const actualValue = err.path.reduce(
+                                (obj: Record<string, unknown> | undefined, key) =>
+                                    (obj as Record<string, unknown>)?.[key] as
+                                        | Record<string, unknown>
+                                        | undefined,
+                                tagData as Record<string, unknown>
+                            )
+                            const actualValueStr =
+                                actualValue !== undefined
+                                    ? ` (got: ${JSON.stringify(actualValue)})`
+                                    : ''
 
-                        // Provide helpful suggestions based on error type
-                        let suggestion = ''
-                        if (path === 'color' && err.code === 'invalid_string') {
-                            suggestion =
-                                '\n    → Color must be in hex format: #RRGGBB (e.g., "#FF6B6B")'
-                        } else if (path === 'id' && err.code === 'invalid_enum_value') {
-                            suggestion =
-                                '\n    → Tag ID must be added to TagIdSchema enum in src/schemas/tag.schema.ts'
-                        } else if (path === 'priority' && err.code === 'too_small') {
-                            suggestion =
-                                '\n    → Priority must be >= 1 (featured: 1-8, non-featured: 21+)'
-                        } else if (
-                            (path === 'name' || path === 'description') &&
-                            err.code === 'too_small'
-                        ) {
-                            suggestion = '\n    → This field cannot be empty'
-                        } else if (path === 'featured' && err.code === 'invalid_type') {
-                            suggestion = '\n    → Must be boolean (true or false)'
-                        }
+                            // Provide helpful suggestions based on error type
+                            let suggestion = ''
+                            if (path === 'color' && err.code === 'invalid_string') {
+                                suggestion =
+                                    '\n    → Color must be in hex format: #RRGGBB (e.g., "#FF6B6B")'
+                            } else if (path === 'id' && err.code === 'invalid_enum_value') {
+                                suggestion =
+                                    '\n    → Tag ID must be added to TagIdSchema enum in src/schemas/tag.schema.ts'
+                            } else if (path === 'priority' && err.code === 'too_small') {
+                                suggestion =
+                                    '\n    → Priority must be >= 1 (featured: 1-8, non-featured: 21+)'
+                            } else if (
+                                (path === 'name' || path === 'description') &&
+                                err.code === 'too_small'
+                            ) {
+                                suggestion = '\n    → This field cannot be empty'
+                            } else if (path === 'featured' && err.code === 'invalid_type') {
+                                suggestion = '\n    → Must be boolean (true or false)'
+                            }
 
-                        return `  • ${path}: ${err.message}${actualValueStr}${suggestion}`
-                    })
+                            return `  • ${path}: ${err.message}${actualValueStr}${suggestion}`
+                        })
 
-                    errors.push({
-                        tagId,
-                        errors: tagErrors
-                    })
+                        errors.push({
+                            tagId,
+                            errors: tagErrors
+                        })
+                    }
                 }
-            })
+            )
         }
 
         if (errors.length > 0) {

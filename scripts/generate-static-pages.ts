@@ -24,17 +24,17 @@ interface Product {
     priceDisplay: string
     features: string[]
     tags: string[]
+    mainCategory: string
+    secondaryCategories: Array<{ id: string; distant: boolean }>
     status?: string
     featured?: boolean
     testimonialIds?: string[]
     videoUrl?: string
 }
 
-interface ProductsData extends Array<Product> {}
-
 // Load products data
 const productsJsonPath = join(__dirname, '../src/data/products.json')
-const productsData: ProductsData = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
+const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
 // Load categories data
 const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
@@ -528,8 +528,8 @@ function generateCategorySchema(category: Category): string {
  */
 function generateCategoryNoscript(category: Category): string {
     const categoryProducts = productsData.filter((p) => {
-        const allCategories = [p.mainCategory, ...p.secondaryCategories.map((sc: any) => sc.id)]
-        return allCategories.includes(category.id as any)
+        const allCategories = [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)]
+        return allCategories.includes(category.id)
     })
 
     return `

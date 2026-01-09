@@ -36,7 +36,6 @@ interface ValidationError {
 
 interface Product {
     id: string
-    [key: string]: unknown
 }
 
 function validateIndividualFiles(): { products: Product[]; errors: ValidationError[] } {
@@ -199,7 +198,7 @@ function validateDirectMode(): void {
     const errors: ValidationError[] = []
 
     if (Array.isArray(productsData)) {
-        productsData.forEach((product: any, index: number) => {
+        productsData.forEach((product: Record<string, unknown>, index: number) => {
             const productResult = ProductSchema.safeParse(product)
             if (!productResult.success && productResult.error && productResult.error.errors) {
                 const productErrors = productResult.error.errors.map((err) => {

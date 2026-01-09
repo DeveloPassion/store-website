@@ -1,8 +1,17 @@
 import fs from 'fs'
 import path from 'path'
 
+interface ProductWithPriority {
+    id: string
+    priority: number
+    status: string
+    featured: boolean
+    priceTier: string
+    type: string
+}
+
 const productsPath = path.join(process.cwd(), 'src/data/products.json')
-const products = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
+const products: ProductWithPriority[] = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 
 // Priority assignment strategy:
 // 100: Featured flagship products
@@ -38,7 +47,7 @@ const priorityMap: Record<string, number> = {
     'week-planner': 30 // Tool
 }
 
-products.forEach((product: any) => {
+products.forEach((product: ProductWithPriority) => {
     // Assign priority based on map, or default based on type and status
     if (priorityMap[product.id]) {
         product.priority = priorityMap[product.id]
@@ -72,7 +81,7 @@ fs.writeFileSync(productsPath, JSON.stringify(products, null, 2), 'utf-8')
 console.log('✓ Added priority field to all products')
 console.log('\nPriority distribution:')
 const priorityCounts: Record<number, number> = {}
-products.forEach((p: any) => {
+products.forEach((p: ProductWithPriority) => {
     priorityCounts[p.priority] = (priorityCounts[p.priority] || 0) + 1
 })
 Object.entries(priorityCounts)

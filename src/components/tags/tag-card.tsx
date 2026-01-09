@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router'
 import { getTagIcon } from '@/lib/tag-icons'
 import { FaStar } from 'react-icons/fa'
@@ -16,7 +17,7 @@ export const TagCard: React.FC<TagCardProps> = ({
     showFeaturedBadge = false,
     variant = 'detailed'
 }) => {
-    const IconComponent = getTagIcon(tag.icon)
+    const IconComponent = useMemo(() => getTagIcon(tag.icon), [tag.icon])
 
     if (variant === 'simple') {
         // Simple variant for homepage
@@ -38,7 +39,10 @@ export const TagCard: React.FC<TagCardProps> = ({
                         }}
                     >
                         <div style={{ color: tag.color }}>
-                            <IconComponent className='h-8 w-8' />
+                            {IconComponent &&
+                                IconComponent({ className: 'h-8 w-8' } as React.ComponentProps<
+                                    typeof IconComponent
+                                >)}
                         </div>
                     </div>
                 )}
@@ -78,7 +82,10 @@ export const TagCard: React.FC<TagCardProps> = ({
                         }}
                     >
                         <div style={{ color: tag.color }}>
-                            <IconComponent className='h-6 w-6' />
+                            {IconComponent &&
+                                IconComponent({ className: 'h-6 w-6' } as React.ComponentProps<
+                                    typeof IconComponent
+                                >)}
                         </div>
                     </div>
                 )}

@@ -28,7 +28,6 @@ const OUTPUT_FILE = resolve(__dirname, '../src/data/products.json')
 interface Product {
     id: string
     priority?: number
-    [key: string]: any
 }
 
 function main() {

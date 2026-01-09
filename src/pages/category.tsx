@@ -98,13 +98,20 @@ const CategoryPage: React.FC = () => {
         }
     }, [category, categoryId])
 
-    // Handle 404
-    if (!categoryId || !category) {
-        useEffect(() => {
+    // Handle 404 - Navigate to categories page after delay
+    useEffect(() => {
+        if (!categoryId || !category) {
             const timer = setTimeout(() => navigate('/categories'), 2000)
             return () => clearTimeout(timer)
-        }, [navigate])
+        }
+    }, [categoryId, category, navigate])
 
+    // Prepare icon component (before early return to satisfy Rules of Hooks)
+    const IconComponent = useMemo(() => getCategoryIcon(category?.icon), [category?.icon])
+    const totalProducts = categoryProducts.length
+
+    // Handle 404
+    if (!categoryId || !category) {
         return (
             <Section className='pt-16 pb-24 sm:pt-24'>
                 <div className='w-full text-center'>
@@ -124,9 +131,6 @@ const CategoryPage: React.FC = () => {
         )
     }
 
-    const IconComponent = getCategoryIcon(category.icon)
-    const totalProducts = categoryProducts.length
-
     return (
         <>
             {/* Header */}
@@ -140,7 +144,9 @@ const CategoryPage: React.FC = () => {
                                 style={{ backgroundColor: `${category.color}20` }}
                             >
                                 <div style={{ color: category.color }}>
-                                    <IconComponent className='h-7 w-7' />
+                                    {IconComponent({ className: 'h-7 w-7' } as React.ComponentProps<
+                                        typeof IconComponent
+                                    >)}
                                 </div>
                             </div>
                         )}

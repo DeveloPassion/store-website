@@ -78,7 +78,16 @@ function main() {
     console.log(`Found ${tagSet.size} unique tags\n`)
 
     // Generate metadata for each tag
-    const tagsMetadata: Record<string, any> = {}
+    interface TagMetadata {
+        id: string
+        name: string
+        description: string
+        icon: string
+        color: string
+        featured: boolean
+        priority: number
+    }
+    const tagsMetadata: Record<string, TagMetadata> = {}
     let priority = 21 // Start non-featured at 21
 
     Array.from(tagSet)

@@ -19,7 +19,7 @@ const MostValuePage: React.FC = () => {
     const mostValueProducts = useMemo(() => {
         const filtered = products.filter((p) => p.mostValue && p.status !== 'archived')
         return sortBestValueProducts(filtered)
-    }, [])
+    }, [products])
 
     useEffect(() => {
         document.title = 'Most Value Products - Knowledge Forge'

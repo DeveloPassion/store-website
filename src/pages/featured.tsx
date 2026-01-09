@@ -19,7 +19,7 @@ const FeaturedPage: React.FC = () => {
     const featuredProducts = useMemo(() => {
         const filtered = products.filter((p) => p.featured && p.status !== 'archived')
         return sortFeaturedProducts(filtered)
-    }, [])
+    }, [products])
 
     useEffect(() => {
         document.title = 'Featured Products - Knowledge Forge'

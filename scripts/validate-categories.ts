@@ -57,12 +57,18 @@ function main() {
 
         // Parse individual categories to identify which ones have errors
         if (Array.isArray(categoriesData)) {
-            categoriesData.forEach((category: any, index: number) => {
+            categoriesData.forEach((category: Record<string, unknown>, index: number) => {
                 const categoryResult = CategorySchema.safeParse(category)
                 if (!categoryResult.success && categoryResult.error?.errors) {
                     const categoryErrors = categoryResult.error.errors.map((err) => {
                         const path = err.path.join('.') || '[root]'
-                        const actualValue = err.path.reduce((obj: any, key) => obj?.[key], category)
+                        const actualValue = err.path.reduce(
+                            (obj: Record<string, unknown> | undefined, key) =>
+                                (obj as Record<string, unknown>)?.[key] as
+                                    | Record<string, unknown>
+                                    | undefined,
+                            category as Record<string, unknown>
+                        )
                         const actualValueStr =
                             actualValue !== undefined
                                 ? ` (got: ${JSON.stringify(actualValue)})`

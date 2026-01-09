@@ -167,13 +167,19 @@ const TagPage: React.FC = () => {
         }
     }, [tagData, tagId])
 
-    // Handle 404
-    if (!tagId || !tagData) {
-        useEffect(() => {
+    // Handle 404 - Navigate to tags page after delay
+    useEffect(() => {
+        if (!tagId || !tagData) {
             const timer = setTimeout(() => navigate('/tags'), 2000)
             return () => clearTimeout(timer)
-        }, [navigate])
+        }
+    }, [tagId, tagData, navigate])
 
+    // Prepare icon component (before early return to satisfy Rules of Hooks)
+    const IconComponent = useMemo(() => getTagIcon(tagData?.icon), [tagData?.icon])
+
+    // Handle 404
+    if (!tagId || !tagData) {
         return (
             <Section className='pt-16 pb-24 sm:pt-24'>
                 <div className='w-full text-center'>
@@ -200,23 +206,22 @@ const TagPage: React.FC = () => {
                 <div className='w-full'>
                     <Breadcrumb />
                     <div className='flex items-center gap-4'>
-                        {(() => {
-                            const IconComponent = getTagIcon(tagData.icon)
-                            return (
-                                <div
-                                    className='flex h-14 w-14 items-center justify-center rounded-full'
-                                    style={{
-                                        backgroundColor: tagData.color
-                                            ? `${tagData.color}20`
-                                            : undefined
-                                    }}
-                                >
-                                    <div style={{ color: tagData.color }}>
-                                        <IconComponent className='h-7 w-7' />
-                                    </div>
+                        {IconComponent && (
+                            <div
+                                className='flex h-14 w-14 items-center justify-center rounded-full'
+                                style={{
+                                    backgroundColor: tagData.color
+                                        ? `${tagData.color}20`
+                                        : undefined
+                                }}
+                            >
+                                <div style={{ color: tagData.color }}>
+                                    {IconComponent({ className: 'h-7 w-7' } as React.ComponentProps<
+                                        typeof IconComponent
+                                    >)}
                                 </div>
-                            )
-                        })()}
+                            </div>
+                        )}
                         <div>
                             <h1 className='text-3xl font-bold tracking-tight sm:text-4xl'>
                                 {tagData.name}

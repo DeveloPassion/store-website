@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router'
 import { getCategoryIcon } from '@/lib/category-icons'
 import { FaStar } from 'react-icons/fa'
@@ -16,7 +17,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
     showFeaturedBadge = false,
     variant = 'detailed'
 }) => {
-    const IconComponent = getCategoryIcon(category.icon)
+    const IconComponent = useMemo(() => getCategoryIcon(category.icon), [category.icon])
 
     if (variant === 'simple') {
         // Simple variant for homepage
@@ -38,7 +39,10 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
                         }}
                     >
                         <div style={{ color: category.color }}>
-                            <IconComponent className='h-8 w-8' />
+                            {IconComponent &&
+                                IconComponent({ className: 'h-8 w-8' } as React.ComponentProps<
+                                    typeof IconComponent
+                                >)}
                         </div>
                     </div>
                 )}
@@ -78,7 +82,10 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
                         }}
                     >
                         <div style={{ color: category.color }}>
-                            <IconComponent className='h-6 w-6' />
+                            {IconComponent &&
+                                IconComponent({ className: 'h-6 w-6' } as React.ComponentProps<
+                                    typeof IconComponent
+                                >)}
                         </div>
                     </div>
                 )}
