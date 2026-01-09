@@ -118,9 +118,14 @@ const Footer: React.FC = () => {
                                     <li key={cat.id}>
                                         <Link
                                             to={`/categories/${cat.id}`}
-                                            className='text-primary/70 hover:text-secondary transition-colors'
+                                            className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                         >
-                                            📁 {cat.name}
+                                            <ToolIcon
+                                                icon={cat.icon || 'FaFolder'}
+                                                category=''
+                                                size='sm'
+                                            />
+                                            {cat.name}
                                         </Link>
                                     </li>
                                 ))}
