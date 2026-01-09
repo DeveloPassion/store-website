@@ -9,7 +9,8 @@ import {
     FaStickyNote,
     FaUsers,
     FaHandshake,
-    FaGithub
+    FaGithub,
+    FaCommentDots
 } from 'react-icons/fa'
 import ToolIcon from '@/components/tools/tool-icon'
 import socialsData from '@/data/socials.json'
@@ -161,6 +162,15 @@ const Footer: React.FC = () => {
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         Contact
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='mailto:sebastien@developassion.be?subject=Store%20Feedback'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <FaCommentDots className='h-4 w-4' />
+                                        Send Feedback
                                     </a>
                                 </li>
                             </ul>
