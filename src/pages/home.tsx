@@ -266,7 +266,7 @@ const HomeEcommerce: React.FC = () => {
                     <div className='mb-8 flex items-center justify-between'>
                         <h2 className='text-3xl font-bold sm:text-4xl'>Featured Products</h2>
                         <Link
-                            to='/'
+                            to='/featured'
                             className='text-secondary hover:text-secondary-text hidden text-sm font-semibold sm:block'
                         >
                             View All →
