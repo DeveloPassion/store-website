@@ -49,7 +49,7 @@
         "test:ui": "vitest --ui",
         "test:run": "vitest run",
         "test:coverage": "vitest run --coverage",
-        "ci:local": "npm run lint && npm run tsc && npm run test:run && npm run validate:all && npm run build"
+        "ci:local": "npm run aggregate:products && npm run lint && npm run tsc && npm run test:run && npm run validate:all && npm run build"
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"

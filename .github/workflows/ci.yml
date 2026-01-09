@@ -29,6 +29,9 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
+            - name: Aggregate products
+              run: npm run aggregate:products
+
             - name: Run ESLint
               run: npm run lint
 
@@ -53,6 +56,9 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
+            - name: Aggregate products
+              run: npm run aggregate:products
+
             - name: Run TypeScript type checking
               run: npm run tsc
 
@@ -73,6 +79,9 @@ jobs:
 
             - name: Install dependencies
               run: npm ci
+
+            - name: Aggregate products
+              run: npm run aggregate:products
 
             - name: Run tests
               run: npm run test:run
