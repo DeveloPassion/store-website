@@ -76,6 +76,44 @@ const HomeEcommerce: React.FC = () => {
         return sorted.slice(0, 3)
     }, [])
 
+    // Get carousel products (ensure we always have at least 4 for desktop: 2 slides × 2 products)
+    const carouselProducts = useMemo(() => {
+        const minProducts = 4
+        const products = [...featuredProducts]
+
+        // If we don't have enough featured products, supplement with bestsellers and most value
+        if (products.length < minProducts) {
+            const allProducts = productsData as Product[]
+            const productIds = new Set(products.map((p) => p.id))
+
+            // Add bestsellers first (excluding already included products)
+            const bestsellers = allProducts
+                .filter((p) => p.bestseller && !productIds.has(p.id))
+                .sort((a, b) => b.priority - a.priority)
+
+            for (const product of bestsellers) {
+                if (products.length >= minProducts) break
+                products.push(product)
+                productIds.add(product.id)
+            }
+
+            // If still not enough, add most value products
+            if (products.length < minProducts) {
+                const mostValue = allProducts
+                    .filter((p) => p.mostValue && !productIds.has(p.id))
+                    .sort((a, b) => b.priority - a.priority)
+
+                for (const product of mostValue) {
+                    if (products.length >= minProducts) break
+                    products.push(product)
+                    productIds.add(product.id)
+                }
+            }
+        }
+
+        return products
+    }, [featuredProducts])
+
     // Get hero product (first featured product)
     const heroProduct = featuredProducts[0]
 
@@ -168,11 +206,11 @@ const HomeEcommerce: React.FC = () => {
                     </div>
 
                     {/* Hero Product Carousel */}
-                    {featuredProducts.length > 0 && (
+                    {carouselProducts.length > 0 && (
                         <div className='flex items-center justify-center lg:justify-end'>
                             <div className='w-full'>
                                 <ProductCarousel
-                                    products={featuredProducts}
+                                    products={carouselProducts}
                                     autoRotateInterval={7000}
                                     showNavigation={true}
                                     showIndicators={true}

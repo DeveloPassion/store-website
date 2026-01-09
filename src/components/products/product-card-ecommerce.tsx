@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { FaShoppingCart, FaHeart, FaStar, FaTrophy } from 'react-icons/fa'
+import { FaShoppingCart, FaHeart, FaStar, FaTrophy, FaFire } from 'react-icons/fa'
 import type { Product } from '@/types/product'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
@@ -109,7 +109,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                                 compactBadges ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'
                             } font-bold text-white shadow-lg transition-transform hover:scale-105`}
                         >
-                            <FaStar className={compactBadges ? 'h-2.5 w-2.5' : 'h-3 w-3'} />
+                            <FaFire className={compactBadges ? 'h-2.5 w-2.5' : 'h-3 w-3'} />
                             <span>BESTSELLER</span>
                         </Link>
                     )}
