@@ -385,6 +385,230 @@ To use the skill in Claude Code, simply mention keywords like "promotion", "bann
 - File is NOT gitignored (unlike aggregated products.json)
 - Promotion history is tracked via git commits
 
+## Managing Tags
+
+Tags are used across all products for detailed metadata and filtering. They are stored in `src/data/tags.json` as an object/map structure with 96 tags.
+
+### Tag Data Location
+
+- **Configuration File**: `src/data/tags.json` (96 tags, object/map structure)
+- **Zod Schema**: `src/schemas/tag.schema.ts` (source of truth)
+- **TypeScript Types**: `src/types/tag.ts`
+- **Update CLI**: `scripts/update-tags.ts` (interactive management tool)
+- **Validation Script**: `scripts/validate-tags.ts`
+
+### Tag Management Workflow
+
+**Quick Update (Recommended):**
+
+Use the interactive CLI tool for easy tag management:
+
+```bash
+# Interactive mode (prompts for operation and details)
+npm run update:tags
+
+# CLI arguments mode - list all tags
+npm run update:tags -- --operation list
+
+# Add tag (auto-generated ID from name)
+npm run update:tags -- --operation add --name "Machine Learning" --description "ML and AI training" --featured true --priority 6
+
+# Modify tag
+npm run update:tags -- --operation modify --id "ai" --description "Updated description" --priority 3
+
+# Remove tag (will check product usage)
+npm run update:tags -- --operation remove --id "deprecated-tag"
+```
+
+The update script:
+
+- Supports four operations: list, add, modify, remove
+- Auto-generates kebab-case IDs from tag names
+- Validates against Zod schema before saving
+- Checks product usage before removal
+- Provides both interactive and CLI argument modes
+
+**Manual Workflow:**
+
+1. **Edit tags.json** - Modify `src/data/tags.json`
+2. **Update schema enum** - Add/remove tag ID in `src/schemas/tag.schema.ts` `TagIdSchema` enum
+3. **Validate changes** - Run `npm run validate:tags`
+4. **Fix errors** - Address any validation issues reported
+
+### Tag Structure
+
+```json
+{
+    "tag-id": {
+        "id": "tag-id",
+        "name": "Tag Name",
+        "description": "Tag description",
+        "icon": "FaRobot",
+        "color": "#FF6B6B",
+        "featured": true,
+        "priority": 5
+    }
+}
+```
+
+### Priority Guidelines
+
+- **Featured tags**: 1-8 (lower = higher priority)
+- **Non-featured tags**: 21+ (flexible ordering)
+
+### Tag Usage in Products
+
+Tags are referenced in products via:
+
+```json
+{
+    "tags": ["obsidian", "pkm", "templates", "productivity"]
+}
+```
+
+- Each product must have at least 1 tag
+- All tag IDs must exist in `tags.json` and the `TagIdSchema` enum
+
+### Claude Code Skill
+
+A dedicated Claude Code skill is available at `.claude/skills/manage-tags.md` that provides:
+
+- Complete schema documentation
+- Workflow guidance for all operations
+- CLI command examples
+- Error handling and validation tips
+
+To use the skill, mention keywords like "tag", "tags", "add tag", "validate tags", or "tags.json" in your conversation.
+
+### Important Notes
+
+- **Schema sync is critical**: After add/remove operations, manually update `TagIdSchema` enum in `src/schemas/tag.schema.ts`
+- ID cannot be modified (must delete and recreate to change ID)
+- Tags used in products require `--force` flag to remove
+- Color must be in hex format `#RRGGBB`
+
+## Managing Categories
+
+Categories are used for broad product organization. They are stored in `src/data/categories.json` as an array with 23 categories.
+
+### Category Data Location
+
+- **Configuration File**: `src/data/categories.json` (23 categories, array structure)
+- **Zod Schema**: `src/schemas/category.schema.ts` (source of truth)
+- **TypeScript Types**: `src/types/category.ts`
+- **Update CLI**: `scripts/update-categories.ts` (interactive management tool)
+- **Validation Script**: `scripts/validate-categories.ts`
+
+### Category Management Workflow
+
+**Quick Update (Recommended):**
+
+Use the interactive CLI tool for easy category management:
+
+```bash
+# Interactive mode (prompts for operation and details)
+npm run update:categories
+
+# CLI arguments mode - list all categories
+npm run update:categories -- --operation list
+
+# Add category (auto-generated ID from name)
+npm run update:categories -- --operation add --name "New Category" --description "Category description" --featured true --priority 5
+
+# Modify category
+npm run update:categories -- --operation modify --id "coaching" --description "Updated description" --priority 2
+
+# Remove category (strict checks for mainCategory usage)
+npm run update:categories -- --operation remove --id "old-category"
+```
+
+The update script:
+
+- Supports four operations: list, add, modify, remove
+- Auto-generates kebab-case IDs from category names
+- Validates against Zod schema before saving
+- Checks product usage (mainCategory vs secondaryCategories)
+- **Cannot remove categories used as mainCategory** (even with `--force`)
+- Can remove (with `--force`) categories used only in secondaryCategories
+
+**Manual Workflow:**
+
+1. **Edit categories.json** - Modify `src/data/categories.json`
+2. **Update schema enum** - Add/remove category ID in `src/schemas/category.schema.ts` `CategoryIdSchema` enum
+3. **Validate changes** - Run `npm run validate:categories`
+4. **Fix errors** - Address any validation issues reported
+
+### Category Structure
+
+```json
+{
+    "id": "category-id",
+    "name": "Category Name",
+    "description": "Category description",
+    "icon": "FaTools",
+    "color": "#4ECDC4",
+    "featured": true,
+    "priority": 5
+}
+```
+
+### Priority Guidelines
+
+- **Featured categories**: 1-7 (lower = higher priority)
+- **Non-featured categories**: 8-23 (flexible ordering)
+
+### Category Usage in Products
+
+Categories are used in two ways:
+
+**Main Category** (required, single):
+
+```json
+{
+    "mainCategory": "kits-and-templates"
+}
+```
+
+**Secondary Categories** (optional, array):
+
+```json
+{
+    "secondaryCategories": [
+        { "id": "obsidian", "distant": false },
+        { "id": "knowledge-management", "distant": true }
+    ]
+}
+```
+
+- Every product MUST have exactly one `mainCategory`
+- Products can have 0-N `secondaryCategories`
+- The `distant` flag indicates relationship strength (false = direct, true = indirect)
+
+### Removal Restrictions
+
+- ❌ **CANNOT remove** if used as `mainCategory` (blocking, even with `--force`)
+- ⚠️ **CAN remove** if only used in `secondaryCategories` (with `--force` flag)
+- ✅ **CAN remove** if not used in any products (safe)
+
+### Claude Code Skill
+
+A dedicated Claude Code skill is available at `.claude/skills/manage-categories.md` that provides:
+
+- Complete schema documentation
+- Workflow guidance for all operations
+- Removal restriction explanations
+- CLI command examples
+- Error handling and validation tips
+
+To use the skill, mention keywords like "category", "categories", "add category", "validate categories", or "categories.json" in your conversation.
+
+### Important Notes
+
+- **Schema sync is critical**: After add/remove operations, manually update `CategoryIdSchema` enum in `src/schemas/category.schema.ts`
+- ID cannot be modified (must delete and recreate to change ID)
+- **Cannot remove categories used as mainCategory** (data integrity protection)
+- Color can be any CSS color but hex format `#RRGGBB` is recommended
+
 ## Development Commands
 
 ```bash
@@ -423,6 +647,24 @@ npm run update:promotion -- --behavior <ALWAYS|NEVER|PROMOTIONS> --text "..." --
 
 # Validate promotion banner configuration
 npm run validate:promotion
+
+# Update tags (interactive)
+npm run update:tags
+
+# Update tags (CLI arguments)
+npm run update:tags -- --operation <list|add|modify|remove> [options]
+
+# Validate tags
+npm run validate:tags
+
+# Update categories (interactive)
+npm run update:categories
+
+# Update categories (CLI arguments)
+npm run update:categories -- --operation <list|add|modify|remove> [options]
+
+# Validate categories
+npm run validate:categories
 
 # Validate all configurations
 npm run validate:all

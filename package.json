@@ -28,6 +28,8 @@
         "validate:products": "npm run aggregate:products && tsx scripts/validate-products.ts",
         "validate:promotion": "tsx scripts/validate-promotion.ts",
         "update:promotion": "tsx scripts/update-promotion.ts",
+        "update:tags": "tsx scripts/update-tags.ts",
+        "update:categories": "tsx scripts/update-categories.ts",
         "validate:relationships": "tsx scripts/validate-relationships.ts",
         "validate:categories": "tsx scripts/validate-categories.ts",
         "validate:tags": "tsx scripts/validate-tags.ts",

@@ -62,7 +62,9 @@ Every product must include:
 - `notForYou` (array) - When not to buy
 
 **Meta:**
-- `featured` (boolean) - Feature flag
+- `featured` (boolean) - Feature flag (displayed prominently)
+- `mostValue` (boolean) - Best value flag (highest ROI products)
+- `bestseller` (boolean) - Bestseller flag (most popular products)
 - `status` (enum) - One of: active, coming-soon, archived
 - `priority` (number, 0-100) - Sort priority (higher = more important)
 - `trustBadges` (array) - Trust indicators
