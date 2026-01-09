@@ -13,7 +13,6 @@ export const TagIdSchema = z.enum([
     'ai',
     'ai-assistants',
     'ai-prompts',
-    'all-products',
     'automation',
     'beginner',
     'best-value',

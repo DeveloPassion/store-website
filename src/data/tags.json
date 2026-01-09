@@ -26,15 +26,6 @@
         "featured": false,
         "priority": 25
     },
-    "all-products": {
-        "id": "all-products",
-        "name": "All Products",
-        "description": "Resources and tools for all products",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 26
-    },
     "automation": {
         "id": "automation",
         "name": "Automation",
