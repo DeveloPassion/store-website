@@ -7,9 +7,14 @@ import type { Category } from '@/types/category'
 interface ProductCardEcommerceProps {
     product: Product
     onAddToCart?: () => void
+    compactBadges?: boolean
 }
 
-const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, onAddToCart }) => {
+const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
+    product,
+    onAddToCart,
+    compactBadges = false
+}) => {
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault()
         if (onAddToCart) {
@@ -80,13 +85,18 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                         <Link
                             to='/featured'
                             onClick={(e) => e.stopPropagation()}
-                            className={`pointer-events-auto rounded-full ${badge.color} px-3 py-1 text-xs font-bold text-white shadow-lg transition-transform hover:scale-105`}
+                            className={`pointer-events-auto flex items-center gap-1 rounded-full ${badge.color} ${
+                                compactBadges ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'
+                            } font-bold text-white shadow-lg transition-transform hover:scale-105`}
                         >
-                            {badge.text}
+                            <FaStar className={compactBadges ? 'h-2.5 w-2.5' : 'h-3 w-3'} />
+                            <span>{badge.text}</span>
                         </Link>
                     ) : badge ? (
                         <div
-                            className={`pointer-events-none rounded-full ${badge.color} px-3 py-1 text-xs font-bold text-white shadow-lg`}
+                            className={`pointer-events-none rounded-full ${badge.color} ${
+                                compactBadges ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'
+                            } font-bold text-white shadow-lg`}
                         >
                             {badge.text}
                         </div>
@@ -95,9 +105,11 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                         <Link
                             to='/best-sellers'
                             onClick={(e) => e.stopPropagation()}
-                            className='pointer-events-auto flex items-center gap-1 rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white shadow-lg transition-transform hover:scale-105'
+                            className={`pointer-events-auto flex items-center gap-1 rounded-full bg-amber-500 ${
+                                compactBadges ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'
+                            } font-bold text-white shadow-lg transition-transform hover:scale-105`}
                         >
-                            <FaStar className='h-3 w-3' />
+                            <FaStar className={compactBadges ? 'h-2.5 w-2.5' : 'h-3 w-3'} />
                             <span>BESTSELLER</span>
                         </Link>
                     )}
@@ -105,9 +117,11 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                         <Link
                             to='/most-value'
                             onClick={(e) => e.stopPropagation()}
-                            className='pointer-events-auto flex items-center gap-1 rounded-full bg-blue-500 px-3 py-1 text-xs font-bold text-white shadow-lg transition-transform hover:scale-105'
+                            className={`pointer-events-auto flex items-center gap-1 rounded-full bg-blue-500 ${
+                                compactBadges ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'
+                            } font-bold text-white shadow-lg transition-transform hover:scale-105`}
                         >
-                            <FaTrophy className='h-3 w-3' />
+                            <FaTrophy className={compactBadges ? 'h-2.5 w-2.5' : 'h-3 w-3'} />
                             <span>MOST VALUE</span>
                         </Link>
                     )}

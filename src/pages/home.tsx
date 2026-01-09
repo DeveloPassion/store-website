@@ -3,6 +3,7 @@ import { Link, useSearchParams, useParams } from 'react-router'
 import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap, FaTrophy } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
+import ProductCarousel from '@/components/products/product-carousel'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
@@ -166,11 +167,16 @@ const HomeEcommerce: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Hero Image/Product Card */}
-                    {heroProduct && (
+                    {/* Hero Product Carousel */}
+                    {featuredProducts.length > 0 && (
                         <div className='flex items-center justify-center lg:justify-end'>
-                            <div className='w-full max-w-md'>
-                                <ProductCardEcommerce product={heroProduct} />
+                            <div className='w-full'>
+                                <ProductCarousel
+                                    products={featuredProducts}
+                                    autoRotateInterval={7000}
+                                    showNavigation={true}
+                                    showIndicators={true}
+                                />
                             </div>
                         </div>
                     )}
