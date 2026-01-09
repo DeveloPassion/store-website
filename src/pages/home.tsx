@@ -137,13 +137,21 @@ const HomeEcommerce: React.FC = () => {
                         {/* CTA Buttons */}
                         <div className='flex flex-wrap gap-4'>
                             {heroProduct && (
-                                <Link
-                                    to={`/l/${heroProduct.id}`}
+                                <button
+                                    onClick={() => {
+                                        const featuredSection = document.getElementById('featured')
+                                        if (featuredSection) {
+                                            featuredSection.scrollIntoView({
+                                                behavior: 'smooth',
+                                                block: 'start'
+                                            })
+                                        }
+                                    }}
                                     className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold text-white transition-all hover:scale-105'
                                 >
                                     Shop Now
                                     <FaRocket className='h-5 w-5' />
-                                </Link>
+                                </button>
                             )}
                             <Link
                                 to='/?category=Free%20Resources'
@@ -206,7 +214,7 @@ const HomeEcommerce: React.FC = () => {
 
             {/* Featured Products Section */}
             {!categoryFilter && !searchQuery && !decodedTagName && featuredProducts.length > 0 && (
-                <Section className='bg-primary/5 py-12 sm:py-16'>
+                <Section id='featured' className='bg-primary/5 py-12 sm:py-16'>
                     <div className='mb-8 flex items-center justify-between'>
                         <h2 className='text-3xl font-bold sm:text-4xl'>Featured Products</h2>
                         <Link
