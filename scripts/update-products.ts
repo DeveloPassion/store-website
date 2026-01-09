@@ -1134,7 +1134,7 @@ async function operationEdit(args: CliArgs): Promise<void> {
                 case 'save':
                     editing = false
                     break
-                case 'cancel':
+                case 'cancel': {
                     const confirmCancel = await confirm(
                         `${colors.red}Discard all changes?${colors.reset}`
                     )
@@ -1143,6 +1143,7 @@ async function operationEdit(args: CliArgs): Promise<void> {
                         throw new Error('Edit cancelled by user')
                     }
                     break
+                }
             }
         }
     }

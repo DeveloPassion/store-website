@@ -32,6 +32,13 @@ import { createInterface } from 'readline'
 import { addDays, parseISO, formatISO, isValid, parse } from 'date-fns'
 import { PromotionConfigSchema } from '../src/schemas/promotion.schema.js'
 import type { PromotionConfig, BannerBehavior } from '../src/types/promotion'
+import {
+    showBanner,
+    showOperationHeader,
+    showSuccess,
+    showError,
+    showGoodbye
+} from './utils/cli-display.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -429,28 +436,47 @@ function saveAndValidate(config: PromotionConfig) {
 
 // Main function
 async function main() {
-    console.log('🎯 Promotion Configuration Update Tool\n')
-
     const args = parseArgs()
     const hasCliArgs = Object.keys(args).length > 0
 
     let config: PromotionConfig | null = null
 
-    if (hasCliArgs) {
-        console.log('Running in CLI mode...\n')
-        config = cliMode(args)
-    } else {
-        console.log('Running in interactive mode...')
-        console.log('(Use CLI arguments for non-interactive mode)\n')
-        config = await interactiveMode()
-    }
+    try {
+        if (hasCliArgs) {
+            // CLI mode
+            showOperationHeader('Promotion Configuration', 'CLI mode')
+            config = cliMode(args)
+        } else {
+            // Interactive mode
+            showBanner('Promotion Configuration', 'Configure promotion banner settings', '🎉')
+            config = await interactiveMode()
+        }
 
-    if (!config) {
+        if (!config) {
+            showError('Configuration failed')
+            process.exit(1)
+        }
+
+        const success = saveAndValidate(config)
+
+        if (success) {
+            showSuccess('Promotion configuration updated successfully')
+        } else {
+            showError('Configuration validation failed')
+        }
+
+        process.exit(success ? 0 : 1)
+    } catch (error) {
+        // Handle Ctrl+C gracefully
+        if (error && typeof error === 'object' && 'name' in error) {
+            if (error.name === 'ExitPromptError') {
+                showGoodbye('Promotion Configuration CLI')
+                process.exit(0)
+            }
+        }
+        showError(error instanceof Error ? error.message : String(error))
         process.exit(1)
     }
-
-    const success = saveAndValidate(config)
-    process.exit(success ? 0 : 1)
 }
 
 main()

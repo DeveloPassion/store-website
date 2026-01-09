@@ -36,9 +36,11 @@ import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { createInterface } from 'readline'
+import { select, input } from '@inquirer/prompts'
 import { CategorySchema } from '../src/schemas/category.schema.js'
 import type { CategoriesArray, Category, CategoryId } from '../src/types/category'
 import type { Product } from '../src/types/product'
+import { showBanner, showError, showInfo, showGoodbye } from './utils/cli-display.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -446,7 +448,24 @@ async function operationModify(
     // Get category ID
     let id = args.id
     if (!id && rl) {
-        id = await prompt(rl, 'Category ID to modify (required): ')
+        // Use select menu to choose category
+        const sortedCategories = categories.sort((a, b) => {
+            // Sort by featured first, then by name
+            if (a.featured !== b.featured) {
+                return a.featured ? -1 : 1
+            }
+            return a.name.localeCompare(b.name)
+        })
+
+        id = await select({
+            message: 'Select category to modify:',
+            choices: sortedCategories.map((cat) => ({
+                name: `${cat.name} ${cat.featured ? '⭐' : ''} (${cat.id})`,
+                value: cat.id,
+                description: cat.description
+            })),
+            pageSize: 15
+        })
     }
 
     if (!id) {
@@ -476,52 +495,71 @@ async function operationModify(
     if (args.name !== undefined) {
         updates.name = args.name
     } else if (rl) {
-        const nameInput = await prompt(rl, `Name [current: ${existingCategory.name}]: `)
-        if (nameInput) updates.name = nameInput
+        const nameInput = await input({
+            message: 'Name (press Enter to keep current):',
+            default: existingCategory.name
+        })
+        if (nameInput && nameInput !== existingCategory.name) updates.name = nameInput
     }
 
     if (args.description !== undefined) {
         updates.description = args.description
     } else if (rl) {
-        const descInput = await prompt(
-            rl,
-            `Description [current: ${existingCategory.description}]: `
-        )
-        if (descInput) updates.description = descInput
+        const descInput = await input({
+            message: 'Description (press Enter to keep current):',
+            default: existingCategory.description
+        })
+        if (descInput && descInput !== existingCategory.description) updates.description = descInput
     }
 
     if (args.icon !== undefined) {
         updates.icon = args.icon
     } else if (rl) {
-        const iconInput = await prompt(rl, `Icon [current: ${existingCategory.icon || 'none'}]: `)
-        if (iconInput) updates.icon = iconInput
+        const iconInput = await input({
+            message: 'Icon (press Enter to keep current):',
+            default: existingCategory.icon || ''
+        })
+        if (iconInput && iconInput !== (existingCategory.icon || '')) updates.icon = iconInput
     }
 
     if (args.color !== undefined) {
         updates.color = args.color
     } else if (rl) {
-        const colorInput = await prompt(
-            rl,
-            `Color [current: ${existingCategory.color || 'none'}]: `
-        )
-        if (colorInput) updates.color = colorInput
+        const colorInput = await input({
+            message: 'Color (press Enter to keep current):',
+            default: existingCategory.color || ''
+        })
+        if (colorInput && colorInput !== (existingCategory.color || '')) updates.color = colorInput
     }
 
     if (args.featured !== undefined) {
         updates.featured = args.featured === 'true'
     } else if (rl) {
-        const featuredInput = await prompt(
-            rl,
-            `Featured (true/false) [current: ${existingCategory.featured}]: `
-        )
-        if (featuredInput) updates.featured = featuredInput.toLowerCase() === 'true'
+        const featuredInput = await select({
+            message: 'Featured:',
+            choices: [
+                {
+                    name: `Keep current (${existingCategory.featured ? 'Yes' : 'No'})`,
+                    value: 'keep'
+                },
+                { name: 'Yes', value: 'true' },
+                { name: 'No', value: 'false' }
+            ],
+            default: 'keep'
+        })
+        if (featuredInput === 'true') updates.featured = true
+        else if (featuredInput === 'false') updates.featured = false
     }
 
     if (args.priority !== undefined) {
         updates.priority = parseInt(args.priority)
     } else if (rl) {
-        const priorityInput = await prompt(rl, `Priority [current: ${existingCategory.priority}]: `)
-        if (priorityInput) updates.priority = parseInt(priorityInput)
+        const priorityInput = await input({
+            message: 'Priority (press Enter to keep current):',
+            default: String(existingCategory.priority)
+        })
+        if (priorityInput && priorityInput !== String(existingCategory.priority))
+            updates.priority = parseInt(priorityInput)
     }
 
     // Check if any updates provided
@@ -556,8 +594,14 @@ async function operationModify(
 
     // Confirm save
     if (rl) {
-        const confirm = await prompt(rl, 'Confirm and save? [yes/no]: ')
-        if (confirm.toLowerCase() !== 'yes' && confirm.toLowerCase() !== 'y') {
+        const confirm = await select({
+            message: 'Confirm and save changes?',
+            choices: [
+                { name: 'Yes, save changes', value: 'yes' },
+                { name: 'No, cancel', value: 'no' }
+            ]
+        })
+        if (confirm === 'no') {
             console.log('❌ Operation cancelled')
             process.exit(0)
         }
@@ -583,7 +627,24 @@ async function operationRemove(
     // Get category ID
     let id = args.id
     if (!id && rl) {
-        id = await prompt(rl, 'Category ID to remove (required): ')
+        // Use select menu to choose category
+        const sortedCategories = categories.sort((a, b) => {
+            // Sort by featured first, then by name
+            if (a.featured !== b.featured) {
+                return a.featured ? -1 : 1
+            }
+            return a.name.localeCompare(b.name)
+        })
+
+        id = await select({
+            message: 'Select category to remove:',
+            choices: sortedCategories.map((cat) => ({
+                name: `${cat.name} ${cat.featured ? '⭐' : ''} (${cat.id})`,
+                value: cat.id,
+                description: cat.description
+            })),
+            pageSize: 15
+        })
     }
 
     if (!id) {
@@ -658,8 +719,14 @@ async function operationRemove(
 
     // Confirm removal
     if (rl) {
-        const confirm = await prompt(rl, 'Confirm removal? [yes/no]: ')
-        if (confirm.toLowerCase() !== 'yes' && confirm.toLowerCase() !== 'y') {
+        const confirm = await select({
+            message: 'Confirm removal?',
+            choices: [
+                { name: 'Yes, remove category', value: 'yes' },
+                { name: 'No, cancel', value: 'no' }
+            ]
+        })
+        if (confirm === 'no') {
             console.log('❌ Operation cancelled')
             process.exit(0)
         }
@@ -728,8 +795,14 @@ async function operationRemoveUnused(
         console.log(
             '   You will still need to update the schema enum at src/schemas/category.schema.ts\n'
         )
-        const confirm = await prompt(rl, `Remove ${unused.length} unused category(ies)? [yes/no]: `)
-        if (confirm.toLowerCase() !== 'yes' && confirm.toLowerCase() !== 'y') {
+        const confirm = await select({
+            message: `Remove ${unused.length} unused category(ies)?`,
+            choices: [
+                { name: 'Yes, remove all unused', value: 'yes' },
+                { name: 'No, cancel', value: 'no' }
+            ]
+        })
+        if (confirm === 'no') {
             console.log('❌ Operation cancelled')
             process.exit(0)
         }
@@ -752,70 +825,92 @@ async function operationRemoveUnused(
     console.log('   Then run: npm run validate:categories\n')
 }
 
-// Interactive mode
+// Interactive mode with menu loop
 async function interactiveMode() {
-    const rl = createReadlineInterface()
+    while (true) {
+        showBanner('Category Management', 'Add, modify, list, and remove categories', '🏷️')
 
-    console.log('\n📁 Category Management Tool - Interactive Mode\n')
-    console.log('Operations:')
-    console.log('  1. list          - View all categories')
-    console.log('  2. add           - Add a new category')
-    console.log('  3. modify        - Modify an existing category')
-    console.log('  4. remove        - Remove a category')
-    console.log('  5. remove-unused - Remove all unused categories')
-    console.log('')
+        const operation = await select({
+            message: 'What would you like to do?',
+            choices: [
+                { name: '📋 List categories', value: 'list' },
+                { name: '➕ Add new category', value: 'add' },
+                { name: '✏️ Modify existing category', value: 'modify' },
+                { name: '🗑️ Remove category', value: 'remove' },
+                { name: '🧹 Remove unused categories', value: 'remove-unused' },
+                { name: '👋 Exit', value: 'exit' }
+            ],
+            pageSize: 10
+        })
 
-    const operation = await prompt(rl, 'Select operation (1-5 or operation name): ')
+        if (operation === 'exit') {
+            showGoodbye('Category Management CLI')
+            process.exit(0)
+        }
 
-    let op: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused'
-    switch (operation.toLowerCase()) {
-        case '1':
-        case 'list':
-            op = 'list'
-            break
-        case '2':
-        case 'add':
-            op = 'add'
-            break
-        case '3':
-        case 'modify':
-            op = 'modify'
-            break
-        case '4':
-        case 'remove':
-            op = 'remove'
-            break
-        case '5':
-        case 'remove-unused':
-            op = 'remove-unused'
-            break
-        default:
-            console.error('❌ Invalid operation')
-            rl.close()
-            process.exit(1)
-    }
+        // Execute the selected operation
+        try {
+            const rl = createReadlineInterface()
 
-    switch (op) {
-        case 'list':
-            rl.close()
-            await operationList({ format: 'table' })
-            break
-        case 'add':
-            await operationAdd({}, rl)
-            rl.close()
-            break
-        case 'modify':
-            await operationModify({}, rl)
-            rl.close()
-            break
-        case 'remove':
-            await operationRemove({}, rl)
-            rl.close()
-            break
-        case 'remove-unused':
-            await operationRemoveUnused({}, rl)
-            rl.close()
-            break
+            switch (operation) {
+                case 'list':
+                    await operationList({ format: 'table' })
+                    rl.close()
+                    break
+                case 'add':
+                    await operationAdd({}, rl)
+                    rl.close()
+                    break
+                case 'modify':
+                    await operationModify({}, rl)
+                    rl.close()
+                    break
+                case 'remove':
+                    await operationRemove({}, rl)
+                    rl.close()
+                    break
+                case 'remove-unused':
+                    await operationRemoveUnused({}, rl)
+                    rl.close()
+                    break
+            }
+
+            // After operation completes, ask what to do next
+            const nextAction = await select({
+                message: 'What would you like to do next?',
+                choices: [
+                    { name: '🔄 Return to main menu', value: 'menu' },
+                    { name: '👋 Exit', value: 'exit' }
+                ]
+            })
+
+            if (nextAction === 'exit') {
+                showGoodbye('Category Management CLI')
+                process.exit(0)
+            }
+        } catch (error) {
+            // Handle errors gracefully
+            if (error instanceof Error && error.message.includes('cancelled')) {
+                showInfo('Operation cancelled')
+            } else if (error instanceof Error && error.name === 'ExitPromptError') {
+                showGoodbye('Category Management CLI')
+                process.exit(0)
+            } else {
+                showError(error instanceof Error ? error.message : String(error))
+            }
+
+            const continueAfterError = await select({
+                message: 'An error occurred. What would you like to do?',
+                choices: [
+                    { name: '🔄 Return to main menu', value: true },
+                    { name: '👋 Exit', value: false }
+                ]
+            })
+
+            if (!continueAfterError) {
+                process.exit(1)
+            }
+        }
     }
 }
 
@@ -854,18 +949,32 @@ async function cliMode(args: CliArgs) {
 
 // Main function
 async function main() {
-    console.log('🎯 Category Management Tool\n')
-
     const args = parseArgs()
     const hasCliArgs = args.operation !== undefined
 
     if (hasCliArgs) {
-        console.log('Running in CLI mode...\n')
-        await cliMode(args)
+        // CLI mode - run operation and exit
+        try {
+            await cliMode(args)
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            process.exit(1)
+        }
     } else {
-        console.log('Running in interactive mode...')
-        console.log('(Use --operation <list|add|modify|remove> for CLI mode)\n')
-        await interactiveMode()
+        // Interactive mode - menu loop
+        try {
+            await interactiveMode()
+        } catch (error) {
+            // Handle Ctrl+C gracefully
+            if (error && typeof error === 'object' && 'name' in error) {
+                if (error.name === 'ExitPromptError') {
+                    showGoodbye('Category Management CLI')
+                    process.exit(0)
+                }
+            }
+            showError(error instanceof Error ? error.message : String(error))
+            process.exit(1)
+        }
     }
 }
 
