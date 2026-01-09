@@ -45,6 +45,7 @@ import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { createInterface } from 'readline'
 import inquirer from 'inquirer'
+import { select } from '@inquirer/prompts'
 import {
     ProductSchema,
     PriceTierSchema,
@@ -57,6 +58,19 @@ import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
 import type { TagsMap, TagId } from '../src/types/tag'
 import type { Category } from '../src/types/category'
+
+// ANSI color codes for better UX
+const colors = {
+    reset: '\x1b[0m',
+    bright: '\x1b[1m',
+    dim: '\x1b[2m',
+    cyan: '\x1b[36m',
+    green: '\x1b[32m',
+    yellow: '\x1b[33m',
+    red: '\x1b[31m',
+    blue: '\x1b[34m',
+    magenta: '\x1b[35m'
+}
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -97,6 +111,70 @@ interface ProductReference {
     productId: string
     productName: string
     referenceType: 'crossSell'
+}
+
+// ============================================================================
+// Display Functions
+// ============================================================================
+
+/**
+ * Display welcome banner
+ */
+function showBanner(): void {
+    console.clear()
+    console.log(`
+${colors.bright}${colors.cyan}╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║              📦  PRODUCT MANAGEMENT CLI  📦               ║
+║                                                           ║
+║         Add, edit, list, and remove products              ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝${colors.reset}
+`)
+}
+
+/**
+ * Show operation header
+ */
+function showOperationHeader(operation: string, subtitle?: string): void {
+    console.log(
+        `\n${colors.bright}${colors.blue}▶ ${operation.toUpperCase()}${colors.reset}${subtitle ? ` ${colors.dim}${subtitle}${colors.reset}` : ''}\n`
+    )
+}
+
+/**
+ * Show success message
+ */
+function showSuccess(message: string): void {
+    console.log(`\n${colors.bright}${colors.green}✅ ${message}${colors.reset}`)
+}
+
+/**
+ * Show error message
+ */
+function showError(message: string): void {
+    console.error(`\n${colors.bright}${colors.red}❌ ${message}${colors.reset}`)
+}
+
+/**
+ * Show warning message
+ */
+function showWarning(message: string): void {
+    console.log(`\n${colors.bright}${colors.yellow}⚠️  ${message}${colors.reset}`)
+}
+
+/**
+ * Show info message
+ */
+function showInfo(message: string): void {
+    console.log(`${colors.cyan}ℹ ${message}${colors.reset}`)
+}
+
+/**
+ * Show section header
+ */
+function showSectionHeader(section: string): void {
+    console.log(`\n${colors.bright}${colors.magenta}═══ ${section} ═══${colors.reset}\n`)
 }
 
 // ============================================================================
@@ -478,23 +556,29 @@ async function selectStatus(current?: string): Promise<string> {
 // ============================================================================
 
 async function operationList(args: CliArgs): Promise<void> {
+    showOperationHeader('List Products')
+
     let products = loadAllProducts()
 
     // Apply filters (check both _filter and direct versions for compatibility)
     if (args.featured_filter) {
         products = products.filter((p) => p.featured === true)
+        showInfo('Filter: Featured products only')
     }
     const statusFilter = args.status_filter || args.status
     if (statusFilter) {
         products = products.filter((p) => p.status === statusFilter)
+        showInfo(`Filter: Status = ${statusFilter}`)
     }
     const categoryFilter = args.category_filter || (args as Record<string, unknown>).category
     if (typeof categoryFilter === 'string') {
         products = products.filter((p) => p.mainCategory === categoryFilter)
+        showInfo(`Filter: Category = ${categoryFilter}`)
     }
     const tagFilter = args.tag_filter || (args as Record<string, unknown>).tag
     if (typeof tagFilter === 'string') {
         products = products.filter((p) => p.tags.includes(tagFilter as TagId))
+        showInfo(`Filter: Tag = ${tagFilter}`)
     }
 
     const format = args.format || 'table'
@@ -505,33 +589,32 @@ async function operationList(args: CliArgs): Promise<void> {
     }
 
     if (format === 'detailed') {
-        console.log(`\n📦 Products (${products.length} total)\n`)
+        console.log(`\n${colors.bright}📦 Products (${products.length} total)${colors.reset}\n`)
         for (const product of products) {
-            console.log(`ID: ${product.id}`)
-            console.log(`Name: ${product.name}`)
-            console.log(`Tagline: ${product.tagline}`)
-            console.log(`Price: ${product.priceDisplay} (${product.priceTier})`)
-            console.log(`Main Category: ${product.mainCategory}`)
-            console.log(`Tags: ${product.tags.join(', ')}`)
-            console.log(`Status: ${product.status}`)
-            console.log(`Priority: ${product.priority || 0}`)
-            console.log(`Featured: ${product.featured ? '✓' : '✗'}`)
-            console.log('─'.repeat(80))
+            console.log(
+                `${colors.bright}ID:${colors.reset} ${colors.cyan}${product.id}${colors.reset}`
+            )
+            console.log(`${colors.bright}Name:${colors.reset} ${product.name}`)
+            console.log(`${colors.bright}Tagline:${colors.reset} ${product.tagline}`)
+            console.log(
+                `${colors.bright}Price:${colors.reset} ${product.priceDisplay} ${colors.dim}(${product.priceTier})${colors.reset}`
+            )
+            console.log(`${colors.bright}Main Category:${colors.reset} ${product.mainCategory}`)
+            console.log(`${colors.bright}Tags:${colors.reset} ${product.tags.join(', ')}`)
+            console.log(`${colors.bright}Status:${colors.reset} ${product.status}`)
+            console.log(`${colors.bright}Priority:${colors.reset} ${product.priority || 0}`)
+            console.log(`${colors.bright}Featured:${colors.reset} ${product.featured ? '✓' : '✗'}`)
+            console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
         }
         return
     }
 
     // Table format (default)
-    console.log(`\n📦 Products (${products.length} total)\n`)
+    console.log(`\n${colors.bright}📦 Products (${products.length} total)${colors.reset}\n`)
     console.log(
-        'ID'.padEnd(28) +
-            'Name'.padEnd(32) +
-            'Category'.padEnd(22) +
-            'Status'.padEnd(12) +
-            'Priority'.padEnd(10) +
-            'Featured'
+        `${colors.bright}${'ID'.padEnd(28)}${'Name'.padEnd(32)}${'Category'.padEnd(22)}${'Status'.padEnd(12)}${'Priority'.padEnd(10)}${'Featured'}${colors.reset}`
     )
-    console.log('─'.repeat(120))
+    console.log(`${colors.dim}${'─'.repeat(120)}${colors.reset}`)
 
     for (const product of products) {
         const id = product.id.padEnd(28)
@@ -539,11 +622,16 @@ async function operationList(args: CliArgs): Promise<void> {
             product.name.length > 30 ? product.name.slice(0, 27) + '...' : product.name
         ).padEnd(32)
         const category = product.mainCategory.padEnd(22)
-        const status = product.status.padEnd(12)
+        const statusColor = product.status === 'active' ? colors.green : colors.yellow
+        const status = `${statusColor}${product.status}${colors.reset}`.padEnd(
+            12 + statusColor.length + colors.reset.length
+        )
         const priority = String(product.priority || 0).padEnd(10)
-        const featured = product.featured ? '✓' : ''
+        const featured = product.featured ? `${colors.yellow}★${colors.reset}` : ' '
 
-        console.log(id + name + category + status + priority + featured)
+        console.log(
+            `${colors.cyan}${id}${colors.reset}${name}${category}${status}${priority}${featured}`
+        )
     }
 }
 
@@ -552,65 +640,79 @@ async function operationList(args: CliArgs): Promise<void> {
 // ============================================================================
 
 async function operationAdd(args: CliArgs): Promise<void> {
-    console.log('\n📦 Product Management Tool - Add Operation\n')
+    showOperationHeader('Add Product', 'Create a new product')
 
     // Basic Information
-    console.log('=== STEP 1/5: Basic Information ===\n')
+    showSectionHeader('STEP 1/5: Basic Information')
 
-    const name = args.name || (await prompt('Product Name (required): '))
+    const name =
+        args.name || (await prompt(`${colors.bright}Product Name${colors.reset} (required): `))
     if (!name) {
-        console.error('❌ Product name is required')
-        process.exit(1)
+        showError('Product name is required')
+        throw new Error('Product name is required')
     }
 
     const suggestedId = toKebabCase(name)
-    const id = args.id || (await prompt(`Product ID [${suggestedId}]: `)) || suggestedId
+    const id =
+        args.id ||
+        (await prompt(
+            `${colors.bright}Product ID${colors.reset} [${colors.cyan}${suggestedId}${colors.reset}]: `
+        )) ||
+        suggestedId
 
     // Check if ID already exists
     if (loadProduct(id)) {
-        console.error(`❌ Product with ID "${id}" already exists`)
-        process.exit(1)
+        showError(`Product with ID "${id}" already exists`)
+        throw new Error(`Product with ID "${id}" already exists`)
     }
 
-    const tagline = args.tagline || (await prompt('Tagline (required): '))
+    const tagline =
+        args.tagline || (await prompt(`${colors.bright}Tagline${colors.reset} (required): `))
     if (!tagline) {
-        console.error('❌ Tagline is required')
-        process.exit(1)
+        showError('Tagline is required')
+        throw new Error('Tagline is required')
     }
 
     const secondaryTagline =
-        args.secondaryTagline || (await prompt('Secondary Tagline (optional): ')) || undefined
+        args.secondaryTagline ||
+        (await prompt(`${colors.bright}Secondary Tagline${colors.reset} (optional): `)) ||
+        undefined
 
-    const permalink = args.permalink || (await prompt('Permalink (Gumroad code, required): '))
+    const permalink =
+        args.permalink ||
+        (await prompt(`${colors.bright}Permalink${colors.reset} (Gumroad code, required): `))
     if (!permalink) {
-        console.error('❌ Permalink is required')
-        process.exit(1)
+        showError('Permalink is required')
+        throw new Error('Permalink is required')
     }
 
     // Pricing
-    console.log('\n=== STEP 2/5: Pricing ===\n')
+    showSectionHeader('STEP 2/5: Pricing')
 
-    const priceStr = args.price || (await prompt('Price in EUR (required): '))
+    const priceStr =
+        args.price || (await prompt(`${colors.bright}Price in EUR${colors.reset} (required): `))
     const price = parseFloat(priceStr)
     if (isNaN(price)) {
-        console.error('❌ Invalid price')
-        process.exit(1)
+        showError('Invalid price')
+        throw new Error('Invalid price')
     }
 
     const priceDisplay =
         args.priceDisplay ||
-        (await prompt(`Price Display [€${price.toFixed(2)}]: `)) ||
+        (await prompt(
+            `${colors.bright}Price Display${colors.reset} [${colors.cyan}€${price.toFixed(2)}${colors.reset}]: `
+        )) ||
         `€${price.toFixed(2)}`
 
     const priceTier = args.priceTier || (await selectPriceTier())
 
     const gumroadUrl =
         args.gumroadUrl ||
-        (await prompt('Gumroad URL (required): ')) ||
+        (await prompt(`${colors.bright}Gumroad URL${colors.reset} (required): `)) ||
         `https://store.dsebastien.net/l/${permalink}`
 
     // Taxonomy
-    console.log('\n=== STEP 3/5: Taxonomy ===\n')
+    showSectionHeader('STEP 3/5: Taxonomy')
 
     const mainCategory = args.mainCategory || (await selectMainCategory())
 
@@ -621,53 +723,71 @@ async function operationAdd(args: CliArgs): Promise<void> {
         : await selectSecondaryCategories()
 
     // Marketing Copy
-    console.log('\n=== STEP 4/5: Marketing Copy ===\n')
+    showSectionHeader('STEP 4/5: Marketing Copy')
 
-    const problem = args.problem || (await prompt('Problem Description (required): '))
+    const problem =
+        args.problem ||
+        (await prompt(`${colors.bright}Problem Description${colors.reset} (required): `))
     if (!problem) {
-        console.error('❌ Problem description is required')
-        process.exit(1)
+        showError('Problem description is required')
+        throw new Error('Problem description is required')
     }
 
-    const agitate = args.agitate || (await prompt('Agitation Description (required): '))
+    const agitate =
+        args.agitate ||
+        (await prompt(`${colors.bright}Agitation Description${colors.reset} (required): `))
     if (!agitate) {
-        console.error('❌ Agitation description is required')
-        process.exit(1)
+        showError('Agitation description is required')
+        throw new Error('Agitation description is required')
     }
 
-    const solution = args.solution || (await prompt('Solution Description (required): '))
+    const solution =
+        args.solution ||
+        (await prompt(`${colors.bright}Solution Description${colors.reset} (required): `))
     if (!solution) {
-        console.error('❌ Solution description is required')
-        process.exit(1)
+        showError('Solution description is required')
+        throw new Error('Solution description is required')
     }
 
     // Status and Priority
     const status = args.status || (await selectStatus())
-    const priorityStr = args.priority || (await prompt('Priority (0-100, default 50): ')) || '50'
+    const priorityStr =
+        args.priority ||
+        (await prompt(`${colors.bright}Priority${colors.reset} (0-100, default 50): `)) ||
+        '50'
     const priority = parseInt(priorityStr)
 
-    const featuredStr = args.featured || (await prompt('Featured? [yes/no, default no]: ')) || 'no'
+    const featuredStr =
+        args.featured ||
+        (await prompt(`${colors.bright}Featured?${colors.reset} [yes/no, default no]: `)) ||
+        'no'
     const featured = featuredStr.toLowerCase() === 'yes' || featuredStr.toLowerCase() === 'true'
 
     // Review & Confirm
-    console.log('\n=== STEP 5/5: Review ===\n')
-    console.log('📊 New Product Summary:')
-    console.log(`   ID: ${id}`)
-    console.log(`   Name: ${name}`)
-    console.log(`   Tagline: ${tagline}`)
-    console.log(`   Price: ${priceDisplay} (${priceTier})`)
-    console.log(`   Main Category: ${mainCategory}`)
-    console.log(`   Secondary Categories: ${secondaryCategories.length}`)
-    console.log(`   Tags: ${tags.length} (${tags.join(', ')})`)
-    console.log(`   Status: ${status}`)
-    console.log(`   Priority: ${priority}`)
-    console.log(`   Featured: ${featured}`)
+    showSectionHeader('STEP 5/5: Review')
+    console.log(`${colors.bright}${colors.blue}📊 New Product Summary:${colors.reset}`)
+    console.log(`   ${colors.bright}ID:${colors.reset} ${colors.cyan}${id}${colors.reset}`)
+    console.log(`   ${colors.bright}Name:${colors.reset} ${name}`)
+    console.log(`   ${colors.bright}Tagline:${colors.reset} ${tagline}`)
+    console.log(
+        `   ${colors.bright}Price:${colors.reset} ${priceDisplay} ${colors.dim}(${priceTier})${colors.reset}`
+    )
+    console.log(`   ${colors.bright}Main Category:${colors.reset} ${mainCategory}`)
+    console.log(
+        `   ${colors.bright}Secondary Categories:${colors.reset} ${secondaryCategories.length}`
+    )
+    console.log(
+        `   ${colors.bright}Tags:${colors.reset} ${tags.length} ${colors.dim}(${tags.join(', ')})${colors.reset}`
+    )
+    console.log(`   ${colors.bright}Status:${colors.reset} ${status}`)
+    console.log(`   ${colors.bright}Priority:${colors.reset} ${priority}`)
+    console.log(`   ${colors.bright}Featured:${colors.reset} ${featured}`)
     console.log()
 
-    const confirmed = await confirm('Confirm and save?')
+    const confirmed = await confirm(`${colors.yellow}Confirm and save?${colors.reset}`)
     if (!confirmed) {
-        console.log('❌ Operation cancelled')
-        process.exit(0)
+        showWarning('Operation cancelled')
+        throw new Error('Operation cancelled by user')
     }
 
     // Validate enum types
@@ -722,19 +842,25 @@ async function operationAdd(args: CliArgs): Promise<void> {
     // Validate
     const validation = validateProduct(product)
     if (!validation.success) {
-        console.error('❌ Product validation failed:')
-        validation.errors.forEach((err) => console.error(err))
-        process.exit(1)
+        showError('Product validation failed:')
+        validation.errors.forEach((err) => console.error(`  ${err}`))
+        throw new Error('Product validation failed')
     }
 
     // Save
     saveProduct(product)
-    console.log(`\n✅ Product created at: src/data/products/${id}.json`)
-    console.log('\nNext steps:')
-    console.log('  1. Run: npm run validate:products')
-    console.log('  2. Add marketing copy details by editing the file directly')
-    console.log('  3. Add media (coverImage, screenshots, videoUrl)')
-    console.log('  4. Test locally: npm run dev')
+    showSuccess(`Product created at: src/data/products/${id}.json`)
+    console.log(`\n${colors.bright}${colors.cyan}📋 Next steps:${colors.reset}`)
+    console.log(
+        `  ${colors.dim}1.${colors.reset} Run: ${colors.green}npm run validate:products${colors.reset}`
+    )
+    console.log(
+        `  ${colors.dim}2.${colors.reset} Add marketing copy details by editing the file directly`
+    )
+    console.log(`  ${colors.dim}3.${colors.reset} Add media (coverImage, screenshots, videoUrl)`)
+    console.log(
+        `  ${colors.dim}4.${colors.reset} Test locally: ${colors.green}npm run dev${colors.reset}`
+    )
 }
 
 /**
@@ -758,17 +884,19 @@ function parseSecondaryCategories(input: string): SecondaryCategory[] {
 // ============================================================================
 
 async function operationEdit(args: CliArgs): Promise<void> {
-    console.log('\n📦 Product Management Tool - Edit Operation\n')
+    showOperationHeader('Edit Product', 'Modify an existing product')
 
     const productId = args.id || (await selectProduct('Select product to edit:'))
     const product = loadProduct(productId)
 
     if (!product) {
-        console.error(`❌ Product not found: ${productId}`)
-        process.exit(1)
+        showError(`Product not found: ${productId}`)
+        throw new Error(`Product not found: ${productId}`)
     }
 
-    console.log(`\nEditing: ${product.name} (${product.id})\n`)
+    console.log(
+        `\n${colors.bright}${colors.blue}Editing:${colors.reset} ${product.name} ${colors.dim}(${product.id})${colors.reset}\n`
+    )
 
     // Apply CLI argument updates
     if (args.name) product.name = args.name
@@ -892,21 +1020,22 @@ async function operationEdit(args: CliArgs): Promise<void> {
     // Validate
     const validation = validateProduct(product)
     if (!validation.success) {
-        console.error('❌ Product validation failed:')
-        validation.errors.forEach((err) => console.error(err))
-        process.exit(1)
+        showError('Product validation failed:')
+        validation.errors.forEach((err) => console.error(`  ${err}`))
+        throw new Error('Product validation failed')
     }
 
     // Save
     saveProduct(product)
-    console.log(`\n✅ Product updated: src/data/products/${product.id}.json`)
+    showSuccess(`Product updated: src/data/products/${product.id}.json`)
 
-    const runValidation = await confirm('Run validation?')
+    const runValidation = await confirm(`${colors.cyan}Run validation?${colors.reset}`)
     if (runValidation) {
+        console.log(`\n${colors.bright}${colors.blue}→ Running validation...${colors.reset}\n`)
         const { spawnSync } = await import('child_process')
         const result = spawnSync('npm', ['run', 'validate:products'], { stdio: 'inherit' })
         if (result.status !== 0) {
-            process.exit(result.status || 1)
+            throw new Error('Validation failed')
         }
     }
 }
@@ -938,101 +1067,197 @@ function hasAnyEditArgs(args: CliArgs): boolean {
 // ============================================================================
 
 async function operationRemove(args: CliArgs): Promise<void> {
-    console.log('\n📦 Product Management Tool - Remove Operation\n')
+    showOperationHeader('Remove Product', 'Delete a product')
 
     const productId = args.id || (await selectProduct('Select product to remove:'))
     const product = loadProduct(productId)
 
     if (!product) {
-        console.error(`❌ Product not found: ${productId}`)
-        process.exit(1)
+        showError(`Product not found: ${productId}`)
+        throw new Error(`Product not found: ${productId}`)
     }
 
-    console.log('\nProduct to remove:')
-    console.log(`  ID: ${product.id}`)
-    console.log(`  Name: ${product.name}`)
-    console.log(`  Status: ${product.status}`)
-    console.log(`  File: src/data/products/${product.id}.json`)
+    console.log(`\n${colors.bright}${colors.red}Product to remove:${colors.reset}`)
+    console.log(`  ${colors.bright}ID:${colors.reset} ${colors.cyan}${product.id}${colors.reset}`)
+    console.log(`  ${colors.bright}Name:${colors.reset} ${product.name}`)
+    console.log(`  ${colors.bright}Status:${colors.reset} ${product.status}`)
+    console.log(
+        `  ${colors.bright}File:${colors.reset} ${colors.dim}src/data/products/${product.id}.json${colors.reset}`
+    )
 
     // Check cross-references
-    console.log('\n⚠️  Checking cross-references...\n')
+    showWarning('Checking cross-references...')
     const references = checkCrossReferences(product.id)
 
     if (references.length > 0) {
-        console.log('Found references:')
-        console.log(`  Cross-sell references (${references.length} products reference this):`)
+        console.log(`\n${colors.bright}Found references:${colors.reset}`)
+        console.log(
+            `  ${colors.yellow}Cross-sell references (${references.length} products reference this):${colors.reset}`
+        )
         references.forEach((ref) => {
-            console.log(`    • ${ref.productId} (${ref.productName})`)
+            console.log(
+                `    ${colors.dim}•${colors.reset} ${ref.productId} ${colors.dim}(${ref.productName})${colors.reset}`
+            )
         })
 
         if (!args.force) {
+            showError('Cannot remove product that is referenced in crossSellIds of other products.')
             console.log(
-                '\n❌ Cannot remove product that is referenced in crossSellIds of other products.'
+                `   ${colors.dim}Update those products first, or use --force flag.${colors.reset}`
             )
-            console.log('   Update those products first, or use --force flag.')
-            process.exit(1)
+            throw new Error('Product is referenced by other products')
         } else {
-            console.log('\n⚠️  Forcing removal despite references...')
+            showWarning('Forcing removal despite references...')
         }
     }
 
-    const confirmed = await confirm('Confirm removal?')
+    const confirmed = await confirm(`${colors.red}Confirm removal?${colors.reset}`)
     if (!confirmed) {
-        console.log('❌ Operation cancelled')
-        process.exit(0)
+        showWarning('Operation cancelled')
+        throw new Error('Operation cancelled by user')
     }
 
     removeProduct(product.id)
-    console.log(`\n✅ Product removed: src/data/products/${product.id}.json`)
-    console.log('\n⚠️  IMPORTANT: Run validation to check for broken references:')
-    console.log('   npm run validate:products')
+    showSuccess(`Product removed: src/data/products/${product.id}.json`)
+    showWarning('IMPORTANT: Run validation to check for broken references:')
+    console.log(`   ${colors.green}npm run validate:products${colors.reset}`)
 }
 
 // ============================================================================
 // Main
 // ============================================================================
 
-async function main() {
-    const args = parseArgs()
+/**
+ * Main menu loop
+ */
+async function mainMenu(): Promise<void> {
+    while (true) {
+        showBanner()
 
-    // If no operation specified, use interactive mode
-    if (!args.operation) {
-        const answer = await inquirer.prompt([
-            {
-                type: 'list',
-                name: 'operation',
-                message: 'What would you like to do?',
-                choices: [
-                    { name: 'List products', value: 'list' },
-                    { name: 'Add new product', value: 'add' },
-                    { name: 'Edit existing product', value: 'edit' },
-                    { name: 'Remove product', value: 'remove' }
-                ]
+        const operation = await select({
+            message: 'What would you like to do?',
+            choices: [
+                { name: '📋 List products', value: 'list' },
+                { name: '➕ Add new product', value: 'add' },
+                { name: '✏️ Edit existing product', value: 'edit' },
+                { name: '🗑️ Remove product', value: 'remove' },
+                { name: '👋 Exit', value: 'exit' }
+            ],
+            pageSize: 10
+        })
+
+        if (operation === 'exit') {
+            console.log(
+                `\n${colors.bright}${colors.cyan}Thanks for using Product Management CLI! 👋${colors.reset}\n`
+            )
+            process.exit(0)
+        }
+
+        // Execute the selected operation
+        try {
+            const args: CliArgs = { operation: operation as 'list' | 'add' | 'edit' | 'remove' }
+
+            switch (operation) {
+                case 'list':
+                    await operationList(args)
+                    break
+                case 'add':
+                    await operationAdd(args)
+                    break
+                case 'edit':
+                    await operationEdit(args)
+                    break
+                case 'remove':
+                    await operationRemove(args)
+                    break
             }
-        ])
-        args.operation = answer.operation
-    }
 
-    switch (args.operation) {
-        case 'list':
-            await operationList(args)
-            break
-        case 'add':
-            await operationAdd(args)
-            break
-        case 'edit':
-            await operationEdit(args)
-            break
-        case 'remove':
-            await operationRemove(args)
-            break
-        default:
-            console.error('❌ Invalid operation. Use: list, add, edit, or remove')
-            process.exit(1)
+            // After operation completes, ask what to do next
+            const nextAction = await select({
+                message: 'What would you like to do next?',
+                choices: [
+                    { name: '🔄 Return to main menu', value: 'menu' },
+                    { name: '👋 Exit', value: 'exit' }
+                ]
+            })
+
+            if (nextAction === 'exit') {
+                console.log(
+                    `\n${colors.bright}${colors.cyan}Thanks for using Product Management CLI! 👋${colors.reset}\n`
+                )
+                process.exit(0)
+            }
+        } catch (error) {
+            // Handle errors gracefully
+            if (error instanceof Error && error.message.includes('cancelled')) {
+                showInfo('Operation cancelled')
+            } else {
+                showError(error instanceof Error ? error.message : String(error))
+            }
+
+            const continueAfterError = await select({
+                message: 'An error occurred. What would you like to do?',
+                choices: [
+                    { name: '🔄 Return to main menu', value: true },
+                    { name: '👋 Exit', value: false }
+                ]
+            })
+
+            if (!continueAfterError) {
+                process.exit(1)
+            }
+        }
     }
 }
 
-main().catch((error) => {
-    console.error('❌ Error:', error.message)
-    process.exit(1)
-})
+/**
+ * Main entry point
+ */
+async function main() {
+    const args = parseArgs()
+
+    // If CLI arguments provided, run in CLI mode (no menu loop)
+    if (args.operation) {
+        try {
+            switch (args.operation) {
+                case 'list':
+                    await operationList(args)
+                    break
+                case 'add':
+                    await operationAdd(args)
+                    break
+                case 'edit':
+                    await operationEdit(args)
+                    break
+                case 'remove':
+                    await operationRemove(args)
+                    break
+                default:
+                    showError('Invalid operation. Use: list, add, edit, or remove')
+                    process.exit(1)
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            process.exit(1)
+        }
+    } else {
+        // No CLI arguments - start interactive menu
+        try {
+            await mainMenu()
+        } catch (error) {
+            // Handle Ctrl+C gracefully
+            if (error && typeof error === 'object' && 'name' in error) {
+                if (error.name === 'ExitPromptError') {
+                    console.log(
+                        `\n${colors.bright}${colors.cyan}Thanks for using Product Management CLI! 👋${colors.reset}\n`
+                    )
+                    process.exit(0)
+                }
+            }
+            showError(error instanceof Error ? error.message : String(error))
+            process.exit(1)
+        }
+    }
+}
+
+main()

@@ -241,9 +241,9 @@ npm run update:products
 Interactive CLI tool for managing products:
 - 📋 List products with filtering
 - ➕ Add new products with guided prompts
-- ✏️  Edit existing products
-- 🗑️  Remove products with cross-reference checking
-- ⌨️  Keyboard-navigable multi-select for categories and tags
+- ✏️ Edit existing products
+- 🗑️ Remove products with cross-reference checking
+- ⌨️ Keyboard-navigable multi-select for categories and tags
 - ✅ Automatic validation before saving
 
 ### Aggregate Products

@@ -137,13 +137,6 @@ useEffect(() => {
 }, [])
 ```
 
-### Why This Matters
-
-- Ensures consistent branding across social media shares
-- Prevents broken or missing images when pages are shared
-- Improves click-through rates from social media
-- Product pages get custom images to showcase their specific content
-
 ## Styling
 
 The website uses Tailwind CSS v4 with custom theme variables defined in `/src/styles/index.css`:
@@ -1046,109 +1039,6 @@ Before submitting code, ensure:
 - [ ] No test warnings or errors
 - [ ] Coverage meets minimum thresholds
 
-### Test Examples
-
-**Example 1: Testing a utility function**
-
-```typescript
-// src/lib/format-price.spec.ts
-import { describe, it, expect } from 'vitest'
-import { formatPrice } from './format-price'
-
-describe('formatPrice', () => {
-    it('should format USD prices', () => {
-        expect(formatPrice(99.99, 'USD')).toBe('$99.99')
-    })
-
-    it('should format EUR prices', () => {
-        expect(formatPrice(99.99, 'EUR')).toBe('€99.99')
-    })
-
-    it('should handle zero', () => {
-        expect(formatPrice(0, 'USD')).toBe('$0.00')
-    })
-
-    it('should handle large numbers', () => {
-        expect(formatPrice(1000000, 'USD')).toBe('$1,000,000.00')
-    })
-})
-```
-
-**Example 2: Testing a React component**
-
-```typescript
-// src/components/ui/alert.spec.tsx
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import Alert from './alert'
-
-describe('Alert Component', () => {
-    it('should render children', () => {
-        render(<Alert>Test message</Alert>)
-        expect(screen.getByText('Test message')).toBeInTheDocument()
-    })
-
-    it('should apply variant styles', () => {
-        const { container } = render(<Alert variant="error">Error</Alert>)
-        expect(container.firstChild).toHaveClass('bg-red-500')
-    })
-
-    it('should show close button when closable', () => {
-        render(<Alert closable>Message</Alert>)
-        expect(screen.getByLabelText('Close')).toBeInTheDocument()
-    })
-})
-```
-
-### Common Testing Patterns
-
-**Pattern 1: Testing async operations**
-
-```typescript
-it('should load data asynchronously', async () => {
-    render(<DataComponent />)
-
-    // Wait for loading to finish
-    await waitFor(() => {
-        expect(screen.getByText('Data loaded')).toBeInTheDocument()
-    })
-})
-```
-
-**Pattern 2: Testing user interactions**
-
-```typescript
-it('should toggle state on click', () => {
-    render(<ToggleButton />)
-    const button = screen.getByRole('button')
-
-    fireEvent.click(button)
-    expect(button).toHaveAttribute('aria-pressed', 'true')
-
-    fireEvent.click(button)
-    expect(button).toHaveAttribute('aria-pressed', 'false')
-})
-```
-
-**Pattern 3: Testing forms**
-
-```typescript
-it('should submit form with entered data', () => {
-    const handleSubmit = vi.fn()
-    render(<ContactForm onSubmit={handleSubmit} />)
-
-    fireEvent.change(screen.getByLabelText('Email'), {
-        target: { value: 'test@example.com' }
-    })
-
-    fireEvent.click(screen.getByText('Submit'))
-
-    expect(handleSubmit).toHaveBeenCalledWith({
-        email: 'test@example.com'
-    })
-})
-```
-
 ### When Tests Can Be Skipped
 
 Tests may ONLY be skipped for:
@@ -1310,21 +1200,3 @@ Before committing any code, ensure:
 ```bash
 npm run ci:local
 ```
-
-## Troubleshooting
-
-### Build fails with type errors
-
-Run `npm run tsc` to see detailed TypeScript errors.
-
-### Styles not updating
-
-Tailwind CSS v4 uses JIT compilation. Try restarting the dev server.
-
-### New tool not appearing
-
-Verify the JSON is valid and the tool has all required fields. Check browser console for errors.
-
-### Command palette not opening
-
-Ensure you're not focused on an input field when pressing `/`.
