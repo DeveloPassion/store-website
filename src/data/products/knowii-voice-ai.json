@@ -95,7 +95,23 @@
         "timeSaved": "88 minutes/day for 2 hours of writing",
         "rating": "New product - November 2025"
     },
-    "faqIds": [],
+    "faqIds": [
+        "faq-8",
+        "faq-9",
+        "faq-10",
+        "faq-11",
+        "faq-12",
+        "faq-13",
+        "faq-14",
+        "faq-15",
+        "faq-16",
+        "faq-17",
+        "faq-18",
+        "faq-19",
+        "faq-20",
+        "faq-21",
+        "faq-22"
+    ],
     "targetAudience": [
         "You communicate for work (emails, Slack, Teams, support tickets)",
         "Your keyboard slows you down - ideas come faster than fingers can type",

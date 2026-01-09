@@ -113,27 +113,19 @@
         "Free lifetime updates"
     ],
     "testimonialIds": [
-        "obsidian-starter-kit-testimonial-1",
-        "obsidian-starter-kit-testimonial-2",
-        "obsidian-starter-kit-testimonial-3",
-        "obsidian-starter-kit-testimonial-4",
-        "obsidian-starter-kit-testimonial-5",
-        "obsidian-starter-kit-testimonial-6"
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3",
+        "testimonial-4",
+        "testimonial-5",
+        "testimonial-6"
     ],
     "statsProof": {
         "userCount": "10,000+ users",
         "timeSaved": "100+ hours setup + 10 hours/month ongoing",
         "rating": "4.9/5 stars"
     },
-    "faqIds": [
-        "obsidian-starter-kit-faq-1",
-        "obsidian-starter-kit-faq-2",
-        "obsidian-starter-kit-faq-3",
-        "obsidian-starter-kit-faq-4",
-        "obsidian-starter-kit-faq-5",
-        "obsidian-starter-kit-faq-6",
-        "obsidian-starter-kit-faq-7"
-    ],
+    "faqIds": ["faq-1", "faq-2", "faq-3", "faq-4", "faq-5", "faq-6", "faq-7"],
     "targetAudience": [
         "You're just starting with Obsidian and want a proven system",
         "You're overwhelmed by options and need expert guidance",

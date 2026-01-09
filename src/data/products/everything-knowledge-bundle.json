@@ -80,7 +80,16 @@
         "timeSaved": "Save over €200",
         "rating": "Complete system"
     },
-    "faqIds": [],
+    "faqIds": [
+        "faq-143",
+        "faq-144",
+        "faq-145",
+        "faq-146",
+        "faq-147",
+        "faq-148",
+        "faq-149",
+        "faq-150"
+    ],
     "targetAudience": [
         "Value Seekers",
         "Lifetime Access Fans",

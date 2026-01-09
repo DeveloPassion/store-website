@@ -100,16 +100,18 @@
         "Lifetime Access - All future additions included"
     ],
     "testimonialIds": [
-        "pkm-library-testimonial-1",
-        "pkm-library-testimonial-2",
-        "pkm-library-testimonial-3"
+        "testimonial-14",
+        "testimonial-15",
+        "testimonial-16",
+        "testimonial-17",
+        "testimonial-18"
     ],
     "statsProof": {
         "userCount": "Knowledge Management community",
         "timeSaved": "Hundreds of hours of research",
         "rating": "5-star reviews from users"
     },
-    "faqIds": [],
+    "faqIds": ["faq-50", "faq-51", "faq-52", "faq-53", "faq-54", "faq-55", "faq-56", "faq-57"],
     "targetAudience": [
         "PKM beginners wanting to learn personal knowledge organization",
         "Knowledge management enthusiasts curious about methodologies",

@@ -72,7 +72,7 @@
         "timeSaved": "Hours saved",
         "rating": "Proven"
     },
-    "faqIds": [],
+    "faqIds": ["faq-123", "faq-124", "faq-125", "faq-126", "faq-127", "faq-128", "faq-129"],
     "targetAudience": ["The Stuck", "The Optimizer", "The Beginner", "The Professional"],
     "perfectFor": [
         "Courses didn't work",

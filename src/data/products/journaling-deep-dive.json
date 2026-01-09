@@ -93,7 +93,17 @@
         "timeSaved": "Saves hours daily",
         "rating": "Battle-tested"
     },
-    "faqIds": [],
+    "faqIds": [
+        "faq-58",
+        "faq-59",
+        "faq-60",
+        "faq-61",
+        "faq-62",
+        "faq-63",
+        "faq-64",
+        "faq-65",
+        "faq-66"
+    ],
     "targetAudience": [
         "Overwhelmed professionals",
         "Intentionality seekers",

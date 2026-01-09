@@ -65,7 +65,7 @@
         "timeSaved": "Saves planning time",
         "rating": "Comprehensive"
     },
-    "faqIds": [],
+    "faqIds": ["faq-130", "faq-131", "faq-132", "faq-133", "faq-134", "faq-135"],
     "targetAudience": ["System Builders", "System Auditors", "Improvers", "Learners"],
     "perfectFor": ["Starting from scratch", "Auditing system", "Improving", "Learning about PKM"],
     "notForYou": ["Don't care about systems", "Prefer ad-hoc"],

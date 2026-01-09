@@ -89,13 +89,24 @@
         "Templates",
         "Expert masterclasses"
     ],
-    "testimonialIds": [],
+    "testimonialIds": ["testimonial-20"],
     "statsProof": {
         "userCount": "Hundreds",
         "timeSaved": "Hours saved weekly",
         "rating": "Growing"
     },
-    "faqIds": [],
+    "faqIds": [
+        "faq-110",
+        "faq-111",
+        "faq-112",
+        "faq-113",
+        "faq-114",
+        "faq-115",
+        "faq-116",
+        "faq-117",
+        "faq-118",
+        "faq-119"
+    ],
     "targetAudience": [
         "Knowledge Workers",
         "Overwhelmed Professionals",

@@ -76,7 +76,7 @@
         "timeSaved": "Saves learning hours",
         "rating": "Based on popular article"
     },
-    "faqIds": [],
+    "faqIds": ["faq-136", "faq-137", "faq-138", "faq-139", "faq-140", "faq-141", "faq-142"],
     "targetAudience": ["Obsidian Beginners", "The Curious", "Note-Takers", "Learners"],
     "perfectFor": ["Just downloaded", "Heard about it", "Switching from other", "Want to do right"],
     "notForYou": ["Already expert", "Don't use note-taking"],

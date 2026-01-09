@@ -38,7 +38,7 @@
         "timeSaved": "Time saved",
         "rating": "Comprehensive"
     },
-    "faqIds": [],
+    "faqIds": ["faq-120", "faq-121", "faq-122"],
     "targetAudience": ["Developers", "Students", "Visual learners", "IT learners"],
     "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
     "notForYou": ["Not interested in IT", "Prefer text-only"],
