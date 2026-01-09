@@ -7,16 +7,7 @@
     "priceDisplay": "€19.99",
     "priceTier": "budget",
     "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp",
-    "tags": [
-        "mcp",
-        "model-context-protocol",
-        "ai",
-        "llms",
-        "claude",
-        "ai-integration",
-        "obsidian",
-        "automation"
-    ],
+    "tags": ["mcp", "model-context-protocol", "ai", "llms", "claude", "obsidian", "automation"],
     "problem": "AI is powerful but blind. Can't access your data without manual copy-paste.",
     "problemPoints": [
         "Copy-paste files",

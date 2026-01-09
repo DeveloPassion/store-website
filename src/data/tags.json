@@ -17,15 +17,6 @@
         "featured": false,
         "priority": 23
     },
-    "ai-integration": {
-        "id": "ai-integration",
-        "name": "AI Integration",
-        "description": "Resources and tools for ai integration",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 24
-    },
     "ai-prompts": {
         "id": "ai-prompts",
         "name": "AI Prompts",
