@@ -25,7 +25,6 @@ export const TagIdSchema = z.enum([
     'community',
     'concepts',
     'content-creation',
-    'course',
     'courses',
     'curated',
     'design-thinking',

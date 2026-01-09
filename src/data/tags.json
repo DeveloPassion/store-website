@@ -134,15 +134,6 @@
         "featured": false,
         "priority": 41
     },
-    "course": {
-        "id": "course",
-        "name": "Course",
-        "description": "Resources and tools for course",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 42
-    },
     "courses": {
         "id": "courses",
         "name": "Courses",
