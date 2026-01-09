@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const TAGS_FILE = resolve(__dirname, '../src/data/tags.json')
+const TAGS_FILE = resolve(__dirname, '../../src/data/tags.json')
 
 function generateDisplayName(tagId: string): string {
     // Special cases - full tag replacements

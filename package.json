@@ -40,7 +40,7 @@
         "cm": "npm run commit",
         "commit:lint": "commitlint --from HEAD~1 --to HEAD --verbose",
         "release": "bash scripts/utils/release.sh",
-        "release:update-version": "tsx scripts/update-version.ts",
+        "release:update-version": "tsx scripts/utils/update-version.ts",
         "release:changelog": "tsx scripts/utils/generate-changelog.ts",
         "add": "npm run format && git add -A && npm run commit",
         "push": "git push && git push --tags",

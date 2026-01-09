@@ -177,6 +177,101 @@ function showSectionHeader(section: string): void {
     console.log(`\n${colors.bright}${colors.magenta}═══ ${section} ═══${colors.reset}\n`)
 }
 
+/**
+ * Show product details summary
+ */
+function showProductDetails(product: Product): void {
+    console.log(`\n${colors.bright}${colors.cyan}📦 Product Details${colors.reset}`)
+    console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
+    console.log(`${colors.bright}ID:${colors.reset} ${colors.cyan}${product.id}${colors.reset}`)
+    console.log(`${colors.bright}Name:${colors.reset} ${product.name}`)
+    console.log(`${colors.bright}Tagline:${colors.reset} ${product.tagline}`)
+    if (product.secondaryTagline) {
+        console.log(`${colors.bright}Secondary Tagline:${colors.reset} ${product.secondaryTagline}`)
+    }
+    console.log(
+        `${colors.bright}Price:${colors.reset} ${product.priceDisplay} ${colors.dim}(${product.priceTier})${colors.reset}`
+    )
+    console.log(`${colors.bright}Permalink:${colors.reset} ${product.permalink}`)
+    console.log(
+        `${colors.bright}Main Category:${colors.reset} ${product.mainCategory} ${colors.dim}(${loadCategories().find((c) => c.id === product.mainCategory)?.name})${colors.reset}`
+    )
+    if (product.secondaryCategories.length > 0) {
+        console.log(
+            `${colors.bright}Secondary Categories:${colors.reset} ${product.secondaryCategories
+                .map((c) => `${c.id}${c.distant ? ' (distant)' : ''}`)
+                .join(', ')}`
+        )
+    }
+    console.log(
+        `${colors.bright}Tags:${colors.reset} ${colors.dim}(${product.tags.length})${colors.reset} ${product.tags.join(', ')}`
+    )
+    const statusColor = product.status === 'active' ? colors.green : colors.yellow
+    console.log(
+        `${colors.bright}Status:${colors.reset} ${statusColor}${product.status}${colors.reset}`
+    )
+    console.log(`${colors.bright}Priority:${colors.reset} ${product.priority || 0}`)
+    console.log(
+        `${colors.bright}Featured:${colors.reset} ${product.featured ? `${colors.yellow}Yes ★${colors.reset}` : 'No'}`
+    )
+    console.log(`${colors.bright}Most Value:${colors.reset} ${product.mostValue ? 'Yes' : 'No'}`)
+    console.log(`${colors.bright}Bestseller:${colors.reset} ${product.bestseller ? 'Yes' : 'No'}`)
+    console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
+}
+
+/**
+ * Track changes to a product
+ */
+interface ProductChange {
+    field: string
+    oldValue: unknown
+    newValue: unknown
+}
+
+const changes: ProductChange[] = []
+
+function trackChange(field: string, oldValue: unknown, newValue: unknown): void {
+    // Remove existing change for this field if any
+    const existingIndex = changes.findIndex((c) => c.field === field)
+    if (existingIndex >= 0) {
+        changes.splice(existingIndex, 1)
+    }
+    // Add new change
+    changes.push({ field, oldValue, newValue })
+}
+
+function showChanges(): void {
+    if (changes.length === 0) {
+        showInfo('No changes made yet')
+        return
+    }
+
+    console.log(
+        `\n${colors.bright}${colors.yellow}📝 Changes Summary (${changes.length})${colors.reset}`
+    )
+    console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
+
+    for (const change of changes) {
+        const oldStr =
+            typeof change.oldValue === 'object'
+                ? JSON.stringify(change.oldValue)
+                : String(change.oldValue)
+        const newStr =
+            typeof change.newValue === 'object'
+                ? JSON.stringify(change.newValue)
+                : String(change.newValue)
+
+        console.log(`${colors.bright}${change.field}:${colors.reset}`)
+        console.log(`  ${colors.red}− ${oldStr}${colors.reset}`)
+        console.log(`  ${colors.green}+ ${newStr}${colors.reset}`)
+    }
+    console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
+}
+
+function clearChanges(): void {
+    changes.length = 0
+}
+
 // ============================================================================
 // Utility Functions
 // ============================================================================
@@ -479,27 +574,29 @@ async function selectSecondaryCategories(
 }
 
 /**
- * Select a product from list
+ * Select a product from list with enhanced display
  */
 async function selectProduct(message: string): Promise<string> {
     const products = loadAllProducts()
 
-    const choices = products.map((p) => ({
-        name: `${p.name} (${p.id})${p.featured ? ' ★' : ''}`,
-        value: p.id
-    }))
-
-    const answer = await inquirer.prompt([
-        {
-            type: 'list',
-            name: 'product',
-            message,
-            choices,
-            pageSize: 15
+    const choices = products.map((p) => {
+        const statusEmoji = p.status === 'active' ? '✓' : p.status === 'coming-soon' ? '⏳' : '📦'
+        const featuredMark = p.featured ? ' ★' : ''
+        const price = p.priceDisplay || `€${p.price}`
+        return {
+            name: `${statusEmoji} ${p.name}${featuredMark} ${colors.dim}(${p.id} • ${price})${colors.reset}`,
+            value: p.id,
+            description: `${p.tagline} • ${p.mainCategory}`
         }
-    ])
+    })
 
-    return answer.product
+    const answer = await select({
+        message,
+        choices,
+        pageSize: 15
+    })
+
+    return answer
 }
 
 /**
@@ -887,134 +984,183 @@ async function operationEdit(args: CliArgs): Promise<void> {
     showOperationHeader('Edit Product', 'Modify an existing product')
 
     const productId = args.id || (await selectProduct('Select product to edit:'))
-    const product = loadProduct(productId)
+    const originalProduct = loadProduct(productId)
 
-    if (!product) {
+    if (!originalProduct) {
         showError(`Product not found: ${productId}`)
         throw new Error(`Product not found: ${productId}`)
     }
 
+    // Create a working copy
+    const product = JSON.parse(JSON.stringify(originalProduct)) as Product
+    clearChanges()
+
     console.log(
-        `\n${colors.bright}${colors.blue}Editing:${colors.reset} ${product.name} ${colors.dim}(${product.id})${colors.reset}\n`
+        `\n${colors.bright}${colors.blue}Editing:${colors.reset} ${product.name} ${colors.dim}(${product.id})${colors.reset}`
     )
 
     // Apply CLI argument updates
-    if (args.name) product.name = args.name
-    if (args.tagline) product.tagline = args.tagline
-    if (args.secondaryTagline !== undefined)
+    if (args.name) {
+        trackChange('name', product.name, args.name)
+        product.name = args.name
+    }
+    if (args.tagline) {
+        trackChange('tagline', product.tagline, args.tagline)
+        product.tagline = args.tagline
+    }
+    if (args.secondaryTagline !== undefined) {
+        trackChange('secondaryTagline', product.secondaryTagline, args.secondaryTagline)
         product.secondaryTagline = args.secondaryTagline || undefined
-    if (args.price) product.price = parseFloat(args.price)
-    if (args.priceDisplay) product.priceDisplay = args.priceDisplay
-    if (args.priceTier) product.priceTier = PriceTierSchema.parse(args.priceTier)
-    if (args.permalink) product.permalink = args.permalink
-    if (args.gumroadUrl) product.gumroadUrl = args.gumroadUrl
-    if (args.mainCategory) product.mainCategory = ProductCategorySchema.parse(args.mainCategory)
+    }
+    if (args.price) {
+        const newPrice = parseFloat(args.price)
+        trackChange('price', product.price, newPrice)
+        product.price = newPrice
+    }
+    if (args.priceDisplay) {
+        trackChange('priceDisplay', product.priceDisplay, args.priceDisplay)
+        product.priceDisplay = args.priceDisplay
+    }
+    if (args.priceTier) {
+        const newTier = PriceTierSchema.parse(args.priceTier)
+        trackChange('priceTier', product.priceTier, newTier)
+        product.priceTier = newTier
+    }
+    if (args.permalink) {
+        trackChange('permalink', product.permalink, args.permalink)
+        product.permalink = args.permalink
+    }
+    if (args.gumroadUrl) {
+        trackChange('gumroadUrl', product.gumroadUrl, args.gumroadUrl)
+        product.gumroadUrl = args.gumroadUrl
+    }
+    if (args.mainCategory) {
+        const newCategory = ProductCategorySchema.parse(args.mainCategory)
+        trackChange('mainCategory', product.mainCategory, newCategory)
+        product.mainCategory = newCategory
+    }
     if (args.tags) {
         const tagArray = args.tags.split(',').map((t) => t.trim())
-        product.tags = tagArray.map((tag) => TagIdSchema.parse(tag))
+        const newTags = tagArray.map((tag) => TagIdSchema.parse(tag))
+        trackChange('tags', product.tags, newTags)
+        product.tags = newTags
     }
     if (args.secondaryCategories) {
         const parsedCategories = parseSecondaryCategories(args.secondaryCategories)
-        product.secondaryCategories = parsedCategories.map((cat) => ({
+        const newSecondaryCategories = parsedCategories.map((cat) => ({
             id: ProductCategorySchema.parse(cat.id),
             distant: cat.distant
         }))
+        trackChange('secondaryCategories', product.secondaryCategories, newSecondaryCategories)
+        product.secondaryCategories = newSecondaryCategories
     }
-    if (args.featured !== undefined) product.featured = args.featured === 'true'
-    if (args.priority) product.priority = parseInt(args.priority)
-    if (args.status) product.status = ProductStatusSchema.parse(args.status)
-    if (args.problem) product.problem = args.problem
-    if (args.agitate) product.agitate = args.agitate
-    if (args.solution) product.solution = args.solution
+    if (args.featured !== undefined) {
+        const newFeatured = args.featured === 'true'
+        trackChange('featured', product.featured, newFeatured)
+        product.featured = newFeatured
+    }
+    if (args.priority) {
+        const newPriority = parseInt(args.priority)
+        trackChange('priority', product.priority, newPriority)
+        product.priority = newPriority
+    }
+    if (args.status) {
+        const newStatus = ProductStatusSchema.parse(args.status)
+        trackChange('status', product.status, newStatus)
+        product.status = newStatus
+    }
+    if (args.problem) {
+        trackChange('problem', product.problem, args.problem)
+        product.problem = args.problem
+    }
+    if (args.agitate) {
+        trackChange('agitate', product.agitate, args.agitate)
+        product.agitate = args.agitate
+    }
+    if (args.solution) {
+        trackChange('solution', product.solution, args.solution)
+        product.solution = args.solution
+    }
 
-    // If no CLI args, use interactive mode
+    // If no CLI args, use interactive mode with enhanced menu
     if (!hasAnyEditArgs(args)) {
-        const editChoice = await inquirer.prompt([
-            {
-                type: 'list',
-                name: 'section',
-                message: 'What would you like to edit?',
+        let editing = true
+
+        while (editing) {
+            console.clear()
+            showOperationHeader('Edit Product', 'Multi-field editor')
+            showProductDetails(product)
+
+            if (changes.length > 0) {
+                showChanges()
+            }
+
+            const action = await select({
+                message: 'What would you like to do?',
                 choices: [
-                    { name: '1. Basic info (name, tagline)', value: 'basic' },
-                    { name: '2. Pricing', value: 'pricing' },
-                    { name: '3. Taxonomy (categories, tags)', value: 'taxonomy' },
-                    { name: '4. Meta/Status (featured, priority, status)', value: 'meta' },
-                    { name: '5. Save and exit', value: 'save' }
-                ]
-            }
-        ])
+                    { name: '📝 Edit Basic Info', value: 'basic' },
+                    { name: '💰 Edit Pricing', value: 'pricing' },
+                    { name: '🏷️ Edit Taxonomy', value: 'taxonomy' },
+                    { name: '⚙️ Edit Meta/Status', value: 'meta' },
+                    { name: '🔍 View Current Details', value: 'view' },
+                    { name: '📊 View Changes Summary', value: 'changes' },
+                    { name: '💾 Save and Exit', value: 'save' },
+                    { name: '❌ Cancel (Discard Changes)', value: 'cancel' }
+                ],
+                pageSize: 12
+            })
 
-        switch (editChoice.section) {
-            case 'basic': {
-                product.name = (await prompt(`Name [${product.name}]: `)) || product.name
-                product.tagline =
-                    (await prompt(`Tagline [${product.tagline}]: `)) || product.tagline
-                break
-            }
-
-            case 'pricing': {
-                const newPrice = await prompt(`Price [${product.price}]: `)
-                if (newPrice) product.price = parseFloat(newPrice)
-                product.priceDisplay =
-                    (await prompt(`Price Display [${product.priceDisplay}]: `)) ||
-                    product.priceDisplay
-                product.priceTier = await selectPriceTier(product.priceTier)
-                break
-            }
-
-            case 'taxonomy': {
-                const taxonomyChoice = await inquirer.prompt([
-                    {
-                        type: 'list',
-                        name: 'field',
-                        message: 'Edit taxonomy:',
-                        choices: [
-                            { name: '1. Edit Main Category', value: 'main' },
-                            { name: '2. Edit Tags', value: 'tags' },
-                            { name: '3. Edit Secondary Categories', value: 'secondary' },
-                            { name: '4. Back', value: 'back' }
-                        ]
+            switch (action) {
+                case 'basic':
+                    await editBasicInfo(product)
+                    break
+                case 'pricing':
+                    await editPricing(product)
+                    break
+                case 'taxonomy':
+                    await editTaxonomy(product)
+                    break
+                case 'meta':
+                    await editMeta(product)
+                    break
+                case 'view':
+                    showProductDetails(product)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                case 'changes':
+                    showChanges()
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                case 'save':
+                    editing = false
+                    break
+                case 'cancel':
+                    const confirmCancel = await confirm(
+                        `${colors.red}Discard all changes?${colors.reset}`
+                    )
+                    if (confirmCancel) {
+                        showWarning('Changes discarded')
+                        throw new Error('Edit cancelled by user')
                     }
-                ])
-
-                switch (taxonomyChoice.field) {
-                    case 'main': {
-                        const selectedCategory = await selectMainCategory(product.mainCategory)
-                        product.mainCategory = ProductCategorySchema.parse(selectedCategory)
-                        break
-                    }
-                    case 'tags': {
-                        const selectedTags = await selectTags(product.tags)
-                        product.tags = selectedTags.map((tag) => TagIdSchema.parse(tag))
-                        break
-                    }
-                    case 'secondary': {
-                        const selectedCategories = await selectSecondaryCategories(
-                            product.secondaryCategories
-                        )
-                        product.secondaryCategories = selectedCategories.map((cat) => ({
-                            id: ProductCategorySchema.parse(cat.id),
-                            distant: cat.distant
-                        }))
-                        break
-                    }
-                }
-                break
+                    break
             }
-
-            case 'meta': {
-                const selectedStatus = await selectStatus(product.status)
-                product.status = ProductStatusSchema.parse(selectedStatus)
-                const newPriority = await prompt(`Priority [${product.priority}]: `)
-                if (newPriority) product.priority = parseInt(newPriority)
-                const newFeatured = await prompt(`Featured [${product.featured ? 'yes' : 'no'}]: `)
-                if (newFeatured) product.featured = newFeatured.toLowerCase() === 'yes'
-                break
-            }
-
-            case 'save':
-                break
         }
+    }
+
+    // Show final summary of changes
+    if (changes.length > 0) {
+        console.clear()
+        showOperationHeader('Save Changes', 'Review and confirm')
+        showChanges()
+
+        const confirmSave = await confirm(`${colors.yellow}Save these changes?${colors.reset}`)
+        if (!confirmSave) {
+            showWarning('Changes discarded')
+            throw new Error('Save cancelled by user')
+        }
+    } else if (!hasAnyEditArgs(args)) {
+        showInfo('No changes made')
+        return
     }
 
     // Validate
@@ -1027,6 +1173,7 @@ async function operationEdit(args: CliArgs): Promise<void> {
 
     // Save
     saveProduct(product)
+    clearChanges()
     showSuccess(`Product updated: src/data/products/${product.id}.json`)
 
     const runValidation = await confirm(`${colors.cyan}Run validation?${colors.reset}`)
@@ -1038,6 +1185,337 @@ async function operationEdit(args: CliArgs): Promise<void> {
             throw new Error('Validation failed')
         }
     }
+}
+
+/**
+ * Edit basic information
+ */
+async function editBasicInfo(product: Product): Promise<void> {
+    const field = await select({
+        message: 'Which field do you want to edit?',
+        choices: [
+            {
+                name: `Name: ${colors.cyan}${product.name}${colors.reset}`,
+                value: 'name'
+            },
+            {
+                name: `Tagline: ${colors.cyan}${product.tagline}${colors.reset}`,
+                value: 'tagline'
+            },
+            {
+                name: `Secondary Tagline: ${colors.cyan}${product.secondaryTagline || '(none)'}${colors.reset}`,
+                value: 'secondaryTagline'
+            },
+            {
+                name: `Permalink: ${colors.cyan}${product.permalink}${colors.reset}`,
+                value: 'permalink'
+            },
+            { name: '← Back', value: 'back' }
+        ]
+    })
+
+    if (field === 'back') return
+
+    switch (field) {
+        case 'name': {
+            const oldValue = product.name
+            const newValue = await prompt(
+                `${colors.bright}Name${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (newValue && newValue !== oldValue) {
+                trackChange('name', oldValue, newValue)
+                product.name = newValue
+                showSuccess('Name updated')
+            }
+            break
+        }
+        case 'tagline': {
+            const oldValue = product.tagline
+            const newValue = await prompt(
+                `${colors.bright}Tagline${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (newValue && newValue !== oldValue) {
+                trackChange('tagline', oldValue, newValue)
+                product.tagline = newValue
+                showSuccess('Tagline updated')
+            }
+            break
+        }
+        case 'secondaryTagline': {
+            const oldValue = product.secondaryTagline
+            const newValue = await prompt(
+                `${colors.bright}Secondary Tagline${colors.reset} [${colors.cyan}${oldValue || '(none)'}${colors.reset}]: `
+            )
+            if (newValue !== oldValue) {
+                trackChange('secondaryTagline', oldValue, newValue || undefined)
+                product.secondaryTagline = newValue || undefined
+                showSuccess('Secondary tagline updated')
+            }
+            break
+        }
+        case 'permalink': {
+            const oldValue = product.permalink
+            const newValue = await prompt(
+                `${colors.bright}Permalink${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (newValue && newValue !== oldValue) {
+                trackChange('permalink', oldValue, newValue)
+                product.permalink = newValue
+                showSuccess('Permalink updated')
+            }
+            break
+        }
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Edit pricing information
+ */
+async function editPricing(product: Product): Promise<void> {
+    const field = await select({
+        message: 'Which field do you want to edit?',
+        choices: [
+            {
+                name: `Price: ${colors.cyan}€${product.price}${colors.reset}`,
+                value: 'price'
+            },
+            {
+                name: `Price Display: ${colors.cyan}${product.priceDisplay}${colors.reset}`,
+                value: 'priceDisplay'
+            },
+            {
+                name: `Price Tier: ${colors.cyan}${product.priceTier}${colors.reset}`,
+                value: 'priceTier'
+            },
+            {
+                name: `Gumroad URL: ${colors.cyan}${product.gumroadUrl}${colors.reset}`,
+                value: 'gumroadUrl'
+            },
+            { name: '← Back', value: 'back' }
+        ]
+    })
+
+    if (field === 'back') return
+
+    switch (field) {
+        case 'price': {
+            const oldValue = product.price
+            const input = await prompt(
+                `${colors.bright}Price (EUR)${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (input) {
+                const newValue = parseFloat(input)
+                if (!isNaN(newValue) && newValue !== oldValue) {
+                    trackChange('price', oldValue, newValue)
+                    product.price = newValue
+                    showSuccess('Price updated')
+                }
+            }
+            break
+        }
+        case 'priceDisplay': {
+            const oldValue = product.priceDisplay
+            const newValue = await prompt(
+                `${colors.bright}Price Display${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (newValue && newValue !== oldValue) {
+                trackChange('priceDisplay', oldValue, newValue)
+                product.priceDisplay = newValue
+                showSuccess('Price display updated')
+            }
+            break
+        }
+        case 'priceTier': {
+            const oldValue = product.priceTier
+            const newValue = await selectPriceTier(oldValue)
+            if (newValue !== oldValue) {
+                trackChange('priceTier', oldValue, newValue)
+                product.priceTier = PriceTierSchema.parse(newValue)
+                showSuccess('Price tier updated')
+            }
+            break
+        }
+        case 'gumroadUrl': {
+            const oldValue = product.gumroadUrl
+            const newValue = await prompt(
+                `${colors.bright}Gumroad URL${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (newValue && newValue !== oldValue) {
+                trackChange('gumroadUrl', oldValue, newValue)
+                product.gumroadUrl = newValue
+                showSuccess('Gumroad URL updated')
+            }
+            break
+        }
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Edit taxonomy (categories and tags)
+ */
+async function editTaxonomy(product: Product): Promise<void> {
+    const field = await select({
+        message: 'Which field do you want to edit?',
+        choices: [
+            {
+                name: `Main Category: ${colors.cyan}${product.mainCategory}${colors.reset}`,
+                value: 'mainCategory'
+            },
+            {
+                name: `Tags: ${colors.cyan}${product.tags.length} tags${colors.reset} ${colors.dim}(${product.tags.join(', ')})${colors.reset}`,
+                value: 'tags'
+            },
+            {
+                name: `Secondary Categories: ${colors.cyan}${product.secondaryCategories.length} categories${colors.reset}`,
+                value: 'secondaryCategories'
+            },
+            { name: '← Back', value: 'back' }
+        ]
+    })
+
+    if (field === 'back') return
+
+    switch (field) {
+        case 'mainCategory': {
+            const oldValue = product.mainCategory
+            const newValue = await selectMainCategory(oldValue)
+            if (newValue !== oldValue) {
+                trackChange('mainCategory', oldValue, newValue)
+                product.mainCategory = ProductCategorySchema.parse(newValue)
+                showSuccess('Main category updated')
+            }
+            break
+        }
+        case 'tags': {
+            const oldValue = product.tags
+            const newValue = await selectTags(oldValue)
+            if (JSON.stringify(newValue) !== JSON.stringify(oldValue)) {
+                trackChange('tags', oldValue, newValue)
+                product.tags = newValue.map((tag) => TagIdSchema.parse(tag))
+                showSuccess('Tags updated')
+            }
+            break
+        }
+        case 'secondaryCategories': {
+            const oldValue = product.secondaryCategories
+            const newValue = await selectSecondaryCategories(oldValue)
+            if (JSON.stringify(newValue) !== JSON.stringify(oldValue)) {
+                trackChange('secondaryCategories', oldValue, newValue)
+                product.secondaryCategories = newValue.map((cat) => ({
+                    id: ProductCategorySchema.parse(cat.id),
+                    distant: cat.distant
+                }))
+                showSuccess('Secondary categories updated')
+            }
+            break
+        }
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Edit meta/status information
+ */
+async function editMeta(product: Product): Promise<void> {
+    const field = await select({
+        message: 'Which field do you want to edit?',
+        choices: [
+            {
+                name: `Status: ${colors.cyan}${product.status}${colors.reset}`,
+                value: 'status'
+            },
+            {
+                name: `Priority: ${colors.cyan}${product.priority || 0}${colors.reset}`,
+                value: 'priority'
+            },
+            {
+                name: `Featured: ${product.featured ? `${colors.yellow}Yes ★${colors.reset}` : `${colors.dim}No${colors.reset}`}`,
+                value: 'featured'
+            },
+            {
+                name: `Most Value: ${product.mostValue ? `${colors.green}Yes${colors.reset}` : `${colors.dim}No${colors.reset}`}`,
+                value: 'mostValue'
+            },
+            {
+                name: `Bestseller: ${product.bestseller ? `${colors.green}Yes${colors.reset}` : `${colors.dim}No${colors.reset}`}`,
+                value: 'bestseller'
+            },
+            { name: '← Back', value: 'back' }
+        ]
+    })
+
+    if (field === 'back') return
+
+    switch (field) {
+        case 'status': {
+            const oldValue = product.status
+            const newValue = await selectStatus(oldValue)
+            if (newValue !== oldValue) {
+                trackChange('status', oldValue, newValue)
+                product.status = ProductStatusSchema.parse(newValue)
+                showSuccess('Status updated')
+            }
+            break
+        }
+        case 'priority': {
+            const oldValue = product.priority || 0
+            const input = await prompt(
+                `${colors.bright}Priority (0-100)${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
+            )
+            if (input) {
+                const newValue = parseInt(input)
+                if (!isNaN(newValue) && newValue !== oldValue) {
+                    trackChange('priority', oldValue, newValue)
+                    product.priority = newValue
+                    showSuccess('Priority updated')
+                }
+            }
+            break
+        }
+        case 'featured': {
+            const oldValue = product.featured
+            const newValue = await confirm(
+                `${colors.bright}Featured?${colors.reset} [current: ${oldValue ? 'yes' : 'no'}]`
+            )
+            if (newValue !== oldValue) {
+                trackChange('featured', oldValue, newValue)
+                product.featured = newValue
+                showSuccess('Featured status updated')
+            }
+            break
+        }
+        case 'mostValue': {
+            const oldValue = product.mostValue
+            const newValue = await confirm(
+                `${colors.bright}Most Value?${colors.reset} [current: ${oldValue ? 'yes' : 'no'}]`
+            )
+            if (newValue !== oldValue) {
+                trackChange('mostValue', oldValue, newValue)
+                product.mostValue = newValue
+                showSuccess('Most Value status updated')
+            }
+            break
+        }
+        case 'bestseller': {
+            const oldValue = product.bestseller
+            const newValue = await confirm(
+                `${colors.bright}Bestseller?${colors.reset} [current: ${oldValue ? 'yes' : 'no'}]`
+            )
+            if (newValue !== oldValue) {
+                trackChange('bestseller', oldValue, newValue)
+                product.bestseller = newValue
+                showSuccess('Bestseller status updated')
+            }
+            break
+        }
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
 }
 
 /**

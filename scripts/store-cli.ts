@@ -63,12 +63,12 @@ function buildChoices(): Choice[] {
             description: 'Add, edit, list, or remove products'
         },
         {
-            name: '🏷️  Manage Categories',
+            name: '🏷️ Manage Categories',
             value: 'update-categories.ts',
             description: 'Add, modify, list, or remove categories'
         },
         {
-            name: '🏷️  Manage Tags',
+            name: '🏷️ Manage Tags',
             value: 'update-tags.ts',
             description: 'Add, modify, list, or remove tags'
         },

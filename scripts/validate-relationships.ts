@@ -227,26 +227,23 @@ function displayStats(products: Product[], testimonials: Testimonial[], faqs: FA
     const orphanedFaqs = faqs.filter((f) => !referencedFaqIds.has(f.id))
 
     if (orphanedTestimonials.length > 0 || orphanedFaqs.length > 0) {
-        console.log('   ⚠️  Orphaned Resources (not referenced by any product):')
+        console.log('   ⚠️  Orphaned Resources (not referenced by any product):\n')
+
         if (orphanedTestimonials.length > 0) {
-            console.log(`     - ${orphanedTestimonials.length} orphaned testimonial(s):`)
-            orphanedTestimonials.slice(0, 3).forEach((t) => {
-                console.log(`         • ${t.id}`)
+            console.log(`     ${orphanedTestimonials.length} orphaned testimonial(s):`)
+            orphanedTestimonials.forEach((t) => {
+                console.log(`         • ${t.id} (productId: ${t.productId || 'none'})`)
             })
-            if (orphanedTestimonials.length > 3) {
-                console.log(`         • ... and ${orphanedTestimonials.length - 3} more`)
-            }
+            console.log('')
         }
+
         if (orphanedFaqs.length > 0) {
-            console.log(`     - ${orphanedFaqs.length} orphaned FAQ(s):`)
-            orphanedFaqs.slice(0, 3).forEach((f) => {
-                console.log(`         • ${f.id}`)
+            console.log(`     ${orphanedFaqs.length} orphaned FAQ(s):`)
+            orphanedFaqs.forEach((f) => {
+                console.log(`         • ${f.id} (productId: ${f.productId || 'none'})`)
             })
-            if (orphanedFaqs.length > 3) {
-                console.log(`         • ... and ${orphanedFaqs.length - 3} more`)
-            }
+            console.log('')
         }
-        console.log('')
     }
 }
 
