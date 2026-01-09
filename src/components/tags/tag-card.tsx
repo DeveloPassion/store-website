@@ -39,10 +39,7 @@ export const TagCard: React.FC<TagCardProps> = ({
                         }}
                     >
                         <div style={{ color: tag.color }}>
-                            {IconComponent &&
-                                IconComponent({ className: 'h-8 w-8' } as React.ComponentProps<
-                                    typeof IconComponent
-                                >)}
+                            <IconComponent className='h-8 w-8' />
                         </div>
                     </div>
                 )}
@@ -82,10 +79,7 @@ export const TagCard: React.FC<TagCardProps> = ({
                         }}
                     >
                         <div style={{ color: tag.color }}>
-                            {IconComponent &&
-                                IconComponent({ className: 'h-6 w-6' } as React.ComponentProps<
-                                    typeof IconComponent
-                                >)}
+                            <IconComponent className='h-6 w-6' />
                         </div>
                     </div>
                 )}

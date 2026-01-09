@@ -1,0 +1,184 @@
+name: CI Pipeline
+
+on:
+    push:
+        branches:
+            - main
+            - develop
+    pull_request:
+        branches:
+            - main
+            - develop
+
+jobs:
+    # Lint job - Check code quality
+    lint:
+        name: Lint
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run ESLint
+              run: npm run lint
+
+            - name: Check formatting with Prettier
+              run: npx prettier --check .
+
+    # Type check job - TypeScript validation
+    type-check:
+        name: Type Check
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run TypeScript type checking
+              run: npm run tsc
+
+    # Test job - Run all tests
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Run tests
+              run: npm run test:run
+
+            - name: Generate coverage report
+              run: npm run test:coverage
+              continue-on-error: true
+
+            - name: Upload coverage reports to Codecov (optional)
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              uses: codecov/codecov-action@v4
+              continue-on-error: true
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  files: ./coverage/coverage-final.json
+                  flags: unittests
+                  name: codecov-umbrella
+
+    # Validate job - Run all validation scripts
+    validate:
+        name: Validate Data
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Aggregate products
+              run: npm run aggregate:products
+
+            - name: Validate categories
+              run: npm run validate:categories
+
+            - name: Validate tags
+              run: npm run validate:tags
+
+            - name: Validate promotion
+              run: npm run validate:promotion
+
+            - name: Validate products
+              run: npm run validate:products
+
+            - name: Validate relationships
+              run: npm run validate:relationships
+
+            - name: Run all validations (combined)
+              run: npm run validate:all
+
+    # Build job - Ensure project builds successfully
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        needs: [lint, type-check, test, validate]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build project
+              run: npm run build
+
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build-artifacts
+                  path: dist/
+                  retention-days: 7
+
+            - name: Check build size
+              run: |
+                  echo "Build completed successfully!"
+                  du -sh dist/
+                  echo "Build contents:"
+                  ls -lah dist/
+
+    # Summary job - All checks passed
+    ci-success:
+        name: CI Success
+        runs-on: ubuntu-latest
+        needs: [lint, type-check, test, validate, build]
+        if: success()
+
+        steps:
+            - name: All checks passed
+              run: |
+                  echo "✅ All CI checks passed successfully!"
+                  echo "✅ Lint: Passed"
+                  echo "✅ Type Check: Passed"
+                  echo "✅ Tests: Passed"
+                  echo "✅ Data Validation: Passed"
+                  echo "✅ Build: Passed"

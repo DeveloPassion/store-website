@@ -779,6 +779,386 @@ To use the skill, mention keywords like "product", "products", "add product", "e
 - Existing validation scripts remain unchanged
 - File is NOT gitignored (unlike aggregated products.json which is generated)
 
+## Testing Requirements
+
+**CRITICAL**: This project enforces comprehensive testing for all code. Tests are mandatory for all new features, bug fixes, and refactorings.
+
+### Testing Framework
+
+The project uses:
+
+- **Vitest** - Fast unit test runner with great TypeScript support
+- **React Testing Library** - Component testing with user-centric queries
+- **Jest DOM** - Extended matchers for DOM assertions
+
+### Test File Organization
+
+**IMPORTANT**: All test files MUST be co-located with the code they test:
+
+```
+src/
+├── lib/
+│   ├── utils.ts
+│   └── utils.spec.ts          ✅ Test file next to source
+├── components/
+│   ├── ui/
+│   │   ├── button.tsx
+│   │   └── button.spec.tsx    ✅ Test file next to component
+│   └── products/
+│       ├── product-card.tsx
+│       └── product-card.spec.tsx
+└── schemas/
+    ├── product.schema.ts
+    └── product.schema.spec.ts
+```
+
+### Naming Convention
+
+- **Unit tests**: `filename.spec.ts`
+- **Component tests**: `filename.spec.tsx`
+- **Integration tests**: `filename.integration.spec.ts` (if needed)
+
+### What Must Be Tested
+
+#### 1. Utility Functions (100% coverage required)
+
+All functions in `src/lib/` must have comprehensive tests:
+
+```typescript
+// Example: src/lib/product-sort.spec.ts
+describe('sortProductsIntelligently', () => {
+    it('should sort into 5 tiers correctly', () => {
+        // Test all five tiers
+    })
+
+    it('should handle empty array', () => {
+        // Edge case testing
+    })
+
+    it('should not mutate original array', () => {
+        // Immutability testing
+    })
+})
+```
+
+**Requirements:**
+
+- Test all function paths
+- Test edge cases (empty arrays, null/undefined, boundary values)
+- Test error conditions
+- Verify immutability (functions should not mutate inputs)
+
+#### 2. React Components (Critical paths required)
+
+All components in `src/components/` must be tested:
+
+```typescript
+// Example: src/components/ui/button.spec.tsx
+describe('Button Component', () => {
+    it('should render children correctly', () => {
+        render(<Button>Click me</Button>)
+        expect(screen.getByText('Click me')).toBeInTheDocument()
+    })
+
+    it('should call onClick when clicked', () => {
+        const handleClick = vi.fn()
+        render(<Button onClick={handleClick}>Click</Button>)
+        fireEvent.click(screen.getByText('Click'))
+        expect(handleClick).toHaveBeenCalledTimes(1)
+    })
+
+    it('should apply custom className', () => {
+        render(<Button className="custom">Click</Button>)
+        expect(screen.getByText('Click')).toHaveClass('custom')
+    })
+})
+```
+
+**Requirements:**
+
+- Test rendering with different props
+- Test user interactions (clicks, inputs, keyboard events)
+- Test conditional rendering
+- Test error states
+- Test accessibility (ARIA labels, roles)
+
+#### 3. Schemas (Full validation required)
+
+All Zod schemas in `src/schemas/` must be tested:
+
+```typescript
+// Example: src/schemas/product.schema.spec.ts
+describe('ProductSchema', () => {
+    it('should accept valid product', () => {
+        const result = ProductSchema.safeParse(validProduct)
+        expect(result.success).toBe(true)
+    })
+
+    it('should reject product without required fields', () => {
+        const invalid = { ...validProduct, name: '' }
+        const result = ProductSchema.safeParse(invalid)
+        expect(result.success).toBe(false)
+    })
+
+    it('should validate URL formats', () => {
+        const invalid = { ...validProduct, gumroadUrl: 'not-a-url' }
+        const result = ProductSchema.safeParse(invalid)
+        expect(result.success).toBe(false)
+    })
+})
+```
+
+**Requirements:**
+
+- Test all required fields
+- Test optional fields
+- Test validation rules (URLs, enums, min/max values)
+- Test edge cases
+
+#### 4. Scripts (Core logic only)
+
+For scripts in `scripts/`, test the core logic by extracting it into testable functions:
+
+```typescript
+// Extract logic into testable functions
+export function validateProductData(product: Product): ValidationResult {
+    // Core validation logic
+}
+
+// Then test it
+describe('validateProductData', () => {
+    it('should validate correct product', () => {
+        // Test validation logic
+    })
+})
+```
+
+### Writing Good Tests
+
+#### Test Structure
+
+Use the AAA pattern (Arrange, Act, Assert):
+
+```typescript
+it('should do something', () => {
+    // Arrange - Set up test data
+    const input = createMockData()
+
+    // Act - Execute the code under test
+    const result = functionUnderTest(input)
+
+    // Assert - Verify the outcome
+    expect(result).toBe(expectedValue)
+})
+```
+
+#### Mock Data
+
+Create reusable mock factories:
+
+```typescript
+const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
+    id: 'test-id',
+    name: 'Test Product',
+    price: 99.99,
+    // ... all required fields
+    ...overrides
+})
+
+// Usage
+const product = createMockProduct({ price: 49.99 })
+```
+
+#### Component Testing Best Practices
+
+```typescript
+import { render, screen, fireEvent } from '@testing-library/react'
+import { BrowserRouter } from 'react-router'
+
+// Wrapper for components that need routing
+const renderWithRouter = (component: React.ReactElement) => {
+    return render(<BrowserRouter>{component}</BrowserRouter>)
+}
+
+describe('ProductCard', () => {
+    it('should render product name', () => {
+        const product = createMockProduct({ name: 'Awesome Product' })
+        renderWithRouter(<ProductCard product={product} />)
+
+        expect(screen.getByText('Awesome Product')).toBeInTheDocument()
+    })
+})
+```
+
+### Running Tests
+
+```bash
+# Run tests in watch mode (for development)
+npm test
+
+# Run all tests once
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Generate coverage report
+npm run test:coverage
+
+# Run specific test file
+npm test -- src/lib/utils.spec.ts
+```
+
+### Test Coverage Requirements
+
+**Minimum coverage thresholds:**
+
+- **Utility functions**: 90%+ coverage
+- **Components**: 80%+ coverage for critical paths
+- **Schemas**: 100% validation coverage
+
+### CI/CD Integration
+
+Tests run automatically in the CI pipeline:
+
+```yaml
+# .github/workflows/ci.yml
+test:
+    - npm run test:run # All tests must pass
+    - npm run test:coverage # Coverage report generated
+```
+
+**ALL TESTS MUST PASS** before code can be:
+
+- Merged to main/develop
+- Deployed to production
+- Released as a new version
+
+### Mandatory Testing Checklist
+
+Before submitting code, ensure:
+
+- [ ] All new functions have test files (`.spec.ts`)
+- [ ] All new components have test files (`.spec.tsx`)
+- [ ] Tests are co-located with source files
+- [ ] Tests cover happy paths and edge cases
+- [ ] Tests pass locally (`npm run test:run`)
+- [ ] No test warnings or errors
+- [ ] Coverage meets minimum thresholds
+
+### Test Examples
+
+**Example 1: Testing a utility function**
+
+```typescript
+// src/lib/format-price.spec.ts
+import { describe, it, expect } from 'vitest'
+import { formatPrice } from './format-price'
+
+describe('formatPrice', () => {
+    it('should format USD prices', () => {
+        expect(formatPrice(99.99, 'USD')).toBe('$99.99')
+    })
+
+    it('should format EUR prices', () => {
+        expect(formatPrice(99.99, 'EUR')).toBe('€99.99')
+    })
+
+    it('should handle zero', () => {
+        expect(formatPrice(0, 'USD')).toBe('$0.00')
+    })
+
+    it('should handle large numbers', () => {
+        expect(formatPrice(1000000, 'USD')).toBe('$1,000,000.00')
+    })
+})
+```
+
+**Example 2: Testing a React component**
+
+```typescript
+// src/components/ui/alert.spec.tsx
+import { describe, it, expect } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import Alert from './alert'
+
+describe('Alert Component', () => {
+    it('should render children', () => {
+        render(<Alert>Test message</Alert>)
+        expect(screen.getByText('Test message')).toBeInTheDocument()
+    })
+
+    it('should apply variant styles', () => {
+        const { container } = render(<Alert variant="error">Error</Alert>)
+        expect(container.firstChild).toHaveClass('bg-red-500')
+    })
+
+    it('should show close button when closable', () => {
+        render(<Alert closable>Message</Alert>)
+        expect(screen.getByLabelText('Close')).toBeInTheDocument()
+    })
+})
+```
+
+### Common Testing Patterns
+
+**Pattern 1: Testing async operations**
+
+```typescript
+it('should load data asynchronously', async () => {
+    render(<DataComponent />)
+
+    // Wait for loading to finish
+    await waitFor(() => {
+        expect(screen.getByText('Data loaded')).toBeInTheDocument()
+    })
+})
+```
+
+**Pattern 2: Testing user interactions**
+
+```typescript
+it('should toggle state on click', () => {
+    render(<ToggleButton />)
+    const button = screen.getByRole('button')
+
+    fireEvent.click(button)
+    expect(button).toHaveAttribute('aria-pressed', 'true')
+
+    fireEvent.click(button)
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+})
+```
+
+**Pattern 3: Testing forms**
+
+```typescript
+it('should submit form with entered data', () => {
+    const handleSubmit = vi.fn()
+    render(<ContactForm onSubmit={handleSubmit} />)
+
+    fireEvent.change(screen.getByLabelText('Email'), {
+        target: { value: 'test@example.com' }
+    })
+
+    fireEvent.click(screen.getByText('Submit'))
+
+    expect(handleSubmit).toHaveBeenCalledWith({
+        email: 'test@example.com'
+    })
+})
+```
+
+### When Tests Can Be Skipped
+
+Tests may ONLY be skipped for:
+
+- Pure TypeScript type definitions (`.d.ts` files)
+- Configuration files (`*.config.ts`)
+- Simple re-exports (`index.ts` files that only export from other modules)
+
+**Everything else MUST be tested.**
+
 ## Development Commands
 
 ```bash
@@ -802,6 +1182,18 @@ npm run format
 
 # Type check
 npm run tsc
+
+# Run tests (watch mode)
+npm test
+
+# Run tests once
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Generate coverage report
+npm run test:coverage
 
 # Aggregate individual product files into products.json
 npm run aggregate:products
@@ -890,14 +1282,34 @@ Modal showing detailed tool information when a card is clicked.
 
 ## Best Practices for Contributions
 
-1. **Keep descriptions concise** - 1-2 sentences max
-2. **Use consistent labels** - Check existing labels before creating new ones
-3. **Add meaningful technologies** - Only list primary/notable technologies
-4. **Update status promptly** - Keep tool statuses accurate
-5. **Validate products** - Always run `npm run validate:products` after editing products.json
-6. **Test locally** - Run `npm run build` before committing
-7. **Follow commit conventions** - Use conventional commits (feat, fix, docs, etc.)
-8. **Don't edit CHANGELOG.md** - It's automatically generated during releases
+1. **Write tests first** - All new code MUST have tests (see Testing Requirements section)
+2. **Run full CI locally** - Execute `npm run ci:local` before committing
+3. **Keep descriptions concise** - 1-2 sentences max
+4. **Use consistent labels** - Check existing labels before creating new ones
+5. **Add meaningful technologies** - Only list primary/notable technologies
+6. **Update status promptly** - Keep tool statuses accurate
+7. **Validate data** - Always run `npm run validate:all` after editing data files
+8. **Test locally** - Run `npm run test:run` and `npm run build` before committing
+9. **Follow commit conventions** - Use conventional commits (feat, fix, docs, etc.)
+10. **Don't edit CHANGELOG.md** - It's automatically generated during releases
+
+### Pre-Commit Checklist
+
+Before committing any code, ensure:
+
+✅ Tests written for all new code (`*.spec.ts` / `*.spec.tsx` files)
+✅ All tests pass (`npm run test:run`)
+✅ No lint errors (`npm run lint`)
+✅ No type errors (`npm run tsc`)
+✅ Data validation passes (`npm run validate:all`)
+✅ Build succeeds (`npm run build`)
+✅ Code formatted (`npm run format`)
+
+**Quick command to run all checks:**
+
+```bash
+npm run ci:local
+```
 
 ## Troubleshooting
 

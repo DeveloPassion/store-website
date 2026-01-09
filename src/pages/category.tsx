@@ -104,6 +104,7 @@ const CategoryPage: React.FC = () => {
             const timer = setTimeout(() => navigate('/categories'), 2000)
             return () => clearTimeout(timer)
         }
+        return undefined
     }, [categoryId, category, navigate])
 
     // Prepare icon component (before early return to satisfy Rules of Hooks)
@@ -144,9 +145,7 @@ const CategoryPage: React.FC = () => {
                                 style={{ backgroundColor: `${category.color}20` }}
                             >
                                 <div style={{ color: category.color }}>
-                                    {IconComponent({ className: 'h-7 w-7' } as React.ComponentProps<
-                                        typeof IconComponent
-                                    >)}
+                                    <IconComponent className='h-7 w-7' />
                                 </div>
                             </div>
                         )}

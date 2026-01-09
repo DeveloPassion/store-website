@@ -173,6 +173,7 @@ const TagPage: React.FC = () => {
             const timer = setTimeout(() => navigate('/tags'), 2000)
             return () => clearTimeout(timer)
         }
+        return undefined
     }, [tagId, tagData, navigate])
 
     // Prepare icon component (before early return to satisfy Rules of Hooks)
@@ -216,9 +217,7 @@ const TagPage: React.FC = () => {
                                 }}
                             >
                                 <div style={{ color: tagData.color }}>
-                                    {IconComponent({ className: 'h-7 w-7' } as React.ComponentProps<
-                                        typeof IconComponent
-                                    >)}
+                                    <IconComponent className='h-7 w-7' />
                                 </div>
                             </div>
                         )}
