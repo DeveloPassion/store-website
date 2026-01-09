@@ -117,9 +117,9 @@ const CategoriesPage: React.FC = () => {
 
     return (
         <>
-            {/* Header */}
-            <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
-                <div className='w-full'>
+            {/* Header, Stats and Search */}
+            <Section className='pt-16 pb-6 sm:pt-24 sm:pb-8'>
+                <div className='w-full space-y-4'>
                     <Breadcrumb />
                     <div className='flex items-center gap-4'>
                         <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
@@ -132,14 +132,9 @@ const CategoriesPage: React.FC = () => {
                             <p className='text-primary/70 mt-1'>Browse products by category</p>
                         </div>
                     </div>
-                </div>
-            </Section>
 
-            {/* Stats and Search */}
-            <Section className='pb-8'>
-                <div className='w-full'>
                     {/* Stats */}
-                    <div className='mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+                    <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                         <div className='bg-primary/5 rounded-lg p-4'>
                             <div className='text-3xl font-bold text-green-400'>
                                 {featuredCategories.length + nonFeaturedCategories.length}
@@ -177,14 +172,14 @@ const CategoriesPage: React.FC = () => {
             </Section>
 
             {/* Categories Grid */}
-            <Section className='pb-16 sm:pb-24'>
+            <Section className='pt-0 pb-16 sm:pb-24'>
                 <div className='w-full'>
                     {filteredFeatured.length > 0 || filteredNonFeatured.length > 0 ? (
                         <>
                             {/* Featured Categories Section */}
                             {filteredFeatured.length > 0 && (
                                 <>
-                                    <h2 className='mb-6 flex items-center gap-2 text-2xl font-bold'>
+                                    <h2 className='mb-4 flex items-center gap-2 text-2xl font-bold'>
                                         <FaStar className='text-secondary h-6 w-6' />
                                         Featured Categories
                                     </h2>
@@ -206,7 +201,7 @@ const CategoriesPage: React.FC = () => {
                             {filteredNonFeatured.length > 0 && (
                                 <>
                                     {filteredFeatured.length > 0 && (
-                                        <h2 className='mb-6 text-2xl font-bold'>More Categories</h2>
+                                        <h2 className='mb-4 text-2xl font-bold'>More Categories</h2>
                                     )}
                                     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                         {filteredNonFeatured.map((category) => (
