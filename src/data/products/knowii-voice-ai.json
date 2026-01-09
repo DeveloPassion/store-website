@@ -95,21 +95,7 @@
         "timeSaved": "88 minutes/day for 2 hours of writing",
         "rating": "New product - November 2025"
     },
-    "faqIds": [
-        "knowii-voice-ai-faq-1",
-        "knowii-voice-ai-faq-2",
-        "knowii-voice-ai-faq-3",
-        "knowii-voice-ai-faq-4",
-        "knowii-voice-ai-faq-5",
-        "knowii-voice-ai-faq-6",
-        "knowii-voice-ai-faq-7",
-        "knowii-voice-ai-faq-8",
-        "knowii-voice-ai-faq-9",
-        "knowii-voice-ai-faq-10",
-        "knowii-voice-ai-faq-11",
-        "knowii-voice-ai-faq-12",
-        "knowii-voice-ai-faq-13"
-    ],
+    "faqIds": [],
     "targetAudience": [
         "You communicate for work (emails, Slack, Teams, support tickets)",
         "Your keyboard slows you down - ideas come faster than fingers can type",
