@@ -32,6 +32,7 @@
         "update:tags": "tsx scripts/update-tags.ts",
         "update:categories": "tsx scripts/update-categories.ts",
         "update:products": "tsx scripts/update-products.ts",
+        "manage:product-content": "tsx scripts/manage-product-content.ts",
         "validate:relationships": "tsx scripts/validate-relationships.ts",
         "validate:categories": "tsx scripts/validate-categories.ts",
         "validate:tags": "tsx scripts/validate-tags.ts",

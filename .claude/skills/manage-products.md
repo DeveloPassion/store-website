@@ -121,7 +121,9 @@ npm run update:products -- --operation remove --id product-id --force
 - ✅ Cross-references (crossSellIds)
 - ✅ SEO metadata (metaTitle, metaDescription, keywords)
 - ✅ Advanced fields (variants, statsProof, guarantees)
-- ✅ FAQs and testimonials (see separate management section below)
+
+**For FAQs and Testimonials:**
+Use the dedicated CLI tool: `npm run manage:product-content`
 
 ## Schema Documentation
 
@@ -371,3 +373,47 @@ When updating the product schema:
 3. Update this skill documentation
 4. Run validation on all products
 5. Fix any newly invalid products
+
+## Managing FAQs and Testimonials
+
+FAQs and testimonials are managed separately using a dedicated CLI tool:
+
+```bash
+# Via Store CLI (easiest)
+npm run store
+# Then select "📝 Manage Product Content"
+
+# Direct access
+npm run manage:product-content
+
+# CLI mode - specify product and type
+npm run manage:product-content -- --product=product-id --type=faqs
+npm run manage:product-content -- --product=product-id --type=testimonials
+```
+
+### Features
+
+The CLI provides full CRUD operations:
+- 📋 **List** - View all FAQs/testimonials for a product
+- ➕ **Add** - Create new FAQ/testimonial with guided prompts
+- ✏️  **Edit** - Update existing FAQ/testimonial
+- 🗑️  **Delete** - Remove FAQ/testimonial with confirmation
+
+### Storage
+
+- FAQs: `src/data/products/{product-id}-faq.json`
+- Testimonials: `src/data/products/{product-id}-testimonials.json`
+
+These files are automatically loaded during aggregation and attached to products as `faqs` and `testimonials` arrays.
+
+### Validation
+
+The CLI validates all changes against Zod schemas before saving:
+- `src/schemas/faq.schema.ts` - FAQ validation
+- `src/schemas/testimonial.schema.ts` - Testimonial validation
+
+### Auto-Sorting
+
+Content is automatically sorted when saved:
+- **FAQs**: By `order` field (ascending)
+- **Testimonials**: By `featured` (featured first), then by `rating` (highest first)

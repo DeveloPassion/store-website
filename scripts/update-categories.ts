@@ -17,9 +17,10 @@
  *     npm run update:categories -- --operation modify --id "category-id" [--name "..."] [--description "..."] [--icon "..."] [--color "..."] [--featured true|false] [--priority 15]
  *     npm run update:categories -- --operation remove --id "category-id" [--force]
  *     npm run update:categories -- --operation remove-unused [--force]
+ *     npm run update:categories -- --operation manage-featured
  *
  * Arguments:
- *   --operation <list|add|modify|remove|remove-unused>  Operation to perform (required for CLI mode)
+ *   --operation <list|add|modify|remove|remove-unused|manage-featured>  Operation to perform (required for CLI mode)
  *   --id <string>                         Category ID (required for modify/remove, optional for add)
  *   --name <string>                       Category name (required for add, optional for modify)
  *   --description <string>                Category description (required for add, optional for modify)
@@ -40,15 +41,46 @@ import { select, input } from '@inquirer/prompts'
 import { CategorySchema } from '../src/schemas/category.schema.js'
 import type { CategoriesArray, Category, CategoryId } from '../src/types/category'
 import type { Product } from '../src/types/product'
-import { showBanner, showError, showInfo, showGoodbye } from './utils/cli-display.js'
+import {
+    showBanner,
+    showError,
+    showInfo,
+    showGoodbye,
+    showOperationHeader,
+    showSuccess,
+    showWarning,
+    colors
+} from './utils/cli-display.js'
+import {
+    FeaturedItem,
+    FeaturedStats,
+    RenumberConfig,
+    calculateFeaturedStats,
+    autoRenumberPriorities,
+    moveItemUp,
+    moveItemDown,
+    validateFeaturedOperation,
+    displayFeaturedSummary,
+    displayReorderList,
+    showBulkOperationSummary,
+    showRenumberComparison
+} from './utils/featured-manager.js'
+import inquirer from 'inquirer'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const CATEGORIES_FILE = resolve(__dirname, '../src/data/categories.json')
 const PRODUCTS_FILE = resolve(__dirname, '../src/data/products.json')
 
+// Configuration for featured management
+const CATEGORIES_FEATURED_CONFIG: RenumberConfig = {
+    featuredStart: 1,
+    featuredEnd: 7,
+    nonFeaturedStart: 8
+}
+
 interface CliArgs {
-    operation?: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused'
+    operation?: 'list' | 'add' | 'modify' | 'remove' | 'remove-unused' | 'manage-featured'
     id?: string
     name?: string
     description?: string
@@ -187,6 +219,34 @@ function saveCategories(categories: CategoriesArray): void {
         console.error(error instanceof Error ? error.message : String(error))
         process.exit(1)
     }
+}
+
+// Data adapter: Load categories as FeaturedItem array
+function loadFeaturedData(): FeaturedItem[] {
+    const categories = loadCategories()
+    return categories.map((cat) => ({
+        id: cat.id,
+        name: cat.name,
+        featured: cat.featured,
+        priority: cat.priority
+    }))
+}
+
+// Data adapter: Save featured changes back to categories
+function saveFeaturedChanges(items: FeaturedItem[]): void {
+    const categories = loadCategories()
+    const itemMap = new Map(items.map((i) => [i.id, i]))
+
+    // Update featured and priority for each category
+    categories.forEach((cat) => {
+        const updated = itemMap.get(cat.id)
+        if (updated) {
+            cat.featured = updated.featured
+            cat.priority = updated.priority
+        }
+    })
+
+    saveCategories(categories) // Auto-sorts by priority
 }
 
 // Find category by ID
@@ -825,6 +885,379 @@ async function operationRemoveUnused(
     console.log('   Then run: npm run validate:categories\n')
 }
 
+// Operation: Manage featured categories
+async function operationManageFeatured(): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        console.clear()
+        showOperationHeader('Manage Featured Categories', 'Bulk operations and reordering')
+
+        const action = await select({
+            message: 'Select action:',
+            choices: [
+                { name: '📊 View Featured Summary', value: 'view' },
+                { name: '⭐ Toggle Featured Status', value: 'toggle' },
+                { name: '🔄 Reorder Featured Items', value: 'reorder' },
+                { name: '♻️ Renumber All Priorities', value: 'renumber' },
+                { name: '← Back to Main Menu', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        try {
+            switch (action) {
+                case 'view':
+                    await viewFeaturedSummary()
+                    break
+                case 'toggle':
+                    await toggleFeaturedStatus()
+                    break
+                case 'reorder':
+                    await reorderFeatured()
+                    break
+                case 'renumber':
+                    await renumberAll()
+                    break
+                case 'back':
+                    managing = false
+                    break
+            }
+        } catch (error) {
+            if (error instanceof Error && error.message === 'User cancelled operation') {
+                showInfo('Operation cancelled')
+            } else {
+                throw error
+            }
+        }
+    }
+}
+
+// Sub-operation: View featured summary
+async function viewFeaturedSummary(): Promise<void> {
+    console.clear()
+    showOperationHeader('View Featured Summary')
+
+    const items = loadFeaturedData()
+    const stats = calculateFeaturedStats(items, CATEGORIES_FEATURED_CONFIG)
+
+    displayFeaturedSummary(stats, items)
+
+    await input({ message: 'Press Enter to continue...' })
+}
+
+// Sub-operation: Toggle featured status (unified interface)
+async function toggleFeaturedStatus(): Promise<void> {
+    console.clear()
+    showOperationHeader('Toggle Featured Status')
+
+    const items = loadFeaturedData()
+    const beforeStats = calculateFeaturedStats(items, CATEGORIES_FEATURED_CONFIG)
+
+    // Show current state
+    console.log(
+        `${colors.dim}Current: ${colors.yellow}${beforeStats.featuredCount} featured${colors.reset}${colors.dim}, ${beforeStats.nonFeaturedCount} non-featured${colors.reset}\n`
+    )
+
+    // Create checkbox list with all items, pre-checked if featured
+    const choices = items
+        .sort((a, b) => {
+            // Sort: featured first (by priority), then non-featured (alphabetically)
+            if (a.featured !== b.featured) {
+                return a.featured ? -1 : 1
+            }
+            return a.featured ? a.priority - b.priority : a.name.localeCompare(b.name)
+        })
+        .map((item) => ({
+            name: `${item.name} ${item.featured ? '⭐' : ''} ${colors.dim}(${item.id})${colors.reset}`,
+            value: item.id,
+            checked: item.featured // Pre-check currently featured items
+        }))
+
+    const answer = await inquirer.prompt([
+        {
+            type: 'checkbox',
+            name: 'selectedIds',
+            message:
+                'Select categories to feature (space to toggle, enter to confirm):\n' +
+                `${colors.dim}  ⭐ = currently featured${colors.reset}`,
+            choices,
+            pageSize: 20
+        }
+    ])
+
+    const selectedIds = new Set(answer.selectedIds as string[])
+
+    // Determine what changed
+    const promoted = items.filter((i) => !i.featured && selectedIds.has(i.id))
+    const demoted = items.filter((i) => i.featured && !selectedIds.has(i.id))
+
+    if (promoted.length === 0 && demoted.length === 0) {
+        showInfo('No changes made')
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    // Update featured status
+    const updatedItems = items.map((item) => ({
+        ...item,
+        featured: selectedIds.has(item.id)
+    }))
+
+    // Auto-renumber priorities
+    const renumberedItems = autoRenumberPriorities(updatedItems, CATEGORIES_FEATURED_CONFIG)
+    const afterStats = calculateFeaturedStats(renumberedItems, CATEGORIES_FEATURED_CONFIG)
+
+    // Show summary
+    console.clear()
+    showOperationHeader('Changes Summary')
+
+    console.log(`${colors.bright}Before:${colors.reset}`)
+    console.log(`  Featured: ${beforeStats.featuredCount}`)
+    console.log(`  Non-Featured: ${beforeStats.nonFeaturedCount}`)
+
+    console.log(`\n${colors.bright}After:${colors.reset}`)
+    console.log(`  Featured: ${colors.yellow}${afterStats.featuredCount}${colors.reset}`)
+    console.log(`  Non-Featured: ${afterStats.nonFeaturedCount}`)
+
+    if (promoted.length > 0) {
+        console.log(
+            `\n${colors.bright}${colors.green}⬆️ Promoted (${promoted.length}):${colors.reset}`
+        )
+        promoted.forEach((item) => {
+            const newItem = renumberedItems.find((i) => i.id === item.id)
+            console.log(
+                `  • ${item.name} ${colors.dim}(Priority: ${newItem?.priority})${colors.reset}`
+            )
+        })
+    }
+
+    if (demoted.length > 0) {
+        console.log(`\n${colors.bright}${colors.red}⬇️ Demoted (${demoted.length}):${colors.reset}`)
+        demoted.forEach((item) => {
+            const newItem = renumberedItems.find((i) => i.id === item.id)
+            console.log(
+                `  • ${item.name} ${colors.dim}(Priority: ${newItem?.priority})${colors.reset}`
+            )
+        })
+    }
+
+    console.log()
+
+    // Confirm save
+    const confirm = await select({
+        message: 'Confirm and save changes?',
+        choices: [
+            { name: 'Yes, save changes', value: 'yes' },
+            { name: 'No, cancel', value: 'no' }
+        ]
+    })
+
+    if (confirm === 'no') {
+        showInfo('Operation cancelled')
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    // Validate
+    const validation = validateFeaturedOperation(renumberedItems, CATEGORIES_FEATURED_CONFIG)
+    if (!validation.success) {
+        showError('Validation failed:')
+        validation.errors.forEach((err) => console.error(`  • ${err}`))
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    // Save
+    saveFeaturedChanges(renumberedItems)
+    showSuccess(
+        `Successfully updated featured status! (${promoted.length} promoted, ${demoted.length} demoted)`
+    )
+
+    await input({ message: 'Press Enter to continue...' })
+}
+
+// Sub-operation: Reorder featured items
+async function reorderFeatured(): Promise<void> {
+    let items = loadFeaturedData()
+    let featuredItems = items.filter((i) => i.featured).sort((a, b) => a.priority - b.priority)
+
+    if (featuredItems.length < 2) {
+        showWarning('Need at least 2 featured categories to reorder')
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    let selectedIndex = 0
+    let reordering = true
+
+    while (reordering) {
+        console.clear()
+        showOperationHeader('Reorder Featured Categories')
+        displayReorderList(featuredItems, selectedIndex)
+
+        const action = await select({
+            message: 'Select action:',
+            choices: [
+                { name: '⬆️ Move up', value: 'up', disabled: selectedIndex === 0 },
+                {
+                    name: '⬇️ Move down',
+                    value: 'down',
+                    disabled: selectedIndex === featuredItems.length - 1
+                },
+                { name: '📍 Select different item', value: 'select' },
+                { name: '💾 Save changes', value: 'save' },
+                { name: '❌ Cancel', value: 'cancel' }
+            ],
+            pageSize: 10
+        })
+
+        switch (action) {
+            case 'up':
+                featuredItems = moveItemUp(featuredItems, selectedIndex)
+                selectedIndex--
+                break
+            case 'down':
+                featuredItems = moveItemDown(featuredItems, selectedIndex)
+                selectedIndex++
+                break
+            case 'select': {
+                const selected = await select({
+                    message: 'Select item to reorder:',
+                    choices: featuredItems.map((item, index) => ({
+                        name: `${item.priority}. ${item.name} (${item.id})`,
+                        value: index
+                    })),
+                    pageSize: 15
+                })
+                selectedIndex = selected
+                break
+            }
+            case 'save': {
+                const nonFeatured = items.filter((i) => !i.featured)
+                const allItems = [...featuredItems, ...nonFeatured]
+
+                console.clear()
+                showOperationHeader('Save Reorder Changes')
+                console.log(`\n${colors.bright}New order:${colors.reset}`)
+                featuredItems.forEach((item, index) => {
+                    console.log(
+                        `  ${colors.cyan}${index + 1}.${colors.reset} ${item.name} ${colors.dim}(Priority: ${item.priority})${colors.reset}`
+                    )
+                })
+                console.log()
+
+                const confirm = await select({
+                    message: 'Save this new order?',
+                    choices: [
+                        { name: 'Yes, save changes', value: 'yes' },
+                        { name: 'No, cancel', value: 'no' }
+                    ]
+                })
+
+                if (confirm === 'yes') {
+                    const validation = validateFeaturedOperation(
+                        allItems,
+                        CATEGORIES_FEATURED_CONFIG
+                    )
+                    if (!validation.success) {
+                        showError('Validation failed:')
+                        validation.errors.forEach((err) => console.error(`  • ${err}`))
+                        await input({ message: 'Press Enter to continue...' })
+                        break
+                    }
+
+                    saveFeaturedChanges(allItems)
+                    showSuccess('Featured categories reordered successfully!')
+                    reordering = false
+                } else {
+                    showInfo('Reorder cancelled')
+                    reordering = false
+                }
+                break
+            }
+            case 'cancel':
+                showInfo('Reorder cancelled')
+                reordering = false
+                break
+        }
+    }
+
+    await input({ message: 'Press Enter to continue...' })
+}
+
+// Sub-operation: Renumber all priorities
+async function renumberAll(): Promise<void> {
+    console.clear()
+    showOperationHeader('Renumber All Priorities')
+
+    const items = loadFeaturedData()
+    const stats = calculateFeaturedStats(items, CATEGORIES_FEATURED_CONFIG)
+
+    console.log(`${colors.bright}Current Priority Distribution:${colors.reset}`)
+    console.log(
+        `  Featured: ${stats.featuredCount} categories (Priority ${stats.featuredRange.min}-${stats.featuredRange.max})`
+    )
+    console.log(
+        `  Non-Featured: ${stats.nonFeaturedCount} categories (Priority ${stats.nonFeaturedRange.min}-${stats.nonFeaturedRange.max})`
+    )
+
+    if (!stats.hasPriorityGaps) {
+        showSuccess('All priorities are already sequential (no gaps)')
+        console.log('No renumbering needed.\n')
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    showWarning(`Detected ${stats.gapDetails?.length || 0} priority gap(s)`)
+    console.log()
+
+    const confirm = await select({
+        message: 'Renumber all priorities to eliminate gaps?',
+        choices: [
+            { name: 'Yes, renumber all', value: 'yes' },
+            { name: 'No, cancel', value: 'no' }
+        ]
+    })
+
+    if (confirm === 'no') {
+        showInfo('Renumber cancelled')
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    const renumberedItems = autoRenumberPriorities(items, CATEGORIES_FEATURED_CONFIG)
+
+    showRenumberComparison(items, renumberedItems)
+
+    const finalConfirm = await select({
+        message: 'Save these changes?',
+        choices: [
+            { name: 'Yes, save changes', value: 'yes' },
+            { name: 'No, cancel', value: 'no' }
+        ]
+    })
+
+    if (finalConfirm === 'no') {
+        showInfo('Renumber cancelled')
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    const validation = validateFeaturedOperation(renumberedItems, CATEGORIES_FEATURED_CONFIG)
+    if (!validation.success) {
+        showError('Validation failed:')
+        validation.errors.forEach((err) => console.error(`  • ${err}`))
+        await input({ message: 'Press Enter to continue...' })
+        return
+    }
+
+    saveFeaturedChanges(renumberedItems)
+    showSuccess('Priorities renumbered successfully!')
+
+    await input({ message: 'Press Enter to continue...' })
+}
+
 // Interactive mode with menu loop
 async function interactiveMode() {
     while (true) {
@@ -834,6 +1267,7 @@ async function interactiveMode() {
             message: 'What would you like to do?',
             choices: [
                 { name: '📋 List categories', value: 'list' },
+                { name: '⭐ Manage featured categories', value: 'manage-featured' },
                 { name: '➕ Add new category', value: 'add' },
                 { name: '✏️ Modify existing category', value: 'modify' },
                 { name: '🗑️ Remove category', value: 'remove' },
@@ -855,6 +1289,10 @@ async function interactiveMode() {
             switch (operation) {
                 case 'list':
                     await operationList({ format: 'table' })
+                    rl.close()
+                    break
+                case 'manage-featured':
+                    await operationManageFeatured()
                     rl.close()
                     break
                 case 'add':
@@ -940,6 +1378,9 @@ async function cliMode(args: CliArgs) {
             break
         case 'remove-unused':
             await operationRemoveUnused(args)
+            break
+        case 'manage-featured':
+            await operationManageFeatured()
             break
         default:
             console.error(`❌ Unknown operation: ${args.operation}`)

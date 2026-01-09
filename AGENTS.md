@@ -879,22 +879,39 @@ FAQs and testimonials for products are stored in product-specific JSON files loc
 
 ### Management Workflow
 
-**Adding FAQs/Testimonials to a Product:**
+**Using the Interactive CLI (Recommended):**
 
-1. Create a new JSON file: `src/data/products/{product-id}-faq.json` or `{product-id}-testimonials.json`
-2. Add your entries following the structure above
-3. Run `npm run aggregate:products` to include them in the build
-4. Run `npm run validate:products` to verify everything is correct
+```bash
+# Via Store CLI (easiest)
+npm run store
+# Then select "📝 Manage Product Content"
 
-**Editing FAQs/Testimonials:**
+# Direct access
+npm run manage:product-content
 
-1. Edit the corresponding JSON file directly
-2. Run `npm run aggregate:products`
-3. Run `npm run validate:products`
+# CLI mode - specify product and type directly
+npm run manage:product-content -- --product=product-id --type=faqs
+npm run manage:product-content -- --product=product-id --type=testimonials
+```
+
+The CLI provides:
+
+- ✅ List all FAQs/testimonials for a product
+- ✅ Add new FAQ/testimonial with validation
+- ✅ Edit existing FAQ/testimonial
+- ✅ Delete FAQ/testimonial
+- ✅ Auto-sorting (FAQs by order, testimonials by featured/rating)
+- ✅ Schema validation before saving
+
+**Manual Editing:**
+
+1. Edit the corresponding JSON file directly: `src/data/products/{product-id}-faq.json` or `{product-id}-testimonials.json`
+2. Run `npm run aggregate:products` to include changes
+3. Run `npm run validate:products` to verify correctness
 
 **Removing FAQs/Testimonials:**
 
-- To remove individual entries: Edit the JSON file and remove the entry
+- To remove individual entries: Use the CLI delete option or edit the JSON file
 - To remove all FAQs/testimonials: Delete the entire JSON file
 - The product will simply show no FAQs/testimonials section if the arrays are empty
 
@@ -1186,6 +1203,9 @@ Tests may ONLY be skipped for:
 ## Development Commands
 
 ```bash
+# Store CLI - Interactive menu for all store management tools
+npm run store
+
 # Install dependencies
 npm install
 
@@ -1230,6 +1250,12 @@ npm run update:products
 
 # Update products (CLI arguments)
 npm run update:products -- --operation <list|add|edit|remove> [options]
+
+# Manage product content (FAQs and testimonials)
+npm run manage:product-content
+
+# Manage product content (CLI arguments)
+npm run manage:product-content -- --product <product-id> --type <faqs|testimonials>
 
 # Update promotion banner configuration (interactive)
 npm run update:promotion
