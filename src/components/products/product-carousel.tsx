@@ -150,14 +150,14 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
                 <>
                     <button
                         onClick={goToPrevious}
-                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
+                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
                         aria-label='Previous slide'
                     >
                         <FaChevronLeft className='h-5 w-5' />
                     </button>
                     <button
                         onClick={goToNext}
-                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
+                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
                         aria-label='Next slide'
                     >
                         <FaChevronRight className='h-5 w-5' />
@@ -172,7 +172,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
                         <button
                             key={idx}
                             onClick={() => goToSlide(idx)}
-                            className={`h-2 rounded-full transition-all ${
+                            className={`h-2 cursor-pointer rounded-full transition-all ${
                                 idx === currentIndex
                                     ? 'bg-secondary w-8'
                                     : 'bg-primary/20 hover:bg-primary/40 w-2'

@@ -185,7 +185,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             {/* Search icon for mobile */}
                             <button
                                 onClick={onOpenCommandPalette}
-                                className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg p-2 transition-colors md:hidden'
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden lg:h-11 lg:w-11 xl:h-12 xl:w-12'
                                 title='Search products'
                             >
                                 <FaSearch className='h-5 w-5' />
@@ -210,7 +210,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             {/* Hamburger Menu Button - always visible */}
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
                                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
                                 aria-expanded={mobileMenuOpen}
                             >
@@ -238,7 +238,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 <div className='flex justify-end p-4 sm:p-6' onClick={(e) => e.stopPropagation()}>
                     <button
                         onClick={() => setMobileMenuOpen(false)}
-                        className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                        className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors'
                         aria-label='Close menu'
                     >
                         <FaTimes className='h-5 w-5' />
