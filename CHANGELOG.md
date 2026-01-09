@@ -1,3 +1,15 @@
+## [0.0.8](https://github.com/DeveloPassion/store-website/compare/0.0.7...0.0.8) (2026-01-09)
+
+### Features
+
+* **all:** added default og image on all generic pages ([94cf0d5](https://github.com/DeveloPassion/store-website/commit/94cf0d5d882717b268c770caef027b73ad7ba08d))
+* **all:** added featured tags ([44b428c](https://github.com/DeveloPassion/store-website/commit/44b428ce3a155c82e6eaa51effa3d58dde39388e))
+* **all:** added help page to hamburger ([00334e3](https://github.com/DeveloPassion/store-website/commit/00334e304a92420212c492441c5974b8322f6340))
+* **all:** better display names for tags ([2729746](https://github.com/DeveloPassion/store-website/commit/2729746ad821bc20eb82714346fedbbdc5bfc081))
+* **all:** hIghlight featured categories in command palette ([4f2ac5f](https://github.com/DeveloPassion/store-website/commit/4f2ac5fbe25e4448b094519378264ed2ccc3bbd2))
+* **all:** improved product card animations ([17fded0](https://github.com/DeveloPassion/store-website/commit/17fded0c4f665136b67c0464d46251b2f0f488b7))
+* **all:** split products.json file into one file per product. Updated footer ([ba8dbe2](https://github.com/DeveloPassion/store-website/commit/ba8dbe211fd29001fb00f69494139088778eba63))
+* **all:** turned tags.json into the source of truth for tags ([ff8a87b](https://github.com/DeveloPassion/store-website/commit/ff8a87bd48ec59cf2b1d3139f1f97f377eb1a689))
 ## [0.0.7](https://github.com/DeveloPassion/store-website/compare/0.0.6...0.0.7) (2026-01-08)
 
 ### Features
