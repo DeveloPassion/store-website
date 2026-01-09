@@ -35,8 +35,9 @@ import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { createInterface } from 'readline'
-import { CategoriesArraySchema, CategorySchema } from '../src/schemas/category.schema.js'
+import { CategorySchema } from '../src/schemas/category.schema.js'
 import type { CategoriesArray, Category, CategoryId } from '../src/types/category'
+import type { Product } from '../src/types/product'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -197,25 +198,25 @@ function checkCategoryUsage(categoryId: string): CategoryUsage {
         const products = JSON.parse(content)
 
         const asMain = products
-            .filter((p: any) => p.mainCategory === categoryId)
-            .map((p: any) => ({
+            .filter((p: Product) => p.mainCategory === categoryId)
+            .map((p: Product) => ({
                 productId: p.id,
                 productName: p.name
             }))
 
         const asSecondary = products
             .filter(
-                (p: any) =>
+                (p: Product) =>
                     p.secondaryCategories &&
-                    p.secondaryCategories.some((sc: any) => sc.id === categoryId)
+                    p.secondaryCategories.some((sc) => sc.id === categoryId)
             )
-            .map((p: any) => ({
+            .map((p: Product) => ({
                 productId: p.id,
                 productName: p.name
             }))
 
         return { asMain, asSecondary }
-    } catch (error) {
+    } catch {
         console.warn('⚠️  Could not check product usage')
         return { asMain: [], asSecondary: [] }
     }

@@ -36,7 +36,7 @@ interface ValidationError {
 
 interface Product {
     id: string
-    [key: string]: any
+    [key: string]: unknown
 }
 
 function validateIndividualFiles(): { products: Product[]; errors: ValidationError[] } {
@@ -104,7 +104,7 @@ function validateAggregated(products: Product[]): ValidationError[] {
         idCounts.set(product.id, (idCounts.get(product.id) || 0) + 1)
     })
 
-    const duplicates = Array.from(idCounts.entries()).filter(([_, count]) => count > 1)
+    const duplicates = Array.from(idCounts.entries()).filter(([, count]) => count > 1)
     if (duplicates.length > 0) {
         console.error('  ❌ Duplicate product IDs found:')
         duplicates.forEach(([id, count]) => {

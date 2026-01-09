@@ -35,10 +35,10 @@
         "featured": false,
         "priority": 27
     },
-    "beginner": {
-        "id": "beginner",
-        "name": "Beginner",
-        "description": "Resources and tools for beginner",
+    "beginners": {
+        "id": "beginners",
+        "name": "Beginners",
+        "description": "Resources and tools for beginners",
         "icon": "FaTag",
         "color": "#999999",
         "featured": false,
@@ -161,10 +161,10 @@
         "featured": false,
         "priority": 45
     },
-    "directory": {
-        "id": "directory",
-        "name": "Directory",
-        "description": "Resources and tools for directory",
+    "directories": {
+        "id": "directories",
+        "name": "Directories",
+        "description": "Resources and tools directory",
         "icon": "FaTag",
         "color": "#999999",
         "featured": false,
@@ -422,15 +422,6 @@
         "featured": false,
         "priority": 74
     },
-    "para": {
-        "id": "para",
-        "name": "PARA",
-        "description": "Resources and tools for para",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 75
-    },
     "para-method": {
         "id": "para-method",
         "name": "PARA Method",
@@ -533,7 +524,7 @@
     "reference": {
         "id": "reference",
         "name": "Reference",
-        "description": "Resources and tools for reference",
+        "description": "Reference materials",
         "icon": "FaTag",
         "color": "#999999",
         "featured": false,
@@ -584,15 +575,6 @@
         "featured": false,
         "priority": 93
     },
-    "system-building": {
-        "id": "system-building",
-        "name": "System Building",
-        "description": "Resources and tools for system building",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 94
-    },
     "systems": {
         "id": "systems",
         "name": "Systems",
@@ -638,15 +620,6 @@
         "featured": false,
         "priority": 99
     },
-    "visual-learning": {
-        "id": "visual-learning",
-        "name": "Visual Learning",
-        "description": "Resources and tools for visual learning",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 100
-    },
     "voice-to-text": {
         "id": "voice-to-text",
         "name": "Voice To Text",
@@ -655,15 +628,6 @@
         "color": "#999999",
         "featured": false,
         "priority": 101
-    },
-    "wall-chart": {
-        "id": "wall-chart",
-        "name": "Wall Chart",
-        "description": "Resources and tools for wall chart",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 102
     },
     "writing": {
         "id": "writing",

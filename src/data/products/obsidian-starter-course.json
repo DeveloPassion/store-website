@@ -9,6 +9,8 @@
     "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-course",
     "tags": [
         "obsidian",
+        "personal-knowledge-management",
+        "knowledge-management",
         "pkm",
         "note-taking",
         "zettelkasten",
@@ -16,6 +18,7 @@
         "johnny-decimal",
         "markdown",
         "journaling",
+        "routines",
         "templates"
     ],
     "problem": "You know Obsidian is powerful, but figuring out the right way to use it takes months of trial and error. Overwhelmed by features and plugins. Worried about creating a messy, unsustainable system.",

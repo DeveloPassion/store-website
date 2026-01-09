@@ -63,7 +63,33 @@ function main() {
                 if (!tagResult.success && tagResult.error?.errors) {
                     const tagErrors = tagResult.error.errors.map((err) => {
                         const path = err.path.join('.') || '[root]'
-                        return `  • ${path}: ${err.message}`
+                        const actualValue = err.path.reduce((obj: any, key) => obj?.[key], tagData)
+                        const actualValueStr =
+                            actualValue !== undefined
+                                ? ` (got: ${JSON.stringify(actualValue)})`
+                                : ''
+
+                        // Provide helpful suggestions based on error type
+                        let suggestion = ''
+                        if (path === 'color' && err.code === 'invalid_string') {
+                            suggestion =
+                                '\n    → Color must be in hex format: #RRGGBB (e.g., "#FF6B6B")'
+                        } else if (path === 'id' && err.code === 'invalid_enum_value') {
+                            suggestion =
+                                '\n    → Tag ID must be added to TagIdSchema enum in src/schemas/tag.schema.ts'
+                        } else if (path === 'priority' && err.code === 'too_small') {
+                            suggestion =
+                                '\n    → Priority must be >= 1 (featured: 1-8, non-featured: 21+)'
+                        } else if (
+                            (path === 'name' || path === 'description') &&
+                            err.code === 'too_small'
+                        ) {
+                            suggestion = '\n    → This field cannot be empty'
+                        } else if (path === 'featured' && err.code === 'invalid_type') {
+                            suggestion = '\n    → Must be boolean (true or false)'
+                        }
+
+                        return `  • ${path}: ${err.message}${actualValueStr}${suggestion}`
                     })
 
                     errors.push({
@@ -81,9 +107,25 @@ function main() {
                 tagErrors.forEach((err) => console.error(err))
                 console.error('')
             })
+        } else {
+            // General structure error
+            console.error('❌ Invalid file structure')
+            console.error('Expected: Object/map of tags with TagId keys\n')
+            if (result.error?.errors) {
+                result.error.errors.forEach((err) => {
+                    console.error(`  • ${err.path.join('.') || '[root]'}: ${err.message}`)
+                })
+            }
+            console.error('')
         }
 
-        console.error('\n💡 Tip: Check the schema definition at src/schemas/tag.schema.ts\n')
+        console.error('💡 Common Issues:')
+        console.error('   - Color format: Must be hex (#RRGGBB), e.g., "#FF6B6B"')
+        console.error('   - Priority: Featured tags (1-8), Non-featured (21+)')
+        console.error('   - New tag IDs: Must be added to TagIdSchema enum in tag.schema.ts')
+        console.error('   - Required fields: id, name, description, featured, priority')
+        console.error('')
+        console.error('📖 Full schema: src/schemas/tag.schema.ts\n')
         process.exit(1)
     }
 

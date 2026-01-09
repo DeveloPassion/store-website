@@ -35,8 +35,9 @@ import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { createInterface } from 'readline'
-import { TagsMapSchema, TagSchema } from '../src/schemas/tag.schema.js'
+import { TagSchema } from '../src/schemas/tag.schema.js'
 import type { TagsMap, Tag, TagId } from '../src/types/tag'
+import type { Product } from '../src/types/product'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -185,12 +186,12 @@ function checkTagUsage(tagId: string): ProductReference[] {
         const products = JSON.parse(content)
 
         return products
-            .filter((p: any) => p.tags && p.tags.includes(tagId))
-            .map((p: any) => ({
+            .filter((p: Product) => p.tags && p.tags.includes(tagId))
+            .map((p: Product) => ({
                 productId: p.id,
                 productName: p.name
             }))
-    } catch (error) {
+    } catch {
         console.warn('⚠️  Could not check product usage')
         return []
     }
@@ -225,11 +226,11 @@ async function operationList(options: {
 
     let filtered = tagEntries
     if (options.featuredFilter) {
-        filtered = tagEntries.filter(([_, tag]) => tag.featured)
+        filtered = tagEntries.filter(([, tag]) => tag.featured)
     }
 
     // Sort by priority
-    filtered.sort(([_, a], [__, b]) => a.priority - b.priority)
+    filtered.sort(([, a], [, b]) => a.priority - b.priority)
 
     if (options.format === 'json') {
         console.log(JSON.stringify(Object.fromEntries(filtered), null, 2))

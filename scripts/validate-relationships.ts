@@ -285,7 +285,7 @@ function main() {
         {} as Record<string, RelationshipError[]>
     )
 
-    Object.entries(errorsByProduct).forEach(([productId, productErrors]) => {
+    Object.entries(errorsByProduct).forEach(([, productErrors]) => {
         console.error(`❌ ${productErrors[0].filename}`)
         productErrors.forEach((error) => {
             console.error(`     • ${error.field}: ${error.message}`)

@@ -105,7 +105,7 @@ function main() {
         idCounts.set(product.id, files)
     })
 
-    const duplicates = Array.from(idCounts.entries()).filter(([_, files]) => files.length > 1)
+    const duplicates = Array.from(idCounts.entries()).filter(([, files]) => files.length > 1)
     if (duplicates.length > 0) {
         console.error('❌ Duplicate product IDs found:\n')
         duplicates.forEach(([id, files]) => {

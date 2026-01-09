@@ -8,7 +8,7 @@
  * 3. Outputs tags.json template for manual curation
  */
 
-import { readFileSync, writeFileSync } from 'fs'
+import { writeFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 // @ts-expect-error - JSON import

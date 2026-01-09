@@ -23,7 +23,17 @@
             "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
         }
     ],
-    "tags": ["obsidian", "pkm", "templates", "productivity", "zettelkasten", "para"],
+    "tags": [
+        "obsidian",
+        "pkm",
+        "personal-knowledge-management",
+        "knowledge-management",
+        "templates",
+        "productivity",
+        "routines",
+        "zettelkasten",
+        "para-method"
+    ],
     "problem": "Obsidian is powerful but overwhelming. Most people spend weeks or months figuring out how to organize their notes, what plugins to use, and how to build productive workflows.",
     "problemPoints": [
         "Spend weeks figuring out folder structure",

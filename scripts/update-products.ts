@@ -41,15 +41,21 @@
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from 'fs'
-import { resolve, dirname, basename } from 'path'
+import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { createInterface } from 'readline'
 import inquirer from 'inquirer'
-import { ProductSchema } from '../src/schemas/product.schema.js'
+import {
+    ProductSchema,
+    PriceTierSchema,
+    ProductStatusSchema,
+    ProductCategorySchema
+} from '../src/schemas/product.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
+import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
-import type { TagsMap, Tag } from '../src/types/tag'
+import type { TagsMap, TagId } from '../src/types/tag'
 import type { Category } from '../src/types/category'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -119,8 +125,8 @@ function parseArgs(): CliArgs {
         }
 
         if (arg.startsWith('--') && nextArg && !nextArg.startsWith('--')) {
-            const key = arg.slice(2)
-            ;(args as any)[key] = nextArg
+            const key = arg.slice(2) as keyof CliArgs
+            args[key] = nextArg as never
             i++
         }
     }
@@ -478,17 +484,17 @@ async function operationList(args: CliArgs): Promise<void> {
     if (args.featured_filter) {
         products = products.filter((p) => p.featured === true)
     }
-    const statusFilter = args.status_filter || (args as any).status
+    const statusFilter = args.status_filter || args.status
     if (statusFilter) {
         products = products.filter((p) => p.status === statusFilter)
     }
-    const categoryFilter = args.category_filter || (args as any).category
-    if (categoryFilter) {
+    const categoryFilter = args.category_filter || (args as Record<string, unknown>).category
+    if (typeof categoryFilter === 'string') {
         products = products.filter((p) => p.mainCategory === categoryFilter)
     }
-    const tagFilter = args.tag_filter || (args as any).tag
-    if (tagFilter) {
-        products = products.filter((p) => p.tags.includes(tagFilter as any))
+    const tagFilter = args.tag_filter || (args as Record<string, unknown>).tag
+    if (typeof tagFilter === 'string') {
+        products = products.filter((p) => p.tags.includes(tagFilter as TagId))
     }
 
     const format = args.format || 'table'
@@ -664,6 +670,16 @@ async function operationAdd(args: CliArgs): Promise<void> {
         process.exit(0)
     }
 
+    // Validate enum types
+    const validatedPriceTier = PriceTierSchema.parse(priceTier)
+    const validatedMainCategory = ProductCategorySchema.parse(mainCategory)
+    const validatedTags = tags.map((tag) => TagIdSchema.parse(tag))
+    const validatedStatus = ProductStatusSchema.parse(status)
+    const validatedSecondaryCategories: SecondaryCategory[] = secondaryCategories.map((cat) => ({
+        id: ProductCategorySchema.parse(cat.id),
+        distant: cat.distant
+    }))
+
     // Create minimal product
     const product: Product = {
         id,
@@ -673,11 +689,11 @@ async function operationAdd(args: CliArgs): Promise<void> {
         secondaryTagline,
         price,
         priceDisplay,
-        priceTier: priceTier as any,
+        priceTier: validatedPriceTier,
         gumroadUrl,
-        mainCategory: mainCategory as any,
-        secondaryCategories: secondaryCategories as any[],
-        tags: tags as any[],
+        mainCategory: validatedMainCategory,
+        secondaryCategories: validatedSecondaryCategories,
+        tags: validatedTags,
         problem,
         problemPoints: [],
         agitate,
@@ -697,7 +713,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
         featured,
         mostValue: false,
         bestseller: false,
-        status: status as any,
+        status: validatedStatus,
         priority,
         trustBadges: [],
         guarantees: []
@@ -761,16 +777,24 @@ async function operationEdit(args: CliArgs): Promise<void> {
         product.secondaryTagline = args.secondaryTagline || undefined
     if (args.price) product.price = parseFloat(args.price)
     if (args.priceDisplay) product.priceDisplay = args.priceDisplay
-    if (args.priceTier) product.priceTier = args.priceTier as any
+    if (args.priceTier) product.priceTier = PriceTierSchema.parse(args.priceTier)
     if (args.permalink) product.permalink = args.permalink
     if (args.gumroadUrl) product.gumroadUrl = args.gumroadUrl
-    if (args.mainCategory) product.mainCategory = args.mainCategory as any
-    if (args.tags) product.tags = args.tags.split(',').map((t) => t.trim()) as any[]
-    if (args.secondaryCategories)
-        product.secondaryCategories = parseSecondaryCategories(args.secondaryCategories) as any[]
+    if (args.mainCategory) product.mainCategory = ProductCategorySchema.parse(args.mainCategory)
+    if (args.tags) {
+        const tagArray = args.tags.split(',').map((t) => t.trim())
+        product.tags = tagArray.map((tag) => TagIdSchema.parse(tag))
+    }
+    if (args.secondaryCategories) {
+        const parsedCategories = parseSecondaryCategories(args.secondaryCategories)
+        product.secondaryCategories = parsedCategories.map((cat) => ({
+            id: ProductCategorySchema.parse(cat.id),
+            distant: cat.distant
+        }))
+    }
     if (args.featured !== undefined) product.featured = args.featured === 'true'
     if (args.priority) product.priority = parseInt(args.priority)
-    if (args.status) product.status = args.status as any
+    if (args.status) product.status = ProductStatusSchema.parse(args.status)
     if (args.problem) product.problem = args.problem
     if (args.agitate) product.agitate = args.agitate
     if (args.solution) product.solution = args.solution
@@ -793,13 +817,14 @@ async function operationEdit(args: CliArgs): Promise<void> {
         ])
 
         switch (editChoice.section) {
-            case 'basic':
+            case 'basic': {
                 product.name = (await prompt(`Name [${product.name}]: `)) || product.name
                 product.tagline =
                     (await prompt(`Tagline [${product.tagline}]: `)) || product.tagline
                 break
+            }
 
-            case 'pricing':
+            case 'pricing': {
                 const newPrice = await prompt(`Price [${product.price}]: `)
                 if (newPrice) product.price = parseFloat(newPrice)
                 product.priceDisplay =
@@ -807,8 +832,9 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     product.priceDisplay
                 product.priceTier = await selectPriceTier(product.priceTier)
                 break
+            }
 
-            case 'taxonomy':
+            case 'taxonomy': {
                 const taxonomyChoice = await inquirer.prompt([
                     {
                         type: 'list',
@@ -824,29 +850,39 @@ async function operationEdit(args: CliArgs): Promise<void> {
                 ])
 
                 switch (taxonomyChoice.field) {
-                    case 'main':
-                        product.mainCategory = (await selectMainCategory(
-                            product.mainCategory
-                        )) as any
+                    case 'main': {
+                        const selectedCategory = await selectMainCategory(product.mainCategory)
+                        product.mainCategory = ProductCategorySchema.parse(selectedCategory)
                         break
-                    case 'tags':
-                        product.tags = (await selectTags(product.tags as string[])) as any[]
+                    }
+                    case 'tags': {
+                        const selectedTags = await selectTags(product.tags)
+                        product.tags = selectedTags.map((tag) => TagIdSchema.parse(tag))
                         break
-                    case 'secondary':
-                        product.secondaryCategories = (await selectSecondaryCategories(
-                            product.secondaryCategories as any[]
-                        )) as any[]
+                    }
+                    case 'secondary': {
+                        const selectedCategories = await selectSecondaryCategories(
+                            product.secondaryCategories
+                        )
+                        product.secondaryCategories = selectedCategories.map((cat) => ({
+                            id: ProductCategorySchema.parse(cat.id),
+                            distant: cat.distant
+                        }))
                         break
+                    }
                 }
                 break
+            }
 
-            case 'meta':
-                product.status = (await selectStatus(product.status)) as any
+            case 'meta': {
+                const selectedStatus = await selectStatus(product.status)
+                product.status = ProductStatusSchema.parse(selectedStatus)
                 const newPriority = await prompt(`Priority [${product.priority}]: `)
                 if (newPriority) product.priority = parseInt(newPriority)
                 const newFeatured = await prompt(`Featured [${product.featured ? 'yes' : 'no'}]: `)
                 if (newFeatured) product.featured = newFeatured.toLowerCase() === 'yes'
                 break
+            }
 
             case 'save':
                 break

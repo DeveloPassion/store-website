@@ -136,7 +136,7 @@ function loadCurrentConfig(): PromotionConfig | null {
     try {
         const content = readFileSync(PROMOTION_FILE, 'utf-8')
         return JSON.parse(content)
-    } catch (error) {
+    } catch {
         console.error('⚠️  Could not parse existing promotion.json')
         return null
     }

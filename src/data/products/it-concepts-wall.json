@@ -6,14 +6,7 @@
     "priceDisplay": "€9.99",
     "priceTier": "budget",
     "gumroadUrl": "https://www.store.dsebastien.net/l/it-concepts-wall",
-    "tags": [
-        "it-fundamentals",
-        "programming",
-        "concepts",
-        "reference",
-        "wall-chart",
-        "visual-learning"
-    ],
+    "tags": ["it-fundamentals", "programming", "concepts", "reference"],
     "problem": "IT concepts scattered. Can't quickly reference. Information scattered.",
     "problemPoints": [
         "Can't quickly reference",
