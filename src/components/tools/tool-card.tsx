@@ -43,8 +43,8 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
         return (
             <div
                 className={cn(
-                    'bg-background/50 border-primary/10 hover:border-secondary/50 group relative flex cursor-pointer items-center gap-4 rounded-xl border p-4 transition-all duration-300 hover:shadow-lg hover:shadow-black/10',
-                    tool.featured && 'ring-secondary/30 ring-1'
+                    'bg-background/50 border-primary/10 hover:border-secondary/50 group hover:shadow-secondary/10 relative flex cursor-pointer items-center gap-4 rounded-xl border p-4 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-xl',
+                    tool.featured && 'ring-secondary/30 hover:ring-secondary/50 ring-1'
                 )}
                 onClick={handleCardClick}
                 onKeyDown={handleKeyDown}
@@ -55,14 +55,14 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                 aria-label={`View details for ${tool.name}`}
             >
                 {/* Icon */}
-                <div className='bg-primary/10 group-hover:bg-primary/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-colors'>
+                <div className='bg-primary/10 group-hover:bg-primary/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3'>
                     <ToolIcon icon={tool.icon} category={tool.category} size='md' />
                 </div>
 
                 {/* Content */}
                 <div className='min-w-0 flex-1'>
                     <div className='flex items-center gap-2'>
-                        <h3 className='group-hover:text-secondary truncate font-semibold transition-colors'>
+                        <h3 className='group-hover:text-secondary truncate font-semibold transition-all duration-300 group-hover:translate-x-1'>
                             {tool.name}
                         </h3>
                         {tool.featured && <FaStar className='text-secondary h-3 w-3 shrink-0' />}
@@ -90,7 +90,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                             key={label}
                             to={`/label/${encodeURIComponent(label)}`}
                             onClick={(e) => e.stopPropagation()}
-                            className='bg-primary/5 hover:bg-secondary/20 hover:text-secondary text-primary/60 rounded-full px-2 py-0.5 text-xs transition-colors'
+                            className='bg-primary/5 hover:bg-secondary/20 hover:text-secondary text-primary/60 hover:shadow-secondary/20 rounded-full px-2 py-0.5 text-xs transition-all duration-300 hover:scale-105 hover:shadow-md'
                         >
                             {label}
                         </Link>
@@ -103,7 +103,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                         href={tool.url}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='text-primary/60 hover:text-secondary rounded-lg p-2 transition-colors'
+                        className='text-primary/60 hover:text-secondary rounded-lg p-2 transition-all duration-300 hover:scale-110'
                         title='Open tool'
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -114,7 +114,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                             href={tool.sourceCodeUrl}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='text-primary/60 hover:text-secondary rounded-lg p-2 transition-colors'
+                            className='text-primary/60 hover:text-secondary rounded-lg p-2 transition-all duration-300 hover:scale-110 hover:rotate-12'
                             title='View source code'
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -130,9 +130,9 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
     return (
         <div
             className={cn(
-                'bg-background/50 border-primary/10 hover:border-secondary/50 group relative flex h-full cursor-pointer flex-col rounded-xl border p-4 transition-all duration-300 hover:shadow-lg hover:shadow-black/10',
-                tool.featured && 'ring-secondary/30 ring-1',
-                isHovered && 'scale-[1.01]'
+                'bg-background/50 border-primary/10 hover:border-secondary/50 group hover:shadow-secondary/20 relative flex h-full cursor-pointer flex-col rounded-xl border p-4 transition-all duration-500 ease-out hover:shadow-2xl',
+                tool.featured && 'ring-secondary/30 hover:ring-secondary/60 ring-1',
+                isHovered && '-translate-y-2 scale-[1.03]'
             )}
             onClick={handleCardClick}
             onKeyDown={handleKeyDown}
@@ -144,15 +144,15 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
         >
             {/* Featured badge */}
             {tool.featured && (
-                <div className='from-secondary to-secondary/80 absolute -top-2 -right-2 flex items-center gap-1 rounded-full bg-gradient-to-r px-2 py-0.5 text-xs font-medium text-white shadow-md'>
-                    <FaStar className='h-2.5 w-2.5' />
+                <div className='from-secondary to-secondary/80 group-hover:shadow-secondary/50 absolute -top-2 -right-2 flex items-center gap-1 rounded-full bg-gradient-to-r px-2 py-0.5 text-xs font-medium text-white shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg'>
+                    <FaStar className='h-2.5 w-2.5 transition-transform duration-300 group-hover:rotate-12' />
                     Featured
                 </div>
             )}
 
             {/* Header */}
             <div className='mb-3 flex items-start justify-between'>
-                <div className='bg-primary/10 group-hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'>
+                <div className='bg-primary/10 group-hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6'>
                     <ToolIcon icon={tool.icon} category={tool.category} size='md' />
                 </div>
                 <div className='flex items-center gap-1.5'>
@@ -172,7 +172,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
 
             {/* Title & Status */}
             <div className='mb-1 flex items-center gap-2'>
-                <h3 className='group-hover:text-secondary font-semibold transition-colors'>
+                <h3 className='group-hover:text-secondary font-semibold transition-all duration-300 group-hover:translate-x-1'>
                     {tool.name}
                 </h3>
             </div>
@@ -195,7 +195,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                         key={label}
                         to={`/label/${encodeURIComponent(label)}`}
                         onClick={(e) => e.stopPropagation()}
-                        className='bg-primary/5 hover:bg-secondary/20 hover:text-secondary text-primary/70 rounded-full px-2 py-0.5 text-xs transition-colors'
+                        className='bg-primary/5 hover:bg-secondary/20 hover:text-secondary text-primary/70 hover:shadow-secondary/20 rounded-full px-2 py-0.5 text-xs transition-all duration-300 hover:scale-110 hover:shadow-md'
                     >
                         {label}
                     </Link>
@@ -229,10 +229,10 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                     href={tool.url}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='bg-secondary hover:bg-secondary/90 flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-sm font-medium text-white transition-colors'
+                    className='bg-secondary hover:bg-secondary/90 hover:shadow-secondary/40 flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg'
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <FaExternalLinkAlt className='h-3 w-3' />
+                    <FaExternalLinkAlt className='h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5' />
                     Open
                 </a>
                 {tool.sourceCodeUrl && (
@@ -240,7 +240,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                         href={tool.sourceCodeUrl}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='bg-primary/10 hover:bg-primary/20 text-primary/80 flex items-center justify-center rounded-lg p-2 transition-colors'
+                        className='bg-primary/10 hover:bg-primary/20 text-primary/80 hover:text-secondary flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-110 hover:rotate-12'
                         title='View source code'
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -252,7 +252,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, statuses, onShowDetails, view
                         href={tool.docsUrl}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='bg-primary/10 hover:bg-primary/20 text-primary/80 flex items-center justify-center rounded-lg p-2 transition-colors'
+                        className='bg-primary/10 hover:bg-primary/20 text-primary/80 hover:text-secondary flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-110 hover:-rotate-12'
                         title='View documentation'
                         onClick={(e) => e.stopPropagation()}
                     >
