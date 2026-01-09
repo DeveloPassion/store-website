@@ -1,3 +1,35 @@
+## [0.2.0](https://github.com/DeveloPassion/store-website/compare/0.1.0...0.2.0) (2026-01-09)
+
+### Features
+
+* **all:** added carousel ([5a131ff](https://github.com/DeveloPassion/store-website/commit/5a131ffe0763e6ad28354eb64b3190abffeedeff))
+* **all:** added CLI ([2f033ca](https://github.com/DeveloPassion/store-website/commit/2f033ca26976c828e31932db126e7b6232097e24))
+* **all:** added icons to all tags ([e6a2cc1](https://github.com/DeveloPassion/store-website/commit/e6a2cc1374754d82eab76b144a4e5d8ca498a548))
+* **all:** added skill for icons ([66562ed](https://github.com/DeveloPassion/store-website/commit/66562edb2fd9a4f4aa80e1e141cef1f14a2e00b9))
+* **all:** added test setup ([9b745bf](https://github.com/DeveloPassion/store-website/commit/9b745bf6c251310e4646f54e06473b1ed3af0913))
+* **all:** added tests and CI pipeline ([f29ddb9](https://github.com/DeveloPassion/store-website/commit/f29ddb999d22239719eca03c3248d734f1abae27))
+* **all:** added vitest config ([c501f92](https://github.com/DeveloPassion/store-website/commit/c501f92325f130f80bc8c6f242e3f57ef33f065f))
+* **all:** improve footer display on mobile ([b3c3123](https://github.com/DeveloPassion/store-website/commit/b3c3123c6343dd6d280510223c04641e2591cb10))
+* **all:** improve scripts ([3129b13](https://github.com/DeveloPassion/store-website/commit/3129b1340ded421940b42d7dc23daa5cbcbaf422))
+* **all:** improve store cli ([4da1447](https://github.com/DeveloPassion/store-website/commit/4da14478e42db89fa9b8cd8259f15db1121ed363))
+* **all:** improved scripts ([fd45e4c](https://github.com/DeveloPassion/store-website/commit/fd45e4c8501a492c2bade9b204554ba2e3d1a51c))
+* **all:** improved search field on products page ([ae35a4a](https://github.com/DeveloPassion/store-website/commit/ae35a4a63dd0933f7e367971069a739bdadef659))
+* **all:** improved tags and category clis ([9b68afe](https://github.com/DeveloPassion/store-website/commit/9b68afe85d0a401a37cc61ae103022615b8bc4fc))
+* **all:** made the all products page use the normal product component ([182c7da](https://github.com/DeveloPassion/store-website/commit/182c7da3fd4aec1e2d1e3cdbfe8320a2f819a7d8))
+* **all:** reduced wasted space on categories and tags pages ([8bb126d](https://github.com/DeveloPassion/store-website/commit/8bb126de8e5971158c354d51b2069da5b768107e))
+* **all:** remove course tag ([1f87d4a](https://github.com/DeveloPassion/store-website/commit/1f87d4a0315fc425d3d3957cdbd155a18ddd8248))
+* **all:** split up testimonials and faq per product ([55bf4f5](https://github.com/DeveloPassion/store-website/commit/55bf4f55ff08dcd78a3ec993981e5bb82d3aaa3f))
+* **all:** started fixing lint issues ([1475fbe](https://github.com/DeveloPassion/store-website/commit/1475fbec3ed608b26a80384afdfbf07e2005ec90))
+* **all:** tag cleanup ([1907b72](https://github.com/DeveloPassion/store-website/commit/1907b72769428a95bd8bc268c495bb68a870579d))
+* **all:** udpdated lock file ([a7b0f25](https://github.com/DeveloPassion/store-website/commit/a7b0f25f74b8fc4c287e66cf3264631431177a34))
+* **all:** updated ([c7494b4](https://github.com/DeveloPassion/store-website/commit/c7494b46a740c5c4bd67b9a39be9638d5bf57566))
+* **all:** updated docs ([f224681](https://github.com/DeveloPassion/store-website/commit/f22468130298d0eda1405d1a180620dbe9876b86))
+* **all:** updated entries ([23498b3](https://github.com/DeveloPassion/store-website/commit/23498b3b10607bfbbb0aa944f424b00b9784aabb))
+* **all:** use correct icons for featured and best-seller products on cards ([c5d0660](https://github.com/DeveloPassion/store-website/commit/c5d0660099b8e46004d20f6e9456c5151bc7759d))
+
+### Bug Fixes
+
+* **build:** fixed CI pipeline ([09f0be7](https://github.com/DeveloPassion/store-website/commit/09f0be7fcfa957b0d24586d370f6bd714a3d4818))
 ## [0.1.0](https://github.com/DeveloPassion/store-website/compare/0.0.9...0.1.0) (2026-01-09)
 
 ### Features
