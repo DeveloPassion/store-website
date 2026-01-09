@@ -1,3 +1,39 @@
+## [0.0.9](https://github.com/DeveloPassion/store-website/compare/0.0.8...0.0.9) (2026-01-09)
+
+### Features
+
+* **all:** add a feedback link in the footer ([f068db0](https://github.com/DeveloPassion/store-website/commit/f068db0d3192722f5d42f64022bcb1385b021a5c))
+* **all:** add footer link emojis ([026b7f3](https://github.com/DeveloPassion/store-website/commit/026b7f36503456f3af57e471bc10c1f9fc1d23c1))
+* **all:** added best value field and corresponding UI/page ([b234ee5](https://github.com/DeveloPassion/store-website/commit/b234ee5b9566042cd3ac7e6f50c0329ef6b6dc45))
+* **all:** added breadcrumbs ([bc0bb38](https://github.com/DeveloPassion/store-website/commit/bc0bb3868d1cb7befb24b2e052070038a2348c9f))
+* **all:** added CLIs to manage categories and tags ([f09b65b](https://github.com/DeveloPassion/store-website/commit/f09b65bb7b83b9ea4890fbda765bd92d97d1345c))
+* **all:** added dismiss button to the promo banner ([636c0cc](https://github.com/DeveloPassion/store-website/commit/636c0ccad490ac49d686353e97acc2808934823a))
+* **all:** added featured page, best sellers page, improved product sorting on all pages ([8dd4d46](https://github.com/DeveloPassion/store-website/commit/8dd4d4601a248ac39e12a9a5f804327775ae9fe2))
+* **all:** added Gumroad script ([8aadbe9](https://github.com/DeveloPassion/store-website/commit/8aadbe972d1d36e2b9fb3e1efeb395f519d525b7))
+* **all:** added most value page to sitemap and llms.txt ([8202a28](https://github.com/DeveloPassion/store-website/commit/8202a285140db4123d70117da0af09969790173c))
+* **all:** added product relationship validation script ([4b73718](https://github.com/DeveloPassion/store-website/commit/4b73718a91617f648395a53e0a85dcda7ae33330))
+* **all:** added promotion management ([f5d7abd](https://github.com/DeveloPassion/store-website/commit/f5d7abdfee7245249d5fd43c3f4eb4f7f5f02805))
+* **all:** added rule about responsiveness ([53997ff](https://github.com/DeveloPassion/store-website/commit/53997ff0086f9519a1141514d9ebc2dcd213afd1))
+* **all:** added the products page to the sitemap and llms.txt ([6384eb9](https://github.com/DeveloPassion/store-website/commit/6384eb9f3d61495490ceb3ca96a2bfe3d5c2b07c))
+* **all:** better use space on large screens ([5008fac](https://github.com/DeveloPassion/store-website/commit/5008fac499ecf037eedcbadd0e96aab53da0707f))
+* **all:** browse free resources now redirects to the free category page ([cecd7fa](https://github.com/DeveloPassion/store-website/commit/cecd7fa6bfdc449995e4da5cabbd6a14c2af10a9))
+* **all:** improved breadcrumbs ([c49f53e](https://github.com/DeveloPassion/store-website/commit/c49f53e707b716d01cb16dd51f31492164aa63ed))
+* **all:** improved footer link icons ([49065de](https://github.com/DeveloPassion/store-website/commit/49065de757031ba53e24a3fcaac7115a0a904931))
+* **all:** improved header ([6a958a5](https://github.com/DeveloPassion/store-website/commit/6a958a5f4b3c2aac11ceeed19e43ad13fdeab087))
+* **all:** improved homepage ([b90f491](https://github.com/DeveloPassion/store-website/commit/b90f49148e56b30d888a767e3a68476224a49a33))
+* **all:** improved product cards and fixed bug with category link ([56be259](https://github.com/DeveloPassion/store-website/commit/56be259f0d8f7c8a45e3879fe468c853f06acbf9))
+* **all:** improved products page ([ff0d0d9](https://github.com/DeveloPassion/store-website/commit/ff0d0d97b50d92b5e9aec46dcec9a9cbb58e1472))
+* **all:** link \"shop now\" to featured section ([963666b](https://github.com/DeveloPassion/store-website/commit/963666bd81a4c6d8a7d0597b9122471c0877e8b9))
+* **all:** removed 1-on-1 tag ([1a41e78](https://github.com/DeveloPassion/store-website/commit/1a41e7817e0ad009aa185a5609967523bde8caa1))
+* **all:** removed help from hamburger menu ([72d181c](https://github.com/DeveloPassion/store-website/commit/72d181ceb08dac0bdc124b301544f4177b22203c))
+* **all:** renamed databases category to knowledge bases ([b270e51](https://github.com/DeveloPassion/store-website/commit/b270e51274eec710f24aead25c00d7961737fb36))
+* **all:** the command palette now lists best value products first ([27d6263](https://github.com/DeveloPassion/store-website/commit/27d62639e81a7d9b8023c1c683ca14c7c8a41a0d))
+* **all:** updated all products links ([d47b873](https://github.com/DeveloPassion/store-website/commit/d47b87343fd599296aabb147815713fc5b4bfd82))
+
+### Bug Fixes
+
+* **all:** fixed breadcrumb on best value page ([9bb43e7](https://github.com/DeveloPassion/store-website/commit/9bb43e7f171fc30817b890a5717429b854262281))
+* **all:** removed bogus faq entries ([074b924](https://github.com/DeveloPassion/store-website/commit/074b924c0084c5b2c3f34cdd82f0ebb2193a56b5))
 ## [0.0.8](https://github.com/DeveloPassion/store-website/compare/0.0.7...0.0.8) (2026-01-09)
 
 ### Features
