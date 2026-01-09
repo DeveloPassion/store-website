@@ -13,6 +13,8 @@ import {
 } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import type { Product } from '@/types/product'
+import type { Category } from '@/types/category'
+import categoriesData from '@/data/categories.json'
 
 interface CommandPaletteProps {
     isOpen: boolean
@@ -30,6 +32,7 @@ interface Command {
     icon: React.ReactNode
     action: () => void
     product?: Product
+    category?: Category
 }
 
 const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, products }) => {
@@ -115,26 +118,37 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
         })
 
         // Add category filters
-        const categories = [
-            { name: 'All Products', path: '/' },
-            { name: 'Courses', path: '/?category=Courses' },
-            { name: 'Kits & Templates', path: '/?category=Kits' },
-            { name: 'Workshops', path: '/?category=Workshops' },
-            { name: 'Bundles', path: '/?category=Bundles' },
-            { name: 'Free Resources', path: '/?category=Free%20Resources' }
-        ]
+        // Sort categories by priority (lower priority number = higher in list)
+        const sortedCategories = (categoriesData as Category[])
+            .slice()
+            .sort((a, b) => a.priority - b.priority)
 
-        categories.forEach((category) => {
+        // Add "All Products" category first
+        cmds.push({
+            id: 'category-all',
+            type: 'category',
+            title: 'All Products',
+            subtitle: 'Browse all products',
+            icon: <FaFilter className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/')
+                onClose()
+            }
+        })
+
+        // Add all categories
+        sortedCategories.forEach((category) => {
             cmds.push({
-                id: `category-${category.name}`,
+                id: `category-${category.id}`,
                 type: 'category',
                 title: category.name,
                 subtitle: `Browse ${category.name.toLowerCase()}`,
                 icon: <FaFilter className='text-secondary h-5 w-5' />,
                 action: () => {
-                    navigate(category.path)
+                    navigate(`/?category=${encodeURIComponent(category.id)}`)
                     onClose()
-                }
+                },
+                category
             })
         })
 
@@ -159,10 +173,17 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
     // Filter commands based on query
     const filteredCommands = useMemo(() => {
         if (!query.trim()) {
-            // Show products and main actions when no query
-            return commands.filter(
-                (c) => c.type === 'product' || c.type === 'action' || c.type === 'category'
-            )
+            // Show products, main actions, and only featured categories when no query
+            return commands.filter((c) => {
+                if (c.type === 'product' || c.type === 'action') {
+                    return true
+                }
+                if (c.type === 'category') {
+                    // Show "All Products" or featured categories
+                    return c.id === 'category-all' || (c.category?.featured ?? false)
+                }
+                return false
+            })
         }
 
         const lowerQuery = query.toLowerCase()
