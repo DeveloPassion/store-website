@@ -1,99 +1,15 @@
-export type TagId =
-    | 'ai'
-    | 'ai-assistants'
-    | 'ai-integration'
-    | 'ai-prompts'
-    | 'all-products'
-    | 'automation'
-    | 'beginner'
-    | 'best-value'
-    | 'bundle'
-    | 'career-development'
-    | 'chatgpt'
-    | 'checklist'
-    | 'clarity'
-    | 'claude'
-    | 'coaching'
-    | 'community'
-    | 'complete-system'
-    | 'concepts'
-    | 'consultation'
-    | 'content-creation'
-    | 'course'
-    | 'courses'
-    | 'curated'
-    | 'design-thinking'
-    | 'directory'
-    | 'focus'
-    | 'free-guide'
-    | 'free-resource'
-    | 'getting-started'
-    | 'ghostwriting'
-    | 'goals'
-    | 'gtd'
-    | 'habits'
-    | 'ikigai'
-    | 'interstitial-journaling'
-    | 'it-fundamentals'
-    | 'johnny-decimal'
-    | 'journaling'
-    | 'knowledge-management'
-    | 'knowledge-work'
-    | 'lead-magnet'
-    | 'learning'
-    | 'life-design'
-    | 'lifetime-access'
-    | 'llms'
-    | 'markdown'
-    | 'master-prompts'
-    | 'mcp'
-    | 'mindfulness'
-    | 'model-context-protocol'
-    | 'note-taking'
-    | 'obsidian'
-    | 'offline'
-    | 'para'
-    | 'para-method'
-    | 'periodic-reviews'
-    | 'personal-brand'
-    | 'personal-coaching'
-    | 'personal-knowledge-management'
-    | 'personal-manifesto'
-    | 'personal-organization'
-    | 'pkm'
-    | 'privacy'
-    | 'productivity'
-    | 'programming'
-    | 'prompt-engineering'
-    | 'reference'
-    | 'resources'
-    | 'routines'
-    | 'second-brain'
-    | 'smart-goals'
-    | 'speech-recognition'
-    | 'system-building'
-    | 'systems'
-    | 'templates'
-    | 'time-management'
-    | 'tools'
-    | 'values'
-    | 'visual-learning'
-    | 'voice-to-text'
-    | 'wall-chart'
-    | 'writing'
-    | 'zen-productivity'
-    | 'zettelkasten'
+/**
+ * Tag types - Re-exported from schema with extensions
+ * Single source of truth: src/schemas/tag.schema.ts
+ */
 
-export interface Tag {
-    id: TagId
-    name: string
-    description: string
-    icon?: string
-    color?: string
-    featured: boolean
-    priority: number
-}
+import type { Tag as SchemaTag, TagId as SchemaTagId } from '@/schemas/tag.schema'
 
-export interface TagWithCount extends Tag {
+// Re-export types from schema (single source of truth)
+export type TagId = SchemaTagId
+export type Tag = SchemaTag
+
+// Additional types not defined in schema
+export interface TagWithCount extends SchemaTag {
     count: number
 }

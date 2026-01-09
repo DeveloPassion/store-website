@@ -2,11 +2,11 @@ import { z } from 'zod'
 
 /**
  * Zod schema for tag validation
- * Source of truth for tags.json
+ * SINGLE SOURCE OF TRUTH for tag types and validation
  * Last updated: 2026-01-09
  *
  * This schema validates tags.json entries to ensure data integrity.
- * Keep this schema in sync with the TypeScript types in src/types/tag.ts
+ * TypeScript types are exported from this file and re-exported by src/types/tag.ts
  */
 
 export const TagIdSchema = z.enum([

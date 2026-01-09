@@ -4,11 +4,11 @@ import { TagIdSchema } from './tag.schema.js'
 
 /**
  * Zod schema for product validation
- * Source of truth: src/types/product.ts
- * Last updated: 2026-01-08
+ * SINGLE SOURCE OF TRUTH for product types and validation
+ * Last updated: 2026-01-09
  *
  * This schema validates products.json entries to ensure data integrity.
- * Keep this schema in sync with the TypeScript types in src/types/product.ts
+ * TypeScript types are exported from this file and re-exported by src/types/product.ts
  */
 
 export const PriceTierSchema = z.enum([

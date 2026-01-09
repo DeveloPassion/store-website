@@ -1,34 +1,7 @@
-export type CategoryId =
-    | 'ai-mastery'
-    | 'ai-tools'
-    | 'bundles'
-    | 'coaching'
-    | 'community'
-    | 'content-creation'
-    | 'courses'
-    | 'dev-and-it'
-    | 'free'
-    | 'guides'
-    | 'journaling'
-    | 'kits-and-templates'
-    | 'knowledge-bases'
-    | 'knowledge-management'
-    | 'knowledge-work'
-    | 'learning'
-    | 'obsidian'
-    | 'personal-development'
-    | 'personal-organization'
-    | 'productivity'
-    | 'services'
-    | 'tools'
-    | 'workshops'
+/**
+ * Category types - Re-exported from schema
+ * Single source of truth: src/schemas/category.schema.ts
+ */
 
-export interface Category {
-    id: CategoryId
-    name: string
-    description: string
-    icon?: string
-    color?: string
-    featured: boolean
-    priority: number
-}
+// Re-export types from schema (single source of truth)
+export type { CategoryId, Category } from '@/schemas/category.schema'

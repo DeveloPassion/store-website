@@ -2,11 +2,11 @@ import { z } from 'zod'
 
 /**
  * Zod schema for category validation
- * Source of truth for categories.json
- * Last updated: 2026-01-07
+ * SINGLE SOURCE OF TRUTH for category types and validation
+ * Last updated: 2026-01-09
  *
  * This schema validates categories.json entries to ensure data integrity.
- * Keep this schema in sync with the TypeScript types in src/types/category.ts
+ * TypeScript types are exported from this file and re-exported by src/types/category.ts
  */
 
 export const CategoryIdSchema = z.enum([
