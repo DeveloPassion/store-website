@@ -12,7 +12,6 @@ interface ProductCardEcommerceProps {
 const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, onAddToCart }) => {
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault()
-        e.stopPropagation()
         if (onAddToCart) {
             onAddToCart()
         } else {
@@ -23,7 +22,6 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
 
     const handleWishlist = (e: React.MouseEvent) => {
         e.preventDefault()
-        e.stopPropagation()
         // Wishlist functionality
     }
 
@@ -51,32 +49,33 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
         .map((catId) => categories.find((c) => c.id === catId))
         .filter((cat): cat is Category => cat !== undefined)
 
-    const handleCategoryClick = (e: React.MouseEvent) => {
-        // Stop propagation to prevent card click, but allow navigation
-        e.stopPropagation()
-    }
-
     return (
-        <Link
-            to={`/l/${product.id}`}
-            className='group border-primary/10 bg-primary/5 hover:border-secondary/30 hover:shadow-secondary/10 relative flex flex-col overflow-hidden rounded-xl border transition-all hover:shadow-xl'
-        >
+        <div className='group border-primary/10 bg-primary/5 hover:border-secondary/30 hover:shadow-secondary/10 relative flex flex-col overflow-hidden rounded-xl border transition-all hover:shadow-xl'>
             {/* Image Container */}
             <div className='from-secondary/10 relative aspect-[4/3] overflow-hidden bg-gradient-to-br to-purple-500/10'>
-                {product.coverImage ? (
-                    <img
-                        src={product.coverImage}
-                        alt={product.name}
-                        className='h-full w-full object-cover transition-transform group-hover:scale-105'
-                    />
-                ) : (
-                    <div className='flex h-full w-full items-center justify-center'>
-                        <span className='text-6xl opacity-30'>📦</span>
+                <Link to={`/l/${product.id}`} className='block h-full w-full'>
+                    {product.coverImage ? (
+                        <img
+                            src={product.coverImage}
+                            alt={product.name}
+                            className='h-full w-full object-cover transition-transform group-hover:scale-105'
+                        />
+                    ) : (
+                        <div className='flex h-full w-full items-center justify-center'>
+                            <span className='text-6xl opacity-30'>📦</span>
+                        </div>
+                    )}
+
+                    {/* Quick View Overlay */}
+                    <div className='absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100'>
+                        <span className='text-background rounded-lg bg-white px-4 py-2 text-sm font-semibold'>
+                            Quick View
+                        </span>
                     </div>
-                )}
+                </Link>
 
                 {/* Badges */}
-                <div className='absolute top-3 left-3 flex flex-col gap-2'>
+                <div className='pointer-events-none absolute top-3 left-3 flex flex-col gap-2'>
                     {badge && (
                         <div
                             className={`rounded-full ${badge.color} px-3 py-1 text-xs font-bold text-white shadow-lg`}
@@ -101,18 +100,11 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                 {/* Wishlist Button */}
                 <button
                     onClick={handleWishlist}
-                    className='text-primary/60 hover:text-secondary absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 opacity-0 transition-all group-hover:opacity-100 hover:bg-white'
+                    className='text-primary/60 hover:text-secondary absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/90 opacity-0 transition-all group-hover:opacity-100 hover:bg-white'
                     aria-label='Add to wishlist'
                 >
                     <FaHeart className='h-4 w-4' />
                 </button>
-
-                {/* Quick View Overlay */}
-                <div className='absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100'>
-                    <span className='text-background rounded-lg bg-white px-4 py-2 text-sm font-semibold'>
-                        Quick View
-                    </span>
-                </div>
             </div>
 
             {/* Content */}
@@ -123,7 +115,6 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                         <Link
                             key={category.id}
                             to={`/categories/${category.id}`}
-                            onClick={handleCategoryClick}
                             className='bg-primary/10 text-primary/70 hover:bg-secondary/10 hover:text-secondary rounded px-2 py-0.5 text-xs font-medium transition-colors'
                         >
                             {category.name}
@@ -132,9 +123,11 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                 </div>
 
                 {/* Title */}
-                <h3 className='group-hover:text-secondary mb-2 line-clamp-2 text-base font-bold transition-colors'>
-                    {product.name}
-                </h3>
+                <Link to={`/l/${product.id}`} className='group/title'>
+                    <h3 className='group-hover/title:text-secondary mb-2 line-clamp-2 text-base font-bold transition-colors'>
+                        {product.name}
+                    </h3>
+                </Link>
 
                 {/* Tagline */}
                 <p className='text-primary/60 mb-3 line-clamp-2 flex-1 text-sm'>
@@ -160,14 +153,14 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({ product, on
                     </div>
                     <button
                         onClick={handleAddToCart}
-                        className='bg-secondary hover:bg-secondary/90 flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                        className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                     >
                         <FaShoppingCart className='h-4 w-4' />
                         {isFree ? 'Get' : 'Buy'}
                     </button>
                 </div>
             </div>
-        </Link>
+        </div>
     )
 }
 
