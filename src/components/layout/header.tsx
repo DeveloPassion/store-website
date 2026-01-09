@@ -1,6 +1,14 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link, useLocation } from 'react-router'
-import { FaSearch, FaBars, FaTimes, FaFolder, FaTag, FaStore } from 'react-icons/fa'
+import {
+    FaSearch,
+    FaBars,
+    FaTimes,
+    FaFolder,
+    FaTag,
+    FaStore,
+    FaQuestionCircle
+} from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
@@ -45,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             }
         })
 
-        // Static links: Categories, Tags
+        // Static links: Categories, Tags, Help
         const staticLinks: NavLink[] = [
             {
                 to: '/categories',
@@ -58,6 +66,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 label: 'Tags',
                 icon: <FaTag className='h-5 w-5' />,
                 color: 'text-green-400 bg-green-500/10 hover:bg-green-500/20'
+            },
+            {
+                to: '/help',
+                label: 'Help',
+                icon: <FaQuestionCircle className='h-5 w-5' />,
+                color: 'text-purple-400 bg-purple-500/10 hover:bg-purple-500/20'
             }
         ]
 
