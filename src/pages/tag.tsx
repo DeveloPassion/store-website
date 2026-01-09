@@ -10,7 +10,7 @@ import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import type { Tag, TagId } from '@/types/tag'
-import { sortProductsByPriority } from '@/lib/product-sort'
+import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-sort'
 import { getTagIcon } from '@/lib/tag-icons'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
@@ -88,14 +88,14 @@ const TagPage: React.FC = () => {
             : []
     )
 
-    // Separate featured and non-featured products
+    // Separate featured and non-featured products, sorted intelligently
     const { featuredProducts, productsByCategory } = useMemo(() => {
         if (!tagData) {
             return { featuredProducts: [], productsByCategory: new Map() }
         }
 
-        // Get featured products sorted by priority
-        const featured = sortProductsByPriority(tagData.products.filter((p) => p.featured))
+        // Get featured products sorted intelligently
+        const featured = sortFeaturedProducts(tagData.products.filter((p) => p.featured))
 
         // Group ALL products (including featured) by category
         const categoryMap = new Map<string, Product[]>()
@@ -112,9 +112,9 @@ const TagPage: React.FC = () => {
             })
         })
 
-        // Sort products within each category by priority
+        // Sort products within each category intelligently
         categoryMap.forEach((products, categoryId) => {
-            categoryMap.set(categoryId, sortProductsByPriority(products))
+            categoryMap.set(categoryId, sortProductsIntelligently(products))
         })
 
         return {

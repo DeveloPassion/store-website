@@ -8,7 +8,7 @@ import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
-import { sortProductsByPriority } from '@/lib/product-sort'
+import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-sort'
 import { getCategoryIcon } from '@/lib/category-icons'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
@@ -43,10 +43,10 @@ const CategoryPage: React.FC = () => {
         })
     }, [category])
 
-    // Separate featured and non-featured products
+    // Separate featured and non-featured products, sorted intelligently
     const { featuredProducts, nonFeaturedProducts } = useMemo(() => {
-        const featured = sortProductsByPriority(categoryProducts.filter((p) => p.featured))
-        const nonFeatured = sortProductsByPriority(categoryProducts.filter((p) => !p.featured))
+        const featured = sortFeaturedProducts(categoryProducts.filter((p) => p.featured))
+        const nonFeatured = sortProductsIntelligently(categoryProducts.filter((p) => !p.featured))
 
         return {
             featuredProducts: featured,

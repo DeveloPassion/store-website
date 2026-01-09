@@ -6,7 +6,7 @@ import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import productsData from '@/data/products.json'
 import type { Product, ProductCategory, PriceTier } from '@/types/product'
-import { sortProductsByPriority } from '@/lib/product-sort'
+import { sortProductsIntelligently } from '@/lib/product-sort'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const ProductsPage: React.FC = () => {
@@ -71,9 +71,9 @@ const ProductsPage: React.FC = () => {
         })
     }, [products, searchQuery, selectedCategory, selectedTier, showMostValueOnly])
 
-    // Sort by priority (highest to lowest), with randomization within same priority
+    // Sort intelligently: Featured + Best Value first, Featured next, rest alphabetically by mainCategory
     const sortedProducts = useMemo(() => {
-        return sortProductsByPriority(filteredProducts)
+        return sortProductsIntelligently(filteredProducts)
     }, [filteredProducts])
 
     // Update document title

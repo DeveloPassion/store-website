@@ -120,6 +120,7 @@
     "landingPageUrl": "https://voice-ai.knowii.net",
     "featured": true,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": [
         "30-Day Money-Back Guarantee",

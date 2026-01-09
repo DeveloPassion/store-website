@@ -78,9 +78,25 @@ function generateSitemap(): string {
         priority: '0.9'
     })
 
+    // Add featured page
+    urls.push({
+        loc: `${BASE_URL}/featured`,
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.9'
+    })
+
     // Add most value page
     urls.push({
         loc: `${BASE_URL}/most-value`,
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.9'
+    })
+
+    // Add best sellers page
+    urls.push({
+        loc: `${BASE_URL}/best-sellers`,
         lastmod: today,
         changefreq: 'weekly',
         priority: '0.9'
@@ -168,14 +184,16 @@ function writeSitemap(): void {
     console.log(`  - Homepage: 1 URL`)
     console.log(`  - Products page: 1 URL`)
     console.log(`  - Help page: 1 URL`)
+    console.log(`  - Featured page: 1 URL`)
     console.log(`  - Most value page: 1 URL`)
+    console.log(`  - Best sellers page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
     console.log(`  - Categories page: 1 URL`)
     console.log(`  - Products: ${productsData.length} URLs`)
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
     console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
     console.log(
-        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 6} URLs`
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 8} URLs`
     )
 }
 

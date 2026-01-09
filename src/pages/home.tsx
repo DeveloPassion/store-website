@@ -8,7 +8,11 @@ import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import type { TagId } from '@/types/tag'
-import { sortProductsByPriority } from '@/lib/product-sort'
+import {
+    sortProductsIntelligently,
+    sortFeaturedProducts,
+    sortBestValueProducts
+} from '@/lib/product-sort'
 import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 
@@ -53,21 +57,21 @@ const HomeEcommerce: React.FC = () => {
             })
         }
 
-        // Sort by priority (highest to lowest), with randomization within same priority
-        return sortProductsByPriority(products)
+        // Sort intelligently: Featured + Best Value first, Featured next, rest alphabetically by mainCategory
+        return sortProductsIntelligently(products)
     }, [searchQuery, categoryFilter, decodedTagName])
 
-    // Get featured products, sorted by priority
+    // Get featured products, sorted intelligently
     const featuredProducts = useMemo(() => {
         const featured = (productsData as Product[]).filter((p) => p.featured)
-        const sorted = sortProductsByPriority(featured)
+        const sorted = sortFeaturedProducts(featured)
         return sorted.slice(0, 3)
     }, [])
 
-    // Get most value products, sorted by priority
+    // Get most value products, sorted intelligently
     const mostValueProducts = useMemo(() => {
         const mostValue = (productsData as Product[]).filter((p) => p.mostValue)
-        const sorted = sortProductsByPriority(mostValue)
+        const sorted = sortBestValueProducts(mostValue)
         return sorted.slice(0, 3)
     }, [])
 

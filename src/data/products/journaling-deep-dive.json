@@ -111,6 +111,7 @@
     "notForYou": ["Happy with memory loss", "Prefer reactive", "Won't spend minutes daily"],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": [
         "10+ Years Refined",

@@ -152,6 +152,7 @@
     "dsebastienUrl": "https://www.dsebastien.net/obsidian-starter-kit-v3/",
     "featured": true,
     "mostValue": false,
+    "bestseller": true,
     "status": "active",
     "trustBadges": [
         "30-Day Money-Back Guarantee",

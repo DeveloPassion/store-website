@@ -95,6 +95,7 @@
     "notForYou": ["Don't use AI", "Prefer copy-paste", "Not interested"],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": [
         "Complete Masterclass",

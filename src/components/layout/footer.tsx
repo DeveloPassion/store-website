@@ -108,10 +108,26 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
+                                        to='/featured'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        ⭐ Featured
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
                                         to='/most-value'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         💎 Most Value
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/best-sellers'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        🔥 Best Sellers
                                     </Link>
                                 </li>
                                 {featuredCategories.map((cat) => (

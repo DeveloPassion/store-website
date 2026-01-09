@@ -70,6 +70,7 @@
     "notForYou": ["Don't care about systems", "Prefer ad-hoc"],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": ["100% FREE", "Instant Access", "Comprehensive", "Expert Created"],
     "guarantees": ["Completely free", "Comprehensive", "No credit card"],

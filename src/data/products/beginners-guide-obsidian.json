@@ -80,6 +80,7 @@
     "notForYou": ["Already expert", "Don't use note-taking"],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": ["100% FREE", "Instant Access", "Beginner-Friendly", "Expert Created"],
     "guarantees": ["Completely free", "Step-by-step", "No credit card"],

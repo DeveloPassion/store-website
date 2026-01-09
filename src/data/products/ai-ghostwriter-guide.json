@@ -125,6 +125,7 @@
     ],
     "featured": true,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": [
         "Proven System - Used daily by creator for months",

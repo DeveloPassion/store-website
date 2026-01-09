@@ -1,6 +1,16 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Link, useLocation } from 'react-router'
-import { FaSearch, FaBars, FaTimes, FaFolder, FaTag, FaStore, FaTrophy } from 'react-icons/fa'
+import {
+    FaSearch,
+    FaBars,
+    FaTimes,
+    FaFolder,
+    FaTag,
+    FaStore,
+    FaTrophy,
+    FaFire,
+    FaStar
+} from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
@@ -31,12 +41,28 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             color: 'bg-primary/10 hover:bg-primary/20'
         }
 
+        // Static link: Featured
+        const featuredLink: NavLink = {
+            to: '/featured',
+            label: 'Featured',
+            icon: <FaStar className='h-5 w-5' />,
+            color: 'text-yellow-400 bg-yellow-500/10 hover:bg-yellow-500/20'
+        }
+
         // Static link: Best Value
         const bestValueLink: NavLink = {
             to: '/most-value',
             label: 'Best Value',
             icon: <FaTrophy className='h-5 w-5' />,
             color: 'text-blue-400 bg-blue-500/10 hover:bg-blue-500/20'
+        }
+
+        // Static link: Best Sellers
+        const bestSellersLink: NavLink = {
+            to: '/best-sellers',
+            label: 'Best Sellers',
+            icon: <FaFire className='h-5 w-5' />,
+            color: 'text-orange-400 bg-orange-500/10 hover:bg-orange-500/20'
         }
 
         // Generate featured category links
@@ -70,7 +96,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             }
         ]
 
-        return [allProductsLink, bestValueLink, ...categoryLinks, ...staticLinks]
+        return [
+            allProductsLink,
+            featuredLink,
+            bestValueLink,
+            bestSellersLink,
+            ...categoryLinks,
+            ...staticLinks
+        ]
     }, [featuredCategories])
 
     // Close menu on route change

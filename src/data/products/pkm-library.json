@@ -131,6 +131,7 @@
     ],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": [
         "20+ Years Research - Decades of expertise",

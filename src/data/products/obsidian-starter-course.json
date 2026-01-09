@@ -135,6 +135,7 @@
     ],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": [
         "Complete Training - 2h20 comprehensive video",

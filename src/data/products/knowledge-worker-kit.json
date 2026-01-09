@@ -134,6 +134,7 @@
     ],
     "featured": true,
     "mostValue": true,
+    "bestseller": true,
     "status": "active",
     "trustBadges": [
         "One-Time Payment - €149.99, own forever",

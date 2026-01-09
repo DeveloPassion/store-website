@@ -51,6 +51,7 @@
     "notForYou": ["Not interested in IT", "Prefer text-only"],
     "featured": false,
     "mostValue": false,
+    "bestseller": false,
     "status": "active",
     "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
     "guarantees": ["Comprehensive", "Printable", "Lifetime access"],

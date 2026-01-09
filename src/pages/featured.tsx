@@ -1,28 +1,65 @@
 import { useMemo, useEffect } from 'react'
 import { Link } from 'react-router'
-import { FaTrophy, FaCheckCircle } from 'react-icons/fa'
+import { FaStar, FaCheckCircle, FaRocket } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
-import { sortBestValueProducts } from '@/lib/product-sort'
+import { sortFeaturedProducts } from '@/lib/product-sort'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
-const MostValuePage: React.FC = () => {
+const FeaturedPage: React.FC = () => {
     const products = productsData as Product[]
 
     // Set breadcrumbs
-    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Best Value' }])
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Featured Products' }])
 
-    // Get most value products, sorted intelligently
-    const mostValueProducts = useMemo(() => {
-        const filtered = products.filter((p) => p.mostValue && p.status !== 'archived')
-        return sortBestValueProducts(filtered)
+    // Get featured products, sorted intelligently
+    const featuredProducts = useMemo(() => {
+        const filtered = products.filter((p) => p.featured && p.status !== 'archived')
+        return sortFeaturedProducts(filtered)
     }, [])
 
     useEffect(() => {
-        document.title = 'Most Value Products - Knowledge Forge'
+        document.title = 'Featured Products - Knowledge Forge'
+
+        // Update meta description
+        const metaDescription = document.querySelector('meta[name="description"]')
+        if (metaDescription) {
+            metaDescription.setAttribute(
+                'content',
+                'Discover our handpicked featured products. The best tools, courses, and resources for knowledge workers.'
+            )
+        }
+
+        // Update OG tags
+        const ogTitle = document.querySelector('meta[property="og:title"]')
+        if (ogTitle) {
+            ogTitle.setAttribute('content', 'Featured Products - Knowledge Forge')
+        }
+
+        const ogDescription = document.querySelector('meta[property="og:description"]')
+        if (ogDescription) {
+            ogDescription.setAttribute(
+                'content',
+                'Discover our handpicked featured products. The best tools, courses, and resources for knowledge workers.'
+            )
+        }
+
+        const ogUrl = document.querySelector('meta[property="og:url"]')
+        if (ogUrl) {
+            ogUrl.setAttribute('content', 'https://store.dsebastien.net/featured')
+        }
+
+        // Reset og:image to default for generic pages
+        const ogImage = document.querySelector('meta[property="og:image"]')
+        if (ogImage) {
+            ogImage.setAttribute(
+                'content',
+                'https://store.dsebastien.net/assets/images/social-card.png'
+            )
+        }
     }, [])
 
     return (
@@ -34,42 +71,44 @@ const MostValuePage: React.FC = () => {
 
                     {/* Icon */}
                     <div className='mb-6 flex justify-center'>
-                        <div className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-500/10'>
-                            <FaTrophy className='h-10 w-10 text-blue-500' />
+                        <div className='from-secondary to-secondary/80 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br shadow-lg'>
+                            <FaStar className='h-10 w-10 text-white' />
                         </div>
                     </div>
 
                     <h1 className='mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
-                        Best Value Products
+                        Featured Products
                     </h1>
                     <p className='text-primary/70 mx-auto mb-8 max-w-2xl text-lg sm:text-xl md:text-2xl'>
-                        Get the most bang for your buck. Our carefully curated selection of products
-                        that deliver exceptional value for knowledge workers.
+                        Our handpicked selection of the best tools, courses, and resources for
+                        knowledge workers.
                     </p>
 
-                    {/* Value Stats */}
+                    {/* Stats */}
                     <div className='mb-10 flex flex-wrap justify-center gap-6 sm:gap-10'>
                         <div className='text-center'>
-                            <div className='text-3xl font-bold text-blue-500 sm:text-4xl'>
-                                {mostValueProducts.length}
-                            </div>
-                            <div className='text-primary/60 text-sm'>Curated Picks</div>
-                        </div>
-                        <div className='text-center'>
-                            <div className='text-3xl font-bold text-green-500 sm:text-4xl'>Top</div>
-                            <div className='text-primary/60 text-sm'>Value for Money</div>
-                        </div>
-                        <div className='text-center'>
                             <div className='text-secondary text-3xl font-bold sm:text-4xl'>
+                                {featuredProducts.length}
+                            </div>
+                            <div className='text-primary/60 text-sm'>Featured Products</div>
+                        </div>
+                        <div className='text-center'>
+                            <div className='text-3xl font-bold text-green-500 sm:text-4xl'>
                                 Expert
                             </div>
-                            <div className='text-primary/60 text-sm'>Recommended</div>
+                            <div className='text-primary/60 text-sm'>Curated</div>
+                        </div>
+                        <div className='text-center'>
+                            <div className='text-3xl font-bold text-blue-500 sm:text-4xl'>
+                                4.9/5
+                            </div>
+                            <div className='text-primary/60 text-sm'>Average Rating</div>
                         </div>
                     </div>
                 </div>
             </Section>
 
-            {/* Why Most Value Section */}
+            {/* Why Featured Section */}
             <Section className='bg-primary/5 py-12 sm:py-16'>
                 <div className='mx-auto max-w-[1400px]'>
                     <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
@@ -77,27 +116,27 @@ const MostValuePage: React.FC = () => {
                     </h2>
                     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         <div className='border-primary/10 bg-background rounded-xl border p-6'>
-                            <FaCheckCircle className='mb-4 h-8 w-8 text-blue-500' />
-                            <h3 className='mb-2 text-lg font-bold'>Comprehensive Coverage</h3>
+                            <FaCheckCircle className='text-secondary mb-4 h-8 w-8' />
+                            <h3 className='mb-2 text-lg font-bold'>Handpicked Excellence</h3>
                             <p className='text-primary/70 text-sm'>
-                                Everything you need in one package, eliminating the need for
-                                multiple purchases.
+                                Each featured product is carefully selected based on quality,
+                                effectiveness, and user feedback.
                             </p>
                         </div>
                         <div className='border-primary/10 bg-background rounded-xl border p-6'>
-                            <FaCheckCircle className='mb-4 h-8 w-8 text-blue-500' />
-                            <h3 className='mb-2 text-lg font-bold'>Long-term Value</h3>
+                            <FaStar className='text-secondary mb-4 h-8 w-8' />
+                            <h3 className='mb-2 text-lg font-bold'>Premium Quality</h3>
                             <p className='text-primary/70 text-sm'>
-                                Investments that keep giving back through continuous updates and
-                                support.
+                                Only the best make it to our featured collection - products that
+                                deliver real results.
                             </p>
                         </div>
                         <div className='border-primary/10 bg-background rounded-xl border p-6'>
-                            <FaCheckCircle className='mb-4 h-8 w-8 text-blue-500' />
-                            <h3 className='mb-2 text-lg font-bold'>Best ROI</h3>
+                            <FaRocket className='text-secondary mb-4 h-8 w-8' />
+                            <h3 className='mb-2 text-lg font-bold'>Immediate Impact</h3>
                             <p className='text-primary/70 text-sm'>
-                                Proven to deliver the highest return on investment for knowledge
-                                workers.
+                                Start seeing results quickly with these proven tools and resources
+                                designed for knowledge workers.
                             </p>
                         </div>
                     </div>
@@ -108,23 +147,23 @@ const MostValuePage: React.FC = () => {
             <Section className='py-12 sm:py-16'>
                 <div className='w-full'>
                     <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
-                        Our Top Value Picks
+                        Our Featured Collection
                     </h2>
 
-                    {mostValueProducts.length > 0 ? (
+                    {featuredProducts.length > 0 ? (
                         <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
-                            {mostValueProducts.map((product) => (
+                            {featuredProducts.map((product) => (
                                 <ProductCardEcommerce key={product.id} product={product} />
                             ))}
                         </div>
                     ) : (
                         <div className='py-16 text-center'>
-                            <div className='mb-4 text-5xl'>🏆</div>
+                            <div className='mb-4 text-5xl'>⭐</div>
                             <h3 className='mb-2 text-xl font-semibold'>
-                                Most value products coming soon
+                                Featured products coming soon
                             </h3>
                             <p className='text-primary/60 mb-4'>
-                                We're carefully selecting our best value offerings.
+                                We're carefully selecting our best offerings.
                             </p>
                             <Link
                                 to='/products'
@@ -140,10 +179,12 @@ const MostValuePage: React.FC = () => {
             {/* CTA Section */}
             <Section className='bg-primary/5 py-12 sm:py-16'>
                 <div className='mx-auto max-w-2xl text-center'>
-                    <h2 className='mb-4 text-3xl font-bold sm:text-4xl'>Ready to Get Started?</h2>
+                    <h2 className='mb-4 text-3xl font-bold sm:text-4xl'>
+                        Ready to Transform Your Workflow?
+                    </h2>
                     <p className='text-primary/70 mb-8 text-lg'>
-                        Choose any of our most value products and start transforming your knowledge
-                        work today.
+                        Choose from our featured collection and experience the difference that
+                        quality tools and resources make.
                     </p>
                     <div className='flex flex-col gap-4 sm:flex-row sm:justify-center'>
                         <Link
@@ -165,4 +206,4 @@ const MostValuePage: React.FC = () => {
     )
 }
 
-export default MostValuePage
+export default FeaturedPage
