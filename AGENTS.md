@@ -613,6 +613,166 @@ To use the skill, mention keywords like "category", "categories", "add category"
 - **Cannot remove categories used as mainCategory** (data integrity protection)
 - Color can be any CSS color but hex format `#RRGGBB` is recommended
 
+## Managing Products
+
+Products are managed as individual JSON files with comprehensive metadata (~50 fields). An interactive CLI tool simplifies adding and editing products, especially for taxonomy management (categories and tags) with keyboard-navigable multi-select interfaces.
+
+### Product Data Location
+
+- **Individual Product Files**: `src/data/products/{product-id}.json` (source of truth, 18+ products)
+- **Aggregated File**: `src/data/products.json` (generated at build time, gitignored)
+- **Zod Schema**: `src/schemas/product.schema.ts` (source of truth)
+- **TypeScript Types**: `src/types/product.ts`
+- **Update CLI**: `scripts/update-products.ts` (interactive management tool)
+- **Validation Script**: `scripts/validate-products.ts`
+- **Aggregation Script**: `scripts/aggregate-products.ts`
+
+### Product Management Workflow
+
+**Quick Update (Recommended):**
+
+Use the interactive CLI tool for easy product management:
+
+```bash
+# Interactive mode (prompts for operation)
+npm run update:products
+
+# List products with filters
+npm run update:products -- --operation list
+npm run update:products -- --operation list --featured
+npm run update:products -- --operation list --category guides
+npm run update:products -- --operation list --tag ai
+
+# Add product (guided prompts with keyboard-navigable selection)
+npm run update:products -- --operation add
+
+# Add product (CLI arguments, minimal required fields)
+npm run update:products -- --operation add \
+    --name "Product Name" \
+    --tagline "One-line description" \
+    --price 49.99 \
+    --priceTier standard \
+    --permalink abc123 \
+    --gumroadUrl "https://store.dsebastien.net/l/abc123" \
+    --mainCategory guides \
+    --tags "tag1,tag2,tag3" \
+    --problem "Problem description" \
+    --agitate "Agitation" \
+    --solution "Solution"
+
+# Edit product (interactive with keyboard-navigable category/tag selection)
+npm run update:products -- --operation edit --id product-id
+
+# Edit product (CLI arguments)
+npm run update:products -- --operation edit \
+    --id product-id \
+    --name "New Name" \
+    --price 39.99 \
+    --priority 95
+
+# Remove product (checks cross-references)
+npm run update:products -- --operation remove --id product-id
+```
+
+The update script:
+
+- Provides keyboard-navigable multi-select for categories and tags
+- Supports four operations: list, add, edit, remove
+- Uses inquirer for professional CLI interfaces
+- Validates against Zod schema before saving
+- Checks product cross-references before removal
+- Provides both interactive and CLI argument modes
+
+**Manual Workflow:**
+
+1. **Edit/Create product file** - Modify or create `src/data/products/{product-id}.json`
+2. **Validate changes** - Run `npm run validate:products` (automatically aggregates first)
+3. **Fix errors** - Address any validation issues reported
+4. **Repeat** until validation passes
+
+### Product Schema
+
+- **Schema Definition**: `src/schemas/product.schema.ts` (Zod schema - source of truth, ~50 fields)
+- **TypeScript Types**: `src/types/product.ts` (keep in sync with schema)
+- **Update Script**: `scripts/update-products.ts` (interactive CLI tool with inquirer)
+- **Validation Script**: `scripts/validate-products.ts`
+- **Aggregation Script**: `scripts/aggregate-products.ts`
+
+The Zod schema validates:
+
+- Required fields (id, name, pricing, taxonomy, marketing copy)
+- Enum values (type, priceTier, mainCategory, status)
+- URL formats (gumroadUrl, videoUrl, etc.)
+- Array constraints (minimum items, valid content)
+- Data types and structure
+
+### Product Structure
+
+Products contain approximately 50 fields organized into:
+
+- **Identity** (5): id, permalink, name, tagline, secondaryTagline
+- **Pricing** (6): price, priceDisplay, priceTier, gumroadUrl, variants
+- **Taxonomy** (3): mainCategory, secondaryCategories, tags
+- **Marketing Copy** (9): problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
+- **Content** (8): description, features, benefits, included, testimonialIds, faqIds, targetAudience, perfectFor, notForYou
+- **Media** (5): coverImage, screenshots, videoUrl, demoUrl
+- **Meta/Status** (8): featured, mostValue, bestseller, status, priority, trustBadges, guarantees, crossSellIds
+- **Links** (2): landingPageUrl, dsebastienUrl
+- **SEO** (3): metaTitle, metaDescription, keywords
+
+### When to Use CLI vs. Direct Editing
+
+**Use CLI for:**
+
+- Adding new products (creates structure with validation)
+- Editing taxonomy (categories/tags with keyboard-navigable multi-select)
+- Changing pricing, status, or priority
+- Quick updates to common fields
+- Listing and filtering products
+
+**Use Direct Editing for:**
+
+- Complex marketing copy (problemPoints, agitatePoints, solutionPoints arrays)
+- Adding detailed content (features, benefits, included)
+- Media management (coverImage, screenshots, videoUrl)
+- Cross-references (testimonialIds, faqIds, crossSellIds)
+- SEO metadata (metaTitle, metaDescription, keywords)
+- Advanced fields (variants, statsProof, guarantees)
+
+### Priority Guidelines
+
+- **100**: Featured flagship products
+- **90-95**: Featured products and bundles
+- **80-85**: Premium kits and courses
+- **70-79**: Standard kits, courses, and guides
+- **60-69**: Workshops and tools
+- **50-59**: Coaching and standard products
+- **40-49**: Free resources and tools
+- **30-39**: Community (free tier)
+- **20-29**: Archived products
+
+### Claude Code Skill
+
+A dedicated Claude Code skill is available at `.claude/skills/manage-products.md` that provides:
+
+- Complete schema documentation for all ~50 product fields
+- Workflow guidance for all operations
+- CLI command examples for interactive and argument modes
+- When to use CLI vs. direct editing guidelines
+- Validation workflow and error handling
+
+To use the skill, mention keywords like "product", "products", "add product", "edit product", "validate products", or "update products" in your conversation.
+
+### Important Notes
+
+- Individual product files are source of truth
+- products.json is auto-generated (don't edit directly)
+- Always validate after changes
+- Use kebab-case for product IDs
+- CLI handles common operations, direct editing needed for complex fields (~50 total fields)
+- Existing validation scripts remain unchanged
+- File is NOT gitignored (unlike aggregated products.json which is generated)
+
 ## Development Commands
 
 ```bash
@@ -642,6 +802,12 @@ npm run aggregate:products
 
 # Validate products (automatically aggregates first)
 npm run validate:products
+
+# Update products (interactive with keyboard-navigable multi-select)
+npm run update:products
+
+# Update products (CLI arguments)
+npm run update:products -- --operation <list|add|edit|remove> [options]
 
 # Update promotion banner configuration (interactive)
 npm run update:promotion

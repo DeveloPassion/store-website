@@ -1,12 +1,12 @@
 ---
 skill: manage-products
-description: Manage and validate products with individual JSON files and schema validation
-triggerKeywords: [product, products, add product, edit product, validate products, product schema, product file]
+description: Manage and validate products with interactive CLI and schema validation
+triggerKeywords: [product, products, add product, edit product, validate products, product schema, product file, update products]
 ---
 
 # Product Management Skill
 
-This skill helps you manage products stored as individual JSON files in `src/data/products/` with automatic validation against the Zod schema.
+This skill helps you manage products stored as individual JSON files in `src/data/products/` with an interactive CLI tool featuring keyboard-navigable multi-select interfaces for tags and categories, plus automatic validation against the Zod schema.
 
 ## Product Data Location
 
@@ -14,8 +14,113 @@ This skill helps you manage products stored as individual JSON files in `src/dat
 - **Aggregated File**: `src/data/products.json` (generated at build time, gitignored)
 - **TypeScript Types**: `src/types/product.ts`
 - **Zod Schema**: `src/schemas/product.schema.ts` (source of truth for validation)
+- **Update CLI**: `scripts/update-products.ts` (interactive management tool)
 - **Validation Script**: `scripts/validate-products.ts`
 - **Aggregation Script**: `scripts/aggregate-products.ts`
+
+## Quick Update with Interactive CLI (Recommended)
+
+Use the interactive CLI tool for easy product management with keyboard-navigable interfaces:
+
+### Interactive Mode
+
+```bash
+# Launch interactive mode (prompts for operation)
+npm run update:products
+```
+
+The interactive mode provides:
+- Keyboard-navigable category and tag selection
+- Multi-select interfaces with visual feedback
+- Step-by-step guided prompts
+- Automatic validation before saving
+- Progressive disclosure for complex fields
+
+### CLI Arguments Mode
+
+**List products:**
+```bash
+# List all products (table format)
+npm run update:products -- --operation list
+
+# Filter by featured products
+npm run update:products -- --operation list --featured
+
+# Filter by status
+npm run update:products -- --operation list --status active
+
+# Filter by category or tag
+npm run update:products -- --operation list --category guides
+npm run update:products -- --operation list --tag ai
+
+# JSON output
+npm run update:products -- --operation list --format json
+
+# Detailed output
+npm run update:products -- --operation list --format detailed
+```
+
+**Add product (minimal required fields):**
+```bash
+npm run update:products -- --operation add \
+    --name "Product Name" \
+    --tagline "One-line description" \
+    --price 49.99 \
+    --priceTier standard \
+    --permalink abc123 \
+    --gumroadUrl "https://store.dsebastien.net/l/abc123" \
+    --mainCategory guides \
+    --tags "obsidian,pkm,productivity" \
+    --problem "Problem description" \
+    --agitate "Agitation" \
+    --solution "Solution"
+```
+
+**Edit product:**
+```bash
+# Edit specific fields
+npm run update:products -- --operation edit \
+    --id product-id \
+    --name "New Name" \
+    --price 39.99 \
+    --priority 95
+
+# Edit tags (replaces all)
+npm run update:products -- --operation edit \
+    --id product-id \
+    --tags "tag1,tag2,tag3"
+
+# Edit secondary categories (format: id:distant)
+npm run update:products -- --operation edit \
+    --id product-id \
+    --secondaryCategories "obsidian:false,knowledge-management:true"
+```
+
+**Remove product:**
+```bash
+# Remove product (checks cross-references)
+npm run update:products -- --operation remove --id product-id
+
+# Force remove even if referenced
+npm run update:products -- --operation remove --id product-id --force
+```
+
+## When to Use CLI vs. Direct Editing
+
+### Use CLI for:
+- ✅ Adding new products (creates structure with validation)
+- ✅ Editing taxonomy (categories/tags with keyboard-navigable multi-select)
+- ✅ Changing pricing, status, or priority
+- ✅ Quick updates to common fields
+- ✅ Listing and filtering products
+
+### Use Direct Editing for:
+- ✅ Complex marketing copy (problemPoints, agitatePoints, solutionPoints)
+- ✅ Adding detailed content (features, benefits, included)
+- ✅ Media management (coverImage, screenshots, videoUrl)
+- ✅ Cross-references (testimonialIds, faqIds, crossSellIds)
+- ✅ SEO metadata (metaTitle, metaDescription, keywords)
+- ✅ Advanced fields (variants, statsProof, guarantees)
 
 ## Schema Documentation
 
@@ -88,16 +193,19 @@ Every product must include:
 
 ## Workflow
 
-### Editing Existing Products
+### Adding New Products (Recommended: Use CLI)
 
-1. **Locate the product file** in `src/data/products/{product-id}.json`
-2. **Edit the product data** directly in the individual file
-3. **Run validation** using `npm run validate:products` (automatically aggregates first)
-4. **Fix any errors** reported by the validation script
-5. **Repeat** until validation passes
+**Using Interactive CLI:**
+1. **Run** `npm run update:products`
+2. **Select** "Add new product"
+3. **Follow prompts** for basic information (name, tagline, pricing)
+4. **Use keyboard navigation** to select categories and tags
+5. **Enter marketing copy** (problem, agitate, solution)
+6. **Review and confirm** the product summary
+7. **Edit the file** directly for advanced fields (media, detailed content)
+8. **Validate** with `npm run validate:products`
 
-### Adding New Products
-
+**Using Direct File Creation:**
 1. **Create a new file** in `src/data/products/` named `{product-id}.json`
 2. **Copy structure** from an existing product file as a template
 3. **Fill in all required fields** according to the schema
@@ -105,7 +213,38 @@ Every product must include:
 5. **Fix any errors** and repeat until validation passes
 6. **Commit the new file** to git
 
+### Editing Existing Products
+
+**Using Interactive CLI (for common fields):**
+1. **Run** `npm run update:products`
+2. **Select** "Edit existing product"
+3. **Choose the product** from the list
+4. **Select the section** to edit (basic info, pricing, taxonomy, meta/status)
+5. **Use keyboard navigation** for categories/tags
+6. **Save and validate**
+
+**Using Direct File Editing (for advanced fields):**
+1. **Locate the product file** in `src/data/products/{product-id}.json`
+2. **Edit the product data** directly in the individual file
+3. **Run validation** using `npm run validate:products` (automatically aggregates first)
+4. **Fix any errors** reported by the validation script
+5. **Repeat** until validation passes
+
 ## Commands
+
+### Update Products (Interactive CLI)
+
+```bash
+npm run update:products
+```
+
+Interactive CLI tool for managing products:
+- 📋 List products with filtering
+- ➕ Add new products with guided prompts
+- ✏️  Edit existing products
+- 🗑️  Remove products with cross-reference checking
+- ⌨️  Keyboard-navigable multi-select for categories and tags
+- ✅ Automatic validation before saving
 
 ### Aggregate Products
 
@@ -145,6 +284,14 @@ Priority determines product ordering in listings (0-100):
 
 ### Adding a New Product
 
+**Using CLI (Recommended):**
+```bash
+npm run update:products
+# Select "Add new product"
+# Follow interactive prompts
+```
+
+**Manual Method:**
 1. Copy an existing product as a template
 2. Update all fields with new product data
 3. Ensure all required arrays have at least one item
@@ -153,10 +300,31 @@ Priority determines product ordering in listings (0-100):
 
 ### Editing an Existing Product
 
+**Using CLI for common fields:**
+```bash
+npm run update:products
+# Select "Edit existing product"
+# Choose product and fields to edit
+```
+
+**Manual editing for advanced fields:**
 1. Locate the product by its `id` field
-2. Make your changes
+2. Make your changes directly in the file
 3. Run `npm run validate:products` to verify
 4. Check that URLs are valid and complete
+
+### Listing and Filtering Products
+
+```bash
+# List all products
+npm run update:products -- --operation list
+
+# Filter by category
+npm run update:products -- --operation list --category guides
+
+# Show only featured products
+npm run update:products -- --operation list --featured
+```
 
 ### Validating Before Commit
 

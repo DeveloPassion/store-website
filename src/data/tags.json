@@ -44,15 +44,6 @@
         "featured": false,
         "priority": 28
     },
-    "best-value": {
-        "id": "best-value",
-        "name": "Best Value",
-        "description": "Resources and tools for best value",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 29
-    },
     "bundle": {
         "id": "bundle",
         "name": "Bundle",
@@ -124,15 +115,6 @@
         "color": "#999999",
         "featured": false,
         "priority": 37
-    },
-    "complete-system": {
-        "id": "complete-system",
-        "name": "Complete System",
-        "description": "Resources and tools for complete system",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 38
     },
     "concepts": {
         "id": "concepts",
