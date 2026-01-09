@@ -33,11 +33,11 @@ interface SitemapUrl {
 }
 
 // Read products data
-const productsJsonPath = join(__dirname, '../src/data/products.json')
+const productsJsonPath = join(__dirname, '../../src/data/products.json')
 const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
 // Read categories data
-const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
+const categoriesJsonPath = join(__dirname, '../../src/data/categories.json')
 interface Category {
     id: string
     name: string
@@ -169,7 +169,7 @@ ${urls
 
 // Write sitemap to dist folder
 function writeSitemap(): void {
-    const distDir = join(__dirname, '../dist')
+    const distDir = join(__dirname, '../../dist')
 
     // Create dist directory if it doesn't exist
     if (!existsSync(distDir)) {

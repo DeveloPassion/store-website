@@ -23,11 +23,11 @@ interface Product {
 }
 
 // Load products data
-const productsJsonPath = join(__dirname, '../src/data/products.json')
+const productsJsonPath = join(__dirname, '../../src/data/products.json')
 const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
 // Load categories data
-const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
+const categoriesJsonPath = join(__dirname, '../../src/data/categories.json')
 interface Category {
     id: string
     name: string
@@ -130,6 +130,6 @@ ${categoryProducts
 `
 
 // Write to dist folder
-const distDir = join(__dirname, '../dist')
+const distDir = join(__dirname, '../../dist')
 writeFileSync(join(distDir, 'llms.txt'), content)
 console.log(`✓ llms.txt generated with ${productsData.length} products`)

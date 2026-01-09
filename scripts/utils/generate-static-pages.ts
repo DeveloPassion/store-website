@@ -33,11 +33,11 @@ interface Product {
 }
 
 // Load products data
-const productsJsonPath = join(__dirname, '../src/data/products.json')
+const productsJsonPath = join(__dirname, '../../src/data/products.json')
 const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
 // Load categories data
-const categoriesJsonPath = join(__dirname, '../src/data/categories.json')
+const categoriesJsonPath = join(__dirname, '../../src/data/categories.json')
 interface Category {
     id: string
     name: string
@@ -48,7 +48,7 @@ const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, '
 // Extract all unique tags
 const allTags = Array.from(new Set(productsData.flatMap((product) => product.tags))).sort()
 
-const distDir = join(__dirname, '../dist')
+const distDir = join(__dirname, '../../dist')
 
 // Read the built index.html
 const indexHtml = readFileSync(join(distDir, 'index.html'), 'utf-8')

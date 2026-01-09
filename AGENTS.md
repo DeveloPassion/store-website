@@ -631,7 +631,7 @@ Products are managed as individual JSON files with comprehensive metadata (~50 f
 - **TypeScript Types**: `src/types/product.ts`
 - **Update CLI**: `scripts/update-products.ts` (interactive management tool)
 - **Validation Script**: `scripts/validate-products.ts`
-- **Aggregation Script**: `scripts/aggregate-products.ts`
+- **Aggregation Script**: `scripts/utils/aggregate-products.ts`
 
 ### Product Management Workflow
 
@@ -702,7 +702,7 @@ The update script:
 - **TypeScript Types**: `src/types/product.ts` (keep in sync with schema)
 - **Update Script**: `scripts/update-products.ts` (interactive CLI tool with inquirer)
 - **Validation Script**: `scripts/validate-products.ts`
-- **Aggregation Script**: `scripts/aggregate-products.ts`
+- **Aggregation Script**: `scripts/utils/aggregate-products.ts`
 
 The Zod schema validates:
 

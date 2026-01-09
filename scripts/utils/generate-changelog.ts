@@ -1,6 +1,6 @@
 /**
  * Generates or updates CHANGELOG.md using conventional-changelog.
- * Usage: npx tsx scripts/generate-changelog.ts
+ * Usage: npx tsx scripts/utils/generate-changelog.ts
  */
 
 import { execSync } from 'child_process'
@@ -32,7 +32,7 @@ export function getLatestChangelogEntry(): string {
 }
 
 // Only run if executed directly
-const isMain = process.argv[1]?.endsWith('generate-changelog.ts')
+const isMain = process.argv[1]?.includes('generate-changelog.ts')
 if (isMain) {
     console.log('Generating changelog...')
     generateChangelog()

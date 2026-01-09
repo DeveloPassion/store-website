@@ -9,7 +9,7 @@
  *
  * Usage:
  *   npm run aggregate:products
- *   tsx scripts/aggregate-products.ts
+ *   tsx scripts/utils/aggregate-products.ts
  *
  * Exit codes:
  *   0 - Aggregation successful
@@ -22,8 +22,8 @@ import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
-const OUTPUT_FILE = resolve(__dirname, '../src/data/products.json')
+const PRODUCTS_DIR = resolve(__dirname, '../../src/data/products')
+const OUTPUT_FILE = resolve(__dirname, '../../src/data/products.json')
 
 interface Product {
     id: string

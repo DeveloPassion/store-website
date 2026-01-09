@@ -162,7 +162,7 @@ function main() {
         })
         console.error(
             '\n💡 All tags used in products must have entries in tags.json\n' +
-                '   Run: npx tsx scripts/generate-tags-metadata.ts to add missing tags\n'
+                '   Run: npx tsx scripts/utils/generate-tags-metadata.ts to add missing tags\n'
         )
         process.exit(1)
     }

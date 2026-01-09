@@ -166,7 +166,7 @@ The new process ensures everything is updated before tagging:
 npm run release
 ```
 
-This runs the `scripts/release.sh` script which handles all version updates before creating the tag.
+This runs the `scripts/utils/release.sh` script which handles all version updates before creating the tag.
 
 ## GitHub Workflows
 

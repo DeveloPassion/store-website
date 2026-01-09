@@ -16,7 +16,7 @@ This skill helps you manage products stored as individual JSON files in `src/dat
 - **Zod Schema**: `src/schemas/product.schema.ts` (source of truth for validation)
 - **Update CLI**: `scripts/update-products.ts` (interactive management tool)
 - **Validation Script**: `scripts/validate-products.ts`
-- **Aggregation Script**: `scripts/aggregate-products.ts`
+- **Aggregation Script**: `scripts/utils/aggregate-products.ts`
 
 ## Quick Update with Interactive CLI (Recommended)
 
