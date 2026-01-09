@@ -1,3 +1,9 @@
+## [0.1.0](https://github.com/DeveloPassion/store-website/compare/0.0.9...0.1.0) (2026-01-09)
+
+### Features
+
+* **all:** improved header icons size ([3f6818b](https://github.com/DeveloPassion/store-website/commit/3f6818b7a7a547b31d8a31ffc70abcb1f4729f81))
+* **all:** made pills clickable ([c8ad759](https://github.com/DeveloPassion/store-website/commit/c8ad759bd6f7a7300b926389716f952a01dd2c00))
 ## [0.0.9](https://github.com/DeveloPassion/store-website/compare/0.0.8...0.0.9) (2026-01-09)
 
 ### Features
