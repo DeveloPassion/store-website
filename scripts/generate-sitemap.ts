@@ -62,6 +62,14 @@ function generateSitemap(): string {
         priority: '1.0'
     })
 
+    // Add products page
+    urls.push({
+        loc: `${BASE_URL}/products`,
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.9'
+    })
+
     // Add help page
     urls.push({
         loc: `${BASE_URL}/help`,
@@ -150,6 +158,7 @@ function writeSitemap(): void {
     writeFileSync(sitemapPath, sitemap)
     console.log(`✓ Sitemap generated: ${sitemapPath}`)
     console.log(`  - Homepage: 1 URL`)
+    console.log(`  - Products page: 1 URL`)
     console.log(`  - Help page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
     console.log(`  - Categories page: 1 URL`)
@@ -157,7 +166,7 @@ function writeSitemap(): void {
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
     console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
     console.log(
-        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 4} URLs`
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 5} URLs`
     )
 }
 
