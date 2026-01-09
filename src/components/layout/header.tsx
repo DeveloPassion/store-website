@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     const menuLinks: NavLink[] = useMemo(() => {
         // Static link: All Products
         const allProductsLink: NavLink = {
-            to: '/',
+            to: '/products',
             label: 'All Products',
             icon: <FaStore className='h-5 w-5' />,
             color: 'bg-primary/10 hover:bg-primary/20'

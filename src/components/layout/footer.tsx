@@ -95,6 +95,14 @@ const Footer: React.FC = () => {
                                         to='/'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
+                                        Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/products'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
                                         All Products
                                     </Link>
                                 </li>
