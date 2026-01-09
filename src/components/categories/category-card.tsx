@@ -1,6 +1,5 @@
-import { useMemo } from 'react'
 import { Link } from 'react-router'
-import { getCategoryIcon } from '@/lib/category-icons'
+import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { FaStar } from 'react-icons/fa'
 import type { Category } from '@/types/category'
 
@@ -17,8 +16,6 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
     showFeaturedBadge = false,
     variant = 'detailed'
 }) => {
-    const IconComponent = useMemo(() => getCategoryIcon(category.icon), [category.icon])
-
     if (variant === 'simple') {
         // Simple variant for homepage
         return (
@@ -31,16 +28,18 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
                         : undefined
                 }}
             >
-                {IconComponent && (
+                {category.icon && (
                     <div
                         className='mb-3 flex h-16 w-16 items-center justify-center rounded-lg'
                         style={{
                             backgroundColor: category.color ? `${category.color}20` : undefined
                         }}
                     >
-                        <div style={{ color: category.color }}>
-                            <IconComponent className='h-8 w-8' />
-                        </div>
+                        <DynamicIcon
+                            iconName={category.icon}
+                            className='h-8 w-8'
+                            style={{ color: category.color }}
+                        />
                     </div>
                 )}
                 <div className='group-hover:text-secondary text-lg font-bold'>{category.name}</div>
@@ -69,7 +68,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
 
             {/* Icon and Title */}
             <div className='flex items-center gap-4'>
-                {IconComponent && (
+                {category.icon && (
                     <div
                         className='flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg'
                         style={{
@@ -78,9 +77,11 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
                                 : 'rgba(255, 255, 255, 0.1)'
                         }}
                     >
-                        <div style={{ color: category.color }}>
-                            <IconComponent className='h-6 w-6' />
-                        </div>
+                        <DynamicIcon
+                            iconName={category.icon}
+                            className='h-6 w-6'
+                            style={{ color: category.color }}
+                        />
                     </div>
                 )}
                 <h3 className='group-hover:text-secondary text-xl font-bold transition-colors'>

@@ -11,45 +11,8 @@ import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import type { Tag, TagId } from '@/types/tag'
 import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-sort'
-import { getTagIcon } from '@/lib/tag-icons'
+import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
-
-// Icon mapping for categories
-import {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare
-} from 'react-icons/fa'
-import { SiObsidian } from 'react-icons/si'
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare,
-    SiObsidian
-}
 
 const TagPage: React.FC = () => {
     const { tagId } = useParams<{ tagId: string }>()
@@ -176,9 +139,6 @@ const TagPage: React.FC = () => {
         return undefined
     }, [tagId, tagData, navigate])
 
-    // Prepare icon component (before early return to satisfy Rules of Hooks)
-    const IconComponent = useMemo(() => getTagIcon(tagData?.icon), [tagData?.icon])
-
     // Handle 404
     if (!tagId || !tagData) {
         return (
@@ -207,7 +167,7 @@ const TagPage: React.FC = () => {
                 <div className='w-full'>
                     <Breadcrumb />
                     <div className='flex items-center gap-4'>
-                        {IconComponent && (
+                        {tagData.icon && (
                             <div
                                 className='flex h-14 w-14 items-center justify-center rounded-full'
                                 style={{
@@ -216,9 +176,11 @@ const TagPage: React.FC = () => {
                                         : undefined
                                 }}
                             >
-                                <div style={{ color: tagData.color }}>
-                                    <IconComponent className='h-7 w-7' />
-                                </div>
+                                <DynamicIcon
+                                    iconName={tagData.icon}
+                                    className='h-7 w-7'
+                                    style={{ color: tagData.color }}
+                                />
                             </div>
                         )}
                         <div>
@@ -256,20 +218,20 @@ const TagPage: React.FC = () => {
                 const category = categories.find((c) => c.id === categoryId)
                 if (!category) return null
 
-                const IconComponent = category.icon ? iconMap[category.icon] : undefined
-
                 return (
                     <Section key={categoryId} className='py-12 sm:py-16'>
                         <div className='w-full'>
                             <div className='mb-8 flex items-center gap-3'>
-                                {IconComponent && (
+                                {category.icon && (
                                     <div
                                         className='flex h-12 w-12 items-center justify-center rounded-lg'
                                         style={{ backgroundColor: `${category.color}20` }}
                                     >
-                                        <div style={{ color: category.color }}>
-                                            <IconComponent className='h-6 w-6' />
-                                        </div>
+                                        <DynamicIcon
+                                            iconName={category.icon}
+                                            className='h-6 w-6'
+                                            style={{ color: category.color }}
+                                        />
                                     </div>
                                 )}
                                 <div>

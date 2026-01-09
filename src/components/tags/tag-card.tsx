@@ -1,6 +1,5 @@
-import { useMemo } from 'react'
 import { Link } from 'react-router'
-import { getTagIcon } from '@/lib/tag-icons'
+import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { FaStar } from 'react-icons/fa'
 import type { Tag } from '@/types/tag'
 
@@ -17,8 +16,6 @@ export const TagCard: React.FC<TagCardProps> = ({
     showFeaturedBadge = false,
     variant = 'detailed'
 }) => {
-    const IconComponent = useMemo(() => getTagIcon(tag.icon), [tag.icon])
-
     if (variant === 'simple') {
         // Simple variant for homepage
         return (
@@ -31,16 +28,18 @@ export const TagCard: React.FC<TagCardProps> = ({
                         : undefined
                 }}
             >
-                {IconComponent && (
+                {tag.icon && (
                     <div
                         className='mb-3 flex h-16 w-16 items-center justify-center rounded-lg'
                         style={{
                             backgroundColor: tag.color ? `${tag.color}20` : undefined
                         }}
                     >
-                        <div style={{ color: tag.color }}>
-                            <IconComponent className='h-8 w-8' />
-                        </div>
+                        <DynamicIcon
+                            iconName={tag.icon}
+                            className='h-8 w-8'
+                            style={{ color: tag.color }}
+                        />
                     </div>
                 )}
                 <div className='group-hover:text-secondary text-lg font-bold'>{tag.name}</div>
@@ -69,7 +68,7 @@ export const TagCard: React.FC<TagCardProps> = ({
 
             {/* Icon and Title */}
             <div className='flex items-center gap-4'>
-                {IconComponent && (
+                {tag.icon && (
                     <div
                         className='flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg'
                         style={{
@@ -78,9 +77,11 @@ export const TagCard: React.FC<TagCardProps> = ({
                                 : 'rgba(255, 255, 255, 0.1)'
                         }}
                     >
-                        <div style={{ color: tag.color }}>
-                            <IconComponent className='h-6 w-6' />
-                        </div>
+                        <DynamicIcon
+                            iconName={tag.icon}
+                            className='h-6 w-6'
+                            style={{ color: tag.color }}
+                        />
                     </div>
                 )}
                 <h3 className='group-hover:text-secondary text-xl font-bold transition-colors'>

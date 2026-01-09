@@ -9,7 +9,7 @@ import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-sort'
-import { getCategoryIcon } from '@/lib/category-icons'
+import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const CategoryPage: React.FC = () => {
@@ -107,8 +107,6 @@ const CategoryPage: React.FC = () => {
         return undefined
     }, [categoryId, category, navigate])
 
-    // Prepare icon component (before early return to satisfy Rules of Hooks)
-    const IconComponent = useMemo(() => getCategoryIcon(category?.icon), [category?.icon])
     const totalProducts = categoryProducts.length
 
     // Handle 404
@@ -139,14 +137,16 @@ const CategoryPage: React.FC = () => {
                 <div className='w-full'>
                     <Breadcrumb />
                     <div className='flex items-start gap-4'>
-                        {IconComponent && (
+                        {category.icon && (
                             <div
                                 className='flex h-14 w-14 items-center justify-center rounded-full'
                                 style={{ backgroundColor: `${category.color}20` }}
                             >
-                                <div style={{ color: category.color }}>
-                                    <IconComponent className='h-7 w-7' />
-                                </div>
+                                <DynamicIcon
+                                    iconName={category.icon}
+                                    className='h-7 w-7'
+                                    style={{ color: category.color }}
+                                />
                             </div>
                         )}
                         <div className='flex-1'>
