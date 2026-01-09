@@ -10,6 +10,7 @@ import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import { sortProductsByPriority } from '@/lib/product-sort'
 import { getCategoryIcon } from '@/lib/category-icons'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const CategoryPage: React.FC = () => {
     const { categoryId } = useParams<{ categoryId: string }>()
@@ -20,6 +21,17 @@ const CategoryPage: React.FC = () => {
     const category = useMemo(() => {
         return categories.find((c) => c.id === categoryId)
     }, [categoryId, categories])
+
+    // Set breadcrumbs
+    useSetBreadcrumbs(
+        category
+            ? [
+                  { label: 'Home', href: '/' },
+                  { label: 'Categories', href: '/categories' },
+                  { label: category.name }
+              ]
+            : []
+    )
 
     // Get products for this category (matches mainCategory or any secondaryCategory)
     const categoryProducts = useMemo(() => {

@@ -7,9 +7,13 @@ import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { sortProductsByPriority } from '@/lib/product-sort'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const MostValuePage: React.FC = () => {
     const products = productsData as Product[]
+
+    // Set breadcrumbs
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Best Value' }])
 
     // Get most value products
     const mostValueProducts = useMemo(() => {

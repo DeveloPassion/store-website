@@ -7,6 +7,7 @@ import { Breadcrumb } from '@/components/ui/breadcrumb'
 import productsData from '@/data/products.json'
 import type { Product, ProductCategory, PriceTier } from '@/types/product'
 import { sortProductsByPriority } from '@/lib/product-sort'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const ProductsPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -16,6 +17,9 @@ const ProductsPage: React.FC = () => {
     const [showFilters, setShowFilters] = useState(false)
 
     const products = productsData as Product[]
+
+    // Set breadcrumbs
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Products' }])
 
     // Get unique values for filters
     const categories = Array.from(

@@ -13,10 +13,14 @@ import {
     getFeaturedTagsSorted,
     getNonFeaturedTagsSorted
 } from '@/lib/tag-utils'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const TagsPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchQuery = searchParams.get('q') || ''
+
+    // Set breadcrumbs
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Tags' }])
 
     // Set page title and meta tags
     useEffect(() => {

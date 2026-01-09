@@ -9,6 +9,7 @@ import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import { sortCategoriesByPriority } from '@/lib/category-utils'
 import { CategoryCard } from '@/components/categories/category-card'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 export interface CategoryData extends Category {
     count: number
@@ -18,6 +19,9 @@ const CategoriesPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchQuery = searchParams.get('q') || ''
     const categories = categoriesData as Category[]
+
+    // Set breadcrumbs
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Categories' }])
 
     // Set page title and meta tags
     useEffect(() => {

@@ -12,6 +12,7 @@ import type { Category } from '@/types/category'
 import type { Tag, TagId } from '@/types/tag'
 import { sortProductsByPriority } from '@/lib/product-sort'
 import { getTagIcon } from '@/lib/tag-icons'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 // Icon mapping for categories
 import {
@@ -75,6 +76,17 @@ const TagPage: React.FC = () => {
             products: tagProducts
         }
     }, [tagId])
+
+    // Set breadcrumbs
+    useSetBreadcrumbs(
+        tagData
+            ? [
+                  { label: 'Home', href: '/' },
+                  { label: 'Tags', href: '/tags' },
+                  { label: tagData.name }
+              ]
+            : []
+    )
 
     // Separate featured and non-featured products
     const { featuredProducts, productsByCategory } = useMemo(() => {

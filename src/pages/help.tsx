@@ -2,8 +2,12 @@ import { useEffect } from 'react'
 import { FaQuestionCircle, FaEnvelope, FaBook, FaUndo, FaFileInvoice } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const HelpPage: React.FC = () => {
+    // Set breadcrumbs
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Help' }])
+
     // Set page title and meta tags
     useEffect(() => {
         document.title = 'Help - Knowledge Forge'

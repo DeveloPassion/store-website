@@ -11,6 +11,7 @@ import ProductFAQ from '@/components/products/product-faq'
 import ProductCTA from '@/components/products/product-cta'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
+import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const ProductPage: React.FC = () => {
     const { productSlug } = useParams<{ productSlug: string }>()
@@ -18,6 +19,17 @@ const ProductPage: React.FC = () => {
 
     // Find product by slug (id field in JSON)
     const product = (productsData as Product[]).find((p) => p.id === productSlug)
+
+    // Set breadcrumbs
+    useSetBreadcrumbs(
+        product
+            ? [
+                  { label: 'Home', href: '/' },
+                  { label: 'Products', href: '/products' },
+                  { label: product.name }
+              ]
+            : []
+    )
 
     // Update document title and meta tags
     useEffect(() => {
