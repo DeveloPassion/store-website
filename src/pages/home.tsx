@@ -7,6 +7,7 @@ import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
+import type { TagId } from '@/types/tag'
 import { sortProductsByPriority } from '@/lib/product-sort'
 import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { CategoryCard } from '@/components/categories/category-card'
@@ -35,7 +36,7 @@ const HomeEcommerce: React.FC = () => {
 
         // Apply tag filter (from URL route)
         if (decodedTagName) {
-            products = products.filter((p) => p.tags.includes(decodedTagName))
+            products = products.filter((p) => p.tags.includes(decodedTagName as TagId))
         }
 
         // Apply category filter

@@ -33,10 +33,6 @@ interface ValidationError {
     errors: string[]
 }
 
-function normalizeTagId(tag: string): string {
-    return tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}
-
 function main() {
     console.log('🔍 Validating tags.json...\n')
     console.log(`Reading: ${TAGS_FILE}\n`)
@@ -93,34 +89,35 @@ function main() {
 
     console.log(`✅ All ${Object.keys(result.data).length} tags passed schema validation!\n`)
 
-    // Validate that all product tags have metadata entries
-    console.log('🔍 Checking product tags against metadata...\n')
+    // Validate that all product tags are valid TagIds (products now use TagId[] directly)
+    console.log('🔍 Checking product tags against valid TagIds...\n')
 
-    const allProductTags = new Set<string>()
-    productsData.forEach((product: { tags: string[] }) => {
-        product.tags.forEach((tag: string) => {
-            const normalized = normalizeTagId(tag)
-            allProductTags.add(normalized)
+    const validTagIds = new Set(Object.keys(result.data))
+    const invalidTags: Array<{ productId: string; tagId: string }> = []
+
+    productsData.forEach((product: { id: string; tags: string[] }) => {
+        product.tags.forEach((tagId: string) => {
+            if (!validTagIds.has(tagId)) {
+                invalidTags.push({ productId: product.id, tagId })
+            }
         })
     })
 
-    const missingMetadata: string[] = []
-    allProductTags.forEach((tag) => {
-        if (!result.data[tag]) {
-            missingMetadata.push(tag)
-        }
-    })
-
-    if (missingMetadata.length > 0) {
-        console.error(`❌ ${missingMetadata.length} product tag(s) missing metadata:\n`)
-        missingMetadata.forEach((tag) => console.error(`  • ${tag}`))
+    if (invalidTags.length > 0) {
+        console.error(`❌ ${invalidTags.length} invalid product tag(s) found:\n`)
+        invalidTags.forEach(({ productId, tagId }) => {
+            console.error(`  Product: ${productId}`)
+            console.error(`    Invalid TagId: "${tagId}"`)
+            console.error(`    → Tag not found in tags.json!\n`)
+        })
         console.error(
-            '\n💡 Run: npx tsx scripts/generate-tags-metadata.ts to regenerate tags.json\n'
+            '\n💡 All tags used in products must have entries in tags.json\n' +
+                '   Run: npx tsx scripts/generate-tags-metadata.ts to add missing tags\n'
         )
         process.exit(1)
     }
 
-    console.log('✅ All product tags have metadata entries!\n')
+    console.log('✅ All product tags are valid TagIds!\n')
 
     // Display summary
     const featured = Object.values(result.data).filter((t) => t.featured)

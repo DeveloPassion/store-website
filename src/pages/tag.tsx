@@ -8,9 +8,8 @@ import categoriesData from '@/data/categories.json'
 import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
-import type { Tag } from '@/types/tag'
+import type { Tag, TagId } from '@/types/tag'
 import { sortProductsByPriority } from '@/lib/product-sort'
-import { normalizeTagId } from '@/lib/tag-utils'
 import { getTagIcon } from '@/lib/tag-icons'
 
 // Icon mapping for categories
@@ -60,16 +59,14 @@ const TagPage: React.FC = () => {
         if (!tagId) return null
 
         const products = productsData as Product[]
-        const tagsMetadata = tagsData as Record<string, Tag>
+        const tagsMetadata = tagsData as Record<TagId, Tag>
 
-        // Look up tag metadata by normalized ID
-        const tagMetadata = tagsMetadata[tagId]
+        // Look up tag metadata - tagId from URL is already a TagId
+        const tagMetadata = tagsMetadata[tagId as TagId]
         if (!tagMetadata) return null
 
-        // Find all products with this tag (by matching normalized tag strings)
-        const tagProducts = products.filter((product) =>
-            product.tags.some((tag) => normalizeTagId(tag) === tagId)
-        )
+        // Find all products with this tag (products now use TagId[] directly)
+        const tagProducts = products.filter((product) => product.tags.includes(tagId as TagId))
 
         return {
             ...tagMetadata,

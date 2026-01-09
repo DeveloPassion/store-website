@@ -3,17 +3,102 @@ import { z } from 'zod'
 /**
  * Zod schema for tag validation
  * Source of truth for tags.json
- * Last updated: 2026-01-08
+ * Last updated: 2026-01-09
  *
  * This schema validates tags.json entries to ensure data integrity.
  * Keep this schema in sync with the TypeScript types in src/types/tag.ts
  */
 
+export const TagIdSchema = z.enum([
+    '1-on-1',
+    'ai',
+    'ai-assistants',
+    'ai-integration',
+    'ai-prompts',
+    'all-products',
+    'automation',
+    'beginner',
+    'best-value',
+    'bundle',
+    'career-development',
+    'chatgpt',
+    'checklist',
+    'clarity',
+    'claude',
+    'coaching',
+    'community',
+    'complete-system',
+    'concepts',
+    'consultation',
+    'content-creation',
+    'course',
+    'courses',
+    'curated',
+    'design-thinking',
+    'directory',
+    'focus',
+    'free-guide',
+    'free-resource',
+    'getting-started',
+    'ghostwriting',
+    'goals',
+    'gtd',
+    'habits',
+    'ikigai',
+    'interstitial-journaling',
+    'it-fundamentals',
+    'johnny-decimal',
+    'journaling',
+    'knowledge-management',
+    'knowledge-work',
+    'lead-magnet',
+    'learning',
+    'life-design',
+    'lifetime-access',
+    'llms',
+    'markdown',
+    'master-prompts',
+    'mcp',
+    'mindfulness',
+    'model-context-protocol',
+    'note-taking',
+    'obsidian',
+    'offline',
+    'para',
+    'para-method',
+    'periodic-reviews',
+    'personal-brand',
+    'personal-coaching',
+    'personal-knowledge-management',
+    'personal-manifesto',
+    'personal-organization',
+    'pkm',
+    'privacy',
+    'productivity',
+    'programming',
+    'prompt-engineering',
+    'reference',
+    'resources',
+    'routines',
+    'second-brain',
+    'smart-goals',
+    'speech-recognition',
+    'system-building',
+    'systems',
+    'templates',
+    'time-management',
+    'tools',
+    'values',
+    'visual-learning',
+    'voice-to-text',
+    'wall-chart',
+    'writing',
+    'zen-productivity',
+    'zettelkasten'
+])
+
 export const TagSchema = z.object({
-    id: z
-        .string()
-        .min(1, 'Tag id is required')
-        .regex(/^[a-z0-9-]+$/, 'Tag id must be lowercase with hyphens only'),
+    id: TagIdSchema,
     name: z.string().min(1, 'Tag name is required'),
     description: z.string().min(1, 'Tag description is required'),
     icon: z.string().optional(),
@@ -25,8 +110,9 @@ export const TagSchema = z.object({
     priority: z.number().int().min(1)
 })
 
-export const TagsMapSchema = z.record(z.string(), TagSchema)
+export const TagsMapSchema = z.record(TagIdSchema, TagSchema)
 
 // Export TypeScript types derived from Zod schemas
+export type TagId = z.infer<typeof TagIdSchema>
 export type Tag = z.infer<typeof TagSchema>
 export type TagsMap = z.infer<typeof TagsMapSchema>

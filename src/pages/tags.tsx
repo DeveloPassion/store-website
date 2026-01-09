@@ -6,7 +6,7 @@ import { TagCard } from '@/components/tags/tag-card'
 import productsData from '@/data/products.json'
 import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
-import type { Tag, TagWithCount } from '@/types/tag'
+import type { Tag, TagId, TagWithCount } from '@/types/tag'
 import {
     buildTagsWithCounts,
     getFeaturedTagsSorted,
@@ -20,7 +20,7 @@ const TagsPage: React.FC = () => {
     // Build tags with counts and split into featured/non-featured
     const { featuredTags, nonFeaturedTags, allTagsCount } = useMemo(() => {
         const products = productsData as Product[]
-        const tagsMetadata = tagsData as Record<string, Tag>
+        const tagsMetadata = tagsData as Record<TagId, Tag>
         const allTagsWithCounts = buildTagsWithCounts(products, tagsMetadata)
 
         return {

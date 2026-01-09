@@ -1,4 +1,5 @@
 import type { CategoryId } from './category'
+import type { TagId } from './tag'
 
 export type PriceTier = 'free' | 'budget' | 'standard' | 'premium' | 'enterprise' | 'subscription'
 
@@ -38,7 +39,7 @@ export interface Product {
     // Taxonomy (multi-dimensional filtering)
     mainCategory: ProductCategory
     secondaryCategories: SecondaryCategory[]
-    tags: string[]
+    tags: TagId[]
 
     // Marketing Copy (PAS Framework)
     problem: string // Pain point user faces

@@ -1,40 +1,20 @@
-import type { Tag, TagWithCount } from '@/types/tag'
+import type { Tag, TagId, TagWithCount } from '@/types/tag'
 import type { Product } from '@/types/product'
 
 /**
- * Normalize tag string to ID format (lowercase, hyphens)
- */
-export function normalizeTagId(tag: string): string {
-    return tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}
-
-/**
- * Get tag metadata by tag string (normalizes before lookup)
- * Returns null if no metadata found
- */
-export function getTagMetadata(tagString: string, tagsMetadata: Record<string, Tag>): Tag | null {
-    const normalized = normalizeTagId(tagString)
-    return tagsMetadata[normalized] || null
-}
-
-/**
  * Build tag data with product counts from products array
- * Only includes tags that have metadata entries
+ * Products now use TagId[] directly, and tags.json is the source of truth
  */
 export function buildTagsWithCounts(
     products: Product[],
-    tagsMetadata: Record<string, Tag>
+    tagsMetadata: Record<TagId, Tag>
 ): TagWithCount[] {
-    const tagCountMap = new Map<string, number>()
+    const tagCountMap = new Map<TagId, number>()
 
     // Count products per tag
     products.forEach((product) => {
-        product.tags.forEach((tag) => {
-            const normalized = normalizeTagId(tag)
-            // Only count tags that have metadata
-            if (tagsMetadata[normalized]) {
-                tagCountMap.set(normalized, (tagCountMap.get(normalized) || 0) + 1)
-            }
+        product.tags.forEach((tagId) => {
+            tagCountMap.set(tagId, (tagCountMap.get(tagId) || 0) + 1)
         })
     })
 

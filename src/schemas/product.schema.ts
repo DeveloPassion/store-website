@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { CategoryIdSchema } from './category.schema.js'
+import { TagIdSchema } from './tag.schema.js'
 
 /**
  * Zod schema for product validation
@@ -68,7 +69,7 @@ export const ProductSchema = z.object({
     // Taxonomy (multi-dimensional filtering)
     mainCategory: ProductCategorySchema,
     secondaryCategories: z.array(SecondaryCategorySchema),
-    tags: z.array(z.string()).min(1, 'At least one tag is required'),
+    tags: z.array(TagIdSchema).min(1, 'At least one tag is required'),
 
     // Marketing Copy (PAS Framework)
     problem: z.string().min(1, 'Problem statement is required'),
