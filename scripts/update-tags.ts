@@ -53,7 +53,6 @@ import {
 } from './utils/cli-display.js'
 import {
     FeaturedItem,
-    FeaturedStats,
     RenumberConfig,
     calculateFeaturedStats,
     autoRenumberPriorities,
@@ -62,7 +61,6 @@ import {
     validateFeaturedOperation,
     displayFeaturedSummary,
     displayReorderList,
-    showBulkOperationSummary,
     showRenumberComparison
 } from './utils/featured-manager.js'
 import inquirer from 'inquirer'
@@ -1008,7 +1006,7 @@ async function toggleFeaturedStatus(): Promise<void> {
 
 // Sub-operation: Reorder featured items
 async function reorderFeatured(): Promise<void> {
-    let items = loadFeaturedData()
+    const items = loadFeaturedData()
     let featuredItems = items.filter((i) => i.featured).sort((a, b) => a.priority - b.priority)
 
     if (featuredItems.length < 2) {

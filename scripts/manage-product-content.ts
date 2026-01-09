@@ -18,6 +18,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
+import { createInterface } from 'readline'
 import inquirer from 'inquirer'
 import { select } from '@inquirer/prompts'
 import { FAQsArraySchema } from '../src/schemas/faq.schema.js'
@@ -117,8 +118,7 @@ function showSectionHeader(section: string): void {
  * Prompt for confirmation
  */
 function prompt(question: string): Promise<string> {
-    const readline = require('readline')
-    const rl = readline.createInterface({
+    const rl = createInterface({
         input: process.stdin,
         output: process.stdout
     })
@@ -189,6 +189,32 @@ function getProductName(productId: string): string {
     } catch {
         return productId
     }
+}
+
+/**
+ * Generate a random alphanumeric string
+ */
+function generateRandomString(length: number = 8): string {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    let result = ''
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length))
+    }
+    return result
+}
+
+/**
+ * Generate FAQ ID with product prefix
+ */
+function generateFaqId(productId: string): string {
+    return `${productId}-faq-${generateRandomString(8)}`
+}
+
+/**
+ * Generate testimonial ID with product prefix
+ */
+function generateTestimonialId(productId: string): string {
+    return `${productId}-testimonial-${generateRandomString(8)}`
 }
 
 // ============================================================================
@@ -292,7 +318,7 @@ async function manageFaqs(productId: string): Promise<void> {
                     type: 'input',
                     name: 'id',
                     message: 'FAQ ID:',
-                    default: `faq-${Date.now()}`,
+                    default: generateFaqId(productId),
                     validate: (input) => {
                         if (!input) return 'ID is required'
                         if (faqs.some((f) => f.id === input)) return 'ID already exists'
@@ -528,7 +554,7 @@ async function manageTestimonials(productId: string): Promise<void> {
                     type: 'input',
                     name: 'id',
                     message: 'Testimonial ID:',
-                    default: `testimonial-${Date.now()}`,
+                    default: generateTestimonialId(productId),
                     validate: (input) => {
                         if (!input) return 'ID is required'
                         if (testimonials.some((t) => t.id === input)) return 'ID already exists'

@@ -5,7 +5,7 @@
  * Provides reusable functions for both CLIs to ensure consistent behavior.
  */
 
-import { colors, showSeparator, showWarning, showSuccess, showError } from './cli-display.js'
+import { colors, showSeparator, showWarning, showSuccess } from './cli-display.js'
 
 /**
  * Common interface for featured items (tags or categories)
@@ -353,9 +353,8 @@ export function showRenumberComparison(
     console.log(`\n${colors.bright}${colors.cyan}Renumbering Preview${colors.reset}`)
     showSeparator()
 
-    // Create maps for easy lookup
+    // Create map for easy lookup
     const beforeMap = new Map(beforeItems.map((item) => [item.id, item.priority]))
-    const afterMap = new Map(afterItems.map((item) => [item.id, item.priority]))
 
     // Find items with changed priorities
     const changedItems = afterItems.filter((item) => {
