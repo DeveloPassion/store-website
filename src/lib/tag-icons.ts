@@ -1,22 +1,18 @@
-import { FaTag, FaRobot, FaBrain, FaRocket, FaFileAlt, FaPen, FaBookOpen } from 'react-icons/fa'
-import { SiObsidian } from 'react-icons/si'
+/**
+ * Tag icon utilities
+ * Uses centralized icon registry from icon-registry.ts
+ */
 
-export const tagIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    FaTag,
-    FaRobot,
-    FaBrain,
-    FaRocket,
-    FaFileAlt,
-    FaPen,
-    FaBookOpen,
-    SiObsidian
-}
+import { FaTag } from 'react-icons/fa'
+import { getIconWithFallback } from './icon-registry'
+
+// Re-export for backwards compatibility
+export { iconRegistry as tagIconMap } from './icon-registry'
 
 /**
  * Get icon component for a tag
  * Falls back to FaTag if icon not found
  */
 export function getTagIcon(iconName?: string): React.ComponentType<{ className?: string }> {
-    if (!iconName) return FaTag
-    return tagIconMap[iconName] || FaTag
+    return getIconWithFallback(iconName, FaTag)
 }

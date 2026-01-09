@@ -1,44 +1,15 @@
-import {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare,
-    FaStar
-} from 'react-icons/fa'
-import { SiObsidian } from 'react-icons/si'
+/**
+ * Category icon utilities
+ * Uses centralized icon registry from icon-registry.ts
+ */
 
-export const categoryIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    FaRobot,
-    FaTools,
-    FaBoxOpen,
-    FaChalkboardTeacher,
-    FaUsers,
-    FaPen,
-    FaGraduationCap,
-    FaGift,
-    FaBrain,
-    FaLightbulb,
-    FaBook,
-    FaRocket,
-    FaCode,
-    FaCheckSquare,
-    FaStar,
-    SiObsidian
-}
+import { getIcon } from './icon-registry'
+
+// Re-export for backwards compatibility
+export { iconRegistry as categoryIconMap } from './icon-registry'
 
 export function getCategoryIcon(
     iconName?: string
 ): React.ComponentType<{ className?: string }> | undefined {
-    if (!iconName) return undefined
-    return categoryIconMap[iconName]
+    return getIcon(iconName)
 }

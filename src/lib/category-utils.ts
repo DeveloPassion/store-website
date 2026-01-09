@@ -1,37 +1,34 @@
-import type { Category } from '@/types/category'
+/**
+ * Category utility functions
+ * Uses generic collection utilities from collection-utils.ts
+ */
 
+import type { Category } from '@/types/category'
+import {
+    getFeatured,
+    getNonFeatured,
+    sortByPriority,
+    getFeaturedSorted,
+    getNonFeaturedSorted
+} from './collection-utils'
+
+// Re-export generic functions with category-specific names for backwards compatibility
 export function getFeaturedCategories<T extends Category>(categories: T[]): T[] {
-    return categories.filter((cat) => cat.featured === true)
+    return getFeatured(categories)
 }
 
 export function getNonFeaturedCategories<T extends Category>(categories: T[]): T[] {
-    return categories.filter((cat) => !cat.featured)
+    return getNonFeatured(categories)
 }
 
-/**
- * Sort categories by priority (ascending), then alphabetically by name
- */
 export function sortCategoriesByPriority<T extends Category>(categories: T[]): T[] {
-    return [...categories].sort((a, b) => {
-        // First sort by priority (lower number = higher priority)
-        if (a.priority !== b.priority) {
-            return a.priority - b.priority
-        }
-        // If priority is the same, sort alphabetically
-        return a.name.localeCompare(b.name)
-    })
+    return sortByPriority(categories)
 }
 
-/**
- * Get featured categories sorted by priority, then alphabetically
- */
 export function getFeaturedCategoriesSorted<T extends Category>(categories: T[]): T[] {
-    return sortCategoriesByPriority(getFeaturedCategories(categories))
+    return getFeaturedSorted(categories)
 }
 
-/**
- * Get non-featured categories sorted by priority, then alphabetically
- */
 export function getNonFeaturedCategoriesSorted<T extends Category>(categories: T[]): T[] {
-    return sortCategoriesByPriority(getNonFeaturedCategories(categories))
+    return getNonFeaturedSorted(categories)
 }

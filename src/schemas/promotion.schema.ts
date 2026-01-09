@@ -2,11 +2,11 @@ import { z } from 'zod'
 
 /**
  * Zod schema for promotion banner validation
- * Source of truth: src/types/promotion.ts
+ * SINGLE SOURCE OF TRUTH for promotion types and validation
  * Last updated: 2026-01-09
  *
  * This schema validates promotion.json to ensure data integrity.
- * Keep this schema in sync with the TypeScript types in src/types/promotion.ts
+ * TypeScript types are exported from this file and re-exported by src/types/promotion.ts
  */
 
 export const BannerBehaviorSchema = z.enum(['ALWAYS', 'NEVER', 'PROMOTIONS'])

@@ -1,5 +1,17 @@
+/**
+ * Tag utility functions
+ * Uses generic collection utilities from collection-utils.ts
+ */
+
 import type { Tag, TagId, TagWithCount } from '@/types/tag'
 import type { Product } from '@/types/product'
+import {
+    getFeatured,
+    getNonFeatured,
+    sortByPriority,
+    getFeaturedSorted,
+    getNonFeaturedSorted
+} from './collection-utils'
 
 /**
  * Build tag data with product counts from products array
@@ -25,44 +37,23 @@ export function buildTagsWithCounts(
     }))
 }
 
-/**
- * Filter featured tags
- */
+// Re-export generic functions with tag-specific names for backwards compatibility
 export function getFeaturedTags<T extends Tag>(tags: T[]): T[] {
-    return tags.filter((tag) => tag.featured === true)
+    return getFeatured(tags)
 }
 
-/**
- * Filter non-featured tags
- */
 export function getNonFeaturedTags<T extends Tag>(tags: T[]): T[] {
-    return tags.filter((tag) => !tag.featured)
+    return getNonFeatured(tags)
 }
 
-/**
- * Sort tags by priority (ascending), then alphabetically by name
- */
 export function sortTagsByPriority<T extends Tag>(tags: T[]): T[] {
-    return [...tags].sort((a, b) => {
-        // First sort by priority (lower number = higher priority)
-        if (a.priority !== b.priority) {
-            return a.priority - b.priority
-        }
-        // If priority is the same, sort alphabetically
-        return a.name.localeCompare(b.name)
-    })
+    return sortByPriority(tags)
 }
 
-/**
- * Get featured tags sorted by priority, then alphabetically
- */
 export function getFeaturedTagsSorted<T extends Tag>(tags: T[]): T[] {
-    return sortTagsByPriority(getFeaturedTags(tags))
+    return getFeaturedSorted(tags)
 }
 
-/**
- * Get non-featured tags sorted by priority, then alphabetically
- */
 export function getNonFeaturedTagsSorted<T extends Tag>(tags: T[]): T[] {
-    return sortTagsByPriority(getNonFeaturedTags(tags))
+    return getNonFeaturedSorted(tags)
 }
