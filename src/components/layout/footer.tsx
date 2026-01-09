@@ -9,8 +9,7 @@ import {
     FaStickyNote,
     FaUsers,
     FaHandshake,
-    FaGithub,
-    FaCommentDots
+    FaGithub
 } from 'react-icons/fa'
 import ToolIcon from '@/components/tools/tool-icon'
 import socialsData from '@/data/socials.json'
@@ -96,7 +95,7 @@ const Footer: React.FC = () => {
                                         to='/'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Home
+                                        🏠 Home
                                     </Link>
                                 </li>
                                 <li>
@@ -104,7 +103,7 @@ const Footer: React.FC = () => {
                                         to='/products'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        All Products
+                                        🛍️ All Products
                                     </Link>
                                 </li>
                                 <li>
@@ -112,7 +111,7 @@ const Footer: React.FC = () => {
                                         to='/most-value'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Most Value
+                                        💎 Most Value
                                     </Link>
                                 </li>
                                 {featuredCategories.map((cat) => (
@@ -121,7 +120,7 @@ const Footer: React.FC = () => {
                                             to={`/categories/${cat.id}`}
                                             className='text-primary/70 hover:text-secondary transition-colors'
                                         >
-                                            {cat.name}
+                                            📁 {cat.name}
                                         </Link>
                                     </li>
                                 ))}
@@ -130,7 +129,7 @@ const Footer: React.FC = () => {
                                         to='/categories'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Categories
+                                        📂 Categories
                                     </Link>
                                 </li>
                                 <li>
@@ -138,7 +137,7 @@ const Footer: React.FC = () => {
                                         to='/tags'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Tags
+                                        🏷️ Tags
                                     </Link>
                                 </li>
                             </ul>
@@ -153,7 +152,7 @@ const Footer: React.FC = () => {
                                         to='/help'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Help
+                                        ❓ Help
                                     </Link>
                                 </li>
                                 <li>
@@ -161,16 +160,15 @@ const Footer: React.FC = () => {
                                         href='mailto:sebastien@developassion.be'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Contact
+                                        📧 Contact
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         href='mailto:sebastien@developassion.be?subject=Store%20Feedback'
-                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        <FaCommentDots className='h-4 w-4' />
-                                        Send Feedback
+                                        💬 Send Feedback
                                     </a>
                                 </li>
                             </ul>
