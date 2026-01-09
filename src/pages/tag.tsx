@@ -1,7 +1,8 @@
 import { useMemo, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router'
-import { FaArrowLeft, FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
@@ -185,13 +186,7 @@ const TagPage: React.FC = () => {
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
                 <div className='mx-auto max-w-7xl'>
-                    <Link
-                        to='/tags'
-                        className='text-primary/70 hover:text-secondary mb-6 inline-flex items-center gap-2 text-sm transition-colors'
-                    >
-                        <FaArrowLeft className='h-3 w-3' />
-                        Back to Tags
-                    </Link>
+                    <Breadcrumb />
                     <div className='flex items-center gap-4'>
                         {(() => {
                             const IconComponent = getTagIcon(tagData.icon)

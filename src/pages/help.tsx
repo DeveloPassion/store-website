@@ -1,14 +1,7 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router'
-import {
-    FaArrowLeft,
-    FaQuestionCircle,
-    FaEnvelope,
-    FaBook,
-    FaUndo,
-    FaFileInvoice
-} from 'react-icons/fa'
+import { FaQuestionCircle, FaEnvelope, FaBook, FaUndo, FaFileInvoice } from 'react-icons/fa'
 import Section from '@/components/ui/section'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 const HelpPage: React.FC = () => {
     // Set page title and meta tags
@@ -53,13 +46,7 @@ const HelpPage: React.FC = () => {
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
                 <div className='mx-auto max-w-4xl'>
-                    <Link
-                        to='/'
-                        className='text-primary/70 hover:text-secondary mb-6 inline-flex items-center gap-2 text-sm transition-colors'
-                    >
-                        <FaArrowLeft className='h-3 w-3' />
-                        Back to Products
-                    </Link>
+                    <Breadcrumb />
                     <div className='flex items-center gap-4'>
                         <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
                             <FaQuestionCircle className='text-secondary h-7 w-7' />

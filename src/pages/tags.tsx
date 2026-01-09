@@ -1,7 +1,8 @@
 import { useMemo, useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router'
-import { FaArrowLeft, FaTag, FaSearch, FaStar } from 'react-icons/fa'
+import { useSearchParams } from 'react-router'
+import { FaTag, FaSearch, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { TagCard } from '@/components/tags/tag-card'
 import productsData from '@/data/products.json'
 import tagsData from '@/data/tags.json'
@@ -111,13 +112,7 @@ const TagsPage: React.FC = () => {
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
                 <div className='mx-auto max-w-7xl'>
-                    <Link
-                        to='/'
-                        className='text-primary/70 hover:text-secondary mb-6 inline-flex items-center gap-2 text-sm transition-colors'
-                    >
-                        <FaArrowLeft className='h-3 w-3' />
-                        Back to Products
-                    </Link>
+                    <Breadcrumb />
                     <div className='flex items-center gap-4'>
                         <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
                             <FaTag className='text-secondary h-7 w-7' />

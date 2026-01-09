@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductHero from '@/components/products/product-hero'
 import ProductPAS from '@/components/products/product-pas'
 import ProductFeatures from '@/components/products/product-features'
@@ -108,6 +109,9 @@ const ProductPage: React.FC = () => {
 
     return (
         <>
+            <div className='mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-24 md:px-16 lg:px-20'>
+                <Breadcrumb />
+            </div>
             <ProductHero product={product} />
             <ProductPAS product={product} />
             <ProductFeatures product={product} />
