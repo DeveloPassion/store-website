@@ -1,0 +1,56 @@
+[
+    {
+        "id": "faq-23",
+        "question": "How is this different from other note-taking courses?",
+        "answer": "This isn't just about taking notes—it's about building a complete system for professional knowledge management. You'll learn not just what to do, but why and how to adapt it to your needs. The course starts with fundamentals but progresses to advanced techniques, making it valuable whether you're just starting or looking to enhance your existing system.",
+        "order": 1
+    },
+    {
+        "id": "faq-24",
+        "question": "Is this going to be complicated?",
+        "answer": "No. We start simple and build gradually. You'll never feel overwhelmed. The course focuses on timeless principles that work regardless of your tool choice.",
+        "order": 2
+    },
+    {
+        "id": "faq-25",
+        "question": "Do I need special software?",
+        "answer": "No. You can start with tools you already have. The course includes recommendations (including detailed Obsidian examples) but focuses on universal principles that work with any tool.",
+        "order": 3
+    },
+    {
+        "id": "faq-26",
+        "question": "How much time does this take?",
+        "answer": "Just 15-30 minutes a day to start. You'll build habits naturally over time. The course itself is 10+ hours, but you can progress at your own pace with lifetime access.",
+        "order": 4
+    },
+    {
+        "id": "faq-27",
+        "question": "Does this work for my field?",
+        "answer": "Yes. The principles work for any kind of knowledge work or learning. Students, researchers, consultants, managers, entrepreneurs, content creators—all benefit from systematic knowledge management.",
+        "order": 5
+    },
+    {
+        "id": "faq-28",
+        "question": "What if I'm not tech-savvy?",
+        "answer": "The course starts with basics and progresses gradually. No technical background needed. If you can use a word processor, you can build a PKM system.",
+        "order": 6
+    },
+    {
+        "id": "faq-29",
+        "question": "Can I get a refund if it's not for me?",
+        "answer": "Yes. Full refund if you're not completely satisfied. No questions asked.",
+        "order": 7
+    },
+    {
+        "id": "faq-30",
+        "question": "Is this included in any bundles?",
+        "answer": "Yes. This course is included in: Knowledge Worker Kit (€149.99), Knowii Community \"Knowledge Master\" tier, Everything Knowledge Bundle (€299.99)",
+        "order": 8
+    },
+    {
+        "id": "faq-31",
+        "question": "Will this be updated?",
+        "answer": "Yes. Evergreen content means regular updates to keep material fresh and relevant. Lifetime access includes all future updates.",
+        "order": 9
+    }
+]

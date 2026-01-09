@@ -1,0 +1,50 @@
+[
+    {
+        "id": "faq-42",
+        "question": "Do I need deep technical skills?",
+        "answer": "No. Core system works with simple copy-paste/upload on any AI platform. Advanced options exist for power users, but they're optional.",
+        "order": 1
+    },
+    {
+        "id": "faq-43",
+        "question": "Which AI platforms does this work with?",
+        "answer": "ChatGPT, Claude, Gemini, DeepSeek, NotebookLM... Basically any AI that accepts custom instructions and/or file uploads.",
+        "order": 2
+    },
+    {
+        "id": "faq-44",
+        "question": "How long does setup take?",
+        "answer": "Basic setup: 2-3 hours. Advanced MCP implementation: a weekend. Time savings compound quickly—you'll earn it back fast.",
+        "order": 3
+    },
+    {
+        "id": "faq-45",
+        "question": "Will this work for my niche/industry?",
+        "answer": "Yes. The system analyzes YOUR writing samples, so it works regardless of topic, industry, or content type.",
+        "order": 4
+    },
+    {
+        "id": "faq-46",
+        "question": "What if I don't have enough writing samples?",
+        "answer": "Start with what you have. You can add more later. It's not a showstopper—the system improves as you use it.",
+        "order": 5
+    },
+    {
+        "id": "faq-47",
+        "question": "Is this just better prompts?",
+        "answer": "No. This is a complete SYSTEM for training AI to understand YOU—your voice, style, strategy, business, and audience. Prompts are included, but they're just one component.",
+        "order": 6
+    },
+    {
+        "id": "faq-48",
+        "question": "Do I get updates?",
+        "answer": "Yes, through the private community. As the guide improves, you get access to updates.",
+        "order": 7
+    },
+    {
+        "id": "faq-49",
+        "question": "Can I get support?",
+        "answer": "Yes—private community access for questions and knowledge sharing.",
+        "order": 8
+    }
+]

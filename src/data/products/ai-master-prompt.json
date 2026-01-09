@@ -79,23 +79,11 @@
         "Knowledge base",
         "Implementation strategies"
     ],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "Active AI users",
         "timeSaved": "Hours saved",
         "rating": "Proven"
     },
-    "faqIds": [
-        "faq-80",
-        "faq-81",
-        "faq-82",
-        "faq-83",
-        "faq-84",
-        "faq-85",
-        "faq-86",
-        "faq-87",
-        "faq-88"
-    ],
     "targetAudience": [
         "AI Power Users",
         "Content Creators",

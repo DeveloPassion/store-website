@@ -7,6 +7,12 @@
  * combines them into a single products.json file for backward compatibility
  * and optimal runtime performance.
  *
+ * Additionally, it loads FAQs and testimonials from product-specific files:
+ * - {product-id}-faq.json -> product.faqs[]
+ * - {product-id}-testimonials.json -> product.testimonials[]
+ *
+ * If these files don't exist, the arrays will be empty.
+ *
  * Usage:
  *   npm run aggregate:products
  *   tsx scripts/utils/aggregate-products.ts
@@ -25,9 +31,69 @@ const __dirname = dirname(__filename)
 const PRODUCTS_DIR = resolve(__dirname, '../../src/data/products')
 const OUTPUT_FILE = resolve(__dirname, '../../src/data/products.json')
 
+interface FAQ {
+    id: string
+    question: string
+    answer: string
+    order: number
+}
+
+interface Testimonial {
+    id: string
+    author: string
+    role?: string
+    company?: string
+    avatarUrl?: string
+    twitterHandle?: string
+    twitterUrl?: string
+    rating: number
+    quote: string
+    featured: boolean
+}
+
 interface Product {
     id: string
     priority?: number
+    faqs?: FAQ[]
+    testimonials?: Testimonial[]
+}
+
+/**
+ * Load FAQs for a product from {product-id}-faq.json
+ * Returns empty array if file doesn't exist
+ */
+function loadFAQs(productId: string): FAQ[] {
+    const faqPath = join(PRODUCTS_DIR, `${productId}-faq.json`)
+    if (!existsSync(faqPath)) {
+        return []
+    }
+
+    try {
+        const content = readFileSync(faqPath, 'utf-8')
+        return JSON.parse(content)
+    } catch (error) {
+        console.error(`⚠️  Failed to load FAQs for ${productId}:`, error)
+        return []
+    }
+}
+
+/**
+ * Load testimonials for a product from {product-id}-testimonials.json
+ * Returns empty array if file doesn't exist
+ */
+function loadTestimonials(productId: string): Testimonial[] {
+    const testimonialsPath = join(PRODUCTS_DIR, `${productId}-testimonials.json`)
+    if (!existsSync(testimonialsPath)) {
+        return []
+    }
+
+    try {
+        const content = readFileSync(testimonialsPath, 'utf-8')
+        return JSON.parse(content)
+    } catch (error) {
+        console.error(`⚠️  Failed to load testimonials for ${productId}:`, error)
+        return []
+    }
 }
 
 function main() {
@@ -43,9 +109,15 @@ function main() {
     }
 
     // Read all JSON files from products directory
+    // Exclude FAQ and testimonial files (they'll be loaded separately)
     let files: string[]
     try {
-        files = readdirSync(PRODUCTS_DIR).filter((file) => file.endsWith('.json'))
+        files = readdirSync(PRODUCTS_DIR).filter(
+            (file) =>
+                file.endsWith('.json') &&
+                !file.endsWith('-faq.json') &&
+                !file.endsWith('-testimonials.json')
+        )
     } catch (error) {
         console.error('❌ Failed to read products directory')
         console.error(error instanceof Error ? error.message : String(error))
@@ -75,8 +147,18 @@ function main() {
                 continue
             }
 
+            // Load FAQs and testimonials for this product
+            const faqs = loadFAQs(product.id)
+            const testimonials = loadTestimonials(product.id)
+
+            // Add FAQs and testimonials to product
+            product.faqs = faqs
+            product.testimonials = testimonials
+
             products.push(product)
-            console.log(`  ✅ ${file} (id: ${product.id})`)
+            console.log(
+                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials)`
+            )
         } catch (error) {
             const errorMsg = error instanceof Error ? error.message : String(error)
             errors.push(`  ❌ ${file}: ${errorMsg}`)

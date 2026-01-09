@@ -1,0 +1,56 @@
+[
+    {
+        "id": "faq-101",
+        "question": "I'm brand new to Obsidian. Is this course suitable?",
+        "answer": "Absolutely! The course starts with installation and walks through every concept step-by-step.",
+        "order": 1
+    },
+    {
+        "id": "faq-102",
+        "question": "I already have the Obsidian Starter Kit. Do I need this course?",
+        "answer": "The course complements OSK perfectly. OSK gives you the structure and templates; this course shows you exactly how to use them with 2h20 of video training.",
+        "order": 2
+    },
+    {
+        "id": "faq-103",
+        "question": "Does this course cover the PARA method and Zettelkasten?",
+        "answer": "Yes! Both are covered in detail, along with Johnny Decimal, LIFT, FILE, Atomic notes, MoCs, and more.",
+        "order": 3
+    },
+    {
+        "id": "faq-104",
+        "question": "How long is the course?",
+        "answer": "2 hours 20 minutes of comprehensive video content. Work through at your own pace.",
+        "order": 4
+    },
+    {
+        "id": "faq-105",
+        "question": "Can I use this if I don't have Obsidian Starter Kit?",
+        "answer": "Yes! While some examples use OSK, the principles apply to any Obsidian setup. You'll learn all the fundamental concepts and can implement them however you like.",
+        "order": 5
+    },
+    {
+        "id": "faq-106",
+        "question": "What version of Obsidian does this cover?",
+        "answer": "The course covers core Obsidian features that remain consistent. PKM principles and methods are timeless.",
+        "order": 6
+    },
+    {
+        "id": "faq-107",
+        "question": "Will I learn about plugins?",
+        "answer": "Yes! Multiple essential plugins are covered: Templater, Dataview, Kanban, Auto Note Mover, Canvas, Excalidraw, and more.",
+        "order": 7
+    },
+    {
+        "id": "faq-108",
+        "question": "Is this included in any bundles?",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Master\" tier (starting at €39.99/month)",
+        "order": 8
+    },
+    {
+        "id": "faq-109",
+        "question": "Is there lifetime access?",
+        "answer": "Yes. One-time purchase, lifetime access to the video course.",
+        "order": 9
+    }
+]

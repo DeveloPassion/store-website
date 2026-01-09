@@ -3,26 +3,15 @@ import { motion } from 'framer-motion'
 import { FaChevronDown } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
-import faqsData from '@/data/faqs.json'
 import { cn } from '@/lib/utils'
 
 interface ProductFAQProps {
     product: Product
 }
 
-interface FAQ {
-    id: string
-    productId: string
-    question: string
-    answer: string
-    order: number
-}
-
 const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
-    // Filter FAQs for this product
-    const faqs = (faqsData as FAQ[])
-        .filter((faq) => product.faqIds.includes(faq.id))
-        .sort((a, b) => a.order - b.order)
+    // FAQs are now included in the product object (loaded from {product-id}-faq.json)
+    const faqs = product.faqs || []
 
     if (faqs.length === 0) {
         return null

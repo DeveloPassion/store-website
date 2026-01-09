@@ -41,7 +41,12 @@ interface Product {
 function validateIndividualFiles(): { products: Product[]; errors: ValidationError[] } {
     console.log('📁 Validating individual product files...\n')
 
-    const files = readdirSync(PRODUCTS_DIR).filter((file) => file.endsWith('.json'))
+    const files = readdirSync(PRODUCTS_DIR).filter(
+        (file) =>
+            file.endsWith('.json') &&
+            !file.endsWith('-faq.json') &&
+            !file.endsWith('-testimonials.json')
+    )
     console.log(`Found ${files.length} product file(s)\n`)
 
     const products: Product[] = []

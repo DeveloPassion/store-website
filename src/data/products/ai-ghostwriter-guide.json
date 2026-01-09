@@ -96,13 +96,11 @@
         "Private Community Access - Part of Knowii",
         "Updates and Improvements - As guide evolves"
     ],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "Active users",
         "timeSaved": "Hours saved weekly on content editing",
         "rating": "Proven system used daily"
     },
-    "faqIds": ["faq-42", "faq-43", "faq-44", "faq-45", "faq-46", "faq-47", "faq-48", "faq-49"],
     "targetAudience": [
         "Content creators creating regularly",
         "Business owners needing content marketing system",

@@ -110,23 +110,11 @@
         "Practical Examples - Using actual vault",
         "Tips and Tricks - From Obsidian expert"
     ],
-    "testimonialIds": ["testimonial-19"],
     "statsProof": {
         "userCount": "Used by thousands",
         "timeSaved": "Skip months of trial and error",
         "rating": "Comprehensive training from expert"
     },
-    "faqIds": [
-        "faq-101",
-        "faq-102",
-        "faq-103",
-        "faq-104",
-        "faq-105",
-        "faq-106",
-        "faq-107",
-        "faq-108",
-        "faq-109"
-    ],
     "targetAudience": [
         "Obsidian beginners just getting started",
         "Recently switched to Obsidian from another tool",

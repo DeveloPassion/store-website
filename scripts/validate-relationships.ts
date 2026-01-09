@@ -5,8 +5,10 @@
  *
  * This script validates that all cross-references in products are valid:
  * - crossSellIds: References to other product IDs
- * - testimonialIds: References to testimonial IDs in testimonials.json
- * - faqIds: References to FAQ IDs in faqs.json
+ *
+ * Note: FAQs and testimonials are now stored in separate files per product
+ * ({product-id}-faq.json, {product-id}-testimonials.json) and are validated
+ * by the main product validation script.
  *
  * Usage:
  *   npm run validate:relationships
@@ -24,30 +26,16 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
-const TESTIMONIALS_FILE = resolve(__dirname, '../src/data/testimonials.json')
-const FAQS_FILE = resolve(__dirname, '../src/data/faqs.json')
 
 interface Product {
     id: string
     crossSellIds: string[]
-    testimonialIds: string[]
-    faqIds: string[]
-}
-
-interface Testimonial {
-    id: string
-    productId: string
-}
-
-interface FAQ {
-    id: string
-    productId: string
 }
 
 interface RelationshipError {
     productId: string
     filename: string
-    field: 'crossSellIds' | 'testimonialIds' | 'faqIds'
+    field: 'crossSellIds'
     invalidId: string
     message: string
 }
@@ -58,7 +46,12 @@ function loadProducts(): Product[] {
         process.exit(1)
     }
 
-    const files = readdirSync(PRODUCTS_DIR).filter((file) => file.endsWith('.json'))
+    const files = readdirSync(PRODUCTS_DIR).filter(
+        (file) =>
+            file.endsWith('.json') &&
+            !file.endsWith('-faq.json') &&
+            !file.endsWith('-testimonials.json')
+    )
     const products: Product[] = []
 
     for (const file of files) {
@@ -77,55 +70,17 @@ function loadProducts(): Product[] {
     return products
 }
 
-function loadTestimonials(): Testimonial[] {
-    if (!existsSync(TESTIMONIALS_FILE)) {
-        console.error('❌ Testimonials file not found:', TESTIMONIALS_FILE)
-        process.exit(1)
-    }
-
-    try {
-        const content = readFileSync(TESTIMONIALS_FILE, 'utf-8')
-        return JSON.parse(content)
-    } catch (error) {
-        console.error('❌ Failed to load testimonials.json')
-        console.error(error instanceof Error ? error.message : String(error))
-        process.exit(1)
-    }
-}
-
-function loadFAQs(): FAQ[] {
-    if (!existsSync(FAQS_FILE)) {
-        console.error('❌ FAQs file not found:', FAQS_FILE)
-        process.exit(1)
-    }
-
-    try {
-        const content = readFileSync(FAQS_FILE, 'utf-8')
-        return JSON.parse(content)
-    } catch (error) {
-        console.error('❌ Failed to load faqs.json')
-        console.error(error instanceof Error ? error.message : String(error))
-        process.exit(1)
-    }
-}
-
 function validateRelationships(): RelationshipError[] {
     console.log('🔍 Validating cross-product relationships...\n')
 
     const products = loadProducts()
-    const testimonials = loadTestimonials()
-    const faqs = loadFAQs()
 
-    console.log(`📦 Loaded ${products.length} product(s)`)
-    console.log(`💬 Loaded ${testimonials.length} testimonial(s)`)
-    console.log(`❓ Loaded ${faqs.length} FAQ(s)\n`)
+    console.log(`📦 Loaded ${products.length} product(s)\n`)
 
     const errors: RelationshipError[] = []
 
-    // Build lookup sets for fast validation
+    // Build lookup set for fast validation
     const productIds = new Set(products.map((p) => p.id))
-    const testimonialIds = new Set(testimonials.map((t) => t.id))
-    const faqIds = new Set(faqs.map((f) => f.id))
 
     console.log('🔗 Validating relationships...\n')
 
@@ -147,103 +102,37 @@ function validateRelationships(): RelationshipError[] {
                 }
             })
         }
-
-        // Validate testimonialIds
-        if (product.testimonialIds && Array.isArray(product.testimonialIds)) {
-            product.testimonialIds.forEach((testimonialId: string) => {
-                if (!testimonialIds.has(testimonialId)) {
-                    errors.push({
-                        productId: product.id,
-                        filename,
-                        field: 'testimonialIds',
-                        invalidId: testimonialId,
-                        message: `Referenced testimonial "${testimonialId}" does not exist`
-                    })
-                }
-            })
-        }
-
-        // Validate faqIds
-        if (product.faqIds && Array.isArray(product.faqIds)) {
-            product.faqIds.forEach((faqId: string) => {
-                if (!faqIds.has(faqId)) {
-                    errors.push({
-                        productId: product.id,
-                        filename,
-                        field: 'faqIds',
-                        invalidId: faqId,
-                        message: `Referenced FAQ "${faqId}" does not exist`
-                    })
-                }
-            })
-        }
     })
 
     return errors
 }
 
-function displayStats(products: Product[], testimonials: Testimonial[], faqs: FAQ[]) {
+function displayStats(products: Product[]) {
     console.log('📊 Relationship Statistics:\n')
 
     // Count total cross-references
     const totalCrossSells = products.reduce((sum, p) => sum + (p.crossSellIds?.length || 0), 0)
-    const totalTestimonialRefs = products.reduce(
-        (sum, p) => sum + (p.testimonialIds?.length || 0),
-        0
-    )
-    const totalFaqRefs = products.reduce((sum, p) => sum + (p.faqIds?.length || 0), 0)
 
-    console.log(`   Cross-sell references: ${totalCrossSells}`)
-    console.log(`   Testimonial references: ${totalTestimonialRefs}`)
-    console.log(`   FAQ references: ${totalFaqRefs}`)
-    console.log(`   Total references: ${totalCrossSells + totalTestimonialRefs + totalFaqRefs}\n`)
+    console.log(`   Cross-sell references: ${totalCrossSells}\n`)
 
     // Products with most cross-references
     const productsWithRefs = products
         .map((p) => ({
             id: p.id,
-            totalRefs:
-                (p.crossSellIds?.length || 0) +
-                (p.testimonialIds?.length || 0) +
-                (p.faqIds?.length || 0)
+            totalRefs: p.crossSellIds?.length || 0
         }))
         .filter((p) => p.totalRefs > 0)
         .sort((a, b) => b.totalRefs - a.totalRefs)
         .slice(0, 5)
 
     if (productsWithRefs.length > 0) {
-        console.log('   Products with most references (top 5):')
+        console.log('   Products with most cross-sell references (top 5):')
         productsWithRefs.forEach((p) => {
-            console.log(`     - ${p.id}: ${p.totalRefs} reference(s)`)
+            console.log(`     - ${p.id}: ${p.totalRefs} cross-sell(s)`)
         })
         console.log('')
-    }
-
-    // Orphaned resources (testimonials/FAQs not referenced by any product)
-    const referencedTestimonialIds = new Set(products.flatMap((p) => p.testimonialIds || []))
-    const orphanedTestimonials = testimonials.filter((t) => !referencedTestimonialIds.has(t.id))
-
-    const referencedFaqIds = new Set(products.flatMap((p) => p.faqIds || []))
-    const orphanedFaqs = faqs.filter((f) => !referencedFaqIds.has(f.id))
-
-    if (orphanedTestimonials.length > 0 || orphanedFaqs.length > 0) {
-        console.log('   ⚠️  Orphaned Resources (not referenced by any product):\n')
-
-        if (orphanedTestimonials.length > 0) {
-            console.log(`     ${orphanedTestimonials.length} orphaned testimonial(s):`)
-            orphanedTestimonials.forEach((t) => {
-                console.log(`         • ${t.id} (productId: ${t.productId || 'none'})`)
-            })
-            console.log('')
-        }
-
-        if (orphanedFaqs.length > 0) {
-            console.log(`     ${orphanedFaqs.length} orphaned FAQ(s):`)
-            orphanedFaqs.forEach((f) => {
-                console.log(`         • ${f.id} (productId: ${f.productId || 'none'})`)
-            })
-            console.log('')
-        }
+    } else {
+        console.log('   No cross-sell references found.\n')
     }
 }
 
@@ -254,12 +143,10 @@ function main() {
 
     // Load data for stats
     const products = loadProducts()
-    const testimonials = loadTestimonials()
-    const faqs = loadFAQs()
 
     if (errors.length === 0) {
         console.log('✅ All relationships are valid!\n')
-        displayStats(products, testimonials, faqs)
+        displayStats(products)
         process.exit(0)
     }
 
@@ -287,10 +174,8 @@ function main() {
         console.error('')
     })
 
-    console.error('💡 Tip: Ensure all referenced IDs exist in their respective files')
-    console.error('💡 Tip: Check that product IDs match their filenames (without .json)')
-    console.error('💡 Tip: Verify testimonialIds exist in src/data/testimonials.json')
-    console.error('💡 Tip: Verify faqIds exist in src/data/faqs.json\n')
+    console.error('💡 Tip: Ensure all cross-sell product IDs exist')
+    console.error('💡 Tip: Check that product IDs match their filenames (without .json)\n')
 
     process.exit(1)
 }

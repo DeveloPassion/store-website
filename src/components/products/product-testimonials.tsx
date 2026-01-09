@@ -3,33 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaStar, FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
-import testimonialsData from '@/data/testimonials.json'
 
 interface ProductTestimonialsProps {
     product: Product
-}
-
-interface Testimonial {
-    id: string
-    productId: string
-    author: string
-    rating: number
-    quote: string
-    role?: string
-    company?: string
-    twitterHandle?: string
-    twitterUrl?: string
-    featured: boolean
 }
 
 const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [direction, setDirection] = useState(0)
 
-    // Filter testimonials for this product
-    const testimonials = (testimonialsData as Testimonial[]).filter((t) =>
-        product.testimonialIds.includes(t.id)
-    )
+    // Testimonials are now included in the product object (loaded from {product-id}-testimonials.json)
+    const testimonials = product.testimonials || []
 
     // Show featured first, then others
     const sortedTestimonials = [...testimonials].sort((a, b) => {

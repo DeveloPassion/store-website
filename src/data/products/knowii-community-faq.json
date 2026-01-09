@@ -1,0 +1,62 @@
+[
+    {
+        "id": "faq-110",
+        "question": "How is Knowii different from other online communities?",
+        "answer": "Knowii isn't just a discussion forum—it's a structured transformation system. Each tier is designed to build comprehensive journey from information chaos to intentional clarity. You get Community + Courses + Tools in one integrated package.",
+        "order": 1
+    },
+    {
+        "id": "faq-111",
+        "question": "I'm already overwhelmed. Will joining another platform help or just add more noise?",
+        "answer": "Unlike most platforms that add to your digital noise, Knowii is specifically designed to REDUCE overwhelm by giving you systems to organize all your existing information sources. Start with FREE Explorer tier to see.",
+        "order": 2
+    },
+    {
+        "id": "faq-112",
+        "question": "Can I change tiers or cancel if needed?",
+        "answer": "Absolutely. Upgrade, downgrade, or cancel at any time. For annual plans, you maintain access until end of billing period.",
+        "order": 3
+    },
+    {
+        "id": "faq-113",
+        "question": "What if I'm not sure which tier is right for me?",
+        "answer": "Start with FREE Explorer tier or Knowledge Builder (€19.99/month). You can always upgrade if you find value.",
+        "order": 4
+    },
+    {
+        "id": "faq-114",
+        "question": "Do I really get immediate access to all the courses and tools mentioned?",
+        "answer": "Yes! Unlike most communities that charge separately, your Knowii membership (especially Knowledge Master tier) includes immediate access to everything listed. No additional purchases required.",
+        "order": 5
+    },
+    {
+        "id": "faq-115",
+        "question": "How do the courses and tools integrate with the community?",
+        "answer": "The entire system is designed to work together. Learn concepts in courses, implement them using tools and templates, get support and inspiration from community—creating complete knowledge transformation pipeline.",
+        "order": 6
+    },
+    {
+        "id": "faq-116",
+        "question": "If I'm already using Obsidian (or another tool), will these resources still help me?",
+        "answer": "Absolutely! Courses and tools enhance whatever system you're currently using. Whether just starting or have thousands of notes, Knowii system helps you organize and leverage them more effectively.",
+        "order": 7
+    },
+    {
+        "id": "faq-117",
+        "question": "What if I'm skeptical about knowledge management?",
+        "answer": "Start FREE with Explorer tier. No credit card, no risk. See if the community and resources resonate with you before committing.",
+        "order": 8
+    },
+    {
+        "id": "faq-118",
+        "question": "Are live events recorded?",
+        "answer": "Yes! Knowledge Builder and Knowledge Master members get access to all event recordings.",
+        "order": 9
+    },
+    {
+        "id": "faq-119",
+        "question": "What's included in \"all future tools and courses\"?",
+        "answer": "As Knowii grows, new courses, workshops, and tools are added. Knowledge Builder and Master tiers get access to these automatically—no additional purchases needed.",
+        "order": 10
+    }
+]

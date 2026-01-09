@@ -1,0 +1,44 @@
+[
+    {
+        "id": "faq-1",
+        "question": "I'm brand new to Obsidian. Is this too advanced?",
+        "answer": "No! OSK is designed for beginners. The user guide explains everything step-by-step. Many users start with OSK on day 1 and reach intermediate level in 1-2 days.",
+        "order": 1
+    },
+    {
+        "id": "faq-2",
+        "question": "I already have an Obsidian vault. Can I migrate?",
+        "answer": "Yes. We provide detailed migration guides for both v2 users and custom setups. The migration guide walks you through the process step-by-step.",
+        "order": 2
+    },
+    {
+        "id": "faq-3",
+        "question": "What if OSK doesn't fit my workflow?",
+        "answer": "OSK is a starting point, not a straitjacket. Everything is customizable—tweak the structure, templates, and plugins to match your needs. Plus, 30-day money-back guarantee if it's not right for you.",
+        "order": 3
+    },
+    {
+        "id": "faq-4",
+        "question": "How do updates work?",
+        "answer": "Free lifetime updates via the store. You'll get all future updates at no additional cost. Updates are announced via email and the community.",
+        "order": 4
+    },
+    {
+        "id": "faq-5",
+        "question": "Do I need to pay for Obsidian?",
+        "answer": "No! Obsidian is free for personal use. OSK is a pre-built vault + comprehensive documentation + community access.",
+        "order": 5
+    },
+    {
+        "id": "faq-6",
+        "question": "Is support included?",
+        "answer": "Yes! Lifetime community access + priority email support + migration help. I personally respond to questions and help users get started.",
+        "order": 6
+    },
+    {
+        "id": "faq-7",
+        "question": "Can I use OSK for work/commercial purposes?",
+        "answer": "Yes, absolutely. Many consultants, project managers, and knowledge workers use OSK for their professional work. Just follow Obsidian's licensing (free for personal use, paid for commercial use of Obsidian itself).",
+        "order": 7
+    }
+]

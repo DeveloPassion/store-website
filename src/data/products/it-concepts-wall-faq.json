@@ -1,0 +1,20 @@
+[
+    {
+        "id": "faq-120",
+        "question": "Is this a physical poster?",
+        "answer": "No. Digital file you can print yourself or view on screen.",
+        "order": 1
+    },
+    {
+        "id": "faq-121",
+        "question": "What concepts are covered?",
+        "answer": "Essential IT and programming fundamentals (specific list on product page).",
+        "order": 2
+    },
+    {
+        "id": "faq-122",
+        "question": "Can I print this?",
+        "answer": "Yes! Digital format allows printing at any size.",
+        "order": 3
+    }
+]

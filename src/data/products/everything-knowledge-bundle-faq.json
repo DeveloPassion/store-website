@@ -1,0 +1,50 @@
+[
+    {
+        "id": "faq-143",
+        "question": "Is this really everything?",
+        "answer": "Yes. Every knowledge product currently available plus all future additions. Complete system.",
+        "order": 1
+    },
+    {
+        "id": "faq-144",
+        "question": "What about future products?",
+        "answer": "Included! All future workshops, courses, guides, and tools automatically added to your account at no extra cost.",
+        "order": 2
+    },
+    {
+        "id": "faq-145",
+        "question": "How is this different from Knowii Community Knowledge Master?",
+        "answer": "Bundle is one-time purchase with lifetime access to products. Knowledge Master is subscription with products + live community, events, and expert access. Choose based on ownership vs community preference.",
+        "order": 3
+    },
+    {
+        "id": "faq-146",
+        "question": "Will I get updates to existing products?",
+        "answer": "Yes. All updates and improvements to all products included forever.",
+        "order": 4
+    },
+    {
+        "id": "faq-147",
+        "question": "Can I upgrade from individual products I already own?",
+        "answer": "Contact support for upgrade pricing if you've already purchased individual items.",
+        "order": 5
+    },
+    {
+        "id": "faq-148",
+        "question": "Is there a money-back guarantee?",
+        "answer": "Standard refund policy applies. Contact support if you're not satisfied.",
+        "order": 6
+    },
+    {
+        "id": "faq-149",
+        "question": "Do I need all these products?",
+        "answer": "The bundle provides complete coverage of knowledge management. Use what you need now, have the rest available when ready.",
+        "order": 7
+    },
+    {
+        "id": "faq-150",
+        "question": "How do I access everything?",
+        "answer": "After purchase, all products are immediately available in your account. Download and access everything right away.",
+        "order": 8
+    }
+]

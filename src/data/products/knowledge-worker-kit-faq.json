@@ -1,0 +1,62 @@
+[
+    {
+        "id": "faq-32",
+        "question": "What exactly do I get?",
+        "answer": "Private community access + comprehensive guide (Notion) covering 13 topic areas + all bonuses ($270+ value) + lifetime access to all future content, events, and workshops.",
+        "order": 1
+    },
+    {
+        "id": "faq-33",
+        "question": "Is this a one-time payment?",
+        "answer": "Yes. Pay €149.99 once, get lifetime access. No subscriptions, no recurring fees. All future updates included.",
+        "order": 2
+    },
+    {
+        "id": "faq-34",
+        "question": "How is this different from your other products?",
+        "answer": "This is the complete package. While OSK focuses on Obsidian and KM for Beginners teaches PKM theory, the Knowledge Worker Kit covers EVERYTHING: career, learning, projects, tasks, focus, development, and more. Plus community access and all bonuses.",
+        "order": 3
+    },
+    {
+        "id": "faq-35",
+        "question": "Do I need to use Obsidian?",
+        "answer": "No. The guide covers universal principles. Obsidian bonuses are included, but the core systems work with any tools.",
+        "order": 4
+    },
+    {
+        "id": "faq-36",
+        "question": "How much time does this take to implement?",
+        "answer": "The guide is modular - focus on what's useful right now. Each section is actionable on its own. You implement at your own pace.",
+        "order": 5
+    },
+    {
+        "id": "faq-37",
+        "question": "Is the community active?",
+        "answer": "The community is growing. As more members join, activity increases. You'll have direct access to Sébastien and fellow knowledge workers.",
+        "order": 6
+    },
+    {
+        "id": "faq-38",
+        "question": "Will this really help me with AI?",
+        "answer": "Yes. The kit teaches you to develop skills AI can't replicate (creativity, critical thinking, human insight) and how to leverage AI tools effectively as part of your system.",
+        "order": 7
+    },
+    {
+        "id": "faq-39",
+        "question": "Can I get a refund?",
+        "answer": "Check Gumroad's refund policy. Generally, digital products have refund windows.",
+        "order": 8
+    },
+    {
+        "id": "faq-40",
+        "question": "Is this included in any other products?",
+        "answer": "Yes - free with Knowii Community paid subscriptions. Also part of Everything Knowledge Bundle.",
+        "order": 9
+    },
+    {
+        "id": "faq-41",
+        "question": "What if the content becomes outdated?",
+        "answer": "It won't. This is an evergreen project that continuously updates. Lifetime access means you always have the latest.",
+        "order": 10
+    }
+]

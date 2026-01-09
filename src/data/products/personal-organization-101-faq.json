@@ -1,0 +1,44 @@
+[
+    {
+        "id": "faq-67",
+        "question": "I'm not very organized. Is this too advanced?",
+        "answer": "No. The workshop includes self-assessment to evaluate your current level and provides a roadmap for getting started from wherever you are.",
+        "order": 1
+    },
+    {
+        "id": "faq-68",
+        "question": "Do I need special tools?",
+        "answer": "No. The principles work with any tools. The workshop shows concepts that you can implement with whatever you're already using.",
+        "order": 2
+    },
+    {
+        "id": "faq-69",
+        "question": "What makes this different from other organization advice?",
+        "answer": "This is a complete 3-Pillar system (Clarity, Information Management, Productivity) refined over 20+ years, with 100+ resources and 40+ frameworks. Not just tips—a complete system.",
+        "order": 3
+    },
+    {
+        "id": "faq-70",
+        "question": "How long does it take to implement?",
+        "answer": "You can start implementing techniques TODAY. The system is modular—start with what's most relevant and build gradually.",
+        "order": 4
+    },
+    {
+        "id": "faq-71",
+        "question": "Is this just GTD or PARA?",
+        "answer": "No. While it covers GTD, PARA, and many other methods, it shows how they all integrate into a complete Personal Organization System. It's the bigger picture.",
+        "order": 5
+    },
+    {
+        "id": "faq-72",
+        "question": "How long is the workshop?",
+        "answer": "90 minutes of comprehensive video training, plus 100+ interconnected resource notes.",
+        "order": 6
+    },
+    {
+        "id": "faq-73",
+        "question": "Is this included in any bundles?",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "order": 7
+    }
+]

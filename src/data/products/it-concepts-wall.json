@@ -32,13 +32,11 @@
         "longTerm": ["Build IT knowledge"]
     },
     "included": ["Digital IT Concepts Wall", "Printable format", "Lifetime access"],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "Students and developers",
         "timeSaved": "Time saved",
         "rating": "Comprehensive"
     },
-    "faqIds": ["faq-120", "faq-121", "faq-122"],
     "targetAudience": ["Developers", "Students", "Visual learners", "IT learners"],
     "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
     "notForYou": ["Not interested in IT", "Prefer text-only"],

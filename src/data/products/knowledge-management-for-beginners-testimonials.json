@@ -1,0 +1,37 @@
+[
+    {
+        "id": "testimonial-7",
+        "author": "Sofia",
+        "rating": 5,
+        "quote": "Fantastic program that rings true on so many levels bringing out the true power offloading your memory in a frictionless way",
+        "featured": true
+    },
+    {
+        "id": "testimonial-8",
+        "author": "Olivier Larue",
+        "rating": 5,
+        "quote": "Don't let the 'Beginners' title fool you—this course is a comprehensive guide to building a fully functional Second Brain. Sebastien goes far beyond simple note-taking; he teaches a complete lifecycle: from the 'Capture Habit' and preventing the 'Collector's Fallacy' to actually leveraging your knowledge for creative output. While the course offers great theoretical frameworks (PARA, Johnny Decimal, Zettelkasten), I loved how practical it got with Obsidian. The sections on automating workflows (Templater, Dataview) and the deep dive into integrating AI (Claude, MCP, NotebookLM) were absolute game-changers. I walked away not just with a set of notes, but with a 'Life OS' that I can actually trust. Highly recommended!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-9",
+        "author": "Roger Frei",
+        "rating": 5,
+        "quote": "I have worked in information systems since the 1980's and stumbled on some of these things haphazardly in both my personal and professional lives. I have never seen all these (knowledge and skills) teachings together before in countless books, videos and courses over the decades. I don't think that most of this knowledge even existed most of my life. This instructor is doing a great job of teaching me what I've been looking for (pretty intensely) since I was fourteen years old, and making me look forward to living the last (hopefully) third of my life with more focused clarity to reach my life's goals and purpose. I consider it an ideal gift for any (young) person who is serious about growing a more productive life with peace of mind.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-10",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "Currently primarily focused on getting started properly with Obsidian… did start to go through your Knowledge Management for Beginners course this weekend. It's been really valuable, and has helped me to understand the setup you present in the Starter Kit/Course on a much deeper level. As I'm exploring more of your content and what you share I can really say that I'm very happy that I came across your work, and grateful to you for sharing your knowledge. I'm excited to integrate several of the things that you've shared moving forward. It aligns very well with my personal and professional needs at the moment, and gives me clarity on how to actually execute several of the 'loose ideas' that I've had.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-11",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "Very Honest Man. Labors to explain so much at a granular level. Have patience and listen to his reasoning for explaining his logic and system process.",
+        "featured": false
+    }
+]

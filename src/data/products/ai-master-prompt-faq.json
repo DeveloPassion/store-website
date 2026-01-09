@@ -1,0 +1,56 @@
+[
+    {
+        "id": "faq-80",
+        "question": "I'm new to AI. Is this too advanced?",
+        "answer": "No. The workshop starts with LLM fundamentals and builds up systematically. If you use ChatGPT or Claude, you're ready for this.",
+        "order": 1
+    },
+    {
+        "id": "faq-81",
+        "question": "How long does it take to create an AI Master Prompt?",
+        "answer": "Initial version: 30-60 minutes. But it's a living document you refine over time. The workshop shows you what to include so you start strong.",
+        "order": 2
+    },
+    {
+        "id": "faq-82",
+        "question": "Will this work with ChatGPT, Claude, and other AIs?",
+        "answer": "Yes. The principles work with any LLM. The workshop uses Claude for demos but applies universally.",
+        "order": 3
+    },
+    {
+        "id": "faq-83",
+        "question": "Do I need technical skills?",
+        "answer": "No. This is about crafting effective prompts and providing context, not coding. Non-technical approach.",
+        "order": 4
+    },
+    {
+        "id": "faq-84",
+        "question": "What's the difference between Personal and Business Master Prompts?",
+        "answer": "Personal focuses on your life, values, goals, personal projects. Business focuses on your company, products, strategy, business goals. Workshop covers both.",
+        "order": 5
+    },
+    {
+        "id": "faq-85",
+        "question": "How do I use my Master Prompt?",
+        "answer": "Multiple ways: Copy/paste, create AI projects, use MCP for automatic context, build AI assistants. Workshop covers all approaches.",
+        "order": 6
+    },
+    {
+        "id": "faq-86",
+        "question": "What is Model Context Protocol (MCP)?",
+        "answer": "Technology that lets AI automatically access your knowledge base and context. Covered in workshop as advanced implementation strategy.",
+        "order": 7
+    },
+    {
+        "id": "faq-87",
+        "question": "Is this included in any bundles?",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "order": 8
+    },
+    {
+        "id": "faq-88",
+        "question": "Will I get updates as AI evolves?",
+        "answer": "The framework is timeless - it's about providing context effectively. While AI tools change, these principles remain valuable.",
+        "order": 9
+    }
+]

@@ -86,13 +86,11 @@
         "Tools and techniques",
         "Knowledge base resources"
     ],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "Complete framework",
         "timeSaved": "Time saved on decisions",
         "rating": "Actionable"
     },
-    "faqIds": ["faq-74", "faq-75", "faq-76", "faq-77", "faq-78", "faq-79"],
     "targetAudience": ["The Lost", "Decision Makers", "Goal Seekers", "Life Designers"],
     "perfectFor": [
         "Feel lost",

@@ -1,0 +1,38 @@
+[
+    {
+        "id": "faq-130",
+        "question": "Is this really free?",
+        "answer": "Yes! Completely free, no credit card required.",
+        "order": 1
+    },
+    {
+        "id": "faq-131",
+        "question": "What format is it?",
+        "answer": "Digital format (PDF or similar) for easy reference.",
+        "order": 2
+    },
+    {
+        "id": "faq-132",
+        "question": "Can I share this with others?",
+        "answer": "Personal use. If others want it, direct them to download their own copy.",
+        "order": 3
+    },
+    {
+        "id": "faq-133",
+        "question": "Do I need a knowledge management system already?",
+        "answer": "No. Use this whether you're starting from scratch or improving an existing system.",
+        "order": 4
+    },
+    {
+        "id": "faq-134",
+        "question": "Will this tell me how to build each component?",
+        "answer": "It's a checklist of what components you need. For how-to guidance, see courses like Knowledge Management for Beginners.",
+        "order": 5
+    },
+    {
+        "id": "faq-135",
+        "question": "Is there follow-up content?",
+        "answer": "This is part of Knowii Community free resources. Explore other free resources and paid options for deeper learning.",
+        "order": 6
+    }
+]

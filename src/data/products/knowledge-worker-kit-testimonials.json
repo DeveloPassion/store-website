@@ -1,0 +1,16 @@
+[
+    {
+        "id": "testimonial-12",
+        "author": "Julien Dambron",
+        "rating": 5,
+        "quote": "Superbly crafted material that consistently grows and improves with time, demonstrating a relentless commitment to excellence and constant refinement. The community is still new and not so active, but it will keep improving!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-13",
+        "author": "Richard Elliott",
+        "rating": 5,
+        "quote": "Sebastien's writing is exceptional and I look forward to each new article",
+        "featured": false
+    }
+]

@@ -1,0 +1,46 @@
+[
+    {
+        "id": "testimonial-1",
+        "author": "Dwayne Appleby",
+        "rating": 5,
+        "quote": "The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for keeping track of all the details. The templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-2",
+        "author": "Cal Desmond-Pearson",
+        "rating": 5,
+        "quote": "Finally clicked how awesome Obsidian is! Thanks to your excellent Obsidian Starter Kit!",
+        "featured": true,
+        "twitterHandle": "CalSocialHermit",
+        "twitterUrl": "https://x.com/CalSocialHermit/status/1527755690894409728"
+    },
+    {
+        "id": "testimonial-3",
+        "author": "Michael Aaron",
+        "rating": 5,
+        "quote": "As someone who has bounced around trying to find the right Knowledge tool, I've realized many of my issues have been related to complexity. The structure, design and explanations in OSK have finally given me the foundation I needed. 100% worth it.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-4",
+        "author": "Blake Holder",
+        "rating": 5,
+        "quote": "Starting as an absolute beginner, this kit allowed me to jump to what I feel is an intermediate level of Obsidian understanding and effective note taking in the span of 1-2 days, and I am grateful that I found it.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-5",
+        "author": "Miriam G",
+        "rating": 5,
+        "quote": "Easy, complete and FANTASTIC!!!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-6",
+        "author": "Franjo Pehar",
+        "rating": 5,
+        "quote": "The Obsidian Starter Kit is an excellent resource for anyone interested in Personal Knowledge Management (PKM) and building their own 'second brain.' A must-have for those looking to take control of their knowledge and productivity!",
+        "featured": false
+    }
+]

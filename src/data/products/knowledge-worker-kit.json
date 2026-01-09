@@ -113,24 +113,11 @@
         "Knowledge Base - 1,700+ concepts, frameworks, mental models",
         "Lifetime access to all future content, events, and updates"
     ],
-    "testimonialIds": ["testimonial-12", "testimonial-13"],
     "statsProof": {
         "userCount": "Growing community",
         "timeSaved": "Hours saved weekly with systems",
         "rating": "Highly rated by members"
     },
-    "faqIds": [
-        "faq-32",
-        "faq-33",
-        "faq-34",
-        "faq-35",
-        "faq-36",
-        "faq-37",
-        "faq-38",
-        "faq-39",
-        "faq-40",
-        "faq-41"
-    ],
     "targetAudience": [
         "Entrepreneurs, founders, executives, leaders",
         "Knowledge workers dealing with information overload",

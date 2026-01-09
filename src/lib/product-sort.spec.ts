@@ -30,8 +30,8 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     features: ['Feature 1'],
     benefits: { immediate: ['Benefit 1'] }, // Use proper benefits structure
     included: ['Item 1'],
-    testimonialIds: [],
-    faqIds: [],
+    testimonials: [],
+    faqs: [],
     targetAudience: [],
     perfectFor: [],
     notForYou: [],

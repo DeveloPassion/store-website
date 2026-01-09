@@ -1,0 +1,44 @@
+[
+    {
+        "id": "faq-151",
+        "question": "Do I need to buy all 12 volumes?",
+        "answer": "No. You can purchase individual volumes (€9.99 each), the Starter Edition (Vols 1-2 + community for €14.99), or the full collection (€125 for all 12 volumes + bonuses).",
+        "order": 1
+    },
+    {
+        "id": "faq-152",
+        "question": "What if I'm a complete beginner?",
+        "answer": "Perfect! Dev Concepts is designed for anyone learning IT and software development from scratch, including complete beginners.",
+        "order": 2
+    },
+    {
+        "id": "faq-153",
+        "question": "When will future volumes be released?",
+        "answer": "Volume 3 (Architecture) is in development. Full collection buyers get all future volumes automatically at no extra cost.",
+        "order": 3
+    },
+    {
+        "id": "faq-154",
+        "question": "What's included with the Slack community?",
+        "answer": "Lifetime access to mentorship from senior developers. Ask questions, get guidance, network with fellow developers.",
+        "order": 4
+    },
+    {
+        "id": "faq-155",
+        "question": "Is there a guarantee?",
+        "answer": "Yes. 14-day money-back guarantee on all purchases.",
+        "order": 5
+    },
+    {
+        "id": "faq-156",
+        "question": "Where can I see the complete table of contents?",
+        "answer": "Visit https://dev-concepts.dev for complete details, table of contents, and sample chapters.",
+        "order": 6
+    },
+    {
+        "id": "faq-157",
+        "question": "Can I upgrade from Starter to Full Collection later?",
+        "answer": "Yes. Contact support for upgrade pricing if you've already purchased the Starter Edition.",
+        "order": 7
+    }
+]

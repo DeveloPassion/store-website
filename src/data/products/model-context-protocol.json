@@ -71,26 +71,11 @@
         "Knowledge base",
         "Tool directories"
     ],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "Growing",
         "timeSaved": "Hours saved",
         "rating": "Open standard by Anthropic"
     },
-    "faqIds": [
-        "faq-89",
-        "faq-90",
-        "faq-91",
-        "faq-92",
-        "faq-93",
-        "faq-94",
-        "faq-95",
-        "faq-96",
-        "faq-97",
-        "faq-98",
-        "faq-99",
-        "faq-100"
-    ],
     "targetAudience": [
         "AI Power Users",
         "Knowledge Workers",

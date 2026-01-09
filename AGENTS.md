@@ -772,6 +772,140 @@ To use the skill, mention keywords like "product", "products", "add product", "e
 - Existing validation scripts remain unchanged
 - File is NOT gitignored (unlike aggregated products.json which is generated)
 
+## Managing FAQs and Testimonials
+
+FAQs and testimonials for products are stored in product-specific JSON files located alongside the product files. This approach keeps related content organized and makes management straightforward.
+
+### File Structure
+
+**FAQs:**
+
+- Location: `src/data/products/{product-id}-faq.json`
+- Schema: `src/schemas/faq.schema.ts`
+- Type: `src/types/faq.ts`
+
+**Testimonials:**
+
+- Location: `src/data/products/{product-id}-testimonials.json`
+- Schema: `src/schemas/testimonial.schema.ts`
+- Type: `src/types/testimonial.ts`
+
+### How It Works
+
+1. **Storage**: Each product can have its own FAQ and testimonial files.
+    - Example: `obsidian-starter-kit.json`, `obsidian-starter-kit-faq.json`, `obsidian-starter-kit-testimonials.json`
+
+2. **Loading**: During aggregation (`npm run aggregate:products`), the script automatically:
+    - Reads each product JSON file
+    - Looks for corresponding `-faq.json` and `-testimonials.json` files
+    - Loads and attaches FAQs and testimonials to the product object
+    - If these files don't exist, the product simply has empty arrays
+
+3. **Access**: In the aggregated `products.json`, each product has:
+    - `faqs`: Array of FAQ objects (or empty array if no file exists)
+    - `testimonials`: Array of testimonial objects (or empty array if no file exists)
+
+4. **Components**: React components access FAQs and testimonials directly from the product object:
+    - `product.faqs` in `ProductFAQ` component
+    - `product.testimonials` in `ProductTestimonials` component
+
+### FAQ Structure
+
+```json
+[
+    {
+        "id": "faq-1",
+        "question": "How do I get started?",
+        "answer": "Simply download the product and follow the included guide.",
+        "order": 1
+    },
+    {
+        "id": "faq-2",
+        "question": "Is there support available?",
+        "answer": "Yes! Email support is included with your purchase.",
+        "order": 2
+    }
+]
+```
+
+**Fields:**
+
+- `id` (string, required): Unique identifier for the FAQ
+- `question` (string, required): The question text
+- `answer` (string, required): The answer text
+- `order` (number, required): Display order (sorted ascending)
+
+**Note**: The `productId` field has been removed - it's implicit from the filename.
+
+### Testimonial Structure
+
+```json
+[
+    {
+        "id": "testimonial-1",
+        "author": "Jane Doe",
+        "rating": 5,
+        "quote": "This product changed my workflow completely!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-2",
+        "author": "John Smith",
+        "role": "Developer",
+        "company": "Tech Corp",
+        "twitterHandle": "johnsmith",
+        "twitterUrl": "https://twitter.com/johnsmith/status/123",
+        "rating": 5,
+        "quote": "Excellent resource, highly recommended.",
+        "featured": false
+    }
+]
+```
+
+**Fields:**
+
+- `id` (string, required): Unique identifier for the testimonial
+- `author` (string, required): Author's name
+- `rating` (number, required): 1-5 star rating
+- `quote` (string, required): Testimonial text
+- `featured` (boolean, required): Whether to feature prominently
+- `role` (string, optional): Author's job title
+- `company` (string, optional): Author's company
+- `avatarUrl` (string, optional): URL to avatar image
+- `twitterHandle` (string, optional): Twitter username (without @)
+- `twitterUrl` (string, optional): Link to tweet or profile
+
+**Note**: The `productId` field has been removed - it's implicit from the filename.
+
+### Management Workflow
+
+**Adding FAQs/Testimonials to a Product:**
+
+1. Create a new JSON file: `src/data/products/{product-id}-faq.json` or `{product-id}-testimonials.json`
+2. Add your entries following the structure above
+3. Run `npm run aggregate:products` to include them in the build
+4. Run `npm run validate:products` to verify everything is correct
+
+**Editing FAQs/Testimonials:**
+
+1. Edit the corresponding JSON file directly
+2. Run `npm run aggregate:products`
+3. Run `npm run validate:products`
+
+**Removing FAQs/Testimonials:**
+
+- To remove individual entries: Edit the JSON file and remove the entry
+- To remove all FAQs/testimonials: Delete the entire JSON file
+- The product will simply show no FAQs/testimonials section if the arrays are empty
+
+### Best Practices
+
+- **Unique IDs**: Ensure each FAQ/testimonial has a unique ID within its file
+- **Order**: Use the `order` field for FAQs to control display sequence
+- **Featured**: Mark your best testimonials as `featured: true` for prominence
+- **Validation**: Always run validation after changes to catch errors early
+- **File Existence**: It's perfectly fine for a product to have no FAQ or testimonial file
+
 ## Testing Requirements
 
 **CRITICAL**: This project enforces comprehensive testing for all code. Tests are mandatory for all new features, bug fixes, and refactorings.

@@ -1,0 +1,74 @@
+[
+    {
+        "id": "faq-89",
+        "question": "What is MCP in simple terms?",
+        "answer": "MCP lets AI access your files, databases, and tools directly instead of you copy-pasting everything. Like giving AI \"hands\" to reach your data.",
+        "order": 1
+    },
+    {
+        "id": "faq-90",
+        "question": "Do I need to be technical to use MCP?",
+        "answer": "No. The masterclass covers GUI tools (Dockmaster, Toolbase) that make installation easy. No coding required.",
+        "order": 2
+    },
+    {
+        "id": "faq-91",
+        "question": "Which AI tools support MCP?",
+        "answer": "Claude Desktop, Claude Web (with extension), Claude Code, Cline, Cursor, VSCode with Copilot, Windsurf, and growing. OpenAI announced ChatGPT support in March 2025.",
+        "order": 3
+    },
+    {
+        "id": "faq-92",
+        "question": "Can I use MCP with my Obsidian notes?",
+        "answer": "Yes! Demo 1 shows exactly this. AI reads your Obsidian vault directly.",
+        "order": 4
+    },
+    {
+        "id": "faq-93",
+        "question": "Is MCP secure?",
+        "answer": "MCP servers run locally on your machine. Claude Desktop requires user confirmation for sensitive operations. Masterclass covers security considerations in depth.",
+        "order": 5
+    },
+    {
+        "id": "faq-94",
+        "question": "Where do I find MCP servers?",
+        "answer": "Multiple directories covered: Smithery, official repos, community directories. Masterclass provides complete resource list.",
+        "order": 6
+    },
+    {
+        "id": "faq-95",
+        "question": "How do I install MCP servers?",
+        "answer": "Multiple methods: GUI tools (easiest), command line, npm. Masterclass demonstrates all approaches.",
+        "order": 7
+    },
+    {
+        "id": "faq-96",
+        "question": "Can MCP search the web?",
+        "answer": "Yes! Demo 3 shows Brave Search integration. Many search providers available.",
+        "order": 8
+    },
+    {
+        "id": "faq-97",
+        "question": "Can AI control my browser?",
+        "answer": "Yes! Demo 4 shows browser control. Navigate sites, extract data, fill forms.",
+        "order": 9
+    },
+    {
+        "id": "faq-98",
+        "question": "Will MCP work with future AI tools?",
+        "answer": "Yes. MCP is an open standard. OpenAI announced support for ChatGPT and their AI Agents SDK.",
+        "order": 10
+    },
+    {
+        "id": "faq-99",
+        "question": "Is this included in any bundles?",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "order": 11
+    },
+    {
+        "id": "faq-100",
+        "question": "Is this still relevant? MCP is from November 2024.",
+        "answer": "Very relevant! MCP is growing rapidly. OpenAI just added support (March 2025). Official registry coming. This is the BEGINNING of MCP adoption.",
+        "order": 12
+    }
+]

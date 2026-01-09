@@ -59,13 +59,11 @@
         "longTerm": ["Complete system", "Sustainable"]
     },
     "included": ["Complete checklist", "Components guide", "Gap analysis framework"],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "Free resource",
         "timeSaved": "Saves planning time",
         "rating": "Comprehensive"
     },
-    "faqIds": ["faq-130", "faq-131", "faq-132", "faq-133", "faq-134", "faq-135"],
     "targetAudience": ["System Builders", "System Auditors", "Improvers", "Learners"],
     "perfectFor": ["Starting from scratch", "Auditing system", "Improving", "Learning about PKM"],
     "notForYou": ["Don't care about systems", "Prefer ad-hoc"],

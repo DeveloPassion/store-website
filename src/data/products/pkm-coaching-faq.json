@@ -1,0 +1,44 @@
+[
+    {
+        "id": "faq-123",
+        "question": "How long is a coaching session?",
+        "answer": "Session length and format details provided after booking. Tailored to ensure you get value.",
+        "order": 1
+    },
+    {
+        "id": "faq-124",
+        "question": "What should I prepare?",
+        "answer": "Come with specific questions or challenges. Share your current system if you have one. Booking confirmation includes preparation guidance.",
+        "order": 2
+    },
+    {
+        "id": "faq-125",
+        "question": "Can I book multiple sessions?",
+        "answer": "Yes. Many clients book follow-up sessions for ongoing support. Purchase additional sessions as needed.",
+        "order": 3
+    },
+    {
+        "id": "faq-126",
+        "question": "Is this included in any bundles?",
+        "answer": "Knowledge Master tier includes quarterly check-ins. This is for additional 1-on-1 sessions beyond that.",
+        "order": 4
+    },
+    {
+        "id": "faq-127",
+        "question": "What if I'm a complete beginner?",
+        "answer": "Coaching works for all levels. However, if you're brand new, consider starting with courses (Knowledge Management for Beginners, Obsidian Starter Course) then coaching for personalized optimization.",
+        "order": 5
+    },
+    {
+        "id": "faq-128",
+        "question": "Do you coach on specific tools (Obsidian, Notion, etc.)?",
+        "answer": "Yes. While principles are tool-agnostic, coaching can include specific tool guidance including Obsidian, Notion, and others.",
+        "order": 6
+    },
+    {
+        "id": "faq-129",
+        "question": "What timezone are you in?",
+        "answer": "Booking process includes scheduling that works for both timezones.",
+        "order": 7
+    }
+]

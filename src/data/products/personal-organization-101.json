@@ -80,13 +80,11 @@
         "Practical techniques",
         "Real examples"
     ],
-    "testimonialIds": [],
     "statsProof": {
         "userCount": "20+ years refined",
         "timeSaved": "Hours saved weekly",
         "rating": "Battle-tested"
     },
-    "faqIds": ["faq-67", "faq-68", "faq-69", "faq-70", "faq-71", "faq-72", "faq-73"],
     "targetAudience": ["Knowledge Workers", "Leaders", "Solopreneurs", "The Overwhelmed"],
     "perfectFor": [
         "Information overload",

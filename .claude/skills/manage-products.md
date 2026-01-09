@@ -118,9 +118,10 @@ npm run update:products -- --operation remove --id product-id --force
 - ✅ Complex marketing copy (problemPoints, agitatePoints, solutionPoints)
 - ✅ Adding detailed content (features, benefits, included)
 - ✅ Media management (coverImage, screenshots, videoUrl)
-- ✅ Cross-references (testimonialIds, faqIds, crossSellIds)
+- ✅ Cross-references (crossSellIds)
 - ✅ SEO metadata (metaTitle, metaDescription, keywords)
 - ✅ Advanced fields (variants, statsProof, guarantees)
+- ✅ FAQs and testimonials (see separate management section below)
 
 ## Schema Documentation
 
@@ -160,11 +161,13 @@ Every product must include:
 - `features` (array) - List of features
 - `benefits` (object) - immediate, systematic, and longTerm arrays
 - `included` (array) - What's included in the product
-- `testimonialIds` (array) - IDs from testimonials.json
-- `faqIds` (array) - IDs from faqs.json
+- `faqs` (array, auto-loaded) - FAQs loaded from {product-id}-faq.json
+- `testimonials` (array, auto-loaded) - Testimonials loaded from {product-id}-testimonials.json
 - `targetAudience` (array) - Who this is for
 - `perfectFor` (array) - Perfect for scenarios
 - `notForYou` (array) - When not to buy
+
+**Note:** FAQs and testimonials are stored in separate files (`{product-id}-faq.json` and `{product-id}-testimonials.json`) and are automatically loaded during aggregation. They do not need to be managed in the product JSON file directly.
 
 **Meta:**
 - `featured` (boolean) - Feature flag (displayed prominently)

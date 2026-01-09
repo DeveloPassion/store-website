@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { CategoryIdSchema } from './category.schema.js'
 import { TagIdSchema } from './tag.schema.js'
+import { FAQSchema } from './faq.schema.js'
+import { TestimonialSchema } from './testimonial.schema.js'
 
 /**
  * Zod schema for product validation
@@ -86,7 +88,7 @@ export const ProductSchema = z.object({
     included: z.array(z.string()).min(1, 'At least one included item is required'),
 
     // Social Proof
-    testimonialIds: z.array(z.string()),
+    testimonials: z.array(TestimonialSchema).optional(),
     statsProof: StatsProofSchema.optional(),
 
     // Media
@@ -96,7 +98,7 @@ export const ProductSchema = z.object({
     demoUrl: z.string().url().optional().or(z.literal('')),
 
     // Content
-    faqIds: z.array(z.string()),
+    faqs: z.array(FAQSchema).optional(),
     targetAudience: z.array(z.string()),
     perfectFor: z.array(z.string()),
     notForYou: z.array(z.string()),

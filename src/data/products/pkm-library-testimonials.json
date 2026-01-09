@@ -1,0 +1,37 @@
+[
+    {
+        "id": "testimonial-14",
+        "author": "Miriam",
+        "rating": 5,
+        "quote": "This is a super complete work and one that I will use in each of my areas of interest. Perfect, really!",
+        "featured": true
+    },
+    {
+        "id": "testimonial-15",
+        "author": "Martin Adams",
+        "rating": 5,
+        "quote": "This is a great collection of resources that can really help you find the best content out there on personal knowledge management. As a content creator myself, it's great to use this to discover others who share the same passions and see what they're up to and potentially collaborate. What I really like about it is that it isn't just a collection of note taking resources, related fields such as thinking and psychology.",
+        "featured": true
+    },
+    {
+        "id": "testimonial-16",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "The most comprehensive PKM article collection I have ever seen",
+        "featured": false
+    },
+    {
+        "id": "testimonial-17",
+        "author": "Brigitte Roujol",
+        "rating": 5,
+        "quote": "A very good ressource !",
+        "featured": false
+    },
+    {
+        "id": "testimonial-18",
+        "author": "Joao Tapadinhas",
+        "rating": 5,
+        "quote": "Amazingly good list of resources in Personal Knowledge Management.",
+        "featured": false
+    }
+]

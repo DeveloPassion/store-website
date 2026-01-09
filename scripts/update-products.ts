@@ -312,7 +312,9 @@ function parseArgs(): CliArgs {
  */
 function loadAllProducts(): Product[] {
     const products: Product[] = []
-    const files = readdirSync(PRODUCTS_DIR).filter((f) => f.endsWith('.json'))
+    const files = readdirSync(PRODUCTS_DIR).filter(
+        (f) => f.endsWith('.json') && !f.endsWith('-faq.json') && !f.endsWith('-testimonials.json')
+    )
 
     for (const file of files) {
         const filePath = resolve(PRODUCTS_DIR, file)

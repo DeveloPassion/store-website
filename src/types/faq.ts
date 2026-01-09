@@ -1,7 +1,5 @@
-export interface FAQ {
-    id: string
-    productId: string // Which product this FAQ is for
-    question: string
-    answer: string
-    order: number // Display order
-}
+/**
+ * FAQ type definitions
+ * Re-exports types from the Zod schema (single source of truth)
+ */
+export type { FAQ, FAQsArray } from '../schemas/faq.schema.js'

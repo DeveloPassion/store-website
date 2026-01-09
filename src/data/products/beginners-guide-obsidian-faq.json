@@ -1,0 +1,44 @@
+[
+    {
+        "id": "faq-136",
+        "question": "Is this really free?",
+        "answer": "Yes! Completely free, no credit card required.",
+        "order": 1
+    },
+    {
+        "id": "faq-137",
+        "question": "Do I need Obsidian installed first?",
+        "answer": "No. Read the guide first to understand what Obsidian is, then decide if you want to install it.",
+        "order": 2
+    },
+    {
+        "id": "faq-138",
+        "question": "What format is it?",
+        "answer": "Digital format (PDF or similar) for easy reading and reference.",
+        "order": 3
+    },
+    {
+        "id": "faq-139",
+        "question": "Is this the same as the Obsidian Starter Course?",
+        "answer": "No. This is a FREE beginner's guide. The Obsidian Starter Course (€69.99) is a comprehensive 2h20 video course with much more depth.",
+        "order": 4
+    },
+    {
+        "id": "faq-140",
+        "question": "Is this the same as Obsidian Starter Kit?",
+        "answer": "No. This is a FREE guide. Obsidian Starter Kit (€49.99-118.99) is a complete vault structure with templates, plugins, and automation.",
+        "order": 5
+    },
+    {
+        "id": "faq-141",
+        "question": "Can I share this with others?",
+        "answer": "Personal use. If others want it, direct them to download their own copy.",
+        "order": 6
+    },
+    {
+        "id": "faq-142",
+        "question": "Will this teach me everything about Obsidian?",
+        "answer": "It covers getting started and fundamentals. For comprehensive training, see the Obsidian Starter Course (€69.99).",
+        "order": 7
+    }
+]
