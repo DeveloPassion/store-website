@@ -6,12 +6,10 @@ import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import productsData from '@/data/products.json'
 import type { Product, ProductCategory, PriceTier } from '@/types/product'
-import type { CategoryId } from '@/types/category'
 import { sortProductsByPriority } from '@/lib/product-sort'
 
 const ProductsPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('')
-    const [selectedMainCategory, setSelectedMainCategory] = useState<CategoryId | 'all'>('all')
     const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
     const [selectedTier, setSelectedTier] = useState<PriceTier | 'all'>('all')
     const [showMostValueOnly, setShowMostValueOnly] = useState(false)
@@ -20,7 +18,6 @@ const ProductsPage: React.FC = () => {
     const products = productsData as Product[]
 
     // Get unique values for filters
-    const mainCategories = Array.from(new Set(products.map((p) => p.mainCategory))).sort()
     const categories = Array.from(
         new Set(
             products.flatMap((p) => [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)])
@@ -43,11 +40,6 @@ const ProductsPage: React.FC = () => {
                     product.description.toLowerCase().includes(query) ||
                     product.tags.some((tag) => tag.toLowerCase().includes(query))
                 if (!matchesSearch) return false
-            }
-
-            // Main category filter
-            if (selectedMainCategory !== 'all' && product.mainCategory !== selectedMainCategory) {
-                return false
             }
 
             // Category filter (matches mainCategory or any secondaryCategory)
@@ -73,14 +65,7 @@ const ProductsPage: React.FC = () => {
 
             return true
         })
-    }, [
-        products,
-        searchQuery,
-        selectedMainCategory,
-        selectedCategory,
-        selectedTier,
-        showMostValueOnly
-    ])
+    }, [products, searchQuery, selectedCategory, selectedTier, showMostValueOnly])
 
     // Sort by priority (highest to lowest), with randomization within same priority
     const sortedProducts = useMemo(() => {
@@ -94,18 +79,13 @@ const ProductsPage: React.FC = () => {
 
     const clearFilters = () => {
         setSearchQuery('')
-        setSelectedMainCategory('all')
         setSelectedCategory('all')
         setSelectedTier('all')
         setShowMostValueOnly(false)
     }
 
     const hasActiveFilters =
-        searchQuery ||
-        selectedMainCategory !== 'all' ||
-        selectedCategory !== 'all' ||
-        selectedTier !== 'all' ||
-        showMostValueOnly
+        searchQuery || selectedCategory !== 'all' || selectedTier !== 'all' || showMostValueOnly
 
     return (
         <>
@@ -186,36 +166,6 @@ const ProductsPage: React.FC = () => {
                                 )}
                             </div>
                             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                                {/* Main Category Filter */}
-                                <div>
-                                    <label className='text-primary/70 mb-2 block text-sm font-medium'>
-                                        Main Category
-                                    </label>
-                                    <select
-                                        value={selectedMainCategory}
-                                        onChange={(e) =>
-                                            setSelectedMainCategory(
-                                                e.target.value as CategoryId | 'all'
-                                            )
-                                        }
-                                        className='border-primary/20 bg-background focus:border-secondary focus:ring-secondary w-full rounded-lg border px-3 py-2 transition-colors focus:ring-2 focus:outline-none'
-                                    >
-                                        <option value='all'>All Main Categories</option>
-                                        {mainCategories.map((category) => (
-                                            <option key={category} value={category}>
-                                                {category
-                                                    .split('-')
-                                                    .map(
-                                                        (word: string) =>
-                                                            word.charAt(0).toUpperCase() +
-                                                            word.slice(1)
-                                                    )
-                                                    .join(' ')}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
                                 {/* Category Filter */}
                                 <div>
                                     <label className='text-primary/70 mb-2 block text-sm font-medium'>
@@ -303,43 +253,55 @@ const ProductsPage: React.FC = () => {
                                     to={`/l/${product.id}`}
                                     className='border-primary/10 bg-background/50 hover:border-secondary/50 group relative flex h-full flex-col rounded-xl border p-6 transition-all hover:shadow-lg'
                                 >
-                                    {/* Badges - Top Left */}
-                                    <div className='absolute top-4 left-4 flex flex-col gap-2'>
-                                        {/* Featured Badge */}
-                                        {product.featured && (
-                                            <div className='from-secondary to-secondary/80 flex items-center gap-1 rounded-full bg-gradient-to-r px-3 py-1 text-xs font-medium text-white shadow-md'>
-                                                <FaStar className='h-2.5 w-2.5' />
-                                                Featured
-                                            </div>
-                                        )}
-
-                                        {/* Most Value Badge */}
-                                        {product.mostValue && (
-                                            <div className='flex items-center gap-1 rounded-full bg-blue-500 px-3 py-1 text-xs font-bold text-white shadow-md'>
-                                                <FaTrophy className='h-2.5 w-2.5' />
-                                                MOST VALUE
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    {/* Status Badge - Top Right */}
+                                    {/* Status Badge - Top Right (absolute positioned) */}
                                     {product.status === 'coming-soon' && (
                                         <div className='bg-primary/20 text-primary/80 absolute top-4 right-4 rounded-full px-2 py-1 text-xs'>
                                             Coming Soon
                                         </div>
                                     )}
 
-                                    {/* Title */}
-                                    <h3 className='group-hover:text-secondary mb-2 text-xl font-bold transition-colors'>
-                                        {product.name}
-                                    </h3>
+                                    {/* Top Section: Badges Column + Title Column */}
+                                    <div className='mb-4 flex gap-4'>
+                                        {/* Badges Column - Only show if product has badges */}
+                                        {(product.featured || product.mostValue) && (
+                                            <div className='flex min-w-[80px] flex-col gap-2'>
+                                                {/* Featured Badge */}
+                                                {product.featured && (
+                                                    <div className='from-secondary to-secondary/80 flex items-center gap-1 rounded-full bg-gradient-to-r px-3 py-1 text-xs font-medium text-white shadow-md'>
+                                                        <FaStar className='h-2.5 w-2.5' />
+                                                        <span className='hidden sm:inline'>
+                                                            Featured
+                                                        </span>
+                                                    </div>
+                                                )}
 
-                                    {/* Tagline */}
-                                    <p className='text-primary/70 mb-4 line-clamp-2 flex-1 text-sm'>
-                                        {product.tagline}
-                                    </p>
+                                                {/* Most Value Badge */}
+                                                {product.mostValue && (
+                                                    <div className='flex items-center gap-1 rounded-full bg-blue-500 px-2 py-1 text-xs font-bold text-white shadow-md sm:px-3'>
+                                                        <FaTrophy className='h-2.5 w-2.5' />
+                                                        <span className='hidden sm:inline'>
+                                                            MOST VALUE
+                                                        </span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
 
-                                    {/* Price */}
+                                        {/* Title and Tagline Column */}
+                                        <div className='flex-1'>
+                                            {/* Title */}
+                                            <h3 className='group-hover:text-secondary mb-2 text-xl font-bold transition-colors'>
+                                                {product.name}
+                                            </h3>
+
+                                            {/* Tagline */}
+                                            <p className='text-primary/70 line-clamp-2 text-sm'>
+                                                {product.tagline}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Price Section */}
                                     <div className='border-primary/10 mb-4 border-t pt-4'>
                                         <div className='text-primary/60 mb-1 text-xs'>Price</div>
                                         <div className='text-secondary text-xl font-bold'>
