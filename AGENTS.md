@@ -422,11 +422,14 @@ npm run update:tags -- --operation modify --id "ai" --description "Updated descr
 
 # Remove tag (will check product usage)
 npm run update:tags -- --operation remove --id "deprecated-tag"
+
+# Remove all unused tags (tags not referenced by any product)
+npm run update:tags -- --operation remove-unused [--force]
 ```
 
 The update script:
 
-- Supports four operations: list, add, modify, remove
+- Supports five operations: list, add, modify, remove, remove-unused
 - Auto-generates kebab-case IDs from tag names
 - Validates against Zod schema before saving
 - Checks product usage before removal
@@ -524,11 +527,14 @@ npm run update:categories -- --operation modify --id "coaching" --description "U
 
 # Remove category (strict checks for mainCategory usage)
 npm run update:categories -- --operation remove --id "old-category"
+
+# Remove all unused categories (categories not referenced by any product)
+npm run update:categories -- --operation remove-unused [--force]
 ```
 
 The update script:
 
-- Supports four operations: list, add, modify, remove
+- Supports five operations: list, add, modify, remove, remove-unused
 - Auto-generates kebab-case IDs from category names
 - Validates against Zod schema before saving
 - Checks product usage (mainCategory vs secondaryCategories)
