@@ -167,13 +167,13 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             {/* Search Bar - Desktop */}
                             <button
                                 onClick={onOpenCommandPalette}
-                                className='hidden max-w-md flex-1 md:block'
+                                className='hidden max-w-lg flex-1 md:block lg:max-w-xl xl:max-w-2xl'
                                 title='Search products'
                             >
                                 <div className='relative'>
-                                    <div className='bg-primary/5 border-primary/10 placeholder:text-primary/40 hover:border-secondary/50 hover:bg-primary/10 flex h-10 w-full cursor-pointer items-center rounded-lg border px-4 pr-10 text-left text-sm transition-colors'>
+                                    <div className='bg-primary/5 border-primary/10 placeholder:text-primary/40 hover:border-secondary/50 hover:bg-primary/10 flex h-10 w-full cursor-pointer items-center rounded-lg border px-4 pr-10 text-left text-sm transition-colors lg:h-11 lg:text-base xl:h-12'>
                                         <span className='text-primary/40'>Search products...</span>
-                                        <div className='border-primary/20 bg-primary/5 absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-1 rounded border px-1.5 py-0.5 text-xs'>
+                                        <div className='border-primary/20 bg-primary/5 absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-1 rounded border px-1.5 py-0.5 text-xs lg:px-2 lg:py-1'>
                                             <kbd className='text-primary/60'>/</kbd>
                                         </div>
                                     </div>
@@ -194,7 +194,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 href='https://www.dsebastien.net'
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg p-2 transition-colors sm:px-3 sm:py-2 xl:px-4'
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 items-center gap-2 rounded-lg px-3 transition-colors lg:h-11 xl:h-12 xl:px-4'
                                 title='DeveloPassion Website'
                             >
                                 <img
@@ -208,7 +208,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             {/* Hamburger Menu Button - always visible */}
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors'
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
                                 aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
                                 aria-expanded={mobileMenuOpen}
                             >
