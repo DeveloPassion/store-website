@@ -73,6 +73,15 @@ const CategoryPage: React.FC = () => {
                     `https://store.dsebastien.net/categories/${categoryId}`
                 )
             }
+
+            // Reset og:image to default for generic pages
+            const ogImage = document.querySelector('meta[property="og:image"]')
+            if (ogImage) {
+                ogImage.setAttribute(
+                    'content',
+                    'https://store.dsebastien.net/assets/images/social-card.png'
+                )
+            }
         }
     }, [category, categoryId])
 

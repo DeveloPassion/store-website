@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { FaArrowLeft, FaTag, FaSearch, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
@@ -16,6 +16,46 @@ import {
 const TagsPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchQuery = searchParams.get('q') || ''
+
+    // Set page title and meta tags
+    useEffect(() => {
+        document.title = 'Tags - Knowledge Forge'
+
+        const metaDescription = document.querySelector('meta[name="description"]')
+        if (metaDescription) {
+            metaDescription.setAttribute(
+                'content',
+                'Browse products by tag. Discover courses, kits, templates, and tools by specific topics and features.'
+            )
+        }
+
+        // Reset og:image to default for generic pages
+        const ogImage = document.querySelector('meta[property="og:image"]')
+        if (ogImage) {
+            ogImage.setAttribute(
+                'content',
+                'https://store.dsebastien.net/assets/images/social-card.png'
+            )
+        }
+
+        const ogTitle = document.querySelector('meta[property="og:title"]')
+        if (ogTitle) {
+            ogTitle.setAttribute('content', 'Tags - Knowledge Forge')
+        }
+
+        const ogDescription = document.querySelector('meta[property="og:description"]')
+        if (ogDescription) {
+            ogDescription.setAttribute(
+                'content',
+                'Browse products by tag. Discover courses, kits, templates, and tools by specific topics and features.'
+            )
+        }
+
+        const ogUrl = document.querySelector('meta[property="og:url"]')
+        if (ogUrl) {
+            ogUrl.setAttribute('content', 'https://store.dsebastien.net/tags')
+        }
+    }, [])
 
     // Build tags with counts and split into featured/non-featured
     const { featuredTags, nonFeaturedTags, allTagsCount } = useMemo(() => {

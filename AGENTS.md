@@ -75,6 +75,71 @@ To add more icons, import them in `/src/components/tools/tool-icon.tsx` and add 
 
 If no `icon` is specified or the icon name is not found, the component falls back to category-based emojis.
 
+## Meta Tags and Open Graph Images
+
+### Open Graph Image Requirements
+
+All pages must properly set their Open Graph (og:image) meta tags for social media sharing:
+
+1. **Generic Pages** (categories, tags, help, etc.) - Use the default social card:
+    - Set `og:image` to: `https://store.dsebastien.net/assets/images/social-card.png`
+    - This applies to: `/categories`, `/tags`, `/help`, and individual category/tag pages
+
+2. **Product Pages** - Use product-specific images when available:
+    - If product has `coverImage`: Use `https://store.dsebastien.net{product.coverImage}`
+    - Otherwise: Fall back to default `social-card.png`
+
+3. **Home Page** - Uses the default social card set in `index.html`
+
+### Implementation Pattern
+
+When creating or updating page components, always include a `useEffect` hook that sets meta tags:
+
+```typescript
+useEffect(() => {
+    // Set document title
+    document.title = 'Page Title - Knowledge Forge'
+
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]')
+    if (metaDescription) {
+        metaDescription.setAttribute('content', 'Page description')
+    }
+
+    // Set og:image (REQUIRED)
+    const ogImage = document.querySelector('meta[property="og:image"]')
+    if (ogImage) {
+        ogImage.setAttribute(
+            'content',
+            'https://store.dsebastien.net/assets/images/social-card.png'
+        )
+    }
+
+    // Update other OG tags
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) {
+        ogTitle.setAttribute('content', 'Page Title - Knowledge Forge')
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]')
+    if (ogDescription) {
+        ogDescription.setAttribute('content', 'Page description')
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogUrl) {
+        ogUrl.setAttribute('content', 'https://store.dsebastien.net/page-path')
+    }
+}, [])
+```
+
+### Why This Matters
+
+- Ensures consistent branding across social media shares
+- Prevents broken or missing images when pages are shared
+- Improves click-through rates from social media
+- Product pages get custom images to showcase their specific content
+
 ## Styling
 
 The website uses Tailwind CSS v4 with custom theme variables defined in `/src/styles/index.css`:

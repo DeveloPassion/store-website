@@ -18,7 +18,7 @@ const CategoriesPage: React.FC = () => {
     const searchQuery = searchParams.get('q') || ''
     const categories = categoriesData as Category[]
 
-    // Set page title
+    // Set page title and meta tags
     useEffect(() => {
         document.title = 'Categories - Knowledge Forge'
 
@@ -28,6 +28,33 @@ const CategoriesPage: React.FC = () => {
                 'content',
                 'Browse products by category. Find courses, kits, templates, and tools organized by topic.'
             )
+        }
+
+        // Reset og:image to default for generic pages
+        const ogImage = document.querySelector('meta[property="og:image"]')
+        if (ogImage) {
+            ogImage.setAttribute(
+                'content',
+                'https://store.dsebastien.net/assets/images/social-card.png'
+            )
+        }
+
+        const ogTitle = document.querySelector('meta[property="og:title"]')
+        if (ogTitle) {
+            ogTitle.setAttribute('content', 'Categories - Knowledge Forge')
+        }
+
+        const ogDescription = document.querySelector('meta[property="og:description"]')
+        if (ogDescription) {
+            ogDescription.setAttribute(
+                'content',
+                'Browse products by category. Find courses, kits, templates, and tools organized by topic.'
+            )
+        }
+
+        const ogUrl = document.querySelector('meta[property="og:url"]')
+        if (ogUrl) {
+            ogUrl.setAttribute('content', 'https://store.dsebastien.net/categories')
         }
     }, [])
 

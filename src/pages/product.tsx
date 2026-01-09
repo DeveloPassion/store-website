@@ -18,7 +18,7 @@ const ProductPage: React.FC = () => {
     // Find product by slug (id field in JSON)
     const product = (productsData as Product[]).find((p) => p.id === productSlug)
 
-    // Update document title
+    // Update document title and meta tags
     useEffect(() => {
         if (product) {
             document.title = product.metaTitle || `${product.name} - Knowledge Forge`
@@ -29,6 +29,36 @@ const ProductPage: React.FC = () => {
                 if (metaDescription) {
                     metaDescription.setAttribute('content', product.metaDescription)
                 }
+            }
+
+            // Update og:image - use product coverImage if available, otherwise default
+            const ogImage = document.querySelector('meta[property="og:image"]')
+            if (ogImage) {
+                const imageUrl = product.coverImage
+                    ? `https://store.dsebastien.net${product.coverImage}`
+                    : 'https://store.dsebastien.net/assets/images/social-card.png'
+                ogImage.setAttribute('content', imageUrl)
+            }
+
+            // Update og:title
+            const ogTitle = document.querySelector('meta[property="og:title"]')
+            if (ogTitle) {
+                ogTitle.setAttribute(
+                    'content',
+                    product.metaTitle || `${product.name} - Knowledge Forge`
+                )
+            }
+
+            // Update og:description
+            const ogDescription = document.querySelector('meta[property="og:description"]')
+            if (ogDescription && product.metaDescription) {
+                ogDescription.setAttribute('content', product.metaDescription)
+            }
+
+            // Update og:url
+            const ogUrl = document.querySelector('meta[property="og:url"]')
+            if (ogUrl) {
+                ogUrl.setAttribute('content', `https://store.dsebastien.net/products/${product.id}`)
             }
         } else {
             document.title = 'Product Not Found - Knowledge Forge'

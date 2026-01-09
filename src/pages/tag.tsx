@@ -142,6 +142,15 @@ const TagPage: React.FC = () => {
             if (ogUrl) {
                 ogUrl.setAttribute('content', `https://store.dsebastien.net/tags/${tagId}`)
             }
+
+            // Reset og:image to default for generic pages
+            const ogImage = document.querySelector('meta[property="og:image"]')
+            if (ogImage) {
+                ogImage.setAttribute(
+                    'content',
+                    'https://store.dsebastien.net/assets/images/social-card.png'
+                )
+            }
         }
     }, [tagData, tagId])
 
