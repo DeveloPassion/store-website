@@ -4,10 +4,18 @@
     "tagline": "Transform Information Chaos Into Your Greatest Advantage",
     "secondaryTagline": "Community + Premium Courses + Professional Tools = Your All-in-One Knowledge Solution",
     "price": 19.99,
-    "priceDisplay": "From FREE (Explorer) to €39.99/month (Knowledge Master)",
+    "priceDisplay": "From €4.99€/month (Explorer) to €39.99/month (Knowledge Master)",
     "priceTier": "subscription",
     "gumroadUrl": "https://www.store.dsebastien.net/l/knowii",
-    "tags": ["pkm", "knowledge-management", "community", "obsidian", "courses", "second-brain"],
+    "tags": [
+        "pkm",
+        "knowledge-management",
+        "knowledge-work",
+        "community",
+        "obsidian",
+        "courses",
+        "second-brain"
+    ],
     "problem": "Information chaos sabotaging productivity. Drowning, can't find anything, forget what you learned.",
     "problemPoints": [
         "Drowning in tabs",
@@ -137,10 +145,10 @@
     "variants": [
         {
             "name": "Explorer",
-            "price": 0,
-            "priceDisplay": "FREE",
+            "price": 4.99,
+            "priceDisplay": "€4.99/month",
             "description": "Community, KM guidance, 1700+ concepts",
-            "gumroadUrl": "https://www.knowii.net"
+            "gumroadUrl": "https://developassion.gumroad.com/l/knowii"
         },
         {
             "name": "Knowledge Builder",
