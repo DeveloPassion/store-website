@@ -180,9 +180,9 @@
         "priority": 19
     },
     {
-        "id": "databases",
-        "name": "Databases",
-        "description": "Curated databases and resource collections for reference and learning",
+        "id": "knowledge-bases",
+        "name": "Knowledge Bases",
+        "description": "Curated knowledge bases and resource collections for reference and learning",
         "icon": "FaDatabase",
         "color": "#00D2D3",
         "featured": false,

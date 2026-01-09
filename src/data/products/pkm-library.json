@@ -168,7 +168,7 @@
     "videoUrl": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
     "priority": 70,
     "id": "pkm-library",
-    "mainCategory": "databases",
+    "mainCategory": "knowledge-bases",
     "secondaryCategories": [
         {
             "id": "knowledge-management",
