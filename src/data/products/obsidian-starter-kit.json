@@ -6,21 +6,21 @@
     "price": 49.99,
     "priceDisplay": "€49.99-€118.99",
     "priceTier": "standard",
-    "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit",
+    "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit",
     "variants": [
         {
             "name": "Essentials",
             "price": 49.99,
             "priceDisplay": "€49.99",
             "description": "Vault + comprehensive user guide",
-            "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
+            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit"
         },
         {
             "name": "Premium",
             "price": 118.99,
             "priceDisplay": "€118.99",
             "description": "Essentials + 2h20m Obsidian Starter Course video",
-            "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
+            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit"
         }
     ],
     "tags": [
