@@ -1,10 +1,28 @@
-import { useMemo } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router'
+import { FaTimes } from 'react-icons/fa'
 import promotionConfig from '@/data/promotion.json'
 import type { PromotionConfig } from '@/types/promotion'
 
+const STORAGE_KEY = 'promo-banner-dismissed'
+
 const PromotionBanner: React.FC = () => {
     const config = promotionConfig as PromotionConfig
+    const [isDismissed, setIsDismissed] = useState(false)
+
+    // Check session storage on mount
+    useEffect(() => {
+        const dismissed = sessionStorage.getItem(STORAGE_KEY)
+        if (dismissed === 'true') {
+            setIsDismissed(true)
+        }
+    }, [])
+
+    // Handle dismiss
+    const handleDismiss = () => {
+        setIsDismissed(true)
+        sessionStorage.setItem(STORAGE_KEY, 'true')
+    }
 
     // Determine if banner should be visible
     const isVisible = useMemo(() => {
@@ -44,13 +62,13 @@ const PromotionBanner: React.FC = () => {
         }
     }, [config])
 
-    // Don't render if not visible
-    if (!isVisible) {
+    // Don't render if not visible or dismissed
+    if (!isVisible || isDismissed) {
         return null
     }
 
     return (
-        <div className='border-b border-amber-600/20 bg-amber-500/10 px-4 py-2 text-center text-sm'>
+        <div className='relative border-b border-amber-600/20 bg-amber-500/10 px-4 py-2 text-center text-sm'>
             <p className='text-primary/80'>
                 {config.promoText}{' '}
                 {config.promoLinkText && (
@@ -63,6 +81,13 @@ const PromotionBanner: React.FC = () => {
                 )}
                 {config.discountCode && <span className='ml-1'>({config.discountCode})</span>}
             </p>
+            <button
+                onClick={handleDismiss}
+                className='text-primary/40 hover:text-primary/60 absolute top-1/2 right-2 -translate-y-1/2 rounded p-1 transition-colors hover:bg-amber-600/10'
+                aria-label='Dismiss promotion banner'
+            >
+                <FaTimes className='h-3 w-3' />
+            </button>
         </div>
     )
 }
