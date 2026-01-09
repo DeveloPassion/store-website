@@ -25,6 +25,10 @@ The website is the store of dSebastien:
 
 TODO document
 
+## Product Display
+
+**IMPORTANT**: Always use the `ProductCardEcommerce` component (`/src/components/products/product-card-ecommerce.tsx`) when displaying products in grids or lists, unless explicitly instructed otherwise.
+
 ## Icons
 
 Tools can have custom icons specified via the `icon` field. The icon can be:
