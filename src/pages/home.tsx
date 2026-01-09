@@ -119,7 +119,7 @@ const HomeEcommerce: React.FC = () => {
                         </p>
 
                         {/* Stats */}
-                        <div className='mb-8 grid grid-cols-2 gap-4'>
+                        <div className='mb-8 flex flex-row gap-12'>
                             <div>
                                 <div className='text-2xl font-bold text-green-400 sm:text-3xl'>
                                     2K+
