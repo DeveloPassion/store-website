@@ -137,25 +137,17 @@ describe('ProductCardEcommerce Component', () => {
         expect(onAddToCart).toHaveBeenCalledTimes(1)
     })
 
-    it('should navigate to product page when Buy button clicked without onAddToCart', () => {
-        // Mock window.location.href
-        const originalLocation = window.location
-        // @ts-expect-error - Mocking window.location for testing
-        delete window.location
-        // @ts-expect-error - Mocking window.location for testing
-        window.location = { href: '' } as Location
-
-        const product = createMockProduct({ id: 'my-product' })
+    it('should link to Gumroad URL when no onAddToCart provided', () => {
+        const product = createMockProduct({
+            id: 'my-product',
+            gumroadUrl: 'https://gumroad.com/l/my-product'
+        })
         renderWithRouter(<ProductCardEcommerce product={product} />)
 
         const buyButton = screen.getByText('Buy')
-        fireEvent.click(buyButton)
-
-        expect(window.location.href).toBe('/l/my-product')
-
-        // Restore original location
-        // @ts-expect-error - Restoring window.location after test
-        window.location = originalLocation
+        expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/l/my-product?wanted=true')
+        expect(buyButton).toHaveAttribute('target', '_blank')
+        expect(buyButton).toHaveAttribute('rel', 'noopener noreferrer')
     })
 
     it('should have Quick View overlay on hover', () => {

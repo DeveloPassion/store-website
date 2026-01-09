@@ -2,7 +2,7 @@
 
 ## Product Identity
 
-- **ID**: everything-knowledge-bundle
+- **ID**: everything-knowledge
 - **Permalink**: lbocum
 - **Name**: Everything Knowledge Bundle
 - **Tagline**: Every Knowledge Tool, Course, and Workshop in One Complete Package
@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €299.99 (Save $200+ vs individual purchases)
 - **Price Tier**: premium
-- **Gumroad URL**: https://www.store.dsebastien.net/l/everything-knowledge-bundle
+- **Gumroad URL**: https://www.store.dsebastien.net/l/everything-knowledge
 
 **Important Notes**:
 
@@ -296,7 +296,7 @@ A: After purchase, all products are immediately available in your account. Downl
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/everything-knowledge-bundle
+- **Purchase**: https://www.store.dsebastien.net/l/everything-knowledge
 - **Creator Website**: https://www.dsebastien.net
 - **Knowii Community** (Alternative with live events): https://www.knowii.net
 

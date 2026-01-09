@@ -49,8 +49,6 @@ const PERMALINK_MAP = {
 }
 ```
 
-**Testing Requirement**: Before launch, manually verify ALL 21 URLs work and match Gumroad.
-
 ---
 
 ### 2. Pricing Currency Consistency

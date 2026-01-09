@@ -3,6 +3,7 @@ import { FaShoppingCart, FaHeart, FaStar, FaTrophy, FaFire } from 'react-icons/f
 import type { Product } from '@/types/product'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
+import { buildGumroadUrl } from '@/lib/gumroad-url'
 
 interface ProductCardEcommerceProps {
     product: Product
@@ -19,9 +20,6 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
         e.preventDefault()
         if (onAddToCart) {
             onAddToCart()
-        } else {
-            // Open product page
-            window.location.href = `/l/${product.id}`
         }
     }
 
@@ -181,13 +179,24 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                             <span className='text-lg font-bold'>{displayPrice}</span>
                         )}
                     </div>
-                    <button
-                        onClick={handleAddToCart}
-                        className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
-                    >
-                        <FaShoppingCart className='h-4 w-4' />
-                        {isFree ? 'Get' : 'Buy'}
-                    </button>
+                    {onAddToCart ? (
+                        <button
+                            onClick={handleAddToCart}
+                            className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                        >
+                            <FaShoppingCart className='h-4 w-4' />
+                            {isFree ? 'Get' : 'Buy'}
+                        </button>
+                    ) : (
+                        <a
+                            href={buildGumroadUrl(product.gumroadUrl)}
+                            rel='noopener noreferrer'
+                            className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                        >
+                            <FaShoppingCart className='h-4 w-4' />
+                            {isFree ? 'Get' : 'Buy'}
+                        </a>
+                    )}
                 </div>
             </div>
         </div>

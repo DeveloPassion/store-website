@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaStar, FaCheckCircle } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import type { Product } from '@/types/product'
-import { openGumroadOverlay } from '@/lib/gumroad'
+import { buildGumroadUrl } from '@/lib/gumroad-url'
 
 interface ProductHeroProps {
     product: Product
@@ -18,13 +18,6 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
             gumroadUrl: product.gumroadUrl
         }
     )
-
-    const handleBuyNow = () => {
-        openGumroadOverlay({
-            url: selectedVariant.gumroadUrl,
-            wanted: true
-        })
-    }
 
     return (
         <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-16 sm:py-20 md:py-24 lg:py-32'>
@@ -139,12 +132,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
                                     {selectedVariant.priceDisplay}
                                 </div>
                             </div>
-                            <button
-                                onClick={handleBuyNow}
-                                className='bg-secondary hover:bg-secondary/90 flex-1 rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
+                            <a
+                                href={buildGumroadUrl(selectedVariant.gumroadUrl)}
+                                rel='noopener noreferrer'
+                                className='bg-secondary hover:bg-secondary/90 flex flex-1 cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
                             >
                                 Buy Now
-                            </button>
+                            </a>
                         </div>
 
                         {/* Trust Badges */}

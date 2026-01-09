@@ -2,20 +2,13 @@ import { motion } from 'framer-motion'
 import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
-import { openGumroadOverlay } from '@/lib/gumroad'
+import { buildGumroadUrl } from '@/lib/gumroad-url'
 
 interface ProductCTAProps {
     product: Product
 }
 
 const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
-    const handleBuyNow = () => {
-        openGumroadOverlay({
-            url: product.gumroadUrl,
-            wanted: true
-        })
-    }
-
     return (
         <Section className='border-primary/10 from-background to-secondary/10 border-t bg-gradient-to-b'>
             <div className='mx-auto max-w-5xl'>
@@ -47,12 +40,13 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     </div>
 
                     {/* CTA Button */}
-                    <button
-                        onClick={handleBuyNow}
-                        className='bg-secondary hover:bg-secondary/90 mb-8 inline-block rounded-lg px-12 py-4 text-xl font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl'
+                    <a
+                        href={buildGumroadUrl(product.gumroadUrl)}
+                        rel='noopener noreferrer'
+                        className='bg-secondary hover:bg-secondary/90 mb-8 inline-block cursor-pointer rounded-lg px-12 py-4 text-xl font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl'
                     >
                         Buy {product.name} Now
-                    </button>
+                    </a>
 
                     {/* Guarantees */}
                     {product.guarantees.length > 0 && (

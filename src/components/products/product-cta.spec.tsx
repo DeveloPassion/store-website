@@ -1,22 +1,18 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCTA from './product-cta'
 import type { Product } from '@/types/product'
-import * as gumroad from '@/lib/gumroad'
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
     motion: {
-        div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => (
-            <div {...props}>{children}</div>
-        )
+        div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
+            // Filter out framer-motion specific props
+            const { initial, whileInView, viewport, ...domProps } = props as Record<string, unknown>
+            return <div {...domProps}>{children}</div>
+        }
     }
-}))
-
-// Mock gumroad module
-vi.mock('@/lib/gumroad', () => ({
-    openGumroadOverlay: vi.fn()
 }))
 
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
@@ -100,19 +96,38 @@ describe('ProductCTA Component', () => {
         expect(screen.getByText('Lifetime access. No subscriptions.')).toBeInTheDocument()
     })
 
-    it('should call openGumroadOverlay when Buy button is clicked', () => {
+    it('should have correct Gumroad URL with wanted=true parameter', () => {
         const product = createMockProduct({ gumroadUrl: 'https://gumroad.com/test-product' })
-        const openGumroadOverlaySpy = vi.spyOn(gumroad, 'openGumroadOverlay')
 
         renderWithRouter(<ProductCTA product={product} />)
 
         const buyButton = screen.getByText('Buy Test Product Now')
-        fireEvent.click(buyButton)
+        expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/test-product?wanted=true')
+        expect(buyButton).toHaveAttribute('target', '_blank')
+        expect(buyButton).toHaveAttribute('rel', 'noopener noreferrer')
+    })
 
-        expect(openGumroadOverlaySpy).toHaveBeenCalledWith({
-            url: 'https://gumroad.com/test-product',
-            wanted: true
+    it('should handle Gumroad URL with existing query parameters', () => {
+        const product = createMockProduct({
+            gumroadUrl: 'https://gumroad.com/test-product?discount=SAVE20'
         })
+
+        renderWithRouter(<ProductCTA product={product} />)
+
+        const buyButton = screen.getByText('Buy Test Product Now')
+        expect(buyButton).toHaveAttribute(
+            'href',
+            'https://gumroad.com/test-product?discount=SAVE20&wanted=true'
+        )
+    })
+
+    it('should use # as href when gumroadUrl is undefined', () => {
+        const product = createMockProduct({ gumroadUrl: undefined })
+
+        renderWithRouter(<ProductCTA product={product} />)
+
+        const buyButton = screen.getByText('Buy Test Product Now')
+        expect(buyButton).toHaveAttribute('href', '#')
     })
 
     it('should display trust badges', () => {
