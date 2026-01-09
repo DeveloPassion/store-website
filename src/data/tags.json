@@ -125,15 +125,6 @@
         "featured": false,
         "priority": 39
     },
-    "consultation": {
-        "id": "consultation",
-        "name": "Consultation",
-        "description": "Resources and tools for consultation",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 40
-    },
     "content-creation": {
         "id": "content-creation",
         "name": "Content Creation",
@@ -475,15 +466,6 @@
         "color": "#999999",
         "featured": false,
         "priority": 78
-    },
-    "personal-coaching": {
-        "id": "personal-coaching",
-        "name": "Personal Coaching",
-        "description": "Resources and tools for personal coaching",
-        "icon": "FaTag",
-        "color": "#999999",
-        "featured": false,
-        "priority": 79
     },
     "personal-knowledge-management": {
         "id": "personal-knowledge-management",
