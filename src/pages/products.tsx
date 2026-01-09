@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect } from 'react'
-import { Link } from 'react-router'
 import { motion } from 'framer-motion'
-import { FaStar, FaFilter, FaTimes, FaTrophy } from 'react-icons/fa'
+import { FaFilter, FaTimes, FaTrophy } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
+import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import type { Product, ProductCategory, PriceTier } from '@/types/product'
 import { sortProductsIntelligently } from '@/lib/product-sort'
@@ -252,86 +252,7 @@ const ProductsPage: React.FC = () => {
                     {sortedProducts.length > 0 ? (
                         <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                             {sortedProducts.map((product) => (
-                                <Link
-                                    key={product.id}
-                                    to={`/l/${product.id}`}
-                                    className='border-primary/10 bg-background/50 hover:border-secondary/50 group relative flex h-full flex-col rounded-xl border p-6 transition-all hover:shadow-lg'
-                                >
-                                    {/* Status Badge - Top Right (absolute positioned) */}
-                                    {product.status === 'coming-soon' && (
-                                        <div className='bg-primary/20 text-primary/80 absolute top-4 right-4 rounded-full px-2 py-1 text-xs'>
-                                            Coming Soon
-                                        </div>
-                                    )}
-
-                                    {/* Top Section: Badges Column + Title Column */}
-                                    <div className='mb-4 flex gap-4'>
-                                        {/* Badges Column - Only show if product has badges */}
-                                        {(product.featured || product.mostValue) && (
-                                            <div className='flex min-w-[80px] flex-col gap-2'>
-                                                {/* Featured Badge */}
-                                                {product.featured && (
-                                                    <div className='from-secondary to-secondary/80 flex items-center gap-1 rounded-full bg-gradient-to-r px-3 py-1 text-xs font-medium text-white shadow-md'>
-                                                        <FaStar className='h-2.5 w-2.5' />
-                                                        <span className='hidden sm:inline'>
-                                                            Featured
-                                                        </span>
-                                                    </div>
-                                                )}
-
-                                                {/* Most Value Badge */}
-                                                {product.mostValue && (
-                                                    <div className='flex items-center gap-1 rounded-full bg-blue-500 px-2 py-1 text-xs font-bold text-white shadow-md sm:px-3'>
-                                                        <FaTrophy className='h-2.5 w-2.5' />
-                                                        <span className='hidden sm:inline'>
-                                                            MOST VALUE
-                                                        </span>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-
-                                        {/* Title and Tagline Column */}
-                                        <div className='flex-1'>
-                                            {/* Title */}
-                                            <h3 className='group-hover:text-secondary mb-2 text-xl font-bold transition-colors'>
-                                                {product.name}
-                                            </h3>
-
-                                            {/* Tagline */}
-                                            <p className='text-primary/70 line-clamp-2 text-sm'>
-                                                {product.tagline}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    {/* Price Section */}
-                                    <div className='border-primary/10 mb-4 border-t pt-4'>
-                                        <div className='text-primary/60 mb-1 text-xs'>Price</div>
-                                        <div className='text-secondary text-xl font-bold'>
-                                            {product.priceDisplay}
-                                        </div>
-                                    </div>
-
-                                    {/* Tags */}
-                                    <div className='flex flex-wrap gap-1'>
-                                        {[
-                                            product.mainCategory,
-                                            ...product.secondaryCategories
-                                                .filter((sc) => !sc.distant)
-                                                .map((sc) => sc.id)
-                                        ]
-                                            .slice(0, 2)
-                                            .map((category: string) => (
-                                                <span
-                                                    key={category}
-                                                    className='bg-primary/10 text-primary/70 rounded-full px-2 py-0.5 text-xs'
-                                                >
-                                                    {category.split('-').join(' ')}
-                                                </span>
-                                            ))}
-                                    </div>
-                                </Link>
+                                <ProductCardEcommerce key={product.id} product={product} />
                             ))}
                         </div>
                     ) : (
