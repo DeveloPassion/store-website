@@ -122,7 +122,7 @@
         "Looking for magic button"
     ],
     "featured": true,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

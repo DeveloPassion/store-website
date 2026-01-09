@@ -79,7 +79,7 @@
     "perfectFor": ["Just downloaded", "Heard about it", "Switching from other", "Want to do right"],
     "notForYou": ["Already expert", "Don't use note-taking"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": ["100% FREE", "Instant Access", "Beginner-Friendly", "Expert Created"],

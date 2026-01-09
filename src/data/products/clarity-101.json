@@ -100,7 +100,7 @@
     ],
     "notForYou": ["Have clarity", "Prefer reactive", "Won't do introspection"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
         // Static link: Best Value
         const bestValueLink: NavLink = {
-            to: '/most-value',
+            to: '/best-value',
             label: 'Best Value',
             icon: <FaTrophy className='h-5 w-5' />,
             color: 'text-blue-400 bg-blue-500/10 hover:bg-blue-500/20'

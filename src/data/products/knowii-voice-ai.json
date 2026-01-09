@@ -117,7 +117,7 @@
     ],
     "landingPageUrl": "https://voice-ai.knowii.net",
     "featured": true,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

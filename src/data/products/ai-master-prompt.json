@@ -100,7 +100,7 @@
     ],
     "notForYou": ["Don't use AI", "Prefer generic", "Won't invest"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

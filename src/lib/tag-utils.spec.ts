@@ -51,7 +51,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     crossSellIds: [],
     featured: false,
     bestseller: false,
-    mostValue: false,
+    bestValue: false,
     status: 'active',
     priority: 50,
     ...overrides

@@ -13,7 +13,7 @@ const ProductsPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
     const [selectedTier, setSelectedTier] = useState<PriceTier | 'all'>('all')
-    const [showMostValueOnly, setShowMostValueOnly] = useState(false)
+    const [showBestValueOnly, setShowBestValueOnly] = useState(false)
     const [showFilters, setShowFilters] = useState(false)
 
     const products = productsData as Product[]
@@ -62,14 +62,14 @@ const ProductsPage: React.FC = () => {
                 return false
             }
 
-            // Most Value filter
-            if (showMostValueOnly && !product.mostValue) {
+            // Best Value filter
+            if (showBestValueOnly && !product.bestValue) {
                 return false
             }
 
             return true
         })
-    }, [products, searchQuery, selectedCategory, selectedTier, showMostValueOnly])
+    }, [products, searchQuery, selectedCategory, selectedTier, showBestValueOnly])
 
     // Sort intelligently: Featured + Best Value first, Featured next, rest alphabetically by mainCategory
     const sortedProducts = useMemo(() => {
@@ -85,11 +85,11 @@ const ProductsPage: React.FC = () => {
         setSearchQuery('')
         setSelectedCategory('all')
         setSelectedTier('all')
-        setShowMostValueOnly(false)
+        setShowBestValueOnly(false)
     }
 
     const hasActiveFilters =
-        searchQuery || selectedCategory !== 'all' || selectedTier !== 'all' || showMostValueOnly
+        searchQuery || selectedCategory !== 'all' || selectedTier !== 'all' || showBestValueOnly
 
     return (
         <>
@@ -221,19 +221,19 @@ const ProductsPage: React.FC = () => {
                                     </select>
                                 </div>
 
-                                {/* Most Value Filter */}
+                                {/* Best Value Filter */}
                                 <div className='flex items-center'>
                                     <label className='flex cursor-pointer items-center gap-3'>
                                         <input
                                             type='checkbox'
-                                            checked={showMostValueOnly}
-                                            onChange={(e) => setShowMostValueOnly(e.target.checked)}
+                                            checked={showBestValueOnly}
+                                            onChange={(e) => setShowBestValueOnly(e.target.checked)}
                                             className='border-primary/20 bg-background h-5 w-5 rounded transition-colors checked:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none'
                                         />
                                         <div className='flex items-center gap-2'>
                                             <FaTrophy className='h-4 w-4 text-blue-500' />
                                             <span className='text-primary/70 text-sm font-medium'>
-                                                Show Most Value Only
+                                                Show Best Value Only
                                             </span>
                                         </div>
                                     </label>

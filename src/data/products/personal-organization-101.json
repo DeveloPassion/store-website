@@ -95,7 +95,7 @@
     ],
     "notForYou": ["Already perfect", "Prefer chaos", "Won't implement"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

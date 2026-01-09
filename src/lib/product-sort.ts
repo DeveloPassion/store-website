@@ -75,9 +75,9 @@ export function sortProductsIntelligently(products: Product[]): Product[] {
     const tier5: Product[] = [] // Rest
 
     products.forEach((product) => {
-        if (product.featured && product.mostValue && product.bestseller) {
+        if (product.featured && product.bestValue && product.bestseller) {
             tier1.push(product)
-        } else if (product.featured && product.mostValue) {
+        } else if (product.featured && product.bestValue) {
             tier2.push(product)
         } else if (product.featured && product.bestseller) {
             tier3.push(product)
@@ -104,7 +104,7 @@ export function sortProductsIntelligently(products: Product[]): Product[] {
 
 /**
  * Sort best value products intelligently
- * Ideal for: most-value page, best value sections
+ * Ideal for: best-value page, best value sections
  * @param products - Array of products to sort
  * @returns Sorted array in 5 tiers:
  *   1. Featured + Best Value + Bestseller
@@ -122,13 +122,13 @@ export function sortBestValueProducts(products: Product[]): Product[] {
     const tier5: Product[] = [] // Rest
 
     products.forEach((product) => {
-        if (product.featured && product.mostValue && product.bestseller) {
+        if (product.featured && product.bestValue && product.bestseller) {
             tier1.push(product)
-        } else if (product.featured && product.mostValue) {
+        } else if (product.featured && product.bestValue) {
             tier2.push(product)
-        } else if (product.mostValue && product.bestseller) {
+        } else if (product.bestValue && product.bestseller) {
             tier3.push(product)
-        } else if (product.mostValue) {
+        } else if (product.bestValue) {
             tier4.push(product)
         } else {
             tier5.push(product)
@@ -167,9 +167,9 @@ export function sortFeaturedProducts(products: Product[]): Product[] {
     const tier4: Product[] = [] // Featured only (no Best Value, no Bestseller)
 
     products.forEach((product) => {
-        if (product.featured && product.mostValue && product.bestseller) {
+        if (product.featured && product.bestValue && product.bestseller) {
             tier1.push(product)
-        } else if (product.featured && product.mostValue) {
+        } else if (product.featured && product.bestValue) {
             tier2.push(product)
         } else if (product.featured && product.bestseller) {
             tier3.push(product)

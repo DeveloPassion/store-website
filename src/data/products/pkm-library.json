@@ -124,7 +124,7 @@
         "Don't see value in curated collections"
     ],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

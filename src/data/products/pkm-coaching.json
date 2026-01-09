@@ -80,7 +80,7 @@
     ],
     "notForYou": ["Not ready", "Prefer self-directed", "Haven't tried basics"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": ["Expert Coach", "1-on-1 Personalized", "Specific Solutions", "Proven"],

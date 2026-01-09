@@ -40,7 +40,7 @@ describe('Product Schema Validation', () => {
         notForYou: [],
         featured: false,
         bestseller: false,
-        mostValue: false,
+        bestValue: false,
         status: 'active' as const,
         priority: 50,
         trustBadges: [],
@@ -340,7 +340,7 @@ describe('Product Schema Validation', () => {
                 ...validProduct,
                 featured: true,
                 bestseller: true,
-                mostValue: true
+                bestValue: true
             }
             const result = ProductSchema.safeParse(valid)
             expect(result.success).toBe(true)

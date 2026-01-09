@@ -73,7 +73,7 @@ Store: https://store.dsebastien.net
 - / - Homepage with products
 - /products - All products page
 - /featured - Featured products page
-- /most-value - Best value products page
+- /best-value - Best value products page
 - /best-sellers - Bestseller products page
 - /l/{id} - Individual product pages
 - /tags - Browse all tags

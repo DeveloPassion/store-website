@@ -86,9 +86,9 @@ function generateSitemap(): string {
         priority: '0.9'
     })
 
-    // Add most value page
+    // Add best value page
     urls.push({
-        loc: `${BASE_URL}/most-value`,
+        loc: `${BASE_URL}/best-value`,
         lastmod: today,
         changefreq: 'weekly',
         priority: '0.9'
@@ -185,7 +185,7 @@ function writeSitemap(): void {
     console.log(`  - Products page: 1 URL`)
     console.log(`  - Help page: 1 URL`)
     console.log(`  - Featured page: 1 URL`)
-    console.log(`  - Most value page: 1 URL`)
+    console.log(`  - Best value page: 1 URL`)
     console.log(`  - Best sellers page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
     console.log(`  - Categories page: 1 URL`)

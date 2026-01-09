@@ -108,7 +108,7 @@
     ],
     "notForYou": ["Happy with memory loss", "Prefer reactive", "Won't spend minutes daily"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": [

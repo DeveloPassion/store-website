@@ -138,7 +138,7 @@
         "Prefer working in isolation"
     ],
     "featured": true,
-    "mostValue": true,
+    "bestValue": true,
     "bestseller": true,
     "status": "active",
     "trustBadges": [

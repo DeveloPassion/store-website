@@ -15,14 +15,14 @@ const MostValuePage: React.FC = () => {
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Best Value' }])
 
-    // Get most value products, sorted intelligently
-    const mostValueProducts = useMemo(() => {
-        const filtered = products.filter((p) => p.mostValue && p.status !== 'archived')
+    // Get best value products, sorted intelligently
+    const bestValueProducts = useMemo(() => {
+        const filtered = products.filter((p) => p.bestValue && p.status !== 'archived')
         return sortBestValueProducts(filtered)
     }, [products])
 
     useEffect(() => {
-        document.title = 'Most Value Products - Knowledge Forge'
+        document.title = 'Best Value Products - Knowledge Forge'
     }, [])
 
     return (
@@ -51,7 +51,7 @@ const MostValuePage: React.FC = () => {
                     <div className='mb-10 flex flex-wrap justify-center gap-6 sm:gap-10'>
                         <div className='text-center'>
                             <div className='text-3xl font-bold text-blue-500 sm:text-4xl'>
-                                {mostValueProducts.length}
+                                {bestValueProducts.length}
                             </div>
                             <div className='text-primary/60 text-sm'>Curated Picks</div>
                         </div>
@@ -69,7 +69,7 @@ const MostValuePage: React.FC = () => {
                 </div>
             </Section>
 
-            {/* Why Most Value Section */}
+            {/* Why Best Value Section */}
             <Section className='bg-primary/5 py-12 sm:py-16'>
                 <div className='mx-auto max-w-[1400px]'>
                     <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
@@ -111,9 +111,9 @@ const MostValuePage: React.FC = () => {
                         Our Top Value Picks
                     </h2>
 
-                    {mostValueProducts.length > 0 ? (
+                    {bestValueProducts.length > 0 ? (
                         <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
-                            {mostValueProducts.map((product) => (
+                            {bestValueProducts.map((product) => (
                                 <ProductCardEcommerce key={product.id} product={product} />
                             ))}
                         </div>
@@ -121,7 +121,7 @@ const MostValuePage: React.FC = () => {
                         <div className='py-16 text-center'>
                             <div className='mb-4 text-5xl'>🏆</div>
                             <h3 className='mb-2 text-xl font-semibold'>
-                                Most value products coming soon
+                                Best value products coming soon
                             </h3>
                             <p className='text-primary/60 mb-4'>
                                 We're carefully selecting our best value offerings.
@@ -142,7 +142,7 @@ const MostValuePage: React.FC = () => {
                 <div className='mx-auto max-w-2xl text-center'>
                     <h2 className='mb-4 text-3xl font-bold sm:text-4xl'>Ready to Get Started?</h2>
                     <p className='text-primary/70 mb-8 text-lg'>
-                        Choose any of our most value products and start transforming your knowledge
+                        Choose any of our best value products and start transforming your knowledge
                         work today.
                     </p>
                     <div className='flex flex-col gap-4 sm:flex-row sm:justify-center'>

@@ -68,7 +68,7 @@
     "perfectFor": ["Starting from scratch", "Auditing system", "Improving", "Learning about PKM"],
     "notForYou": ["Don't care about systems", "Prefer ad-hoc"],
     "featured": false,
-    "mostValue": false,
+    "bestValue": false,
     "bestseller": false,
     "status": "active",
     "trustBadges": ["100% FREE", "Instant Access", "Comprehensive", "Expert Created"],

@@ -214,7 +214,7 @@ function showProductDetails(product: Product): void {
     console.log(
         `${colors.bright}Featured:${colors.reset} ${product.featured ? `${colors.yellow}Yes ★${colors.reset}` : 'No'}`
     )
-    console.log(`${colors.bright}Most Value:${colors.reset} ${product.mostValue ? 'Yes' : 'No'}`)
+    console.log(`${colors.bright}Best Value:${colors.reset} ${product.bestValue ? 'Yes' : 'No'}`)
     console.log(`${colors.bright}Bestseller:${colors.reset} ${product.bestseller ? 'Yes' : 'No'}`)
     console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
 }
@@ -930,7 +930,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
         testimonialIds: [],
         crossSellIds: [],
         featured,
-        mostValue: false,
+        bestValue: false,
         bestseller: false,
         status: validatedStatus,
         priority,
@@ -1441,8 +1441,8 @@ async function editMeta(product: Product): Promise<void> {
                 value: 'featured'
             },
             {
-                name: `Most Value: ${product.mostValue ? `${colors.green}Yes${colors.reset}` : `${colors.dim}No${colors.reset}`}`,
-                value: 'mostValue'
+                name: `Best Value: ${product.bestValue ? `${colors.green}Yes${colors.reset}` : `${colors.dim}No${colors.reset}`}`,
+                value: 'bestValue'
             },
             {
                 name: `Bestseller: ${product.bestseller ? `${colors.green}Yes${colors.reset}` : `${colors.dim}No${colors.reset}`}`,
@@ -1492,15 +1492,15 @@ async function editMeta(product: Product): Promise<void> {
             }
             break
         }
-        case 'mostValue': {
-            const oldValue = product.mostValue
+        case 'bestValue': {
+            const oldValue = product.bestValue
             const newValue = await confirm(
-                `${colors.bright}Most Value?${colors.reset} [current: ${oldValue ? 'yes' : 'no'}]`
+                `${colors.bright}Best Value?${colors.reset} [current: ${oldValue ? 'yes' : 'no'}]`
             )
             if (newValue !== oldValue) {
-                trackChange('mostValue', oldValue, newValue)
-                product.mostValue = newValue
-                showSuccess('Most Value status updated')
+                trackChange('bestValue', oldValue, newValue)
+                product.bestValue = newValue
+                showSuccess('Best Value status updated')
             }
             break
         }

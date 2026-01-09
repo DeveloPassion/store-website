@@ -93,7 +93,7 @@
     ],
     "notForYou": ["Want community events", "Prefer monthly", "Only need specific"],
     "featured": true,
-    "mostValue": true,
+    "bestValue": true,
     "bestseller": true,
     "status": "active",
     "trustBadges": [

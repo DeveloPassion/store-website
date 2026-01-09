@@ -86,7 +86,7 @@ npm run validate:products             # Validate after changes
 - Marketing (9): problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
 - Content (8): description, features, benefits, included, testimonialIds, faqIds, targetAudience, perfectFor, notForYou
 - Media (5): coverImage, screenshots, videoUrl, demoUrl
-- Meta/Status (8): featured, mostValue, bestseller, status, priority, trustBadges, guarantees, crossSellIds
+- Meta/Status (8): featured, bestValue, bestseller, status, priority, trustBadges, guarantees, crossSellIds
 - Links (2): landingPageUrl, dsebastienUrl
 - SEO (3): metaTitle, metaDescription, keywords
 

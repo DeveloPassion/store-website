@@ -205,8 +205,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
     // Get displayed commands for keyboard navigation
     const displayedCommandsForNav = useMemo(() => {
         const productCommands = filteredCommands.filter((c) => c.type === 'product')
-        const bestValueProducts = productCommands.filter((c) => c.product?.mostValue)
-        const regularProducts = productCommands.filter((c) => !c.product?.mostValue)
+        const bestValueProducts = productCommands.filter((c) => c.product?.bestValue)
+        const regularProducts = productCommands.filter((c) => !c.product?.bestValue)
         const actionCommands = filteredCommands.filter((c) => c.type === 'action')
         const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
         const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
@@ -292,8 +292,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
 
     // Group commands by type for display
     const productCommands = filteredCommands.filter((c) => c.type === 'product')
-    const bestValueProducts = productCommands.filter((c) => c.product?.mostValue)
-    const regularProducts = productCommands.filter((c) => !c.product?.mostValue)
+    const bestValueProducts = productCommands.filter((c) => c.product?.bestValue)
+    const regularProducts = productCommands.filter((c) => !c.product?.bestValue)
     const actionCommands = filteredCommands.filter((c) => c.type === 'action')
     const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
     const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
@@ -506,13 +506,13 @@ const CommandItem: React.FC<CommandItemProps> = ({ command, isSelected, onSelect
                     <div className='text-primary/50 truncate text-sm'>{command.subtitle}</div>
                 )}
             </div>
-            {command.product?.mostValue && (
+            {command.product?.bestValue && (
                 <div className='flex shrink-0 items-center gap-1 rounded-full bg-blue-500/10 px-2 py-1 text-xs font-medium text-blue-500'>
                     <FaTrophy className='h-2.5 w-2.5' />
                     Best Value
                 </div>
             )}
-            {command.product?.featured && !command.product?.mostValue && (
+            {command.product?.featured && !command.product?.bestValue && (
                 <div className='bg-secondary/10 text-secondary flex shrink-0 items-center gap-1 rounded-full px-2 py-1 text-xs font-medium'>
                     <FaStar className='h-2.5 w-2.5' />
                     Featured

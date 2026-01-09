@@ -116,10 +116,10 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/most-value'
+                                        to='/best-value'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        💎 Most Value
+                                        💎 Best Value
                                     </Link>
                                 </li>
                                 <li>

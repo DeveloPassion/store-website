@@ -115,7 +115,7 @@
     ],
     "notForYou": ["Work alone", "Don't struggle", "Want only tools"],
     "featured": true,
-    "mostValue": true,
+    "bestValue": true,
     "bestseller": true,
     "status": "active",
     "trustBadges": [

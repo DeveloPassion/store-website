@@ -40,7 +40,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     crossSellIds: [],
     featured: false,
     bestseller: false,
-    mostValue: false,
+    bestValue: false,
     status: 'active',
     priority: 50,
     ...overrides
@@ -117,14 +117,14 @@ describe('sortProductsIntelligently', () => {
                 id: 'featured-value',
                 name: 'Featured Value',
                 featured: true,
-                mostValue: true,
+                bestValue: true,
                 mainCategory: 'journaling'
             }),
             createMockProduct({
                 id: 'all-three',
                 name: 'All Three',
                 featured: true,
-                mostValue: true,
+                bestValue: true,
                 bestseller: true,
                 mainCategory: 'tools'
             })
@@ -185,13 +185,13 @@ describe('sortBestValueProducts', () => {
             createMockProduct({
                 id: 'value-only',
                 name: 'Value Only',
-                mostValue: true,
+                bestValue: true,
                 mainCategory: 'bundles'
             }),
             createMockProduct({
                 id: 'value-bestseller',
                 name: 'Value Bestseller',
-                mostValue: true,
+                bestValue: true,
                 bestseller: true,
                 mainCategory: 'guides'
             }),
@@ -199,14 +199,14 @@ describe('sortBestValueProducts', () => {
                 id: 'featured-value',
                 name: 'Featured Value',
                 featured: true,
-                mostValue: true,
+                bestValue: true,
                 mainCategory: 'journaling'
             }),
             createMockProduct({
                 id: 'all-three',
                 name: 'All Three',
                 featured: true,
-                mostValue: true,
+                bestValue: true,
                 bestseller: true,
                 mainCategory: 'tools'
             })
@@ -263,14 +263,14 @@ describe('sortFeaturedProducts', () => {
                 id: 'featured-value',
                 name: 'Featured Value',
                 featured: true,
-                mostValue: true,
+                bestValue: true,
                 mainCategory: 'journaling'
             }),
             createMockProduct({
                 id: 'all-three',
                 name: 'All Three',
                 featured: true,
-                mostValue: true,
+                bestValue: true,
                 bestseller: true,
                 mainCategory: 'tools'
             })

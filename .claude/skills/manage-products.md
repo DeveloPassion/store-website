@@ -173,7 +173,7 @@ Every product must include:
 
 **Meta:**
 - `featured` (boolean) - Feature flag (displayed prominently)
-- `mostValue` (boolean) - Best value flag (highest ROI products)
+- `bestValue` (boolean) - Best value flag (highest ROI products)
 - `bestseller` (boolean) - Bestseller flag (most popular products)
 - `status` (enum) - One of: active, coming-soon, archived
 - `priority` (number, 0-100) - Sort priority (higher = more important)

@@ -37,7 +37,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     crossSellIds: [],
     featured: false,
     bestseller: false,
-    mostValue: false,
+    bestValue: false,
     status: 'active',
     priority: 50,
     ...overrides
@@ -96,11 +96,11 @@ describe('ProductCardEcommerce Component', () => {
         expect(screen.getByText('BESTSELLER')).toBeInTheDocument()
     })
 
-    it('should show MOST VALUE badge for mostValue products', () => {
-        const product = createMockProduct({ mostValue: true })
+    it('should show BEST VALUE badge for bestValue products', () => {
+        const product = createMockProduct({ bestValue: true })
         renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('MOST VALUE')).toBeInTheDocument()
+        expect(screen.getByText('BEST VALUE')).toBeInTheDocument()
     })
 
     it('should show BUNDLE badge for bundle products', () => {

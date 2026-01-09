@@ -69,10 +69,10 @@ const HomeEcommerce: React.FC = () => {
         return sorted.slice(0, 3)
     }, [])
 
-    // Get most value products, sorted intelligently
-    const mostValueProducts = useMemo(() => {
-        const mostValue = (productsData as Product[]).filter((p) => p.mostValue)
-        const sorted = sortBestValueProducts(mostValue)
+    // Get best value products, sorted intelligently
+    const bestValueProducts = useMemo(() => {
+        const bestValue = (productsData as Product[]).filter((p) => p.bestValue)
+        const sorted = sortBestValueProducts(bestValue)
         return sorted.slice(0, 3)
     }, [])
 
@@ -81,7 +81,7 @@ const HomeEcommerce: React.FC = () => {
         const minProducts = 4
         const products = [...featuredProducts]
 
-        // If we don't have enough featured products, supplement with bestsellers and most value
+        // If we don't have enough featured products, supplement with bestsellers and best value
         if (products.length < minProducts) {
             const allProducts = productsData as Product[]
             const productIds = new Set(products.map((p) => p.id))
@@ -97,13 +97,13 @@ const HomeEcommerce: React.FC = () => {
                 productIds.add(product.id)
             }
 
-            // If still not enough, add most value products
+            // If still not enough, add best value products
             if (products.length < minProducts) {
-                const mostValue = allProducts
-                    .filter((p) => p.mostValue && !productIds.has(p.id))
+                const bestValue = allProducts
+                    .filter((p) => p.bestValue && !productIds.has(p.id))
                     .sort((a, b) => b.priority - a.priority)
 
-                for (const product of mostValue) {
+                for (const product of bestValue) {
                     if (products.length >= minProducts) break
                     products.push(product)
                     productIds.add(product.id)
@@ -280,8 +280,8 @@ const HomeEcommerce: React.FC = () => {
                 </Section>
             )}
 
-            {/* Most Value Products Section */}
-            {!categoryFilter && !searchQuery && !decodedTagName && mostValueProducts.length > 0 && (
+            {/* Best Value Products Section */}
+            {!categoryFilter && !searchQuery && !decodedTagName && bestValueProducts.length > 0 && (
                 <Section className='py-12 sm:py-16'>
                     <div className='mb-8 flex items-center justify-between'>
                         <div className='flex items-center gap-3'>
@@ -291,7 +291,7 @@ const HomeEcommerce: React.FC = () => {
                             <h2 className='text-3xl font-bold sm:text-4xl'>Best Value Products</h2>
                         </div>
                         <Link
-                            to='/most-value'
+                            to='/best-value'
                             className='text-secondary hover:text-secondary-text hidden text-sm font-semibold sm:block'
                         >
                             View All →
@@ -301,7 +301,7 @@ const HomeEcommerce: React.FC = () => {
                         Get the most bang for your buck with our carefully curated value picks
                     </p>
                     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
-                        {mostValueProducts.map((product) => (
+                        {bestValueProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}
                     </div>

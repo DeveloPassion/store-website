@@ -113,16 +113,16 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                             <span>BESTSELLER</span>
                         </Link>
                     )}
-                    {product.mostValue && (
+                    {product.bestValue && (
                         <Link
-                            to='/most-value'
+                            to='/best-value'
                             onClick={(e) => e.stopPropagation()}
                             className={`pointer-events-auto flex items-center gap-1 rounded-full bg-blue-500 ${
                                 compactBadges ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-xs'
                             } font-bold text-white shadow-lg transition-transform hover:scale-105`}
                         >
                             <FaTrophy className={compactBadges ? 'h-2.5 w-2.5' : 'h-3 w-3'} />
-                            <span>MOST VALUE</span>
+                            <span>BEST VALUE</span>
                         </Link>
                     )}
                 </div>
