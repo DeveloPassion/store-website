@@ -23,17 +23,46 @@ function normalizeTagId(tag: string): string {
 }
 
 function generateDisplayName(tagId: string): string {
-    // Special cases for acronyms
-    const acronyms = new Set(['pkm', 'ai', 'seo', 'api', 'ui', 'ux', 'it', 'hr'])
+    // Special cases - full tag replacements
+    const specialCases: Record<string, string> = {
+        'chatgpt': 'ChatGPT',
+        'gtd': 'GTD',
+        'llms': 'LLMs',
+        'mcp': 'MCP',
+        'para': 'PARA',
+        'para-method': 'PARA Method',
+        'smart-goals': 'SMART Goals',
+        'it-fundamentals': 'IT Fundamentals',
+        'johnny-decimal': 'Johnny.Decimal'
+    }
 
+    if (specialCases[tagId]) {
+        return specialCases[tagId]
+    }
+
+    // Acronyms that should be uppercase when standalone
+    const acronyms = new Set(['pkm', 'ai', 'seo', 'api', 'ui', 'ux', 'it', 'hr', 'llm'])
+
+    // Full uppercase for standalone acronyms
     if (acronyms.has(tagId)) {
         return tagId.toUpperCase()
     }
 
-    // Convert kebab-case to Title Case
+    // Convert kebab-case to Title Case, handling AI prefix specially
     return tagId
         .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word, index) => {
+            // Handle AI as a special prefix
+            if (word === 'ai' && index === 0) {
+                return 'AI'
+            }
+            // Handle other acronyms
+            if (acronyms.has(word)) {
+                return word.toUpperCase()
+            }
+            // Normal title case
+            return word.charAt(0).toUpperCase() + word.slice(1)
+        })
         .join(' ')
 }
 

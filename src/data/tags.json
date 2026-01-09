@@ -19,7 +19,7 @@
     },
     "ai-assistants": {
         "id": "ai-assistants",
-        "name": "Ai Assistants",
+        "name": "AI Assistants",
         "description": "Resources and tools for ai assistants",
         "icon": "FaTag",
         "color": "#999999",
@@ -28,7 +28,7 @@
     },
     "ai-integration": {
         "id": "ai-integration",
-        "name": "Ai Integration",
+        "name": "AI Integration",
         "description": "Resources and tools for ai integration",
         "icon": "FaTag",
         "color": "#999999",
@@ -37,7 +37,7 @@
     },
     "ai-prompts": {
         "id": "ai-prompts",
-        "name": "Ai Prompts",
+        "name": "AI Prompts",
         "description": "Resources and tools for ai prompts",
         "icon": "FaTag",
         "color": "#999999",
@@ -100,7 +100,7 @@
     },
     "chatgpt": {
         "id": "chatgpt",
-        "name": "Chatgpt",
+        "name": "ChatGPT",
         "description": "Resources and tools for chatgpt",
         "icon": "FaTag",
         "color": "#999999",
@@ -289,7 +289,7 @@
     },
     "gtd": {
         "id": "gtd",
-        "name": "Gtd",
+        "name": "GTD",
         "description": "Resources and tools for gtd",
         "icon": "FaTag",
         "color": "#999999",
@@ -325,7 +325,7 @@
     },
     "it-fundamentals": {
         "id": "it-fundamentals",
-        "name": "It Fundamentals",
+        "name": "IT Fundamentals",
         "description": "Resources and tools for it fundamentals",
         "icon": "FaTag",
         "color": "#999999",
@@ -334,7 +334,7 @@
     },
     "johnny-decimal": {
         "id": "johnny-decimal",
-        "name": "Johnny Decimal",
+        "name": "Johnny.Decimal",
         "description": "Resources and tools for johnny decimal",
         "icon": "FaTag",
         "color": "#999999",
@@ -406,7 +406,7 @@
     },
     "llms": {
         "id": "llms",
-        "name": "Llms",
+        "name": "LLMs",
         "description": "Resources and tools for llms",
         "icon": "FaTag",
         "color": "#999999",
@@ -433,7 +433,7 @@
     },
     "mcp": {
         "id": "mcp",
-        "name": "Mcp",
+        "name": "MCP",
         "description": "Resources and tools for mcp",
         "icon": "FaTag",
         "color": "#999999",
@@ -487,7 +487,7 @@
     },
     "para": {
         "id": "para",
-        "name": "Para",
+        "name": "PARA",
         "description": "Resources and tools for para",
         "icon": "FaTag",
         "color": "#999999",
@@ -496,7 +496,7 @@
     },
     "para-method": {
         "id": "para-method",
-        "name": "Para Method",
+        "name": "PARA Method",
         "description": "Resources and tools for para method",
         "icon": "FaTag",
         "color": "#999999",
@@ -640,7 +640,7 @@
     },
     "smart-goals": {
         "id": "smart-goals",
-        "name": "Smart Goals",
+        "name": "SMART Goals",
         "description": "Resources and tools for smart goals",
         "icon": "FaTag",
         "color": "#999999",
