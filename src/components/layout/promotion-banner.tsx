@@ -50,13 +50,13 @@ const PromotionBanner: React.FC = () => {
     }
 
     return (
-        <div className='bg-secondary/10 border-secondary/20 border-b px-4 py-2 text-center text-sm'>
+        <div className='border-b border-amber-600/20 bg-amber-500/10 px-4 py-2 text-center text-sm'>
             <p className='text-primary/80'>
                 {config.promoText}{' '}
                 {config.promoLinkText && (
                     <Link
                         to={config.promoLink}
-                        className='text-secondary hover:text-secondary-text underline'
+                        className='text-amber-600 underline hover:text-amber-700'
                     >
                         {config.promoLinkText}
                     </Link>
