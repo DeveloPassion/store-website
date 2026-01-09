@@ -1,54 +1,58 @@
 import { useMemo } from 'react'
-import { Link, useSearchParams, useNavigate } from 'react-router'
-import { FaArrowLeft, FaTag, FaSearch, FaArrowRight } from 'react-icons/fa'
+import { Link, useSearchParams } from 'react-router'
+import { FaArrowLeft, FaTag, FaSearch, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
+import { TagCard } from '@/components/tags/tag-card'
 import productsData from '@/data/products.json'
+import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
-
-export interface TagData {
-    name: string
-    count: number
-    products: Product[]
-}
+import type { Tag, TagWithCount } from '@/types/tag'
+import {
+    buildTagsWithCounts,
+    getFeaturedTagsSorted,
+    getNonFeaturedTagsSorted
+} from '@/lib/tag-utils'
 
 const TagsPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchQuery = searchParams.get('q') || ''
-    const navigate = useNavigate()
 
-    // Build tag data from products
-    const allTags = useMemo(() => {
-        const tagMap = new Map<string, { count: number; products: Product[] }>()
+    // Build tags with counts and split into featured/non-featured
+    const { featuredTags, nonFeaturedTags, allTagsCount } = useMemo(() => {
         const products = productsData as Product[]
+        const tagsMetadata = tagsData as Record<string, Tag>
+        const allTagsWithCounts = buildTagsWithCounts(products, tagsMetadata)
 
-        products.forEach((product) => {
-            product.tags.forEach((tag) => {
-                if (!tagMap.has(tag)) {
-                    tagMap.set(tag, { count: 0, products: [] })
-                }
-                const tagData = tagMap.get(tag)!
-                tagData.count++
-                tagData.products.push(product)
-            })
-        })
-
-        const tags: TagData[] = Array.from(tagMap.entries())
-            .map(([name, data]) => ({
-                name,
-                count: data.count,
-                products: data.products
-            }))
-            .sort((a, b) => b.count - a.count)
-
-        return tags
+        return {
+            featuredTags: getFeaturedTagsSorted(allTagsWithCounts),
+            nonFeaturedTags: getNonFeaturedTagsSorted(allTagsWithCounts),
+            allTagsCount: allTagsWithCounts.length
+        }
     }, [])
 
     // Filter tags based on search
-    const filteredTags = useMemo(() => {
-        if (!searchQuery) return allTags
+    const { filteredFeatured, filteredNonFeatured } = useMemo(() => {
+        if (!searchQuery) {
+            return {
+                filteredFeatured: featuredTags,
+                filteredNonFeatured: nonFeaturedTags
+            }
+        }
+
         const query = searchQuery.toLowerCase()
-        return allTags.filter((tag) => tag.name.toLowerCase().includes(query))
-    }, [allTags, searchQuery])
+        return {
+            filteredFeatured: featuredTags.filter(
+                (tag) =>
+                    tag.name.toLowerCase().includes(query) ||
+                    tag.description.toLowerCase().includes(query)
+            ),
+            filteredNonFeatured: nonFeaturedTags.filter(
+                (tag) =>
+                    tag.name.toLowerCase().includes(query) ||
+                    tag.description.toLowerCase().includes(query)
+            )
+        }
+    }, [featuredTags, nonFeaturedTags, searchQuery])
 
     // Handle search input change
     const handleSearchChange = (value: string) => {
@@ -59,34 +63,8 @@ const TagsPage: React.FC = () => {
         }
     }
 
-    // Color schemes for tag cards (cycling through 11 colors)
-    const cardColors = [
-        'from-rose-500/20 to-pink-500/20 border-rose-500/30',
-        'from-pink-500/20 to-purple-500/20 border-pink-500/30',
-        'from-blue-500/20 to-cyan-500/20 border-blue-500/30',
-        'from-green-500/20 to-emerald-500/20 border-green-500/30',
-        'from-amber-500/20 to-orange-500/20 border-amber-500/30',
-        'from-purple-500/20 to-violet-500/20 border-purple-500/30',
-        'from-cyan-500/20 to-blue-500/20 border-cyan-500/30',
-        'from-red-500/20 to-rose-500/20 border-red-500/30',
-        'from-indigo-500/20 to-purple-500/20 border-indigo-500/30',
-        'from-teal-500/20 to-cyan-500/20 border-teal-500/30',
-        'from-orange-500/20 to-red-500/20 border-orange-500/30'
-    ]
-
-    const iconColors = [
-        'text-rose-500',
-        'text-pink-500',
-        'text-blue-500',
-        'text-green-500',
-        'text-amber-500',
-        'text-purple-500',
-        'text-cyan-500',
-        'text-red-500',
-        'text-indigo-500',
-        'text-teal-500',
-        'text-orange-500'
-    ]
+    const totalMatchingTags = filteredFeatured.length + filteredNonFeatured.length
+    const hasResults = totalMatchingTags > 0
 
     return (
         <>
@@ -118,9 +96,7 @@ const TagsPage: React.FC = () => {
                     {/* Stats */}
                     <div className='mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
                         <div className='bg-primary/5 rounded-lg p-4'>
-                            <div className='text-3xl font-bold text-green-400'>
-                                {allTags.length}
-                            </div>
+                            <div className='text-3xl font-bold text-green-400'>{allTagsCount}</div>
                             <div className='text-primary/60 text-sm'>Total Tags</div>
                         </div>
                         <div className='bg-primary/5 rounded-lg p-4'>
@@ -132,7 +108,7 @@ const TagsPage: React.FC = () => {
                         {searchQuery && (
                             <div className='bg-primary/5 rounded-lg p-4'>
                                 <div className='text-3xl font-bold text-purple-400'>
-                                    {filteredTags.length}
+                                    {totalMatchingTags}
                                 </div>
                                 <div className='text-primary/60 text-sm'>Matching Tags</div>
                             </div>
@@ -153,44 +129,52 @@ const TagsPage: React.FC = () => {
                 </div>
             </Section>
 
-            {/* Tags Grid */}
+            {/* Tags Content */}
             <Section className='pb-16 sm:pb-24'>
                 <div className='mx-auto max-w-7xl'>
-                    {filteredTags.length > 0 ? (
-                        <div className='grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
-                            {filteredTags.map((tag, index) => {
-                                const colorIndex = index % cardColors.length
-
-                                return (
-                                    <button
-                                        key={tag.name}
-                                        onClick={() => {
-                                            const tagId = tag.name
-                                                .toLowerCase()
-                                                .replace(/[^a-z0-9]+/g, '-')
-                                            navigate(`/tags/${tagId}`)
-                                        }}
-                                        className={`group border-primary/10 hover:border-secondary/30 flex cursor-pointer flex-col gap-3 rounded-xl border bg-gradient-to-br p-4 text-left transition-all hover:scale-102 hover:shadow-lg ${cardColors[colorIndex]}`}
-                                    >
-                                        <div className='flex items-start justify-between'>
-                                            <FaTag
-                                                className={`h-5 w-5 ${iconColors[colorIndex]}`}
+                    {hasResults ? (
+                        <>
+                            {/* Featured Tags Section */}
+                            {filteredFeatured.length > 0 && (
+                                <>
+                                    <h2 className='mb-6 flex items-center gap-2 text-2xl font-bold'>
+                                        <FaStar className='text-secondary h-6 w-6' />
+                                        Featured Tags
+                                    </h2>
+                                    <div className='mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                        {filteredFeatured.map((tag: TagWithCount) => (
+                                            <TagCard
+                                                key={tag.id}
+                                                tag={tag}
+                                                count={tag.count}
+                                                showFeaturedBadge={true}
+                                                variant='detailed'
                                             />
-                                            <FaArrowRight className='text-primary/40 group-hover:text-secondary h-4 w-4 transition-colors' />
-                                        </div>
-                                        <div>
-                                            <h3 className='mb-1 text-lg font-semibold'>
-                                                {tag.name}
-                                            </h3>
-                                            <p className='text-primary/60 text-sm'>
-                                                {tag.count}{' '}
-                                                {tag.count === 1 ? 'product' : 'products'}
-                                            </p>
-                                        </div>
-                                    </button>
-                                )
-                            })}
-                        </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+
+                            {/* Non-Featured Tags Section */}
+                            {filteredNonFeatured.length > 0 && (
+                                <>
+                                    {filteredFeatured.length > 0 && (
+                                        <h2 className='mb-6 text-2xl font-bold'>More Tags</h2>
+                                    )}
+                                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                        {filteredNonFeatured.map((tag: TagWithCount) => (
+                                            <TagCard
+                                                key={tag.id}
+                                                tag={tag}
+                                                count={tag.count}
+                                                showFeaturedBadge={false}
+                                                variant='detailed'
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </>
                     ) : (
                         <div className='py-16 text-center'>
                             <div className='mb-4 text-6xl'>🔍</div>

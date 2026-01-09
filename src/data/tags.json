@@ -1,0 +1,767 @@
+{
+    "1-on-1": {
+        "id": "1-on-1",
+        "name": "1 On 1",
+        "description": "Resources and tools for 1 on 1",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 21
+    },
+    "ai": {
+        "id": "ai",
+        "name": "AI",
+        "description": "Artificial Intelligence tools and resources",
+        "icon": "FaRobot",
+        "color": "#FF6B6B",
+        "featured": true,
+        "priority": 5
+    },
+    "ai-assistants": {
+        "id": "ai-assistants",
+        "name": "Ai Assistants",
+        "description": "Resources and tools for ai assistants",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 23
+    },
+    "ai-integration": {
+        "id": "ai-integration",
+        "name": "Ai Integration",
+        "description": "Resources and tools for ai integration",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 24
+    },
+    "ai-prompts": {
+        "id": "ai-prompts",
+        "name": "Ai Prompts",
+        "description": "Resources and tools for ai prompts",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 25
+    },
+    "all-products": {
+        "id": "all-products",
+        "name": "All Products",
+        "description": "Resources and tools for all products",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 26
+    },
+    "automation": {
+        "id": "automation",
+        "name": "Automation",
+        "description": "Resources and tools for automation",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 27
+    },
+    "beginner": {
+        "id": "beginner",
+        "name": "Beginner",
+        "description": "Resources and tools for beginner",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 28
+    },
+    "best-value": {
+        "id": "best-value",
+        "name": "Best Value",
+        "description": "Resources and tools for best value",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 29
+    },
+    "bundle": {
+        "id": "bundle",
+        "name": "Bundle",
+        "description": "Resources and tools for bundle",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 30
+    },
+    "career-development": {
+        "id": "career-development",
+        "name": "Career Development",
+        "description": "Resources and tools for career development",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 31
+    },
+    "chatgpt": {
+        "id": "chatgpt",
+        "name": "Chatgpt",
+        "description": "Resources and tools for chatgpt",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 32
+    },
+    "checklist": {
+        "id": "checklist",
+        "name": "Checklist",
+        "description": "Resources and tools for checklist",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 33
+    },
+    "clarity": {
+        "id": "clarity",
+        "name": "Clarity",
+        "description": "Resources and tools for clarity",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 34
+    },
+    "claude": {
+        "id": "claude",
+        "name": "Claude",
+        "description": "Resources and tools for claude",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 35
+    },
+    "coaching": {
+        "id": "coaching",
+        "name": "Coaching",
+        "description": "Resources and tools for coaching",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 36
+    },
+    "community": {
+        "id": "community",
+        "name": "Community",
+        "description": "Resources and tools for community",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 37
+    },
+    "complete-system": {
+        "id": "complete-system",
+        "name": "Complete System",
+        "description": "Resources and tools for complete system",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 38
+    },
+    "concepts": {
+        "id": "concepts",
+        "name": "Concepts",
+        "description": "Resources and tools for concepts",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 39
+    },
+    "consultation": {
+        "id": "consultation",
+        "name": "Consultation",
+        "description": "Resources and tools for consultation",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 40
+    },
+    "content-creation": {
+        "id": "content-creation",
+        "name": "Content Creation",
+        "description": "Resources and tools for content creation",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 41
+    },
+    "course": {
+        "id": "course",
+        "name": "Course",
+        "description": "Resources and tools for course",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 42
+    },
+    "courses": {
+        "id": "courses",
+        "name": "Courses",
+        "description": "Resources and tools for courses",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 43
+    },
+    "curated": {
+        "id": "curated",
+        "name": "Curated",
+        "description": "Resources and tools for curated",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 44
+    },
+    "design-thinking": {
+        "id": "design-thinking",
+        "name": "Design Thinking",
+        "description": "Resources and tools for design thinking",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 45
+    },
+    "directory": {
+        "id": "directory",
+        "name": "Directory",
+        "description": "Resources and tools for directory",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 46
+    },
+    "focus": {
+        "id": "focus",
+        "name": "Focus",
+        "description": "Resources and tools for focus",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 47
+    },
+    "free-guide": {
+        "id": "free-guide",
+        "name": "Free Guide",
+        "description": "Resources and tools for free guide",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 48
+    },
+    "free-resource": {
+        "id": "free-resource",
+        "name": "Free Resource",
+        "description": "Resources and tools for free resource",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 49
+    },
+    "getting-started": {
+        "id": "getting-started",
+        "name": "Getting Started",
+        "description": "Resources and tools for getting started",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 50
+    },
+    "ghostwriting": {
+        "id": "ghostwriting",
+        "name": "Ghostwriting",
+        "description": "Resources and tools for ghostwriting",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 51
+    },
+    "goals": {
+        "id": "goals",
+        "name": "Goals",
+        "description": "Resources and tools for goals",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 52
+    },
+    "gtd": {
+        "id": "gtd",
+        "name": "Gtd",
+        "description": "Resources and tools for gtd",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 53
+    },
+    "habits": {
+        "id": "habits",
+        "name": "Habits",
+        "description": "Resources and tools for habits",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 54
+    },
+    "ikigai": {
+        "id": "ikigai",
+        "name": "Ikigai",
+        "description": "Resources and tools for ikigai",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 55
+    },
+    "interstitial-journaling": {
+        "id": "interstitial-journaling",
+        "name": "Interstitial Journaling",
+        "description": "Resources and tools for interstitial journaling",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 56
+    },
+    "it-fundamentals": {
+        "id": "it-fundamentals",
+        "name": "It Fundamentals",
+        "description": "Resources and tools for it fundamentals",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 57
+    },
+    "johnny-decimal": {
+        "id": "johnny-decimal",
+        "name": "Johnny Decimal",
+        "description": "Resources and tools for johnny decimal",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 58
+    },
+    "journaling": {
+        "id": "journaling",
+        "name": "Journaling",
+        "description": "Journaling practices for reflection and personal growth",
+        "icon": "FaPen",
+        "color": "#95E1D3",
+        "featured": true,
+        "priority": 6
+    },
+    "knowledge-management": {
+        "id": "knowledge-management",
+        "name": "Knowledge Management",
+        "description": "Resources and tools for knowledge management",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 60
+    },
+    "knowledge-work": {
+        "id": "knowledge-work",
+        "name": "Knowledge Work",
+        "description": "Resources and tools for knowledge work",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 61
+    },
+    "lead-magnet": {
+        "id": "lead-magnet",
+        "name": "Lead Magnet",
+        "description": "Resources and tools for lead magnet",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 62
+    },
+    "learning": {
+        "id": "learning",
+        "name": "Learning",
+        "description": "Resources and tools for learning",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 63
+    },
+    "life-design": {
+        "id": "life-design",
+        "name": "Life Design",
+        "description": "Resources and tools for life design",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 64
+    },
+    "lifetime-access": {
+        "id": "lifetime-access",
+        "name": "Lifetime Access",
+        "description": "Resources and tools for lifetime access",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 65
+    },
+    "llms": {
+        "id": "llms",
+        "name": "Llms",
+        "description": "Resources and tools for llms",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 66
+    },
+    "markdown": {
+        "id": "markdown",
+        "name": "Markdown",
+        "description": "Resources and tools for markdown",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 67
+    },
+    "master-prompts": {
+        "id": "master-prompts",
+        "name": "Master Prompts",
+        "description": "Resources and tools for master prompts",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 68
+    },
+    "mcp": {
+        "id": "mcp",
+        "name": "Mcp",
+        "description": "Resources and tools for mcp",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 69
+    },
+    "mindfulness": {
+        "id": "mindfulness",
+        "name": "Mindfulness",
+        "description": "Resources and tools for mindfulness",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 70
+    },
+    "model-context-protocol": {
+        "id": "model-context-protocol",
+        "name": "Model Context Protocol",
+        "description": "Resources and tools for model context protocol",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 71
+    },
+    "note-taking": {
+        "id": "note-taking",
+        "name": "Note Taking",
+        "description": "Effective note-taking strategies and systems",
+        "icon": "FaBookOpen",
+        "color": "#F38181",
+        "featured": true,
+        "priority": 8
+    },
+    "obsidian": {
+        "id": "obsidian",
+        "name": "Obsidian",
+        "description": "Master Obsidian note-taking and knowledge management",
+        "icon": "SiObsidian",
+        "color": "#7C3AED",
+        "featured": true,
+        "priority": 1
+    },
+    "offline": {
+        "id": "offline",
+        "name": "Offline",
+        "description": "Resources and tools for offline",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 74
+    },
+    "para": {
+        "id": "para",
+        "name": "Para",
+        "description": "Resources and tools for para",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 75
+    },
+    "para-method": {
+        "id": "para-method",
+        "name": "Para Method",
+        "description": "Resources and tools for para method",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 76
+    },
+    "periodic-reviews": {
+        "id": "periodic-reviews",
+        "name": "Periodic Reviews",
+        "description": "Resources and tools for periodic reviews",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 77
+    },
+    "personal-brand": {
+        "id": "personal-brand",
+        "name": "Personal Brand",
+        "description": "Resources and tools for personal brand",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 78
+    },
+    "personal-coaching": {
+        "id": "personal-coaching",
+        "name": "Personal Coaching",
+        "description": "Resources and tools for personal coaching",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 79
+    },
+    "personal-knowledge-management": {
+        "id": "personal-knowledge-management",
+        "name": "Personal Knowledge Management",
+        "description": "Resources and tools for personal knowledge management",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 80
+    },
+    "personal-manifesto": {
+        "id": "personal-manifesto",
+        "name": "Personal Manifesto",
+        "description": "Resources and tools for personal manifesto",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 81
+    },
+    "personal-organization": {
+        "id": "personal-organization",
+        "name": "Personal Organization",
+        "description": "Resources and tools for personal organization",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 82
+    },
+    "pkm": {
+        "id": "pkm",
+        "name": "PKM",
+        "description": "Personal Knowledge Management systems and techniques",
+        "icon": "FaBrain",
+        "color": "#6BCB77",
+        "featured": true,
+        "priority": 2
+    },
+    "privacy": {
+        "id": "privacy",
+        "name": "Privacy",
+        "description": "Resources and tools for privacy",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 84
+    },
+    "productivity": {
+        "id": "productivity",
+        "name": "Productivity",
+        "description": "Tools and techniques to boost your productivity",
+        "icon": "FaRocket",
+        "color": "#F7B801",
+        "featured": true,
+        "priority": 3
+    },
+    "programming": {
+        "id": "programming",
+        "name": "Programming",
+        "description": "Resources and tools for programming",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 86
+    },
+    "prompt-engineering": {
+        "id": "prompt-engineering",
+        "name": "Prompt Engineering",
+        "description": "Resources and tools for prompt engineering",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 87
+    },
+    "reference": {
+        "id": "reference",
+        "name": "Reference",
+        "description": "Resources and tools for reference",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 88
+    },
+    "resources": {
+        "id": "resources",
+        "name": "Resources",
+        "description": "Resources and tools for resources",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 89
+    },
+    "routines": {
+        "id": "routines",
+        "name": "Routines",
+        "description": "Resources and tools for routines",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 90
+    },
+    "second-brain": {
+        "id": "second-brain",
+        "name": "Second Brain",
+        "description": "Build Your Second Brain methodology and resources",
+        "icon": "FaBrain",
+        "color": "#38A3A5",
+        "featured": true,
+        "priority": 7
+    },
+    "smart-goals": {
+        "id": "smart-goals",
+        "name": "Smart Goals",
+        "description": "Resources and tools for smart goals",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 92
+    },
+    "speech-recognition": {
+        "id": "speech-recognition",
+        "name": "Speech Recognition",
+        "description": "Resources and tools for speech recognition",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 93
+    },
+    "system-building": {
+        "id": "system-building",
+        "name": "System Building",
+        "description": "Resources and tools for system building",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 94
+    },
+    "systems": {
+        "id": "systems",
+        "name": "Systems",
+        "description": "Resources and tools for systems",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 95
+    },
+    "templates": {
+        "id": "templates",
+        "name": "Templates",
+        "description": "Ready-to-use templates for knowledge management and productivity",
+        "icon": "FaFileAlt",
+        "color": "#4ECDC4",
+        "featured": true,
+        "priority": 4
+    },
+    "time-management": {
+        "id": "time-management",
+        "name": "Time Management",
+        "description": "Resources and tools for time management",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 97
+    },
+    "tools": {
+        "id": "tools",
+        "name": "Tools",
+        "description": "Resources and tools for tools",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 98
+    },
+    "values": {
+        "id": "values",
+        "name": "Values",
+        "description": "Resources and tools for values",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 99
+    },
+    "visual-learning": {
+        "id": "visual-learning",
+        "name": "Visual Learning",
+        "description": "Resources and tools for visual learning",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 100
+    },
+    "voice-to-text": {
+        "id": "voice-to-text",
+        "name": "Voice To Text",
+        "description": "Resources and tools for voice to text",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 101
+    },
+    "wall-chart": {
+        "id": "wall-chart",
+        "name": "Wall Chart",
+        "description": "Resources and tools for wall chart",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 102
+    },
+    "writing": {
+        "id": "writing",
+        "name": "Writing",
+        "description": "Resources and tools for writing",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 103
+    },
+    "zen-productivity": {
+        "id": "zen-productivity",
+        "name": "Zen Productivity",
+        "description": "Resources and tools for zen productivity",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 104
+    },
+    "zettelkasten": {
+        "id": "zettelkasten",
+        "name": "Zettelkasten",
+        "description": "Resources and tools for zettelkasten",
+        "icon": "FaTag",
+        "color": "#999999",
+        "featured": false,
+        "priority": 105
+    }
+}

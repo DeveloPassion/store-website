@@ -1,13 +1,17 @@
 import { useMemo, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router'
-import { FaArrowLeft, FaTag, FaStar } from 'react-icons/fa'
+import { FaArrowLeft, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
+import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
+import type { Tag } from '@/types/tag'
 import { sortProductsByPriority } from '@/lib/product-sort'
+import { normalizeTagId } from '@/lib/tag-utils'
+import { getTagIcon } from '@/lib/tag-icons'
 
 // Icon mapping for categories
 import {
@@ -51,27 +55,24 @@ const TagPage: React.FC = () => {
     const navigate = useNavigate()
     const categories = categoriesData as Category[]
 
-    // Decode tagId back to tag name
-    // tagId format: lowercase with hyphens (e.g., "personal-knowledge-management")
-    // We need to find the actual tag name from products
+    // Get tag metadata and matching products
     const tagData = useMemo(() => {
         if (!tagId) return null
 
         const products = productsData as Product[]
-        const allTags = Array.from(new Set(products.flatMap((p) => p.tags)))
+        const tagsMetadata = tagsData as Record<string, Tag>
 
-        // Find tag that matches the tagId
-        const matchingTag = allTags.find(
-            (tag) => tag.toLowerCase().replace(/[^a-z0-9]+/g, '-') === tagId
+        // Look up tag metadata by normalized ID
+        const tagMetadata = tagsMetadata[tagId]
+        if (!tagMetadata) return null
+
+        // Find all products with this tag (by matching normalized tag strings)
+        const tagProducts = products.filter((product) =>
+            product.tags.some((tag) => normalizeTagId(tag) === tagId)
         )
 
-        if (!matchingTag) return null
-
-        // Get all products with this tag
-        const tagProducts = products.filter((p) => p.tags.includes(matchingTag))
-
         return {
-            name: matchingTag,
+            ...tagMetadata,
             count: tagProducts.length,
             products: tagProducts
         }
@@ -186,14 +187,29 @@ const TagPage: React.FC = () => {
                         Back to Tags
                     </Link>
                     <div className='flex items-center gap-4'>
-                        <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
-                            <FaTag className='text-secondary h-7 w-7' />
-                        </div>
+                        {(() => {
+                            const IconComponent = getTagIcon(tagData.icon)
+                            return (
+                                <div
+                                    className='flex h-14 w-14 items-center justify-center rounded-full'
+                                    style={{
+                                        backgroundColor: tagData.color
+                                            ? `${tagData.color}20`
+                                            : undefined
+                                    }}
+                                >
+                                    <div style={{ color: tagData.color }}>
+                                        <IconComponent className='h-7 w-7' />
+                                    </div>
+                                </div>
+                            )
+                        })()}
                         <div>
                             <h1 className='text-3xl font-bold tracking-tight sm:text-4xl'>
                                 {tagData.name}
                             </h1>
-                            <p className='text-primary/70 mt-1'>
+                            <p className='text-primary/70 mt-1'>{tagData.description}</p>
+                            <p className='text-primary/50 mt-1 text-sm'>
                                 {tagData.count} {tagData.count === 1 ? 'product' : 'products'}
                             </p>
                         </div>
