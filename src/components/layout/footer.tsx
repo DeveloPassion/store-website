@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             {/* Main Footer Content */}
             <div className='py-12 sm:py-16'>
                 <div className='mx-auto max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20'>
-                    <div className='grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12'>
+                    <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:gap-12'>
                         {/* Shop */}
                         <div>
                             <h4 className='mb-4 font-bold'>Shop</h4>
