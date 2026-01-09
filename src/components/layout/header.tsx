@@ -7,7 +7,8 @@ import {
     FaFolder,
     FaTag,
     FaStore,
-    FaQuestionCircle
+    FaQuestionCircle,
+    FaTrophy
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
@@ -37,6 +38,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             label: 'All Products',
             icon: <FaStore className='h-5 w-5' />,
             color: 'bg-primary/10 hover:bg-primary/20'
+        }
+
+        // Static link: Best Value
+        const bestValueLink: NavLink = {
+            to: '/most-value',
+            label: 'Best Value',
+            icon: <FaTrophy className='h-5 w-5' />,
+            color: 'text-blue-400 bg-blue-500/10 hover:bg-blue-500/20'
         }
 
         // Generate featured category links
@@ -76,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             }
         ]
 
-        return [allProductsLink, ...categoryLinks, ...staticLinks]
+        return [allProductsLink, bestValueLink, ...categoryLinks, ...staticLinks]
     }, [featuredCategories])
 
     // Close menu on route change
@@ -226,9 +235,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             <Link
                                 key={link.to}
                                 to={link.to}
-                                className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-3 text-center transition-all hover:scale-105 sm:gap-2 sm:p-5 md:p-6 ${link.color}`}
+                                className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color}`}
                             >
-                                <span className='text-xl sm:text-2xl md:text-3xl'>{link.icon}</span>
+                                <span className='text-lg sm:text-xl md:text-3xl'>{link.icon}</span>
                                 <span className='text-xs font-medium sm:text-sm md:text-base'>
                                     {link.label}
                                 </span>
