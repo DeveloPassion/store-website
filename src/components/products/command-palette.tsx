@@ -9,7 +9,8 @@ import {
     FaTag,
     FaFilter,
     FaShoppingBag,
-    FaStar
+    FaStar,
+    FaTrophy
 } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import type { Product } from '@/types/product'
@@ -204,11 +205,19 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
     // Get displayed commands for keyboard navigation
     const displayedCommandsForNav = useMemo(() => {
         const productCommands = filteredCommands.filter((c) => c.type === 'product')
+        const bestValueProducts = productCommands.filter((c) => c.product?.mostValue)
+        const regularProducts = productCommands.filter((c) => !c.product?.mostValue)
         const actionCommands = filteredCommands.filter((c) => c.type === 'action')
         const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
         const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
 
-        return [...productCommands, ...actionCommands, ...categoryCommands, ...tagCommands]
+        return [
+            ...bestValueProducts,
+            ...regularProducts,
+            ...actionCommands,
+            ...categoryCommands,
+            ...tagCommands
+        ]
     }, [filteredCommands])
 
     // Reset selection when displayed results change
@@ -283,6 +292,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
 
     // Group commands by type for display
     const productCommands = filteredCommands.filter((c) => c.type === 'product')
+    const bestValueProducts = productCommands.filter((c) => c.product?.mostValue)
+    const regularProducts = productCommands.filter((c) => !c.product?.mostValue)
     const actionCommands = filteredCommands.filter((c) => c.type === 'action')
     const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
     const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
@@ -327,13 +338,34 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                         </div>
                     ) : (
                         <>
-                            {/* Products */}
-                            {productCommands.length > 0 && (
+                            {/* Best Value Products */}
+                            {bestValueProducts.length > 0 && (
                                 <div className='mb-2'>
                                     <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
-                                        Products ({productCommands.length})
+                                        Best Value Products ({bestValueProducts.length})
                                     </div>
-                                    {productCommands.map((cmd) => {
+                                    {bestValueProducts.map((cmd) => {
+                                        const idx = currentIndex++
+                                        return (
+                                            <CommandItem
+                                                key={cmd.id}
+                                                command={cmd}
+                                                isSelected={selectedIndex === idx}
+                                                onSelect={() => setSelectedIndex(idx)}
+                                                onClick={() => cmd.action()}
+                                            />
+                                        )
+                                    })}
+                                </div>
+                            )}
+
+                            {/* Regular Products */}
+                            {regularProducts.length > 0 && (
+                                <div className='mb-2'>
+                                    <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
+                                        Products ({regularProducts.length})
+                                    </div>
+                                    {regularProducts.map((cmd) => {
                                         const idx = currentIndex++
                                         return (
                                             <CommandItem
@@ -474,7 +506,13 @@ const CommandItem: React.FC<CommandItemProps> = ({ command, isSelected, onSelect
                     <div className='text-primary/50 truncate text-sm'>{command.subtitle}</div>
                 )}
             </div>
-            {command.product?.featured && (
+            {command.product?.mostValue && (
+                <div className='flex shrink-0 items-center gap-1 rounded-full bg-blue-500/10 px-2 py-1 text-xs font-medium text-blue-500'>
+                    <FaTrophy className='h-2.5 w-2.5' />
+                    Best Value
+                </div>
+            )}
+            {command.product?.featured && !command.product?.mostValue && (
                 <div className='bg-secondary/10 text-secondary flex shrink-0 items-center gap-1 rounded-full px-2 py-1 text-xs font-medium'>
                     <FaStar className='h-2.5 w-2.5' />
                     Featured
