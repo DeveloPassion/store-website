@@ -1,0 +1,139 @@
+{
+    "permalink": "zyuwjd",
+    "name": "Knowii Personal Organization 101",
+    "tagline": "Stop Drowning in Tasks. Start Living with Intention.",
+    "price": 19.99,
+    "priceDisplay": "€19.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-personal-organization-101",
+    "tags": [
+        "personal-organization",
+        "productivity",
+        "time-management",
+        "clarity",
+        "focus",
+        "habits",
+        "routines",
+        "gtd"
+    ],
+    "problem": "Working hard but overwhelmed. Can't prioritize what matters.",
+    "problemPoints": [
+        "Tired of feeling overwhelmed",
+        "Struggle to prioritize",
+        "System is chaos",
+        "Drowning in overload",
+        "Juggling projects",
+        "Managing alone"
+    ],
+    "agitate": "Hours wasted on busywork. Stuck in reactive mode. No clear path. Working hard without results. Burning out.",
+    "agitatePoints": [
+        "Wasted busywork hours",
+        "Reactive mode",
+        "No clear path",
+        "Hard work without results",
+        "Burning out"
+    ],
+    "solution": "3-Pillar Personal Organization System: 20+ years refined.",
+    "solutionPoints": [
+        "Clarity System",
+        "Information Management",
+        "Productivity System",
+        "Chaos to clarity",
+        "Overwhelm to intention"
+    ],
+    "description": "90-minute workshop revealing complete Personal Organization System refined over 20+ years. Covers Clarity, Information Management, Productivity with 40+ frameworks.",
+    "features": [
+        "90-Minute Video",
+        "3-Pillar System",
+        "Self-assessment",
+        "Clarity System",
+        "Information Management",
+        "Productivity techniques",
+        "Time management",
+        "Focus strategies",
+        "40+ frameworks",
+        "Visual overview",
+        "100+ resources"
+    ],
+    "benefits": {
+        "immediate": ["Clear assessment", "40+ frameworks", "Visual overview", "Real examples"],
+        "systematic": [
+            "Clarity on priorities",
+            "Organization everywhere",
+            "Productivity without willpower",
+            "Time management works",
+            "Focus mastery",
+            "Information under control",
+            "Alignment"
+        ],
+        "longTerm": [
+            "Living with intention",
+            "Sustainable system",
+            "Foundation for LifeOS",
+            "Continuous improvement"
+        ]
+    },
+    "included": [
+        "90-minute video",
+        "Visual overview",
+        "100+ resources",
+        "Practical techniques",
+        "Real examples"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "20+ years refined",
+        "timeSaved": "Hours saved weekly",
+        "rating": "Battle-tested"
+    },
+    "faqIds": [],
+    "targetAudience": ["Knowledge Workers", "Leaders", "Solopreneurs", "The Overwhelmed"],
+    "perfectFor": [
+        "Information overload",
+        "Multiple projects",
+        "Managing alone",
+        "Overwhelmed",
+        "Want intention"
+    ],
+    "notForYou": ["Already perfect", "Prefer chaos", "Won't implement"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "20+ Years Refined",
+        "90-Minute Video",
+        "100+ Resources",
+        "40+ Frameworks",
+        "Real Examples",
+        "Lifetime Access"
+    ],
+    "guarantees": ["90-minute training", "100+ resources", "40+ frameworks", "Lifetime access"],
+    "crossSellIds": ["clarity-101", "journaling-deep-dive", "knowledge-worker-kit"],
+    "metaTitle": "Personal Organization 101 - 3-Pillar System | 90-Min Workshop",
+    "metaDescription": "€19.99 for 90-minute workshop + 100+ resources. Learn 3-Pillar Personal Organization System. 20+ years refined.",
+    "keywords": [
+        "personal organization",
+        "productivity system",
+        "time management",
+        "gtd",
+        "para method",
+        "clarity system",
+        "information management"
+    ],
+    "priority": 65,
+    "id": "personal-organization-101",
+    "mainCategory": "workshops",
+    "secondaryCategories": [
+        {
+            "id": "productivity",
+            "distant": true
+        },
+        {
+            "id": "personal-development",
+            "distant": true
+        },
+        {
+            "id": "personal-organization",
+            "distant": true
+        }
+    ]
+}

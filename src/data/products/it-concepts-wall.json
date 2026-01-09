@@ -1,0 +1,75 @@
+{
+    "permalink": "mwdbm",
+    "name": "IT Concepts Wall",
+    "tagline": "Essential IT Concepts at Your Fingertips",
+    "price": 9.99,
+    "priceDisplay": "€9.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/it-concepts-wall",
+    "tags": [
+        "it-fundamentals",
+        "programming",
+        "concepts",
+        "reference",
+        "wall-chart",
+        "visual-learning"
+    ],
+    "problem": "IT concepts scattered. Can't quickly reference. Information scattered.",
+    "problemPoints": [
+        "Can't quickly reference",
+        "Scattered information",
+        "Need visual aids",
+        "Want at-a-glance understanding"
+    ],
+    "agitate": "Hours wasted searching. Information scattered. Can't find overview.",
+    "agitatePoints": ["Hours wasted", "Scattered info", "Can't find overview"],
+    "solution": "IT Concepts Wall: Visual reference of essential IT concepts.",
+    "solutionPoints": ["Quick reference", "Visual aid", "Reduce search", "Desk reference"],
+    "description": "Visual reference resource presenting essential IT and programming concepts in organized, easy-to-reference format. Perfect for developers, students, and IT learners.",
+    "features": [
+        "Comprehensive Coverage",
+        "Visual Format",
+        "Quick Reference",
+        "Digital Format",
+        "Lifetime Access"
+    ],
+    "benefits": {
+        "immediate": ["Quick reference", "Visual aid", "Reduce search"],
+        "systematic": ["Organized", "Easy visuals", "Scalable"],
+        "longTerm": ["Build IT knowledge"]
+    },
+    "included": ["Digital IT Concepts Wall", "Printable format", "Lifetime access"],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Students and developers",
+        "timeSaved": "Time saved",
+        "rating": "Comprehensive"
+    },
+    "faqIds": [],
+    "targetAudience": ["Developers", "Students", "Visual learners", "IT learners"],
+    "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
+    "notForYou": ["Not interested in IT", "Prefer text-only"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
+    "guarantees": ["Comprehensive", "Printable", "Lifetime access"],
+    "crossSellIds": [],
+    "metaTitle": "IT Concepts Wall - Essential IT Reference | Visual Learning",
+    "metaDescription": "€9.99 digital IT concepts wall. Quick reference for programming fundamentals. Printable visual learning.",
+    "keywords": [
+        "it concepts",
+        "programming reference",
+        "coding cheat sheet",
+        "it fundamentals",
+        "visual learning"
+    ],
+    "priority": 50,
+    "id": "it-concepts-wall",
+    "mainCategory": "dev-and-it",
+    "secondaryCategories": [
+        {
+            "id": "learning",
+            "distant": true
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "permalink": "knowii-ai-master-prompt",
+    "name": "Knowii AI Master Prompt Workshop",
+    "tagline": "Transform AI From Generic Assistant to Your Personal Expert",
+    "secondaryTagline": "Stop Getting Generic AI Responses. Start Getting AI That Knows You.",
+    "price": 19.99,
+    "priceDisplay": "€19.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-ai-master-prompt",
+    "tags": [
+        "ai",
+        "llms",
+        "prompt-engineering",
+        "ai-assistants",
+        "ai-prompts",
+        "master-prompts",
+        "claude",
+        "chatgpt"
+    ],
+    "problem": "AI gives generic responses that don't fit YOUR situation. AI doesn't understand your context.",
+    "problemPoints": [
+        "AI doesn't understand context",
+        "Re-explain yourself every time",
+        "Generic responses",
+        "Waste time on background",
+        "Can't get your style"
+    ],
+    "agitate": "Generic responses. Treats you like everyone else. Wasted time explaining. Missed opportunities. No personalization. Frustration.",
+    "agitatePoints": [
+        "Generic",
+        "Re-explaining",
+        "Missed opportunities",
+        "No personalization",
+        "Frustration"
+    ],
+    "solution": "AI Master Prompt System: Crafted prompt that provides AI right context and rules.",
+    "solutionPoints": [
+        "AI knows you",
+        "Consistent quality",
+        "Save time",
+        "Personalized",
+        "Better results",
+        "Powerful"
+    ],
+    "description": "Workshop revealing the complete approach to building an AI Master Prompt that transforms LLM work. Learn to provide context and rules that dramatically improve AI responses. Includes live demo.",
+    "features": [
+        "Complete Framework",
+        "LLMs - How they work",
+        "AI Prompts - Fundamentals",
+        "Prompt Engineering",
+        "AI Master Prompts",
+        "Create Personal Master Prompt",
+        "PKM integration",
+        "Use your Master Prompt",
+        "Model Context Protocol"
+    ],
+    "benefits": {
+        "immediate": ["Stop re-explaining", "Get personalized", "Save time", "Better outputs"],
+        "systematic": [
+            "Consistent Quality",
+            "Time Savings",
+            "Better Results",
+            "Personalization",
+            "Scalability",
+            "Integration"
+        ],
+        "longTerm": [
+            "Transform AI to assistant",
+            "Sustainable workflows",
+            "Compound improvements",
+            "Foundation"
+        ]
+    },
+    "included": [
+        "Video workshop",
+        "Live demo",
+        "Complete framework",
+        "Practical examples",
+        "Knowledge base",
+        "Implementation strategies"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Active AI users",
+        "timeSaved": "Hours saved",
+        "rating": "Proven"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "AI Power Users",
+        "Content Creators",
+        "Knowledge Workers",
+        "Productivity Seekers",
+        "Entrepreneurs"
+    ],
+    "perfectFor": [
+        "Use LLMs regularly",
+        "Write content",
+        "Need AI help",
+        "Tired of re-explaining",
+        "Juggle projects"
+    ],
+    "notForYou": ["Don't use AI", "Prefer generic", "Won't invest"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "Complete Framework",
+        "Video with demo",
+        "Real Examples",
+        "Practical",
+        "Knowledge Base",
+        "Lifetime Access"
+    ],
+    "guarantees": [
+        "Complete framework",
+        "Video with demo",
+        "Implementation strategies",
+        "Lifetime access"
+    ],
+    "crossSellIds": ["model-context-protocol", "ai-ghostwriter-guide", "knowledge-worker-kit"],
+    "metaTitle": "AI Master Prompt Workshop - Transform AI Into Your Personal Expert",
+    "metaDescription": "€19.99 workshop teaching how to create AI Master Prompts. Personalized, context-aware responses. ChatGPT, Claude, all LLMs.",
+    "keywords": [
+        "ai master prompt",
+        "prompt engineering",
+        "ai assistants",
+        "llm optimization",
+        "chatgpt prompts",
+        "claude prompts",
+        "personal ai"
+    ],
+    "priority": 65,
+    "id": "ai-master-prompt",
+    "mainCategory": "workshops",
+    "secondaryCategories": [
+        {
+            "id": "ai-mastery",
+            "distant": false
+        },
+        {
+            "id": "productivity",
+            "distant": true
+        }
+    ]
+}

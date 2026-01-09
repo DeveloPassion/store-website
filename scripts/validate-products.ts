@@ -1,10 +1,12 @@
 #!/usr/bin/env tsx
 
 /**
- * Validate products.json against the Zod schema
+ * Validate products against the Zod schema
  *
- * This script ensures all products in products.json conform to the expected structure
- * and data types defined in src/schemas/product.schema.ts
+ * This script validates products in two modes:
+ * 1. Individual file mode: Validates each product file in src/data/products/
+ *    and then validates the aggregated products.json
+ * 2. Fallback mode: Validates products.json directly (backward compatibility)
  *
  * Usage:
  *   npm run validate:products
@@ -15,23 +17,162 @@
  *   1 - Validation errors found
  */
 
-import { readFileSync } from 'fs'
-import { resolve, dirname } from 'path'
+import { readFileSync, readdirSync, existsSync } from 'fs'
+import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { ProductsArraySchema, ProductSchema } from '../src/schemas/product.schema.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
 const PRODUCTS_FILE = resolve(__dirname, '../src/data/products.json')
 
 interface ValidationError {
     productId: string
     productIndex: number
+    filename?: string
     errors: string[]
 }
 
-function main() {
-    console.log('🔍 Validating products.json...\n')
+interface Product {
+    id: string
+    [key: string]: any
+}
+
+function validateIndividualFiles(): { products: Product[]; errors: ValidationError[] } {
+    console.log('📁 Validating individual product files...\n')
+
+    const files = readdirSync(PRODUCTS_DIR).filter((file) => file.endsWith('.json'))
+    console.log(`Found ${files.length} product file(s)\n`)
+
+    const products: Product[] = []
+    const errors: ValidationError[] = []
+
+    files.forEach((file, index) => {
+        const filepath = join(PRODUCTS_DIR, file)
+        try {
+            const content = readFileSync(filepath, 'utf-8')
+            const product = JSON.parse(content)
+
+            const result = ProductSchema.safeParse(product)
+            if (result.success) {
+                products.push(result.data)
+                console.log(`  ✅ ${file}`)
+            } else {
+                let productErrors: string[]
+                if (result.error && result.error.issues) {
+                    productErrors = result.error.issues.map((err) => {
+                        const path = err.path.join('.') || '[root]'
+                        return `     • ${path}: ${err.message}`
+                    })
+                } else {
+                    productErrors = [
+                        `     • Unknown validation error: ${JSON.stringify(result.error)}`
+                    ]
+                }
+
+                errors.push({
+                    productId: product?.id || `[unknown]`,
+                    productIndex: index,
+                    filename: file,
+                    errors: productErrors
+                })
+                console.error(`  ❌ ${file}`)
+            }
+        } catch (error) {
+            const errorMsg = error instanceof Error ? error.message : String(error)
+            errors.push({
+                productId: `[parse-error]`,
+                productIndex: index,
+                filename: file,
+                errors: [`     • Parse error: ${errorMsg}`]
+            })
+            console.error(`  ❌ ${file}: Parse error`)
+        }
+    })
+
+    console.log('')
+    return { products, errors }
+}
+
+function validateAggregated(products: Product[]): ValidationError[] {
+    console.log('📦 Validating aggregated products...\n')
+
+    // Check for duplicate IDs
+    const idCounts = new Map<string, number>()
+    products.forEach((product) => {
+        idCounts.set(product.id, (idCounts.get(product.id) || 0) + 1)
+    })
+
+    const duplicates = Array.from(idCounts.entries()).filter(([_, count]) => count > 1)
+    if (duplicates.length > 0) {
+        console.error('  ❌ Duplicate product IDs found:')
+        duplicates.forEach(([id, count]) => {
+            console.error(`     • ID "${id}" appears ${count} times`)
+        })
+        console.log('')
+        return duplicates.map(([id]) => ({
+            productId: id,
+            productIndex: -1,
+            errors: ['Duplicate product ID']
+        }))
+    }
+
+    // Validate the entire array structure
+    const result = ProductsArraySchema.safeParse(products)
+    if (result.success) {
+        console.log(`  ✅ All ${products.length} products aggregate correctly`)
+        console.log('  ✅ No duplicate IDs')
+        console.log('  ✅ All cross-references valid\n')
+        return []
+    }
+
+    console.error('  ❌ Aggregated validation failed\n')
+    return [
+        {
+            productId: '[aggregation]',
+            productIndex: -1,
+            errors: result.error.errors.map((err) => `  • ${err.path.join('.')}: ${err.message}`)
+        }
+    ]
+}
+
+function displaySummary(products: Product[]) {
+    console.log('📊 Product Summary:')
+    console.log(`   Total products: ${products.length}`)
+
+    const byStatus = products.reduce(
+        (acc, p) => {
+            acc[p.status] = (acc[p.status] || 0) + 1
+            return acc
+        },
+        {} as Record<string, number>
+    )
+
+    console.log('\n   By status:')
+    Object.entries(byStatus).forEach(([status, count]) => {
+        console.log(`     - ${status}: ${count}`)
+    })
+
+    const byType = products.reduce(
+        (acc, p) => {
+            acc[p.type] = (acc[p.type] || 0) + 1
+            return acc
+        },
+        {} as Record<string, number>
+    )
+
+    console.log('\n   By type:')
+    Object.entries(byType).forEach(([type, count]) => {
+        console.log(`     - ${type}: ${count}`)
+    })
+
+    const featuredCount = products.filter((p) => p.featured).length
+    console.log(`\n   Featured products: ${featuredCount}`)
+}
+
+function validateDirectMode(): void {
+    console.log('🔍 Validating products.json (direct mode)...\n')
     console.log(`Reading: ${PRODUCTS_FILE}\n`)
 
     let productsData: unknown
@@ -44,55 +185,19 @@ function main() {
         process.exit(1)
     }
 
-    // Validate the entire array
     const result = ProductsArraySchema.safeParse(productsData)
 
     if (result.success) {
         console.log(`✅ All ${result.data.length} products are valid!\n`)
-
-        // Display summary
-        console.log('📊 Product Summary:')
-        console.log(`   Total products: ${result.data.length}`)
-
-        const byStatus = result.data.reduce(
-            (acc, p) => {
-                acc[p.status] = (acc[p.status] || 0) + 1
-                return acc
-            },
-            {} as Record<string, number>
-        )
-
-        console.log('\n   By status:')
-        Object.entries(byStatus).forEach(([status, count]) => {
-            console.log(`     - ${status}: ${count}`)
-        })
-
-        const byType = result.data.reduce(
-            (acc, p) => {
-                acc[p.type] = (acc[p.type] || 0) + 1
-                return acc
-            },
-            {} as Record<string, number>
-        )
-
-        console.log('\n   By type:')
-        Object.entries(byType).forEach(([type, count]) => {
-            console.log(`     - ${type}: ${count}`)
-        })
-
-        const featuredCount = result.data.filter((p) => p.featured).length
-        console.log(`\n   Featured products: ${featuredCount}`)
-
+        displaySummary(result.data)
         process.exit(0)
     }
 
-    // Validation failed - parse errors
+    // Validation failed
     console.error('❌ Validation failed!\n')
 
     const errors: ValidationError[] = []
-    const zodError = result.error
 
-    // Try to parse individual products to identify which ones are problematic
     if (Array.isArray(productsData)) {
         productsData.forEach((product: any, index: number) => {
             const productResult = ProductSchema.safeParse(product)
@@ -111,7 +216,6 @@ function main() {
         })
     }
 
-    // Display errors by product
     if (errors.length > 0) {
         console.error(`Found errors in ${errors.length} product(s):\n`)
         errors.forEach(({ productId, productIndex, errors: productErrors }) => {
@@ -119,19 +223,63 @@ function main() {
             productErrors.forEach((err) => console.error(err))
             console.error('')
         })
-    } else if (zodError && zodError.errors) {
-        // Display raw Zod errors if we couldn't parse individual products
-        console.error('Validation errors:')
-        zodError.errors.forEach((err) => {
-            const path = err.path.join('.') || '[root]'
-            console.error(`  • ${path}: ${err.message}`)
-        })
-    } else {
-        console.error('Unknown validation error occurred')
-        console.error('Raw error:', JSON.stringify(result.error, null, 2))
     }
 
-    console.error('\n💡 Tip: Check the schema definition at src/schemas/product.schema.ts')
+    console.error('💡 Tip: Check the schema definition at src/schemas/product.schema.ts')
+    console.error('💡 Tip: Ensure all required fields are present and correctly typed\n')
+
+    process.exit(1)
+}
+
+function main() {
+    console.log('🔍 Validating products...\n')
+
+    // Check if individual files directory exists
+    const useIndividualFiles = existsSync(PRODUCTS_DIR)
+
+    if (!useIndividualFiles) {
+        console.log('Individual files directory not found. Using direct validation mode.\n')
+        validateDirectMode()
+        return
+    }
+
+    // Validate individual files
+    const { products, errors: individualErrors } = validateIndividualFiles()
+
+    // Validate aggregated result
+    const aggregationErrors = validateAggregated(products)
+
+    // Collect all errors
+    const allErrors = [...individualErrors, ...aggregationErrors]
+
+    // Display results
+    if (allErrors.length === 0) {
+        console.log('✅ All products are valid!\n')
+        displaySummary(products)
+        process.exit(0)
+    }
+
+    // Display errors
+    console.error('❌ Validation failed!\n')
+
+    if (individualErrors.length > 0) {
+        console.error(`Found errors in ${individualErrors.length} product file(s):\n`)
+        individualErrors.forEach(({ filename, productId, errors: productErrors }) => {
+            console.error(`❌ ${filename || productId}`)
+            productErrors.forEach((err) => console.error(err))
+            console.error('')
+        })
+    }
+
+    if (aggregationErrors.length > 0) {
+        console.error('Aggregation errors:\n')
+        aggregationErrors.forEach(({ errors: aggErrors }) => {
+            aggErrors.forEach((err) => console.error(err))
+        })
+        console.error('')
+    }
+
+    console.error('💡 Tip: Check the schema definition at src/schemas/product.schema.ts')
     console.error('💡 Tip: Ensure all required fields are present and correctly typed\n')
 
     process.exit(1)

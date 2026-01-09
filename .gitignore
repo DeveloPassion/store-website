@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .vite
+
+# Generated data files
+src/data/products.json

@@ -1,0 +1,108 @@
+{
+    "permalink": "imkjic",
+    "name": "Beginner's Guide to Mastering Obsidian",
+    "tagline": "Start Your Obsidian Journey With Confidence",
+    "secondaryTagline": "FREE Guide From Obsidian Beginner to Confident User",
+    "price": 0,
+    "priceDisplay": "FREE",
+    "priceTier": "free",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/beginners-guide-to-obsidian",
+    "tags": [
+        "obsidian",
+        "free-guide",
+        "lead-magnet",
+        "beginner",
+        "note-taking",
+        "pkm",
+        "getting-started"
+    ],
+    "problem": "Obsidian is powerful but don't know where to start. Looks complex.",
+    "problemPoints": [
+        "Looks complex",
+        "Don't know where to begin",
+        "Worried about mistakes",
+        "Need clear guidance",
+        "Want to avoid pitfalls"
+    ],
+    "agitate": "Overwhelmed. Don't know where to start. Worried about mistakes. No clear path.",
+    "agitatePoints": ["Overwhelmed", "Don't know where", "Worried about mistakes", "No clear path"],
+    "solution": "Beginner's Guide to Mastering Obsidian: FREE comprehensive guide for confident use.",
+    "solutionPoints": [
+        "Complete Guide",
+        "FREE",
+        "Instant Access",
+        "Step-by-Step",
+        "Avoid Pitfalls",
+        "Confident Start"
+    ],
+    "description": "The Beginner's Guide to Mastering Obsidian is a FREE comprehensive guide based on a popular Obsidian article by Sébastien Dubois, creator of Obsidian Starter Kit. Get clear, step-by-step guidance for starting your Obsidian journey.",
+    "features": [
+        "Complete Getting-Started Guide",
+        "Getting started",
+        "Essential features",
+        "Basic note-taking",
+        "Organization fundamentals",
+        "Linking",
+        "Avoid mistakes",
+        "Next steps"
+    ],
+    "benefits": {
+        "immediate": [
+            "Clear starting point",
+            "Avoid pitfalls",
+            "Understand concepts",
+            "Confident start"
+        ],
+        "systematic": [
+            "Proper foundations",
+            "Scalable approach",
+            "Ready for advanced",
+            "Path to mastery"
+        ],
+        "longTerm": ["Solid note-taking"]
+    },
+    "included": [
+        "Complete Beginner's Guide",
+        "Step-by-step instructions",
+        "Essential concepts",
+        "Common pitfalls",
+        "Next steps"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Free resource",
+        "timeSaved": "Saves learning hours",
+        "rating": "Based on popular article"
+    },
+    "faqIds": [],
+    "targetAudience": ["Obsidian Beginners", "The Curious", "Note-Takers", "Learners"],
+    "perfectFor": ["Just downloaded", "Heard about it", "Switching from other", "Want to do right"],
+    "notForYou": ["Already expert", "Don't use note-taking"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": ["100% FREE", "Instant Access", "Beginner-Friendly", "Expert Created"],
+    "guarantees": ["Completely free", "Step-by-step", "No credit card"],
+    "crossSellIds": ["obsidian-starter-course", "obsidian-starter-kit"],
+    "metaTitle": "FREE Beginner's Guide to Mastering Obsidian | Get Started",
+    "metaDescription": "FREE guide for Obsidian beginners. Step-by-step getting started, concepts, avoid mistakes. Instant download.",
+    "keywords": [
+        "obsidian beginner guide",
+        "free obsidian guide",
+        "obsidian getting started",
+        "obsidian tutorial",
+        "note-taking guide"
+    ],
+    "priority": 40,
+    "id": "beginners-guide-obsidian",
+    "mainCategory": "free",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": true
+        },
+        {
+            "id": "obsidian",
+            "distant": false
+        }
+    ]
+}

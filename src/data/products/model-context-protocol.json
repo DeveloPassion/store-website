@@ -1,0 +1,153 @@
+{
+    "permalink": "knowii-model-context-protocol-mcp",
+    "name": "Knowii Model Context Protocol (MCP) Masterclass",
+    "tagline": "Give AI Superpowers: Connect to Any Data Source or Tool",
+    "secondaryTagline": "Stop Copy-Pasting Context. Let AI Access What It Needs Automatically.",
+    "price": 19.99,
+    "priceDisplay": "€19.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp",
+    "tags": [
+        "mcp",
+        "model-context-protocol",
+        "ai",
+        "llms",
+        "claude",
+        "ai-integration",
+        "obsidian",
+        "automation"
+    ],
+    "problem": "AI is powerful but blind. Can't access your data without manual copy-paste.",
+    "problemPoints": [
+        "Copy-paste files",
+        "AI can't read notes",
+        "Manually fetch data",
+        "No tool interaction",
+        "Limited to chat"
+    ],
+    "agitate": "Hours being AI's assistant. Can't read Obsidian. Can't access databases. Can't search web. Can't control browser. Can't use tools. You're middleman.",
+    "agitatePoints": [
+        "Can't read notes",
+        "Can't access databases",
+        "Can't search web",
+        "Can't control browser",
+        "Can't use tools",
+        "Can't scale"
+    ],
+    "solution": "Model Context Protocol (MCP): Open standard connecting AI to data and tools automatically.",
+    "solutionPoints": [
+        "AI reads notes",
+        "AI searches web",
+        "AI controls browser",
+        "AI queries databases",
+        "AI uses tools",
+        "You think strategically"
+    ],
+    "description": "Deep dive masterclass into Model Context Protocol (MCP). Learn what it is, why it matters, how it works, where to find servers, how to install. Includes 5 live demos.",
+    "features": [
+        "Complete Masterclass",
+        "What LLMs miss",
+        "What is MCP",
+        "How it works",
+        "MCP servers",
+        "MCP clients",
+        "Installation",
+        "Security",
+        "5 Live Demos"
+    ],
+    "benefits": {
+        "immediate": [
+            "Stop copy-pasting",
+            "Direct knowledge access",
+            "Auto web search",
+            "Browser control"
+        ],
+        "systematic": [
+            "Data Access",
+            "Tool Integration",
+            "Web Capabilities",
+            "Automation",
+            "Scalability",
+            "Productivity"
+        ],
+        "longTerm": ["Transform to agent", "Sustainable workflows", "Integrate AI", "Foundation"]
+    },
+    "included": [
+        "Video masterclass",
+        "5 Live Demos",
+        "Complete technical guide",
+        "Practical examples",
+        "Knowledge base",
+        "Tool directories"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Growing",
+        "timeSaved": "Hours saved",
+        "rating": "Open standard by Anthropic"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "AI Power Users",
+        "Knowledge Workers",
+        "Developers",
+        "Automation Enthusiasts",
+        "Early Adopters"
+    ],
+    "perfectFor": [
+        "Use LLMs",
+        "Have knowledge bases",
+        "Want AI to read notes",
+        "Love systems",
+        "Want AI agents"
+    ],
+    "notForYou": ["Don't use AI", "Prefer copy-paste", "Not interested"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "Complete Masterclass",
+        "5 demos",
+        "Real Examples",
+        "Practical Guide",
+        "Security",
+        "Future-Ready",
+        "Lifetime Access"
+    ],
+    "guarantees": [
+        "Complete masterclass",
+        "5 demos",
+        "Technical guide",
+        "Security",
+        "Lifetime access"
+    ],
+    "crossSellIds": ["ai-master-prompt", "obsidian-starter-kit", "knowledge-worker-kit"],
+    "metaTitle": "Model Context Protocol (MCP) Masterclass - Give AI Superpowers",
+    "metaDescription": "€19.99 masterclass on Model Context Protocol. Connect AI to data and tools. 5 demos: Obsidian, Notion, web search, browser.",
+    "keywords": [
+        "model context protocol",
+        "mcp",
+        "ai integrations",
+        "claude mcp",
+        "obsidian ai",
+        "ai tools",
+        "llm capabilities",
+        "ai automation"
+    ],
+    "priority": 65,
+    "id": "model-context-protocol",
+    "mainCategory": "workshops",
+    "secondaryCategories": [
+        {
+            "id": "ai-tools",
+            "distant": false
+        },
+        {
+            "id": "productivity",
+            "distant": true
+        },
+        {
+            "id": "ai-mastery",
+            "distant": false
+        }
+    ]
+}

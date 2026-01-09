@@ -1,0 +1,207 @@
+{
+    "permalink": "mghmmj",
+    "name": "Obsidian Starter Kit",
+    "tagline": "Stop Wasting Time Configuring Obsidian. Start Being Productive Today.",
+    "secondaryTagline": "Transform Chaos Into Clarity in 30 Minutes",
+    "price": 49.99,
+    "priceDisplay": "€49.99-€118.99",
+    "priceTier": "standard",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit",
+    "variants": [
+        {
+            "name": "Essentials",
+            "price": 49.99,
+            "priceDisplay": "€49.99",
+            "description": "Vault + comprehensive user guide",
+            "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
+        },
+        {
+            "name": "Premium",
+            "price": 118.99,
+            "priceDisplay": "€118.99",
+            "description": "Essentials + 2h20m Obsidian Starter Course video",
+            "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-kit"
+        }
+    ],
+    "tags": ["obsidian", "pkm", "templates", "productivity", "zettelkasten", "para"],
+    "problem": "Obsidian is powerful but overwhelming. Most people spend weeks or months figuring out how to organize their notes, what plugins to use, and how to build productive workflows.",
+    "problemPoints": [
+        "Spend weeks figuring out folder structure",
+        "Trial-and-error with dozens of plugins",
+        "Manually build templates from scratch",
+        "Learn PKM methods through scattered articles",
+        "Struggle with inconsistent organization"
+    ],
+    "agitate": "Time Cost: 100+ hours of setup + 10 hours/month ongoing maintenance. Scattered resources, no clear 'right way', plugin overwhelm (1,000+ available), templates that don't auto-file, starting from scratch feels like reinventing the wheel.",
+    "agitatePoints": [
+        "100+ hours of setup time",
+        "Scattered resources across hundreds of articles",
+        "No clear 'right way' to organize",
+        "Plugin overwhelm - 1,000+ available",
+        "Templates that don't auto-file",
+        "Starting from scratch feels like reinventing the wheel"
+    ],
+    "solution": "A complete, battle-tested system that gives you sophisticated personal knowledge management on day one.",
+    "solutionPoints": [
+        "Battle-tested system, ready in 30 minutes",
+        "Carefully curated plugins, pre-configured",
+        "40+ smart templates that auto-file notes",
+        "Complete PKM education built-in",
+        "Scales from 10 notes to 10,000+ notes"
+    ],
+    "description": "The Obsidian Starter Kit is a comprehensive knowledge system that transforms Obsidian into a complete productivity and learning environment. It combines proven methodologies (PARA, Zettelkasten, Johnny Decimal, GTD) with a battle-tested organization that scales from 10 notes to 10,000+ notes. Stop wasting hours searching for notes. Start with a system used by 10,000+ knowledge workers.",
+    "features": [
+        "Clearly defined note types with structured properties and automation",
+        "40+ specialized templates for every content type",
+        "Powerful journaling system with habit and health tracking",
+        "Mature knowledge organization system from content capture to long-lasting wisdom",
+        "Complete action system from goals to tasks with decision matrices",
+        "People & relationship management with interaction tracking",
+        "Integrated workflows for all content types",
+        "Zero manual filing - everything organizes automatically",
+        "Pre-configured settings optimized for productivity",
+        "State of the Art AI integration with prompt library and automation",
+        "Solid and Scalable Structure - AI can find it all easily",
+        "Hierarchical Tags - Find any note in 3 seconds",
+        "Icons for every note type - Recognize notes at a glance",
+        "First-Class Obsidian Bases Support - Database-like views",
+        "First-class Visual Thinking Support"
+    ],
+    "benefits": {
+        "immediate": [
+            "Start being productive on day one",
+            "No weeks of research, setup and configuration",
+            "Battle-tested workflows that actually work"
+        ],
+        "systematic": [
+            "Handles small personal notes to huge knowledge bases",
+            "Grows with your knowledge and needs",
+            "Maintains structure as your vault expands",
+            "Clear workflows for every type of information",
+            "Automated organization reduces decision fatigue",
+            "Find anything quickly with multiple discovery methods"
+        ],
+        "longTerm": [
+            "Systems for capturing and connecting insights and wisdom",
+            "Cross-pollination between different knowledge areas",
+            "Visual thinking integration with drawings and diagrams"
+        ]
+    },
+    "included": [
+        "Complete Obsidian Vault with solid structure",
+        "40+ Smart Templates",
+        "Carefully picked and pre-configured plugins",
+        "Hierarchical tags system",
+        "Icons for every note type",
+        "First-class Obsidian Bases support",
+        "First-class visual thinking support",
+        "Zettelkasten, PARA, GTD, and journaling methodologies built-in",
+        "Comprehensive User Guide (100+ pages)",
+        "Migration guides from v2 or custom setups",
+        "Video Course (Premium tier): 2h20m covering Obsidian + PKM",
+        "Lifetime access to Knowii Community",
+        "Free lifetime updates"
+    ],
+    "testimonialIds": [
+        "obsidian-starter-kit-testimonial-1",
+        "obsidian-starter-kit-testimonial-2",
+        "obsidian-starter-kit-testimonial-3",
+        "obsidian-starter-kit-testimonial-4",
+        "obsidian-starter-kit-testimonial-5",
+        "obsidian-starter-kit-testimonial-6"
+    ],
+    "statsProof": {
+        "userCount": "10,000+ users",
+        "timeSaved": "100+ hours setup + 10 hours/month ongoing",
+        "rating": "4.9/5 stars"
+    },
+    "faqIds": [
+        "obsidian-starter-kit-faq-1",
+        "obsidian-starter-kit-faq-2",
+        "obsidian-starter-kit-faq-3",
+        "obsidian-starter-kit-faq-4",
+        "obsidian-starter-kit-faq-5",
+        "obsidian-starter-kit-faq-6",
+        "obsidian-starter-kit-faq-7"
+    ],
+    "targetAudience": [
+        "You're just starting with Obsidian and want a proven system",
+        "You're overwhelmed by options and need expert guidance",
+        "You want to learn PKM methods through hands-on examples",
+        "You're migrating from another tool and need a solid foundation",
+        "You value your time and prefer learning from refined expertise",
+        "Knowledge workers managing complex information",
+        "Entrepreneurs managing ideas and business operations",
+        "Lifelong learners committed to development",
+        "Researchers and academics",
+        "Content creators",
+        "Students"
+    ],
+    "perfectFor": [
+        "Just starting with Obsidian",
+        "Overwhelmed by Obsidian options",
+        "Want to learn PKM methods hands-on",
+        "Migrating from another tool",
+        "Value your time over trial-and-error"
+    ],
+    "notForYou": [
+        "You enjoy spending months building from scratch",
+        "You already have a perfect system"
+    ],
+    "landingPageUrl": "https://obsidianstarterkit.com",
+    "dsebastienUrl": "https://www.dsebastien.net/obsidian-starter-kit-v3/",
+    "featured": true,
+    "status": "active",
+    "trustBadges": [
+        "30-Day Money-Back Guarantee",
+        "Lifetime Updates",
+        "Secure Checkout - Powered by Gumroad",
+        "10,000+ Users",
+        "4.9/5 Rating",
+        "Beginner Friendly"
+    ],
+    "guarantees": [
+        "30-day money-back guarantee - full refund, no questions asked",
+        "Free lifetime updates - all future versions included",
+        "Lifetime community access",
+        "Priority support via email and community"
+    ],
+    "crossSellIds": ["knowledge-management-for-beginners", "everything-knowledge-bundle"],
+    "metaTitle": "Obsidian Starter Kit - Transform Chaos Into Clarity in 30 Minutes | dSebastien",
+    "metaDescription": "Battle-tested Obsidian vault with 40+ templates, pre-configured plugins, and comprehensive PKM guide. Join 10,000+ knowledge workers. 30-day guarantee.",
+    "keywords": [
+        "obsidian starter kit",
+        "obsidian templates",
+        "pkm system",
+        "personal knowledge management",
+        "obsidian vault",
+        "zettelkasten",
+        "para method",
+        "note-taking system",
+        "second brain",
+        "obsidian plugins",
+        "osk"
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=d1otSlcHUhE",
+    "priority": 100,
+    "id": "obsidian-starter-kit",
+    "mainCategory": "kits-and-templates",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": true
+        },
+        {
+            "id": "obsidian",
+            "distant": false
+        },
+        {
+            "id": "productivity",
+            "distant": true
+        },
+        {
+            "id": "journaling",
+            "distant": false
+        }
+    ]
+}

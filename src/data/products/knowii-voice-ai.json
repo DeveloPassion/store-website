@@ -1,0 +1,184 @@
+{
+    "permalink": "tbdlrt",
+    "name": "Knowii Voice AI",
+    "tagline": "You Think Faster Than You Type",
+    "secondaryTagline": "Your Keyboard Is Costing You Hours Every Week",
+    "price": 49,
+    "priceDisplay": "€49",
+    "priceTier": "standard",
+    "gumroadUrl": "https://store.dsebastien.net/l/knowii-voice-ai",
+    "tags": ["voice-to-text", "speech-recognition", "ai", "productivity", "privacy", "offline"],
+    "problem": "Your keyboard is the bottleneck between your thoughts and getting things done. Average typing: 40 wpm vs speaking: 150 wpm. You speak 3.75x faster than you type.",
+    "problemPoints": [
+        "Your fingers can't keep up with your brain",
+        "You hunt for keys while thoughts race ahead",
+        "Autocorrect changes words you didn't want changed",
+        "You stop to fix typos and lose train of thought",
+        "Five minutes pass, you've written three sentences",
+        "By noon you've typed 5,000 words and your hands hurt",
+        "By 3pm you're abbreviating because tired of typing"
+    ],
+    "agitate": "Writing 2 hours/day: Typing = 4,800 words. Speaking = 18,000 words. Difference: 13,200 more words OR get back 88 minutes per day. 7.3 hours per week wasted. 380 hours per year lost to keyboard bottleneck.",
+    "agitatePoints": [
+        "7.3 hours per week wasted on typing",
+        "380 hours per year lost to keyboard bottleneck",
+        "Tired hands and sore neck from typing",
+        "Email takes 10 minutes to type carefully",
+        "Blog posts - staring at blank page exhausting",
+        "Code documentation avoided because takes forever",
+        "Commit messages rushed and vague",
+        "You're the bottleneck, not AI"
+    ],
+    "solution": "Voice-to-text that runs entirely on your computer. One keyboard shortcut. Any application. Complete privacy.",
+    "solutionPoints": [
+        "Press Ctrl+Space, speak, release - words appear",
+        "Responses faster and more thorough",
+        "Clear inbox in half the time",
+        "Leave work with energy (not drained from typing)",
+        "First drafts spoken like explaining to a friend",
+        "1,200 words deep in 15 minutes",
+        "Detailed commit messages in 30 seconds"
+    ],
+    "description": "Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models (Whisper, Parakeet) process everything locally. No cloud. No subscription. No usage limits. Just €49 once, yours forever. Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.",
+    "features": [
+        "Universal Voice Input - Works in every application where you can type",
+        "Local AI Processing - Whisper and Parakeet models run on your computer",
+        "Offline Capable - No internet required after one-time model download",
+        "Customizable Shortcut - Default Ctrl+Space, change to whatever you want",
+        "Searchable History - Every transcription saved and searchable",
+        "Multiple AI Models - Choose between fast/accurate/balanced models",
+        "GPU Acceleration - Near-instant with NVIDIA GPU, 1-3 seconds on CPU",
+        "Multi-Language Support - English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Chinese, Japanese, Korean, and more",
+        "Complete Privacy - All processing on your computer, nothing sent to servers",
+        "One-Time Payment - €49 once, own forever",
+        "Lifetime Updates - All future features and improvements included",
+        "Commercial License - Use for personal and professional work"
+    ],
+    "benefits": {
+        "immediate": [
+            "3.75x faster output - Speak 150 wpm vs type 40 wpm",
+            "88 minutes back per day (for 2 hours of writing)",
+            "7.3 hours per week saved",
+            "380 hours per year recovered"
+        ],
+        "systematic": [
+            "Responses faster and more thorough",
+            "Clear inbox in half the time",
+            "Leave work with energy, not drained",
+            "No more tired hands or sore neck",
+            "Keep up with your mind - ideas flow at speed of thought",
+            "First drafts spoken naturally",
+            "No more blank page paralysis"
+        ],
+        "longTerm": [
+            "Your data stays yours - on your machine",
+            "No voice recordings training someone else's AI",
+            "Work offline, no internet dependency",
+            "Detailed documentation without the chore",
+            "AI prompts prepared rapidly - harness full power of AI"
+        ]
+    },
+    "included": [
+        "Full access to Knowii Voice AI (Windows version)",
+        "Buy, download, use today - no account creation needed",
+        "Commercial license included",
+        "All future updates free forever",
+        "Every new feature included (no upgrade fees)",
+        "All roadmap items included in purchase",
+        "Direct support from creator (email, no ticket system)",
+        "Knowii Community membership",
+        "30-day guarantee - not satisfied? Email for refund, no questions asked"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Early Access",
+        "timeSaved": "88 minutes/day for 2 hours of writing",
+        "rating": "New product - November 2025"
+    },
+    "faqIds": [
+        "knowii-voice-ai-faq-1",
+        "knowii-voice-ai-faq-2",
+        "knowii-voice-ai-faq-3",
+        "knowii-voice-ai-faq-4",
+        "knowii-voice-ai-faq-5",
+        "knowii-voice-ai-faq-6",
+        "knowii-voice-ai-faq-7",
+        "knowii-voice-ai-faq-8",
+        "knowii-voice-ai-faq-9",
+        "knowii-voice-ai-faq-10",
+        "knowii-voice-ai-faq-11",
+        "knowii-voice-ai-faq-12",
+        "knowii-voice-ai-faq-13"
+    ],
+    "targetAudience": [
+        "You communicate for work (emails, Slack, Teams, support tickets)",
+        "Your keyboard slows you down - ideas come faster than fingers can type",
+        "You want to fully leverage AI",
+        "You create content (blog posts, articles, scripts, social posts)",
+        "You write code for a living",
+        "You care about privacy"
+    ],
+    "perfectFor": [
+        "Communicate extensively for work",
+        "Keyboard slows down your thinking",
+        "Want to fully leverage AI",
+        "Create content regularly",
+        "Write code professionally",
+        "Care about privacy"
+    ],
+    "notForYou": [
+        "Not on Windows (yet - Linux/Mac coming soon)",
+        "Don't write/communicate frequently",
+        "Prefer typing"
+    ],
+    "landingPageUrl": "https://voice-ai.knowii.net",
+    "featured": true,
+    "status": "active",
+    "trustBadges": [
+        "30-Day Money-Back Guarantee",
+        "Lifetime Updates",
+        "Complete Privacy - Everything runs on your computer",
+        "Works Everywhere - Every application where you can type",
+        "Early Access - Help shape development, get lowest price ever",
+        "Creator Track Record - Built by Sébastien Dubois (OSK: 10,000+ users)",
+        "No Subscription - €49 once, own forever",
+        "GPU Accelerated - Near-instant transcription with NVIDIA"
+    ],
+    "guarantees": [
+        "30-day money-back guarantee - don't like it? Refund, no questions asked",
+        "All future updates free - no upgrade fees ever",
+        "Complete privacy - everything runs on your computer, no cloud",
+        "Works everywhere - every application where you can type"
+    ],
+    "crossSellIds": ["knowledge-worker-kit", "knowii-community"],
+    "metaTitle": "Knowii Voice AI - Voice-to-Text That Runs on Your Computer | Privacy-First Speech Recognition",
+    "metaDescription": "Speak 3.75x faster than typing. Local AI transcription in every app. No cloud, no subscription. €49 once, yours forever. Windows, Linux, Mac. 30-day guarantee.",
+    "keywords": [
+        "voice to text",
+        "speech to text",
+        "local ai",
+        "offline transcription",
+        "whisper ai",
+        "privacy voice recognition",
+        "voice typing",
+        "dictation software",
+        "speech recognition",
+        "knowledge worker tools",
+        "productivity tools"
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
+    "demoUrl": "https://docs.voice-ai.knowii.net/",
+    "priority": 60,
+    "id": "knowii-voice-ai",
+    "mainCategory": "tools",
+    "secondaryCategories": [
+        {
+            "id": "productivity",
+            "distant": true
+        },
+        {
+            "id": "ai-tools",
+            "distant": false
+        }
+    ]
+}

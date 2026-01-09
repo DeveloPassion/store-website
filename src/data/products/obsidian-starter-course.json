@@ -1,0 +1,179 @@
+{
+    "permalink": "nolle",
+    "name": "Obsidian Starter Course",
+    "tagline": "From Obsidian Newbie to Obsidian Hero in 2h20",
+    "secondaryTagline": "Stop Guessing. Master Obsidian With a Complete Video Course.",
+    "price": 69.99,
+    "priceDisplay": "€69.99",
+    "priceTier": "standard",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/obsidian-starter-course",
+    "tags": [
+        "obsidian",
+        "pkm",
+        "note-taking",
+        "zettelkasten",
+        "para-method",
+        "johnny-decimal",
+        "markdown",
+        "journaling",
+        "templates"
+    ],
+    "problem": "You know Obsidian is powerful, but figuring out the right way to use it takes months of trial and error. Overwhelmed by features and plugins. Worried about creating a messy, unsustainable system.",
+    "problemPoints": [
+        "Don't know where to start with Obsidian",
+        "Overwhelmed by all the features and plugins",
+        "Worried about creating a messy, unsustainable system",
+        "Spent weeks reading random articles and forum posts",
+        "Still don't understand how to organize notes properly",
+        "Frustrated by constant trial and error"
+    ],
+    "agitate": "Without proper guidance, weeks are wasted on trial and error. You create an overwhelming organizational mess. Build on approaches that don't scale. Don't know what Obsidian can really do. Can't figure out Zettelkasten, PARA, or Johnny Decimal. Ready to give up before seeing the benefits.",
+    "agitatePoints": [
+        "Weeks wasted on trial and error",
+        "Create an overwhelming organizational mess",
+        "Build on approaches that don't scale",
+        "Don't know what Obsidian can really do",
+        "Can't figure out Zettelkasten, PARA, or Johnny Decimal",
+        "Ready to give up before seeing the benefits"
+    ],
+    "solution": "Obsidian Starter Course: A 2h20 hands-on video course that takes you from Obsidian newbie to Obsidian hero with clear, practical training. Skip months of trial and error.",
+    "solutionPoints": [
+        "Complete training - 2h20 of step-by-step video instruction",
+        "All key concepts - Obsidian features, PKM methods, best practices",
+        "Practical demonstrations - See exactly how everything works",
+        "Proven approaches - Zettelkasten, PARA, Johnny Decimal, and more",
+        "Skip months of trial and error - Learn the right way immediately",
+        "Build solid foundations - System that scales"
+    ],
+    "description": "The Obsidian Starter Course is a comprehensive 2h20 video course providing hands-on guidance into Obsidian, Personal Knowledge Management (PKM), and the Obsidian Starter Kit. Whether you're brand new to note-taking, recently switched to Obsidian, or bought the Obsidian Starter Kit and want video training to get started—this course gives you the complete foundation you need.",
+    "features": [
+        "2h20 of Step-by-Step Video Content - Comprehensive training",
+        "Obsidian Fundamentals - Installation, UI, key features, plugins, automation",
+        "Markdown Syntax - Complete guide to formatting notes",
+        "YAML Metadata - Organize and query notes effectively",
+        "PKM Techniques - Proven frameworks and methods",
+        "Templating & Automation - Speed up note creation",
+        "Task Management - Track todos and projects",
+        "Journaling & Periodic Reviews - Daily, weekly, monthly, yearly systems",
+        "Johnny Decimal System - Organize everything with numbers",
+        "PARA Method - Projects, Areas, Resources, Archives",
+        "Zettelkasten Method - Build a thinking network",
+        "LIFT Principle - Findability and accessibility",
+        "Atomic Notes - One concept, one note",
+        "Maps of Content (MoCs) - Navigate your knowledge",
+        "Evergreen Notes - Notes that grow over time",
+        "Plugin Configuration - Essential plugins explained",
+        "Canvas and Visual Thinking - Visual organization tools"
+    ],
+    "benefits": {
+        "immediate": [
+            "Skip weeks/months of trial and error",
+            "Understand Obsidian's full potential immediately",
+            "Build proper foundations from day one",
+            "See exactly how PKM methods work in practice"
+        ],
+        "systematic": [
+            "Complete Knowledge - All key Obsidian features covered",
+            "PKM Mastery - Multiple proven frameworks explained",
+            "Practical Skills - Hands-on demonstrations, not theory",
+            "Scalable System - Build foundations that grow with you",
+            "Time Savings - 2h20 to learn what takes months on your own",
+            "Confidence - Know you're doing it right"
+        ],
+        "longTerm": [
+            "Solid note-taking system for life",
+            "Foundation for knowledge work excellence",
+            "Sustainable organizational practices",
+            "Continuous improvement mindset"
+        ]
+    },
+    "included": [
+        "Complete Video Course - 2h20 (140+ minutes)",
+        "Installation and Setup - Get Obsidian running",
+        "User Interface Walkthrough - Understand the layout",
+        "Markdown Syntax Guide - Formatting notes",
+        "Creating and Linking Notes - Build your network",
+        "Graph Views - Local and global visualization",
+        "Tagging and Organization - Multiple organization methods",
+        "Search and Discovery - Find your notes",
+        "Folder Structure - With Obsidian Starter Kit examples",
+        "Template Creation and Use - Speed up workflows",
+        "Plugin Configuration - Essential plugins covered",
+        "Automation Techniques - Let Obsidian work for you",
+        "Daily Notes and Journaling - Time-based organization",
+        "Periodic Review Systems - Reflect and improve",
+        "Task Management - Kanban and todo tracking",
+        "Canvas and Visual Thinking - Draw and organize visually",
+        "Practical Examples - Using actual vault",
+        "Tips and Tricks - From Obsidian expert"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Used by thousands",
+        "timeSaved": "Skip months of trial and error",
+        "rating": "Comprehensive training from expert"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "Obsidian beginners just getting started",
+        "Recently switched to Obsidian from another tool",
+        "Obsidian Starter Kit owners wanting video training",
+        "System builders wanting solid, scalable system",
+        "Time-conscious learners preferring structured learning"
+    ],
+    "perfectFor": [
+        "Just getting started with note-taking",
+        "Recently switched to Obsidian",
+        "Bought Obsidian Starter Kit",
+        "Want a solid system that scales",
+        "Curious about Zettelkasten, PARA, Johnny Decimal"
+    ],
+    "notForYou": [
+        "Already an Obsidian expert",
+        "Prefer figuring everything out yourself",
+        "Not willing to invest 2h20 in focused learning"
+    ],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "Complete Training - 2h20 comprehensive video",
+        "Multiple PKM Methods - Zettelkasten, PARA, Johnny Decimal, and more",
+        "Practical Demonstrations - Real examples throughout",
+        "Proven Approaches - From Obsidian expert",
+        "Skip Months of Trial and Error - Learn the right way immediately",
+        "Lifetime Access - Pay once, access forever"
+    ],
+    "guarantees": [
+        "Lifetime access to the video course",
+        "Complete training from Obsidian expert",
+        "Multiple proven frameworks included"
+    ],
+    "crossSellIds": [
+        "obsidian-starter-kit",
+        "knowledge-management-for-beginners",
+        "knowledge-worker-kit"
+    ],
+    "metaTitle": "Obsidian Starter Course - Master Obsidian in 2h20 | Complete Video Training €69.99",
+    "metaDescription": "€69.99 for 2h20 video course teaching Obsidian, PKM methods (Zettelkasten, PARA, Johnny Decimal), templates, automation. From newbie to hero.",
+    "keywords": [
+        "obsidian course",
+        "obsidian tutorial",
+        "zettelkasten method",
+        "para method",
+        "johnny decimal",
+        "pkm course",
+        "note-taking course",
+        "obsidian training",
+        "second brain",
+        "obsidian beginner"
+    ],
+    "priority": 80,
+    "id": "obsidian-starter-course",
+    "mainCategory": "courses",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": true
+        }
+    ]
+}

@@ -21,6 +21,7 @@ export const CategoryIdSchema = z.enum([
     'dev-and-it',
     'free',
     'guides',
+    'journaling',
     'kits-and-templates',
     'knowledge-management',
     'knowledge-work',

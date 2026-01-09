@@ -1,0 +1,118 @@
+{
+    "permalink": "mwldmd",
+    "name": "Personal Knowledge Management Coaching",
+    "tagline": "Expert 1-on-1 Guidance to Transform Your Knowledge System",
+    "secondaryTagline": "Stop Struggling Alone. Get Personalized PKM Coaching From an Expert.",
+    "price": 99.99,
+    "priceDisplay": "€99.99 per session",
+    "priceTier": "premium",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/pkm-coaching",
+    "tags": [
+        "pkm",
+        "coaching",
+        "knowledge-management",
+        "personal-coaching",
+        "1-on-1",
+        "consultation"
+    ],
+    "problem": "Generic advice doesn't fit YOUR situation. Tried courses but stuck.",
+    "problemPoints": [
+        "Courses didn't help",
+        "Generic advice doesn't apply",
+        "Need personalized guidance",
+        "Want expert feedback",
+        "Struggling to implement",
+        "Need accountability"
+    ],
+    "agitate": "Generic doesn't work. Courses teach theory. Articles scattered. No guidance. Feeling stuck.",
+    "agitatePoints": [
+        "Generic doesn't fit",
+        "Courses teach theory",
+        "Articles scattered",
+        "No guidance",
+        "Feeling stuck"
+    ],
+    "solution": "1-on-1 PKM Coaching: Personalized expert guidance for YOUR challenges.",
+    "solutionPoints": [
+        "Expert Guidance",
+        "Personalized",
+        "Specific Solutions",
+        "System Review",
+        "Actionable Plan",
+        "Direct Support"
+    ],
+    "description": "Personal 1-on-1 coaching session with Sébastien Dubois, Knowledge Management expert and creator of Obsidian Starter Kit, Knowledge Worker Kit, and Knowii Community. Get personalized guidance for your situation.",
+    "features": [
+        "1-on-1 Session",
+        "Personalized Consultation",
+        "Expert Review",
+        "Tailored Solutions",
+        "Implementation Guidance",
+        "Q&A"
+    ],
+    "benefits": {
+        "immediate": [
+            "Expert feedback",
+            "Solutions for challenges",
+            "Clear plan",
+            "Direct answers"
+        ],
+        "systematic": [
+            "Optimized system",
+            "Implementation direction",
+            "Confidence",
+            "Continuous improvement"
+        ],
+        "longTerm": ["Professional system", "Career advancement", "Sustainable systems"]
+    },
+    "included": [
+        "1-on-1 coaching session",
+        "Personalized consultation",
+        "Expert review",
+        "Tailored solutions",
+        "Implementation guidance",
+        "Action plan"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Expert coach",
+        "timeSaved": "Hours saved",
+        "rating": "Proven"
+    },
+    "faqIds": [],
+    "targetAudience": ["The Stuck", "The Optimizer", "The Beginner", "The Professional"],
+    "perfectFor": [
+        "Courses didn't work",
+        "Want optimization",
+        "Starting fresh",
+        "Need personalized"
+    ],
+    "notForYou": ["Not ready", "Prefer self-directed", "Haven't tried basics"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": ["Expert Coach", "1-on-1 Personalized", "Specific Solutions", "Proven"],
+    "guarantees": ["Expert coach", "Personalized", "Specific solutions", "Clear plan"],
+    "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
+    "metaTitle": "PKM Coaching - Expert 1-on-1 Knowledge Management Guidance",
+    "metaDescription": "€99.99 per session. Personalized PKM coaching from expert. Solutions for your knowledge management challenges.",
+    "keywords": [
+        "pkm coaching",
+        "knowledge management coaching",
+        "personal coaching",
+        "obsidian coaching",
+        "coaching"
+    ],
+    "priority": 55,
+    "id": "pkm-coaching",
+    "mainCategory": "coaching",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": false
+        },
+        {
+            "id": "services",
+            "distant": false
+        }
+    ]
+}

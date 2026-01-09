@@ -1,0 +1,141 @@
+{
+    "permalink": "uysik",
+    "name": "Knowii Clarity 101",
+    "tagline": "Find Your Direction. Design Your Life.",
+    "secondaryTagline": "If You Feel Lost, Wonder What Should Come Next—Start Here",
+    "price": 19.99,
+    "priceDisplay": "€19.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/knowii-clarity-101",
+    "tags": [
+        "clarity",
+        "life-design",
+        "values",
+        "goals",
+        "ikigai",
+        "personal-manifesto",
+        "design-thinking",
+        "smart-goals"
+    ],
+    "problem": "Feeling lost. Don't know where you're going. Can't make good decisions.",
+    "problemPoints": [
+        "Don't know direction",
+        "Can't decide",
+        "Unclear about values",
+        "Stuck",
+        "Regret choices",
+        "Paralyzed by options"
+    ],
+    "agitate": "Make decisions you regret. Waste time on wrong things. Can't set goals. Don't know priorities. Life happens to you.",
+    "agitatePoints": [
+        "Regrettable decisions",
+        "Wasted time",
+        "No goals",
+        "Wrong priorities",
+        "Life happens to you"
+    ],
+    "solution": "Clarity System: Complete approach to gain clarity about values, principles, life goals.",
+    "solutionPoints": [
+        "Understand where you are",
+        "Know where to go",
+        "Make right decisions",
+        "No regrets",
+        "Move forward"
+    ],
+    "description": "Workshop sharing complete approach to gain clarity about needs, values, principles, and life goals. Learn Design Thinking and create your Personal Manifesto.",
+    "features": [
+        "Complete Clarity Framework",
+        "Clarity basics",
+        "Personal Value System",
+        "Personal Principles",
+        "Personal Manifesto",
+        "Find Ikigai",
+        "Life design",
+        "Better decisions",
+        "Design Thinking",
+        "SMART Goals",
+        "Time horizons",
+        "Set priorities"
+    ],
+    "benefits": {
+        "immediate": [
+            "Understand where you are",
+            "Identify gravity problems",
+            "Uncover values",
+            "Define Manifesto"
+        ],
+        "systematic": [
+            "Find Ikigai",
+            "Envision futures",
+            "Prototype paths",
+            "Value-aligned choices",
+            "SMART goals",
+            "Right priorities"
+        ],
+        "longTerm": [
+            "Intentional design",
+            "Decisions without regrets",
+            "Clear path",
+            "Continuous improvement"
+        ]
+    },
+    "included": [
+        "Video workshop",
+        "Clarity framework",
+        "Practical exercises",
+        "Tools and techniques",
+        "Knowledge base resources"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Complete framework",
+        "timeSaved": "Time saved on decisions",
+        "rating": "Actionable"
+    },
+    "faqIds": [],
+    "targetAudience": ["The Lost", "Decision Makers", "Goal Seekers", "Life Designers"],
+    "perfectFor": [
+        "Feel lost",
+        "Want meaningful goals",
+        "Need priorities",
+        "Want intentional design"
+    ],
+    "notForYou": ["Have clarity", "Prefer reactive", "Won't do introspection"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "Complete Framework",
+        "Video Workshop",
+        "Actionable Techniques",
+        "Design Thinking",
+        "Lifetime Access"
+    ],
+    "guarantees": [
+        "Complete clarity framework",
+        "Video workshop",
+        "Actionable techniques",
+        "Lifetime access"
+    ],
+    "crossSellIds": ["personal-organization-101", "journaling-deep-dive", "knowledge-worker-kit"],
+    "metaTitle": "Clarity 101 - Find Your Direction, Design Your Life",
+    "metaDescription": "€19.99 workshop teaching complete clarity framework. Discover values, Ikigai, SMART goals, better decisions.",
+    "keywords": [
+        "clarity",
+        "life design",
+        "personal values",
+        "ikigai",
+        "personal manifesto",
+        "smart goals",
+        "design thinking",
+        "life goals"
+    ],
+    "priority": 65,
+    "id": "clarity-101",
+    "mainCategory": "workshops",
+    "secondaryCategories": [
+        {
+            "id": "personal-development",
+            "distant": true
+        }
+    ]
+}

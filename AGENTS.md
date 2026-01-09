@@ -90,14 +90,34 @@ The website uses Tailwind CSS v4 with custom theme variables defined in `/src/st
 
 ## Managing Products
 
-Products are managed in `/src/data/products.json` and have their own validation system.
+Products are managed as individual JSON files in `/src/data/products/` directory. At build time, these files are automatically aggregated into `products.json` for optimal performance.
+
+### Product File Structure
+
+```
+src/data/
+├── products/                          # Source of truth
+│   ├── obsidian-starter-kit.json    # Individual product files
+│   ├── knowledge-worker-kit.json
+│   └── ... (18 total products)
+└── products.json                      # Generated (gitignored)
+```
 
 ### Product Management Workflow
 
-1. **Edit products.json** - Add or modify product entries
-2. **Validate changes** - Run `npm run validate:products`
-3. **Fix errors** - Address any validation issues reported
-4. **Repeat** until validation passes
+1. **Edit individual product file** - Modify `src/data/products/{product-id}.json`
+2. **Aggregate products** - Run `npm run aggregate:products` (automatically runs before dev/build/validate)
+3. **Validate changes** - Run `npm run validate:products`
+4. **Fix errors** - Address any validation issues reported
+5. **Repeat** until validation passes
+
+### Adding a New Product
+
+1. Create a new file in `src/data/products/` named `{product-id}.json`
+2. Copy structure from an existing product file
+3. Fill in all required fields
+4. Run `npm run validate:products` to ensure correctness
+5. Commit the new product file
 
 ### Claude Code Skill
 
@@ -134,10 +154,10 @@ See the Claude Code skill documentation in `.claude/skills/manage-products.md` f
 # Install dependencies
 npm install
 
-# Start development server
+# Start development server (automatically aggregates products)
 npm run dev
 
-# Build for production
+# Build for production (automatically aggregates products)
 npm run build
 
 # Preview production build
@@ -152,7 +172,10 @@ npm run format
 # Type check
 npm run tsc
 
-# Validate products.json
+# Aggregate individual product files into products.json
+npm run aggregate:products
+
+# Validate products (automatically aggregates first)
 npm run validate:products
 ```
 

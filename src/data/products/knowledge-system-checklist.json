@@ -1,0 +1,93 @@
+{
+    "permalink": "qctpj",
+    "name": "Knowledge Management System Checklist",
+    "tagline": "Build Your Knowledge System With Confidence",
+    "secondaryTagline": "FREE Checklist to Ensure You Have All Essential Components",
+    "price": 0,
+    "priceDisplay": "FREE",
+    "priceTier": "free",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/knowledge-system-checklist",
+    "tags": [
+        "pkm",
+        "knowledge-management",
+        "checklist",
+        "free-resource",
+        "lead-magnet",
+        "system-building"
+    ],
+    "problem": "Building is overwhelming. How do you know if you're covering everything?",
+    "problemPoints": [
+        "Don't know what you need",
+        "Worried about missing",
+        "Not sure if complete",
+        "Want validation"
+    ],
+    "agitate": "Overwhelming start. Missing components. No validation. Don't know what's essential.",
+    "agitatePoints": [
+        "Overwhelming",
+        "Missing components",
+        "No validation",
+        "Don't know essential"
+    ],
+    "solution": "Knowledge System Checklist: FREE comprehensive checklist covering all essential components.",
+    "solutionPoints": [
+        "Complete Checklist",
+        "FREE",
+        "Instant Access",
+        "Validation",
+        "Gap Analysis",
+        "Implementation Guide"
+    ],
+    "description": "The Knowledge Management System Checklist is a FREE comprehensive resource listing all essential components of an effective personal knowledge management system. Use it to validate, identify gaps, or plan your system.",
+    "features": [
+        "Complete System Coverage",
+        "Essential Components",
+        "How to Use",
+        "Audit setup",
+        "Identify gaps",
+        "Plan next steps"
+    ],
+    "benefits": {
+        "immediate": [
+            "Know what complete includes",
+            "Identify missing",
+            "Plan implementation",
+            "Validate setup"
+        ],
+        "systematic": ["Build comprehensive", "Avoid gaps", "Systematic improvement", "Confidence"],
+        "longTerm": ["Complete system", "Sustainable"]
+    },
+    "included": ["Complete checklist", "Components guide", "Gap analysis framework"],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Free resource",
+        "timeSaved": "Saves planning time",
+        "rating": "Comprehensive"
+    },
+    "faqIds": [],
+    "targetAudience": ["System Builders", "System Auditors", "Improvers", "Learners"],
+    "perfectFor": ["Starting from scratch", "Auditing system", "Improving", "Learning about PKM"],
+    "notForYou": ["Don't care about systems", "Prefer ad-hoc"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": ["100% FREE", "Instant Access", "Comprehensive", "Expert Created"],
+    "guarantees": ["Completely free", "Comprehensive", "No credit card"],
+    "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
+    "metaTitle": "FREE Knowledge Management System Checklist | Complete PKM Guide",
+    "metaDescription": "FREE comprehensive checklist for building complete knowledge management system. Identify gaps, plan implementation.",
+    "keywords": [
+        "pkm checklist",
+        "knowledge management checklist",
+        "free resource",
+        "second brain checklist"
+    ],
+    "priority": 40,
+    "id": "knowledge-system-checklist",
+    "mainCategory": "free",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": false
+        }
+    ]
+}

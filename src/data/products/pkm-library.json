@@ -1,0 +1,181 @@
+{
+    "permalink": "PersonalKnowledgeManagementLibrary",
+    "name": "PKM Library: Your Gateway to Information Management Mastery",
+    "tagline": "The Most Comprehensive PKM Resource Collection Ever Created",
+    "secondaryTagline": "Lifetime Access to 2,000+ Curated Resources About Personal Knowledge Management",
+    "price": 39.99,
+    "priceDisplay": "€39.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://store.dsebastien.net/l/PersonalKnowledgeManagementLibrary",
+    "tags": [
+        "pkm",
+        "knowledge-management",
+        "resources",
+        "directory",
+        "tools",
+        "curated",
+        "second-brain",
+        "zettelkasten"
+    ],
+    "problem": "Finding quality PKM resources is overwhelming. Don't know where to start. Too many tools—which one is right? Scattered articles across the internet. Wasting hours researching instead of learning.",
+    "problemPoints": [
+        "Don't know where to start with PKM",
+        "Too many tools - which one is right?",
+        "Scattered articles across the internet",
+        "Can't find quality courses or books",
+        "Missing the best communities and creators",
+        "Wasting hours researching instead of learning"
+    ],
+    "agitate": "You want to learn about PKM, SecondBrain, Zettelkasten, Evergreen notes—but where do you start? Hours wasted googling for resources. Finding the same mediocre articles repeatedly. Missing the best tools because you didn't know they exist. Can't distinguish quality content from noise. No clear learning path. Reinventing the wheel others have already perfected.",
+    "agitatePoints": [
+        "Hours wasted googling for resources",
+        "Finding the same mediocre articles repeatedly",
+        "Missing the best tools because you didn't know they exist",
+        "Can't distinguish quality content from noise",
+        "No clear learning path",
+        "Reinventing the wheel others have already perfected"
+    ],
+    "solution": "PKM Library: Solid database of the best resources you can find about Personal Knowledge Management across the entire Internet. 20+ years of research, 2,000+ resources, weekly updates, lifetime access.",
+    "solutionPoints": [
+        "20+ years of research - Curated by PKM expert",
+        "2,000+ resources - Tools, articles, videos, books, courses, communities",
+        "Weekly updates - New resources added every week",
+        "Organized database - Find what you need instantly",
+        "Lifetime access - Pay once, benefit forever",
+        "Community access - Connect with PKM enthusiasts"
+    ],
+    "description": "The Personal Knowledge Management Library is a comprehensive, curated collection of resources focused on exploring the world of Personal Knowledge Management. This Notion database is the result of extensive research conducted over 20+ years and continuously updated weekly. An invaluable resource for the Knowledge Management community, listing tools, communities, experts, makers, content creators, courses, books, videos, podcasts, and much more.",
+    "features": [
+        "290+ Tools - Complete directory of PKM tools (Obsidian, Notion, Roam, LogSeq, etc.)",
+        "350+ Articles - Best articles on PKM, note-taking, knowledge work",
+        "145+ Videos - Curated video content and tutorials",
+        "90+ Books - Learning, thinking, writing, note-taking, journaling, neuroscience",
+        "225+ Sites & Blogs - Top PKM websites and blogs",
+        "75+ YouTube Channels - Channels dedicated to PKM and productivity",
+        "90+ Courses - From beginner to advanced",
+        "90+ Newsletters - Stay updated with best PKM newsletters",
+        "40+ Podcasts - Audio learning from PKM experts",
+        "70+ Communities and Forums - Where PKM enthusiasts gather",
+        "~2,000 PKM Leaders - Influencers, makers, and enthusiasts to follow",
+        "100+ Twitter Hashtags - Topics to follow for latest discussions",
+        "50+ Starter Kits and Templates - Jump-start your PKM system",
+        "80+ Topics - Organized by subject with relevant articles, books, videos"
+    ],
+    "benefits": {
+        "immediate": [
+            "Skip months/years of research",
+            "Find the best tools for your needs immediately",
+            "Discover high-quality content instantly",
+            "Connect with top PKM creators"
+        ],
+        "systematic": [
+            "Clear Learning Path - Start with best resources",
+            "Avoid Mediocre Content - Only curated quality",
+            "Discover Hidden Gems - Resources you'd never find yourself",
+            "Save Hundreds of Hours - Research already done for you"
+        ],
+        "longTerm": [
+            "Living database that grows weekly",
+            "Always up-to-date with latest PKM developments",
+            "Community connections for ongoing learning",
+            "Reference library for entire PKM journey"
+        ]
+    },
+    "included": [
+        "Complete Resource Database - Notion space with 2,000+ resources",
+        "290+ Tools - Note-taking apps, knowledge management platforms",
+        "350+ Articles - PKM fundamentals, note-taking techniques, expert guides",
+        "145+ Videos - Curated video content and tutorials",
+        "90+ Books - Learning, thinking, writing, journaling, neuroscience, psychology, stoicism",
+        "90+ Courses - Structured learning from beginners to advanced",
+        "90+ Newsletters - Best newsletters to stay updated",
+        "75+ YouTube Channels - Video tutorials and explanations",
+        "40+ Podcasts - Podcast interviews with experts",
+        "70+ Communities - Forums and discussion groups",
+        "~2,000 PKM Leaders - Twitter influencers and thought leaders",
+        "50+ Starter Kits - Templates to get started",
+        "80+ Topics - Topic-specific resource collections",
+        "PKM Community Membership - Support and knowledge sharing",
+        "Weekly Updates - New resources every week",
+        "Lifetime Access - All future additions included"
+    ],
+    "testimonialIds": [
+        "pkm-library-testimonial-1",
+        "pkm-library-testimonial-2",
+        "pkm-library-testimonial-3"
+    ],
+    "statsProof": {
+        "userCount": "Knowledge Management community",
+        "timeSaved": "Hundreds of hours of research",
+        "rating": "5-star reviews from users"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "PKM beginners wanting to learn personal knowledge organization",
+        "Knowledge management enthusiasts curious about methodologies",
+        "Tool seekers overwhelmed by PKM options",
+        "Lifelong learners building long-term knowledge systems",
+        "Content creators wanting to discover other PKM creators"
+    ],
+    "perfectFor": [
+        "Want to learn personal knowledge organization",
+        "Curious about PKM, SecondBrain, Zettelkasten",
+        "Overwhelmed by PKM tool options",
+        "Improving knowledge management skills",
+        "Looking to discover other PKM creators"
+    ],
+    "notForYou": [
+        "Not interested in knowledge management",
+        "Prefer to research everything yourself",
+        "Don't see value in curated collections"
+    ],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "20+ Years Research - Decades of expertise",
+        "2,000+ Resources - Most comprehensive collection",
+        "Weekly Updates - Always current",
+        "One-Time Payment - €39.99, lifetime access",
+        "Community Access - Connect with PKM enthusiasts",
+        "All Skill Levels - Beginner to advanced",
+        "Global Coverage - Resources from worldwide PKM community"
+    ],
+    "guarantees": [
+        "Lifetime access to all resources",
+        "Weekly updates with new resources",
+        "Community support included"
+    ],
+    "crossSellIds": [
+        "knowledge-management-for-beginners",
+        "obsidian-starter-kit",
+        "knowledge-worker-kit"
+    ],
+    "metaTitle": "PKM Library - 2,000+ Curated Personal Knowledge Management Resources | Lifetime Access",
+    "metaDescription": "€39.99 for lifetime access to most comprehensive PKM resource collection. 290+ tools, 350+ articles, 90+ books, 145+ videos, 70+ communities. Updated weekly.",
+    "keywords": [
+        "pkm resources",
+        "personal knowledge management",
+        "second brain",
+        "zettelkasten",
+        "obsidian",
+        "notion",
+        "roam research",
+        "knowledge management tools",
+        "pkm directory",
+        "curated resources"
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
+    "priority": 70,
+    "id": "pkm-library",
+    "mainCategory": "databases",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": false
+        },
+        {
+            "id": "learning",
+            "distant": true
+        }
+    ]
+}

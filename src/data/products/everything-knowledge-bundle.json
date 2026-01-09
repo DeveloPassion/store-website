@@ -1,0 +1,135 @@
+{
+    "permalink": "lbocum",
+    "name": "Everything Knowledge Bundle",
+    "tagline": "Every Knowledge Tool, Course, and Workshop in One Complete Package",
+    "secondaryTagline": "Save €200+ and Get Lifetime Access to the Complete Knowledge System",
+    "price": 299.99,
+    "priceDisplay": "€299.99 (Save €200+)",
+    "priceTier": "premium",
+    "gumroadUrl": "https://www.store.dsebastien.net/l/everything-knowledge-bundle",
+    "tags": [
+        "bundle",
+        "pkm",
+        "knowledge-management",
+        "complete-system",
+        "all-products",
+        "lifetime-access",
+        "best-value"
+    ],
+    "problem": "Want complete system but buying separately is €500+. Don't want ongoing subscription.",
+    "problemPoints": [
+        "Costs €500+ separately",
+        "Don't want subscription",
+        "Want everything at once",
+        "Prefer lifetime access",
+        "Don't want to decide"
+    ],
+    "agitate": "Buying separately costs €500+. Prices add up. Want everything but don't want subscriptions. Prefer ownership.",
+    "agitatePoints": [
+        "€500+ separately",
+        "Prices add up",
+        "Don't want subscriptions",
+        "Want ownership"
+    ],
+    "solution": "Everything Knowledge Bundle: Every product, course, workshop—current and future—for €299.99.",
+    "solutionPoints": [
+        "Complete System",
+        "Lifetime Access",
+        "Save €200+",
+        "Future-Proof",
+        "No Subscriptions",
+        "Everything Integrated"
+    ],
+    "description": "The Everything Knowledge Bundle includes every knowledge management product, course, workshop, and tool available—both current releases and all future additions—for one low price. Get complete system without subscriptions and save €200+.",
+    "features": [
+        "Complete Product Collection",
+        "Knowledge Worker Kit",
+        "Obsidian Starter Kit Premium",
+        "Knowledge Management for Beginners",
+        "Obsidian Starter Course",
+        "All Workshops",
+        "AI Ghostwriter Guide",
+        "PKM Library",
+        "Free Bonuses",
+        "Future Additions"
+    ],
+    "benefits": {
+        "immediate": ["Complete system", "Save €200+", "No decisions", "Everything works"],
+        "systematic": [
+            "Complete Coverage",
+            "Integrated System",
+            "Lifetime Access",
+            "Future-Proof",
+            "Best Value",
+            "No Subscriptions"
+        ],
+        "longTerm": [
+            "Complete transformation",
+            "Sustainable",
+            "Continuous improvements",
+            "No extra costs"
+        ]
+    },
+    "included": [
+        "Every knowledge product",
+        "Knowledge Worker Kit",
+        "Obsidian Starter Kit Premium",
+        "Knowledge Management for Beginners",
+        "Obsidian Starter Course",
+        "All 5 Workshops",
+        "AI Ghostwriter Guide",
+        "PKM Library",
+        "Free bonuses",
+        "All future additions"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "€500+ value",
+        "timeSaved": "Save over €200",
+        "rating": "Complete system"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "Value Seekers",
+        "Lifetime Access Fans",
+        "Completionists",
+        "Serious Practitioners"
+    ],
+    "perfectFor": [
+        "Want complete system",
+        "Don't want €500+",
+        "Prefer lifetime",
+        "Want everything"
+    ],
+    "notForYou": ["Want community events", "Prefer monthly", "Only need specific"],
+    "featured": true,
+    "status": "active",
+    "trustBadges": [
+        "€500+ Value",
+        "Save €200+",
+        "Lifetime Access",
+        "Future Additions",
+        "Complete System",
+        "Instant Access"
+    ],
+    "guarantees": ["€500+ value", "Lifetime access", "All future additions", "All updates"],
+    "crossSellIds": ["knowledge-worker-kit", "obsidian-starter-kit"],
+    "metaTitle": "Everything Knowledge Bundle - Complete PKM System | €299.99",
+    "metaDescription": "€299.99 for lifetime access to every knowledge product. €500+ value. All current + future additions.",
+    "keywords": [
+        "knowledge management bundle",
+        "pkm bundle",
+        "complete knowledge system",
+        "obsidian bundle",
+        "lifetime access"
+    ],
+    "priority": 95,
+    "id": "everything-knowledge-bundle",
+    "mainCategory": "bundles",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": false
+        }
+    ]
+}

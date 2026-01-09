@@ -1,19 +1,21 @@
 ---
 skill: manage-products
-description: Manage and validate products in products.json with schema validation
-triggerKeywords: [product, products.json, add product, edit product, validate products, product schema]
+description: Manage and validate products with individual JSON files and schema validation
+triggerKeywords: [product, products, add product, edit product, validate products, product schema, product file]
 ---
 
 # Product Management Skill
 
-This skill helps you manage products in the `products.json` file with automatic validation against the Zod schema.
+This skill helps you manage products stored as individual JSON files in `src/data/products/` with automatic validation against the Zod schema.
 
 ## Product Data Location
 
-- **Data File**: `src/data/products.json`
+- **Individual Product Files**: `src/data/products/{product-id}.json` (source of truth)
+- **Aggregated File**: `src/data/products.json` (generated at build time, gitignored)
 - **TypeScript Types**: `src/types/product.ts`
 - **Zod Schema**: `src/schemas/product.schema.ts` (source of truth for validation)
 - **Validation Script**: `scripts/validate-products.ts`
+- **Aggregation Script**: `scripts/aggregate-products.ts`
 
 ## Schema Documentation
 
@@ -84,20 +86,40 @@ Every product must include:
 
 ## Workflow
 
-When adding or editing products:
+### Editing Existing Products
 
-1. **Edit the product data** in `src/data/products.json`
-2. **Run validation** using `npm run validate:products`
-3. **Fix any errors** reported by the validation script
-4. **Repeat** until validation passes
+1. **Locate the product file** in `src/data/products/{product-id}.json`
+2. **Edit the product data** directly in the individual file
+3. **Run validation** using `npm run validate:products` (automatically aggregates first)
+4. **Fix any errors** reported by the validation script
+5. **Repeat** until validation passes
 
-## Validation Command
+### Adding New Products
+
+1. **Create a new file** in `src/data/products/` named `{product-id}.json`
+2. **Copy structure** from an existing product file as a template
+3. **Fill in all required fields** according to the schema
+4. **Run validation** using `npm run validate:products`
+5. **Fix any errors** and repeat until validation passes
+6. **Commit the new file** to git
+
+## Commands
+
+### Aggregate Products
+
+```bash
+npm run aggregate:products
+```
+
+This command combines all individual product files from `src/data/products/` into the aggregated `src/data/products.json` file.
+
+### Validate Products
 
 ```bash
 npm run validate:products
 ```
 
-This command:
+This command (automatically runs aggregation first):
 - ✅ Validates all products against the Zod schema
 - 📊 Shows a summary of products by status and type
 - ❌ Reports specific errors for invalid products

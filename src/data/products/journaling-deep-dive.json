@@ -1,0 +1,154 @@
+{
+    "permalink": "cdwol",
+    "name": "Knowii Journaling Deep Dive",
+    "tagline": "Transform Your Journal From Diary to Personal Operating System",
+    "secondaryTagline": "Stop Forgetting Your Life. Start Building Intentionally.",
+    "price": 29.99,
+    "priceDisplay": "€29.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://store.dsebastien.net/l/knowii-journaling-deep-dive",
+    "tags": [
+        "journaling",
+        "interstitial-journaling",
+        "periodic-reviews",
+        "productivity",
+        "zen-productivity",
+        "personal-organization",
+        "habits",
+        "routines",
+        "mindfulness"
+    ],
+    "problem": "You're losing your life, one forgotten moment at a time.",
+    "problemPoints": [
+        "Feel busy but unproductive",
+        "Beautiful moments disappear",
+        "End of months feel empty",
+        "Can't remember accomplishments",
+        "Life happens to you"
+    ],
+    "agitate": "Brain can't retain it. Ideas vanish. Insights disappear. Wins are lost. Moments fade. Clarity vanishes.",
+    "agitatePoints": [
+        "Ideas vanish",
+        "Insights disappear",
+        "Wins lost",
+        "Moments fade",
+        "Clarity vanishes",
+        "Everything disappears"
+    ],
+    "solution": "Journaling as Personal Operating System: Foundation of life organization.",
+    "solutionPoints": [
+        "Capture ideas",
+        "Track progress",
+        "Hold yourself accountable",
+        "Process experiences",
+        "Build knowledge",
+        "Find balance",
+        "Remember what matters"
+    ],
+    "description": "80-minute deep dive masterclass into journaling as complete life operating system. Systematic approach to capturing and building on valuable moments.",
+    "features": [
+        "80-Minute Video",
+        "System Visualization",
+        "Show Notes",
+        "40+ knowledge base notes",
+        "Real Examples",
+        "Brain science",
+        "Real workflows"
+    ],
+    "benefits": {
+        "immediate": [
+            "Stop blanking",
+            "Capture insights",
+            "See progress",
+            "Remember moments",
+            "Gain clarity"
+        ],
+        "systematic": [
+            "Memory Enhancement",
+            "Progress Tracking",
+            "Accountability",
+            "Experience Processing",
+            "Knowledge Compounding",
+            "Work-Life Balance",
+            "Intentional Living"
+        ],
+        "longTerm": [
+            "Better productivity",
+            "Clearer thinking",
+            "Intentional life",
+            "Sustainable system",
+            "Peace and focus"
+        ]
+    },
+    "included": [
+        "80-Minute Video",
+        "System Diagram",
+        "Show Notes",
+        "40+ knowledge base notes",
+        "Real Examples"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "10+ years refined",
+        "timeSaved": "Saves hours daily",
+        "rating": "Battle-tested"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "Overwhelmed professionals",
+        "Intentionality seekers",
+        "Idea losers",
+        "Experience builders",
+        "Journaling beginners"
+    ],
+    "perfectFor": [
+        "Feel busy but unproductive",
+        "Want intentionality",
+        "Forget ideas",
+        "Want to remember experiences",
+        "Never journaled"
+    ],
+    "notForYou": ["Happy with memory loss", "Prefer reactive", "Won't spend minutes daily"],
+    "featured": false,
+    "status": "active",
+    "trustBadges": [
+        "10+ Years Refined",
+        "80-Minute Video",
+        "40+ Resources",
+        "Real Examples",
+        "Practical",
+        "Works with busy life",
+        "Lifetime Access"
+    ],
+    "guarantees": ["80-minute training", "40+ knowledge notes", "Real examples", "Lifetime access"],
+    "crossSellIds": ["personal-organization-101", "clarity-101", "knowledge-worker-kit"],
+    "metaTitle": "Journaling Deep Dive - Transform Your Journal | 80-Min Workshop",
+    "metaDescription": "€29.99 for 80-minute workshop + 40+ resources. Learn journaling system for ideas, progress, knowledge.",
+    "keywords": [
+        "journaling system",
+        "daily notes",
+        "interstitial journaling",
+        "periodic reviews",
+        "personal organization",
+        "productivity",
+        "knowledge management",
+        "intentional living"
+    ],
+    "priority": 65,
+    "id": "journaling-deep-dive",
+    "mainCategory": "workshops",
+    "secondaryCategories": [
+        {
+            "id": "productivity",
+            "distant": false
+        },
+        {
+            "id": "personal-development",
+            "distant": false
+        },
+        {
+            "id": "journaling",
+            "distant": false
+        }
+    ]
+}

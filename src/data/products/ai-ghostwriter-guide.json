@@ -1,0 +1,170 @@
+{
+    "permalink": "vsrnk",
+    "name": "Build Your AI Ghostwriter",
+    "tagline": "Stop Using AI Like a Dummy. Start Training It.",
+    "secondaryTagline": "Transform any AI into your personal ghostwriter that writes with your exact voice, style, and expertise",
+    "price": 49.99,
+    "priceDisplay": "€49.99",
+    "priceTier": "standard",
+    "gumroadUrl": "https://store.dsebastien.net/l/ai-ghostwriter-guide",
+    "tags": [
+        "ai",
+        "writing",
+        "ghostwriting",
+        "content-creation",
+        "personal-brand",
+        "claude",
+        "chatgpt"
+    ],
+    "problem": "AI gives you generic slop, not your voice. You spend more time editing than writing from scratch. Every piece needs heavy editing, and you haven't taught AI to write like YOU.",
+    "problemPoints": [
+        "This doesn't sound like me at all",
+        "Generic text that could apply to anyone",
+        "Spend MORE time editing than writing from scratch",
+        "Throwing random prompts, hoping for magic",
+        "Every piece needs heavy editing",
+        "Frustrated with AI - it doesn't work"
+    ],
+    "agitate": "You've tried ChatGPT, Claude, Gemini—every time, same feeling: disappointment. Generic prompts lead to generic content. You spend hours editing AI-generated content that doesn't match your voice. Missing content opportunities because you can't scale content creation. Generic content doesn't connect with your audience.",
+    "agitatePoints": [
+        "Hours wasted editing AI-generated content",
+        "Inconsistent voice across your content",
+        "Can't scale content creation",
+        "Missing content opportunities",
+        "Generic content doesn't connect with audience",
+        "Eventually abandoning AI tools",
+        "Back to doing everything manually"
+    ],
+    "solution": "Proven step-by-step system to train AI to write with your exact voice, style, and expertise. When you open your AI assistant, you get content that sounds like YOU, understands your unique perspective, and knows your business inside out.",
+    "solutionPoints": [
+        "Sounds like YOU - your signature sentences and personality",
+        "Understands you and your unique perspective",
+        "Knows your content strategy and creates highly relevant content",
+        "Knows your business, products, services, audience",
+        "Creates content across ALL your formats",
+        "Evolves and improves over time",
+        "AI ghostwriter has created hundreds of pieces in YOUR voice"
+    ],
+    "description": "A comprehensive step-by-step guide showing exactly how to create a personal AI ghostwriter that captures your unique voice, understands your expertise, and produces content that sounds like YOU—not generic AI slop. Whether you're a content creator, author, or business owner, learn the proven process to train AI on your writing style, create content templates for every format, and build an intelligent assistant that knows your products, audience, and brand inside out.",
+    "features": [
+        "Clear Step-by-Step Guide - No fluff, just the system that works",
+        "Personality Description - Comprehensive profile of your unique voice",
+        "Writing Style Analysis - Exact patterns, quirks, and preferences",
+        "Content Strategy - What you create, who for, and why",
+        "Content Types - Templates for every format you use",
+        "Business Context - Products, services, audience understanding",
+        "Evolution System - Improves over time as you use it",
+        "Ready-to-Use Prompts - All included",
+        "Document Templates - Templates for all components",
+        "Multiple AI Platform Support - ChatGPT, Claude, Gemini, DeepSeek, NotebookLM",
+        "Advanced Techniques - Power user options for deeper integration",
+        "Private Community Access - Questions, updates, knowledge sharing"
+    ],
+    "benefits": {
+        "immediate": [
+            "2-3 hours basic setup - Start using immediately",
+            "Works with any AI platform that accepts custom instructions",
+            "No technical skills required",
+            "Proven system used daily by creator"
+        ],
+        "systematic": [
+            "Scale Content Creation - Without losing your voice",
+            "Stop Editing AI Slop - Get quality output first try",
+            "Consistent Voice - Across all content types",
+            "Save Hours Weekly - Less editing, more creating",
+            "Better Engagement - Content that sounds like YOU connects better",
+            "Sustainable System - Improves over time"
+        ],
+        "longTerm": [
+            "Content creation becomes 10x faster",
+            "Quality stays consistently high",
+            "AI truly becomes your assistant",
+            "Can focus on strategy, not execution",
+            "Time savings compound"
+        ]
+    },
+    "included": [
+        "Complete System Blueprint - Step-by-step implementation",
+        "Personality Profiling - How to analyze and document your voice",
+        "Writing Style Extraction - Techniques to capture your patterns",
+        "Content Strategy Documentation - Framework for all content types",
+        "AI Training Process - How to teach AI your voice",
+        "Ready-to-Use Prompts - For analyzing, creating, training",
+        "Document Templates - All components needed",
+        "Real Examples - From creator's implementation",
+        "Model Context Protocol (MCP) Integration - Advanced techniques",
+        "Private Community Access - Part of Knowii",
+        "Updates and Improvements - As guide evolves"
+    ],
+    "testimonialIds": [],
+    "statsProof": {
+        "userCount": "Active users",
+        "timeSaved": "Hours saved weekly on content editing",
+        "rating": "Proven system used daily"
+    },
+    "faqIds": [],
+    "targetAudience": [
+        "Content creators creating regularly",
+        "Business owners needing content marketing system",
+        "Authors and writers",
+        "Frustrated AI users spending too much time editing",
+        "Anyone wanting to scale without losing voice"
+    ],
+    "perfectFor": [
+        "Create regularly: articles, essays, newsletters, social posts",
+        "Want to scale without losing voice",
+        "Have products/services to promote",
+        "Write in specific style/voice",
+        "Spend too much time editing AI output"
+    ],
+    "notForYou": [
+        "Never create content / no interest in writing",
+        "Prefer writing everything manually",
+        "Don't have existing writing samples",
+        "Looking for magic button"
+    ],
+    "featured": true,
+    "status": "active",
+    "trustBadges": [
+        "Proven System - Used daily by creator for months",
+        "Hundreds of Pieces Created - Not theory, production-tested",
+        "No Technical Skills Required - Simple copy-paste implementation",
+        "Works with All Major AIs - ChatGPT, Claude, Gemini, DeepSeek",
+        "Community Access - Private community for questions",
+        "Complete Templates - Everything you need included",
+        "Quick Setup - 2-3 hours to basic functionality"
+    ],
+    "guarantees": [
+        "Proven system used daily for months",
+        "Works with all major AI platforms",
+        "Private community access included"
+    ],
+    "crossSellIds": ["knowledge-management-for-beginners", "knowledge-worker-kit"],
+    "metaTitle": "Build Your AI Ghostwriter - Train AI to Write in Your Exact Voice | Step-by-Step Guide",
+    "metaDescription": "Stop editing AI slop. €49.99 guide teaches proven system to train ChatGPT, Claude, or any AI to write with YOUR voice, style, and expertise. Used to create hundreds of pieces.",
+    "keywords": [
+        "ai ghostwriter",
+        "ai writing assistant",
+        "chatgpt writing",
+        "claude writing",
+        "personal ai writer",
+        "content creation ai",
+        "ai voice training",
+        "writing automation",
+        "content scaling",
+        "ai copywriting"
+    ],
+    "priority": 75,
+    "id": "ai-ghostwriter-guide",
+    "mainCategory": "guides",
+    "secondaryCategories": [
+        {
+            "id": "content-creation",
+            "distant": true
+        },
+        {
+            "id": "ai-tools",
+            "distant": true
+        }
+    ]
+}

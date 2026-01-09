@@ -144,17 +144,7 @@ const Footer: React.FC = () => {
                                         href='mailto:sebastien@developassion.be'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href='https://github.com/dsebastien'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='text-primary/70 hover:text-secondary transition-colors'
-                                    >
-                                        GitHub Issues
+                                        Contact
                                     </a>
                                 </li>
                             </ul>

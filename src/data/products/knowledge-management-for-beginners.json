@@ -1,0 +1,208 @@
+{
+    "permalink": "wazqkq",
+    "name": "Knowledge Management for Beginners",
+    "tagline": "Stop Drowning in Information. Start Building Knowledge.",
+    "secondaryTagline": "Stop losing great ideas in a sea of tabs, notes, and documents. Start building a knowledge system that works for you – forever.",
+    "price": 69.99,
+    "priceDisplay": "€69.99",
+    "priceTier": "standard",
+    "gumroadUrl": "https://store.dsebastien.net/l/knowledge-management-for-beginners",
+    "tags": [
+        "pkm",
+        "personal-knowledge-management",
+        "course",
+        "learning",
+        "second-brain",
+        "obsidian",
+        "zettelkasten",
+        "para"
+    ],
+    "problem": "Information overload is drowning knowledge workers. Traditional methods fail.",
+    "problemPoints": [
+        "Drowning in browser tabs and scattered documents",
+        "Taking notes you can never find when you need them",
+        "Forgetting important ideas and insights",
+        "Feeling overwhelmed by sheer volume of information",
+        "Knowing you read something useful but can't remember where",
+        "Constantly forgetting important things",
+        "Wasting time searching for information"
+    ],
+    "agitate": "Hours wasted searching for that one note. Brilliant ideas lost forever. Feeling overwhelmed every single day. Can't make valuable connections between concepts. Starting from scratch on every new project. AI features lack context and connections.",
+    "agitatePoints": [
+        "Hours wasted searching for notes",
+        "Brilliant ideas lost forever",
+        "Feeling overwhelmed every day",
+        "Can't make connections between concepts",
+        "Starting from scratch on every project",
+        "Notes become isolated islands",
+        "Search only finds exact matches",
+        "Notes get buried and forgotten",
+        "Knowledge doesn't compound over time",
+        "AI features lack context"
+    ],
+    "solution": "Build a Personal Knowledge Management system where all your knowledge becomes connected, findable, and useful.",
+    "solutionPoints": [
+        "All your knowledge becomes connected",
+        "Find anything, even if you forgot the exact words",
+        "Discover unexpected connections between ideas",
+        "Knowledge stays relevant and accessible",
+        "Quick access to exactly what you need",
+        "Your knowledge grows and compounds",
+        "Build on previous work effortlessly",
+        "AI becomes dramatically more effective"
+    ],
+    "description": "Knowledge Management for Beginners is a comprehensive video course (10+ hours) that transforms how you think, learn, and leverage information. Based on years of Information and Knowledge Management practice, this course provides a complete blueprint for building your Personal Knowledge Management system. At its core, this course is about turning chaos into order, complexity into simplicity, and information into actionable knowledge. You'll learn a clear, proven process that takes you from information overload to systematic knowledge building. Join 1,000+ professionals who have transformed their workflows with this system.",
+    "features": [
+        "10+ hours of video content across 9 comprehensive modules",
+        "Engaging video lectures making complex concepts clear",
+        "Practical demonstrations of real-world applications",
+        "From theory to practice - understanding to implementation",
+        "Complete PKM Process: Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share",
+        "Start simple, build up - no need to change everything at once",
+        "Universal principles - tool-agnostic approach",
+        "Real-world examples - detailed walkthrough of creator's PKM system",
+        "Progressive curriculum: Foundation → Growth → Mastery",
+        "Lifetime access - return to material as needs evolve",
+        "Evergreen content - regular updates keep content fresh",
+        "Community support - connect with fellow learners",
+        "No special software required - start with tools you already have"
+    ],
+    "benefits": {
+        "immediate": [
+            "Have a reliable capture system for important ideas",
+            "Know exactly where to put new information",
+            "Find anything you need in seconds",
+            "Feel more organized and clear-headed",
+            "Start making valuable connections between ideas"
+        ],
+        "systematic": [
+            "Find anything in seconds - never lose another idea",
+            "Make smarter decisions - access right knowledge when needed",
+            "Learn faster and retain more - build system that helps absorb ideas",
+            "Reduce stress and overwhelm - free mind from clutter",
+            "Leverage AI effectively - integrate AI tools to supercharge knowledge",
+            "Knowledge compounds over time - every note increases in value",
+            "Build on previous work - stop starting from scratch"
+        ],
+        "longTerm": [
+            "Transform chaos into order",
+            "Build valuable intellectual assets",
+            "Create your personal Life OS",
+            "Connect ideas to foster creativity and innovation",
+            "Systematic approach to lifelong learning"
+        ]
+    },
+    "included": [
+        "Complete course curriculum: 10+ hours across 9 modules",
+        "Module 0: Foreword - Welcome and overview",
+        "Module 1: Introduction - Core challenges facing knowledge workers",
+        "Module 2: Knowledge Management Overview - Fundamental concepts",
+        "Module 3: Getting Started - Practical foundations",
+        "Module 4: The PKM Process - Master the complete workflow",
+        "Module 5: PKM Concepts - Deep dive into essential principles",
+        "Module 6: PKM Recommendations - Practical implementation strategies",
+        "Module 7: Building Your PKM System - Put it all together",
+        "Module 8: Going Further - Advanced techniques",
+        "Module 9: Conclusion - Wrap up and next steps",
+        "Example Obsidian vault with solid structure and automation",
+        "Free Obsidian templates pack",
+        "Complete course slides",
+        "Complete knowledge system checklist",
+        "Knowledge base of 1,700+ valuable concepts, frameworks, mental models, techniques"
+    ],
+    "testimonialIds": [
+        "knowledge-management-for-beginners-testimonial-1",
+        "knowledge-management-for-beginners-testimonial-2",
+        "knowledge-management-for-beginners-testimonial-3",
+        "knowledge-management-for-beginners-testimonial-4",
+        "knowledge-management-for-beginners-testimonial-5"
+    ],
+    "statsProof": {
+        "userCount": "1,000+ professionals",
+        "timeSaved": "Hours saved weekly on searching and organizing",
+        "rating": "Highly rated by students"
+    },
+    "faqIds": [
+        "knowledge-management-for-beginners-faq-1",
+        "knowledge-management-for-beginners-faq-2",
+        "knowledge-management-for-beginners-faq-3",
+        "knowledge-management-for-beginners-faq-4",
+        "knowledge-management-for-beginners-faq-5",
+        "knowledge-management-for-beginners-faq-6",
+        "knowledge-management-for-beginners-faq-7",
+        "knowledge-management-for-beginners-faq-8",
+        "knowledge-management-for-beginners-faq-9"
+    ],
+    "targetAudience": [
+        "Knowledge-intensive professionals (leaders, managers, consultants)",
+        "Overwhelmed learners buried under information avalanche",
+        "Innovative thinkers wanting to connect ideas and foster creativity",
+        "Lifelong learners committed to continuous growth",
+        "Busy professionals dealing with lots of information daily",
+        "Anyone who needs to make quick, informed decisions",
+        "Those who want to learn faster and work smarter",
+        "People feeling overwhelmed by digital clutter",
+        "Anyone tired of losing valuable insights",
+        "Those wanting to leverage AI effectively"
+    ],
+    "perfectFor": [
+        "Knowledge-intensive professionals",
+        "Overwhelmed learners",
+        "Innovative thinkers",
+        "Lifelong learners",
+        "Busy professionals"
+    ],
+    "notForYou": [
+        "Looking for a quick productivity hack (this is a complete system)",
+        "Not willing to invest 15-30 minutes/day initially",
+        "Prefer ad-hoc note-taking without structure"
+    ],
+    "landingPageUrl": "https://knowledge-management-for-beginners.com",
+    "featured": true,
+    "status": "active",
+    "trustBadges": [
+        "Full Refund Policy - Not satisfied? No questions asked",
+        "Lifetime Access - All future updates included",
+        "10+ Hours of Content - Comprehensive curriculum",
+        "1,000+ Professionals - Transformed workflows",
+        "1,700+ Concepts - Bonus knowledge base",
+        "Evergreen Content - Regular updates",
+        "Community Support - Connect with fellow learners",
+        "Tool-Agnostic - Works with what you have"
+    ],
+    "guarantees": [
+        "Full refund if not completely satisfied - no questions asked",
+        "Lifetime access - all future updates included",
+        "Tool-agnostic approach - works with any tools",
+        "Community support included"
+    ],
+    "crossSellIds": ["obsidian-starter-kit", "knowledge-worker-kit", "everything-knowledge-bundle"],
+    "metaTitle": "Knowledge Management for Beginners - Stop Drowning in Information | Transform How You Learn",
+    "metaDescription": "10+ hour video course teaching Personal Knowledge Management. Build a second brain that helps you think better, learn faster, and actually use what you know. 1,000+ students. Lifetime access.",
+    "keywords": [
+        "knowledge management course",
+        "personal knowledge management",
+        "pkm course",
+        "second brain",
+        "note-taking system",
+        "obsidian course",
+        "zettelkasten",
+        "para method",
+        "knowledge graph",
+        "information management",
+        "lifelong learning"
+    ],
+    "priority": 90,
+    "id": "knowledge-management-for-beginners",
+    "mainCategory": "courses",
+    "secondaryCategories": [
+        {
+            "id": "knowledge-management",
+            "distant": false
+        },
+        {
+            "id": "productivity",
+            "distant": true
+        }
+    ]
+}
