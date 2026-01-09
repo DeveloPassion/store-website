@@ -154,7 +154,7 @@ const HomeEcommerce: React.FC = () => {
                                 </button>
                             )}
                             <Link
-                                to='/?category=Free%20Resources'
+                                to='/categories/free'
                                 className='bg-primary/10 hover:bg-primary/20 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold transition-colors'
                             >
                                 Browse Free Resources
