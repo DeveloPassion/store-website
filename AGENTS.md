@@ -213,6 +213,117 @@ The Zod schema validates:
 
 See the Claude Code skill documentation in `.claude/skills/manage-products.md` for detailed instructions, or simply invoke the skill when working with products.
 
+## Managing Promotion Banner
+
+The promotion banner at the top of the website is configured through a single JSON configuration file with automatic validation.
+
+### Configuration File
+
+**Location**: `src/data/promotion.json` (not gitignored)
+
+### Banner Behavior Modes
+
+The banner supports three behavior modes controlled by the `bannerBehavior` field:
+
+1. **ALWAYS** - Banner is always visible regardless of dates
+2. **NEVER** - Banner is never shown (useful for disabling)
+3. **PROMOTIONS** - Banner shows only during the configured promotion period
+
+### Configuration Structure
+
+```json
+{
+  "bannerBehavior": "ALWAYS" | "NEVER" | "PROMOTIONS",
+  "promotionStart": "ISO 8601 timestamp (optional)",
+  "promotionEnd": "ISO 8601 timestamp (optional)",
+  "promoText": "Main promotional text (required)",
+  "promoLinkText": "Link text (optional)",
+  "promoLink": "URL (required)",
+  "discountCode": "Discount code (optional)"
+}
+```
+
+### Example Configuration
+
+```json
+{
+    "bannerBehavior": "PROMOTIONS",
+    "promotionStart": "2026-01-01T00:00:00Z",
+    "promotionEnd": "2026-01-31T23:59:59Z",
+    "promoText": "🎉 New Year Sale! Get 20% off all courses and bundles",
+    "promoLinkText": "Shop Now →",
+    "promoLink": "https://store.dsebastien.net/",
+    "discountCode": "NY2026"
+}
+```
+
+### Promotion Management Workflow
+
+**Quick Update (Recommended):**
+
+Use the interactive CLI tool for easy configuration:
+
+```bash
+# Interactive mode (prompts for all fields)
+npm run update:promotion
+
+# CLI arguments mode (non-interactive)
+npm run update:promotion -- --behavior PROMOTIONS --text "🎉 Sale!" --link "https://store.dsebastien.net/" --start "2026-02-01" --duration 30
+```
+
+The update script:
+
+- Shows current configuration
+- Prompts for each field (interactive mode)
+- Automatically calculates end date from start + duration (days)
+- Uses date-fns for date calculations
+- Validates configuration before saving
+- Formats dates as ISO 8601 with UTC timezone
+
+**Manual Workflow:**
+
+1. **Edit promotion config** - Modify `src/data/promotion.json`
+2. **Validate changes** - Run `npm run validate:promotion`
+3. **Fix errors** - Address any validation issues reported
+4. **Test locally** - Run `npm run dev` to see the banner
+5. **Commit changes** - When validation passes
+
+### Promotion Schema
+
+- **Schema Definition**: `src/schemas/promotion.schema.ts` (Zod schema - source of truth)
+- **TypeScript Types**: `src/types/promotion.ts` (keep in sync with schema)
+- **Update Script**: `scripts/update-promotion.ts` (interactive CLI tool)
+- **Validation Script**: `scripts/validate-promotion.ts`
+- **Banner Component**: `src/components/layout/promotion-banner.tsx`
+
+The Zod schema validates:
+
+- Valid banner behavior enum (ALWAYS, NEVER, PROMOTIONS)
+- Required dates when behavior is PROMOTIONS
+- ISO 8601 timestamp format for dates
+- Valid URL for promoLink
+- End date must be after start date
+- Non-empty promoText
+
+### Claude Code Skill
+
+A dedicated Claude Code skill is available at `.claude/skills/manage-promotion.md` that provides:
+
+- Complete schema documentation for all promotion fields
+- Validation workflow guidance
+- Banner behavior logic explanation
+- Configuration examples for each mode
+- Common tasks and error handling
+
+To use the skill in Claude Code, simply mention keywords like "promotion", "banner", "promo", or "validate promotion" in your conversation.
+
+### Important Notes
+
+- Dates must be in ISO 8601 format with UTC timezone (use "Z" suffix)
+- Banner automatically hides when promotion period ends
+- File is NOT gitignored (unlike aggregated products.json)
+- Promotion history is tracked via git commits
+
 ## Development Commands
 
 ```bash
@@ -242,6 +353,18 @@ npm run aggregate:products
 
 # Validate products (automatically aggregates first)
 npm run validate:products
+
+# Update promotion banner configuration (interactive)
+npm run update:promotion
+
+# Update promotion banner configuration (CLI arguments)
+npm run update:promotion -- --behavior <ALWAYS|NEVER|PROMOTIONS> --text "..." --link "..." [options]
+
+# Validate promotion banner configuration
+npm run validate:promotion
+
+# Validate all configurations
+npm run validate:all
 ```
 
 ## Deployment

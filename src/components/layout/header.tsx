@@ -14,6 +14,7 @@ import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
 import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { getCategoryIcon } from '@/lib/category-icons'
+import PromotionBanner from './promotion-banner'
 
 interface HeaderProps {
     onOpenCommandPalette: () => void
@@ -107,16 +108,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     return (
         <>
             <header className='border-primary/10 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b shadow-lg shadow-black/5 backdrop-blur-md'>
-                {/* Top announcement banner */}
-                <div className='bg-secondary/10 border-secondary/20 border-b px-4 py-2 text-center text-sm'>
-                    <p className='text-primary/80'>
-                        🎉 <span className='font-semibold'>New Year Sale!</span> Get 20% off all
-                        courses and bundles{' '}
-                        <Link to='/' className='text-secondary hover:text-secondary-text underline'>
-                            Shop Now →
-                        </Link>
-                    </p>
-                </div>
+                <PromotionBanner />
 
                 {/* Main header */}
                 <nav className='mx-auto max-w-7xl'>
