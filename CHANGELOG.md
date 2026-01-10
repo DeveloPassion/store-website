@@ -1,3 +1,17 @@
+## [0.2.1](https://github.com/DeveloPassion/store-website/compare/0.2.0...0.2.1) (2026-01-10)
+
+### Features
+
+* **all:** added Gumroad buy class ([cb188af](https://github.com/DeveloPassion/store-website/commit/cb188af38e21c9f929ec397b6bdeddef138c2cf0))
+* **all:** fixed icon on multiple buttons ([6fdbf38](https://github.com/DeveloPassion/store-website/commit/6fdbf3831c0e8e6d1e069fdc051f7219adb87b01))
+* **all:** fixed link for all featured products ([0f7dc60](https://github.com/DeveloPassion/store-website/commit/0f7dc6003a00873cca7189b93f9b75dacdacc89e))
+* **all:** improved Gumroad overlay ([806fafd](https://github.com/DeveloPassion/store-website/commit/806fafd70107e08a02db6413916817ac82c97bd3))
+* **all:** made cards a 16/9 ([b906d6a](https://github.com/DeveloPassion/store-website/commit/b906d6a4f3edf7b5e9f442789fb61f7a8c7eb3d2))
+* **all:** updated gumroad handling ([4556ff6](https://github.com/DeveloPassion/store-website/commit/4556ff6580b4eacb20f2693b44af60ad7bb4206d))
+
+### Bug Fixes
+
+* **all:** fixed gumroad urls ([577275d](https://github.com/DeveloPassion/store-website/commit/577275d969046a66f8f66b840d61d99f5ff33567))
 ## [0.2.0](https://github.com/DeveloPassion/store-website/compare/0.1.0...0.2.0) (2026-01-09)
 
 ### Features
