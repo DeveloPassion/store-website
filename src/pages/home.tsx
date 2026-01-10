@@ -46,16 +46,31 @@ const HomeEcommerce: React.FC = () => {
 
         // Apply category filter
         if (categoryFilter) {
-            const normalizedFilter = categoryFilter.toLowerCase()
-            products = products.filter((p) => {
-                if (normalizedFilter === 'courses') return p.mainCategory === 'courses'
-                if (normalizedFilter === 'kits') return p.mainCategory === 'kits-and-templates'
-                if (normalizedFilter === 'workshops') return p.mainCategory === 'workshops'
-                if (normalizedFilter === 'bundles') return p.mainCategory === 'bundles'
-                if (normalizedFilter === 'free resources')
-                    return p.priceTier === 'free' || p.price === 0
-                return true
-            })
+            const normalizedFilter = categoryFilter.toLowerCase().trim()
+
+            // Handle special case for free resources
+            if (normalizedFilter === 'free' || normalizedFilter === 'free resources') {
+                products = products.filter((p) => p.priceTier === 'free' || p.price === 0)
+            } else {
+                // Find category by ID or name
+                const category = (categoriesData as Category[]).find(
+                    (c) =>
+                        c.id.toLowerCase() === normalizedFilter ||
+                        c.name.toLowerCase() === normalizedFilter
+                )
+
+                if (category) {
+                    products = products.filter(
+                        (p) =>
+                            p.mainCategory === category.id ||
+                            p.secondaryCategories?.some((sc) => sc.id === category.id)
+                    )
+                } else {
+                    // Unknown category - show no results
+                    console.warn(`Unknown category filter: ${categoryFilter}`)
+                    products = []
+                }
+            }
         }
 
         // Sort intelligently: Featured + Best Value first, Featured next, rest alphabetically by mainCategory
