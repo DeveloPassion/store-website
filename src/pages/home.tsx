@@ -6,6 +6,7 @@ import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import ProductCarousel from '@/components/products/product-carousel'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
+import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import type { TagId } from '@/types/tag'
@@ -41,7 +42,16 @@ const HomeEcommerce: React.FC = () => {
 
         // Apply tag filter (from URL route)
         if (decodedTagName) {
-            products = products.filter((p) => p.tags.includes(decodedTagName as TagId))
+            // Validate tag exists (tagsData is an object/map)
+            const isValidTag = decodedTagName in tagsData
+
+            if (isValidTag) {
+                products = products.filter((p) => p.tags.includes(decodedTagName as TagId))
+            } else {
+                // Invalid tag - show no results
+                console.warn(`Invalid tag: ${decodedTagName}`)
+                products = []
+            }
         }
 
         // Apply category filter
