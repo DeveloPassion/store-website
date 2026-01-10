@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/DeveloPassion/store-website/compare/0.2.1...0.2.2) (2026-01-10)
+
+### Features
+
+* **all:** add wishlist button to product pages ([270ebb6](https://github.com/DeveloPassion/store-website/commit/270ebb68ef7dd5a94ba1d96d6a65f1d310272ffa))
+* **all:** added wishlist ([8620097](https://github.com/DeveloPassion/store-website/commit/862009704553bd6222626138111e809082ce5aab))
+* **all:** hide wishlist button on mobile in header ([4a587ad](https://github.com/DeveloPassion/store-website/commit/4a587ad0cb2297ea5afda021e66f0c7e7289be9b))
+* **all:** share with a friend ([2f6066a](https://github.com/DeveloPassion/store-website/commit/2f6066a42e5570e05e54e11bcdcb2c674791af97))
+* **all:** wishlist sharing ([7ac18ab](https://github.com/DeveloPassion/store-website/commit/7ac18ab474f46ec22da13be88171d7f5fde19d10))
 ## [0.2.1](https://github.com/DeveloPassion/store-website/compare/0.2.0...0.2.1) (2026-01-10)
 
 ### Features
