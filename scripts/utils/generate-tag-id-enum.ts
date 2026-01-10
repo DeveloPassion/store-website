@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 /**
  * Generate TagId enum from tags.json
  * This updates the tag schema with all valid tag IDs

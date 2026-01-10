@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Validate promotion configuration against the Zod schema
@@ -12,7 +12,7 @@
  *
  * Usage:
  *   npm run validate:promotion
- *   tsx scripts/validate-promotion.ts
+ *   bun scripts/validate-promotion.ts
  *
  * Exit codes:
  *   0 - Promotion config is valid

@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Validate products against the Zod schema
@@ -10,7 +10,7 @@
  *
  * Usage:
  *   npm run validate:products
- *   tsx scripts/validate-products.ts
+ *   bun scripts/validate-products.ts
  *
  * Exit codes:
  *   0 - All products are valid

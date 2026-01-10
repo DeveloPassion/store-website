@@ -26,7 +26,7 @@ Use the interactive CLI tool for easy product management with keyboard-navigable
 
 ```bash
 # Launch interactive mode (prompts for operation)
-npm run update:products
+bun run update:products
 ```
 
 The interactive mode provides:
@@ -41,28 +41,28 @@ The interactive mode provides:
 **List products:**
 ```bash
 # List all products (table format)
-npm run update:products -- --operation list
+bun run update:products -- --operation list
 
 # Filter by featured products
-npm run update:products -- --operation list --featured
+bun run update:products -- --operation list --featured
 
 # Filter by status
-npm run update:products -- --operation list --status active
+bun run update:products -- --operation list --status active
 
 # Filter by category or tag
-npm run update:products -- --operation list --category guides
-npm run update:products -- --operation list --tag ai
+bun run update:products -- --operation list --category guides
+bun run update:products -- --operation list --tag ai
 
 # JSON output
-npm run update:products -- --operation list --format json
+bun run update:products -- --operation list --format json
 
 # Detailed output
-npm run update:products -- --operation list --format detailed
+bun run update:products -- --operation list --format detailed
 ```
 
 **Add product (minimal required fields):**
 ```bash
-npm run update:products -- --operation add \
+bun run update:products -- --operation add \
     --name "Product Name" \
     --tagline "One-line description" \
     --price 49.99 \
@@ -79,19 +79,19 @@ npm run update:products -- --operation add \
 **Edit product:**
 ```bash
 # Edit specific fields
-npm run update:products -- --operation edit \
+bun run update:products -- --operation edit \
     --id product-id \
     --name "New Name" \
     --price 39.99 \
     --priority 95
 
 # Edit tags (replaces all)
-npm run update:products -- --operation edit \
+bun run update:products -- --operation edit \
     --id product-id \
     --tags "tag1,tag2,tag3"
 
 # Edit secondary categories (format: id:distant)
-npm run update:products -- --operation edit \
+bun run update:products -- --operation edit \
     --id product-id \
     --secondaryCategories "obsidian:false,knowledge-management:true"
 ```
@@ -99,10 +99,10 @@ npm run update:products -- --operation edit \
 **Remove product:**
 ```bash
 # Remove product (checks cross-references)
-npm run update:products -- --operation remove --id product-id
+bun run update:products -- --operation remove --id product-id
 
 # Force remove even if referenced
-npm run update:products -- --operation remove --id product-id --force
+bun run update:products -- --operation remove --id product-id --force
 ```
 
 ## When to Use CLI vs. Direct Editing
@@ -123,7 +123,7 @@ npm run update:products -- --operation remove --id product-id --force
 - ✅ Advanced fields (variants, statsProof, guarantees)
 
 **For FAQs and Testimonials:**
-Use the dedicated CLI tool: `npm run manage:product-content`
+Use the dedicated CLI tool: `bun run manage:product-content`
 
 ## Schema Documentation
 
@@ -201,27 +201,27 @@ Every product must include:
 ### Adding New Products (Recommended: Use CLI)
 
 **Using Interactive CLI:**
-1. **Run** `npm run update:products`
+1. **Run** `bun run update:products`
 2. **Select** "Add new product"
 3. **Follow prompts** for basic information (name, tagline, pricing)
 4. **Use keyboard navigation** to select categories and tags
 5. **Enter marketing copy** (problem, agitate, solution)
 6. **Review and confirm** the product summary
 7. **Edit the file** directly for advanced fields (media, detailed content)
-8. **Validate** with `npm run validate:products`
+8. **Validate** with `bun run validate:products`
 
 **Using Direct File Creation:**
 1. **Create a new file** in `src/data/products/` named `{product-id}.json`
 2. **Copy structure** from an existing product file as a template
 3. **Fill in all required fields** according to the schema
-4. **Run validation** using `npm run validate:products`
+4. **Run validation** using `bun run validate:products`
 5. **Fix any errors** and repeat until validation passes
 6. **Commit the new file** to git
 
 ### Editing Existing Products
 
 **Using Interactive CLI (for common fields):**
-1. **Run** `npm run update:products`
+1. **Run** `bun run update:products`
 2. **Select** "Edit existing product"
 3. **Choose the product** from the list
 4. **Select the section** to edit (basic info, pricing, taxonomy, meta/status)
@@ -231,7 +231,7 @@ Every product must include:
 **Using Direct File Editing (for advanced fields):**
 1. **Locate the product file** in `src/data/products/{product-id}.json`
 2. **Edit the product data** directly in the individual file
-3. **Run validation** using `npm run validate:products` (automatically aggregates first)
+3. **Run validation** using `bun run validate:products` (automatically aggregates first)
 4. **Fix any errors** reported by the validation script
 5. **Repeat** until validation passes
 
@@ -240,7 +240,7 @@ Every product must include:
 ### Update Products (Interactive CLI)
 
 ```bash
-npm run update:products
+bun run update:products
 ```
 
 Interactive CLI tool for managing products:
@@ -254,7 +254,7 @@ Interactive CLI tool for managing products:
 ### Aggregate Products
 
 ```bash
-npm run aggregate:products
+bun run aggregate:products
 ```
 
 This command combines all individual product files from `src/data/products/` into the aggregated `src/data/products.json` file.
@@ -262,7 +262,7 @@ This command combines all individual product files from `src/data/products/` int
 ### Validate Products
 
 ```bash
-npm run validate:products
+bun run validate:products
 ```
 
 This command (automatically runs aggregation first):
@@ -291,7 +291,7 @@ Priority determines product ordering in listings (0-100):
 
 **Using CLI (Recommended):**
 ```bash
-npm run update:products
+bun run update:products
 # Select "Add new product"
 # Follow interactive prompts
 ```
@@ -301,13 +301,13 @@ npm run update:products
 2. Update all fields with new product data
 3. Ensure all required arrays have at least one item
 4. Set appropriate priority based on guidelines
-5. Run `npm run validate:products` to verify
+5. Run `bun run validate:products` to verify
 
 ### Editing an Existing Product
 
 **Using CLI for common fields:**
 ```bash
-npm run update:products
+bun run update:products
 # Select "Edit existing product"
 # Choose product and fields to edit
 ```
@@ -315,20 +315,20 @@ npm run update:products
 **Manual editing for advanced fields:**
 1. Locate the product by its `id` field
 2. Make your changes directly in the file
-3. Run `npm run validate:products` to verify
+3. Run `bun run validate:products` to verify
 4. Check that URLs are valid and complete
 
 ### Listing and Filtering Products
 
 ```bash
 # List all products
-npm run update:products -- --operation list
+bun run update:products -- --operation list
 
 # Filter by category
-npm run update:products -- --operation list --category guides
+bun run update:products -- --operation list --category guides
 
 # Show only featured products
-npm run update:products -- --operation list --featured
+bun run update:products -- --operation list --featured
 ```
 
 ### Validating Before Commit
@@ -336,7 +336,7 @@ npm run update:products -- --operation list --featured
 Always run validation before committing changes:
 
 ```bash
-npm run validate:products
+bun run validate:products
 ```
 
 ## Important Notes
@@ -380,15 +380,15 @@ FAQs and testimonials are managed separately using a dedicated CLI tool:
 
 ```bash
 # Via Store CLI (easiest)
-npm run store
+bun run store
 # Then select "📝 Manage Product Content"
 
 # Direct access
-npm run manage:product-content
+bun run manage:product-content
 
 # CLI mode - specify product and type
-npm run manage:product-content -- --product=product-id --type=faqs
-npm run manage:product-content -- --product=product-id --type=testimonials
+bun run manage:product-content -- --product=product-id --type=faqs
+bun run manage:product-content -- --product=product-id --type=testimonials
 ```
 
 ### Features

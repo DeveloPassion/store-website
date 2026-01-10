@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Interactive CLI tool to manage products
@@ -10,7 +10,7 @@
  * Usage:
  *   Interactive mode:
  *     npm run update:products
- *     tsx scripts/update-products.ts
+ *     bun scripts/update-products.ts
  *
  *   CLI arguments mode:
  *     npm run update:products -- --operation list [--featured] [--status active] [--category guides] [--tag ai] [--format json|table|detailed]

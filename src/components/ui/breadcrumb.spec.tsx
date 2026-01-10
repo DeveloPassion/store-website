@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'bun:test'
+import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import { Breadcrumb } from './breadcrumb'
 import { BreadcrumbProvider, BreadcrumbItem, useBreadcrumb } from '@/contexts/breadcrumb-context'
@@ -52,19 +52,19 @@ describe('Breadcrumb Component', () => {
             { label: 'Current Page' }
         ]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByText } = renderWithProviders(<Breadcrumb />, items)
 
-        expect(screen.getByText('Home')).toBeInTheDocument()
-        expect(screen.getByText('Products')).toBeInTheDocument()
-        expect(screen.getByText('Current Page')).toBeInTheDocument()
+        expect(getByText('Home')).toBeInTheDocument()
+        expect(getByText('Products')).toBeInTheDocument()
+        expect(getByText('Current Page')).toBeInTheDocument()
     })
 
     it('should render links for items with href', () => {
         const items = [{ label: 'Home', href: '/' }, { label: 'Current Page' }]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByRole } = renderWithProviders(<Breadcrumb />, items)
 
-        const homeLink = screen.getByRole('link', { name: 'Home' })
+        const homeLink = getByRole('link', { name: 'Home' })
         expect(homeLink).toBeInTheDocument()
         expect(homeLink).toHaveAttribute('href', '/')
     })
@@ -72,9 +72,9 @@ describe('Breadcrumb Component', () => {
     it('should render span for items without href (current page)', () => {
         const items = [{ label: 'Home', href: '/' }, { label: 'Current Page' }]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByText } = renderWithProviders(<Breadcrumb />, items)
 
-        const currentPageSpan = screen.getByText('Current Page')
+        const currentPageSpan = getByText('Current Page')
         expect(currentPageSpan.tagName).toBe('SPAN')
         expect(currentPageSpan).toHaveAttribute('aria-current', 'page')
     })
@@ -106,12 +106,12 @@ describe('Breadcrumb Component', () => {
     it('should have proper ARIA labels', () => {
         const items = [{ label: 'Home', href: '/' }, { label: 'Current Page' }]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByRole, getByText } = renderWithProviders(<Breadcrumb />, items)
 
-        const nav = screen.getByRole('navigation', { name: 'Breadcrumb' })
+        const nav = getByRole('navigation', { name: 'Breadcrumb' })
         expect(nav).toBeInTheDocument()
 
-        const currentPage = screen.getByText('Current Page')
+        const currentPage = getByText('Current Page')
         expect(currentPage).toHaveAttribute('aria-current', 'page')
     })
 
@@ -128,11 +128,10 @@ describe('Breadcrumb Component', () => {
     it('should handle single breadcrumb item', () => {
         const items = [{ label: 'Home' }]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByText, container } = renderWithProviders(<Breadcrumb />, items)
 
-        expect(screen.getByText('Home')).toBeInTheDocument()
+        expect(getByText('Home')).toBeInTheDocument()
 
-        const { container } = renderWithProviders(<Breadcrumb />, items)
         const separators = container.querySelectorAll('svg[aria-hidden="true"]')
         expect(separators).toHaveLength(0)
     })
@@ -142,9 +141,9 @@ describe('Breadcrumb Component', () => {
             { label: 'This is a very long breadcrumb label that should be truncated', href: '/' }
         ]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByRole } = renderWithProviders(<Breadcrumb />, items)
 
-        const link = screen.getByRole('link')
+        const link = getByRole('link')
         expect(link).toHaveClass('truncate')
         expect(link).toHaveClass('max-w-[150px]')
     })
@@ -152,9 +151,9 @@ describe('Breadcrumb Component', () => {
     it('should apply focus styles to links', () => {
         const items = [{ label: 'Home', href: '/' }]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByRole } = renderWithProviders(<Breadcrumb />, items)
 
-        const link = screen.getByRole('link', { name: 'Home' })
+        const link = getByRole('link', { name: 'Home' })
         expect(link).toHaveClass('focus:ring-2')
         expect(link).toHaveClass('focus:ring-secondary/50')
     })
@@ -167,11 +166,11 @@ describe('Breadcrumb Component', () => {
             { label: 'Current' }
         ]
 
-        renderWithProviders(<Breadcrumb />, items)
+        const { getByText } = renderWithProviders(<Breadcrumb />, items)
 
-        expect(screen.getByText('First')).toBeInTheDocument()
-        expect(screen.getByText('Second')).toBeInTheDocument()
-        expect(screen.getByText('Third')).toBeInTheDocument()
-        expect(screen.getByText('Current')).toBeInTheDocument()
+        expect(getByText('First')).toBeInTheDocument()
+        expect(getByText('Second')).toBeInTheDocument()
+        expect(getByText('Third')).toBeInTheDocument()
+        expect(getByText('Current')).toBeInTheDocument()
     })
 })

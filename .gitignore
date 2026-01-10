@@ -22,7 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.vite
 
 # Generated data files
 src/data/products.json
+
+# Bun dev server
+src/.dev

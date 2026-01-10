@@ -1,11 +1,10 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
+import { describe, it, expect, beforeEach, afterEach, mock } from 'bun:test'
+import { render, waitFor } from '@testing-library/react'
 import StickyBuyButton from './sticky-buy-button'
 import type { Product } from '@/types/product'
 
 // Mock framer-motion to avoid animation complexities in tests
-vi.mock('framer-motion', () => ({
+mock.module('framer-motion', () => ({
     motion: {
         div: ({ children, ...props }: React.ComponentPropsWithoutRef<'div'>) => (
             <div {...props}>{children}</div>
@@ -90,7 +89,7 @@ describe('StickyBuyButton', () => {
         // Reset scroll position
         window.scrollY = 0
         // Mock getBoundingClientRect
-        Element.prototype.getBoundingClientRect = vi.fn(() => ({
+        Element.prototype.getBoundingClientRect = mock(() => ({
             top: 100,
             bottom: 200,
             left: 0,
@@ -103,38 +102,36 @@ describe('StickyBuyButton', () => {
         }))
     })
 
-    afterEach(() => {
-        vi.clearAllMocks()
-    })
+    afterEach(() => {})
 
     it('should not render initially when scroll is at top', () => {
-        render(<StickyBuyButton product={mockProduct} />)
+        const { queryByText } = render(<StickyBuyButton product={mockProduct} />)
 
         // The button should not be visible initially (wrapped in AnimatePresence with isVisible=false)
-        const buyButton = screen.queryByText(/Buy Test Product Now/i)
+        const buyButton = queryByText(/Buy Test Product Now/i)
         expect(buyButton).not.toBeInTheDocument()
     })
 
     it('should render with product name and price', async () => {
         window.scrollY = 600 // Trigger visibility
-        render(<StickyBuyButton product={mockProduct} />)
+        const { getAllByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
             // Product name appears twice (mobile and desktop layouts)
-            const productNames = screen.getAllByText('Test Product')
+            const productNames = getAllByText('Test Product')
             expect(productNames.length).toBeGreaterThanOrEqual(1)
             // Price appears twice (mobile and desktop layouts)
-            const prices = screen.getAllByText('$49')
+            const prices = getAllByText('$49')
             expect(prices.length).toBeGreaterThanOrEqual(1)
         })
     })
 
     it('should render buy button with correct link', async () => {
         window.scrollY = 600
-        render(<StickyBuyButton product={mockProduct} />)
+        const { getByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            const buyButton = screen.getByText(/Buy Test Product Now/i).closest('a')
+            const buyButton = getByText(/Buy Test Product Now/i).closest('a')
             expect(buyButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
             expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
         })
@@ -142,31 +139,33 @@ describe('StickyBuyButton', () => {
 
     it('should show product tagline', async () => {
         window.scrollY = 600
-        render(<StickyBuyButton product={mockProduct} />)
+        const { getByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            expect(screen.getByText('A test product')).toBeInTheDocument()
+            expect(getByText('A test product')).toBeInTheDocument()
         })
     })
 
     it('should display guarantee when available', async () => {
         window.scrollY = 600
-        render(<StickyBuyButton product={mockProduct} />)
+        const { getByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            expect(screen.getByText('30-day money-back guarantee')).toBeInTheDocument()
+            expect(getByText('30-day money-back guarantee')).toBeInTheDocument()
         })
     })
 
     it('should use first variant when variants are provided', async () => {
         window.scrollY = 600
-        render(<StickyBuyButton product={mockProductWithVariants} />)
+        const { getAllByText, getByText } = render(
+            <StickyBuyButton product={mockProductWithVariants} />
+        )
 
         await waitFor(() => {
             // Price appears in both mobile and desktop layouts
-            const prices = screen.getAllByText('$29')
+            const prices = getAllByText('$29')
             expect(prices.length).toBeGreaterThanOrEqual(1)
-            const buyButton = screen.getByText(/Buy Test Product Now/i).closest('a')
+            const buyButton = getByText(/Buy Test Product Now/i).closest('a')
             expect(buyButton).toHaveAttribute(
                 'href',
                 expect.stringContaining('gumroad.com/test-basic')
@@ -186,10 +185,10 @@ describe('StickyBuyButton', () => {
 
     it('should have proper accessibility attributes', async () => {
         window.scrollY = 600
-        render(<StickyBuyButton product={mockProduct} />)
+        const { getByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            const buyButton = screen.getByText(/Buy Test Product Now/i).closest('a')
+            const buyButton = getByText(/Buy Test Product Now/i).closest('a')
             expect(buyButton).toHaveClass('gumroad-button')
         })
     })
@@ -197,10 +196,10 @@ describe('StickyBuyButton', () => {
     it('should handle products with no guarantees', async () => {
         window.scrollY = 600
         const productNoGuarantees = { ...mockProduct, guarantees: [] }
-        render(<StickyBuyButton product={productNoGuarantees} />)
+        const { queryByText } = render(<StickyBuyButton product={productNoGuarantees} />)
 
         await waitFor(() => {
-            expect(screen.queryByText(/guarantee/i)).not.toBeInTheDocument()
+            expect(queryByText(/guarantee/i)).not.toBeInTheDocument()
         })
     })
 
@@ -217,15 +216,15 @@ describe('StickyBuyButton', () => {
 
     it('should show both mobile and desktop layouts', async () => {
         window.scrollY = 600
-        render(<StickyBuyButton product={mockProduct} />)
+        const { getByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
             // Mobile layout has "Buy Now" text
-            const mobileButton = screen.getByText(/Buy Now/i)
+            const mobileButton = getByText(/Buy Now/i)
             expect(mobileButton).toBeInTheDocument()
 
             // Desktop layout has full product name
-            const desktopButton = screen.getByText(/Buy Test Product Now/i)
+            const desktopButton = getByText(/Buy Test Product Now/i)
             expect(desktopButton).toBeInTheDocument()
         })
     })
@@ -233,13 +232,13 @@ describe('StickyBuyButton', () => {
     it('should use default variant when no variants provided', async () => {
         window.scrollY = 600
         const productNoVariants = { ...mockProduct, variants: undefined }
-        render(<StickyBuyButton product={productNoVariants} />)
+        const { getAllByText, getByText } = render(<StickyBuyButton product={productNoVariants} />)
 
         await waitFor(() => {
             // Price appears in both mobile and desktop layouts
-            const prices = screen.getAllByText('$49')
+            const prices = getAllByText('$49')
             expect(prices.length).toBeGreaterThanOrEqual(1)
-            const buyButton = screen.getByText(/Buy Test Product Now/i).closest('a')
+            const buyButton = getByText(/Buy Test Product Now/i).closest('a')
             expect(buyButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
         })
     })

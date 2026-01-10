@@ -79,7 +79,7 @@ Tags are referenced in products via the `tags` field:
 ### Interactive Mode
 
 ```bash
-npm run update:tags
+bun run update:tags
 ```
 
 Follow the prompts to:
@@ -92,22 +92,22 @@ Follow the prompts to:
 
 **List all tags:**
 ```bash
-npm run update:tags -- --operation list
+bun run update:tags -- --operation list
 ```
 
 **List featured tags only:**
 ```bash
-npm run update:tags -- --operation list --featured
+bun run update:tags -- --operation list --featured
 ```
 
 **List as JSON:**
 ```bash
-npm run update:tags -- --operation list --format json
+bun run update:tags -- --operation list --format json
 ```
 
 **Add tag (auto-generated ID):**
 ```bash
-npm run update:tags -- --operation add \
+bun run update:tags -- --operation add \
     --name "Machine Learning" \
     --description "Machine learning and AI training resources" \
     --featured true \
@@ -118,7 +118,7 @@ npm run update:tags -- --operation add \
 
 **Add tag (custom ID):**
 ```bash
-npm run update:tags -- --operation add \
+bun run update:tags -- --operation add \
     --id "custom-ml-tag" \
     --name "Machine Learning" \
     --description "ML resources" \
@@ -128,7 +128,7 @@ npm run update:tags -- --operation add \
 
 **Modify tag:**
 ```bash
-npm run update:tags -- --operation modify \
+bun run update:tags -- --operation modify \
     --id "ai" \
     --description "Updated description for AI tag" \
     --priority 3
@@ -136,12 +136,12 @@ npm run update:tags -- --operation modify \
 
 **Remove tag (will fail if used in products):**
 ```bash
-npm run update:tags -- --operation remove --id "deprecated-tag"
+bun run update:tags -- --operation remove --id "deprecated-tag"
 ```
 
 **Force remove tag (even if used):**
 ```bash
-npm run update:tags -- --operation remove --id "deprecated-tag" --force
+bun run update:tags -- --operation remove --id "deprecated-tag" --force
 ```
 
 ## Complete Workflow Examples
@@ -150,7 +150,7 @@ npm run update:tags -- --operation remove --id "deprecated-tag" --force
 
 **Interactive:**
 ```bash
-npm run update:tags
+bun run update:tags
 # Select "2" or "add"
 # Enter tag details when prompted
 # ID is auto-suggested from name
@@ -159,7 +159,7 @@ npm run update:tags
 
 **CLI:**
 ```bash
-npm run update:tags -- --operation add \
+bun run update:tags -- --operation add \
     --name "Voice AI" \
     --description "Voice-based AI tools and speech recognition" \
     --featured false \
@@ -171,13 +171,13 @@ npm run update:tags -- --operation add \
 **Then:**
 1. Edit `src/schemas/tag.schema.ts`
 2. Add `'voice-ai'` to the `TagIdSchema` enum array (keep alphabetical order)
-3. Run `npm run validate:tags` to verify
+3. Run `bun run validate:tags` to verify
 
 ### Modifying an Existing Tag
 
 **Interactive:**
 ```bash
-npm run update:tags
+bun run update:tags
 # Select "3" or "modify"
 # Enter tag ID
 # Update fields (press Enter to keep current value)
@@ -186,14 +186,14 @@ npm run update:tags
 
 **CLI (update single field):**
 ```bash
-npm run update:tags -- --operation modify \
+bun run update:tags -- --operation modify \
     --id "obsidian" \
     --description "Master Obsidian for powerful note-taking and PKM"
 ```
 
 **CLI (update multiple fields):**
 ```bash
-npm run update:tags -- --operation modify \
+bun run update:tags -- --operation modify \
     --id "productivity" \
     --featured true \
     --priority 4 \
@@ -206,7 +206,7 @@ npm run update:tags -- --operation modify \
 
 **Interactive:**
 ```bash
-npm run update:tags
+bun run update:tags
 # Select "4" or "remove"
 # Enter tag ID
 # Review usage warning
@@ -216,51 +216,51 @@ npm run update:tags
 **CLI (safe removal):**
 ```bash
 # Will fail if tag is used in products
-npm run update:tags -- --operation remove --id "old-tag"
+bun run update:tags -- --operation remove --id "old-tag"
 ```
 
 **CLI (force removal):**
 ```bash
 # Removes even if used (⚠️  breaks product references!)
-npm run update:tags -- --operation remove --id "old-tag" --force
+bun run update:tags -- --operation remove --id "old-tag" --force
 ```
 
 **Then:**
 1. Edit `src/schemas/tag.schema.ts`
 2. Remove `'old-tag'` from the `TagIdSchema` enum array
-3. Run `npm run validate:tags` to verify
+3. Run `bun run validate:tags` to verify
 4. If forced removal: update products to remove the tag reference
 
 ### Listing Tags
 
 **Interactive:**
 ```bash
-npm run update:tags
+bun run update:tags
 # Select "1" or "list"
 # View table of all tags
 ```
 
 **CLI (all tags, table format):**
 ```bash
-npm run update:tags -- --operation list
+bun run update:tags -- --operation list
 ```
 
 **CLI (featured only):**
 ```bash
-npm run update:tags -- --operation list --featured
+bun run update:tags -- --operation list --featured
 ```
 
 **CLI (JSON format for scripting):**
 ```bash
-npm run update:tags -- --operation list --format json
-npm run update:tags -- --operation list --featured --format json > featured-tags.json
+bun run update:tags -- --operation list --format json
+bun run update:tags -- --operation list --featured --format json > featured-tags.json
 ```
 
 ## Commands
 
 ### Update Tags
 ```bash
-npm run update:tags
+bun run update:tags
 ```
 
 Interactive CLI tool for managing tags. Supports:
@@ -271,7 +271,7 @@ Interactive CLI tool for managing tags. Supports:
 
 ### Validate Tags
 ```bash
-npm run validate:tags
+bun run validate:tags
 ```
 
 Validates:
@@ -282,7 +282,7 @@ Validates:
 
 ### Validate All
 ```bash
-npm run validate:all
+bun run validate:all
 ```
 
 Validates tags along with categories, promotion, products, and all relationships.
@@ -319,7 +319,7 @@ export const TagIdSchema = z.enum([
 ])
 ```
 
-4. Run `npm run validate:tags` to verify the schema matches the data
+4. Run `bun run validate:tags` to verify the schema matches the data
 5. TypeScript types will be automatically synced via type inference
 
 ### After Removing a Tag
@@ -327,7 +327,7 @@ export const TagIdSchema = z.enum([
 1. Use CLI to remove tag from `tags.json`
 2. Edit `src/schemas/tag.schema.ts`
 3. Remove the tag ID from the `TagIdSchema` enum array
-4. Run `npm run validate:tags` to verify
+4. Run `bun run validate:tags` to verify
 5. If you used `--force`: update products to remove the tag reference
 
 ### Why Manual Sync is Required
@@ -389,19 +389,19 @@ After adding a tag, if validation fails:
 
 Save all tags to a file:
 ```bash
-npm run update:tags -- --operation list --format json > all-tags.json
+bun run update:tags -- --operation list --format json > all-tags.json
 ```
 
 Save featured tags only:
 ```bash
-npm run update:tags -- --operation list --featured --format json > featured-tags.json
+bun run update:tags -- --operation list --featured --format json > featured-tags.json
 ```
 
 ### Safe Removal Check
 
 Check if a tag is in use without removing it:
 ```bash
-npm run update:tags -- --operation remove --id "tag-to-check"
+bun run update:tags -- --operation remove --id "tag-to-check"
 # Review the usage list
 # Press Ctrl+C or answer "no" when asked to confirm
 ```
@@ -430,7 +430,7 @@ tags=("tag1:Description 1" "tag2:Description 2" "tag3:Description 3")
 
 for tag_info in "${tags[@]}"; do
     IFS=':' read -r name desc <<< "$tag_info"
-    npm run update:tags -- --operation add \
+    bun run update:tags -- --operation add \
         --name "$name" \
         --description "$desc" \
         --featured false \
@@ -440,7 +440,7 @@ done
 
 **Export featured tags for documentation:**
 ```bash
-npm run update:tags -- --operation list --featured --format json | \
+bun run update:tags -- --operation list --featured --format json | \
     jq '.[] | {id, name, description}' > featured-tags-export.json
 ```
 
@@ -457,7 +457,7 @@ After creating or modifying tags, you can use them in products:
    "tags": ["existing-tag", "new-tag-id"]
 
    # Validate
-   npm run validate:products
+   bun run validate:products
    ```
 
 2. **Create new product with tags**:
@@ -465,7 +465,7 @@ After creating or modifying tags, you can use them in products:
 
 3. **Validate relationships**:
    ```bash
-   npm run validate:all
+   bun run validate:all
    ```
 
 This ensures all tag references are valid and products use only existing tags.

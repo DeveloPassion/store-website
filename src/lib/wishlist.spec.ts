@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, spyOn } from 'bun:test'
 import {
     getWishlist,
     addToWishlist,
@@ -34,7 +34,7 @@ describe('Wishlist Utilities', () => {
 
         it('should return empty array for corrupted data', () => {
             localStorage.setItem(WISHLIST_STORAGE_KEY, 'invalid-json')
-            const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+            const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
             expect(getWishlist()).toEqual([])
             expect(consoleSpy).toHaveBeenCalled()
             consoleSpy.mockRestore()
@@ -46,16 +46,22 @@ describe('Wishlist Utilities', () => {
         })
 
         it('should handle localStorage errors gracefully', () => {
-            const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-            vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
-                throw new Error('localStorage error')
-            })
+            const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+
+            // Replace localStorage with a mock that throws
+            const originalLocalStorage = global.localStorage
+            global.localStorage = {
+                ...originalLocalStorage,
+                getItem: () => {
+                    throw new Error('localStorage error')
+                }
+            } as Storage
 
             expect(getWishlist()).toEqual([])
             expect(consoleSpy).toHaveBeenCalled()
 
             consoleSpy.mockRestore()
-            vi.restoreAllMocks()
+            global.localStorage = originalLocalStorage
         })
     })
 
@@ -186,16 +192,22 @@ describe('Wishlist Utilities', () => {
         })
 
         it('should handle localStorage errors gracefully', () => {
-            const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-            vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {
-                throw new Error('localStorage error')
-            })
+            const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+
+            // Replace localStorage with a mock that throws
+            const originalLocalStorage = global.localStorage
+            global.localStorage = {
+                ...originalLocalStorage,
+                removeItem: () => {
+                    throw new Error('localStorage error')
+                }
+            } as Storage
 
             clearWishlist()
             expect(consoleSpy).toHaveBeenCalled()
 
             consoleSpy.mockRestore()
-            vi.restoreAllMocks()
+            global.localStorage = originalLocalStorage
         })
     })
 
@@ -257,18 +269,25 @@ describe('Wishlist Utilities', () => {
         })
 
         it('should handle localStorage quota exceeded', () => {
-            const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-            vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
-                const error = new Error('QuotaExceededError')
-                error.name = 'QuotaExceededError'
-                throw error
-            })
+            const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+
+            // Replace localStorage with a mock that throws QuotaExceededError
+            const originalLocalStorage = global.localStorage
+            global.localStorage = {
+                ...originalLocalStorage,
+                getItem: originalLocalStorage.getItem.bind(originalLocalStorage),
+                setItem: () => {
+                    const error = new Error('QuotaExceededError')
+                    error.name = 'QuotaExceededError'
+                    throw error
+                }
+            } as Storage
 
             addToWishlist('product1')
             expect(consoleSpy).toHaveBeenCalled()
 
             consoleSpy.mockRestore()
-            vi.restoreAllMocks()
+            global.localStorage = originalLocalStorage
         })
     })
 

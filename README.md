@@ -1,24 +1,24 @@
 # Store Website - Developer Guide
 
-This repository contains the source code for the dSebastien product store website, built with React 19, Vite, Tailwind CSS v4, and TypeScript.
+This repository contains the source code for the dSebastien product store website, built with React 19, Bun, Tailwind CSS v4, and TypeScript.
 
 ## Quick Start
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run dev
+bun dev
 
 # Build for production
-npm run build
+bun run build
 
 # Run all tests
-npm run test:run
+bun run test:run
 
 # Run all validation checks
-npm run validate:all
+bun run validate:all
 ```
 
 ## 🛍️ Store Management CLI
@@ -28,7 +28,7 @@ The **Store CLI** is an interactive menu system that provides easy access to all
 ### Launch the Store CLI
 
 ```bash
-npm run store
+bun run store
 ```
 
 This opens an interactive menu with the following options:
@@ -63,16 +63,16 @@ All CLI tools support both **interactive mode** (guided prompts) and **CLI argum
 
 ```bash
 # Interactive mode
-npm run update:products
+bun run update:products
 
 # List products
-npm run update:products -- --operation list [--featured] [--category guides] [--tag ai] [--format json|table|detailed]
+bun run update:products -- --operation list [--featured] [--category guides] [--tag ai] [--format json|table|detailed]
 
 # Add product (guided prompts with keyboard-navigable selection)
-npm run update:products -- --operation add
+bun run update:products -- --operation add
 
 # Add product (CLI arguments)
-npm run update:products -- --operation add \
+bun run update:products -- --operation add \
     --name "Product Name" \
     --tagline "One-line description" \
     --price 49.99 \
@@ -86,17 +86,17 @@ npm run update:products -- --operation add \
     --solution "Solution"
 
 # Edit product (interactive with keyboard-navigable category/tag selection)
-npm run update:products -- --operation edit --id product-id
+bun run update:products -- --operation edit --id product-id
 
 # Edit product (CLI arguments)
-npm run update:products -- --operation edit \
+bun run update:products -- --operation edit \
     --id product-id \
     --name "New Name" \
     --price 39.99 \
     --priority 95
 
 # Remove product (checks cross-references)
-npm run update:products -- --operation remove --id product-id [--force]
+bun run update:products -- --operation remove --id product-id [--force]
 ```
 
 **Script:** `scripts/update-products.ts`
@@ -108,29 +108,29 @@ npm run update:products -- --operation remove --id product-id [--force]
 
 ```bash
 # Interactive mode
-npm run update:categories
+bun run update:categories
 
 # List categories
-npm run update:categories -- --operation list [--featured] [--format json|table]
+bun run update:categories -- --operation list [--featured] [--format json|table]
 
 # Add category (auto-generated ID from name)
-npm run update:categories -- --operation add \
+bun run update:categories -- --operation add \
     --name "New Category" \
     --description "Category description" \
     --featured true \
     --priority 5
 
 # Modify category
-npm run update:categories -- --operation modify \
+bun run update:categories -- --operation modify \
     --id "category-id" \
     --description "Updated description" \
     --priority 2
 
 # Remove category (strict checks for mainCategory usage)
-npm run update:categories -- --operation remove --id "category-id" [--force]
+bun run update:categories -- --operation remove --id "category-id" [--force]
 
 # Remove all unused categories
-npm run update:categories -- --operation remove-unused [--force]
+bun run update:categories -- --operation remove-unused [--force]
 ```
 
 **Script:** `scripts/update-categories.ts`
@@ -143,29 +143,29 @@ npm run update:categories -- --operation remove-unused [--force]
 
 ```bash
 # Interactive mode
-npm run update:tags
+bun run update:tags
 
 # List tags
-npm run update:tags -- --operation list [--featured] [--format json|table]
+bun run update:tags -- --operation list [--featured] [--format json|table]
 
 # Add tag (auto-generated ID from name)
-npm run update:tags -- --operation add \
+bun run update:tags -- --operation add \
     --name "Machine Learning" \
     --description "ML and AI training" \
     --featured true \
     --priority 6
 
 # Modify tag
-npm run update:tags -- --operation modify \
+bun run update:tags -- --operation modify \
     --id "tag-id" \
     --description "Updated description" \
     --priority 3
 
 # Remove tag (checks product usage)
-npm run update:tags -- --operation remove --id "tag-id" [--force]
+bun run update:tags -- --operation remove --id "tag-id" [--force]
 
 # Remove all unused tags
-npm run update:tags -- --operation remove-unused [--force]
+bun run update:tags -- --operation remove-unused [--force]
 ```
 
 **Script:** `scripts/update-tags.ts`
@@ -176,10 +176,10 @@ npm run update:tags -- --operation remove-unused [--force]
 
 ```bash
 # Interactive mode (prompts for all fields)
-npm run update:promotion
+bun run update:promotion
 
 # CLI arguments mode (non-interactive)
-npm run update:promotion -- \
+bun run update:promotion -- \
     --behavior PROMOTIONS \
     --text "🎉 Sale!" \
     --link "https://store.dsebastien.net/" \
@@ -203,14 +203,14 @@ npm run update:promotion -- \
 
 ```bash
 # Validate all configurations
-npm run validate:all
+bun run validate:all
 
 # Validate individual components
-npm run validate:products       # Validates product data and schema
-npm run validate:categories     # Validates category data and schema
-npm run validate:tags          # Validates tag data and schema
-npm run validate:promotion     # Validates promotion banner configuration
-npm run validate:relationships # Validates cross-references between data
+bun run validate:products       # Validates product data and schema
+bun run validate:categories     # Validates category data and schema
+bun run validate:tags          # Validates tag data and schema
+bun run validate:promotion     # Validates promotion banner configuration
+bun run validate:relationships # Validates cross-references between data
 ```
 
 **Validation Scripts:**
@@ -227,38 +227,38 @@ npm run validate:relationships # Validates cross-references between data
 
 ```bash
 # Run linter
-npm run lint
+bun run lint
 
 # Format code
-npm run format
+bun run format
 
 # Type check
-npm run tsc
+bun run tsc
 
 # Watch mode type checking
-npm run tsc:watch   # or npm run tscw
+bun run tsc:watch   # or bun run tscw
 
 # Run tests (watch mode)
-npm test
+bun test
 
 # Run tests once
-npm run test:run
+bun run test:run
 
 # Run tests with UI
-npm run test:ui
+bun run test:ui
 
 # Generate coverage report
-npm run test:coverage
+bun run test:coverage
 
 # Preview production build
-npm run preview
+bun run preview
 ```
 
 ### Product Data Workflow
 
 1. **Edit individual product file** - `src/data/products/{product-id}.json`
-2. **Aggregate products** - `npm run aggregate:products` (auto-runs before dev/build)
-3. **Validate changes** - `npm run validate:products`
+2. **Aggregate products** - `bun run aggregate:products` (auto-runs before dev/build)
+3. **Validate changes** - `bun run validate:products`
 4. **Fix errors** - Address validation issues
 5. **Commit** - When validation passes
 
@@ -267,16 +267,16 @@ npm run preview
 Run all checks before committing:
 
 ```bash
-npm run ci:local
+bun run ci:local
 ```
 
 This runs:
 
-- Linting (`npm run lint`)
-- Type checking (`npm run tsc`)
-- Tests (`npm run test:run`)
-- All validations (`npm run validate:all`)
-- Production build (`npm run build`)
+- Linting (`bun run lint`)
+- Type checking (`bun run tsc`)
+- Tests (`bun run test:run`)
+- All validations (`bun run validate:all`)
+- Production build (`bun run build`)
 
 ## Testing
 
@@ -286,25 +286,25 @@ This runs:
 
 - All test files must be co-located with source files
 - Naming: `filename.spec.ts` or `filename.spec.tsx`
-- Framework: Vitest + React Testing Library + Jest DOM
+- Framework: Bun test (built-in test runner) + React Testing Library + Jest DOM + Happy DOM
 
 ### Running Tests
 
 ```bash
 # Watch mode (for development)
-npm test
+bun test
 
 # Run all tests once
-npm run test:run
+bun run test:run
 
 # Run with UI
-npm run test:ui
+bun run test:ui
 
 # Generate coverage report
-npm run test:coverage
+bun run test:coverage
 
 # Run specific test file
-npm test -- src/lib/utils.spec.ts
+bun test -- src/lib/utils.spec.ts
 ```
 
 ### Coverage Requirements
@@ -318,7 +318,7 @@ npm test -- src/lib/utils.spec.ts
 ### Creating a Release
 
 ```bash
-npm run release
+bun run release
 ```
 
 This script:
@@ -379,40 +379,41 @@ store-website/
 - **Format**: Individual JSON files per product
 - **Location**: `src/data/products/{product-id}.json`
 - **Aggregation**: Auto-generated `products.json` (gitignored)
-- **CLI**: `npm run update:products`
-- **Validation**: `npm run validate:products`
+- **CLI**: `bun run update:products`
+- **Validation**: `bun run validate:products`
 
 ### Categories (23 categories)
 
 - **Format**: Array in single JSON file
 - **Location**: `src/data/categories.json`
-- **CLI**: `npm run update:categories`
-- **Validation**: `npm run validate:categories`
+- **CLI**: `bun run update:categories`
+- **Validation**: `bun run validate:categories`
 
 ### Tags (96 tags)
 
 - **Format**: Object/map in single JSON file
 - **Location**: `src/data/tags.json`
-- **CLI**: `npm run update:tags`
-- **Validation**: `npm run validate:tags`
+- **CLI**: `bun run update:tags`
+- **Validation**: `bun run validate:tags`
 
 ### Promotion Banner
 
 - **Format**: Single configuration object
 - **Location**: `src/data/promotion.json`
-- **CLI**: `npm run update:promotion`
-- **Validation**: `npm run validate:promotion`
+- **CLI**: `bun run update:promotion`
+- **Validation**: `bun run validate:promotion`
 
 ## Tech Stack
 
+- **Runtime & Package Manager**: Bun
 - **Framework**: React 19
-- **Build Tool**: Vite
+- **Build Tool**: Bun (native bundler)
 - **Styling**: Tailwind CSS v4
 - **Language**: TypeScript
 - **Routing**: React Router 7 (HashRouter for GitHub Pages)
 - **Icons**: React Icons
 - **Validation**: Zod
-- **Testing**: Vitest + React Testing Library
+- **Testing**: Bun test + React Testing Library + Happy DOM
 - **CLI**: Inquirer (interactive prompts)
 - **Deployment**: GitHub Pages
 
@@ -420,7 +421,7 @@ store-website/
 
 1. Create a feature branch
 2. Make changes with tests
-3. Run `npm run ci:local` to verify
+3. Run `bun run ci:local` to verify
 4. Commit using conventional commits
 5. Create a pull request
 

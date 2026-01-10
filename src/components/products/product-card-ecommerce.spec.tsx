@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { describe, it, expect, beforeEach, afterEach, mock, spyOn } from 'bun:test'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCardEcommerce from './product-card-ecommerce'
 import type { Product } from '@/types/product'
@@ -50,7 +50,6 @@ const renderWithRouter = (component: React.ReactElement) => {
 
 describe('ProductCardEcommerce Component', () => {
     beforeEach(() => {
-        vi.clearAllMocks()
         localStorage.clear()
     })
 
@@ -60,60 +59,62 @@ describe('ProductCardEcommerce Component', () => {
 
     it('should render product name and tagline', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('Test Product')).toBeInTheDocument()
-        expect(screen.getByText('This is a test product tagline')).toBeInTheDocument()
+        expect(getByText('Test Product')).toBeInTheDocument()
+        expect(getByText('This is a test product tagline')).toBeInTheDocument()
     })
 
     it('should display price correctly', () => {
         const product = createMockProduct({ price: 49.99, priceDisplay: '€49.99' })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('€49.99')).toBeInTheDocument()
+        expect(getByText('€49.99')).toBeInTheDocument()
     })
 
     it('should show FREE for free products', () => {
         const product = createMockProduct({ price: 0, priceTier: 'free' })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText, getAllByText } = renderWithRouter(
+            <ProductCardEcommerce product={product} />
+        )
 
-        expect(screen.getAllByText('FREE')).toHaveLength(2) // Badge + price
-        expect(screen.getByText('Get')).toBeInTheDocument()
+        expect(getAllByText('FREE')).toHaveLength(2) // Badge + price
+        expect(getByText('Get')).toBeInTheDocument()
     })
 
     it('should show Buy button for paid products', () => {
         const product = createMockProduct({ price: 99.99 })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('Buy')).toBeInTheDocument()
+        expect(getByText('Buy')).toBeInTheDocument()
     })
 
     it('should show FEATURED badge for featured products', () => {
         const product = createMockProduct({ featured: true })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('FEATURED')).toBeInTheDocument()
+        expect(getByText('FEATURED')).toBeInTheDocument()
     })
 
     it('should show BESTSELLER badge for bestseller products', () => {
         const product = createMockProduct({ bestseller: true })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('BESTSELLER')).toBeInTheDocument()
+        expect(getByText('BESTSELLER')).toBeInTheDocument()
     })
 
     it('should show BEST VALUE badge for bestValue products', () => {
         const product = createMockProduct({ bestValue: true })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('BEST VALUE')).toBeInTheDocument()
+        expect(getByText('BEST VALUE')).toBeInTheDocument()
     })
 
     it('should show BUNDLE badge for bundle products', () => {
         const product = createMockProduct({ mainCategory: 'bundles' })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('BUNDLE')).toBeInTheDocument()
+        expect(getByText('BUNDLE')).toBeInTheDocument()
     })
 
     it('should display cover image when provided', () => {
@@ -127,17 +128,19 @@ describe('ProductCardEcommerce Component', () => {
 
     it('should show placeholder emoji when no cover image', () => {
         const product = createMockProduct({ coverImage: undefined })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('📦')).toBeInTheDocument()
+        expect(getByText('📦')).toBeInTheDocument()
     })
 
     it('should call onAddToCart when Buy button is clicked', () => {
-        const onAddToCart = vi.fn()
+        const onAddToCart = mock(() => {})
         const product = createMockProduct()
-        renderWithRouter(<ProductCardEcommerce product={product} onAddToCart={onAddToCart} />)
+        const { getByText } = renderWithRouter(
+            <ProductCardEcommerce product={product} onAddToCart={onAddToCart} />
+        )
 
-        const buyButton = screen.getByText('Buy')
+        const buyButton = getByText('Buy')
         fireEvent.click(buyButton)
 
         expect(onAddToCart).toHaveBeenCalledTimes(1)
@@ -148,33 +151,33 @@ describe('ProductCardEcommerce Component', () => {
             id: 'my-product',
             gumroadUrl: 'https://gumroad.com/l/my-product'
         })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        const buyButton = screen.getByText('Buy')
+        const buyButton = getByText('Buy')
         expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/l/my-product?wanted=true')
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
 
     it('should have Quick View overlay on hover', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(screen.getByText('Quick View')).toBeInTheDocument()
+        expect(getByText('Quick View')).toBeInTheDocument()
     })
 
     it('should display wishlist button', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        const wishlistButton = screen.getByLabelText('Add to wishlist')
+        const wishlistButton = getByLabelText('Add to wishlist')
         expect(wishlistButton).toBeInTheDocument()
     })
 
     it('should prevent event propagation on wishlist button click', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        const wishlistButton = screen.getByLabelText('Add to wishlist')
+        const wishlistButton = getByLabelText('Add to wishlist')
 
         fireEvent.click(wishlistButton)
         // Just verify button is clickable
@@ -191,9 +194,9 @@ describe('ProductCardEcommerce Component', () => {
 
     it('should link to product detail page', () => {
         const product = createMockProduct({ id: 'test-123' })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { getAllByRole } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        const links = screen.getAllByRole('link')
+        const links = getAllByRole('link')
         const productLinks = links.filter((link) => link.getAttribute('href') === '/l/test-123')
         expect(productLinks.length).toBeGreaterThan(0)
     })
@@ -206,18 +209,17 @@ describe('ProductCardEcommerce Component', () => {
                 { id: 'productivity', distant: true } // This one should not be visible
             ]
         })
-        renderWithRouter(<ProductCardEcommerce product={product} />)
+        const { container } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         // Should show mainCategory and non-distant secondaryCategories
         // The actual category names depend on the categories.json data
-        const { container } = renderWithRouter(<ProductCardEcommerce product={product} />)
         const categoryLinks = container.querySelectorAll('a[href^="/categories/"]')
         expect(categoryLinks.length).toBeGreaterThan(0)
     })
 
     describe('Wishlist integration', () => {
         it('should check wishlist status on mount', () => {
-            const isInWishlistSpy = vi.spyOn(wishlistUtils, 'isInWishlist')
+            const isInWishlistSpy = spyOn(wishlistUtils, 'isInWishlist')
             isInWishlistSpy.mockReturnValue(false)
 
             const product = createMockProduct({ id: 'test-product' })
@@ -227,38 +229,38 @@ describe('ProductCardEcommerce Component', () => {
         })
 
         it('should show outline heart when not in wishlist', () => {
-            const isInWishlistSpy = vi.spyOn(wishlistUtils, 'isInWishlist')
+            const isInWishlistSpy = spyOn(wishlistUtils, 'isInWishlist')
             isInWishlistSpy.mockReturnValue(false)
 
             const product = createMockProduct()
-            renderWithRouter(<ProductCardEcommerce product={product} />)
+            const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-            const wishlistButton = screen.getByLabelText('Add to wishlist')
+            const wishlistButton = getByLabelText('Add to wishlist')
             expect(wishlistButton).toBeInTheDocument()
         })
 
         it('should show filled heart when in wishlist', () => {
-            const isInWishlistSpy = vi.spyOn(wishlistUtils, 'isInWishlist')
+            const isInWishlistSpy = spyOn(wishlistUtils, 'isInWishlist')
             isInWishlistSpy.mockReturnValue(true)
 
             const product = createMockProduct()
-            renderWithRouter(<ProductCardEcommerce product={product} />)
+            const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-            const wishlistButton = screen.getByLabelText('Remove from wishlist')
+            const wishlistButton = getByLabelText('Remove from wishlist')
             expect(wishlistButton).toBeInTheDocument()
         })
 
         it('should toggle wishlist when heart button is clicked', async () => {
-            const isInWishlistSpy = vi.spyOn(wishlistUtils, 'isInWishlist')
-            const toggleWishlistSpy = vi.spyOn(wishlistUtils, 'toggleWishlist')
+            const isInWishlistSpy = spyOn(wishlistUtils, 'isInWishlist')
+            const toggleWishlistSpy = spyOn(wishlistUtils, 'toggleWishlist')
 
             isInWishlistSpy.mockReturnValue(false)
             toggleWishlistSpy.mockReturnValue(true) // Simulate adding to wishlist
 
             const product = createMockProduct({ id: 'test-product' })
-            renderWithRouter(<ProductCardEcommerce product={product} />)
+            const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-            const wishlistButton = screen.getByLabelText('Add to wishlist')
+            const wishlistButton = getByLabelText('Add to wishlist')
             fireEvent.click(wishlistButton)
 
             await waitFor(() => {
@@ -267,26 +269,26 @@ describe('ProductCardEcommerce Component', () => {
         })
 
         it('should update aria-label after toggling wishlist', async () => {
-            const isInWishlistSpy = vi.spyOn(wishlistUtils, 'isInWishlist')
-            const toggleWishlistSpy = vi.spyOn(wishlistUtils, 'toggleWishlist')
+            const isInWishlistSpy = spyOn(wishlistUtils, 'isInWishlist')
+            const toggleWishlistSpy = spyOn(wishlistUtils, 'toggleWishlist')
 
             isInWishlistSpy.mockReturnValue(false)
             toggleWishlistSpy.mockReturnValue(true)
 
             const product = createMockProduct()
-            renderWithRouter(<ProductCardEcommerce product={product} />)
+            const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-            let wishlistButton = screen.getByLabelText('Add to wishlist')
+            let wishlistButton = getByLabelText('Add to wishlist')
             fireEvent.click(wishlistButton)
 
             await waitFor(() => {
-                wishlistButton = screen.getByLabelText('Remove from wishlist')
+                wishlistButton = getByLabelText('Remove from wishlist')
                 expect(wishlistButton).toBeInTheDocument()
             })
         })
 
         it('should update when product ID changes', async () => {
-            const isInWishlistSpy = vi.spyOn(wishlistUtils, 'isInWishlist')
+            const isInWishlistSpy = spyOn(wishlistUtils, 'isInWishlist')
             isInWishlistSpy.mockReturnValue(false)
 
             const product1 = createMockProduct({ id: 'product-1' })
@@ -308,10 +310,10 @@ describe('ProductCardEcommerce Component', () => {
 
         it('should prevent event propagation when wishlist button is clicked', () => {
             const product = createMockProduct()
-            renderWithRouter(<ProductCardEcommerce product={product} />)
+            const { getByLabelText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-            const wishlistButton = screen.getByLabelText('Add to wishlist')
-            const stopPropagationSpy = vi.fn()
+            const wishlistButton = getByLabelText('Add to wishlist')
+            const stopPropagationSpy = mock(() => {})
 
             // Create a custom event with spy
             const clickEvent = new MouseEvent('click', { bubbles: true })

@@ -83,7 +83,7 @@ The easiest way to update promotion configuration is using the interactive CLI t
 
 **Interactive Mode:**
 ```bash
-npm run update:promotion
+bun run update:promotion
 ```
 
 This launches an interactive wizard that:
@@ -99,13 +99,13 @@ For automation or quick updates without prompts:
 
 ```bash
 # Create a new promotion
-npm run update:promotion -- --behavior PROMOTIONS --text "🎉 Spring Sale! 30% off" --link "https://store.dsebastien.net/" --linkText "Shop Now →" --code "SPRING30" --start "2026-03-01" --duration 14
+bun run update:promotion -- --behavior PROMOTIONS --text "🎉 Spring Sale! 30% off" --link "https://store.dsebastien.net/" --linkText "Shop Now →" --code "SPRING30" --start "2026-03-01" --duration 14
 
 # Disable banner
-npm run update:promotion -- --behavior NEVER --text "" --link "https://store.dsebastien.net/"
+bun run update:promotion -- --behavior NEVER --text "" --link "https://store.dsebastien.net/"
 
 # Always-on announcement
-npm run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/l/product" --linkText "Check it out"
+bun run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/l/product" --linkText "Check it out"
 ```
 
 **Arguments:**
@@ -131,26 +131,26 @@ Alternatively, you can manually edit the config file:
 
 1. **Open the config file** at `src/data/promotion.json`
 2. **Edit the configuration** following the schema
-3. **Run validation** using `npm run validate:promotion`
+3. **Run validation** using `bun run validate:promotion`
 4. **Fix any errors** reported by the validation script
-5. **Test locally** with `npm run dev`
+5. **Test locally** with `bun dev`
 6. **Commit changes** when validated
 
 ### Commands
 
 **Update Promotion (Interactive):**
 ```bash
-npm run update:promotion
+bun run update:promotion
 ```
 
 **Update Promotion (CLI Arguments):**
 ```bash
-npm run update:promotion -- --behavior <ALWAYS|NEVER|PROMOTIONS> --text "..." --link "..." [options]
+bun run update:promotion -- --behavior <ALWAYS|NEVER|PROMOTIONS> --text "..." --link "..." [options]
 ```
 
 **Validate Promotion:**
 ```bash
-npm run validate:promotion
+bun run validate:promotion
 ```
 
 This command:
@@ -161,7 +161,7 @@ This command:
 
 **Validate All:**
 ```bash
-npm run validate:all
+bun run validate:all
 ```
 
 Validates promotion along with products, categories, tags, and relationships.
@@ -193,12 +193,12 @@ The schema enforces:
 
 **Using CLI (Recommended):**
 ```bash
-npm run update:promotion -- --behavior PROMOTIONS --text "🎉 Sale! 20% off" --link "https://store.dsebastien.net/" --linkText "Shop Now →" --code "SALE20" --start "2026-02-01" --duration 30
+bun run update:promotion -- --behavior PROMOTIONS --text "🎉 Sale! 20% off" --link "https://store.dsebastien.net/" --linkText "Shop Now →" --code "SALE20" --start "2026-02-01" --duration 30
 ```
 
 **Using Interactive Mode:**
 ```bash
-npm run update:promotion
+bun run update:promotion
 # Follow the prompts
 ```
 
@@ -208,13 +208,13 @@ npm run update:promotion
 3. Update `promoText` with your message
 4. Set `promoLink` to destination
 5. Optionally add `promoLinkText` and `discountCode`
-6. Validate with `npm run validate:promotion`
+6. Validate with `bun run validate:promotion`
 
 ### Disable the Banner
 
 **Using CLI:**
 ```bash
-npm run update:promotion -- --behavior NEVER --text "" --link "https://store.dsebastien.net/"
+bun run update:promotion -- --behavior NEVER --text "" --link "https://store.dsebastien.net/"
 ```
 
 **Manual Editing:**
@@ -224,7 +224,7 @@ Set `bannerBehavior` to `NEVER` (keep other fields for reference)
 
 **Using CLI:**
 ```bash
-npm run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/l/product" --linkText "Learn more"
+bun run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/l/product" --linkText "Learn more"
 ```
 
 **Manual Editing:**

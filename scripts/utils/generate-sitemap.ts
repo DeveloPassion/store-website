@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 /**
  * Generates a sitemap.xml for the store website.
  * Includes the homepage, all product detail pages, and all tag pages.

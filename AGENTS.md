@@ -4,7 +4,7 @@ This document provides instructions for AI agents and developers on how to maint
 
 ## Project Overview
 
-Static website built with React 19+, TypeScript, Vite, Tailwind CSS v4, React Router (HashRouter), and React Icons. Features include product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), and fully responsive design.
+Static website built with React 19+, TypeScript, Bun, Tailwind CSS v4, React Router (HashRouter), and React Icons. Features include product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), and fully responsive design.
 
 ## Product Display
 
@@ -60,8 +60,8 @@ All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) fo
 
 **Common Workflow:**
 
-1. Use CLI tool (`npm run update:<entity>`) or edit JSON directly
-2. Validate (`npm run validate:<entity>`)
+1. Use CLI tool (`bun run update:<entity>`) or edit JSON directly
+2. Validate (`bun run validate:<entity>`)
 3. Fix errors if any
 4. Commit changes
 
@@ -72,10 +72,10 @@ Products are ~50 field JSON files in `/src/data/products/{product-id}.json`. Aut
 **Quick Commands:**
 
 ```bash
-npm run update:products               # Interactive CLI
-npm run update:products -- --operation list [--featured|--category X|--tag Y]
-npm run update:products -- --operation add|edit|remove [options]
-npm run validate:products             # Validate after changes
+bun run update:products               # Interactive CLI
+bun run update:products -- --operation list [--featured|--category X|--tag Y]
+bun run update:products -- --operation add|edit|remove [options]
+bun run validate:products             # Validate after changes
 ```
 
 **Product Structure** (50 fields):
@@ -120,9 +120,9 @@ Configuration in `src/data/promotion.json` (not gitignored).
 **Quick Commands:**
 
 ```bash
-npm run update:promotion              # Interactive
-npm run update:promotion -- --behavior PROMOTIONS --text "..." --link "..." --start "2026-01-01" --duration 30
-npm run validate:promotion
+bun run update:promotion              # Interactive
+bun run update:promotion -- --behavior PROMOTIONS --text "..." --link "..." --start "2026-01-01" --duration 30
+bun run validate:promotion
 ```
 
 **Fields**: bannerBehavior, promotionStart/End (ISO 8601 UTC), promoText, promoLinkText, promoLink, discountCode
@@ -134,9 +134,9 @@ npm run validate:promotion
 **Quick Commands:**
 
 ```bash
-npm run update:tags                   # Interactive
-npm run update:tags -- --operation list|add|modify|remove|remove-unused [options]
-npm run validate:tags
+bun run update:tags                   # Interactive
+bun run update:tags -- --operation list|add|modify|remove|remove-unused [options]
+bun run validate:tags
 ```
 
 **Structure**: id, name, description, icon, color (#RRGGBB), featured, priority
@@ -150,9 +150,9 @@ npm run validate:tags
 **Quick Commands:**
 
 ```bash
-npm run update:categories             # Interactive
-npm run update:categories -- --operation list|add|modify|remove|remove-unused [options]
-npm run validate:categories
+bun run update:categories             # Interactive
+bun run update:categories -- --operation list|add|modify|remove|remove-unused [options]
+bun run validate:categories
 ```
 
 **Structure**: id, name, description, icon, color, featured, priority
@@ -168,8 +168,8 @@ Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.j
 **Quick Commands:**
 
 ```bash
-npm run manage:product-content        # Interactive (via Store CLI)
-npm run manage:product-content -- --product=<id> --type=faqs|testimonials
+bun run manage:product-content        # Interactive (via Store CLI)
+bun run manage:product-content -- --product=<id> --type=faqs|testimonials
 ```
 
 **FAQ Fields**: id, question, answer, order
@@ -181,7 +181,7 @@ CLI provides: list, add, edit, delete, auto-sorting, schema validation.
 
 **CRITICAL**: Comprehensive testing mandatory for all code. Tests must be co-located with source files.
 
-**Framework**: Vitest, React Testing Library, Jest DOM
+**Framework**: Bun test (built-in test runner), React Testing Library, Jest DOM, Happy DOM
 
 **Naming**: `filename.spec.ts` (unit), `filename.spec.tsx` (components), `filename.integration.spec.ts` (integration)
 
@@ -201,10 +201,10 @@ CLI provides: list, add, edit, delete, auto-sorting, schema validation.
 **Commands:**
 
 ```bash
-npm test                              # Watch mode
-npm run test:run                      # Run once
-npm run test:ui                       # UI mode
-npm run test:coverage                 # Coverage report
+bun test                              # Watch mode
+bun run test:run                      # Run once
+bun run test:ui                       # UI mode
+bun run test:coverage                 # Coverage report
 ```
 
 **CI/CD**: All tests must pass before merge/deploy/release.
@@ -214,19 +214,19 @@ npm run test:coverage                 # Coverage report
 ## Development Commands
 
 ```bash
-npm run store                         # Store CLI (all management tools)
-npm run dev                           # Dev server (auto-aggregates)
-npm run build                         # Production build
-npm run lint / format / tsc           # Code quality
-npm test / test:run / test:coverage   # Testing
-npm run validate:all                  # Validate all data
-npm run ci:local                      # Full CI checks locally
-npm run release                       # Deploy to GitHub Pages
+bun run store                         # Store CLI (all management tools)
+bun dev                           # Dev server (auto-aggregates)
+bun run build                         # Production build
+bun run lint / format / tsc           # Code quality
+bun test / test:run / test:coverage   # Testing
+bun run validate:all                  # Validate all data
+bun run ci:local                      # Full CI checks locally
+bun run release                       # Deploy to GitHub Pages
 ```
 
 ## Deployment
 
-Auto-deploy to GitHub Pages on tag push. Run `npm run release` and follow prompts. CHANGELOG.md is auto-generated from conventional commits.
+Auto-deploy to GitHub Pages on tag push. Run `bun run release` and follow prompts. CHANGELOG.md is auto-generated from conventional commits.
 
 ## Key Components
 
@@ -242,9 +242,9 @@ Keyboard navigation, ARIA labels, focus management, command palette shortcuts, s
 ## Best Practices
 
 1. Write tests first (mandatory)
-2. Run `npm run ci:local` before committing
+2. Run `bun run ci:local` before committing
 3. Keep descriptions concise (1-2 sentences)
-4. Validate data after edits (`npm run validate:all`)
+4. Validate data after edits (`bun run validate:all`)
 5. Use conventional commits
 6. Don't edit CHANGELOG.md (auto-generated)
 7. **Backwards Compatibility**: When there is a question of backwards compatibility (e.g., renaming routes, changing URLs, renaming fields), ALWAYS ASK the user whether they want to maintain backwards compatibility or if breaking changes are acceptable. Do not assume either way.
@@ -253,7 +253,7 @@ Keyboard navigation, ARIA labels, focus management, command palette shortcuts, s
 **Pre-Commit Checklist:**
 
 ```bash
-npm run ci:local  # Runs: tests, lint, tsc, validate:all, build, format
+bun run ci:local  # Runs: tests, lint, tsc, validate:all, build, format
 ```
 
 ## Claude Code Skills

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'bun:test'
 import { buildGumroadUrl } from './gumroad-url'
 
 describe('buildGumroadUrl', () => {

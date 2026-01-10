@@ -1,10 +1,10 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, beforeEach, afterEach, mock } from 'bun:test'
+import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import NotFoundPage from './not-found'
 
 // Mock products data
-vi.mock('@/data/products.json', () => ({
+mock.module('@/data/products.json', () => ({
     default: [
         {
             id: 'product-1',
@@ -140,24 +140,24 @@ describe('NotFoundPage Component', () => {
     })
 
     it('should render 404 heading', () => {
-        renderWithRouter(<NotFoundPage />)
-        expect(screen.getByText('404 - Page Not Found')).toBeInTheDocument()
+        const { getByText } = renderWithRouter(<NotFoundPage />)
+        expect(getByText('404 - Page Not Found')).toBeInTheDocument()
     })
 
     it('should render error message', () => {
-        renderWithRouter(<NotFoundPage />)
-        expect(screen.getByText(/The page you're looking for doesn't exist/i)).toBeInTheDocument()
+        const { getByText } = renderWithRouter(<NotFoundPage />)
+        expect(getByText(/The page you're looking for doesn't exist/i)).toBeInTheDocument()
     })
 
     it('should render navigation links', () => {
-        renderWithRouter(<NotFoundPage />)
+        const { getAllByRole } = renderWithRouter(<NotFoundPage />)
 
         // Check for main navigation buttons using getAllByRole
-        const homeLinks = screen.getAllByRole('link', { name: /Go Home/i })
+        const homeLinks = getAllByRole('link', { name: /Go Home/i })
         expect(homeLinks.length).toBeGreaterThan(0)
         expect(homeLinks[0]).toHaveAttribute('href', '/')
 
-        const productsLinks = screen.getAllByRole('link', { name: /All Products/i })
+        const productsLinks = getAllByRole('link', { name: /All Products/i })
         expect(productsLinks.length).toBeGreaterThan(0)
         const topProductsLink = productsLinks.find((link) =>
             link.className.includes('border-primary/20')
@@ -166,12 +166,12 @@ describe('NotFoundPage Component', () => {
     })
 
     it('should render popular destinations section', () => {
-        renderWithRouter(<NotFoundPage />)
+        const { getByRole, getAllByRole } = renderWithRouter(<NotFoundPage />)
 
-        expect(screen.getByRole('heading', { name: /Popular Destinations/i })).toBeInTheDocument()
+        expect(getByRole('heading', { name: /Popular Destinations/i })).toBeInTheDocument()
 
         // Check for card headings
-        const headings = screen.getAllByRole('heading', { level: 3 })
+        const headings = getAllByRole('heading', { level: 3 })
         const headingTexts = headings.map((h) => h.textContent)
         expect(headingTexts).toContain('Featured Products')
         expect(headingTexts).toContain('Best Value')
@@ -180,9 +180,9 @@ describe('NotFoundPage Component', () => {
     })
 
     it('should render links to featured, best-value, and best-sellers pages', () => {
-        renderWithRouter(<NotFoundPage />)
+        const { getAllByRole } = renderWithRouter(<NotFoundPage />)
 
-        const links = screen.getAllByRole('link')
+        const links = getAllByRole('link')
 
         const featuredLink = links.find((link) => link.getAttribute('href') === '/featured')
         expect(featuredLink).toBeInTheDocument()
@@ -195,18 +195,18 @@ describe('NotFoundPage Component', () => {
     })
 
     it('should render featured products when available', () => {
-        renderWithRouter(<NotFoundPage />)
+        const { getByText } = renderWithRouter(<NotFoundPage />)
 
         // Should show featured products section
-        expect(screen.getByText('Featured Product 1')).toBeInTheDocument()
-        expect(screen.getByText('Featured Product 2')).toBeInTheDocument()
+        expect(getByText('Featured Product 1')).toBeInTheDocument()
+        expect(getByText('Featured Product 2')).toBeInTheDocument()
     })
 
     it('should limit featured products to 6', () => {
-        renderWithRouter(<NotFoundPage />)
+        const { getAllByText } = renderWithRouter(<NotFoundPage />)
 
         // With our mock data (2 products), both should be visible
-        const productCards = screen.getAllByText(/Featured Product/i)
+        const productCards = getAllByText(/Featured Product/i)
         expect(productCards.length).toBeLessThanOrEqual(6)
     })
 
@@ -266,8 +266,8 @@ describe('NotFoundPage Component', () => {
     })
 
     it('should render "View All Featured Products" link', () => {
-        renderWithRouter(<NotFoundPage />)
-        const viewAllLink = screen.getByText('View All Featured Products →')
+        const { getByText } = renderWithRouter(<NotFoundPage />)
+        const viewAllLink = getByText('View All Featured Products →')
         expect(viewAllLink).toBeInTheDocument()
         expect(viewAllLink).toHaveAttribute('href', '/featured')
     })

@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Validate cross-product relationships and references
@@ -12,7 +12,7 @@
  *
  * Usage:
  *   npm run validate:relationships
- *   tsx scripts/validate-relationships.ts
+ *   bun scripts/validate-relationships.ts
  *
  * Exit codes:
  *   0 - All relationships are valid

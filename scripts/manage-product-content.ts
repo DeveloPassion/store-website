@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Interactive CLI tool to manage product FAQs and testimonials
@@ -6,7 +6,7 @@
  * Usage:
  *   Interactive mode:
  *     npm run manage:product-content
- *     tsx scripts/manage-product-content.ts
+ *     bun scripts/manage-product-content.ts
  *
  *   CLI arguments mode:
  *     npm run manage:product-content -- --operation list --product product-id --type faqs

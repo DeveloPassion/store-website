@@ -1,11 +1,11 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'bun:test'
+import { render } from '@testing-library/react'
 import Section from './section'
 
 describe('Section Component', () => {
     it('should render children correctly', () => {
-        render(<Section>Test Content</Section>)
-        expect(screen.getByText('Test Content')).toBeInTheDocument()
+        const { getByText } = render(<Section>Test Content</Section>)
+        expect(getByText('Test Content')).toBeInTheDocument()
     })
 
     it('should render as a section element', () => {
@@ -63,7 +63,7 @@ describe('Section Component', () => {
     })
 
     it('should handle complex children', () => {
-        render(
+        const { getByText } = render(
             <Section>
                 <div>
                     <h1>Title</h1>
@@ -71,7 +71,7 @@ describe('Section Component', () => {
                 </div>
             </Section>
         )
-        expect(screen.getByText('Title')).toBeInTheDocument()
-        expect(screen.getByText('Paragraph')).toBeInTheDocument()
+        expect(getByText('Title')).toBeInTheDocument()
+        expect(getByText('Paragraph')).toBeInTheDocument()
     })
 })

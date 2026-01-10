@@ -1,11 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, beforeEach, mock } from 'bun:test'
+import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCTA from './product-cta'
 import type { Product } from '@/types/product'
 
-// Mock framer-motion
-vi.mock('framer-motion', () => ({
+// Mock framer-motion - Bun will handle motion components automatically
+mock.module('framer-motion', () => ({
     motion: {
         div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
             // Filter out framer-motion specific props
@@ -59,50 +59,46 @@ const renderWithRouter = (component: React.ReactElement) => {
 }
 
 describe('ProductCTA Component', () => {
-    beforeEach(() => {
-        vi.clearAllMocks()
-    })
+    beforeEach(() => {})
 
     it('should render with product name', () => {
         const product = createMockProduct({ name: 'Awesome Product' })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('Buy Awesome Product Now')).toBeInTheDocument()
+        expect(getByText('Buy Awesome Product Now')).toBeInTheDocument()
     })
 
     it('should display product price', () => {
         const product = createMockProduct({ priceDisplay: '€149.99' })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('€149.99')).toBeInTheDocument()
+        expect(getByText('€149.99')).toBeInTheDocument()
     })
 
     it('should show headline and description', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('Ready to Get Started?')).toBeInTheDocument()
+        expect(getByText('Ready to Get Started?')).toBeInTheDocument()
         expect(
-            screen.getByText(
-                'Join thousands of satisfied users and transform the way you work today.'
-            )
+            getByText('Join thousands of satisfied users and transform the way you work today.')
         ).toBeInTheDocument()
     })
 
     it('should display one-time payment message', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('One-Time Payment')).toBeInTheDocument()
-        expect(screen.getByText('Lifetime access. No subscriptions.')).toBeInTheDocument()
+        expect(getByText('One-Time Payment')).toBeInTheDocument()
+        expect(getByText('Lifetime access. No subscriptions.')).toBeInTheDocument()
     })
 
     it('should have correct Gumroad URL with wanted=true parameter', () => {
         const product = createMockProduct({ gumroadUrl: 'https://gumroad.com/test-product' })
 
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = screen.getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product Now')
         expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/test-product?wanted=true')
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
@@ -112,9 +108,9 @@ describe('ProductCTA Component', () => {
             gumroadUrl: 'https://gumroad.com/test-product?discount=SAVE20'
         })
 
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = screen.getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product Now')
         expect(buyButton).toHaveAttribute(
             'href',
             'https://gumroad.com/test-product?discount=SAVE20&wanted=true'
@@ -124,30 +120,30 @@ describe('ProductCTA Component', () => {
     it('should use # as href when gumroadUrl is undefined', () => {
         const product = createMockProduct({ gumroadUrl: undefined })
 
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = screen.getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product Now')
         expect(buyButton).toHaveAttribute('href', '#')
     })
 
     it('should display trust badges', () => {
         const product = createMockProduct()
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('Secure Checkout')).toBeInTheDocument()
-        expect(screen.getByText('Safe Payment')).toBeInTheDocument()
-        expect(screen.getByText('All Cards Accepted')).toBeInTheDocument()
-        expect(screen.getByText('Money-Back Guarantee')).toBeInTheDocument()
+        expect(getByText('Secure Checkout')).toBeInTheDocument()
+        expect(getByText('Safe Payment')).toBeInTheDocument()
+        expect(getByText('All Cards Accepted')).toBeInTheDocument()
+        expect(getByText('Money-Back Guarantee')).toBeInTheDocument()
     })
 
     it('should display product guarantees when provided', () => {
         const product = createMockProduct({
             guarantees: ['30-Day Money Back', 'Lifetime Updates']
         })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('30-Day Money Back')).toBeInTheDocument()
-        expect(screen.getByText('Lifetime Updates')).toBeInTheDocument()
+        expect(getByText('30-Day Money Back')).toBeInTheDocument()
+        expect(getByText('Lifetime Updates')).toBeInTheDocument()
     })
 
     it('should not render guarantees section when empty', () => {
@@ -163,17 +159,17 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct({
             trustBadges: ['Trusted by 10,000+', 'Featured on Product Hunt']
         })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('Trusted by 10,000+')).toBeInTheDocument()
-        expect(screen.getByText('Featured on Product Hunt')).toBeInTheDocument()
+        expect(getByText('Trusted by 10,000+')).toBeInTheDocument()
+        expect(getByText('Featured on Product Hunt')).toBeInTheDocument()
     })
 
     it('should not render trust badges section when empty', () => {
         const product = createMockProduct({ trustBadges: [] })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.queryByText('Trusted by')).not.toBeInTheDocument()
+        expect(queryByText('Trusted by')).not.toBeInTheDocument()
     })
 
     it('should display stats proof when provided', () => {
@@ -184,20 +180,20 @@ describe('ProductCTA Component', () => {
                 timeSaved: '20 hours/month'
             }
         })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('10,000+')).toBeInTheDocument()
-        expect(screen.getByText('Happy Users')).toBeInTheDocument()
-        expect(screen.getByText('4.9/5')).toBeInTheDocument()
-        expect(screen.getByText('Average Rating')).toBeInTheDocument()
+        expect(getByText('10,000+')).toBeInTheDocument()
+        expect(getByText('Happy Users')).toBeInTheDocument()
+        expect(getByText('4.9/5')).toBeInTheDocument()
+        expect(getByText('Average Rating')).toBeInTheDocument()
     })
 
     it('should not render stats proof section when not provided', () => {
         const product = createMockProduct({ statsProof: undefined })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.queryByText('Happy Users')).not.toBeInTheDocument()
-        expect(screen.queryByText('Average Rating')).not.toBeInTheDocument()
+        expect(queryByText('Happy Users')).not.toBeInTheDocument()
+        expect(queryByText('Average Rating')).not.toBeInTheDocument()
     })
 
     it('should display stats proof partially when only some fields provided', () => {
@@ -206,18 +202,18 @@ describe('ProductCTA Component', () => {
                 userCount: '5,000+'
             }
         })
-        renderWithRouter(<ProductCTA product={product} />)
+        const { getByText, queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(screen.getByText('5,000+')).toBeInTheDocument()
-        expect(screen.getByText('Happy Users')).toBeInTheDocument()
-        expect(screen.queryByText('Average Rating')).not.toBeInTheDocument()
+        expect(getByText('5,000+')).toBeInTheDocument()
+        expect(getByText('Happy Users')).toBeInTheDocument()
+        expect(queryByText('Average Rating')).not.toBeInTheDocument()
     })
 
     it('should have proper styling classes', () => {
         const product = createMockProduct()
-        const { container } = renderWithRouter(<ProductCTA product={product} />)
+        const { container, getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = screen.getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product Now')
         expect(buyButton).toHaveClass('bg-secondary')
         expect(buyButton).toHaveClass('hover:bg-secondary/90')
 

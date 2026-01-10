@@ -2,7 +2,7 @@
  * Unit tests for featured-manager utility
  */
 
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'bun:test'
 import {
     FeaturedItem,
     RenumberConfig,

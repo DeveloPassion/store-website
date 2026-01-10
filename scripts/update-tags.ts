@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Interactive CLI tool to update tags configuration
@@ -9,7 +9,7 @@
  * Usage:
  *   Interactive mode:
  *     npm run update:tags
- *     tsx scripts/update-tags.ts
+ *     bun scripts/update-tags.ts
  *
  *   CLI arguments mode:
  *     npm run update:tags -- --operation list [--featured] [--format json|table]

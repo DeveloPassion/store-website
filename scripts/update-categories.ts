@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Interactive CLI tool to update categories configuration
@@ -9,7 +9,7 @@
  * Usage:
  *   Interactive mode:
  *     npm run update:categories
- *     tsx scripts/update-categories.ts
+ *     bun scripts/update-categories.ts
  *
  *   CLI arguments mode:
  *     npm run update:categories -- --operation list [--featured] [--format json|table]

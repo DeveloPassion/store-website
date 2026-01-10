@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, spyOn } from 'bun:test'
 import {
     sortProductsByPriority,
     sortProductsIntelligently,
@@ -49,7 +49,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
 describe('sortProductsByPriority', () => {
     beforeEach(() => {
         // Mock Math.random for consistent testing
-        vi.spyOn(Math, 'random').mockReturnValue(0.5)
+        spyOn(Math, 'random').mockReturnValue(0.5)
     })
 
     it('should sort products by priority (highest first)', () => {

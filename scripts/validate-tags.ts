@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Validate tags.json against the Zod schema
@@ -10,7 +10,7 @@
  *
  * Usage:
  *   npm run validate:tags
- *   tsx scripts/validate-tags.ts
+ *   bun scripts/validate-tags.ts
  *
  * Exit codes:
  *   0 - All tags are valid
@@ -162,7 +162,7 @@ function main() {
         })
         console.error(
             '\n💡 All tags used in products must have entries in tags.json\n' +
-                '   Run: npx tsx scripts/utils/generate-tags-metadata.ts to add missing tags\n'
+                '   Run: bun scripts/utils/generate-tags-metadata.ts to add missing tags\n'
         )
         process.exit(1)
     }

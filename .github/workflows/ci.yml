@@ -20,23 +20,20 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-                  cache: 'npm'
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Install dependencies
-              run: npm ci
+              run: bun install --frozen-lockfile
 
             - name: Aggregate products
-              run: npm run aggregate:products
+              run: bun run aggregate:products
 
             - name: Run ESLint
-              run: npm run lint
+              run: bun run lint
 
             - name: Check formatting with Prettier
-              run: npx prettier --check .
+              run: bunx prettier --check .
 
     # Type check job - TypeScript validation
     type-check:
@@ -47,20 +44,17 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-                  cache: 'npm'
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Install dependencies
-              run: npm ci
+              run: bun install --frozen-lockfile
 
             - name: Aggregate products
-              run: npm run aggregate:products
+              run: bun run aggregate:products
 
             - name: Run TypeScript type checking
-              run: npm run tsc
+              run: bun run tsc
 
     # Test job - Run all tests
     test:
@@ -71,23 +65,20 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-                  cache: 'npm'
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Install dependencies
-              run: npm ci
+              run: bun install --frozen-lockfile
 
             - name: Aggregate products
-              run: npm run aggregate:products
+              run: bun run aggregate:products
 
             - name: Run tests
-              run: npm run test:run
+              run: bun test
 
             - name: Generate coverage report
-              run: npm run test:coverage
+              run: bun test --coverage
               continue-on-error: true
 
             - name: Upload coverage reports to Codecov (optional)
@@ -109,35 +100,32 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-                  cache: 'npm'
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Install dependencies
-              run: npm ci
+              run: bun install --frozen-lockfile
 
             - name: Aggregate products
-              run: npm run aggregate:products
+              run: bun run aggregate:products
 
             - name: Validate categories
-              run: npm run validate:categories
+              run: bun run validate:categories
 
             - name: Validate tags
-              run: npm run validate:tags
+              run: bun run validate:tags
 
             - name: Validate promotion
-              run: npm run validate:promotion
+              run: bun run validate:promotion
 
             - name: Validate products
-              run: npm run validate:products
+              run: bun run validate:products
 
             - name: Validate relationships
-              run: npm run validate:relationships
+              run: bun run validate:relationships
 
             - name: Run all validations (combined)
-              run: npm run validate:all
+              run: bun run validate:all
 
     # Build job - Ensure project builds successfully
     build:
@@ -149,17 +137,14 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-                  cache: 'npm'
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Install dependencies
-              run: npm ci
+              run: bun install --frozen-lockfile
 
             - name: Build project
-              run: npm run build
+              run: bun run build
 
             - name: Upload build artifacts
               uses: actions/upload-artifact@v4

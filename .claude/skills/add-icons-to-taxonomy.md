@@ -94,10 +94,10 @@ The skill uses a vibrant, accessible color palette:
 
 ```bash
 # For tags
-npm run update:tags -- --operation list
+bun run update:tags -- --operation list
 
 # For categories
-npm run update:categories -- --operation list
+bun run update:categories -- --operation list
 ```
 
 Look for items with:
@@ -119,10 +119,10 @@ Use the CLI tools to update each item:
 
 ```bash
 # Update a tag
-npm run update:tags -- --operation modify --id "tag-id" --icon "IconName" --color "#HEX"
+bun run update:tags -- --operation modify --id "tag-id" --icon "IconName" --color "#HEX"
 
 # Update a category
-npm run update:categories -- --operation modify --id "category-id" --icon "IconName" --color "#HEX"
+bun run update:categories -- --operation modify --id "category-id" --icon "IconName" --color "#HEX"
 ```
 
 ## Icon Selection Guidelines
@@ -163,15 +163,15 @@ npm run update:categories -- --operation modify --id "category-id" --icon "IconN
 
 ```bash
 # Step 1: List all tags to find generic ones
-npm run update:tags -- --operation list | grep "FaTag"
+bun run update:tags -- --operation list | grep "FaTag"
 
 # Step 2: Update each one with appropriate icon and color
-npm run update:tags -- --operation modify --id "ai-prompts" --icon "FaLightbulb" --color "#EC4899"
-npm run update:tags -- --operation modify --id "automation" --icon "FaWrench" --color "#F59E0B"
-npm run update:tags -- --operation modify --id "beginners" --icon "FaGraduationCap" --color "#10B981"
+bun run update:tags -- --operation modify --id "ai-prompts" --icon "FaLightbulb" --color "#EC4899"
+bun run update:tags -- --operation modify --id "automation" --icon "FaWrench" --color "#F59E0B"
+bun run update:tags -- --operation modify --id "beginners" --icon "FaGraduationCap" --color "#10B981"
 
 # Step 3: Validate the changes
-npm run validate:tags
+bun run validate:tags
 ```
 
 ## Bulk Update Script Pattern
@@ -182,8 +182,8 @@ For updating many items at once, create a temporary bash script:
 #!/bin/bash
 # Bulk update taxonomy icons
 
-npm run update:tags -- --operation modify --id "item-1" --icon "IconName" --color "#HEX"
-npm run update:tags -- --operation modify --id "item-2" --icon "IconName" --color "#HEX"
+bun run update:tags -- --operation modify --id "item-1" --icon "IconName" --color "#HEX"
+bun run update:tags -- --operation modify --id "item-2" --icon "IconName" --color "#HEX"
 # ... more updates ...
 
 echo "✅ All items updated!"
@@ -232,13 +232,13 @@ After updating icons, always validate:
 
 ```bash
 # Validate tags
-npm run validate:tags
+bun run validate:tags
 
 # Validate categories
-npm run validate:categories
+bun run validate:categories
 
 # Validate all
-npm run validate:all
+bun run validate:all
 ```
 
 ## Tips

@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Interactive CLI tool to update promotion configuration
@@ -9,7 +9,7 @@
  * Usage:
  *   Interactive mode:
  *     npm run update:promotion
- *     tsx scripts/update-promotion.ts
+ *     bun scripts/update-promotion.ts
  *
  *   CLI arguments mode:
  *     npm run update:promotion -- --behavior PROMOTIONS --text "Sale!" --link "https://..." --start "2026-02-01" --duration 30

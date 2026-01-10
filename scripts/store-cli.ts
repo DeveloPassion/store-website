@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Store CLI - Interactive menu to access all store management tools
@@ -7,8 +7,8 @@
  * with an interactive menu interface.
  *
  * Usage:
- *   npm run store
- *   tsx scripts/store-cli.ts
+ *   bun run store
+ *   bun scripts/store-cli.ts
  */
 
 import { spawn } from 'child_process'

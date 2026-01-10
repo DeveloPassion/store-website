@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 
 /**
  * Validate categories.json against the Zod schema
@@ -8,7 +8,7 @@
  *
  * Usage:
  *   npm run validate:categories
- *   tsx scripts/validate-categories.ts
+ *   bun scripts/validate-categories.ts
  *
  * Exit codes:
  *   0 - All categories are valid

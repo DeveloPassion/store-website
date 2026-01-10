@@ -105,7 +105,7 @@ Categories are used in two ways in products:
 ### Interactive Mode
 
 ```bash
-npm run update:categories
+bun run update:categories
 ```
 
 Follow the prompts to:
@@ -118,22 +118,22 @@ Follow the prompts to:
 
 **List all categories:**
 ```bash
-npm run update:categories -- --operation list
+bun run update:categories -- --operation list
 ```
 
 **List featured categories only:**
 ```bash
-npm run update:categories -- --operation list --featured
+bun run update:categories -- --operation list --featured
 ```
 
 **List as JSON:**
 ```bash
-npm run update:categories -- --operation list --format json
+bun run update:categories -- --operation list --format json
 ```
 
 **Add category (auto-generated ID):**
 ```bash
-npm run update:categories -- --operation add \
+bun run update:categories -- --operation add \
     --name "New Category" \
     --description "Description of the new category" \
     --featured true \
@@ -144,7 +144,7 @@ npm run update:categories -- --operation add \
 
 **Add category (custom ID):**
 ```bash
-npm run update:categories -- --operation add \
+bun run update:categories -- --operation add \
     --id "custom-category-id" \
     --name "Custom Category" \
     --description "Custom description" \
@@ -154,7 +154,7 @@ npm run update:categories -- --operation add \
 
 **Modify category:**
 ```bash
-npm run update:categories -- --operation modify \
+bun run update:categories -- --operation modify \
     --id "productivity" \
     --description "Updated description for productivity" \
     --priority 10
@@ -162,12 +162,12 @@ npm run update:categories -- --operation modify \
 
 **Remove category (will fail if used as mainCategory):**
 ```bash
-npm run update:categories -- --operation remove --id "deprecated-category"
+bun run update:categories -- --operation remove --id "deprecated-category"
 ```
 
 **Force remove category (only works if NOT used as mainCategory):**
 ```bash
-npm run update:categories -- --operation remove --id "old-category" --force
+bun run update:categories -- --operation remove --id "old-category" --force
 ```
 
 ## Complete Workflow Examples
@@ -176,7 +176,7 @@ npm run update:categories -- --operation remove --id "old-category" --force
 
 **Interactive:**
 ```bash
-npm run update:categories
+bun run update:categories
 # Select "2" or "add"
 # Enter category details when prompted
 # ID is auto-suggested from name
@@ -185,7 +185,7 @@ npm run update:categories
 
 **CLI:**
 ```bash
-npm run update:categories -- --operation add \
+bun run update:categories -- --operation add \
     --name "AI Automation" \
     --description "Automated AI workflows and intelligent systems" \
     --featured false \
@@ -197,13 +197,13 @@ npm run update:categories -- --operation add \
 **Then:**
 1. Edit `src/schemas/category.schema.ts`
 2. Add `'ai-automation'` to the `CategoryIdSchema` enum array (keep alphabetical order)
-3. Run `npm run validate:categories` to verify
+3. Run `bun run validate:categories` to verify
 
 ### Modifying an Existing Category
 
 **Interactive:**
 ```bash
-npm run update:categories
+bun run update:categories
 # Select "3" or "modify"
 # Enter category ID
 # Update fields (press Enter to keep current value)
@@ -212,14 +212,14 @@ npm run update:categories
 
 **CLI (update single field):**
 ```bash
-npm run update:categories -- --operation modify \
+bun run update:categories -- --operation modify \
     --id "coaching" \
     --description "One-on-one coaching and personalized mentorship services"
 ```
 
 **CLI (update multiple fields):**
 ```bash
-npm run update:categories -- --operation modify \
+bun run update:categories -- --operation modify \
     --id "tools" \
     --featured true \
     --priority 8 \
@@ -232,7 +232,7 @@ npm run update:categories -- --operation modify \
 
 **Interactive:**
 ```bash
-npm run update:categories
+bun run update:categories
 # Select "4" or "remove"
 # Enter category ID
 # Review usage warning (if used)
@@ -241,19 +241,19 @@ npm run update:categories
 
 **CLI (safe removal - not used in products):**
 ```bash
-npm run update:categories -- --operation remove --id "unused-category"
+bun run update:categories -- --operation remove --id "unused-category"
 ```
 
 **CLI (remove category used only in secondaryCategories):**
 ```bash
 # Will fail without --force
-npm run update:categories -- --operation remove --id "old-category" --force
+bun run update:categories -- --operation remove --id "old-category" --force
 ```
 
 **Attempting to remove mainCategory (will ALWAYS fail):**
 ```bash
 # This will fail even with --force if category is used as mainCategory
-npm run update:categories -- --operation remove --id "coaching" --force
+bun run update:categories -- --operation remove --id "coaching" --force
 
 # Output:
 # ❌ Cannot remove category used as mainCategory in products.
@@ -263,39 +263,39 @@ npm run update:categories -- --operation remove --id "coaching" --force
 **Then (after successful removal):**
 1. Edit `src/schemas/category.schema.ts`
 2. Remove `'old-category'` from the `CategoryIdSchema` enum array
-3. Run `npm run validate:categories` to verify
+3. Run `bun run validate:categories` to verify
 4. If forced removal from secondaryCategories: update products to fix broken references
 
 ### Listing Categories
 
 **Interactive:**
 ```bash
-npm run update:categories
+bun run update:categories
 # Select "1" or "list"
 # View table of all categories
 ```
 
 **CLI (all categories, table format):**
 ```bash
-npm run update:categories -- --operation list
+bun run update:categories -- --operation list
 ```
 
 **CLI (featured only):**
 ```bash
-npm run update:categories -- --operation list --featured
+bun run update:categories -- --operation list --featured
 ```
 
 **CLI (JSON format for scripting):**
 ```bash
-npm run update:categories -- --operation list --format json
-npm run update:categories -- --operation list --featured --format json > featured-categories.json
+bun run update:categories -- --operation list --format json
+bun run update:categories -- --operation list --featured --format json > featured-categories.json
 ```
 
 ## Commands
 
 ### Update Categories
 ```bash
-npm run update:categories
+bun run update:categories
 ```
 
 Interactive CLI tool for managing categories. Supports:
@@ -306,7 +306,7 @@ Interactive CLI tool for managing categories. Supports:
 
 ### Validate Categories
 ```bash
-npm run validate:categories
+bun run validate:categories
 ```
 
 Validates:
@@ -317,7 +317,7 @@ Validates:
 
 ### Validate All
 ```bash
-npm run validate:all
+bun run validate:all
 ```
 
 Validates categories along with tags, promotion, products, and all relationships.
@@ -355,7 +355,7 @@ export const CategoryIdSchema = z.enum([
 ])
 ```
 
-4. Run `npm run validate:categories` to verify the schema matches the data
+4. Run `bun run validate:categories` to verify the schema matches the data
 5. TypeScript types will be automatically synced via type inference
 
 ### After Removing a Category
@@ -363,7 +363,7 @@ export const CategoryIdSchema = z.enum([
 1. Use CLI to remove category from `categories.json`
 2. Edit `src/schemas/category.schema.ts`
 3. Remove the category ID from the `CategoryIdSchema` enum array
-4. Run `npm run validate:categories` to verify
+4. Run `bun run validate:categories` to verify
 5. If you used `--force`: update products to remove the category from `secondaryCategories`
 
 ### Why Manual Sync is Required
@@ -430,19 +430,19 @@ After adding a category, if validation fails:
 
 Save all categories to a file:
 ```bash
-npm run update:categories -- --operation list --format json > all-categories.json
+bun run update:categories -- --operation list --format json > all-categories.json
 ```
 
 Save featured categories only:
 ```bash
-npm run update:categories -- --operation list --featured --format json > featured-categories.json
+bun run update:categories -- --operation list --featured --format json > featured-categories.json
 ```
 
 ### Safe Removal Check
 
 Check if a category is in use without removing it:
 ```bash
-npm run update:categories -- --operation remove --id "category-to-check"
+bun run update:categories -- --operation remove --id "category-to-check"
 # Review the usage list (mainCategory vs secondaryCategories)
 # Press Ctrl+C or answer "no" when asked to confirm
 ```
@@ -478,7 +478,7 @@ categories=(
 
 for cat_info in "${categories[@]}"; do
     IFS=':' read -r name desc <<< "$cat_info"
-    npm run update:categories -- --operation add \
+    bun run update:categories -- --operation add \
         --name "$name" \
         --description "$desc" \
         --featured false \
@@ -488,7 +488,7 @@ done
 
 **Export featured categories for documentation:**
 ```bash
-npm run update:categories -- --operation list --featured --format json | \
+bun run update:categories -- --operation list --featured --format json | \
     jq '.[] | {id, name, description, priority}' > featured-categories-export.json
 ```
 
@@ -505,7 +505,7 @@ After creating or modifying categories, you can use them in products:
    "mainCategory": "new-category-id"
 
    # Validate
-   npm run validate:products
+   bun run validate:products
    ```
 
 2. **Add to secondaryCategories**:
@@ -518,7 +518,7 @@ After creating or modifying categories, you can use them in products:
 
 3. **Validate relationships**:
    ```bash
-   npm run validate:all
+   bun run validate:all
    ```
 
 This ensures all category references are valid and products use only existing categories.

@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, beforeEach, afterEach, spyOn } from 'bun:test'
+import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ErrorBoundary from './error-boundary'
 
@@ -29,14 +29,14 @@ const renderWithRouter = (component: React.ReactElement) => {
 
 describe('ErrorBoundary Component', () => {
     let originalEnv: string | undefined
-    let consoleErrorSpy: ReturnType<typeof vi.spyOn>
+    let consoleErrorSpy: ReturnType<typeof spyOn>
 
     beforeEach(() => {
         // Store original values
         originalEnv = process.env['NODE_ENV']
 
         // Suppress console.error in tests (ErrorBoundary logs errors)
-        consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+        consoleErrorSpy = spyOn(console, 'error').mockImplementation(() => {})
     })
 
     afterEach(() => {
@@ -48,105 +48,97 @@ describe('ErrorBoundary Component', () => {
     })
 
     it('should render children when there is no error', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <div>Test content</div>
             </ErrorBoundary>
         )
 
-        expect(screen.getByText('Test content')).toBeInTheDocument()
+        expect(getByText('Test content')).toBeInTheDocument()
     })
 
     it('should catch errors and display error UI', () => {
-        renderWithRouter(
+        const { getByText, queryByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} />
             </ErrorBoundary>
         )
 
-        expect(screen.getByText('Oops! Something Went Wrong')).toBeInTheDocument()
-        expect(screen.queryByText('No error')).not.toBeInTheDocument()
+        expect(getByText('Oops! Something Went Wrong')).toBeInTheDocument()
+        expect(queryByText('No error')).not.toBeInTheDocument()
     })
 
     it('should display error message in development mode', () => {
         process.env['NODE_ENV'] = 'development'
 
-        renderWithRouter(
+        const { getAllByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} message='Custom error message' />
             </ErrorBoundary>
         )
 
         // Should show the error message (may appear in multiple places)
-        const errorMessages = screen.getAllByText(/Custom error message/i)
+        const errorMessages = getAllByText(/Custom error message/i)
         expect(errorMessages.length).toBeGreaterThan(0)
     })
 
     it('should not display error details in production mode', () => {
         process.env['NODE_ENV'] = 'production'
 
-        renderWithRouter(
+        const { queryByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} message='Custom error message' />
             </ErrorBoundary>
         )
 
-        expect(screen.queryByText(/Custom error message/)).not.toBeInTheDocument()
+        expect(queryByText(/Custom error message/)).not.toBeInTheDocument()
     })
 
     it('should display error stack trace in development mode', () => {
         process.env['NODE_ENV'] = 'development'
 
-        renderWithRouter(
+        const { container } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} message='Stack trace test' />
             </ErrorBoundary>
         )
 
         // Stack trace should be visible in development
-        const { container } = render(
-            <BrowserRouter>
-                <ErrorBoundary>
-                    <ThrowError shouldThrow={true} message='Stack trace test' />
-                </ErrorBoundary>
-            </BrowserRouter>
-        )
-
         const preElement = container.querySelector('pre')
         expect(preElement).toBeInTheDocument()
     })
 
     it('should render "Go Home" link', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} />
             </ErrorBoundary>
         )
 
-        const homeLink = screen.getByText('Go Home')
+        const homeLink = getByText('Go Home')
         expect(homeLink).toBeInTheDocument()
         expect(homeLink).toHaveAttribute('href', '/')
     })
 
     it('should render "Try Again" button', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} />
             </ErrorBoundary>
         )
 
-        const tryAgainButton = screen.getByText('Try Again')
+        const tryAgainButton = getByText('Try Again')
         expect(tryAgainButton).toBeInTheDocument()
     })
 
     it('should render "Get Help" link', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} />
             </ErrorBoundary>
         )
 
-        const helpLink = screen.getByText('Get Help')
+        const helpLink = getByText('Get Help')
         expect(helpLink).toBeInTheDocument()
         expect(helpLink).toHaveAttribute('href', '/help')
     })
@@ -165,7 +157,7 @@ describe('ErrorBoundary Component', () => {
     it('should log error to console in development mode', () => {
         process.env['NODE_ENV'] = 'development'
         consoleErrorSpy.mockRestore() // Remove the mock to test actual logging
-        const realConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+        const realConsoleError = spyOn(console, 'error').mockImplementation(() => {})
 
         renderWithRouter(
             <ErrorBoundary>
@@ -178,7 +170,7 @@ describe('ErrorBoundary Component', () => {
     })
 
     it('should handle multiple children', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <div>Child 1</div>
                 <div>Child 2</div>
@@ -186,13 +178,13 @@ describe('ErrorBoundary Component', () => {
             </ErrorBoundary>
         )
 
-        expect(screen.getByText('Child 1')).toBeInTheDocument()
-        expect(screen.getByText('Child 2')).toBeInTheDocument()
-        expect(screen.getByText('Child 3')).toBeInTheDocument()
+        expect(getByText('Child 1')).toBeInTheDocument()
+        expect(getByText('Child 2')).toBeInTheDocument()
+        expect(getByText('Child 3')).toBeInTheDocument()
     })
 
     it('should catch errors from nested components', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <div>
                     <div>
@@ -202,19 +194,19 @@ describe('ErrorBoundary Component', () => {
             </ErrorBoundary>
         )
 
-        expect(screen.getByText('Oops! Something Went Wrong')).toBeInTheDocument()
+        expect(getByText('Oops! Something Went Wrong')).toBeInTheDocument()
     })
 
     it('should display help section when error occurs', () => {
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} />
             </ErrorBoundary>
         )
 
-        expect(screen.getByText('Need Help?')).toBeInTheDocument()
+        expect(getByText('Need Help?')).toBeInTheDocument()
         expect(
-            screen.getByText(/If this error persists, please contact our support team/i)
+            getByText(/If this error persists, please contact our support team/i)
         ).toBeInTheDocument()
     })
 
@@ -233,14 +225,14 @@ describe('ErrorBoundary Component', () => {
     it('should handle errors with empty messages', () => {
         process.env['NODE_ENV'] = 'development'
 
-        renderWithRouter(
+        const { getByText } = renderWithRouter(
             <ErrorBoundary>
                 <ThrowError shouldThrow={true} message='' />
             </ErrorBoundary>
         )
 
         // Should still show error UI even with empty message
-        expect(screen.getByText('Oops! Something Went Wrong')).toBeInTheDocument()
+        expect(getByText('Oops! Something Went Wrong')).toBeInTheDocument()
     })
 
     it('should render with proper responsive styling', () => {

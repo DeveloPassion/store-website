@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env bun
 /**
  * Update tag display names in tags.json without changing other metadata
  * This preserves featured status, priorities, icons, and colors

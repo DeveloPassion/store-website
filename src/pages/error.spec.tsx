@@ -1,20 +1,35 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, beforeEach, afterEach, mock } from 'bun:test'
+import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ErrorPage from './error'
 
 // Mock useRouteError hook
-const mockUseRouteError = vi.fn()
-vi.mock('react-router', async () => {
-    const actual = await vi.importActual('react-router')
+const mockUseRouteError = mock((error?: unknown) => error)
+// Note: We import react-router normally in the file (line 3)
+// and just mock useRouteError here
+mock.module('react-router', () => {
+    // Return a simple object with just what we need
     return {
-        ...actual,
-        useRouteError: () => mockUseRouteError()
+        BrowserRouter: BrowserRouter,
+        useRouteError: () => mockUseRouteError(),
+        Link: ({
+            to,
+            children,
+            ...props
+        }: {
+            to: string
+            children: React.ReactNode
+            [key: string]: unknown
+        }) => (
+            <a href={to} {...props}>
+                {children}
+            </a>
+        )
     }
 })
 
 // Mock products data
-vi.mock('@/data/products.json', () => ({
+mock.module('@/data/products.json', () => ({
     default: [
         {
             id: 'product-1',
@@ -134,33 +149,32 @@ describe('ErrorPage Component', () => {
         if (originalEnv !== undefined) {
             process.env['NODE_ENV'] = originalEnv
         }
-        vi.clearAllMocks()
     })
 
     it('should render error heading', () => {
-        renderWithRouter(<ErrorPage />)
-        expect(screen.getByText('Oops! Something Went Wrong')).toBeInTheDocument()
+        const { getByText } = renderWithRouter(<ErrorPage />)
+        expect(getByText('Oops! Something Went Wrong')).toBeInTheDocument()
     })
 
     it('should render error message', () => {
-        renderWithRouter(<ErrorPage />)
-        expect(screen.getByText(/We encountered an unexpected error/i)).toBeInTheDocument()
+        const { getByText } = renderWithRouter(<ErrorPage />)
+        expect(getByText(/We encountered an unexpected error/i)).toBeInTheDocument()
     })
 
     it('should display error details in development mode', () => {
         process.env['NODE_ENV'] = 'development'
         mockUseRouteError.mockReturnValue(new Error('Test error message'))
 
-        renderWithRouter(<ErrorPage />)
-        expect(screen.getByText('Test error message')).toBeInTheDocument()
+        const { getByText } = renderWithRouter(<ErrorPage />)
+        expect(getByText('Test error message')).toBeInTheDocument()
     })
 
     it('should not display error details in production mode', () => {
         process.env['NODE_ENV'] = 'production'
         mockUseRouteError.mockReturnValue(new Error('Test error message'))
 
-        renderWithRouter(<ErrorPage />)
-        expect(screen.queryByText('Test error message')).not.toBeInTheDocument()
+        const { queryByText } = renderWithRouter(<ErrorPage />)
+        expect(queryByText('Test error message')).not.toBeInTheDocument()
     })
 
     it('should handle RouteErrorResponse', () => {
@@ -174,9 +188,9 @@ describe('ErrorPage Component', () => {
         mockUseRouteError.mockReturnValue(routeError)
 
         process.env['NODE_ENV'] = 'development'
-        renderWithRouter(<ErrorPage />)
+        const { getByText } = renderWithRouter(<ErrorPage />)
 
-        expect(screen.getByText('Internal Server Error')).toBeInTheDocument()
+        expect(getByText('Internal Server Error')).toBeInTheDocument()
     })
 
     it('should handle Error instance', () => {
@@ -184,46 +198,46 @@ describe('ErrorPage Component', () => {
         mockUseRouteError.mockReturnValue(error)
 
         process.env['NODE_ENV'] = 'development'
-        renderWithRouter(<ErrorPage />)
+        const { getByText } = renderWithRouter(<ErrorPage />)
 
-        expect(screen.getByText('Something went wrong')).toBeInTheDocument()
+        expect(getByText('Something went wrong')).toBeInTheDocument()
     })
 
     it('should handle unknown error type', () => {
         mockUseRouteError.mockReturnValue('Unknown error')
 
         process.env['NODE_ENV'] = 'development'
-        renderWithRouter(<ErrorPage />)
+        const { getByText } = renderWithRouter(<ErrorPage />)
 
-        expect(screen.getByText('An unexpected error occurred')).toBeInTheDocument()
+        expect(getByText('An unexpected error occurred')).toBeInTheDocument()
     })
 
     it('should render navigation links', () => {
-        renderWithRouter(<ErrorPage />)
+        const { getAllByRole } = renderWithRouter(<ErrorPage />)
 
-        const homeLinks = screen.getAllByRole('link', { name: /Go Home/i })
+        const homeLinks = getAllByRole('link', { name: /Go Home/i })
         expect(homeLinks.length).toBeGreaterThan(0)
         expect(homeLinks[0]).toHaveAttribute('href', '/')
 
-        const productsLinks = screen.getAllByRole('link', { name: /All Products/i })
+        const productsLinks = getAllByRole('link', { name: /All Products/i })
         expect(productsLinks.length).toBeGreaterThan(0)
         const topProductsLink = productsLinks.find((link) =>
             link.className.includes('border-primary/20')
         )
         expect(topProductsLink).toHaveAttribute('href', '/products')
 
-        const helpLinks = screen.getAllByRole('link', { name: /Get Help/i })
+        const helpLinks = getAllByRole('link', { name: /Get Help/i })
         expect(helpLinks.length).toBeGreaterThan(0)
         expect(helpLinks[0]).toHaveAttribute('href', '/help')
     })
 
     it('should render popular destinations section', () => {
-        renderWithRouter(<ErrorPage />)
+        const { getByRole, getAllByRole } = renderWithRouter(<ErrorPage />)
 
-        expect(screen.getByRole('heading', { name: /Popular Destinations/i })).toBeInTheDocument()
+        expect(getByRole('heading', { name: /Popular Destinations/i })).toBeInTheDocument()
 
         // Check for card headings
-        const headings = screen.getAllByRole('heading', { level: 3 })
+        const headings = getAllByRole('heading', { level: 3 })
         const headingTexts = headings.map((h) => h.textContent)
         expect(headingTexts).toContain('Featured Products')
         expect(headingTexts).toContain('Best Value')
@@ -232,9 +246,9 @@ describe('ErrorPage Component', () => {
     })
 
     it('should render links to featured, best-value, and best-sellers pages', () => {
-        renderWithRouter(<ErrorPage />)
+        const { getAllByRole } = renderWithRouter(<ErrorPage />)
 
-        const links = screen.getAllByRole('link')
+        const links = getAllByRole('link')
 
         const featuredLink = links.find((link) => link.getAttribute('href') === '/featured')
         expect(featuredLink).toBeInTheDocument()
@@ -247,16 +261,16 @@ describe('ErrorPage Component', () => {
     })
 
     it('should render featured products when available', () => {
-        renderWithRouter(<ErrorPage />)
+        const { getByText } = renderWithRouter(<ErrorPage />)
 
-        expect(screen.getByText('Featured Product 1')).toBeInTheDocument()
-        expect(screen.getByText('Featured Product 2')).toBeInTheDocument()
+        expect(getByText('Featured Product 1')).toBeInTheDocument()
+        expect(getByText('Featured Product 2')).toBeInTheDocument()
     })
 
     it('should limit featured products to 6', () => {
-        renderWithRouter(<ErrorPage />)
+        const { getAllByText } = renderWithRouter(<ErrorPage />)
 
-        const productCards = screen.getAllByText(/Featured Product/i)
+        const productCards = getAllByText(/Featured Product/i)
         expect(productCards.length).toBeLessThanOrEqual(6)
     })
 
@@ -316,8 +330,8 @@ describe('ErrorPage Component', () => {
     })
 
     it('should render "View All Featured Products" link', () => {
-        renderWithRouter(<ErrorPage />)
-        const viewAllLink = screen.getByText('View All Featured Products →')
+        const { getByText } = renderWithRouter(<ErrorPage />)
+        const viewAllLink = getByText('View All Featured Products →')
         expect(viewAllLink).toBeInTheDocument()
         expect(viewAllLink).toHaveAttribute('href', '/featured')
     })
