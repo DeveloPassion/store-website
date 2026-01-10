@@ -130,17 +130,43 @@ Each variant can have:
 
 **Gumroad URL Parameters:**
 
-All purchase URLs automatically include:
+All purchase URLs automatically include these working parameters:
 
-- `wanted=true` - Enables Gumroad overlay checkout
-- `quantity=1` - Sets quantity to 1
-- `variant={id}` - Pre-selects variant (if gumroadVariantId set)
-- Payment frequency (boolean parameters):
-    - `monthly=true` - For monthly subscriptions
-    - `yearly=true` - For yearly subscriptions
-    - `every_two_years=true` - For 2-year subscriptions
+**Required Parameters:**
 
-Confirmed working on actual Gumroad product: https://developassion.gumroad.com/l/knowii
+- `wanted=true` - Enables Gumroad overlay checkout (direct to checkout page)
+- `quantity=1` - Sets item quantity to 1
+
+**Variant Selection:**
+
+- `variant={gumroadVariantId}` - Pre-selects product variant/tier when gumroadVariantId is set
+    - Example: `variant=explorer`, `variant=knowledge-builder`, `variant=knowledge-master`
+
+**Payment Frequency (Subscriptions):**
+Use boolean parameters to pre-select billing cycle:
+
+- `monthly=true` - Pre-selects monthly billing
+- `yearly=true` - Pre-selects yearly billing
+- `every_two_years=true` - Pre-selects 2-year billing
+
+**Example Working URLs:**
+
+```
+# Monthly Explorer tier
+https://developassion.gumroad.com/l/knowii?wanted=true&quantity=1&variant=explorer&monthly=true
+
+# Yearly Knowledge Builder tier
+https://developassion.gumroad.com/l/knowii?wanted=true&quantity=1&variant=knowledge-builder&yearly=true
+
+# 2-Year Knowledge Master tier
+https://developassion.gumroad.com/l/knowii?wanted=true&quantity=1&variant=knowledge-master&every_two_years=true
+```
+
+**Note:** Gumroad also supports `option={encoded_id}` for variant selection (seen in product URLs), but we use the simpler `variant={id}` parameter which is confirmed working.
+
+**Implementation:** See `/src/lib/gumroad-url.ts` for URL building logic. All parameters are automatically added by `buildGumroadUrlFromProduct()`.
+
+**Tested & Confirmed:** All parameters verified working on https://developassion.gumroad.com/l/knowii
 
 Example subscription product structure:
 
