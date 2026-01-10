@@ -63,14 +63,22 @@ const Footer: React.FC = () => {
                                 onSubmit={handleNewsletterSubmit}
                                 className='mx-auto flex max-w-md flex-col gap-3 sm:flex-row'
                             >
+                                <label htmlFor='newsletter-email' className='sr-only'>
+                                    Email address for newsletter subscription
+                                </label>
                                 <input
+                                    id='newsletter-email'
                                     type='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder='Enter your email'
                                     required
                                     className='bg-primary/5 border-primary/10 text-primary placeholder:text-primary/40 focus:border-secondary/50 flex-1 rounded-lg border px-4 py-3 text-sm transition-colors outline-none'
+                                    aria-describedby='newsletter-description'
                                 />
+                                <span id='newsletter-description' className='sr-only'>
+                                    Subscribe to receive updates about new products and resources
+                                </span>
                                 <button
                                     type='submit'
                                     className='bg-secondary hover:bg-secondary/90 rounded-lg px-6 py-3 font-semibold whitespace-nowrap text-white transition-colors'

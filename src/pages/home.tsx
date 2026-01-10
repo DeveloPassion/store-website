@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { Link, useSearchParams, useParams } from 'react-router'
 import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap, FaTrophy } from 'react-icons/fa'
 import Section from '@/components/ui/section'
@@ -121,6 +121,56 @@ const HomeEcommerce: React.FC = () => {
     const featuredCategories = useMemo(() => {
         return getFeaturedCategoriesSorted(categoriesData as Category[])
     }, [])
+
+    // Helper function to update meta tags
+    const updateMetaTag = (property: string, content: string) => {
+        const tag =
+            document.querySelector(`meta[property="${property}"]`) ||
+            document.querySelector(`meta[name="${property}"]`)
+        if (tag) {
+            tag.setAttribute('content', content)
+        }
+    }
+
+    // Update meta tags based on URL parameters
+    useEffect(() => {
+        const baseTitle = 'Knowledge Forge - Digital Products Store'
+        const baseDescription = 'Discover knowledge management tools, templates, and resources'
+        const baseImage = 'https://store.dsebastien.net/assets/images/social-card.png'
+        const baseUrl = 'https://store.dsebastien.net'
+
+        if (decodedTagName) {
+            document.title = `${decodedTagName} Products - Knowledge Forge`
+            updateMetaTag('description', `Browse all products tagged with ${decodedTagName}`)
+            updateMetaTag('og:title', `${decodedTagName} Products`)
+            updateMetaTag('og:description', `Browse all products tagged with ${decodedTagName}`)
+            updateMetaTag('og:url', `${baseUrl}/#/tags/${encodeURIComponent(decodedTagName)}`)
+            updateMetaTag('og:image', baseImage)
+        } else if (categoryFilter) {
+            const categoryName = categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1)
+            document.title = `${categoryName} - Knowledge Forge`
+            updateMetaTag('description', `Browse ${categoryName} products`)
+            updateMetaTag('og:title', `${categoryName} Products`)
+            updateMetaTag('og:description', `Browse ${categoryName} products`)
+            updateMetaTag('og:url', `${baseUrl}/?category=${encodeURIComponent(categoryFilter)}`)
+            updateMetaTag('og:image', baseImage)
+        } else if (searchQuery) {
+            document.title = `Search: ${searchQuery} - Knowledge Forge`
+            updateMetaTag('description', `Search results for ${searchQuery}`)
+            updateMetaTag('og:title', `Search: ${searchQuery}`)
+            updateMetaTag('og:description', `Search results for ${searchQuery}`)
+            updateMetaTag('og:url', `${baseUrl}/?q=${encodeURIComponent(searchQuery)}`)
+            updateMetaTag('og:image', baseImage)
+        } else {
+            // Default home page meta tags
+            document.title = baseTitle
+            updateMetaTag('description', baseDescription)
+            updateMetaTag('og:title', baseTitle)
+            updateMetaTag('og:description', baseDescription)
+            updateMetaTag('og:url', baseUrl)
+            updateMetaTag('og:image', baseImage)
+        }
+    }, [decodedTagName, categoryFilter, searchQuery])
 
     return (
         <>

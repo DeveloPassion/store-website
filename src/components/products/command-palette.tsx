@@ -256,6 +256,9 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                     e.preventDefault()
                     if (displayedCommandsForNav[selectedIndex]) {
                         displayedCommandsForNav[selectedIndex].action()
+                    } else {
+                        // No command selected or index out of bounds
+                        console.warn('No command selected or index out of bounds')
                     }
                     break
                 case 'Escape':

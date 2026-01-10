@@ -216,6 +216,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 onClick={onOpenCommandPalette}
                                 className='hidden max-w-lg flex-1 md:block lg:max-w-xl xl:max-w-2xl'
                                 title='Search products'
+                                aria-label='Open command palette to search products'
+                                aria-haspopup='dialog'
+                                aria-keyshortcuts='/ Control+K'
                             >
                                 <div className='relative'>
                                     <div className='bg-primary/5 border-primary/10 placeholder:text-primary/40 hover:border-secondary/50 hover:bg-primary/10 flex h-10 w-full cursor-pointer items-center rounded-lg border px-4 pr-10 text-left text-sm transition-colors lg:h-11 lg:text-base xl:h-12'>
