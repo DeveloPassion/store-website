@@ -189,7 +189,8 @@ describe('StickyBuyButton', () => {
 
         await waitFor(() => {
             const buyButton = getByText(/Buy Test Product Now/i).closest('a')
-            expect(buyButton).toHaveClass('gumroad-button')
+            expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
+            expect(buyButton).toHaveClass('bg-secondary')
         })
     })
 

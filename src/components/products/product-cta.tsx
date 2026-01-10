@@ -43,9 +43,9 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     <a
                         href={buildGumroadUrl(product.gumroadUrl)}
                         data-gumroad-overlay-checkout='true'
-                        className='gumroad-button bg-secondary hover:bg-secondary/90 mb-8 inline-block cursor-pointer rounded-lg px-12 py-4 text-xl font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl'
+                        className='bg-secondary hover:bg-secondary/90 mb-8 inline-block cursor-pointer rounded-lg px-12 py-4 text-xl font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl'
                     >
-                        Buy {product.name} on
+                        Buy {product.name}
                     </a>
 
                     {/* Guarantees */}

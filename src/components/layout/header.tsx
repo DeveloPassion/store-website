@@ -258,10 +258,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 href='https://gumroad.com/checkout'
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
-                                title='Shopping Cart'
+                                className='bg-primary/10 hover:bg-primary/20 focus-visible:ring-secondary relative flex h-10 w-10 items-center justify-center rounded-lg transition-colors focus-visible:ring-2 focus-visible:outline-none lg:h-11 lg:w-11 xl:h-12 xl:w-12'
+                                title='View Shopping Cart (opens in new tab)'
+                                aria-label='View Shopping Cart (opens in new tab)'
                             >
-                                <FaShoppingCart className='h-5 w-5' />
+                                <FaShoppingCart className='h-5 w-5' aria-hidden='true' />
+                                <span className='sr-only'>Opens in new tab</span>
                             </a>
 
                             {/* Website Link - hidden on mobile, shown in hamburger menu instead */}

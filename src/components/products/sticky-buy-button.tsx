@@ -84,7 +84,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({ product, heroButtonRe
                                 <a
                                     href={buildGumroadUrl(selectedVariant.gumroadUrl)}
                                     data-gumroad-overlay-checkout='true'
-                                    className='gumroad-button bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl'
+                                    className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl'
                                 >
                                     <FaShoppingCart className='h-4 w-4' />
                                     <span>Buy Now</span>
@@ -101,7 +101,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({ product, heroButtonRe
                                 <a
                                     href={buildGumroadUrl(selectedVariant.gumroadUrl)}
                                     data-gumroad-overlay-checkout='true'
-                                    className='gumroad-button bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl'
+                                    className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl'
                                 >
                                     <FaShoppingCart className='h-5 w-5' />
                                     <span>Buy {product.name} Now</span>

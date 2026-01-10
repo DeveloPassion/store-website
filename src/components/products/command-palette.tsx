@@ -98,7 +98,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             id: 'action-cart',
             type: 'action',
             title: 'View Shopping Cart',
-            subtitle: 'See items in your cart',
+            subtitle: 'See items in your cart (opens in new tab)',
             icon: <FaShoppingCart className='text-secondary h-5 w-5' />,
             action: () => {
                 window.open('https://gumroad.com/checkout', '_blank', 'noopener,noreferrer')
