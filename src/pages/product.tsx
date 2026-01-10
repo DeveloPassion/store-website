@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductHero from '@/components/products/product-hero'
@@ -9,6 +9,7 @@ import ProductBenefits from '@/components/products/product-benefits'
 import ProductTestimonials from '@/components/products/product-testimonials'
 import ProductFAQ from '@/components/products/product-faq'
 import ProductCTA from '@/components/products/product-cta'
+import StickyBuyButton from '@/components/products/sticky-buy-button'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
@@ -16,6 +17,7 @@ import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 const ProductPage: React.FC = () => {
     const { productSlug } = useParams<{ productSlug: string }>()
     const navigate = useNavigate()
+    const heroBuyButtonRef = useRef<HTMLAnchorElement>(null)
 
     // Find product by slug (id field in JSON)
     const product = (productsData as Product[]).find((p) => p.id === productSlug)
@@ -124,7 +126,7 @@ const ProductPage: React.FC = () => {
             <div className='mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-24 md:px-16 lg:px-20'>
                 <Breadcrumb />
             </div>
-            <ProductHero product={product} />
+            <ProductHero product={product} buyButtonRef={heroBuyButtonRef} />
             <ProductPAS product={product} />
             <ProductFeatures product={product} />
             <ProductScreenshots product={product} />
@@ -132,6 +134,7 @@ const ProductPage: React.FC = () => {
             <ProductTestimonials product={product} />
             <ProductFAQ product={product} />
             <ProductCTA product={product} />
+            <StickyBuyButton product={product} heroButtonRef={heroBuyButtonRef} />
         </>
     )
 }

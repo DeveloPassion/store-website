@@ -7,9 +7,11 @@ import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 
 interface ProductHeroProps {
     product: Product
+    /** Ref to the buy button for scroll tracking */
+    buyButtonRef?: React.Ref<HTMLAnchorElement>
 }
 
-const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
+const ProductHero: React.FC<ProductHeroProps> = ({ product, buyButtonRef }) => {
     const [selectedVariant, setSelectedVariant] = useState(
         product.variants?.[0] || {
             name: 'Standard',
@@ -170,6 +172,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
                                 </div>
                             </div>
                             <a
+                                ref={buyButtonRef}
                                 href={buildGumroadUrl(selectedVariant.gumroadUrl)}
                                 data-gumroad-overlay-checkout='true'
                                 className='gumroad-button bg-secondary hover:bg-secondary/90 flex flex-1 cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
