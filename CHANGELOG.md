@@ -1,3 +1,9 @@
+## [0.2.7](https://github.com/DeveloPassion/store-website/compare/0.2.6...0.2.7) (2026-01-10)
+
+### Features
+
+* **all:** fixed tests ([0bd952d](https://github.com/DeveloPassion/store-website/commit/0bd952d00776ff3f2ac62dcc4f97f1c672309208))
+* **all:** switched to bun ([cecda9c](https://github.com/DeveloPassion/store-website/commit/cecda9c7d014e90db83a51fa18f49148fcecfb45))
 ## [0.2.6](https://github.com/DeveloPassion/store-website/compare/0.2.5...0.2.6) (2026-01-10)
 
 ### Features
