@@ -103,8 +103,7 @@ describe('ProductCTA Component', () => {
 
         const buyButton = screen.getByText('Buy Test Product Now')
         expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/test-product?wanted=true')
-        expect(buyButton).toHaveAttribute('target', '_blank')
-        expect(buyButton).toHaveAttribute('rel', 'noopener noreferrer')
+        expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
 
     it('should handle Gumroad URL with existing query parameters', () => {

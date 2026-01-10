@@ -146,8 +146,7 @@ describe('ProductCardEcommerce Component', () => {
 
         const buyButton = screen.getByText('Buy')
         expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/l/my-product?wanted=true')
-        expect(buyButton).toHaveAttribute('target', '_blank')
-        expect(buyButton).toHaveAttribute('rel', 'noopener noreferrer')
+        expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
 
     it('should have Quick View overlay on hover', () => {
