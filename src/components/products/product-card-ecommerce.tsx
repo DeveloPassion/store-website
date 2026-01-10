@@ -83,16 +83,16 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                         </div>
                     )}
 
-                    {/* Quick View Overlay */}
+                    {/* Call-to-Action Overlay */}
                     <div className='absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100'>
                         <span className='text-background rounded-lg bg-white px-4 py-2 text-sm font-semibold'>
-                            Quick View
+                            See What's Inside
                         </span>
                     </div>
                 </Link>
 
                 {/* Badges */}
-                <div className='absolute top-3 left-3 flex flex-col gap-2'>
+                <div className='absolute right-3 bottom-3 flex flex-col gap-2'>
                     {badge && badge.text === 'FEATURED' ? (
                         <Link
                             to='/featured'
@@ -214,7 +214,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                             className='gumroad-button bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                         >
                             <FaShoppingCart className='h-4 w-4' />
-                            {isFree ? 'Get' : 'Buy'}
+                            {isFree ? 'Get on' : 'Buy on'}
                         </a>
                     )}
                 </div>

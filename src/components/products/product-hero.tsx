@@ -177,7 +177,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, buyButtonRef }) => {
                                 data-gumroad-overlay-checkout='true'
                                 className='gumroad-button bg-secondary hover:bg-secondary/90 flex flex-1 cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
                             >
-                                Buy Now
+                                Buy on
                             </a>
                         </div>
 

@@ -158,11 +158,11 @@ describe('ProductCardEcommerce Component', () => {
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
 
-    it('should have Quick View overlay on hover', () => {
+    it('should have call-to-action overlay on hover', () => {
         const product = createMockProduct()
         const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(getByText('Quick View')).toBeInTheDocument()
+        expect(getByText("See What's Inside")).toBeInTheDocument()
     })
 
     it('should display wishlist button', () => {
