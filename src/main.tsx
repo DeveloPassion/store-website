@@ -12,6 +12,7 @@ import BestSellersPage from './pages/best-sellers'
 import FeaturedPage from './pages/featured'
 import ProductPage from './pages/product'
 import HelpPage from './pages/help'
+import WishlistPage from './pages/wishlist'
 import TagsPage from './pages/tags'
 import TagPage from './pages/tag'
 import CategoriesPage from './pages/categories'
@@ -40,6 +41,7 @@ ReactDOM.createRoot(rootElement).render(
                         <Route path='/featured' element={<FeaturedPage />} />
                         <Route path='/l/:productSlug' element={<ProductPage />} />
                         <Route path='/help' element={<HelpPage />} />
+                        <Route path='/wishlist' element={<WishlistPage />} />
                     </Route>
                 </Routes>
             </BreadcrumbProvider>

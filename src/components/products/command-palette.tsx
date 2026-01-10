@@ -113,7 +113,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             subtitle: 'See your saved items',
             icon: <FaHeart className='text-secondary h-5 w-5' />,
             action: () => {
-                // TODO: Navigate to wishlist when implemented
+                navigate('/wishlist')
                 onClose()
             }
         })

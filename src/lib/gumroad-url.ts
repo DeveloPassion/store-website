@@ -9,7 +9,7 @@ export const buildGumroadUrl = (url: string | undefined): string => {
     }
 
     // Split URL into base and fragment
-    const [baseUrl, fragment] = url.split('#')
+    const [baseUrl = '', fragment] = url.split('#')
 
     // Add wanted=true parameter to base URL
     const urlWithWanted = baseUrl.includes('?')

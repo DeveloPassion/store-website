@@ -108,6 +108,14 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
+                                        to='/wishlist'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        💖 Wishlist
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
                                         to='/featured'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >

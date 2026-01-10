@@ -9,13 +9,15 @@ import {
     FaStore,
     FaTrophy,
     FaFire,
-    FaStar
+    FaStar,
+    FaHeart
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
 import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { getCategoryIcon } from '@/lib/category-icons'
+import { getWishlistCount } from '@/lib/wishlist'
 import PromotionBanner from './promotion-banner'
 
 interface HeaderProps {
@@ -24,7 +26,29 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [wishlistCount, setWishlistCount] = useState(0)
     const location = useLocation()
+
+    // Update wishlist count on mount and when storage changes
+    useEffect(() => {
+        const updateCount = () => {
+            setWishlistCount(getWishlistCount())
+        }
+
+        // Initial count
+        updateCount()
+
+        // Listen for storage events (changes in other tabs/windows)
+        window.addEventListener('storage', updateCount)
+
+        // Listen for custom wishlist update events (same tab)
+        window.addEventListener('wishlistUpdate', updateCount)
+
+        return () => {
+            window.removeEventListener('storage', updateCount)
+            window.removeEventListener('wishlistUpdate', updateCount)
+        }
+    }, [])
 
     // Get featured categories
     const featuredCategories = useMemo(() => {
@@ -190,6 +214,20 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             >
                                 <FaSearch className='h-5 w-5' />
                             </button>
+
+                            {/* Wishlist Link */}
+                            <Link
+                                to='/wishlist'
+                                className='bg-primary/10 hover:bg-primary/20 relative flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
+                                title='Wishlist'
+                            >
+                                <FaHeart className='h-5 w-5' />
+                                {wishlistCount > 0 && (
+                                    <span className='bg-secondary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs text-white'>
+                                        {wishlistCount}
+                                    </span>
+                                )}
+                            </Link>
 
                             {/* Website Link - always visible */}
                             <a

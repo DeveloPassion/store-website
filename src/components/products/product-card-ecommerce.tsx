@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import { FaShoppingCart, FaHeart, FaStar, FaTrophy, FaFire } from 'react-icons/fa'
+import { FaShoppingCart, FaHeart, FaRegHeart, FaStar, FaTrophy, FaFire } from 'react-icons/fa'
 import type { Product } from '@/types/product'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
 import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 
 interface ProductCardEcommerceProps {
     product: Product
@@ -16,6 +18,13 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
     onAddToCart,
     compactBadges = false
 }) => {
+    const [isWishlisted, setIsWishlisted] = useState(false)
+
+    // Check wishlist status on mount and when product changes
+    useEffect(() => {
+        setIsWishlisted(isInWishlist(product.id))
+    }, [product.id])
+
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault()
         if (onAddToCart) {
@@ -25,7 +34,9 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
 
     const handleWishlist = (e: React.MouseEvent) => {
         e.preventDefault()
-        // Wishlist functionality
+        e.stopPropagation()
+        const newState = toggleWishlist(product.id)
+        setIsWishlisted(newState)
     }
 
     // Get the display price
@@ -128,10 +139,16 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                 {/* Wishlist Button */}
                 <button
                     onClick={handleWishlist}
-                    className='text-primary/60 hover:text-secondary absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/90 opacity-0 transition-all group-hover:opacity-100 hover:bg-white'
-                    aria-label='Add to wishlist'
+                    className={`absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/90 transition-all hover:bg-white ${
+                        isWishlisted ? 'text-secondary' : 'text-primary/60 hover:text-secondary'
+                    }`}
+                    aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
                 >
-                    <FaHeart className='h-4 w-4' />
+                    {isWishlisted ? (
+                        <FaHeart className='h-4 w-4' />
+                    ) : (
+                        <FaRegHeart className='h-4 w-4' />
+                    )}
                 </button>
             </div>
 
