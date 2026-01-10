@@ -1,3 +1,8 @@
+## [0.2.6](https://github.com/DeveloPassion/store-website/compare/0.2.5...0.2.6) (2026-01-10)
+
+### Features
+
+* **all:** added buymeacoffee link ([ebb6ea5](https://github.com/DeveloPassion/store-website/commit/ebb6ea5e4565474373d7581f76c3d7c44566432b))
 ## [0.2.5](https://github.com/DeveloPassion/store-website/compare/0.2.4...0.2.5) (2026-01-10)
 
 ### Features
