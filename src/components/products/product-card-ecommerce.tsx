@@ -143,7 +143,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                 <button
                     onClick={handleWishlist}
                     className={`absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/90 transition-all hover:bg-white ${
-                        isWishlisted ? 'text-secondary' : 'text-primary/60 hover:text-secondary'
+                        isWishlisted ? 'text-secondary' : 'hover:text-secondary text-gray-600'
                     }`}
                     aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
                 >
