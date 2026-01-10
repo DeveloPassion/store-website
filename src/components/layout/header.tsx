@@ -10,7 +10,8 @@ import {
     FaTrophy,
     FaFire,
     FaStar,
-    FaHeart
+    FaHeart,
+    FaShoppingCart
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
@@ -237,6 +238,17 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                     </span>
                                 )}
                             </Link>
+
+                            {/* Cart Link - always visible */}
+                            <a
+                                href='https://gumroad.com/checkout'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
+                                title='Shopping Cart'
+                            >
+                                <FaShoppingCart className='h-5 w-5' />
+                            </a>
 
                             {/* Website Link - always visible */}
                             <a
