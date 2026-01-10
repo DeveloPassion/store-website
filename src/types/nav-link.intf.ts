@@ -5,4 +5,5 @@ export interface NavLink {
     label: string
     icon: ReactNode
     color: string
+    external?: boolean
 }

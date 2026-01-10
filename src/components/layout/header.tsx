@@ -11,7 +11,8 @@ import {
     FaFire,
     FaStar,
     FaHeart,
-    FaShoppingCart
+    FaShoppingCart,
+    FaGlobe
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
@@ -129,6 +130,15 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             }
         ]
 
+        // External link: DeveloPassion Website
+        const websiteLink: NavLink = {
+            to: 'https://www.dsebastien.net',
+            label: 'DeveloPassion Website',
+            icon: <FaGlobe className='h-5 w-5' />,
+            color: 'text-purple-400 bg-purple-500/10 hover:bg-purple-500/20',
+            external: true
+        }
+
         return [
             allProductsLink,
             featuredLink,
@@ -136,7 +146,8 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             bestSellersLink,
             wishlistLink,
             ...categoryLinks,
-            ...staticLinks
+            ...staticLinks,
+            websiteLink
         ]
     }, [featuredCategories, wishlistCount])
 
@@ -250,12 +261,12 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 <FaShoppingCart className='h-5 w-5' />
                             </a>
 
-                            {/* Website Link - always visible */}
+                            {/* Website Link - hidden on mobile, shown in hamburger menu instead */}
                             <a
                                 href='https://www.dsebastien.net'
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='bg-primary/10 hover:bg-primary/20 flex h-10 items-center gap-2 rounded-lg px-3 transition-colors lg:h-11 xl:h-12 xl:px-4'
+                                className='bg-primary/10 hover:bg-primary/20 hidden h-10 items-center gap-2 rounded-lg px-3 transition-colors md:flex lg:h-11 xl:h-12 xl:px-4'
                                 title='DeveloPassion Website'
                             >
                                 <img
@@ -310,18 +321,37 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 >
                     {/* Grid on desktop, compact list on mobile */}
                     <div className='mx-auto grid max-w-[1400px] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6 lg:max-w-[1600px] lg:grid-cols-5 lg:gap-8 xl:max-w-[1800px] xl:grid-cols-6 2xl:max-w-[2000px] 2xl:grid-cols-7'>
-                        {menuLinks.map((link) => (
-                            <Link
-                                key={link.to}
-                                to={link.to}
-                                className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color}`}
-                            >
-                                <span className='text-lg sm:text-xl md:text-3xl'>{link.icon}</span>
-                                <span className='text-xs font-medium sm:text-sm md:text-base'>
-                                    {link.label}
-                                </span>
-                            </Link>
-                        ))}
+                        {menuLinks.map((link) =>
+                            link.external ? (
+                                <a
+                                    key={link.to}
+                                    href={link.to}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color}`}
+                                >
+                                    <span className='text-lg sm:text-xl md:text-3xl'>
+                                        {link.icon}
+                                    </span>
+                                    <span className='text-xs font-medium sm:text-sm md:text-base'>
+                                        {link.label}
+                                    </span>
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.to}
+                                    to={link.to}
+                                    className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color}`}
+                                >
+                                    <span className='text-lg sm:text-xl md:text-3xl'>
+                                        {link.icon}
+                                    </span>
+                                    <span className='text-xs font-medium sm:text-sm md:text-base'>
+                                        {link.label}
+                                    </span>
+                                </Link>
+                            )
+                        )}
                     </div>
                 </div>
 
