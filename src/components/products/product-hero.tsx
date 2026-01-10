@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { FaStar, FaCheckCircle } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import type { Product } from '@/types/product'
 import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 
 interface ProductHeroProps {
     product: Product
@@ -18,6 +19,22 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
             gumroadUrl: product.gumroadUrl
         }
     )
+
+    // Wishlist state
+    const [isWishlisted, setIsWishlisted] = useState(() => isInWishlist(product.id))
+
+    // Update wishlist status when product changes
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setIsWishlisted(isInWishlist(product.id))
+    }, [product.id])
+
+    const handleWishlist = (e: React.MouseEvent) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const newState = toggleWishlist(product.id)
+        setIsWishlisted(newState)
+    }
 
     return (
         <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-16 sm:py-20 md:py-24 lg:py-32'>
@@ -39,9 +56,29 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
                         )}
 
                         {/* Title */}
-                        <h1 className='mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
-                            {product.name}
-                        </h1>
+                        <div className='mb-4 flex flex-wrap items-center gap-3'>
+                            <h1 className='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
+                                {product.name}
+                            </h1>
+                            <button
+                                onClick={handleWishlist}
+                                className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-all hover:scale-110 ${
+                                    isWishlisted
+                                        ? 'bg-secondary/10 text-secondary'
+                                        : 'bg-primary/10 text-primary/60 hover:bg-primary/20 hover:text-secondary'
+                                }`}
+                                aria-label={
+                                    isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'
+                                }
+                                title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+                            >
+                                {isWishlisted ? (
+                                    <FaHeart className='h-6 w-6' />
+                                ) : (
+                                    <FaRegHeart className='h-6 w-6' />
+                                )}
+                            </button>
+                        </div>
 
                         {/* Tagline */}
                         <p className='text-primary/80 mb-2 text-xl sm:text-2xl md:text-3xl'>
