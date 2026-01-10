@@ -194,6 +194,14 @@ const Footer: React.FC = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link
+                                        to='/faq'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        💡 FAQ
+                                    </Link>
+                                </li>
+                                <li>
                                     <a
                                         href='mailto:sebastien@developassion.be'
                                         className='text-primary/70 hover:text-secondary transition-colors'

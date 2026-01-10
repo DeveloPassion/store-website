@@ -13,6 +13,7 @@ import BestSellersPage from './pages/best-sellers'
 import FeaturedPage from './pages/featured'
 import ProductPage from './pages/product'
 import HelpPage from './pages/help'
+import FAQPage from './pages/faq'
 import WishlistPage from './pages/wishlist'
 import SharedWishlistPage from './pages/shared-wishlist'
 import TagsPage from './pages/tags'
@@ -46,6 +47,7 @@ ReactDOM.createRoot(rootElement).render(
                             <Route path='/featured' element={<FeaturedPage />} />
                             <Route path='/l/:productSlug' element={<ProductPage />} />
                             <Route path='/help' element={<HelpPage />} />
+                            <Route path='/faq' element={<FAQPage />} />
                             <Route path='/wishlist' element={<WishlistPage />} />
                             <Route path='/shared-wishlist' element={<SharedWishlistPage />} />
                             {/* 404 catch-all route */}

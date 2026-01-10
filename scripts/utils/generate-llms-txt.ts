@@ -82,6 +82,7 @@ Store: https://store.dsebastien.net
 - /categories - Browse all categories
 - /categories/{id} - Category pages showing related products
 - /help - Help and support page
+- /faq - Frequently asked questions about the store and Gumroad integration
 
 ## Product Categories
 ${mainCategories

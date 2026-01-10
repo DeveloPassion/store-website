@@ -78,6 +78,14 @@ function generateSitemap(): string {
         priority: '0.9'
     })
 
+    // Add FAQ page
+    urls.push({
+        loc: `${BASE_URL}/faq`,
+        lastmod: today,
+        changefreq: 'monthly',
+        priority: '0.9'
+    })
+
     // Add featured page
     urls.push({
         loc: `${BASE_URL}/featured`,
@@ -192,6 +200,7 @@ function writeSitemap(): void {
     console.log(`  - Homepage: 1 URL`)
     console.log(`  - Products page: 1 URL`)
     console.log(`  - Help page: 1 URL`)
+    console.log(`  - FAQ page: 1 URL`)
     console.log(`  - Featured page: 1 URL`)
     console.log(`  - Best value page: 1 URL`)
     console.log(`  - Best sellers page: 1 URL`)
@@ -202,7 +211,7 @@ function writeSitemap(): void {
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
     console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
     console.log(
-        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 9} URLs`
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 10} URLs`
     )
 }
 
