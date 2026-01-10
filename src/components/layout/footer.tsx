@@ -11,6 +11,7 @@ import {
     FaHandshake,
     FaGithub
 } from 'react-icons/fa'
+import { SiBuymeacoffee } from 'react-icons/si'
 import ToolIcon from '@/components/tools/tool-icon'
 import socialsData from '@/data/socials.json'
 import categoriesData from '@/data/categories.json'
@@ -198,6 +199,17 @@ const Footer: React.FC = () => {
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
                                         💬 Send Feedback
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://www.buymeacoffee.com/dsebastien'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <SiBuymeacoffee className='h-4 w-4' />
+                                        Buy Me a Coffee
                                     </a>
                                 </li>
                             </ul>

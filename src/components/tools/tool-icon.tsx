@@ -47,7 +47,8 @@ const iconColors: Record<string, string> = {
     SiSubstack: 'text-orange-400',
     SiBluesky: 'text-sky-400',
     FaXTwitter: 'text-gray-200',
-    FaThreads: 'text-gray-200'
+    FaThreads: 'text-gray-200',
+    SiBuymeacoffee: 'text-yellow-400'
 }
 
 // Category fallback icons (emojis or icons)

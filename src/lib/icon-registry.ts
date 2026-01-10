@@ -46,7 +46,15 @@ import {
     FaStar,
     FaTag
 } from 'react-icons/fa'
-import { SiObsidian, SiAngular, SiNotion, SiTrello, SiSubstack, SiBluesky } from 'react-icons/si'
+import {
+    SiObsidian,
+    SiAngular,
+    SiNotion,
+    SiTrello,
+    SiSubstack,
+    SiBluesky,
+    SiBuymeacoffee
+} from 'react-icons/si'
 import { FaXTwitter, FaThreads } from 'react-icons/fa6'
 
 /**
@@ -101,6 +109,7 @@ export const iconRegistry: Record<string, IconType> = {
     SiTrello,
     SiSubstack,
     SiBluesky,
+    SiBuymeacoffee,
     // Font Awesome 6
     FaXTwitter,
     FaThreads
