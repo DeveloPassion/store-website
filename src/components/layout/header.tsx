@@ -89,6 +89,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             color: 'text-orange-400 bg-orange-500/10 hover:bg-orange-500/20'
         }
 
+        // Static link: Wishlist
+        const wishlistLink: NavLink = {
+            to: '/wishlist',
+            label: wishlistCount > 0 ? `Wishlist (${wishlistCount})` : 'Wishlist',
+            icon: <FaHeart className='h-5 w-5' />,
+            color: 'text-pink-400 bg-pink-500/10 hover:bg-pink-500/20'
+        }
+
         // Generate featured category links
         const categoryLinks: NavLink[] = featuredCategories.map((cat) => {
             const IconComponent = getCategoryIcon(cat.icon)
@@ -125,10 +133,11 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             featuredLink,
             bestValueLink,
             bestSellersLink,
+            wishlistLink,
             ...categoryLinks,
             ...staticLinks
         ]
-    }, [featuredCategories])
+    }, [featuredCategories, wishlistCount])
 
     // Close menu on route change
     // Note: setState in effect is necessary here to sync with React Router navigation
@@ -215,10 +224,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 <FaSearch className='h-5 w-5' />
                             </button>
 
-                            {/* Wishlist Link */}
+                            {/* Wishlist Link - Hidden on mobile */}
                             <Link
                                 to='/wishlist'
-                                className='bg-primary/10 hover:bg-primary/20 relative flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:h-11 lg:w-11 xl:h-12 xl:w-12'
+                                className='bg-primary/10 hover:bg-primary/20 relative hidden h-10 w-10 items-center justify-center rounded-lg transition-colors md:flex lg:h-11 lg:w-11 xl:h-12 xl:w-12'
                                 title='Wishlist'
                             >
                                 <FaHeart className='h-5 w-5' />
