@@ -914,15 +914,19 @@ async function operationAdd(args: CliArgs): Promise<void> {
         secondaryCategories: validatedSecondaryCategories,
         tags: validatedTags,
         problem,
-        problemPoints: [],
+        problemPoints: ['Placeholder - edit this product file to add real problem points'],
         agitate,
-        agitatePoints: [],
+        agitatePoints: ['Placeholder - edit this product file to add real agitate points'],
         solution,
-        solutionPoints: [],
+        solutionPoints: ['Placeholder - edit this product file to add real solution points'],
         description: '',
-        features: [],
-        benefits: [],
-        included: [],
+        features: ['Placeholder - edit this product file to add real features'],
+        benefits: {
+            immediate: ['Placeholder - edit this product file'],
+            systematic: [],
+            longTerm: []
+        },
+        included: ['Placeholder - edit this product file to add real included items'],
         targetAudience: [],
         perfectFor: [],
         notForYou: [],
@@ -949,16 +953,24 @@ async function operationAdd(args: CliArgs): Promise<void> {
     // Save
     saveProduct(product)
     showSuccess(`Product created at: src/data/products/${id}.json`)
+    console.log(
+        `\n${colors.bright}${colors.yellow}⚠️  Important:${colors.reset} ${colors.yellow}This product contains placeholder values that must be edited!${colors.reset}`
+    )
     console.log(`\n${colors.bright}${colors.cyan}📋 Next steps:${colors.reset}`)
     console.log(
-        `  ${colors.dim}1.${colors.reset} Run: ${colors.green}npm run validate:products${colors.reset}`
+        `  ${colors.dim}1.${colors.reset} ${colors.yellow}Edit the product file${colors.reset} to replace all placeholder text in:`
+    )
+    console.log(`     - problemPoints, agitatePoints, solutionPoints`)
+    console.log(`     - features, benefits, included`)
+    console.log(
+        `  ${colors.dim}2.${colors.reset} Run: ${colors.green}npm run validate:products${colors.reset}`
     )
     console.log(
-        `  ${colors.dim}2.${colors.reset} Add marketing copy details by editing the file directly`
+        `  ${colors.dim}3.${colors.reset} Add marketing copy details by editing the file directly`
     )
-    console.log(`  ${colors.dim}3.${colors.reset} Add media (coverImage, screenshots, videoUrl)`)
+    console.log(`  ${colors.dim}4.${colors.reset} Add media (coverImage, screenshots, videoUrl)`)
     console.log(
-        `  ${colors.dim}4.${colors.reset} Test locally: ${colors.green}npm run dev${colors.reset}`
+        `  ${colors.dim}5.${colors.reset} Test locally: ${colors.green}npm run dev${colors.reset}`
     )
 }
 
