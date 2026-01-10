@@ -31,6 +31,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const PRODUCTS_DIR = resolve(__dirname, '../../src/data/products')
 const OUTPUT_FILE = resolve(__dirname, '../../src/data/products.json')
+const STRICT_MODE = process.env.STRICT_VALIDATION === 'true'
 
 interface FAQ {
     id: string
@@ -73,7 +74,11 @@ function loadFAQs(productId: string): FAQ[] {
         const content = readFileSync(faqPath, 'utf-8')
         return JSON.parse(content)
     } catch (error) {
-        console.error(`⚠️  Failed to load FAQs for ${productId}:`, error)
+        const message = `Failed to load FAQs for ${productId}: ${error instanceof Error ? error.message : String(error)}`
+        console.warn(`⚠️  ${message}`)
+        if (STRICT_MODE) {
+            throw new Error(message)
+        }
         return []
     }
 }
@@ -92,7 +97,11 @@ function loadTestimonials(productId: string): Testimonial[] {
         const content = readFileSync(testimonialsPath, 'utf-8')
         return JSON.parse(content)
     } catch (error) {
-        console.error(`⚠️  Failed to load testimonials for ${productId}:`, error)
+        const message = `Failed to load testimonials for ${productId}: ${error instanceof Error ? error.message : String(error)}`
+        console.warn(`⚠️  ${message}`)
+        if (STRICT_MODE) {
+            throw new Error(message)
+        }
         return []
     }
 }
@@ -152,12 +161,15 @@ function main() {
             const faqs = loadFAQs(product.id)
             const testimonials = loadTestimonials(product.id)
 
-            // Add FAQs and testimonials to product
-            product.faqs = faqs
-            product.testimonials = testimonials
+            // Create defensive copy with FAQs and testimonials (don't mutate original)
+            const aggregatedProduct = {
+                ...product,
+                faqs,
+                testimonials
+            }
 
-            // Validate mutated product
-            const validationResult = ProductSchema.safeParse(product)
+            // Validate the aggregated product
+            const validationResult = ProductSchema.safeParse(aggregatedProduct)
             if (!validationResult.success) {
                 console.error(`  ❌ ${file}: Invalid product after adding FAQs/testimonials`)
                 validationResult.error.errors.forEach((err) => {
@@ -167,7 +179,7 @@ function main() {
                 continue
             }
 
-            products.push(product)
+            products.push(aggregatedProduct)
             console.log(
                 `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials)`
             )
