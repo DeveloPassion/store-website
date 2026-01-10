@@ -1,3 +1,9 @@
+## [0.3.2](https://github.com/DeveloPassion/store-website/compare/0.3.1...0.3.2) (2026-01-10)
+
+### Features
+
+* **all:** added FAQ page and tests ([7725736](https://github.com/DeveloPassion/store-website/commit/7725736f80cd1bed11bd9af8aa94e070e99519bc))
+* **all:** improved buy buttons ([b02bc66](https://github.com/DeveloPassion/store-website/commit/b02bc664d068fac8593c6df8047092d45c3d66df))
 ## [0.3.1](https://github.com/DeveloPassion/store-website/compare/0.3.0...0.3.1) (2026-01-10)
 
 ### Features
