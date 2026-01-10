@@ -1,3 +1,9 @@
+## [0.2.8](https://github.com/DeveloPassion/store-website/compare/0.2.7...0.2.8) (2026-01-10)
+
+### Features
+
+* **all:** added cart link ([adb5e84](https://github.com/DeveloPassion/store-website/commit/adb5e8446a6c47d8200ab6adbd75292120b02c2f))
+* **all:** hide website link on mobile ([328d055](https://github.com/DeveloPassion/store-website/commit/328d05573cbc3a8eb8e0b02286c2826a55d0dd67))
 ## [0.2.7](https://github.com/DeveloPassion/store-website/compare/0.2.6...0.2.7) (2026-01-10)
 
 ### Features
