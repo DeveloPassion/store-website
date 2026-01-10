@@ -1,3 +1,9 @@
+## [0.3.1](https://github.com/DeveloPassion/store-website/compare/0.3.0...0.3.1) (2026-01-10)
+
+### Features
+
+* **all:** improved gumroad links text ([f775b80](https://github.com/DeveloPassion/store-website/commit/f775b80d2dec55f4ecc354a70dfcda2a6f9a9b41))
+* **all:** improved Quick Open message and position on product cards ([7efb311](https://github.com/DeveloPassion/store-website/commit/7efb311e0fbc206b11f49643029d67153220f141))
 ## [0.3.0](https://github.com/DeveloPassion/store-website/compare/0.2.8...0.3.0) (2026-01-10)
 
 ### Features
