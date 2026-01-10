@@ -320,6 +320,14 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search products, categories, tags... or press 'Esc' to close"
                         className='placeholder:text-primary/40 flex-1 bg-transparent text-lg outline-none'
+                        aria-label='Search products, categories, and tags'
+                        aria-autocomplete='list'
+                        aria-controls='command-palette-results'
+                        aria-activedescendant={
+                            selectedIndex >= 0 ? `command-option-${selectedIndex}` : undefined
+                        }
+                        role='combobox'
+                        aria-expanded='true'
                     />
                     <button
                         onClick={onClose}
@@ -331,7 +339,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 </div>
 
                 {/* Results */}
-                <div ref={listRef} className='max-h-[60vh] overflow-auto p-2'>
+                <div
+                    ref={listRef}
+                    className='max-h-[60vh] overflow-auto p-2'
+                    role='listbox'
+                    id='command-palette-results'
+                    aria-label='Search results'
+                >
                     {filteredCommands.length === 0 ? (
                         <div className='text-primary/40 py-8 text-center'>
                             No results found for "{query}"
@@ -353,6 +367,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
                                                 onClick={() => cmd.action()}
+                                                itemIndex={idx}
                                             />
                                         )
                                     })}
@@ -374,6 +389,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
                                                 onClick={() => cmd.action()}
+                                                itemIndex={idx}
                                             />
                                         )
                                     })}
@@ -395,6 +411,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
                                                 onClick={() => cmd.action()}
+                                                itemIndex={idx}
                                             />
                                         )
                                     })}
@@ -416,6 +433,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
                                                 onClick={() => cmd.action()}
+                                                itemIndex={idx}
                                             />
                                         )
                                     })}
@@ -437,6 +455,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
                                                 onClick={() => cmd.action()}
+                                                itemIndex={idx}
                                             />
                                         )
                                     })}
@@ -483,9 +502,16 @@ interface CommandItemProps {
     isSelected: boolean
     onSelect: () => void
     onClick: () => void
+    itemIndex: number
 }
 
-const CommandItem: React.FC<CommandItemProps> = ({ command, isSelected, onSelect, onClick }) => {
+const CommandItem: React.FC<CommandItemProps> = ({
+    command,
+    isSelected,
+    onSelect,
+    onClick,
+    itemIndex
+}) => {
     return (
         <div
             className={cn(
@@ -495,6 +521,7 @@ const CommandItem: React.FC<CommandItemProps> = ({ command, isSelected, onSelect
             onMouseEnter={onSelect}
             onClick={onClick}
             role='option'
+            id={`command-option-${itemIndex}`}
             aria-selected={isSelected}
         >
             <div className='bg-primary/5 group-hover:bg-secondary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors'>
