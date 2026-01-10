@@ -191,7 +191,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                         <a
                             href={buildGumroadUrl(product.gumroadUrl)}
                             data-gumroad-overlay-checkout='true'
-                            className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                            className='gumroad-button bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                         >
                             <FaShoppingCart className='h-4 w-4' />
                             {isFree ? 'Get' : 'Buy'}
