@@ -77,20 +77,6 @@ jobs:
             - name: Run tests
               run: bun test
 
-            - name: Generate coverage report
-              run: bun test --coverage
-              continue-on-error: true
-
-            - name: Upload coverage reports to Codecov (optional)
-              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-              uses: codecov/codecov-action@v4
-              continue-on-error: true
-              with:
-                  token: ${{ secrets.CODECOV_TOKEN }}
-                  files: ./coverage/coverage-final.json
-                  flags: unittests
-                  name: codecov-umbrella
-
     # Validate job - Run all validation scripts
     validate:
         name: Validate Data
