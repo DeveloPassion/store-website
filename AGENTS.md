@@ -248,6 +248,7 @@ Keyboard navigation, ARIA labels, focus management, command palette shortcuts, s
 5. Use conventional commits
 6. Don't edit CHANGELOG.md (auto-generated)
 7. **Backwards Compatibility**: When there is a question of backwards compatibility (e.g., renaming routes, changing URLs, renaming fields), ALWAYS ASK the user whether they want to maintain backwards compatibility or if breaking changes are acceptable. Do not assume either way.
+8. **TypeScript Types**: NEVER use `any` type unless absolutely unavoidable. Always use proper TypeScript types such as `React.ComponentPropsWithoutRef<'element'>`, `React.ReactNode`, specific interface types, or generic constraints. The `any` type bypasses type safety and should be avoided.
 
 **Pre-Commit Checklist:**
 
