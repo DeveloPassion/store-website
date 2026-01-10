@@ -79,14 +79,14 @@ describe('ProductCardEcommerce Component', () => {
         )
 
         expect(getAllByText('FREE')).toHaveLength(2) // Badge + price
-        expect(getByText('Get')).toBeInTheDocument()
+        expect(getByText('Get on')).toBeInTheDocument()
     })
 
     it('should show Buy button for paid products', () => {
         const product = createMockProduct({ price: 99.99 })
         const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        expect(getByText('Buy')).toBeInTheDocument()
+        expect(getByText('Buy on')).toBeInTheDocument()
     })
 
     it('should show FEATURED badge for featured products', () => {
@@ -153,7 +153,7 @@ describe('ProductCardEcommerce Component', () => {
         })
         const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
-        const buyButton = getByText('Buy')
+        const buyButton = getByText('Buy on')
         expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/l/my-product?wanted=true')
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })

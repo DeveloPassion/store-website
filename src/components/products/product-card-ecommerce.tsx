@@ -84,15 +84,15 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                     )}
 
                     {/* Call-to-Action Overlay */}
-                    <div className='absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100'>
-                        <span className='text-background rounded-lg bg-white px-4 py-2 text-sm font-semibold'>
+                    <div className='absolute inset-0 flex items-end justify-end bg-black/40 p-3 opacity-0 transition-opacity group-hover:opacity-100 md:items-center md:justify-center md:p-0'>
+                        <span className='text-background rounded-lg bg-white px-4 py-2 text-sm font-semibold shadow-lg'>
                             See What's Inside
                         </span>
                     </div>
                 </Link>
 
                 {/* Badges */}
-                <div className='absolute right-3 bottom-3 flex flex-col gap-2'>
+                <div className='absolute top-3 left-3 flex flex-col gap-2'>
                     {badge && badge.text === 'FEATURED' ? (
                         <Link
                             to='/featured'

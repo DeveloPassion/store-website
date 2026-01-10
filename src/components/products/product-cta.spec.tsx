@@ -65,7 +65,7 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct({ name: 'Awesome Product' })
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(getByText('Buy Awesome Product Now')).toBeInTheDocument()
+        expect(getByText('Buy Awesome Product on')).toBeInTheDocument()
     })
 
     it('should display product price', () => {
@@ -98,7 +98,7 @@ describe('ProductCTA Component', () => {
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product on')
         expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/test-product?wanted=true')
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
@@ -110,7 +110,7 @@ describe('ProductCTA Component', () => {
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product on')
         expect(buyButton).toHaveAttribute(
             'href',
             'https://gumroad.com/test-product?discount=SAVE20&wanted=true'
@@ -122,7 +122,7 @@ describe('ProductCTA Component', () => {
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product on')
         expect(buyButton).toHaveAttribute('href', '#')
     })
 
@@ -213,7 +213,7 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct()
         const { container, getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product Now')
+        const buyButton = getByText('Buy Test Product on')
         expect(buyButton).toHaveClass('bg-secondary')
         expect(buyButton).toHaveClass('hover:bg-secondary/90')
 
