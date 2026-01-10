@@ -1,81 +1,79 @@
-import { useMemo, useEffect, useState } from 'react'
-import { Link } from 'react-router'
-import { FaHeart, FaShare } from 'react-icons/fa'
+import { useMemo, useEffect } from 'react'
+import { useSearchParams, useNavigate, Link } from 'react-router'
+import { FaHeart, FaGift } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
-import { getWishlist } from '@/lib/wishlist'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
-const WishlistPage: React.FC = () => {
+const SharedWishlistPage: React.FC = () => {
     const products = productsData as Product[]
-    const [copySuccess, setCopySuccess] = useState(false)
+    const [searchParams] = useSearchParams()
+    const navigate = useNavigate()
 
     // Set breadcrumbs
-    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Wishlist' }])
+    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Shared Wishlist' }])
 
-    // Get wishlist product IDs and filter products
-    const wishlistProducts = useMemo(() => {
-        const wishlistIds = getWishlist()
-        const filtered = products.filter((p) => wishlistIds.includes(p.id))
-        // Sort by priority (highest first) to match other pages
-        return filtered.sort((a, b) => b.priority - a.priority)
-    }, [products])
+    // Get product IDs from URL
+    const productIdsParam = searchParams.get('products')
 
-    const wishlistCount = wishlistProducts.length
-
-    // Generate shareable URL
-    const generateShareableUrl = () => {
-        const productIds = wishlistProducts.map((p) => p.id).join(',')
-        const baseUrl = window.location.origin
-        return `${baseUrl}/#/shared-wishlist?products=${encodeURIComponent(productIds)}`
-    }
-
-    // Copy shareable URL to clipboard
-    const handleShareWishlist = async () => {
-        try {
-            const shareUrl = generateShareableUrl()
-            await navigator.clipboard.writeText(shareUrl)
-            setCopySuccess(true)
-            setTimeout(() => setCopySuccess(false), 3000)
-        } catch (error) {
-            console.error('Failed to copy to clipboard:', error)
-            // Fallback: show the URL in an alert
-            alert(`Share this link: ${generateShareableUrl()}`)
+    // Redirect to homepage if no product IDs
+    useEffect(() => {
+        if (!productIdsParam) {
+            navigate('/', { replace: true })
         }
-    }
+    }, [productIdsParam, navigate])
+
+    // Parse product IDs and filter products
+    const sharedProducts = useMemo(() => {
+        if (!productIdsParam) {
+            return []
+        }
+
+        const productIds = productIdsParam.split(',').map((id) => id.trim())
+        const filtered = products.filter(
+            (p) => productIds.includes(p.id) && p.status !== 'archived'
+        )
+        // Sort by priority (highest first)
+        return filtered.sort((a, b) => b.priority - a.priority)
+    }, [productIdsParam, products])
+
+    const productCount = sharedProducts.length
 
     useEffect(() => {
-        document.title = 'My Wishlist - Knowledge Forge'
+        document.title = 'Shared Wishlist - Knowledge Forge'
 
         // Update meta description
         const metaDescription = document.querySelector('meta[name="description"]')
         if (metaDescription) {
             metaDescription.setAttribute(
                 'content',
-                'View and manage your saved products. Your personal wishlist of tools, courses, and resources.'
+                'Check out this curated selection of products shared with you!'
             )
         }
 
         // Update OG tags
         const ogTitle = document.querySelector('meta[property="og:title"]')
         if (ogTitle) {
-            ogTitle.setAttribute('content', 'My Wishlist - Knowledge Forge')
+            ogTitle.setAttribute('content', 'Shared Wishlist - Knowledge Forge')
         }
 
         const ogDescription = document.querySelector('meta[property="og:description"]')
         if (ogDescription) {
             ogDescription.setAttribute(
                 'content',
-                'View and manage your saved products. Your personal wishlist of tools, courses, and resources.'
+                'Check out this curated selection of products shared with you!'
             )
         }
 
         const ogUrl = document.querySelector('meta[property="og:url"]')
         if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/wishlist')
+            ogUrl.setAttribute(
+                'content',
+                `https://store.dsebastien.net/shared-wishlist${productIdsParam ? `?products=${productIdsParam}` : ''}`
+            )
         }
 
         // Reset og:image to default for generic pages
@@ -86,7 +84,12 @@ const WishlistPage: React.FC = () => {
                 'https://store.dsebastien.net/assets/images/social-card.png'
             )
         }
-    }, [])
+    }, [productIdsParam])
+
+    // Don't render anything if redirecting
+    if (!productIdsParam) {
+        return null
+    }
 
     return (
         <>
@@ -98,28 +101,26 @@ const WishlistPage: React.FC = () => {
                     {/* Icon */}
                     <div className='mb-4 flex justify-center'>
                         <div className='from-secondary to-secondary/80 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br shadow-lg sm:h-20 sm:w-20'>
-                            <FaHeart className='h-8 w-8 text-white sm:h-10 sm:w-10' />
+                            <FaGift className='h-8 w-8 text-white sm:h-10 sm:w-10' />
                         </div>
                     </div>
 
                     <h1 className='mb-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
-                        My Wishlist
+                        Shared Wishlist
                     </h1>
                     <p className='text-primary/70 mx-auto mb-6 max-w-2xl text-base sm:text-lg'>
-                        {wishlistCount > 0
-                            ? "Products you've saved for later. Ready to take the next step?"
-                            : 'Start saving products you love to your wishlist'}
+                        Someone shared these amazing products with you. Check them out!
                     </p>
 
                     {/* Stats */}
-                    {wishlistCount > 0 && (
+                    {productCount > 0 && (
                         <div className='flex flex-wrap justify-center gap-4 sm:gap-6'>
                             <div className='text-center'>
                                 <div className='text-secondary text-3xl font-bold sm:text-4xl'>
-                                    {wishlistCount}
+                                    {productCount}
                                 </div>
                                 <div className='text-primary/60 text-sm'>
-                                    {wishlistCount === 1 ? 'Saved Product' : 'Saved Products'}
+                                    {productCount === 1 ? 'Shared Product' : 'Shared Products'}
                                 </div>
                             </div>
                         </div>
@@ -127,35 +128,27 @@ const WishlistPage: React.FC = () => {
                 </div>
             </Section>
 
-            {/* Products Grid or Empty State */}
+            {/* Products Grid */}
             <Section className='pt-0 pb-16 sm:pb-24'>
                 <div className='w-full'>
-                    {wishlistProducts.length > 0 ? (
+                    {sharedProducts.length > 0 ? (
                         <>
-                            <div className='mb-6 flex flex-col items-center gap-4'>
-                                <h2 className='text-center text-2xl font-bold sm:text-3xl'>
-                                    Your Saved Products
-                                </h2>
-                                <button
-                                    onClick={handleShareWishlist}
-                                    className='bg-secondary hover:bg-secondary/90 flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold text-white transition-colors'
-                                >
-                                    <FaShare className='h-4 w-4' />
-                                    {copySuccess ? 'Link Copied!' : 'Share with a Friend'}
-                                </button>
-                            </div>
+                            <h2 className='mb-6 text-center text-2xl font-bold sm:text-3xl'>
+                                Recommended Products
+                            </h2>
                             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
-                                {wishlistProducts.map((product) => (
+                                {sharedProducts.map((product) => (
                                     <ProductCardEcommerce key={product.id} product={product} />
                                 ))}
                             </div>
                         </>
                     ) : (
                         <div className='py-16 text-center'>
-                            <div className='mb-6 text-7xl'>💖</div>
-                            <h3 className='mb-3 text-2xl font-semibold'>Your wishlist is empty</h3>
+                            <div className='mb-6 text-7xl'>🤷</div>
+                            <h3 className='mb-3 text-2xl font-semibold'>No products found</h3>
                             <p className='text-primary/60 mb-8 text-lg'>
-                                Start adding products you love to your wishlist
+                                The shared products might have been removed or are no longer
+                                available.
                             </p>
 
                             {/* Quick Links */}
@@ -190,36 +183,32 @@ const WishlistPage: React.FC = () => {
                 </div>
             </Section>
 
-            {/* CTA Section - Only show when wishlist has items */}
-            {wishlistCount > 0 && (
-                <Section className='bg-primary/5 py-12 sm:py-14'>
-                    <div className='mx-auto max-w-2xl text-center'>
-                        <h2 className='mb-3 text-2xl font-bold sm:text-3xl'>
-                            Ready to Get Started?
-                        </h2>
-                        <p className='text-primary/70 mb-6 text-base sm:text-lg'>
-                            Transform your workflow with these carefully selected tools and
-                            resources.
-                        </p>
-                        <div className='flex flex-col gap-4 sm:flex-row sm:justify-center'>
-                            <Link
-                                to='/products'
-                                className='bg-secondary hover:bg-secondary/90 rounded-lg px-8 py-3 font-semibold text-white transition-colors'
-                            >
-                                Discover More Products
-                            </Link>
-                            <Link
-                                to='/help'
-                                className='border-primary/20 hover:border-secondary/50 rounded-lg border bg-transparent px-8 py-3 font-semibold transition-colors'
-                            >
-                                Get Help Choosing
-                            </Link>
-                        </div>
+            {/* CTA Section */}
+            <Section className='bg-primary/5 py-12 sm:py-14'>
+                <div className='mx-auto max-w-2xl text-center'>
+                    <h2 className='mb-3 text-2xl font-bold sm:text-3xl'>Love These Products?</h2>
+                    <p className='text-primary/70 mb-6 text-base sm:text-lg'>
+                        Create your own wishlist and share it with friends!
+                    </p>
+                    <div className='flex flex-col gap-4 sm:flex-row sm:justify-center'>
+                        <Link
+                            to='/products'
+                            className='bg-secondary hover:bg-secondary/90 rounded-lg px-8 py-3 font-semibold text-white transition-colors'
+                        >
+                            Browse All Products
+                        </Link>
+                        <Link
+                            to='/wishlist'
+                            className='border-secondary hover:bg-secondary/10 flex items-center justify-center gap-2 rounded-lg border bg-transparent px-8 py-3 font-semibold transition-colors'
+                        >
+                            <FaHeart className='h-4 w-4' />
+                            My Wishlist
+                        </Link>
                     </div>
-                </Section>
-            )}
+                </div>
+            </Section>
         </>
     )
 }
 
-export default WishlistPage
+export default SharedWishlistPage
