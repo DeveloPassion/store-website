@@ -12,9 +12,22 @@ import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 const WishlistPage: React.FC = () => {
     const products = productsData as Product[]
     const [copySuccess, setCopySuccess] = useState(false)
+    const [wishlistUpdateTrigger, setWishlistUpdateTrigger] = useState(0)
 
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Wishlist' }])
+
+    // Listen for wishlist updates
+    useEffect(() => {
+        const handleWishlistUpdate = () => {
+            setWishlistUpdateTrigger((prev) => prev + 1)
+        }
+
+        window.addEventListener('wishlistUpdate', handleWishlistUpdate)
+        return () => {
+            window.removeEventListener('wishlistUpdate', handleWishlistUpdate)
+        }
+    }, [])
 
     // Get wishlist product IDs and filter products
     const wishlistProducts = useMemo(() => {
@@ -22,7 +35,8 @@ const WishlistPage: React.FC = () => {
         const filtered = products.filter((p) => wishlistIds.includes(p.id))
         // Sort by priority (highest first) to match other pages
         return filtered.sort((a, b) => b.priority - a.priority)
-    }, [products])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [products, wishlistUpdateTrigger])
 
     const wishlistCount = wishlistProducts.length
 
@@ -30,7 +44,7 @@ const WishlistPage: React.FC = () => {
     const generateShareableUrl = () => {
         const productIds = wishlistProducts.map((p) => p.id).join(',')
         const baseUrl = window.location.origin
-        return `${baseUrl}/#/shared-wishlist?products=${encodeURIComponent(productIds)}`
+        return `${baseUrl}/shared-wishlist?products=${encodeURIComponent(productIds)}`
     }
 
     // Copy shareable URL to clipboard
@@ -138,7 +152,7 @@ const WishlistPage: React.FC = () => {
                                 </h2>
                                 <button
                                     onClick={handleShareWishlist}
-                                    className='bg-secondary hover:bg-secondary/90 flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold text-white transition-colors'
+                                    className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold text-white transition-colors'
                                 >
                                     <FaShare className='h-4 w-4' />
                                     {copySuccess ? 'Link Copied!' : 'Share with a Friend'}

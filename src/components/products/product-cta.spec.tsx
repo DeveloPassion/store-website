@@ -9,6 +9,7 @@ vi.mock('framer-motion', () => ({
     motion: {
         div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
             // Filter out framer-motion specific props
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { initial, whileInView, viewport, ...domProps } = props as Record<string, unknown>
             return <div {...domProps}>{children}</div>
         }

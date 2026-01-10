@@ -18,10 +18,13 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
     onAddToCart,
     compactBadges = false
 }) => {
-    const [isWishlisted, setIsWishlisted] = useState(false)
+    // Initialize with actual wishlist status to avoid cascading renders
+    const [isWishlisted, setIsWishlisted] = useState(() => isInWishlist(product.id))
 
-    // Check wishlist status on mount and when product changes
+    // Update wishlist status when product changes (different product ID)
+    // This is intentional to handle product prop changes
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsWishlisted(isInWishlist(product.id))
     }, [product.id])
 
