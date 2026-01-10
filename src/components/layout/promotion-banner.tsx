@@ -67,12 +67,26 @@ const PromotionBanner: React.FC = () => {
             <p className='text-primary/80'>
                 {config.promoText}{' '}
                 {config.promoLinkText && (
-                    <Link
-                        to={config.promoLink}
-                        className='text-amber-600 underline hover:text-amber-700'
-                    >
-                        {config.promoLinkText}
-                    </Link>
+                    <>
+                        {config.promoLink.startsWith('http://') ||
+                        config.promoLink.startsWith('https://') ? (
+                            <a
+                                href={config.promoLink}
+                                className='text-amber-600 underline hover:text-amber-700'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                {config.promoLinkText}
+                            </a>
+                        ) : (
+                            <Link
+                                to={config.promoLink}
+                                className='text-amber-600 underline hover:text-amber-700'
+                            >
+                                {config.promoLinkText}
+                            </Link>
+                        )}
+                    </>
                 )}
                 {config.discountCode && <span className='ml-1'>({config.discountCode})</span>}
             </p>
