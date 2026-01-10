@@ -25,6 +25,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
+import { ProductSchema } from '../../src/schemas/product.schema.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -154,6 +155,17 @@ function main() {
             // Add FAQs and testimonials to product
             product.faqs = faqs
             product.testimonials = testimonials
+
+            // Validate mutated product
+            const validationResult = ProductSchema.safeParse(product)
+            if (!validationResult.success) {
+                console.error(`  ❌ ${file}: Invalid product after adding FAQs/testimonials`)
+                validationResult.error.errors.forEach((err) => {
+                    console.error(`     - ${err.path.join('.')}: ${err.message}`)
+                })
+                errors.push(`  ❌ ${file}: Invalid product structure after mutation`)
+                continue
+            }
 
             products.push(product)
             console.log(
