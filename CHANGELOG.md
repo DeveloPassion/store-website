@@ -1,3 +1,9 @@
+## [0.4.0](https://github.com/DeveloPassion/store-website/compare/0.3.2...0.4.0) (2026-01-10)
+
+### Features
+
+* **all:** improved gumroad integration, handling of variants, billing periods, ... ([001f389](https://github.com/DeveloPassion/store-website/commit/001f389bb55efa2dce528d2d95dbdc0ca95b4723))
+* **all:** updated docs ([5f4880d](https://github.com/DeveloPassion/store-website/commit/5f4880db90000ee202e7e0b67402bf1e1e10be07))
 ## [0.3.2](https://github.com/DeveloPassion/store-website/compare/0.3.1...0.3.2) (2026-01-10)
 
 ### Features
