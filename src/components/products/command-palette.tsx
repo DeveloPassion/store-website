@@ -146,7 +146,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 subtitle: `Browse ${category.name.toLowerCase()}`,
                 icon: <FaFilter className='text-secondary h-5 w-5' />,
                 action: () => {
-                    navigate(`/?category=${encodeURIComponent(category.id)}`)
+                    navigate(`/categories/${encodeURIComponent(category.id)}`)
                     onClose()
                 },
                 category
@@ -162,7 +162,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 subtitle: `View products tagged with "${tag}"`,
                 icon: <FaTag className='text-secondary h-5 w-5' />,
                 action: () => {
-                    navigate(`/tag/${encodeURIComponent(tag)}`)
+                    navigate(`/tags/${encodeURIComponent(tag)}`)
                     onClose()
                 }
             })
