@@ -1,3 +1,8 @@
+## [0.2.5](https://github.com/DeveloPassion/store-website/compare/0.2.4...0.2.5) (2026-01-10)
+
+### Features
+
+* **all:** added 404 and error page ([463504e](https://github.com/DeveloPassion/store-website/commit/463504e221c470404e3e7e811078a720f997ce3e))
 ## [0.2.4](https://github.com/DeveloPassion/store-website/compare/0.2.3...0.2.4) (2026-01-10)
 ## [0.2.3](https://github.com/DeveloPassion/store-website/compare/0.2.2...0.2.3) (2026-01-10)
 ## [0.2.2](https://github.com/DeveloPassion/store-website/compare/0.2.1...0.2.2) (2026-01-10)
