@@ -1,3 +1,16 @@
+## [0.3.0](https://github.com/DeveloPassion/store-website/compare/0.2.8...0.3.0) (2026-01-10)
+
+### Features
+
+* **all:** fixed command palette category and tag links ([a5769ef](https://github.com/DeveloPassion/store-website/commit/a5769ef62ea0d7d2e8305e9910e70d07d56d4a74))
+* **all:** improve CLI ([abbdba3](https://github.com/DeveloPassion/store-website/commit/abbdba3ad8bc32fc7aebe6042559352d3333f31b))
+* **all:** improved accessibility of the command palette ([4bde2ca](https://github.com/DeveloPassion/store-website/commit/4bde2cadd7fc5577443b7b9c1021b30ac37e372c))
+* **all:** improved accessibility of wishlist links (colors) ([207a952](https://github.com/DeveloPassion/store-website/commit/207a9527e5d9c71ea6c0f99ce7f78a923a86d289))
+* **all:** improved CLI ([37b8788](https://github.com/DeveloPassion/store-website/commit/37b8788bb4f1e74ffa6bad49fc2e3e3f33da211a))
+* **all:** improved filtering ([0c60e83](https://github.com/DeveloPassion/store-website/commit/0c60e83f4cabd65f51365ce616799e5dc7f2f4ec))
+* **all:** improved link handling in promo banner ([9353c26](https://github.com/DeveloPassion/store-website/commit/9353c265d06d7d7002a885b174de3d0aee226bde))
+* **all:** improved OG metadata on all pages ([85c91d7](https://github.com/DeveloPassion/store-website/commit/85c91d771bcbe0afe48dbd0fc76c4ddaeb1f301a))
+* **all:** improved type safety ([d81f7d1](https://github.com/DeveloPassion/store-website/commit/d81f7d1d71e779b07b7ef7bf4a9facd977a9d408))
 ## [0.2.8](https://github.com/DeveloPassion/store-website/compare/0.2.7...0.2.8) (2026-01-10)
 
 ### Features
