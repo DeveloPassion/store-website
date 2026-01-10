@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductHero from '@/components/products/product-hero'
@@ -11,7 +11,8 @@ import ProductFAQ from '@/components/products/product-faq'
 import ProductCTA from '@/components/products/product-cta'
 import StickyBuyButton from '@/components/products/sticky-buy-button'
 import productsData from '@/data/products.json'
-import type { Product } from '@/types/product'
+import type { Product, ProductVariant } from '@/types/product'
+import type { PaymentFrequency } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const ProductPage: React.FC = () => {
@@ -21,6 +22,15 @@ const ProductPage: React.FC = () => {
 
     // Find product by slug (id field in JSON)
     const product = (productsData as Product[]).find((p) => p.id === productSlug)
+
+    // Lifted state for variant and payment frequency selection (shared with ProductHero and StickyBuyButton)
+    // Initialize with product data - state will be properly set when product loads
+    const [selectedVariant, setSelectedVariant] = useState<ProductVariant | undefined>(
+        () => product?.variants?.[0]
+    )
+    const [selectedFrequency, setSelectedFrequency] = useState<PaymentFrequency>(
+        () => product?.defaultPaymentFrequency || 'monthly'
+    )
 
     // Set breadcrumbs
     useSetBreadcrumbs(
@@ -126,7 +136,14 @@ const ProductPage: React.FC = () => {
             <div className='mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-24 md:px-16 lg:px-20'>
                 <Breadcrumb />
             </div>
-            <ProductHero product={product} buyButtonRef={heroBuyButtonRef} />
+            <ProductHero
+                product={product}
+                buyButtonRef={heroBuyButtonRef}
+                selectedVariant={selectedVariant}
+                setSelectedVariant={setSelectedVariant}
+                selectedFrequency={selectedFrequency}
+                setSelectedFrequency={setSelectedFrequency}
+            />
             <ProductPAS product={product} />
             <ProductFeatures product={product} />
             <ProductScreenshots product={product} />
@@ -134,7 +151,12 @@ const ProductPage: React.FC = () => {
             <ProductTestimonials product={product} />
             <ProductFAQ product={product} />
             <ProductCTA product={product} />
-            <StickyBuyButton product={product} heroButtonRef={heroBuyButtonRef} />
+            <StickyBuyButton
+                product={product}
+                heroButtonRef={heroBuyButtonRef}
+                selectedVariant={selectedVariant}
+                selectedFrequency={selectedFrequency}
+            />
         </>
     )
 }

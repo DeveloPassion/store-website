@@ -155,7 +155,10 @@ describe('ProductCardEcommerce Component', () => {
         const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         const buyButton = getByText('Buy').closest('a')
-        expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/l/my-product?wanted=true')
+        expect(buyButton).toHaveAttribute(
+            'href',
+            'https://gumroad.com/l/my-product?wanted=true&quantity=1'
+        )
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
 

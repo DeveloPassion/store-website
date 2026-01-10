@@ -1,26 +1,74 @@
 import { useState, useEffect } from 'react'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
-import type { Product } from '@/types/product'
-import { buildGumroadUrl } from '@/lib/gumroad-url'
+import type { Product, ProductVariant } from '@/types/product'
+import type { PaymentFrequency } from '@/schemas/product.schema'
+import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
+import { PaymentFrequencySelector } from './payment-frequency-selector'
 
 interface ProductHeroProps {
     product: Product
     /** Ref to the buy button for scroll tracking */
     buyButtonRef?: React.Ref<HTMLAnchorElement>
+    /** Controlled state for selected variant (lifted to parent) */
+    selectedVariant?: ProductVariant
+    setSelectedVariant?: (variant: ProductVariant) => void
+    /** Controlled state for selected payment frequency (lifted to parent) */
+    selectedFrequency?: PaymentFrequency
+    setSelectedFrequency?: (frequency: PaymentFrequency) => void
 }
 
-const ProductHero: React.FC<ProductHeroProps> = ({ product, buyButtonRef }) => {
-    const [selectedVariant, setSelectedVariant] = useState(
-        product.variants?.[0] || {
-            name: 'Standard',
-            price: product.price,
-            priceDisplay: product.priceDisplay,
-            description: '',
-            gumroadUrl: product.gumroadUrl
+const ProductHero: React.FC<ProductHeroProps> = ({
+    product,
+    buyButtonRef,
+    selectedVariant: controlledVariant,
+    setSelectedVariant: setControlledVariant,
+    selectedFrequency: controlledFrequency,
+    setSelectedFrequency: setControlledFrequency
+}) => {
+    // Use controlled state if provided, otherwise fall back to local state
+    const defaultVariant = product.variants?.[0] || {
+        name: 'Standard',
+        price: product.price,
+        priceDisplay: product.priceDisplay,
+        description: '',
+        gumroadUrl: product.gumroadUrl
+    }
+
+    const selectedVariant = controlledVariant || defaultVariant
+    const setSelectedVariant = setControlledVariant || (() => {})
+
+    const defaultFrequency = product.defaultPaymentFrequency || 'monthly'
+    const selectedFrequency = controlledFrequency || defaultFrequency
+    const setSelectedFrequency = setControlledFrequency || (() => {})
+
+    // Calculate display price based on selected frequency for subscription products
+    const getDisplayPrice = (): string => {
+        if (!product.isSubscription || !selectedVariant.prices) {
+            return selectedVariant.priceDisplay
         }
-    )
+
+        const price =
+            selectedFrequency === 'yearly'
+                ? selectedVariant.prices.yearly
+                : selectedFrequency === 'biennial'
+                  ? selectedVariant.prices.biennial
+                  : selectedVariant.prices.monthly
+
+        if (!price) return selectedVariant.priceDisplay
+
+        const frequencyLabel =
+            selectedFrequency === 'yearly'
+                ? '/year'
+                : selectedFrequency === 'biennial'
+                  ? '/2 years'
+                  : '/month'
+
+        return `€${price.toFixed(2)}${frequencyLabel}`
+    }
+
+    const displayPrice = getDisplayPrice()
 
     // Wishlist state
     const [isWishlisted, setIsWishlisted] = useState(() => isInWishlist(product.id))
@@ -135,7 +183,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, buyButtonRef }) => {
                                         <button
                                             key={variant.name}
                                             onClick={() => setSelectedVariant(variant)}
-                                            className={`group relative rounded-lg border-2 p-4 text-left transition-all ${
+                                            className={`group relative cursor-pointer rounded-lg border-2 p-4 text-left transition-all ${
                                                 selectedVariant.name === variant.name
                                                     ? 'border-secondary bg-secondary/10'
                                                     : 'border-primary/20 hover:border-primary/40'
@@ -163,17 +211,35 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product, buyButtonRef }) => {
                             </div>
                         )}
 
+                        {/* Payment Frequency Selector (for subscriptions) */}
+                        {product.isSubscription && product.paymentFrequencies && (
+                            <PaymentFrequencySelector
+                                frequencies={product.paymentFrequencies}
+                                selected={selectedFrequency}
+                                onChange={setSelectedFrequency}
+                                monthlyPrice={
+                                    selectedVariant.prices?.monthly || selectedVariant.price
+                                }
+                                yearlyPrice={selectedVariant.prices?.yearly}
+                                biennialPrice={selectedVariant.prices?.biennial}
+                            />
+                        )}
+
                         {/* Price & CTA */}
                         <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
                             <div>
                                 <div className='text-primary/60 text-sm'>Price</div>
                                 <div className='text-secondary text-3xl font-bold sm:text-4xl'>
-                                    {selectedVariant.priceDisplay}
+                                    {displayPrice}
                                 </div>
                             </div>
                             <a
                                 ref={buyButtonRef}
-                                href={buildGumroadUrl(selectedVariant.gumroadUrl)}
+                                href={buildGumroadUrlFromProduct(
+                                    product,
+                                    selectedVariant,
+                                    selectedFrequency
+                                )}
                                 data-gumroad-overlay-checkout='true'
                                 className='bg-secondary hover:bg-secondary/90 flex flex-1 cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
                             >

@@ -93,13 +93,16 @@ describe('ProductCTA Component', () => {
         expect(getByText('Lifetime access. No subscriptions.')).toBeInTheDocument()
     })
 
-    it('should have correct Gumroad URL with wanted=true parameter', () => {
+    it('should have correct Gumroad URL with wanted=true and quantity=1 parameters', () => {
         const product = createMockProduct({ gumroadUrl: 'https://gumroad.com/test-product' })
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
         const buyButton = getByText('Buy Test Product')
-        expect(buyButton).toHaveAttribute('href', 'https://gumroad.com/test-product?wanted=true')
+        expect(buyButton).toHaveAttribute(
+            'href',
+            'https://gumroad.com/test-product?wanted=true&quantity=1'
+        )
         expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
     })
 
@@ -113,7 +116,7 @@ describe('ProductCTA Component', () => {
         const buyButton = getByText('Buy Test Product')
         expect(buyButton).toHaveAttribute(
             'href',
-            'https://gumroad.com/test-product?discount=SAVE20&wanted=true'
+            'https://gumroad.com/test-product?discount=SAVE20&wanted=true&quantity=1'
         )
     })
 

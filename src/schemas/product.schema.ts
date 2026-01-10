@@ -22,6 +22,8 @@ export const PriceTierSchema = z.enum([
     'subscription'
 ])
 
+export const PaymentFrequencySchema = z.enum(['monthly', 'yearly', 'biennial', 'one-time'])
+
 // Categories are now defined in category.schema.ts (single source of truth)
 export const ProductCategorySchema = CategoryIdSchema
 
@@ -33,12 +35,23 @@ export const SecondaryCategorySchema = z.object({
 
 export const ProductStatusSchema = z.enum(['active', 'coming-soon', 'archived'])
 
+// Pricing per payment frequency for subscription variants
+export const VariantPricingSchema = z.object({
+    monthly: z.number().optional(),
+    yearly: z.number().optional(),
+    biennial: z.number().optional(),
+    oneTime: z.number().optional()
+})
+
 export const ProductVariantSchema = z.object({
     name: z.string(),
-    price: z.number(),
+    price: z.number(), // Base price (typically monthly for subscriptions)
     priceDisplay: z.string(),
     description: z.string(),
-    gumroadUrl: z.string().url()
+    gumroadUrl: z.string().url(),
+    gumroadVariantId: z.string().optional(),
+    paymentFrequency: PaymentFrequencySchema.optional(),
+    prices: VariantPricingSchema.optional() // Per-frequency pricing for accurate savings calculation
 })
 
 export const ProductBenefitsSchema = z.object({
@@ -67,6 +80,11 @@ export const ProductSchema = z.object({
     priceTier: PriceTierSchema,
     gumroadUrl: z.string().url('Gumroad URL must be a valid URL'),
     variants: z.array(ProductVariantSchema).optional(),
+
+    // Subscription
+    isSubscription: z.boolean().optional(),
+    paymentFrequencies: z.array(PaymentFrequencySchema).optional(),
+    defaultPaymentFrequency: PaymentFrequencySchema.optional(),
 
     // Taxonomy (multi-dimensional filtering)
     mainCategory: ProductCategorySchema,
@@ -131,9 +149,11 @@ export const ProductsArraySchema = z.array(ProductSchema)
 
 // Export TypeScript types derived from Zod schemas
 export type PriceTier = z.infer<typeof PriceTierSchema>
+export type PaymentFrequency = z.infer<typeof PaymentFrequencySchema>
 export type ProductCategory = z.infer<typeof ProductCategorySchema>
 export type SecondaryCategory = z.infer<typeof SecondaryCategorySchema>
 export type ProductStatus = z.infer<typeof ProductStatusSchema>
+export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>
 export type StatsProof = z.infer<typeof StatsProofSchema>

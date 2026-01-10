@@ -3,10 +3,13 @@
     "name": "Knowii: Complete Knowledge System Community",
     "tagline": "Transform Information Chaos Into Your Greatest Advantage",
     "secondaryTagline": "Community + Premium Courses + Professional Tools = Your All-in-One Knowledge Solution",
-    "price": 19.99,
-    "priceDisplay": "From €4.99€/month (Explorer) to €39.99/month (Knowledge Master)",
+    "price": 4.99,
+    "priceDisplay": "From €4.99/month",
     "priceTier": "subscription",
     "gumroadUrl": "https://developassion.gumroad.com/l/knowii",
+    "isSubscription": true,
+    "paymentFrequencies": ["monthly", "yearly", "biennial"],
+    "defaultPaymentFrequency": "monthly",
     "tags": [
         "pkm",
         "personal-knowledge-management",
@@ -148,21 +151,42 @@
             "price": 4.99,
             "priceDisplay": "€4.99/month",
             "description": "Community, KM guidance, 1700+ concepts",
-            "gumroadUrl": "https://developassion.gumroad.com/l/knowii"
+            "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=B-5SxWm3R40OYK4Hyu4yGg%3D%3D",
+            "gumroadVariantId": "explorer",
+            "paymentFrequency": "monthly",
+            "prices": {
+                "monthly": 4.99,
+                "yearly": 49.99,
+                "biennial": 89.99
+            }
         },
         {
             "name": "Knowledge Builder",
             "price": 19.99,
             "priceDisplay": "€19.99/month",
             "description": "Workshops, Obsidian Starter Kit, courses, $150+",
-            "gumroadUrl": "https://www.knowii.net/checkout/knowledge-builder"
+            "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=2cpXpMzvZlAoz_gYEiHCDg%3D%3D",
+            "gumroadVariantId": "knowledge-builder",
+            "paymentFrequency": "monthly",
+            "prices": {
+                "monthly": 19.99,
+                "yearly": 199.99,
+                "biennial": 379.99
+            }
         },
         {
             "name": "Knowledge Master",
             "price": 39.99,
             "priceDisplay": "€39.99/month",
             "description": "Exclusive events, coaching, all courses, tools ($500+)",
-            "gumroadUrl": "https://www.knowii.net/checkout/knowledge-master"
+            "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=NQw4Qu4xyj-5TPRpbbkOAQ%3D%3D",
+            "gumroadVariantId": "knowledge-master",
+            "paymentFrequency": "monthly",
+            "prices": {
+                "monthly": 39.99,
+                "yearly": 399.99,
+                "biennial": 699.99
+            }
         }
     ],
     "priority": 35,

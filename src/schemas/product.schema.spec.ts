@@ -2,6 +2,7 @@ import { describe, it, expect } from 'bun:test'
 import {
     ProductSchema,
     PriceTierSchema,
+    PaymentFrequencySchema,
     SecondaryCategorySchema,
     ProductStatusSchema,
     ProductVariantSchema,
@@ -70,6 +71,22 @@ describe('Product Schema Validation', () => {
         })
     })
 
+    describe('PaymentFrequencySchema', () => {
+        it('should accept valid payment frequencies', () => {
+            const validFrequencies = ['monthly', 'yearly', 'biennial', 'one-time']
+            validFrequencies.forEach((frequency) => {
+                expect(() => PaymentFrequencySchema.parse(frequency)).not.toThrow()
+            })
+        })
+
+        it('should reject invalid payment frequencies', () => {
+            expect(() => PaymentFrequencySchema.parse('invalid')).toThrow()
+            expect(() => PaymentFrequencySchema.parse('weekly')).toThrow()
+            expect(() => PaymentFrequencySchema.parse('')).toThrow()
+            expect(() => PaymentFrequencySchema.parse(123)).toThrow()
+        })
+    })
+
     describe('SecondaryCategorySchema', () => {
         it('should accept valid secondary category', () => {
             const valid = { id: 'obsidian', distant: false }
@@ -113,6 +130,43 @@ describe('Product Schema Validation', () => {
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
 
+        it('should accept variant with gumroadVariantId', () => {
+            const valid = {
+                name: 'Pro Version',
+                price: 199.99,
+                priceDisplay: '€199.99',
+                description: 'Pro features included',
+                gumroadUrl: 'https://gumroad.com/pro',
+                gumroadVariantId: 'pro-version'
+            }
+            expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should accept variant with paymentFrequency', () => {
+            const valid = {
+                name: 'Monthly Subscription',
+                price: 9.99,
+                priceDisplay: '€9.99/month',
+                description: 'Monthly subscription',
+                gumroadUrl: 'https://gumroad.com/monthly',
+                paymentFrequency: 'monthly'
+            }
+            expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should accept variant with all new fields', () => {
+            const valid = {
+                name: 'Yearly Subscription',
+                price: 99.99,
+                priceDisplay: '€99.99/year',
+                description: 'Yearly subscription',
+                gumroadUrl: 'https://gumroad.com/yearly',
+                gumroadVariantId: 'yearly-plan',
+                paymentFrequency: 'yearly'
+            }
+            expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
+        })
+
         it('should reject variant with invalid URL', () => {
             const invalid = {
                 name: 'Pro Version',
@@ -120,6 +174,18 @@ describe('Product Schema Validation', () => {
                 priceDisplay: '€199.99',
                 description: 'Pro features',
                 gumroadUrl: 'not-a-url'
+            }
+            expect(() => ProductVariantSchema.parse(invalid)).toThrow()
+        })
+
+        it('should reject variant with invalid paymentFrequency', () => {
+            const invalid = {
+                name: 'Pro Version',
+                price: 199.99,
+                priceDisplay: '€199.99',
+                description: 'Pro features',
+                gumroadUrl: 'https://gumroad.com/pro',
+                paymentFrequency: 'weekly'
             }
             expect(() => ProductVariantSchema.parse(invalid)).toThrow()
         })
@@ -349,6 +415,96 @@ describe('Product Schema Validation', () => {
         it('should accept valid priority', () => {
             const valid = { ...validProduct, priority: 100 }
             const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+    })
+
+    describe('ProductSchema - Subscription Fields', () => {
+        it('should accept product with isSubscription true', () => {
+            const valid = { ...validProduct, isSubscription: true }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept product with isSubscription false', () => {
+            const valid = { ...validProduct, isSubscription: false }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept product without isSubscription (optional field)', () => {
+            const result = ProductSchema.safeParse(validProduct)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.isSubscription).toBeUndefined()
+            }
+        })
+
+        it('should accept product with paymentFrequencies array', () => {
+            const valid = {
+                ...validProduct,
+                isSubscription: true,
+                paymentFrequencies: ['monthly', 'yearly']
+            }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept product with single paymentFrequency', () => {
+            const valid = {
+                ...validProduct,
+                isSubscription: true,
+                paymentFrequencies: ['monthly']
+            }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept product with defaultPaymentFrequency', () => {
+            const valid = {
+                ...validProduct,
+                isSubscription: true,
+                paymentFrequencies: ['monthly', 'yearly'],
+                defaultPaymentFrequency: 'monthly'
+            }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept subscription product with all subscription fields', () => {
+            const valid = {
+                ...validProduct,
+                priceTier: 'subscription',
+                isSubscription: true,
+                paymentFrequencies: ['monthly', 'yearly'],
+                defaultPaymentFrequency: 'yearly'
+            }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject product with invalid paymentFrequency in array', () => {
+            const invalid = {
+                ...validProduct,
+                isSubscription: true,
+                paymentFrequencies: ['monthly', 'weekly']
+            }
+            const result = ProductSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject product with invalid defaultPaymentFrequency', () => {
+            const invalid = {
+                ...validProduct,
+                isSubscription: true,
+                defaultPaymentFrequency: 'weekly'
+            }
+            const result = ProductSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept product without subscription fields', () => {
+            const result = ProductSchema.safeParse(validProduct)
             expect(result.success).toBe(true)
         })
     })

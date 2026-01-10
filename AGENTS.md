@@ -78,10 +78,11 @@ bun run update:products -- --operation add|edit|remove [options]
 bun run validate:products             # Validate after changes
 ```
 
-**Product Structure** (50 fields):
+**Product Structure** (53+ fields):
 
 - Identity (5): id, permalink, name, tagline, secondaryTagline
 - Pricing (6): price, priceDisplay, priceTier, gumroadUrl, variants
+- Subscription (3): isSubscription, paymentFrequencies, defaultPaymentFrequency
 - Taxonomy (3): mainCategory, secondaryCategories, tags
 - Marketing (9): problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
 - Content (8): description, features, benefits, included, testimonialIds, faqIds, targetAudience, perfectFor, notForYou
@@ -89,6 +90,13 @@ bun run validate:products             # Validate after changes
 - Meta/Status (8): featured, bestValue, bestseller, status, priority, trustBadges, guarantees, crossSellIds
 - Links (2): landingPageUrl, dsebastienUrl
 - SEO (3): metaTitle, metaDescription, keywords
+
+**Variant Structure** (8 fields):
+
+- name, price, priceDisplay, description, gumroadUrl
+- gumroadVariantId (optional): Gumroad's variant ID for pre-selection
+- paymentFrequency (optional): 'monthly', 'yearly', 'biennial', or 'one-time'
+- prices (optional): Per-frequency pricing object with `monthly`, `yearly`, `biennial`, `oneTime` properties for accurate savings calculation
 
 **CLI vs Direct Editing:**
 
@@ -106,6 +114,61 @@ bun run validate:products             # Validate after changes
 - 40-49: Free resources
 - 30-39: Community
 - 20-29: Archived
+
+**Subscription Products:**
+
+For products with `priceTier: 'subscription'`, add these fields:
+
+- `isSubscription: true` - Enables subscription-specific UI/UX
+- `paymentFrequencies`: Array of `['monthly', 'yearly', 'biennial', 'one-time']`
+- `defaultPaymentFrequency`: Default selection ('monthly', 'yearly', or 'biennial')
+
+Each variant can have:
+
+- `gumroadVariantId`: Maps to Gumroad's variant system for pre-selection
+- `paymentFrequency`: Variant-specific frequency
+
+**Gumroad URL Parameters:**
+
+All purchase URLs automatically include:
+
+- `wanted=true` - Enables Gumroad overlay checkout
+- `quantity=1` - Sets quantity to 1
+- `variant={id}` - Pre-selects variant (if gumroadVariantId set)
+- Payment frequency (boolean parameters):
+    - `monthly=true` - For monthly subscriptions
+    - `yearly=true` - For yearly subscriptions
+    - `every_two_years=true` - For 2-year subscriptions
+
+Confirmed working on actual Gumroad product: https://developassion.gumroad.com/l/knowii
+
+Example subscription product structure:
+
+```json
+{
+    "priceTier": "subscription",
+    "isSubscription": true,
+    "paymentFrequencies": ["monthly", "yearly", "biennial"],
+    "defaultPaymentFrequency": "monthly",
+    "variants": [
+        {
+            "name": "Explorer",
+            "price": 4.99,
+            "priceDisplay": "€4.99/month",
+            "gumroadUrl": "https://gumroad.com/l/product",
+            "gumroadVariantId": "explorer",
+            "paymentFrequency": "monthly",
+            "prices": {
+                "monthly": 4.99,
+                "yearly": 49.99,
+                "biennial": 89.99
+            }
+        }
+    ]
+}
+```
+
+**Per-Frequency Pricing:** The `prices` object enables accurate savings calculation and dynamic price display in the PaymentFrequencySelector. When a user selects yearly or biennial frequency, the UI automatically calculates and displays the percentage savings compared to monthly pricing.
 
 ## Managing Promotion Banner
 

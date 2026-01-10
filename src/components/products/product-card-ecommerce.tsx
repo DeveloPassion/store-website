@@ -4,7 +4,7 @@ import { FaShoppingCart, FaHeart, FaRegHeart, FaStar, FaTrophy, FaFire } from 'r
 import type { Product } from '@/types/product'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
-import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 
 interface ProductCardEcommerceProps {
@@ -209,7 +209,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                         </button>
                     ) : (
                         <a
-                            href={buildGumroadUrl(product.gumroadUrl)}
+                            href={buildGumroadUrlFromProduct(product)}
                             data-gumroad-overlay-checkout='true'
                             className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                         >

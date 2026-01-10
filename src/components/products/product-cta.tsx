@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
-import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 
 interface ProductCTAProps {
     product: Product
@@ -29,23 +29,25 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     {/* Price */}
                     <div className='mb-8'>
                         <div className='text-primary/60 mb-2 text-sm tracking-wide uppercase'>
-                            One-Time Payment
+                            {product.isSubscription ? 'Subscription' : 'One-Time Payment'}
                         </div>
                         <div className='text-secondary mb-2 text-4xl font-bold sm:text-5xl'>
                             {product.priceDisplay}
                         </div>
                         <div className='text-primary/60 text-sm'>
-                            Lifetime access. No subscriptions.
+                            {product.isSubscription
+                                ? 'Cancel anytime. Flexible plans available.'
+                                : 'Lifetime access. No subscriptions.'}
                         </div>
                     </div>
 
                     {/* CTA Button */}
                     <a
-                        href={buildGumroadUrl(product.gumroadUrl)}
+                        href={buildGumroadUrlFromProduct(product)}
                         data-gumroad-overlay-checkout='true'
                         className='bg-secondary hover:bg-secondary/90 mb-8 inline-block cursor-pointer rounded-lg px-12 py-4 text-xl font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl'
                     >
-                        Buy {product.name}
+                        {product.isSubscription ? 'Subscribe Now' : `Buy ${product.name}`}
                     </a>
 
                     {/* Guarantees */}
