@@ -45,6 +45,19 @@ global.sessionStorage = happyWindow.sessionStorage
 // Set up document body with a root element BEFORE loading testing library
 happyWindow.document.body.innerHTML = '<div id="root"></div>'
 
+// Make window.scrollY and scrollX writable for tests
+Object.defineProperty(happyWindow, 'scrollY', {
+    writable: true,
+    configurable: true,
+    value: 0
+})
+
+Object.defineProperty(happyWindow, 'scrollX', {
+    writable: true,
+    configurable: true,
+    value: 0
+})
+
 // NOW we can import testing library - document.body is available
 import { cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
@@ -134,6 +147,9 @@ afterEach(() => {
     cleanup()
     // Reset document body
     happyWindow.document.body.innerHTML = '<div id="root"></div>'
+    // Reset scroll position (use writable property we defined earlier)
+    ;(happyWindow as { scrollY: number }).scrollY = 0
+    ;(happyWindow as { scrollX: number }).scrollX = 0
     // Clear storage
     localStorage.clear()
     sessionStorage.clear()
