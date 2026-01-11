@@ -1,0 +1,169 @@
+{
+    "id": "dev-concepts-starter-bundle",
+    "permalink": "dev-concepts-starter-bundle",
+    "name": "Dev Concepts Starter Bundle",
+    "tagline": "Master software craftsmanship and client needs with Volumes 1 & 2",
+    "secondaryTagline": "Essential foundation for junior developers with lifetime community access",
+    "price": 14.99,
+    "priceDisplay": "€14.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter",
+    "mainCategory": "bundles",
+    "secondaryCategories": [
+        {
+            "id": "dev-and-it",
+            "distant": false
+        },
+        {
+            "id": "learning",
+            "distant": false
+        }
+    ],
+    "tags": [
+        "learning",
+        "career-development",
+        "programming",
+        "it-fundamentals",
+        "concepts",
+        "beginners",
+        "bundle"
+    ],
+    "problem": "Junior developers lack foundational knowledge and mentorship to build successful careers",
+    "problemPoints": [
+        "Feeling overwhelmed by complex development environments without proper guidance",
+        "Building features that miss the mark because of poor client understanding",
+        "Missing access to experienced mentors and supportive developer communities",
+        "Struggling with both technical skills and professional soft skills",
+        "Unable to progress in your career due to incomplete foundational knowledge"
+    ],
+    "agitate": "Without proper foundations and community support, you'll continue struggling alone while others advance",
+    "agitatePoints": [
+        "Watching peers with mentorship access advance faster in their careers",
+        "Making costly mistakes that experienced developers could help you avoid",
+        "Wasting time on ineffective approaches without guidance",
+        "Missing out on higher-paying positions due to knowledge gaps",
+        "Burning out from isolation and lack of professional support network"
+    ],
+    "solution": "Get comprehensive fundamentals with lifetime community access",
+    "solutionPoints": [
+        "Learn software craftsmanship mindset and professionalism (Volume 1)",
+        "Master client needs, UX design, and requirements discovery (Volume 2)",
+        "Join a lifetime Slack community with senior developer mentorship",
+        "Access 15 years of industry experience distilled into practical guides",
+        "Build a strong foundation for career advancement and higher pay",
+        "Connect with like-minded developers for networking and support"
+    ],
+    "description": "The Dev Concepts Starter Bundle combines Volumes 1 and 2 to give you a comprehensive foundation in software development. Volume 1 covers software craftsmanship, professional mindset, and productivity. Volume 2 teaches client needs, UX design, and requirements discovery. Plus, you get lifetime access to an exclusive Slack community with senior developer mentorship. Perfect for junior developers who want to accelerate their careers with proper guidance and support. Save money versus buying individually while building essential skills.",
+    "features": [
+        "Dev Concepts Volume 1 - Software Craft (100-page e-book)",
+        "Dev Concepts Volume 2 - What Clients Need (50-page e-book)",
+        "Lifetime access to exclusive Slack community",
+        "Senior developer mentorship and Q&A in community",
+        "Networking with like-minded software crafters",
+        "Career guidance on job seeking and skill development",
+        "All future updates to both volumes included",
+        "Part of comprehensive 12-volume series",
+        "Digital format for easy reference and portable learning"
+    ],
+    "benefits": {
+        "immediate": [
+            "Save money versus buying volumes individually",
+            "Access 150 pages of comprehensive content immediately",
+            "Join exclusive Slack community with experienced developers"
+        ],
+        "systematic": [
+            "Build complete foundation in software craftsmanship and client needs",
+            "Get ongoing mentorship and support from senior developers",
+            "Network with other developers on similar career journeys",
+            "Apply practical techniques from 15 years of industry experience"
+        ],
+        "longTerm": [
+            "Accelerate career progression with proper fundamentals",
+            "Avoid costly mistakes with community guidance",
+            "Access lifetime learning resources that grow with you",
+            "Build sustainable approach to professional development"
+        ]
+    },
+    "included": [
+        "Dev Concepts Volume 1 - Software Craft (100 pages)",
+        "Dev Concepts Volume 2 - What Clients Need (50 pages)",
+        "Lifetime Slack community access",
+        "Senior developer mentorship",
+        "Lifetime access to all future volume updates",
+        "Definitions, pros/cons, and practical tips for each concept",
+        "Real-world lessons and applications",
+        "External resource links for deeper learning"
+    ],
+    "targetAudience": [
+        "Junior software developers seeking comprehensive foundations",
+        "Career-changers transitioning into development",
+        "Early-career professionals wanting mentorship",
+        "Developers aspiring to senior positions",
+        "Anyone looking for community support and guidance"
+    ],
+    "perfectFor": [
+        "Junior developers who want both technical craft and business/UX fundamentals",
+        "Developers seeking ongoing mentorship and community support",
+        "Career-changers who need comprehensive foundational knowledge",
+        "Budget-conscious learners who want to save money with a bundle",
+        "Anyone who wants to build the right skills for career advancement",
+        "Developers who value community learning over isolated study"
+    ],
+    "notForYou": [
+        "Senior developers already proficient in these foundational areas",
+        "Those only interested in one specific volume's topic",
+        "Developers who prefer learning completely independently without community",
+        "Anyone looking for advanced specialized topics rather than fundamentals"
+    ],
+    "coverImage": "/assets/images/products/dev-concepts-starter-bundle.png",
+    "screenshots": [],
+    "videoUrl": "",
+    "demoUrl": "",
+    "landingPageUrl": "https://dev-concepts.dev",
+    "dsebastienUrl": "",
+    "featured": false,
+    "bestValue": true,
+    "bestseller": false,
+    "priority": 60,
+    "trustBadges": [
+        "15+ years industry experience",
+        "150 pages of content",
+        "Lifetime community access",
+        "Part of 12-volume comprehensive series",
+        "Lifetime updates included"
+    ],
+    "guarantees": [
+        "14-day money-back guarantee",
+        "Lifetime access to content and community",
+        "Free updates forever"
+    ],
+    "crossSellIds": ["dev-concepts-volume-01", "dev-concepts-volume-02"],
+    "metaTitle": "Dev Concepts Starter Bundle | Software Craft + Client Needs with Lifetime Community",
+    "metaDescription": "Master software craftsmanship and client needs with Volumes 1 & 2. Includes lifetime Slack community access with senior developer mentorship. Save money versus buying individually.",
+    "keywords": [
+        "software development bundle",
+        "developer fundamentals",
+        "software craftsmanship",
+        "client requirements",
+        "junior developer guide",
+        "developer community",
+        "programming career",
+        "software engineering basics"
+    ],
+    "variants": [
+        {
+            "name": "E-books + Community",
+            "price": 14.99,
+            "priceDisplay": "€14.99",
+            "description": "Volumes 1 & 2 with lifetime Slack community access and updates",
+            "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter"
+        },
+        {
+            "name": "E-books + Community + Coaching",
+            "price": 93.99,
+            "priceDisplay": "€93.99",
+            "description": "Volumes 1 & 2, lifetime community access, plus personalized coaching session",
+            "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter"
+        }
+    ]
+}

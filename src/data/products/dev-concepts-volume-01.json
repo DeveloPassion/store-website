@@ -1,0 +1,154 @@
+{
+    "id": "dev-concepts-volume-01",
+    "permalink": "dev-concepts-volume-01",
+    "name": "Dev Concepts Volume 1 - Software Craft",
+    "tagline": "Master the mindset and professionalism of software craftsmanship",
+    "secondaryTagline": "Essential competencies for addressing practical development challenges",
+    "price": 9.99,
+    "priceDisplay": "€9.99",
+    "priceTier": "budget",
+    "gumroadUrl": "https://developassion.gumroad.com/l/DevConcepts-Volume-01-SoftwareCraft",
+    "mainCategory": "dev-and-it",
+    "secondaryCategories": [
+        {
+            "id": "learning",
+            "distant": false
+        }
+    ],
+    "tags": [
+        "learning",
+        "career-development",
+        "programming",
+        "it-fundamentals",
+        "concepts",
+        "beginners"
+    ],
+    "problem": "Junior developers struggle with foundational knowledge and professional mindset",
+    "problemPoints": [
+        "Feeling overwhelmed and out of depth in complex development environments",
+        "Mental exhaustion from knowledge gaps and uncertainty about which approach to take",
+        "Making project-threatening mistakes from incomplete understanding",
+        "Limited access to experienced mentors and guidance",
+        "Lack of understanding about software development roles and career progression"
+    ],
+    "agitate": "Without proper foundational knowledge, you'll keep struggling with productivity and career advancement",
+    "agitatePoints": [
+        "Wasting time on ineffective approaches due to lack of professional guidance",
+        "Missing out on higher-paying positions because of incomplete fundamentals",
+        "Falling behind peers who have access to mentorship and structured learning",
+        "Building software that doesn't meet real-world needs due to missing craftsmanship principles"
+    ],
+    "solution": "Learn software craftsmanship from 15 years of industry experience",
+    "solutionPoints": [
+        "Develop the right mindset and professional attitude for software development",
+        "Understand the distinction between software development, engineering, and craftsmanship",
+        "Get practical guidance on real-world problem solving and productivity",
+        "Access clear career progression pathways for developers",
+        "Learn from comprehensive, interconnected explanations of core concepts"
+    ],
+    "description": "Dev Concepts Volume 1 teaches essential competencies for addressing practical development challenges and cultivating a productive mindset in software engineering. This 100-page e-book draws from 15 years of professional experience to guide you through the software craft, emphasizing that 'being a software crafter is much less about technology than about personality traits and psychology.' Part of a comprehensive 12-volume series covering all aspects of software development.",
+    "features": [
+        "100-page comprehensive e-book on software craftsmanship fundamentals",
+        "Practical guidance derived from 15 years of professional experience",
+        "Clear explanations of software development roles and distinctions",
+        "Career progression pathways and professional development strategies",
+        "Focus on mindset, productivity, and psychological aspects of development",
+        "Part of a planned 12-book series covering comprehensive software topics",
+        "Digital format for easy reference and portable learning"
+    ],
+    "benefits": {
+        "immediate": [
+            "Develop a professional mindset that sets you apart",
+            "Understand software development roles and distinctions",
+            "Learn what software craftsmanship truly means"
+        ],
+        "systematic": [
+            "Apply practical productivity techniques from 15 years of experience",
+            "Solve real-world problems more effectively",
+            "Build psychological resilience for development challenges",
+            "Make better career decisions with clear progression pathways"
+        ],
+        "longTerm": [
+            "Foundation for career advancement and higher-paying positions",
+            "Sustainable approach to professional growth",
+            "Deep understanding that interconnects with broader development concepts",
+            "Become a well-rounded software crafter beyond just technical skills"
+        ]
+    },
+    "included": [
+        "100-page digital e-book (PDF format)",
+        "Lifetime access to all future updates",
+        "Definitions, pros/cons, and practical tips for each concept",
+        "Real-world lessons and applications",
+        "External resource links for deeper learning"
+    ],
+    "targetAudience": [
+        "Junior software developers",
+        "Career-changers transitioning into development",
+        "Early-career professionals seeking mentorship",
+        "Developers aspiring to senior positions",
+        "Anyone pursuing software craftsmanship principles"
+    ],
+    "perfectFor": [
+        "Junior developers feeling overwhelmed by complex development environments",
+        "Career beginners wanting foundational IT knowledge and professional guidance",
+        "Developers seeking to understand the 'why' behind software practices",
+        "Anyone looking to build a strong foundation for senior-level positions",
+        "Professionals wanting to develop the right mindset for software craftsmanship"
+    ],
+    "notForYou": [
+        "Senior developers already well-versed in software craftsmanship principles",
+        "Those looking for specific technical tutorials or coding exercises",
+        "Developers only interested in technology without psychological aspects",
+        "Anyone expecting quick fixes without foundational learning"
+    ],
+    "coverImage": "/assets/images/products/dev-concepts-volume-01.png",
+    "screenshots": [],
+    "videoUrl": "",
+    "demoUrl": "",
+    "landingPageUrl": "https://dev-concepts.dev",
+    "dsebastienUrl": "",
+    "featured": false,
+    "bestValue": false,
+    "bestseller": false,
+    "priority": 55,
+    "trustBadges": [
+        "15+ years industry experience",
+        "Part of 12-volume comprehensive series",
+        "Lifetime updates included"
+    ],
+    "guarantees": [
+        "14-day money-back guarantee",
+        "Lifetime access to content",
+        "Free updates forever"
+    ],
+    "crossSellIds": ["dev-concepts-starter-bundle", "dev-concepts-volume-02"],
+    "metaTitle": "Dev Concepts Volume 1 - Software Craft | Master Professional Development Mindset",
+    "metaDescription": "Learn essential software craftsmanship principles from 15 years of industry experience. 100-page e-book covering mindset, professionalism, and career progression for junior developers.",
+    "keywords": [
+        "software craftsmanship",
+        "software development fundamentals",
+        "junior developer guide",
+        "programming career",
+        "developer mindset",
+        "software engineering basics",
+        "career development",
+        "IT fundamentals"
+    ],
+    "variants": [
+        {
+            "name": "E-book Only",
+            "price": 9.99,
+            "priceDisplay": "€9.99",
+            "description": "100-page digital e-book with lifetime access and updates",
+            "gumroadUrl": "https://developassion.gumroad.com/l/DevConcepts-Volume-01-SoftwareCraft"
+        },
+        {
+            "name": "E-book + 1-Hour Coaching",
+            "price": 88.99,
+            "priceDisplay": "€88.99",
+            "description": "E-book plus personalized one-on-one coaching session with Sébastien Dubois",
+            "gumroadUrl": "https://developassion.gumroad.com/l/DevConcepts-Volume-01-SoftwareCraft"
+        }
+    ]
+}

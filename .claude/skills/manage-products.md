@@ -46,9 +46,6 @@ bun run update:products -- --operation list
 # Filter by featured products
 bun run update:products -- --operation list --featured
 
-# Filter by status
-bun run update:products -- --operation list --status active
-
 # Filter by category or tag
 bun run update:products -- --operation list --category guides
 bun run update:products -- --operation list --tag ai
@@ -110,7 +107,7 @@ bun run update:products -- --operation remove --id product-id --force
 ### Use CLI for:
 - ✅ Adding new products (creates structure with validation)
 - ✅ Editing taxonomy (categories/tags with keyboard-navigable multi-select)
-- ✅ Changing pricing, status, or priority
+- ✅ Changing pricing, priority, or meta flags (featured, bestValue, bestseller)
 - ✅ Quick updates to common fields
 - ✅ Listing and filtering products
 
@@ -127,74 +124,30 @@ Use the dedicated CLI tool: `bun run manage:product-content`
 
 ## Schema Documentation
 
-The product schema is defined in `src/schemas/product.schema.ts` using Zod. This is the **source of truth** for product data validation.
+**Source of Truth**: `src/schemas/product.schema.ts`
 
-### Required Fields
+The product schema is defined using Zod and contains 50+ fields organized into these groups:
 
-Every product must include:
+- **Identity**: id, permalink, name, tagline, secondaryTagline
+- **Pricing**: price, priceDisplay, priceTier, gumroadUrl, variants
+- **Subscription**: isSubscription, paymentFrequencies, defaultPaymentFrequency
+- **Taxonomy**: mainCategory, secondaryCategories, tags
+- **Marketing (PAS Framework)**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
+- **Content**: description, features, benefits, included, targetAudience, perfectFor, notForYou
+- **Social Proof**: testimonials (auto-loaded), statsProof
+- **Media**: coverImage, screenshots, videoUrl, demoUrl
+- **Links**: landingPageUrl, dsebastienUrl
+- **Meta**: featured, bestValue, bestseller, priority (0-100)
+- **Trust**: trustBadges, guarantees
+- **Cross-sell**: crossSellIds
+- **SEO**: metaTitle, metaDescription, keywords
 
-**Identity:**
-- `id` (string) - Unique slug identifier
-- `permalink` (string) - Gumroad permalink code
-- `name` (string) - Product name
-- `tagline` (string) - Main tagline
-
-**Pricing:**
-- `price` (number) - Base price in EUR
-- `priceDisplay` (string) - Display format (e.g., "€49.99" or "€49.99-€118.99")
-- `priceTier` (enum) - One of: free, budget, standard, premium, enterprise, subscription
-- `gumroadUrl` (string, URL) - Valid Gumroad product URL
-
-**Taxonomy:**
-- `type` (enum) - One of: course, kit, community, guide, workshop, coaching, bundle, tool, resource, book, lead-magnet, service
-- `categories` (array) - At least one of: ai-mastery, ai-tools, bundles, coaching, community, content-creation, courses, free, kits-and-templates, knowledge-management, knowledge-work, learning, obsidian, personal-development, personal-organization, productivity, dev-and-it, workshops
-- `tags` (array) - At least one tag
-
-**Marketing (PAS Framework):**
-- `problem` (string) - Pain point description
-- `problemPoints` (array) - List of specific problems
-- `agitate` (string) - Agitation description
-- `agitatePoints` (array) - List of agitation points
-- `solution` (string) - Solution description
-- `solutionPoints` (array) - List of solution points
-
-**Content:**
-- `description` (string) - Full product description
-- `features` (array) - List of features
-- `benefits` (object) - immediate, systematic, and longTerm arrays
-- `included` (array) - What's included in the product
-- `faqs` (array, auto-loaded) - FAQs loaded from {product-id}-faq.json
-- `testimonials` (array, auto-loaded) - Testimonials loaded from {product-id}-testimonials.json
-- `targetAudience` (array) - Who this is for
-- `perfectFor` (array) - Perfect for scenarios
-- `notForYou` (array) - When not to buy
-
-**Note:** FAQs and testimonials are stored in separate files (`{product-id}-faq.json` and `{product-id}-testimonials.json`) and are automatically loaded during aggregation. They do not need to be managed in the product JSON file directly.
-
-**Meta:**
-- `featured` (boolean) - Feature flag (displayed prominently)
-- `bestValue` (boolean) - Best value flag (highest ROI products)
-- `bestseller` (boolean) - Bestseller flag (most popular products)
-- `status` (enum) - One of: active, coming-soon, archived
-- `priority` (number, 0-100) - Sort priority (higher = more important)
-- `trustBadges` (array) - Trust indicators
-- `guarantees` (array) - Money-back guarantees, etc.
-- `crossSellIds` (array) - Related product IDs
-
-### Optional Fields
-
-- `secondaryTagline` (string)
-- `variants` (array) - Multiple pricing tiers
-- `statsProof` (object) - userCount, timeSaved, rating
-- `coverImage` (string) - Cover image path
-- `screenshots` (array) - Screenshot paths
-- `videoUrl` (string, URL) - YouTube or video URL
-- `demoUrl` (string, URL) - Demo link
-- `landingPageUrl` (string, URL) - Dedicated landing page
-- `dsebastienUrl` (string, URL) - Article on dsebastien.net
-- `metaTitle` (string) - SEO title
-- `metaDescription` (string) - SEO description
-- `keywords` (array) - SEO keywords
+**Important Notes:**
+- FAQs and testimonials are stored in separate files (`{product-id}-faq.json` and `{product-id}-testimonials.json`) and auto-loaded during aggregation
+- Refer to the schema file for complete field details, types, and validation rules
+- All URLs must be valid or empty strings (not null)
+- Priority must be between 0-100
+- Product IDs must be unique
 
 ## Workflow
 
@@ -224,7 +177,7 @@ Every product must include:
 1. **Run** `bun run update:products`
 2. **Select** "Edit existing product"
 3. **Choose the product** from the list
-4. **Select the section** to edit (basic info, pricing, taxonomy, meta/status)
+4. **Select the section** to edit (basic info, pricing, taxonomy, meta)
 5. **Use keyboard navigation** for categories/tags
 6. **Save and validate**
 
@@ -267,7 +220,7 @@ bun run validate:products
 
 This command (automatically runs aggregation first):
 - ✅ Validates all products against the Zod schema
-- 📊 Shows a summary of products by status and type
+- 📊 Shows a summary of products by category and pricing tier
 - ❌ Reports specific errors for invalid products
 - 🚫 Exits with code 1 if validation fails
 
@@ -341,11 +294,9 @@ bun run validate:products
 
 ## Important Notes
 
-- The Zod schema in `src/schemas/product.schema.ts` is the **source of truth**
-- Keep the TypeScript types in `src/types/product.ts` in sync with the schema
-- All URLs must be valid or empty strings (not null)
-- Arrays cannot be empty if marked as required (minimum 1 item)
-- Priority must be between 0 and 100
+- **Source of Truth**: `src/schemas/product.schema.ts` defines all fields and validation rules
+- TypeScript types in `src/types/product.ts` are auto-exported from the schema
+- Always validate products after editing: `bun run validate:products`
 - Product IDs must be unique across all products
 
 ## Error Messages
@@ -368,11 +319,12 @@ Each error shows:
 
 When updating the product schema:
 
-1. Update `src/schemas/product.schema.ts` (Zod schema)
-2. Update `src/types/product.ts` (TypeScript types)
-3. Update this skill documentation
-4. Run validation on all products
-5. Fix any newly invalid products
+1. Update `src/schemas/product.schema.ts` (source of truth)
+2. Update this skill's field groupings list if structure changes
+3. Run `bun run validate:products` on all products
+4. Fix any newly invalid products
+
+Note: TypeScript types are auto-exported from the schema, no manual sync needed.
 
 ## Managing FAQs and Testimonials
 
