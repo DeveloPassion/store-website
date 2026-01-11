@@ -3,7 +3,7 @@
         "id": "testimonial-1",
         "author": "Dwayne Appleby",
         "rating": 5,
-        "quote": "The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for keeping track of all the details. The templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool.",
+        "quote": "The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for me to use in keeping track of all the details and random happenings in my work. In particular, the templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool.",
         "featured": true
     },
     {
@@ -41,6 +41,204 @@
         "author": "Franjo Pehar",
         "rating": 5,
         "quote": "The Obsidian Starter Kit is an excellent resource for anyone interested in Personal Knowledge Management (PKM) and building their own 'second brain.' A must-have for those looking to take control of their knowledge and productivity!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-7",
+        "author": "Raymond D Sims",
+        "rating": 5,
+        "quote": "Off and running w/ @obsdmd. I've installed the app & have @dSebastien Starter Kit & my own fresh start Vault open. Learning from former & putting into practice w/ real content in latter. So far, so good",
+        "featured": false,
+        "twitterHandle": "rsims",
+        "twitterUrl": "https://x.com/rsims"
+    },
+    {
+        "id": "testimonial-8",
+        "author": "Sam Gonzales",
+        "rating": 5,
+        "quote": "Great content - got me up to speed with what I was looking for fast ! Sébastien answered some questions by mail also which was much appreciated ! Thanks",
+        "featured": false
+    },
+    {
+        "id": "testimonial-9",
+        "author": "Krzysztof Kapcia",
+        "rating": 5,
+        "quote": "I'd like to congratulate you on the fantastic product you've created – OSK. I've only spent a few hours with it, but I'm already confident it will meet my information management needs.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-10",
+        "author": "Ashwin Appiah",
+        "rating": 5,
+        "quote": "I absolutely love your kit and it has been so immensely helpful",
+        "featured": false
+    },
+    {
+        "id": "testimonial-11",
+        "author": "Ghada",
+        "rating": 5,
+        "quote": "This is a practical and well thought out tool for organising Obsidian. It's not flashy, but it doesn't need to be—it's all about function! The kit provided me with a solid framework, some helpful templates, and automations that made it easier to manage my vault without feeling overwhelmed. I tweaked many things to fit my workflow. I just really loved having this quick, straightway that offered me so much value from the app without me needing to spend hours setting things up. Thank you, Sebastian, and best of luck!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-12",
+        "author": "Liam Weight",
+        "rating": 5,
+        "quote": "Thanks for making the product. I'm making efforts to start using Obsidian more in my daily workflow and having a place to start makes the task much less daunting!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-13",
+        "author": "Fredrik Nordström",
+        "rating": 5,
+        "quote": "I'm very new to PKM, but the Obsidian Starter Kit has been a tremendous help in getting me started",
+        "featured": false
+    },
+    {
+        "id": "testimonial-14",
+        "author": "Lubos Kolouch",
+        "rating": 5,
+        "quote": "Sebastien's Obsidian Starter Kit is a powerful tool for those looking to dive into the world of Obsidian without being overwhelmed. It's a comprehensive solution that significantly shortens the learning curve, providing an impressively structured way to start capturing notes and facilitating daily journaling. The kit's integration of automated tasks and pre-designed templates are a boon to beginners, alleviating the initial intimidation of starting from scratch. If you're new to Obsidian and need a solid starting point, this starter kit comes highly recommended. It doesn't just help you navigate Obsidian, but also empowers you to harness its full potential right from the get-go.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-15",
+        "author": "Trobrillant",
+        "rating": 5,
+        "quote": "Just to thank the work and content that allowed me to discover the background of a custom vault. It was a real boost for me and given the price, it was a real investment of time and learning.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-16",
+        "author": "Henry F.",
+        "rating": 5,
+        "quote": "Excellent package to get started with Obsidian or optimize what you already have. The developer has tried it all and distilled a core setup that you can use out-of-the-box or adapt.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-17",
+        "author": "Naya Moss",
+        "rating": 5,
+        "quote": "Great starter kit, love it!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-18",
+        "author": "Andrew Zavitsanos",
+        "rating": 5,
+        "quote": "If you have been wanting to try Obsidian but overwhelmed with options and unsure where to start, Sebastien makes it easy with his 'ready to go' vault.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-19",
+        "author": "Mike Nall",
+        "rating": 5,
+        "quote": "Extremely comprehensive and most worthwhile!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-20",
+        "author": "Todd Walters",
+        "rating": 5,
+        "quote": "I love this product. Obsidian can be overwhelming with all you can do with it. Sebastien has pulled together a great collection of add-ons and templates and is a great starting point to get productive and begin your personal knowledge management journey",
+        "featured": false
+    },
+    {
+        "id": "testimonial-21",
+        "author": "Rick Eliott",
+        "rating": 5,
+        "quote": "The Obsidian Starter Kit is a really great way to get going with Obsidian, and Sebastien's writing and knowledge is so insightful and helpful",
+        "featured": false
+    },
+    {
+        "id": "testimonial-22",
+        "author": "Brenton James",
+        "rating": 5,
+        "quote": "Very helpful to give you a framework to develop from",
+        "featured": false
+    },
+    {
+        "id": "testimonial-23",
+        "author": "Adrian McLachlan",
+        "rating": 5,
+        "quote": "Useful learning for Obsidian. Appreciate updates",
+        "featured": false
+    },
+    {
+        "id": "testimonial-24",
+        "author": "Edouard Kutter",
+        "rating": 5,
+        "quote": "Easy to follow and well done!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-25",
+        "author": "Yaaqoub Eliyyahu",
+        "rating": 5,
+        "quote": "If you have been searching and searching for the right Obsidian Starter Kit??? This is the answer!!! It's a great start to set up the foundation of your system in Obsidian.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-26",
+        "author": "Manuel Miguel",
+        "rating": 5,
+        "quote": "Extraordinario para comenzar a trabajar con Obsidian",
+        "featured": false
+    },
+    {
+        "id": "testimonial-27",
+        "author": "Julien Dambron",
+        "rating": 5,
+        "quote": "The Obsidian Starter Kit is the perfect entry point for anyone looking to harness the full potential of Obsidian from day one. It comes with thoughtfully designed default configurations that work seamlessly out of the box, while still offering the flexibility to tailor settings to your personal workflow. Whether you're a beginner or an experienced user, this kit provides a solid foundation, saving you time and effort in setting up your vault. It's an excellent resource for those who want to jump straight into organizing their thoughts, projects, and knowledge without getting bogged down in the initial setup process. Highly recommended for anyone serious about maximizing their productivity with Obsidian.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-28",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "That is the only way so far that forced me to stick to some kind of knowledge management system for a significant amount of time (over 1 year now). The system is very clear and well thought of, even if way too powerful for my simple use cases. I love that Sebastien is keeping the system alive and evolving, releasing updates to the pack, so by paying once you're getting lots of value out of it!",
+        "featured": false
+    },
+    {
+        "id": "testimonial-29",
+        "author": "Yaaqoub",
+        "rating": 5,
+        "quote": "I was a novice to Obsidian & not a techie person. This is one of the best Obsdian Starter kits to get you started with Obsidian. You will not be disappointed.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-30",
+        "author": "Richard Elliott",
+        "rating": 5,
+        "quote": "Sebastien's starter kit really kick started my use of Obsidian and is the basis of my vault to this day. No nonsense and accompanied by concise and helpful guidance",
+        "featured": false
+    },
+    {
+        "id": "testimonial-31",
+        "author": "M G Zandstra",
+        "rating": 5,
+        "quote": "Although I was already using Obsidian in earnest on a day to day basis when I purchased it, I've found this guide / set up invaluable as a way to round out my understanding of features and plugins. It also provides a great overview of knowledge base techniques and theory. Whether you're just starting out or need some guidance taming the data in your vault this kit is a really useful resource.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-32",
+        "author": "Charles F McMaster",
+        "rating": 5,
+        "quote": "More intuitive, increased depth of information from Sebastien, growing the Starter Kit product, has expanded my utilization of Obsidian. Better and getting better. Worth the investment in KM.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-33",
+        "author": "Michel Laevens",
+        "rating": 5,
+        "quote": "I have known Obsidian since its inception. However, I settled for Logseq at that time. I also tried most km apps in the ecosystem. Noticing that Logseq was no longer updated, I used Obsidian again. However, I was not in the mood to spend hours organizing my system and choosing the plugins. Hence, the Obsidian Starter Kit. It's excellent and covers most of my needs. People starting in knowledge management or with Obsidian could benefit from a course.",
+        "featured": false
+    },
+    {
+        "id": "testimonial-34",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "Easy to understand and get up and running!",
         "featured": false
     }
 ]

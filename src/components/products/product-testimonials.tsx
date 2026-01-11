@@ -22,6 +22,27 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
         return 0
     })
 
+    if (sortedTestimonials.length === 0) {
+        return null
+    }
+
+    // Generate marketing copy based on testimonial count
+    const getSubtitle = () => {
+        const count = sortedTestimonials.length
+        if (count === 1) {
+            return 'Hear what our customer has to say'
+        } else if (count === 2) {
+            return 'Join 2 satisfied customers who transformed their workflow'
+        } else if (count <= 5) {
+            return `${count} customers already loving this product`
+        } else if (count <= 10) {
+            return `${count} success stories from satisfied customers`
+        } else {
+            return `Over ${count} customers have transformed their workflow`
+        }
+    }
+
+    // Auto-rotate carousel on mobile
     useEffect(() => {
         if (sortedTestimonials.length <= 1) return
 
@@ -45,19 +66,11 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
         )
     }
 
-    if (sortedTestimonials.length === 0) {
-        return null
-    }
-
     const currentTestimonial = sortedTestimonials[currentIndex]
-
-    if (!currentTestimonial) {
-        return null
-    }
 
     const slideVariants = {
         enter: (direction: number) => ({
-            x: direction > 0 ? 1000 : -1000,
+            x: direction > 0 ? 300 : -300,
             opacity: 0
         }),
         center: {
@@ -65,14 +78,69 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
             opacity: 1
         },
         exit: (direction: number) => ({
-            x: direction < 0 ? 1000 : -1000,
+            x: direction < 0 ? 300 : -300,
             opacity: 0
         })
     }
 
+    const TestimonialCard: React.FC<{
+        testimonial: (typeof sortedTestimonials)[0]
+        index?: number
+    }> = ({ testimonial, index }) => (
+        <motion.div
+            initial={index !== undefined ? { opacity: 0, y: 20 } : undefined}
+            whileInView={index !== undefined ? { opacity: 1, y: 0 } : undefined}
+            viewport={{ once: true }}
+            transition={index !== undefined ? { delay: index * 0.1 } : undefined}
+            className='border-primary/10 bg-background/50 relative flex flex-col rounded-xl border p-4 shadow-md transition-all hover:shadow-lg md:p-5'
+        >
+            {/* Quote Icon */}
+            <FaQuoteLeft className='text-secondary/20 mb-3 h-6 w-6' />
+
+            {/* Rating */}
+            <div className='mb-3 flex gap-1'>
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <FaStar
+                        key={i}
+                        className={`h-3.5 w-3.5 ${
+                            i < testimonial.rating ? 'text-secondary' : 'text-primary/20'
+                        }`}
+                    />
+                ))}
+            </div>
+
+            {/* Quote */}
+            <blockquote className='text-primary/80 mb-4 flex-grow text-sm leading-relaxed italic'>
+                "{testimonial.quote}"
+            </blockquote>
+
+            {/* Author */}
+            <div className='border-primary/10 border-t pt-3'>
+                <div className='text-sm font-semibold'>{testimonial.author}</div>
+                {(testimonial.role || testimonial.company) && (
+                    <div className='text-primary/60 mt-0.5 text-xs'>
+                        {testimonial.role}
+                        {testimonial.role && testimonial.company && ' at '}
+                        {testimonial.company}
+                    </div>
+                )}
+                {testimonial.twitterUrl && (
+                    <a
+                        href={testimonial.twitterUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-secondary hover:text-secondary/80 mt-1 inline-block text-xs transition-colors'
+                    >
+                        @{testimonial.twitterHandle}
+                    </a>
+                )}
+            </div>
+        </motion.div>
+    )
+
     return (
         <Section className='border-primary/10 from-background to-primary/5 border-t bg-gradient-to-b'>
-            <div className='mx-auto max-w-5xl'>
+            <div className='mx-auto max-w-7xl'>
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -84,74 +152,31 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                         What People Are Saying
                     </h2>
                     <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                        Real feedback from real users
+                        {getSubtitle()}
                     </p>
                 </motion.div>
 
-                {/* Carousel */}
-                <div className='relative'>
-                    <div className='border-primary/10 bg-background/50 relative overflow-hidden rounded-2xl border p-8 shadow-xl md:p-12'>
-                        {/* Quote Icon */}
-                        <FaQuoteLeft className='text-secondary/20 absolute top-4 left-4 h-12 w-12 md:top-8 md:left-8 md:h-16 md:w-16' />
-
-                        <AnimatePresence initial={false} custom={direction} mode='wait'>
-                            <motion.div
-                                key={currentIndex}
-                                custom={direction}
-                                variants={slideVariants}
-                                initial='enter'
-                                animate='center'
-                                exit='exit'
-                                transition={{
-                                    x: { type: 'spring', stiffness: 300, damping: 30 },
-                                    opacity: { duration: 0.2 }
-                                }}
-                                className='relative z-10'
-                            >
-                                {/* Rating */}
-                                <div className='mb-4 flex justify-center gap-1'>
-                                    {Array.from({ length: 5 }).map((_, i) => (
-                                        <FaStar
-                                            key={i}
-                                            className={`h-5 w-5 ${
-                                                i < currentTestimonial.rating
-                                                    ? 'text-secondary'
-                                                    : 'text-primary/20'
-                                            }`}
-                                        />
-                                    ))}
-                                </div>
-
-                                {/* Quote */}
-                                <blockquote className='text-primary/80 mb-6 text-center text-lg italic sm:text-xl md:text-2xl'>
-                                    "{currentTestimonial.quote}"
-                                </blockquote>
-
-                                {/* Author */}
-                                <div className='text-center'>
-                                    <div className='font-semibold'>{currentTestimonial.author}</div>
-                                    {(currentTestimonial.role || currentTestimonial.company) && (
-                                        <div className='text-primary/60 text-sm'>
-                                            {currentTestimonial.role}
-                                            {currentTestimonial.role &&
-                                                currentTestimonial.company &&
-                                                ' at '}
-                                            {currentTestimonial.company}
-                                        </div>
-                                    )}
-                                    {currentTestimonial.twitterUrl && (
-                                        <a
-                                            href={currentTestimonial.twitterUrl}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                            className='text-secondary hover:text-secondary/80 mt-1 inline-block text-sm transition-colors'
-                                        >
-                                            @{currentTestimonial.twitterHandle}
-                                        </a>
-                                    )}
-                                </div>
-                            </motion.div>
-                        </AnimatePresence>
+                {/* Mobile Carousel (< md) */}
+                <div className='relative md:hidden'>
+                    <div className='overflow-hidden'>
+                        {currentTestimonial && (
+                            <AnimatePresence initial={false} custom={direction} mode='wait'>
+                                <motion.div
+                                    key={currentIndex}
+                                    custom={direction}
+                                    variants={slideVariants}
+                                    initial='enter'
+                                    animate='center'
+                                    exit='exit'
+                                    transition={{
+                                        x: { type: 'spring', stiffness: 300, damping: 30 },
+                                        opacity: { duration: 0.2 }
+                                    }}
+                                >
+                                    <TestimonialCard testimonial={currentTestimonial} />
+                                </motion.div>
+                            </AnimatePresence>
+                        )}
                     </div>
 
                     {/* Navigation */}
@@ -159,24 +184,24 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                         <>
                             <button
                                 onClick={goToPrevious}
-                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
+                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 p-2 transition-all hover:scale-110 hover:text-white'
                                 aria-label='Previous testimonial'
                             >
-                                <FaChevronLeft className='h-5 w-5' />
+                                <FaChevronLeft className='h-4 w-4' />
                             </button>
                             <button
                                 onClick={goToNext}
-                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
+                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rounded-full border-2 p-2 transition-all hover:scale-110 hover:text-white'
                                 aria-label='Next testimonial'
                             >
-                                <FaChevronRight className='h-5 w-5' />
+                                <FaChevronRight className='h-4 w-4' />
                             </button>
                         </>
                     )}
 
                     {/* Indicators */}
                     {sortedTestimonials.length > 1 && (
-                        <div className='mt-8 flex justify-center gap-2'>
+                        <div className='mt-6 flex justify-center gap-2'>
                             {sortedTestimonials.map((_, idx) => (
                                 <button
                                     key={idx}
@@ -194,6 +219,25 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                             ))}
                         </div>
                     )}
+                </div>
+
+                {/* Desktop Grid (>= md) */}
+                <div
+                    className={`hidden gap-6 md:grid ${
+                        sortedTestimonials.length === 1
+                            ? 'mx-auto max-w-3xl'
+                            : sortedTestimonials.length === 2
+                              ? 'md:grid-cols-2'
+                              : 'md:grid-cols-2 lg:grid-cols-3'
+                    }`}
+                >
+                    {sortedTestimonials.map((testimonial, index) => (
+                        <TestimonialCard
+                            key={testimonial.id}
+                            testimonial={testimonial}
+                            index={index}
+                        />
+                    ))}
                 </div>
             </div>
         </Section>
