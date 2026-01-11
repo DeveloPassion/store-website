@@ -216,6 +216,55 @@ bun run validate:promotion
 
 **Fields**: bannerBehavior, promotionStart/End (ISO 8601 UTC), promoText, promoLinkText, promoLink, discountCode
 
+## Managing Redirects
+
+Configuration in `src/data/redirects.json` (not gitignored). Enables automated client-side redirects for GitHub Pages.
+
+**Quick Commands:**
+
+```bash
+bun run update:redirects              # Interactive CLI
+bun run update:redirects -- --operation list|add|remove
+bun run validate:redirects            # Validate after changes
+```
+
+**Structure** (5 fields):
+
+- `from`: Source path (must start with `/`)
+- `to`: Destination URL or path (internal or external)
+- `type`: `PERMANENT` (301) or `TEMPORARY` (302, default)
+- `description`: Optional documentation string
+- `includeInSitemap`: Boolean (default: false)
+
+**Redirect Types:**
+
+- **PERMANENT (301)**: For moved content, search engines transfer ranking
+- **TEMPORARY (302)**: More flexible, no aggressive caching (default)
+
+**Build-Time Integration:**
+
+Redirects generate static HTML pages at build time via `generate-redirect-pages.ts`:
+
+- Triple-layer strategy: static HTML + meta refresh + JavaScript
+- Works without JavaScript (meta refresh fallback)
+- SEO-friendly (`noindex`, canonical links)
+- GitHub Pages compatible (client-side only)
+
+**React Router Integration:**
+
+Redirects also integrate with React Router for client-side navigation via `RedirectPage` component.
+
+**Validation:**
+
+- Prevents duplicate source paths
+- Detects redirect loops (A → B → A)
+- Validates path format (must start with `/`)
+- Runs automatically in `validate:all` and CI
+
+**GitHub Pages Compatibility:**
+
+All redirects are client-side (no server config needed). Static HTML pages are generated in `dist/[path]/index.html` during build.
+
 ## Managing Tags
 
 96 tags in `src/data/tags.json` (object/map structure). Used for detailed product metadata.

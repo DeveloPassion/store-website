@@ -22,6 +22,8 @@ import CategoriesPage from './pages/categories'
 import CategoryPage from './pages/category'
 import NotFoundPage from './pages/not-found'
 import ErrorPage from './pages/error'
+import RedirectPage from './components/redirect/redirect-page'
+import { getRedirects } from './lib/redirects'
 
 const rootElement = document.getElementById('root')
 
@@ -50,6 +52,14 @@ ReactDOM.createRoot(rootElement).render(
                             <Route path='/faq' element={<FAQPage />} />
                             <Route path='/wishlist' element={<WishlistPage />} />
                             <Route path='/shared-wishlist' element={<SharedWishlistPage />} />
+                            {/* Redirect routes */}
+                            {getRedirects().map((redirect) => (
+                                <Route
+                                    key={redirect.from}
+                                    path={redirect.from}
+                                    element={<RedirectPage />}
+                                />
+                            ))}
                             {/* 404 catch-all route */}
                             <Route path='*' element={<NotFoundPage />} />
                         </Route>
