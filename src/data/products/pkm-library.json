@@ -160,6 +160,22 @@
         "curated resources"
     ],
     "videoUrl": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
+    "variants": [
+        {
+            "name": "The Library",
+            "price": 39.99,
+            "priceDisplay": "€39.99",
+            "description": "Access to the Personal Knowledge Management Notion space",
+            "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=mG87np3DF6rYFzEEyzSlNQ%3D%3D"
+        },
+        {
+            "name": "Commercial License",
+            "price": 139.99,
+            "priceDisplay": "€139.99",
+            "description": "Required if you buy the PKM Library for your business",
+            "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=2xsspQa0UQroFmHQwUTNmg%3D%3D"
+        }
+    ],
     "priority": 70,
     "id": "pkm-library",
     "mainCategory": "knowledge-bases",

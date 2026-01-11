@@ -152,17 +152,17 @@
     ],
     "variants": [
         {
-            "name": "E-books + Community",
+            "name": "The e-books",
             "price": 14.99,
             "priceDisplay": "€14.99",
-            "description": "Volumes 1 & 2 with lifetime Slack community access and updates",
+            "description": "One copy of the e-books",
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=mh1dCYM0cYuLJojqJNYE8w%3D%3D"
         },
         {
-            "name": "E-books + Community + Coaching",
+            "name": "The e-books + 1 hour of coaching",
             "price": 93.99,
             "priceDisplay": "€93.99",
-            "description": "Volumes 1 & 2, lifetime community access, plus personalized coaching session",
+            "description": "One copy of the e-books + 1 hour of personalized coaching",
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=FdLcHOSaa-iP0HkA8HES0w%3D%3D"
         }
     ]
