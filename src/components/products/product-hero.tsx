@@ -106,13 +106,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         )}
 
                         {/* Title */}
-                        <div className='mb-4 flex flex-wrap items-center gap-3'>
+                        <div className='mb-4 flex items-center gap-3'>
                             <h1 className='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
                                 {product.name}
                             </h1>
                             <button
                                 onClick={handleWishlist}
-                                className={`flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-all hover:scale-110 ${
+                                className={`flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full transition-all hover:scale-110 sm:h-12 sm:w-12 ${
                                     isWishlisted
                                         ? 'bg-secondary/10 text-secondary'
                                         : 'bg-primary/10 text-primary/60 hover:bg-primary/20 hover:text-secondary'
@@ -123,9 +123,9 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                 title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
                             >
                                 {isWishlisted ? (
-                                    <FaHeart className='h-6 w-6' />
+                                    <FaHeart className='h-5 w-5 sm:h-6 sm:w-6' />
                                 ) : (
-                                    <FaRegHeart className='h-6 w-6' />
+                                    <FaRegHeart className='h-5 w-5 sm:h-6 sm:w-6' />
                                 )}
                             </button>
                         </div>
