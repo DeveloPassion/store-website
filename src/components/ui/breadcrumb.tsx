@@ -13,7 +13,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ className }) => {
     if (!breadcrumbItems || breadcrumbItems.length === 0) return null
 
     return (
-        <nav aria-label='Breadcrumb' className={cn('mb-6', className)}>
+        <nav aria-label='Breadcrumb' className={cn('mb-4', className)}>
             <ol className='text-primary/70 flex flex-wrap items-center gap-2 text-xs sm:text-sm'>
                 {breadcrumbItems.map((item, index) => {
                     const isLast = index === breadcrumbItems.length - 1

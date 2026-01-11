@@ -94,7 +94,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                     className='border-primary/10 bg-background/95 fixed right-0 bottom-0 left-0 z-50 border-t shadow-2xl backdrop-blur-lg'
                 >
                     <div className='container mx-auto max-w-7xl px-4 py-3 sm:px-6 md:px-8'>
-                        <div className='flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-4'>
+                        <div className='flex flex-col items-center justify-between gap-3 overflow-hidden sm:flex-row sm:gap-4'>
                             {/* Product Info - Hidden on mobile for space */}
                             <div className='hidden sm:flex sm:flex-col sm:gap-1 md:flex-row md:items-center md:gap-4'>
                                 <div>
@@ -128,7 +128,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                         selectedFrequency
                                     )}
                                     data-gumroad-overlay-checkout='true'
-                                    className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl'
+                                    className='bg-secondary hover:bg-secondary/90 flex shrink-0 cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl'
                                 >
                                     <FaShoppingCart className='h-4 w-4' />
                                     <span>Buy Now</span>
@@ -152,7 +152,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                     className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl'
                                 >
                                     <FaShoppingCart className='h-5 w-5' />
-                                    <span>Buy {product.name} Now</span>
+                                    <span>Buy Now</span>
                                 </a>
                             </div>
                         </div>

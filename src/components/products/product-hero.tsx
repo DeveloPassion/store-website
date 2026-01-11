@@ -87,9 +87,9 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     }
 
     return (
-        <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-16 sm:py-20 md:py-24 lg:py-32'>
+        <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'>
             <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
-                <div className='grid gap-12 lg:grid-cols-2 lg:gap-16'>
+                <div className='grid gap-12 overflow-hidden lg:grid-cols-2 lg:gap-16'>
                     {/* Left Column: Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 
                         {/* Title */}
                         <div className='mb-4 flex items-center gap-3'>
-                            <h1 className='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
+                            <h1 className='text-4xl font-bold tracking-tight break-words sm:text-5xl md:text-6xl'>
                                 {product.name}
                             </h1>
                             <button

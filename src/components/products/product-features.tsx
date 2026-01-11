@@ -99,14 +99,16 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                         <h3 className='mb-6 text-center text-2xl font-bold sm:text-3xl'>
                             Everything You Get
                         </h3>
-                        <div className='mx-auto grid max-w-4xl gap-3 sm:grid-cols-2'>
+                        <div className='mx-auto grid max-w-4xl grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3'>
                             {product.included.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className='border-secondary/20 bg-secondary/5 flex items-start gap-3 rounded-lg border p-4'
+                                    className='border-secondary/20 bg-secondary/5 flex items-start gap-2.5 rounded-lg border p-2.5 sm:gap-3 sm:p-4'
                                 >
-                                    <FaCheckCircle className='text-secondary mt-1 h-5 w-5 shrink-0' />
-                                    <span className='text-primary/80'>{item}</span>
+                                    <FaCheckCircle className='text-secondary mt-0.5 h-4 w-4 shrink-0 sm:mt-1 sm:h-5 sm:w-5' />
+                                    <span className='text-primary/80 text-sm break-words sm:text-base'>
+                                        {item}
+                                    </span>
                                 </div>
                             ))}
                         </div>

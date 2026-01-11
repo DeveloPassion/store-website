@@ -122,7 +122,7 @@ describe('Breadcrumb Component', () => {
 
         const nav = container.querySelector('nav')
         expect(nav).toHaveClass('custom-class')
-        expect(nav).toHaveClass('mb-6')
+        expect(nav).toHaveClass('mb-4')
     })
 
     it('should handle single breadcrumb item', () => {

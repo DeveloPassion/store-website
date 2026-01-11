@@ -113,7 +113,7 @@ const ProductPage: React.FC = () => {
 
     return (
         <>
-            <div className='mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-24 md:px-16 lg:px-20'>
+            <div className='mx-auto max-w-[1800px] px-6 pt-8 sm:px-10 sm:pt-12 md:px-16 md:pt-16 lg:px-20 xl:px-32 2xl:max-w-[2200px]'>
                 <Breadcrumb />
             </div>
             <ProductHero

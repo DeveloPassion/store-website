@@ -64,7 +64,7 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct({ name: 'Awesome Product' })
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        expect(getByText('Buy Awesome Product')).toBeInTheDocument()
+        expect(getByText('Buy Now')).toBeInTheDocument()
     })
 
     it('should display product price', () => {
@@ -97,7 +97,7 @@ describe('ProductCTA Component', () => {
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product')
+        const buyButton = getByText('Buy Now')
         expect(buyButton).toHaveAttribute(
             'href',
             'https://gumroad.com/test-product?wanted=true&quantity=1'
@@ -112,7 +112,7 @@ describe('ProductCTA Component', () => {
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product')
+        const buyButton = getByText('Buy Now')
         expect(buyButton).toHaveAttribute(
             'href',
             'https://gumroad.com/test-product?discount=SAVE20&wanted=true&quantity=1'
@@ -124,7 +124,7 @@ describe('ProductCTA Component', () => {
 
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product')
+        const buyButton = getByText('Buy Now')
         expect(buyButton).toHaveAttribute('href', '#')
     })
 
@@ -215,7 +215,7 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct()
         const { container, getByText } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Test Product')
+        const buyButton = getByText('Buy Now')
         expect(buyButton).toHaveClass('bg-secondary')
         expect(buyButton).toHaveClass('hover:bg-secondary/90')
 
