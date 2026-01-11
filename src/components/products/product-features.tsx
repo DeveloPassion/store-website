@@ -77,11 +77,15 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                             <motion.div
                                 key={idx}
                                 variants={itemVariants}
-                                className='border-primary/10 bg-background/50 hover:border-secondary/30 group rounded-lg border p-6 transition-all hover:shadow-lg'
+                                className='border-primary/10 bg-background/50 hover:border-secondary/30 group grid grid-cols-[auto_1fr] gap-4 rounded-lg border p-6 transition-all hover:shadow-lg'
                             >
-                                <div className='bg-secondary/10 group-hover:bg-secondary/20 mb-4 inline-flex rounded-lg p-3 transition-colors'>
-                                    <IconComponent className='text-secondary h-6 w-6' />
+                                {/* Column 1: Icon */}
+                                <div className='flex items-start pt-1'>
+                                    <div className='bg-secondary/10 group-hover:bg-secondary/20 inline-flex rounded-lg p-3 transition-colors'>
+                                        <IconComponent className='text-secondary h-6 w-6' />
+                                    </div>
                                 </div>
+                                {/* Column 2: Text */}
                                 <p className='text-primary/80'>{feature}</p>
                             </motion.div>
                         )
@@ -103,9 +107,13 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                             {product.included.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className='border-secondary/20 bg-secondary/5 flex items-start gap-2.5 rounded-lg border p-2.5 sm:gap-3 sm:p-4'
+                                    className='border-secondary/20 bg-secondary/5 grid grid-cols-[auto_1fr] gap-2.5 rounded-lg border p-2.5 sm:gap-3 sm:p-4'
                                 >
-                                    <FaCheckCircle className='text-secondary mt-0.5 h-4 w-4 shrink-0 sm:mt-1 sm:h-5 sm:w-5' />
+                                    {/* Column 1: Icon */}
+                                    <div className='flex items-start pt-0.5 sm:pt-1'>
+                                        <FaCheckCircle className='text-secondary h-4 w-4 sm:h-5 sm:w-5' />
+                                    </div>
+                                    {/* Column 2: Text */}
                                     <span className='text-primary/80 text-sm break-words sm:text-base'>
                                         {item}
                                     </span>
@@ -131,8 +139,12 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                 </h3>
                                 <ul className='space-y-3'>
                                     {product.perfectFor.map((item, idx) => (
-                                        <li key={idx} className='flex items-start gap-3'>
-                                            <FaCheckCircle className='text-secondary mt-1 h-4 w-4 shrink-0' />
+                                        <li key={idx} className='grid grid-cols-[auto_1fr] gap-3'>
+                                            {/* Column 1: Icon */}
+                                            <div className='flex items-start pt-1'>
+                                                <FaCheckCircle className='text-secondary h-4 w-4' />
+                                            </div>
+                                            {/* Column 2: Text */}
                                             <span className='text-primary/80'>{item}</span>
                                         </li>
                                     ))}
@@ -146,8 +158,12 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                 <h3 className='mb-4 text-xl font-bold'>Not For You If:</h3>
                                 <ul className='space-y-3'>
                                     {product.notForYou.map((item, idx) => (
-                                        <li key={idx} className='flex items-start gap-3'>
-                                            <span className='text-primary/40 mt-1 text-lg'>•</span>
+                                        <li key={idx} className='grid grid-cols-[auto_1fr] gap-3'>
+                                            {/* Column 1: Icon */}
+                                            <div className='flex items-start pt-1'>
+                                                <span className='text-primary/40 text-lg'>•</span>
+                                            </div>
+                                            {/* Column 2: Text */}
                                             <span className='text-primary/70'>{item}</span>
                                         </li>
                                     ))}
