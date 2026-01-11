@@ -3,22 +3,22 @@
     "name": "Obsidian Starter Kit",
     "tagline": "Stop Wasting Time Configuring Obsidian. Start Being Productive Today.",
     "secondaryTagline": "Transform Chaos Into Clarity in 30 Minutes",
-    "price": 49.99,
-    "priceDisplay": "€49.99-€118.99",
+    "price": 129.99,
+    "priceDisplay": "€129.99-€198.99",
     "priceTier": "standard",
     "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit",
     "variants": [
         {
             "name": "Essentials",
-            "price": 49.99,
-            "priceDisplay": "€49.99",
+            "price": 129.99,
+            "priceDisplay": "€129.99",
             "description": "Vault + comprehensive user guide",
             "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=jFE4eFptU6WcQb1yvpgZHQ%3D%3D"
         },
         {
             "name": "Premium",
-            "price": 118.99,
-            "priceDisplay": "€118.99",
+            "price": 198.99,
+            "priceDisplay": "€198.99",
             "description": "Essentials + 2h20m Obsidian Starter Course video",
             "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=Hv2ZxE5Spo1zjbvmr-aRQg%3D%3D"
         }
