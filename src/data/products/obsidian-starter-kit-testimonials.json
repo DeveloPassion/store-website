@@ -240,5 +240,12 @@
         "rating": 5,
         "quote": "Easy to understand and get up and running!",
         "featured": false
+    },
+    {
+        "id": "testimonial-35",
+        "author": "Chananan Srasri",
+        "rating": 5,
+        "quote": "Flawless design and easy to use with detailed explanations behind every design.",
+        "featured": false
     }
 ]

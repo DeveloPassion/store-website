@@ -33,5 +33,19 @@
         "rating": 5,
         "quote": "Very Honest Man. Labors to explain so much at a granular level. Have patience and listen to his reasoning for explaining his logic and system process.",
         "featured": false
+    },
+    {
+        "id": "testimonial-12",
+        "author": "Nirmal Thewarathanthri",
+        "rating": 5,
+        "quote": "Most pratical approach for knowledge management, excellent course and highly recommended",
+        "featured": false
+    },
+    {
+        "id": "testimonial-13",
+        "author": "BKLYNKID Jake",
+        "rating": 5,
+        "quote": "This instructor clearly understands his subject matter and is doing a very good job of explaining the scope and the reason why the overall subject is important",
+        "featured": false
     }
 ]

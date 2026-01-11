@@ -12,5 +12,12 @@
         "rating": 5,
         "quote": "Sebastien's writing is exceptional and I look forward to each new article",
         "featured": false
+    },
+    {
+        "id": "testimonial-14",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "Thank you for making this available and filling a gap that I think I sorely needed.",
+        "featured": false
     }
 ]
