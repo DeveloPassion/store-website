@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/DeveloPassion/store-website/compare/0.4.0...0.4.1) (2026-01-11)
+
+### Features
+
+* **all:** added osk testimonials ([8edb071](https://github.com/DeveloPassion/store-website/commit/8edb0716ae2e0ad0e896e7b7cfbd8904deb0990d))
+* **all:** added pkm coaching testimonials ([77a2b0a](https://github.com/DeveloPassion/store-website/commit/77a2b0a0b5183d3db41acd2d17aac1d887d950e0))
+* **all:** improved promo banner (close button not overlapping anymore) ([abc99ec](https://github.com/DeveloPassion/store-website/commit/abc99ecdd0d903794da9c0b2cbfd4d46e8610316))
+* **all:** improved responsiveness of products page and testmonials display ([e03737b](https://github.com/DeveloPassion/store-website/commit/e03737b99a13bd31ce43e4ddba99ad000220da90))
+* **all:** show wishlist icon along with the title on product pages ([88ca9fc](https://github.com/DeveloPassion/store-website/commit/88ca9fcb477549610f0ba0eae0837fcea826489a))
 ## [0.4.0](https://github.com/DeveloPassion/store-website/compare/0.3.2...0.4.0) (2026-01-10)
 
 ### Features
