@@ -67,7 +67,7 @@ const BestSellersPage: React.FC = () => {
             {/* Hero Section */}
             <Section className='pt-16 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20'>
                 <div className='mx-auto max-w-[1400px] text-center'>
-                    <Breadcrumb className='mb-8 flex justify-center' />
+                    <Breadcrumb className='mb-6 flex justify-center' />
 
                     {/* Icon */}
                     <div className='mb-6 flex justify-center'>

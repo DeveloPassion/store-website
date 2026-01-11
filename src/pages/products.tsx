@@ -93,7 +93,7 @@ const ProductsPage: React.FC = () => {
             {/* Hero Section */}
             <Section className='pt-16 pb-12 sm:pt-24 sm:pb-16 md:pt-32 md:pb-20'>
                 <div className='mx-auto max-w-[1400px] text-center'>
-                    <Breadcrumb className='mb-8 flex justify-center' />
+                    <Breadcrumb className='mb-6 flex justify-center' />
                     <h1 className='mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
                         Products & Resources
                     </h1>

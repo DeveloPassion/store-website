@@ -62,7 +62,7 @@ const FAQPage: React.FC = () => {
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
                 <div className='mx-auto max-w-4xl'>
-                    <Breadcrumb />
+                    <Breadcrumb className='mb-6 flex justify-center' />
                     <div className='flex items-center gap-4'>
                         <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
                             <FaQuestionCircle className='text-secondary h-7 w-7' />

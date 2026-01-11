@@ -166,7 +166,7 @@ const TagPage: React.FC = () => {
             {/* Header */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
                 <div className='w-full'>
-                    <Breadcrumb />
+                    <Breadcrumb className='mb-6 flex justify-center' />
                     <div className='flex items-center gap-4'>
                         {tagData.icon && (
                             <div

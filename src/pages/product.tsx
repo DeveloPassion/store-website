@@ -114,7 +114,7 @@ const ProductPage: React.FC = () => {
     return (
         <>
             <div className='mx-auto max-w-[1800px] px-6 pt-8 sm:px-10 sm:pt-12 md:px-16 md:pt-16 lg:px-20 xl:px-32 2xl:max-w-[2200px]'>
-                <Breadcrumb />
+                <Breadcrumb className='mb-6 flex justify-center' />
             </div>
             <ProductHero
                 product={product}

@@ -121,7 +121,7 @@ const CategoriesPage: React.FC = () => {
             {/* Header, Stats and Search */}
             <Section className='pt-16 pb-6 sm:pt-24 sm:pb-8'>
                 <div className='w-full space-y-4 text-center'>
-                    <Breadcrumb className='flex justify-center' />
+                    <Breadcrumb className='mb-6 flex justify-center' />
 
                     {/* Icon */}
                     <div className='mb-6 flex justify-center'>
