@@ -60,9 +60,7 @@
     },
     "included": ["Complete checklist", "Components guide", "Gap analysis framework"],
     "statsProof": {
-        "userCount": "Free resource",
-        "timeSaved": "Saves planning time",
-        "rating": "Comprehensive"
+        "timeSaved": "Saves planning time"
     },
     "targetAudience": ["System Builders", "System Auditors", "Improvers", "Learners"],
     "perfectFor": ["Starting from scratch", "Auditing system", "Improving", "Learning about PKM"],

@@ -71,11 +71,7 @@
         "Knowledge base",
         "Tool directories"
     ],
-    "statsProof": {
-        "userCount": "Growing",
-        "timeSaved": "Hours saved",
-        "rating": "Open standard by Anthropic"
-    },
+    "statsProof": {},
     "targetAudience": [
         "AI Power Users",
         "Knowledge Workers",
