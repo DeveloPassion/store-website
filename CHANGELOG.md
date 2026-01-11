@@ -1,3 +1,11 @@
+## [0.4.4](https://github.com/DeveloPassion/store-website/compare/0.4.3...0.4.4) (2026-01-11)
+
+### Features
+
+* **all:** added footer links ([42e576f](https://github.com/DeveloPassion/store-website/commit/42e576fd2f9583f9e41b38b931f46d0ecd22ca1c))
+* **all:** added testimonials page, displayed testimonials count, average rating and many more improvements ([f5cee22](https://github.com/DeveloPassion/store-website/commit/f5cee2204bb8bb55903c1688dd317a78f7012af3))
+* **all:** improved branding ([66daf70](https://github.com/DeveloPassion/store-website/commit/66daf703247d7869e1e4aea866d0e708b0cb9a84))
+* **all:** improved placement of breadcrumb and page titles ([6865861](https://github.com/DeveloPassion/store-website/commit/6865861e062cdaf3055e12ab4d45c15a87757935))
 ## [0.4.3](https://github.com/DeveloPassion/store-website/compare/0.4.2...0.4.3) (2026-01-11)
 
 ### Features
