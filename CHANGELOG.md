@@ -1,3 +1,15 @@
+## [0.4.3](https://github.com/DeveloPassion/store-website/compare/0.4.2...0.4.3) (2026-01-11)
+
+### Features
+
+* **all:** fixed product variants and prices ([1b2cd6a](https://github.com/DeveloPassion/store-website/commit/1b2cd6a967319a5cd4fbfda128c4d91d32d9564d))
+* **all:** implemented redirect system ([33ce8e7](https://github.com/DeveloPassion/store-website/commit/33ce8e77f79fd722777a153713e304b04e5f1a51))
+* **all:** increase OSK price ([2138d22](https://github.com/DeveloPassion/store-website/commit/2138d22bb009ba45f05a438ef16b8d0b1faadd9e))
+* **all:** moved shop by category below ([4745155](https://github.com/DeveloPassion/store-website/commit/4745155e52f7af3f9131facb5aea4a4ccad5771e))
+
+### Bug Fixes
+
+* **all:** added missing dep ([9e95648](https://github.com/DeveloPassion/store-website/commit/9e95648b886043753bfecd18afe1124fe71fe145))
 ## [0.4.2](https://github.com/DeveloPassion/store-website/compare/0.4.1...0.4.2) (2026-01-11)
 
 ### Features
