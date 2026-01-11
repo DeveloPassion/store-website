@@ -159,8 +159,8 @@ const HomeEcommerce: React.FC = () => {
 
     // Update meta tags based on URL parameters
     useEffect(() => {
-        const baseTitle = 'Knowledge Forge - Digital Products Store'
-        const baseDescription = 'Discover knowledge management tools, templates, and resources'
+        const baseTitle = 'Knowledge Forge - Sébastien Dubois'
+        const baseDescription = 'Courses, Systems & Tools for Knowledge Workers and Creators'
         const baseImage = 'https://store.dsebastien.net/assets/images/social-card.png'
         const baseUrl = 'https://store.dsebastien.net'
 
@@ -240,7 +240,7 @@ const HomeEcommerce: React.FC = () => {
                         <div className='mb-8 flex flex-row gap-12'>
                             <div>
                                 <div className='text-2xl font-bold text-green-400 sm:text-3xl'>
-                                    2K+
+                                    3K+
                                 </div>
                                 <div className='text-primary/60 text-sm'>Students</div>
                             </div>
@@ -249,6 +249,12 @@ const HomeEcommerce: React.FC = () => {
                                     4.9/5
                                 </div>
                                 <div className='text-primary/60 text-sm'>Rating</div>
+                            </div>
+                            <div>
+                                <div className='text-secondary text-2xl font-bold sm:text-3xl'>
+                                    100%
+                                </div>
+                                <div className='text-primary/60 text-sm'>Satisfaction</div>
                             </div>
                         </div>
 

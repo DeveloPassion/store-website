@@ -195,15 +195,15 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             >
                                 <img
                                     src='https://www.dsebastien.net/assets/images/developassion-logo.png?v=227ae60558'
-                                    alt='dSebastien Knowledge Forge'
+                                    alt='Knowledge Forge by Sébastien Dubois'
                                     className='h-8 w-8 rounded-full object-contain sm:h-10 sm:w-10 md:h-12 md:w-12'
                                 />
                                 <div className='flex flex-col'>
                                     <span className='text-base leading-tight font-bold sm:text-lg md:text-xl'>
-                                        dSebastien
+                                        Knowledge Forge
                                     </span>
                                     <span className='text-primary/60 text-xs leading-tight'>
-                                        Knowledge Forge
+                                        by Sébastien Dubois
                                     </span>
                                 </div>
                             </Link>

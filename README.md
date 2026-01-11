@@ -1,6 +1,6 @@
 # Store Website - Developer Guide
 
-This repository contains the source code for the dSebastien product store website, built with React 19, Bun, Tailwind CSS v4, and TypeScript.
+This repository contains the source code for Knowledge Forge - Digital products store by Sébastien Dubois, built with React 19, Bun, Tailwind CSS v4, and TypeScript.
 
 ## Quick Start
 

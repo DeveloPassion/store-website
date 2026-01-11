@@ -351,7 +351,7 @@ const Footer: React.FC = () => {
                                 rel='noopener noreferrer'
                                 className='hover:text-secondary transition-colors'
                             >
-                                dSebastien
+                                Knowledge Forge
                             </a>
                             . All rights reserved.
                         </p>
