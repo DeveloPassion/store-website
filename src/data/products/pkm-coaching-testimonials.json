@@ -1,0 +1,16 @@
+[
+    {
+        "id": "pkm-coaching-testimonial-1",
+        "author": "Anonymous",
+        "rating": 5,
+        "quote": "I just had a coaching session with Sébastien Dubois on how to use Obsidian for my atomic essays, and it was an incredibly helpful experience. Sébastien's expertise with Obsidian is evident from the start, and he has a remarkable ability to understand my need and to explain complex workflows in a clear and concise manner. Throughout the session, Sébastien provided super practical tips and strategies that I could implement immediately. He walked me through the process of organizing and linking my essays from Evernote, making my writing and linking process much more efficient and structured. His guidance on how to leverage the power of Obsidian's features of dataview and project view plug in was particularly valuable for creating a content database Sébastien's approach was client oriented and tailored to my needs, making the session feel personalized and highly relevant to my specific goals. I left the session feeling more confident that I am on the right track. If you're looking to enhance your writing process with Obsidian, I highly recommend a session with Sébastien.",
+        "featured": true
+    },
+    {
+        "id": "pkm-coaching-testimonial-2",
+        "author": "Adrian Craciun",
+        "rating": 5,
+        "quote": "Sébastien thinks everything from first principles, the systems and ideas we discussed are well thought from multiple angles and I'm going to integrate them in my own specific setup",
+        "featured": false
+    }
+]
