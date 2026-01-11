@@ -33,9 +33,7 @@ const SharedWishlistPage: React.FC = () => {
         }
 
         const productIds = productIdsParam.split(',').map((id) => id.trim())
-        const filtered = products.filter(
-            (p) => productIds.includes(p.id) && p.status !== 'archived'
-        )
+        const filtered = products.filter((p) => productIds.includes(p.id))
         // Sort by priority (highest first)
         return filtered.sort((a, b) => b.priority - a.priority)
     }, [productIdsParam, products])

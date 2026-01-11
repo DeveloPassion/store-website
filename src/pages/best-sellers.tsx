@@ -17,7 +17,7 @@ const BestSellersPage: React.FC = () => {
 
     // Get bestseller products, sorted intelligently
     const bestsellerProducts = useMemo(() => {
-        const filtered = products.filter((p) => p.bestseller && p.status !== 'archived')
+        const filtered = products.filter((p) => p.bestseller)
         return sortProductsIntelligently(filtered)
     }, [products])
 

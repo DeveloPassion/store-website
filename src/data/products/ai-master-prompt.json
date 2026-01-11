@@ -102,7 +102,6 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "status": "active",
     "trustBadges": [
         "Complete Framework",
         "Video with demo",

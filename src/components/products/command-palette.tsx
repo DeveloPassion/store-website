@@ -57,29 +57,27 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
         const cmds: Command[] = []
 
         // Add products
-        products
-            .filter((p) => p.status !== 'archived')
-            .forEach((product) => {
-                const isFree = product.priceTier === 'free' || product.price === 0
-                cmds.push({
-                    id: `product-${product.id}`,
-                    type: 'product',
-                    title: product.name,
-                    subtitle: `${product.priceDisplay} · ${product.tagline}`,
-                    icon: product.featured ? (
-                        <FaStar className='text-secondary h-5 w-5' />
-                    ) : isFree ? (
-                        <FaShoppingBag className='h-5 w-5 text-green-500' />
-                    ) : (
-                        <FaShoppingBag className='text-secondary h-5 w-5' />
-                    ),
-                    action: () => {
-                        navigate(`/l/${product.id}`)
-                        onClose()
-                    },
-                    product
-                })
+        products.forEach((product) => {
+            const isFree = product.priceTier === 'free' || product.price === 0
+            cmds.push({
+                id: `product-${product.id}`,
+                type: 'product',
+                title: product.name,
+                subtitle: `${product.priceDisplay} · ${product.tagline}`,
+                icon: product.featured ? (
+                    <FaStar className='text-secondary h-5 w-5' />
+                ) : isFree ? (
+                    <FaShoppingBag className='h-5 w-5 text-green-500' />
+                ) : (
+                    <FaShoppingBag className='text-secondary h-5 w-5' />
+                ),
+                action: () => {
+                    navigate(`/l/${product.id}`)
+                    onClose()
+                },
+                product
             })
+        })
 
         // Add navigation actions
         cmds.push({

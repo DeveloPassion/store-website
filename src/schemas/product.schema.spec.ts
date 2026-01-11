@@ -4,7 +4,6 @@ import {
     PriceTierSchema,
     PaymentFrequencySchema,
     SecondaryCategorySchema,
-    ProductStatusSchema,
     ProductVariantSchema,
     ProductBenefitsSchema,
     StatsProofSchema
@@ -42,7 +41,6 @@ describe('Product Schema Validation', () => {
         featured: false,
         bestseller: false,
         bestValue: false,
-        status: 'active' as const,
         priority: 50,
         trustBadges: [],
         guarantees: [],
@@ -101,20 +99,6 @@ describe('Product Schema Validation', () => {
         it('should reject invalid category id', () => {
             const invalid = { id: 'invalid-category-id', distant: false }
             expect(() => SecondaryCategorySchema.parse(invalid)).toThrow()
-        })
-    })
-
-    describe('ProductStatusSchema', () => {
-        it('should accept valid statuses', () => {
-            const validStatuses = ['active', 'coming-soon', 'archived']
-            validStatuses.forEach((status) => {
-                expect(() => ProductStatusSchema.parse(status)).not.toThrow()
-            })
-        })
-
-        it('should reject invalid statuses', () => {
-            expect(() => ProductStatusSchema.parse('invalid')).toThrow()
-            expect(() => ProductStatusSchema.parse('draft')).toThrow()
         })
     })
 

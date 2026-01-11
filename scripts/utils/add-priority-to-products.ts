@@ -4,7 +4,6 @@ import path from 'path'
 interface ProductWithPriority {
     id: string
     priority: number
-    status: string
     featured: boolean
     priceTier: string
     type: string
@@ -21,8 +20,6 @@ const products: ProductWithPriority[] = JSON.parse(fs.readFileSync(productsPath,
 // 60: Workshops and guides
 // 50: Free resources
 // 40: Tools and community
-// 30: Coming soon
-// 20: Archived
 
 const priorityMap: Record<string, number> = {
     'obsidian-starter-kit': 100, // Flagship product, featured
@@ -48,16 +45,12 @@ const priorityMap: Record<string, number> = {
 }
 
 products.forEach((product: ProductWithPriority) => {
-    // Assign priority based on map, or default based on type and status
+    // Assign priority based on map, or default based on type
     if (priorityMap[product.id]) {
         product.priority = priorityMap[product.id]
     } else {
-        // Default priority based on type and status
-        if (product.status === 'archived') {
-            product.priority = 20
-        } else if (product.status === 'coming-soon') {
-            product.priority = 30
-        } else if (product.featured) {
+        // Default priority based on type
+        if (product.featured) {
             product.priority = 90
         } else if (product.priceTier === 'free') {
             product.priority = 40

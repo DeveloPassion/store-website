@@ -33,8 +33,6 @@ export const SecondaryCategorySchema = z.object({
     distant: z.boolean().optional()
 })
 
-export const ProductStatusSchema = z.enum(['active', 'coming-soon', 'archived'])
-
 // Pricing per payment frequency for subscription variants
 export const VariantPricingSchema = z.object({
     monthly: z.number().optional(),
@@ -129,7 +127,6 @@ export const ProductSchema = z.object({
     featured: z.boolean(),
     bestValue: z.boolean(),
     bestseller: z.boolean(),
-    status: ProductStatusSchema,
     priority: z.number().int().min(0).max(100, 'Priority must be between 0 and 100'),
 
     // Trust & Guarantees
@@ -152,7 +149,6 @@ export type PriceTier = z.infer<typeof PriceTierSchema>
 export type PaymentFrequency = z.infer<typeof PaymentFrequencySchema>
 export type ProductCategory = z.infer<typeof ProductCategorySchema>
 export type SecondaryCategory = z.infer<typeof SecondaryCategorySchema>
-export type ProductStatus = z.infer<typeof ProductStatusSchema>
 export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>

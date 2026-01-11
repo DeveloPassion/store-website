@@ -237,7 +237,6 @@ describe('buildGumroadUrlFromProduct', () => {
         featured: false,
         bestseller: false,
         bestValue: false,
-        status: 'active',
         priority: 50,
         trustBadges: [],
         guarantees: [],

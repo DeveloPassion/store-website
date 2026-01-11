@@ -81,7 +81,6 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "status": "active",
     "trustBadges": ["100% FREE", "Instant Access", "Beginner-Friendly", "Expert Created"],
     "guarantees": ["Completely free", "Step-by-step", "No credit card"],
     "crossSellIds": ["obsidian-starter-course", "obsidian-starter-kit"],

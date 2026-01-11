@@ -70,7 +70,6 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "status": "active",
     "trustBadges": ["100% FREE", "Instant Access", "Comprehensive", "Expert Created"],
     "guarantees": ["Completely free", "Comprehensive", "No credit card"],
     "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],

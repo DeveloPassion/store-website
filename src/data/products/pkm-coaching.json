@@ -82,7 +82,6 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "status": "active",
     "trustBadges": ["Expert Coach", "1-on-1 Personalized", "Specific Solutions", "Proven"],
     "guarantees": ["Expert coach", "Personalized", "Specific solutions", "Clear plan"],
     "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],

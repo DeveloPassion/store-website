@@ -49,7 +49,6 @@ import { select } from '@inquirer/prompts'
 import {
     ProductSchema,
     PriceTierSchema,
-    ProductStatusSchema,
     ProductCategorySchema
 } from '../src/schemas/product.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
@@ -94,14 +93,12 @@ interface CliArgs {
     secondaryCategories?: string // format: "id:distant,id:distant"
     featured?: string
     priority?: string
-    status?: string
     problem?: string
     agitate?: string
     solution?: string
     force?: boolean
     // List filters
     featured_filter?: boolean
-    status_filter?: string
     category_filter?: string
     tag_filter?: string
     format?: 'json' | 'table' | 'detailed'
@@ -205,10 +202,6 @@ function showProductDetails(product: Product): void {
     }
     console.log(
         `${colors.bright}Tags:${colors.reset} ${colors.dim}(${product.tags.length})${colors.reset} ${product.tags.join(', ')}`
-    )
-    const statusColor = product.status === 'active' ? colors.green : colors.yellow
-    console.log(
-        `${colors.bright}Status:${colors.reset} ${statusColor}${product.status}${colors.reset}`
     )
     console.log(`${colors.bright}Priority:${colors.reset} ${product.priority || 0}`)
     console.log(
@@ -582,11 +575,10 @@ async function selectProduct(message: string): Promise<string> {
     const products = loadAllProducts()
 
     const choices = products.map((p) => {
-        const statusEmoji = p.status === 'active' ? '✓' : p.status === 'coming-soon' ? '⏳' : '📦'
         const featuredMark = p.featured ? ' ★' : ''
         const price = p.priceDisplay || `€${p.price}`
         return {
-            name: `${statusEmoji} ${p.name}${featuredMark} ${colors.dim}(${p.id} • ${price})${colors.reset}`,
+            name: `${p.name}${featuredMark} ${colors.dim}(${p.id} • ${price})${colors.reset}`,
             value: p.id,
             description: `${p.tagline} • ${p.mainCategory}`
         }
@@ -626,30 +618,6 @@ async function selectPriceTier(current?: string): Promise<string> {
 
     return answer.tier
 }
-
-/**
- * Select status
- */
-async function selectStatus(current?: string): Promise<string> {
-    const choices = [
-        { name: 'Active', value: 'active' },
-        { name: 'Coming Soon', value: 'coming-soon' },
-        { name: 'Archived', value: 'archived' }
-    ]
-
-    const answer = await inquirer.prompt([
-        {
-            type: 'list',
-            name: 'status',
-            message: 'Select status:',
-            choices,
-            default: current || 'active'
-        }
-    ])
-
-    return answer.status
-}
-
 // ============================================================================
 // Operation: List
 // ============================================================================
@@ -663,11 +631,6 @@ async function operationList(args: CliArgs): Promise<void> {
     if (args.featured_filter) {
         products = products.filter((p) => p.featured === true)
         showInfo('Filter: Featured products only')
-    }
-    const statusFilter = args.status_filter || args.status
-    if (statusFilter) {
-        products = products.filter((p) => p.status === statusFilter)
-        showInfo(`Filter: Status = ${statusFilter}`)
     }
     const categoryFilter = args.category_filter || (args as Record<string, unknown>).category
     if (typeof categoryFilter === 'string') {
@@ -700,7 +663,6 @@ async function operationList(args: CliArgs): Promise<void> {
             )
             console.log(`${colors.bright}Main Category:${colors.reset} ${product.mainCategory}`)
             console.log(`${colors.bright}Tags:${colors.reset} ${product.tags.join(', ')}`)
-            console.log(`${colors.bright}Status:${colors.reset} ${product.status}`)
             console.log(`${colors.bright}Priority:${colors.reset} ${product.priority || 0}`)
             console.log(`${colors.bright}Featured:${colors.reset} ${product.featured ? '✓' : '✗'}`)
             console.log(`${colors.dim}${'─'.repeat(80)}${colors.reset}`)
@@ -711,9 +673,9 @@ async function operationList(args: CliArgs): Promise<void> {
     // Table format (default)
     console.log(`\n${colors.bright}📦 Products (${products.length} total)${colors.reset}\n`)
     console.log(
-        `${colors.bright}${'ID'.padEnd(28)}${'Name'.padEnd(32)}${'Category'.padEnd(22)}${'Status'.padEnd(12)}${'Priority'.padEnd(10)}${'Featured'}${colors.reset}`
+        `${colors.bright}${'ID'.padEnd(28)}${'Name'.padEnd(32)}${'Category'.padEnd(22)}${'Priority'.padEnd(10)}${'Featured'}${colors.reset}`
     )
-    console.log(`${colors.dim}${'─'.repeat(120)}${colors.reset}`)
+    console.log(`${colors.dim}${'─'.repeat(100)}${colors.reset}`)
 
     for (const product of products) {
         const id = product.id.padEnd(28)
@@ -721,16 +683,10 @@ async function operationList(args: CliArgs): Promise<void> {
             product.name.length > 30 ? product.name.slice(0, 27) + '...' : product.name
         ).padEnd(32)
         const category = product.mainCategory.padEnd(22)
-        const statusColor = product.status === 'active' ? colors.green : colors.yellow
-        const status = `${statusColor}${product.status}${colors.reset}`.padEnd(
-            12 + statusColor.length + colors.reset.length
-        )
         const priority = String(product.priority || 0).padEnd(10)
         const featured = product.featured ? `${colors.yellow}★${colors.reset}` : ' '
 
-        console.log(
-            `${colors.cyan}${id}${colors.reset}${name}${category}${status}${priority}${featured}`
-        )
+        console.log(`${colors.cyan}${id}${colors.reset}${name}${category}${priority}${featured}`)
     }
 }
 
@@ -848,8 +804,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
         throw new Error('Solution description is required')
     }
 
-    // Status and Priority
-    const status = args.status || (await selectStatus())
+    // Priority
     const priorityStr =
         args.priority ||
         (await prompt(`${colors.bright}Priority${colors.reset} (0-100, default 50): `)) ||
@@ -878,7 +833,6 @@ async function operationAdd(args: CliArgs): Promise<void> {
     console.log(
         `   ${colors.bright}Tags:${colors.reset} ${tags.length} ${colors.dim}(${tags.join(', ')})${colors.reset}`
     )
-    console.log(`   ${colors.bright}Status:${colors.reset} ${status}`)
     console.log(`   ${colors.bright}Priority:${colors.reset} ${priority}`)
     console.log(`   ${colors.bright}Featured:${colors.reset} ${featured}`)
     console.log()
@@ -893,7 +847,6 @@ async function operationAdd(args: CliArgs): Promise<void> {
     const validatedPriceTier = PriceTierSchema.parse(priceTier)
     const validatedMainCategory = ProductCategorySchema.parse(mainCategory)
     const validatedTags = tags.map((tag) => TagIdSchema.parse(tag))
-    const validatedStatus = ProductStatusSchema.parse(status)
     const validatedSecondaryCategories: SecondaryCategory[] = secondaryCategories.map((cat) => ({
         id: ProductCategorySchema.parse(cat.id),
         distant: cat.distant
@@ -936,7 +889,6 @@ async function operationAdd(args: CliArgs): Promise<void> {
         featured,
         bestValue: false,
         bestseller: false,
-        status: validatedStatus,
         priority,
         trustBadges: [],
         guarantees: []
@@ -1077,11 +1029,6 @@ async function operationEdit(args: CliArgs): Promise<void> {
         const newPriority = parseInt(args.priority)
         trackChange('priority', product.priority, newPriority)
         product.priority = newPriority
-    }
-    if (args.status) {
-        const newStatus = ProductStatusSchema.parse(args.status)
-        trackChange('status', product.status, newStatus)
-        product.status = newStatus
     }
     if (args.problem) {
         trackChange('problem', product.problem, args.problem)
@@ -1434,16 +1381,12 @@ async function editTaxonomy(product: Product): Promise<void> {
 }
 
 /**
- * Edit meta/status information
+ * Edit meta information
  */
 async function editMeta(product: Product): Promise<void> {
     const field = await select({
         message: 'Which field do you want to edit?',
         choices: [
-            {
-                name: `Status: ${colors.cyan}${product.status}${colors.reset}`,
-                value: 'status'
-            },
             {
                 name: `Priority: ${colors.cyan}${product.priority || 0}${colors.reset}`,
                 value: 'priority'
@@ -1467,16 +1410,6 @@ async function editMeta(product: Product): Promise<void> {
     if (field === 'back') return
 
     switch (field) {
-        case 'status': {
-            const oldValue = product.status
-            const newValue = await selectStatus(oldValue)
-            if (newValue !== oldValue) {
-                trackChange('status', oldValue, newValue)
-                product.status = ProductStatusSchema.parse(newValue)
-                showSuccess('Status updated')
-            }
-            break
-        }
         case 'priority': {
             const oldValue = product.priority || 0
             const input = await prompt(
@@ -1573,7 +1506,6 @@ async function operationRemove(args: CliArgs): Promise<void> {
     console.log(`\n${colors.bright}${colors.red}Product to remove:${colors.reset}`)
     console.log(`  ${colors.bright}ID:${colors.reset} ${colors.cyan}${product.id}${colors.reset}`)
     console.log(`  ${colors.bright}Name:${colors.reset} ${product.name}`)
-    console.log(`  ${colors.bright}Status:${colors.reset} ${product.status}`)
     console.log(
         `  ${colors.bright}File:${colors.reset} ${colors.dim}src/data/products/${product.id}.json${colors.reset}`
     )

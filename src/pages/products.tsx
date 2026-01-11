@@ -32,9 +32,6 @@ const ProductsPage: React.FC = () => {
     // Filter products
     const filteredProducts = useMemo(() => {
         return products.filter((product) => {
-            // Only show active and coming-soon products
-            if (product.status === 'archived') return false
-
             // Search query
             if (searchQuery) {
                 const query = searchQuery.toLowerCase()
@@ -108,9 +105,9 @@ const ProductsPage: React.FC = () => {
                     <div className='mb-10 flex flex-wrap justify-center gap-6 sm:gap-10'>
                         <div className='text-center'>
                             <div className='text-secondary text-3xl font-bold sm:text-4xl'>
-                                {products.filter((p) => p.status === 'active').length}
+                                {products.length}
                             </div>
-                            <div className='text-primary/60 text-sm'>Active Products</div>
+                            <div className='text-primary/60 text-sm'>Products</div>
                         </div>
                         <div className='text-center'>
                             <div className='text-3xl font-bold text-green-400 sm:text-4xl'>

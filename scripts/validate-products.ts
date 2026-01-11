@@ -142,19 +142,6 @@ function displaySummary(products: Product[]) {
     console.log('📊 Product Summary:')
     console.log(`   Total products: ${products.length}`)
 
-    const byStatus = products.reduce(
-        (acc, p) => {
-            acc[p.status] = (acc[p.status] || 0) + 1
-            return acc
-        },
-        {} as Record<string, number>
-    )
-
-    console.log('\n   By status:')
-    Object.entries(byStatus).forEach(([status, count]) => {
-        console.log(`     - ${status}: ${count}`)
-    })
-
     const byType = products.reduce(
         (acc, p) => {
             acc[p.type] = (acc[p.type] || 0) + 1

@@ -8,7 +8,6 @@ export type {
     PriceTier,
     ProductCategory,
     SecondaryCategory,
-    ProductStatus,
     ProductVariant,
     ProductBenefits,
     StatsProof,

@@ -64,7 +64,6 @@ mock.module('@/data/products.json', () => ({
             featured: true,
             bestseller: false,
             bestValue: false,
-            status: 'active',
             priority: 100
         },
         {
@@ -100,7 +99,6 @@ mock.module('@/data/products.json', () => ({
             featured: true,
             bestseller: false,
             bestValue: false,
-            status: 'active',
             priority: 90
         }
     ]

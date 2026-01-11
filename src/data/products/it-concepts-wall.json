@@ -43,7 +43,6 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "status": "active",
     "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
     "guarantees": ["Comprehensive", "Printable", "Lifetime access"],
     "crossSellIds": [],

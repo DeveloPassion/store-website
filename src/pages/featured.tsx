@@ -17,7 +17,7 @@ const FeaturedPage: React.FC = () => {
 
     // Get featured products, sorted intelligently
     const featuredProducts = useMemo(() => {
-        const filtered = products.filter((p) => p.featured && p.status !== 'archived')
+        const filtered = products.filter((p) => p.featured)
         return sortFeaturedProducts(filtered)
     }, [products])
 

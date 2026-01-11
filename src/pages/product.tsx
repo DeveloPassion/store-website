@@ -111,26 +111,6 @@ const ProductPage: React.FC = () => {
         )
     }
 
-    // Don't show archived products
-    if (product.status === 'archived') {
-        return (
-            <div className='container mx-auto flex min-h-screen items-center justify-center px-6'>
-                <div className='text-center'>
-                    <h1 className='mb-4 text-4xl font-bold'>Product Unavailable</h1>
-                    <p className='text-primary/70 mb-8'>
-                        This product is no longer available for purchase.
-                    </p>
-                    <button
-                        onClick={() => navigate('/products')}
-                        className='bg-secondary hover:bg-secondary/90 rounded-lg px-6 py-3 font-semibold text-white transition-colors'
-                    >
-                        View Available Products
-                    </button>
-                </div>
-            </div>
-        )
-    }
-
     return (
         <>
             <div className='mx-auto max-w-7xl px-6 pt-16 sm:px-10 sm:pt-24 md:px-16 lg:px-20'>

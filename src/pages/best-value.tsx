@@ -17,7 +17,7 @@ const MostValuePage: React.FC = () => {
 
     // Get best value products, sorted intelligently
     const bestValueProducts = useMemo(() => {
-        const filtered = products.filter((p) => p.bestValue && p.status !== 'archived')
+        const filtered = products.filter((p) => p.bestValue)
         return sortBestValueProducts(filtered)
     }, [products])
 

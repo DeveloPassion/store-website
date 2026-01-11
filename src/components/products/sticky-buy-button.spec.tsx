@@ -42,7 +42,6 @@ const mockProduct: Product = {
     featured: false,
     bestValue: false,
     bestseller: false,
-    status: 'active',
     priority: 50,
     coverImage: '',
     videoUrl: '',
