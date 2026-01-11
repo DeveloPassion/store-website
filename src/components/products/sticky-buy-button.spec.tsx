@@ -247,4 +247,15 @@ describe('StickyBuyButton', () => {
             expect(firstButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
         })
     })
+
+    it('should show Get Now for free products', async () => {
+        window.scrollY = 600
+        const freeProduct = { ...mockProduct, price: 0, priceTier: 'free' as const }
+        const { getAllByText } = render(<StickyBuyButton product={freeProduct} />)
+
+        await waitFor(() => {
+            const getButtons = getAllByText(/Get Now/i)
+            expect(getButtons.length).toBe(2) // One for mobile, one for desktop
+        })
+    })
 })

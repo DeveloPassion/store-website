@@ -34,6 +34,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
         }
 
     const selectedFrequency = controlledFrequency || product.defaultPaymentFrequency || 'monthly'
+    const isFree = product.price === 0 || product.priceTier === 'free'
 
     // Calculate display price based on selected frequency for subscription products
     const getDisplayPrice = (): string => {
@@ -131,7 +132,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                     className='bg-secondary hover:bg-secondary/90 flex shrink-0 cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl'
                                 >
                                     <FaShoppingCart className='h-4 w-4' />
-                                    <span>Buy Now</span>
+                                    <span>{isFree ? 'Get Now' : 'Buy Now'}</span>
                                 </a>
                             </div>
 
@@ -152,7 +153,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                     className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl'
                                 >
                                     <FaShoppingCart className='h-5 w-5' />
-                                    <span>Buy Now</span>
+                                    <span>{isFree ? 'Get Now' : 'Buy Now'}</span>
                                 </a>
                             </div>
                         </div>

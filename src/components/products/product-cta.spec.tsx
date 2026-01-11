@@ -128,6 +128,20 @@ describe('ProductCTA Component', () => {
         expect(buyButton).toHaveAttribute('href', '#')
     })
 
+    it('should show Get Now for free products', () => {
+        const product = createMockProduct({ price: 0, priceTier: 'free' })
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
+
+        expect(getByText('Get Now')).toBeInTheDocument()
+    })
+
+    it('should show Subscribe Now for subscription products', () => {
+        const product = createMockProduct({ isSubscription: true })
+        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
+
+        expect(getByText('Subscribe Now')).toBeInTheDocument()
+    })
+
     it('should display trust badges', () => {
         const product = createMockProduct()
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)

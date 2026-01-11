@@ -69,6 +69,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     }
 
     const displayPrice = getDisplayPrice()
+    const isFree = product.price === 0 || product.priceTier === 'free'
 
     // Wishlist state
     const [isWishlisted, setIsWishlisted] = useState(() => isInWishlist(product.id))
@@ -248,7 +249,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                 data-gumroad-overlay-checkout='true'
                                 className='bg-secondary hover:bg-secondary/90 flex flex-1 cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
                             >
-                                Buy Now
+                                {isFree ? 'Get Now' : 'Buy Now'}
                             </a>
                         </div>
 

@@ -9,6 +9,8 @@ interface ProductCTAProps {
 }
 
 const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
+    const isFree = product.price === 0 || product.priceTier === 'free'
+
     return (
         <Section className='border-primary/10 from-background to-secondary/10 border-t bg-gradient-to-b'>
             <div className='mx-auto max-w-5xl'>
@@ -47,7 +49,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                         data-gumroad-overlay-checkout='true'
                         className='bg-secondary hover:bg-secondary/90 mb-8 inline-block cursor-pointer rounded-lg px-8 py-4 text-lg font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl sm:px-12 sm:text-xl'
                     >
-                        {product.isSubscription ? 'Subscribe Now' : `Buy Now`}
+                        {isFree ? 'Get Now' : product.isSubscription ? 'Subscribe Now' : 'Buy Now'}
                     </a>
 
                     {/* Guarantees */}

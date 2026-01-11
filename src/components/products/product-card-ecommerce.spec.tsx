@@ -79,7 +79,7 @@ describe('ProductCardEcommerce Component', () => {
 
         const freeTexts = getAllByText('FREE')
         expect(freeTexts.length).toBeGreaterThanOrEqual(1)
-        expect(getByText('Get')).toBeInTheDocument()
+        expect(getByText('Get Now')).toBeInTheDocument()
     })
 
     it('should show Buy button for paid products', () => {
