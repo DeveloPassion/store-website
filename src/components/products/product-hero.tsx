@@ -183,14 +183,15 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                         <button
                                             key={variant.name}
                                             onClick={() => setSelectedVariant(variant)}
-                                            className={`group relative cursor-pointer rounded-lg border-2 p-4 text-left transition-all ${
+                                            className={`group cursor-pointer rounded-lg border-2 p-4 text-left transition-all ${
                                                 selectedVariant.name === variant.name
                                                     ? 'border-secondary bg-secondary/10'
                                                     : 'border-primary/20 hover:border-primary/40'
                                             }`}
                                         >
-                                            <div className='flex items-center justify-between'>
-                                                <div>
+                                            <div className='flex items-start justify-between gap-4'>
+                                                {/* Left Column: Title and Description */}
+                                                <div className='flex flex-1 flex-col gap-1'>
                                                     <div className='font-semibold'>
                                                         {variant.name}
                                                     </div>
@@ -198,13 +199,17 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                                         {variant.description}
                                                     </div>
                                                 </div>
-                                                <div className='text-secondary text-xl font-bold'>
-                                                    {variant.priceDisplay}
+
+                                                {/* Right Column: Checkmark and Price */}
+                                                <div className='flex flex-col items-end gap-1'>
+                                                    {selectedVariant.name === variant.name && (
+                                                        <FaCheckCircle className='text-secondary h-5 w-5' />
+                                                    )}
+                                                    <div className='text-secondary text-xl font-bold'>
+                                                        {variant.priceDisplay}
+                                                    </div>
                                                 </div>
                                             </div>
-                                            {selectedVariant.name === variant.name && (
-                                                <FaCheckCircle className='text-secondary absolute top-4 right-4 h-5 w-5' />
-                                            )}
                                         </button>
                                     ))}
                                 </div>
