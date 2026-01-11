@@ -279,7 +279,7 @@ const AllTestimonialsPage: React.FC = () => {
                     </div>
 
                     <h1 className='mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
-                        💬 Customer Testimonials
+                        Customer Testimonials
                     </h1>
                     <p className='text-primary/70 mx-auto mb-6 max-w-2xl text-lg sm:text-xl'>
                         Discover what our customers are saying about their experience with our

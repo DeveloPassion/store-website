@@ -204,7 +204,7 @@ describe('AllTestimonialsPage Component', () => {
 
     it('should render page heading', () => {
         const { getByText } = renderWithRouter(<AllTestimonialsPage />)
-        expect(getByText('💬 Customer Testimonials')).toBeInTheDocument()
+        expect(getByText('Customer Testimonials')).toBeInTheDocument()
     })
 
     it('should render page description', () => {

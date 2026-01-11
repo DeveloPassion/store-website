@@ -9,7 +9,8 @@ import {
     FaStickyNote,
     FaUsers,
     FaHandshake,
-    FaGithub
+    FaGithub,
+    FaWrench
 } from 'react-icons/fa'
 import { SiBuymeacoffee } from 'react-icons/si'
 import ToolIcon from '@/components/tools/tool-icon'
@@ -178,6 +179,14 @@ const Footer: React.FC = () => {
                                         🏷️ Tags
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        to='/testimonials'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        💬 Testimonials
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
@@ -277,6 +286,17 @@ const Footer: React.FC = () => {
                                     >
                                         <FaUsers className='h-4 w-4' />
                                         Knowii Community
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href='https://tools.dsebastien.net'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
+                                    >
+                                        <FaWrench className='h-4 w-4' />
+                                        Tools
                                     </a>
                                 </li>
                                 <li>
