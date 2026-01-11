@@ -1,3 +1,8 @@
+## [0.5.0](https://github.com/DeveloPassion/store-website/compare/0.4.4...0.5.0) (2026-01-11)
+
+### Features
+
+* **all:** implemented cool taglines ([430b01a](https://github.com/DeveloPassion/store-website/commit/430b01ad05edafd2986a33f2065f4dfe317bd0cb))
 ## [0.4.4](https://github.com/DeveloPassion/store-website/compare/0.4.3...0.4.4) (2026-01-11)
 
 ### Features
