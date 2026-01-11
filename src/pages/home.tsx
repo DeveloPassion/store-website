@@ -323,18 +323,6 @@ const HomeEcommerce: React.FC = () => {
                 </div>
             </Section>
 
-            {/* Categories Section */}
-            <Section className='py-12 sm:py-16'>
-                <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
-                    Shop by Category
-                </h2>
-                <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
-                    {featuredCategories.map((category) => (
-                        <CategoryCard key={category.id} category={category} variant='simple' />
-                    ))}
-                </div>
-            </Section>
-
             {/* Featured Products Section */}
             {!categoryFilter && !searchQuery && !decodedTagName && featuredProducts.length > 0 && (
                 <Section id='featured' className='bg-primary/5 py-12 sm:py-16'>
@@ -382,6 +370,18 @@ const HomeEcommerce: React.FC = () => {
                     </div>
                 </Section>
             )}
+
+            {/* Categories Section */}
+            <Section className='py-12 sm:py-16'>
+                <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
+                    Shop by Category
+                </h2>
+                <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
+                    {featuredCategories.map((category) => (
+                        <CategoryCard key={category.id} category={category} variant='simple' />
+                    ))}
+                </div>
+            </Section>
 
             {/* All Products Section */}
             <Section className='py-12 sm:py-16'>
