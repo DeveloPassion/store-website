@@ -1,3 +1,15 @@
+## [0.4.2](https://github.com/DeveloPassion/store-website/compare/0.4.1...0.4.2) (2026-01-11)
+
+### Features
+
+* **all:** added missing products ([fbbff7c](https://github.com/DeveloPassion/store-website/commit/fbbff7c4223a073506c636112c0e7fddffe6a77f))
+* **all:** added testimonials ([fbab87b](https://github.com/DeveloPassion/store-website/commit/fbab87bb042e03f27ff42780473e5217d9ac12cb))
+* **all:** fixed osk user count ([1e8d409](https://github.com/DeveloPassion/store-website/commit/1e8d40908a246365f02782ecd6be4c9854a3e6b6))
+* **all:** improved cards on product page ([f50aa4f](https://github.com/DeveloPassion/store-website/commit/f50aa4fa4163ec9b2bed51f0fbd6335e6e43bcd4))
+* **all:** improved display of buy button for free products ([aa2f940](https://github.com/DeveloPassion/store-website/commit/aa2f940e34395cd1b53ee5189169b28b62fd6634))
+* **all:** improved sales copy (stats) for all products ([a4a36e6](https://github.com/DeveloPassion/store-website/commit/a4a36e61bec499597a03b715a85a377aace9c24c))
+* **all:** updated products ([cc5c920](https://github.com/DeveloPassion/store-website/commit/cc5c920d302166b5e4613cc74f2f734b21227cc3))
+* **all:** updated variant links for dev concepts ([00bb915](https://github.com/DeveloPassion/store-website/commit/00bb915007b50d7cafba80004eb49b424006776d))
 ## [0.4.1](https://github.com/DeveloPassion/store-website/compare/0.4.0...0.4.1) (2026-01-11)
 
 ### Features
