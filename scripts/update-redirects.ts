@@ -1,15 +1,23 @@
 #!/usr/bin/env bun
 /**
  * Interactive CLI for managing redirects.
- * Supports list, add, and remove operations.
+ * Supports list, add, and remove operations with arrow-key navigation.
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { parseArgs } from 'util'
+import { select, input, confirm } from '@inquirer/prompts'
 import type { RedirectEntry, RedirectsConfig, RedirectType } from '../src/types/redirect'
 import { RedirectsConfigSchema } from '../src/schemas/redirect.schema'
+import {
+    showBanner,
+    showOperationHeader,
+    showSuccess,
+    showError,
+    showGoodbye
+} from './utils/cli-display.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const REDIRECTS_PATH = join(__dirname, '../src/data/redirects.json')
@@ -28,7 +36,7 @@ function loadRedirects(): RedirectsConfig {
         const result = RedirectsConfigSchema.safeParse(parsed)
 
         if (!result.success) {
-            console.error('❌ Invalid redirects.json:')
+            showError('Invalid redirects.json')
             result.error.errors.forEach((err) => {
                 console.error(`  - ${err.path.join('.')}: ${err.message}`)
             })
@@ -37,7 +45,8 @@ function loadRedirects(): RedirectsConfig {
 
         return result.data
     } catch (error) {
-        console.error('❌ Error loading redirects:', error)
+        showError('Error loading redirects')
+        console.error(error instanceof Error ? error.message : String(error))
         process.exit(1)
     }
 }
@@ -50,7 +59,7 @@ function saveRedirects(redirects: RedirectsConfig): void {
     const result = RedirectsConfigSchema.safeParse(redirects)
 
     if (!result.success) {
-        console.error('❌ Validation failed:')
+        showError('Validation failed')
         result.error.errors.forEach((err) => {
             console.error(`  - ${err.path.join('.')}: ${err.message}`)
         })
@@ -59,9 +68,10 @@ function saveRedirects(redirects: RedirectsConfig): void {
 
     try {
         writeFileSync(REDIRECTS_PATH, JSON.stringify(redirects, null, 4) + '\n')
-        console.log('✅ Redirects saved successfully!')
+        showSuccess('Redirects saved successfully')
     } catch (error) {
-        console.error('❌ Error saving redirects:', error)
+        showError('Error saving redirects')
+        console.error(error instanceof Error ? error.message : String(error))
         process.exit(1)
     }
 }
@@ -70,126 +80,173 @@ function saveRedirects(redirects: RedirectsConfig): void {
  * List all redirects
  */
 function listRedirects(): void {
+    showOperationHeader('List Redirects')
+
     const redirects = loadRedirects()
 
     if (redirects.length === 0) {
-        console.log('ℹ No redirects configured.')
+        console.log('\n  ℹ No redirects configured.\n')
         return
     }
 
-    console.log(`📋 Configured Redirects (${redirects.length} total):\n`)
+    console.log(`\n📋 Total: ${redirects.length} redirect(s)\n`)
     for (const redirect of redirects) {
         const typeLabel = redirect.type === 'PERMANENT' ? '301' : '302'
-        console.log(`  ${redirect.from} → ${redirect.to} (${typeLabel})`)
+        const typeBadge = redirect.type === 'PERMANENT' ? '🔒' : '🔄'
+        console.log(`  ${typeBadge} ${redirect.from} → ${redirect.to} (${typeLabel})`)
         if (redirect.description) {
-            console.log(`    Description: ${redirect.description}`)
+            console.log(`     Description: ${redirect.description}`)
         }
-        console.log(`    Include in sitemap: ${redirect.includeInSitemap ? 'Yes' : 'No'}`)
+        console.log(`     Include in sitemap: ${redirect.includeInSitemap ? 'Yes' : 'No'}`)
         console.log()
     }
-}
-
-/**
- * Prompt for user input
- */
-async function prompt(message: string): Promise<string> {
-    process.stdout.write(message)
-    const buffer = new Uint8Array(1024)
-    const bytesRead = await Bun.stdin.read(buffer)
-    if (bytesRead === null) {
-        return ''
-    }
-    return Buffer.from(buffer.subarray(0, bytesRead)).toString().trim()
 }
 
 /**
  * Add a new redirect
  */
 async function addRedirect(): Promise<void> {
-    console.log('➕ Add New Redirect\n')
+    showOperationHeader('Add Redirect')
 
-    const redirects = loadRedirects()
+    try {
+        const redirects = loadRedirects()
 
-    // Get source path
-    const from = await prompt('Source path (must start with /): ')
-    if (!from.startsWith('/')) {
-        console.error('❌ Source path must start with /')
-        process.exit(1)
+        // Get source path
+        const from = await input({
+            message: 'Source path (must start with /):',
+            validate: (value) => {
+                if (!value) return 'Source path is required'
+                if (!value.startsWith('/')) return 'Source path must start with /'
+                if (redirects.some((r) => r.from === value)) {
+                    return 'A redirect from this path already exists'
+                }
+                return true
+            }
+        })
+
+        // Get destination
+        const to = await input({
+            message: 'Destination URL or path:',
+            validate: (value) => (value ? true : 'Destination is required')
+        })
+
+        // Get redirect type
+        const type = await select<RedirectType>({
+            message: 'Redirect type:',
+            choices: [
+                {
+                    name: '🔄 TEMPORARY (302) - Default, more flexible',
+                    value: 'TEMPORARY',
+                    description: 'Use for temporary redirects, can be changed easily'
+                },
+                {
+                    name: '🔒 PERMANENT (301) - For moved content',
+                    value: 'PERMANENT',
+                    description: 'Use for permanently moved content, better for SEO'
+                }
+            ],
+            default: 'TEMPORARY'
+        })
+
+        // Get description
+        const description = await input({
+            message: 'Description (optional):',
+            default: ''
+        })
+
+        // Get sitemap inclusion
+        const includeInSitemap = await confirm({
+            message: 'Include in sitemap?',
+            default: false
+        })
+
+        // Create new redirect
+        const newRedirect: RedirectEntry = {
+            from,
+            to,
+            type,
+            ...(description && { description }),
+            includeInSitemap
+        }
+
+        // Add and save
+        redirects.push(newRedirect)
+        saveRedirects(redirects)
+
+        showSuccess(`Added redirect: ${from} → ${to} (${type === 'PERMANENT' ? '301' : '302'})`)
+        console.log()
+    } catch (error) {
+        if (error instanceof Error && error.message.includes('User force closed')) {
+            console.log('\n  ❌ Cancelled\n')
+            process.exit(0)
+        }
+        throw error
     }
-
-    // Check for duplicates
-    if (redirects.some((r) => r.from === from)) {
-        console.error('❌ A redirect from this path already exists')
-        process.exit(1)
-    }
-
-    // Get destination
-    const to = await prompt('Destination URL or path: ')
-    if (!to) {
-        console.error('❌ Destination is required')
-        process.exit(1)
-    }
-
-    // Get redirect type
-    const typeInput = await prompt('Redirect type (PERMANENT/TEMPORARY, default: TEMPORARY): ')
-    const type: RedirectType = typeInput.toUpperCase() === 'PERMANENT' ? 'PERMANENT' : 'TEMPORARY'
-
-    // Get description
-    const description = await prompt('Description (optional): ')
-
-    // Get sitemap inclusion
-    const sitemapInput = await prompt('Include in sitemap? (y/N): ')
-    const includeInSitemap = sitemapInput.toLowerCase() === 'y'
-
-    // Create new redirect
-    const newRedirect: RedirectEntry = {
-        from,
-        to,
-        type,
-        ...(description && { description }),
-        includeInSitemap
-    }
-
-    // Add and save
-    redirects.push(newRedirect)
-    saveRedirects(redirects)
-
-    console.log(`\n✅ Added redirect: ${from} → ${to} (${type === 'PERMANENT' ? '301' : '302'})`)
 }
 
 /**
  * Remove a redirect
  */
 async function removeRedirect(): Promise<void> {
-    console.log('➖ Remove Redirect\n')
+    showOperationHeader('Remove Redirect')
 
     const redirects = loadRedirects()
 
     if (redirects.length === 0) {
-        console.log('ℹ No redirects to remove.')
+        console.log('\n  ℹ No redirects to remove.\n')
         return
     }
 
-    // List current redirects
-    console.log('Current redirects:')
-    redirects.forEach((r, index) => {
-        console.log(`  ${index + 1}. ${r.from} → ${r.to}`)
-    })
-    console.log()
+    try {
+        // Select redirect to remove
+        const from = await select({
+            message: 'Select redirect to remove:',
+            choices: redirects.map((r) => ({
+                name: `${r.from} → ${r.to} (${r.type === 'PERMANENT' ? '301' : '302'})`,
+                value: r.from,
+                description: r.description || undefined
+            }))
+        })
 
-    // Get source path to remove
-    const from = await prompt('Source path to remove: ')
+        const redirect = redirects.find((r) => r.from === from)
+        if (!redirect) {
+            showError('Redirect not found')
+            process.exit(1)
+        }
 
-    const index = redirects.findIndex((r) => r.from === from)
-    if (index === -1) {
-        console.error('❌ Redirect not found')
-        process.exit(1)
+        // Show details and confirm
+        console.log(`\n  Redirect to remove:`)
+        console.log(`    From: ${redirect.from}`)
+        console.log(`    To: ${redirect.to}`)
+        console.log(`    Type: ${redirect.type} (${redirect.type === 'PERMANENT' ? '301' : '302'})`)
+        if (redirect.description) {
+            console.log(`    Description: ${redirect.description}`)
+        }
+        console.log()
+
+        const confirmed = await confirm({
+            message: 'Confirm removal?',
+            default: false
+        })
+
+        if (!confirmed) {
+            console.log('\n  ❌ Cancelled\n')
+            process.exit(0)
+        }
+
+        const index = redirects.findIndex((r) => r.from === from)
+        const removed = redirects.splice(index, 1)[0]
+        saveRedirects(redirects)
+
+        showSuccess(`Removed redirect: ${removed.from} → ${removed.to}`)
+        console.log()
+    } catch (error) {
+        if (error instanceof Error && error.message.includes('User force closed')) {
+            console.log('\n  ❌ Cancelled\n')
+            process.exit(0)
+        }
+        throw error
     }
-
-    const removed = redirects.splice(index, 1)[0]
-    saveRedirects(redirects)
-
-    console.log(`\n✅ Removed redirect: ${removed.from} → ${removed.to}`)
 }
 
 /**
@@ -223,35 +280,65 @@ async function main(): Promise<void> {
                 await removeRedirect()
                 break
             default:
-                console.error('❌ Invalid operation. Use: list, add, or remove')
+                showError('Invalid operation. Use: list, add, or remove')
                 process.exit(1)
         }
         return
     }
 
     // Interactive mode
-    console.log('🔄 Redirects Management CLI\n')
-    console.log('Available operations:')
-    console.log('  1. List redirects')
-    console.log('  2. Add redirect')
-    console.log('  3. Remove redirect')
-    console.log()
+    showBanner('Redirects Manager', 'Manage Client-Side Redirects', '🔄')
 
-    const choice = await prompt('Choose an operation (1-3): ')
+    try {
+        const choice = await select({
+            message: 'What would you like to do?',
+            choices: [
+                {
+                    name: '📋 List all redirects',
+                    value: 'list',
+                    description: 'View all configured redirects'
+                },
+                {
+                    name: '➕ Add a new redirect',
+                    value: 'add',
+                    description: 'Create a new redirect'
+                },
+                {
+                    name: '🗑️ Remove a redirect',
+                    value: 'remove',
+                    description: 'Delete an existing redirect'
+                },
+                {
+                    name: '👋 Exit',
+                    value: 'exit',
+                    description: 'Exit the CLI'
+                }
+            ],
+            pageSize: 10
+        })
 
-    switch (choice) {
-        case '1':
-            listRedirects()
-            break
-        case '2':
-            await addRedirect()
-            break
-        case '3':
-            await removeRedirect()
-            break
-        default:
-            console.error('❌ Invalid choice')
-            process.exit(1)
+        switch (choice) {
+            case 'list':
+                listRedirects()
+                break
+            case 'add':
+                await addRedirect()
+                break
+            case 'remove':
+                await removeRedirect()
+                break
+            case 'exit':
+                showGoodbye()
+                break
+        }
+    } catch (error) {
+        if (error instanceof Error && error.message.includes('User force closed')) {
+            console.log('\n  ❌ Cancelled\n')
+            process.exit(0)
+        }
+        showError('An error occurred')
+        console.error(error instanceof Error ? error.message : String(error))
+        process.exit(1)
     }
 }
 

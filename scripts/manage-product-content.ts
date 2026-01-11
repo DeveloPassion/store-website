@@ -64,7 +64,7 @@ ${colors.bright}${colors.cyan}╔═══════════════�
 ║                                                           ║
 ║         📝  PRODUCT CONTENT MANAGEMENT CLI  💬            ║
 ║                                                           ║
-║          Manage FAQs and Testimonials for Products       ║
+║          Manage FAQs and Testimonials for Products        ║
 ║                                                           ║
 ╚═══════════════════════════════════════════════════════════╝${colors.reset}
 `)

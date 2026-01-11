@@ -1,0 +1,326 @@
+[
+    {
+        "id": "default-1",
+        "text": "Courses, Systems & Tools for Knowledge Workers and Creators",
+        "category": "default",
+        "featured": true
+    },
+    {
+        "id": "default-2",
+        "text": "Professional courses, templates, and tools for knowledge workers",
+        "category": "default",
+        "featured": true
+    },
+    {
+        "id": "default-3",
+        "text": "Passion Makes All The Difference.",
+        "category": "default",
+        "featured": true
+    },
+    {
+        "id": "default-4",
+        "text": "Your Personal Shield Against AI Obsolescence",
+        "category": "default",
+        "featured": true
+    },
+    {
+        "id": "problem-1",
+        "text": "Escape Information Overload. Build Systems That Scale.",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-2",
+        "text": "Stop the Creative Chaos. Start Consistent Output.",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-3",
+        "text": "Turn Scattered Ideas Into Sustainable Revenue",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-4",
+        "text": "From Burnout Cycles to Reliable Production",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-5",
+        "text": "End the Feast-Famine Revenue Cycle",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-6",
+        "text": "Break Free From Platform Dependency Anxiety",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-7",
+        "text": "Stop Reinventing. Start Systematizing.",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-8",
+        "text": "Organize the Chaos. Amplify Your Output.",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-9",
+        "text": "From Creative Blocks to Consistent Shipping",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "problem-10",
+        "text": "Cure Your Content Creation Headaches",
+        "category": "problem-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-1",
+        "text": "From Chaotic Hustler to Systematic Creator",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-2",
+        "text": "Transform Knowledge Into Consistent Revenue",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-3",
+        "text": "Turn Expertise Into Scalable Systems",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-4",
+        "text": "From Scattered Tools to Integrated Success",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-5",
+        "text": "Convert Ideas Into Published Content—Consistently",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-6",
+        "text": "Build Systems That Create While You Sleep",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-7",
+        "text": "From Mental Overload to Mental Clarity",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-8",
+        "text": "Transform Overwhelm Into Organized Action",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-9",
+        "text": "From Heroic Effort to Reliable Systems",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "transformation-10",
+        "text": "Turn Your Knowledge Into Your Competitive Advantage",
+        "category": "transformation-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-1",
+        "text": "Create Prolifically Without Burning Out",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-2",
+        "text": "Build Your Creator Operating System",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-3",
+        "text": "Systems for Sustainable Creative Freedom",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-4",
+        "text": "Consistent Output. Sustainable Revenue. Creative Freedom.",
+        "category": "outcome-focused",
+        "featured": true
+    },
+    {
+        "id": "outcome-5",
+        "text": "The Creator Operating System You've Been Missing",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-6",
+        "text": "Build Once. Create Forever.",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-7",
+        "text": "Your Blueprint for Systematic Creation",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-8",
+        "text": "Create Consistently. Scale Sustainably. Live Intentionally.",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-9",
+        "text": "The Systems Behind Prolific Creators",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "outcome-10",
+        "text": "Build Knowledge Systems That Actually Work",
+        "category": "outcome-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-1",
+        "text": "For Creators Who Build Systems, Not Just Content",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-2",
+        "text": "Where Systematic Creators Are Made",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-3",
+        "text": "Built for Knowledge-First Creators",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-4",
+        "text": "Systems for Creators Who Think Long-Term",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-5",
+        "text": "For Creators Building Businesses, Not Just Following Trends",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-6",
+        "text": "Where Intentional Creators Get Their Edge",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-7",
+        "text": "For Builders, Not Just Executors",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-8",
+        "text": "Systems for Creators Who Own Their Platform",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-9",
+        "text": "Built for Creator-Entrepreneurs Who Scale Smart",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "identity-10",
+        "text": "Where Serious Creators Build Their Foundation",
+        "category": "identity-focused",
+        "featured": false
+    },
+    {
+        "id": "action-1",
+        "text": "Build Systems. Create Consistently. Scale Sustainably.",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-2",
+        "text": "Stop Hustling. Start Systematizing.",
+        "category": "action-focused",
+        "featured": true
+    },
+    {
+        "id": "action-3",
+        "text": "Build Your Content Engine Today",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-4",
+        "text": "Create the Operating System Your Business Deserves",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-5",
+        "text": "Stop Guessing. Start Building Systems That Work.",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-6",
+        "text": "Build Reliable Systems for Unreliable Creative Income",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-7",
+        "text": "Design Your Creator Business—Don't Wing It",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-8",
+        "text": "Build Knowledge Assets That Scale Beyond You",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-9",
+        "text": "Create Content Systems That Actually Ship",
+        "category": "action-focused",
+        "featured": false
+    },
+    {
+        "id": "action-10",
+        "text": "Build the Business That Serves Your Life",
+        "category": "action-focused",
+        "featured": false
+    }
+]

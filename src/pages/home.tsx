@@ -7,9 +7,11 @@ import ProductCarousel from '@/components/products/product-carousel'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import tagsData from '@/data/tags.json'
+import taglinesData from '@/data/taglines.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import type { TagId } from '@/types/tag'
+import type { Tagline } from '@/types/tagline'
 import {
     sortProductsIntelligently,
     sortFeaturedProducts,
@@ -18,6 +20,7 @@ import {
 import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
+import { getWeightedRandomTagline } from '@/lib/tagline-utils'
 
 const HomeEcommerce: React.FC = () => {
     const [searchParams] = useSearchParams()
@@ -32,6 +35,12 @@ const HomeEcommerce: React.FC = () => {
         return calculateTestimonialStats(products)
     }, [])
     const { totalTestimonials, averageRating } = testimonialStats
+
+    // Get random tagline (featured 25% of the time, non-featured 75% of the time)
+    const randomTagline = useMemo(() => {
+        const taglines = taglinesData as Tagline[]
+        return getWeightedRandomTagline(taglines, 0.25)
+    }, [])
 
     // Filter and sort products based on URL params
     const filteredProducts = useMemo(() => {
@@ -168,7 +177,7 @@ const HomeEcommerce: React.FC = () => {
     // Update meta tags based on URL parameters
     useEffect(() => {
         const baseTitle = 'Knowledge Forge - Sébastien Dubois'
-        const baseDescription = 'Courses, Systems & Tools for Knowledge Workers and Creators'
+        const baseDescription = randomTagline.text
         const baseImage = 'https://store.dsebastien.net/assets/images/social-card.png'
         const baseUrl = 'https://store.dsebastien.net'
 
@@ -203,7 +212,7 @@ const HomeEcommerce: React.FC = () => {
             updateMetaTag('og:url', baseUrl)
             updateMetaTag('og:image', baseImage)
         }
-    }, [decodedTagName, categoryFilter, searchQuery])
+    }, [decodedTagName, categoryFilter, searchQuery, randomTagline])
 
     return (
         <>
@@ -239,9 +248,7 @@ const HomeEcommerce: React.FC = () => {
                         <p className='text-primary/70 mb-6 text-lg sm:text-xl'>
                             {decodedTagName
                                 ? `Explore all products tagged with "${decodedTagName}"`
-                                : heroProduct
-                                  ? heroProduct.tagline
-                                  : 'Professional courses, templates, and tools for knowledge workers.'}
+                                : randomTagline.text}
                         </p>
 
                         {/* Stats */}

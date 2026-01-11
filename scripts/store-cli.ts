@@ -44,7 +44,7 @@ function showBanner(): void {
     console.log(`
 ${colors.bright}${colors.cyan}╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║              🛍️  STORE MANAGEMENT CLI  🛍️                ║
+║              🛍️  STORE MANAGEMENT CLI  🛍️                 ║
 ║                                                           ║
 ║         Interactive menu for store configuration          ║
 ║                                                           ║
@@ -78,6 +78,16 @@ function buildChoices(): Choice[] {
             description: 'Add, modify, list, or remove tags'
         },
         {
+            name: '✨ Manage Taglines',
+            value: 'update-taglines.ts',
+            description: 'Manage homepage taglines'
+        },
+        {
+            name: '🔄 Manage Redirects',
+            value: 'update-redirects.ts',
+            description: 'Manage client-side redirects'
+        },
+        {
             name: '🎉 Update Promotion Banner',
             value: 'update-promotion.ts',
             description: 'Configure promotion banner settings'
@@ -101,6 +111,11 @@ function buildChoices(): Choice[] {
             name: '✅ Validate Tags',
             value: 'validate-tags.ts',
             description: 'Validate tag data and schema'
+        },
+        {
+            name: '✅ Validate Taglines',
+            value: 'validate-taglines.ts',
+            description: 'Validate tagline data and schema'
         },
         {
             name: '✅ Validate Promotion',
