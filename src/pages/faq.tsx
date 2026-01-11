@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const FAQPage: React.FC = () => {
@@ -368,6 +369,14 @@ const FAQPage: React.FC = () => {
                         </div>
                     </div>
                 </div>
+            </Section>
+
+            {/* Quick Navigation CTA */}
+            <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
+                <QuickNavigation
+                    title='Ready to Start Shopping?'
+                    description='Now that you know how it works, explore our collections'
+                />
             </Section>
         </>
     )

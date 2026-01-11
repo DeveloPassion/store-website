@@ -4,6 +4,7 @@ import { FaTag, FaSearch, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { TagCard } from '@/components/tags/tag-card'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
@@ -115,20 +116,29 @@ const TagsPage: React.FC = () => {
         <>
             {/* Header, Stats and Search */}
             <Section className='pt-16 pb-6 sm:pt-24 sm:pb-8'>
-                <div className='mx-auto max-w-7xl space-y-4'>
-                    <Breadcrumb />
-                    <div className='flex items-center gap-4'>
-                        <div className='bg-secondary/10 flex h-14 w-14 items-center justify-center rounded-full'>
-                            <FaTag className='text-secondary h-7 w-7' />
-                        </div>
-                        <div>
-                            <h1 className='text-3xl font-bold tracking-tight sm:text-4xl'>Tags</h1>
-                            <p className='text-primary/70 mt-1'>Browse products by tag</p>
+                <div className='mx-auto max-w-7xl space-y-4 text-center'>
+                    <Breadcrumb className='flex justify-center' />
+
+                    {/* Icon */}
+                    <div className='mb-6 flex justify-center'>
+                        <div className='from-secondary to-secondary/80 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br shadow-lg'>
+                            <FaTag className='h-10 w-10 text-white' />
                         </div>
                     </div>
 
+                    <h1 className='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
+                        Tags
+                    </h1>
+                    <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
+                        Browse products by tag
+                    </p>
+
                     {/* Stats */}
-                    <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+                    <div
+                        className={`mx-auto grid max-w-2xl gap-4 ${
+                            searchQuery ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2'
+                        }`}
+                    >
                         <div className='bg-primary/5 rounded-lg p-4'>
                             <div className='text-3xl font-bold text-green-400'>{allTagsCount}</div>
                             <div className='text-primary/60 text-sm'>Total Tags</div>
@@ -223,6 +233,14 @@ const TagsPage: React.FC = () => {
                         </div>
                     )}
                 </div>
+            </Section>
+
+            {/* Quick Navigation CTA */}
+            <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
+                <QuickNavigation
+                    title='Explore Our Collections'
+                    description='Jump directly to our curated product collections'
+                />
             </Section>
         </>
     )

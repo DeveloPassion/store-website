@@ -118,6 +118,14 @@ function generateSitemap(): string {
         priority: '0.8'
     })
 
+    // Add testimonials page
+    urls.push({
+        loc: `${BASE_URL}/testimonials`,
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.8'
+    })
+
     // Add tags page
     urls.push({
         loc: `${BASE_URL}/tags`,
@@ -205,13 +213,14 @@ function writeSitemap(): void {
     console.log(`  - Best value page: 1 URL`)
     console.log(`  - Best sellers page: 1 URL`)
     console.log(`  - Wishlist page: 1 URL`)
+    console.log(`  - Testimonials page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
     console.log(`  - Categories page: 1 URL`)
     console.log(`  - Products: ${productsData.length} URLs`)
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
     console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
     console.log(
-        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 10} URLs`
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 11} URLs`
     )
 }
 

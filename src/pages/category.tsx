@@ -4,6 +4,7 @@ import { FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
@@ -199,20 +200,24 @@ const CategoryPage: React.FC = () => {
 
             {/* Empty State */}
             {totalProducts === 0 && (
-                <Section className='py-16 sm:py-24'>
+                <Section className='py-8 sm:py-12'>
                     <div className='w-full text-center'>
-                        <div className='mb-4 text-6xl'>📦</div>
-                        <h3 className='mb-2 text-xl font-semibold'>No Products Yet</h3>
-                        <p className='text-primary/60 mb-4'>
-                            There are no products in the "{category.name}" category at the moment.
-                        </p>
-                        <Link
-                            to='/'
-                            className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white'
-                        >
-                            Browse All Products
-                        </Link>
+                        <div className='mb-6 text-6xl'>📦</div>
+                        <QuickNavigation
+                            title='No Products Yet'
+                            description={`There are no products in the "${category.name}" category at the moment. Explore our other collections below.`}
+                        />
                     </div>
+                </Section>
+            )}
+
+            {/* Quick Navigation CTA - Only show when there are products */}
+            {totalProducts > 0 && (
+                <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
+                    <QuickNavigation
+                        title='Explore More Collections'
+                        description='Discover other product categories and featured items'
+                    />
                 </Section>
             )}
         </>

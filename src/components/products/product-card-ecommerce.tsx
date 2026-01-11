@@ -187,7 +187,6 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                     {[1, 2, 3, 4, 5].map((star) => (
                         <FaStar key={star} className='text-secondary h-3 w-3' />
                     ))}
-                    <span className='text-primary/60 ml-1 text-xs'>(4.9)</span>
                 </div>
 
                 {/* Price and CTA */}

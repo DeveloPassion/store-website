@@ -17,6 +17,7 @@ import {
 } from '@/lib/product-sort'
 import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { CategoryCard } from '@/components/categories/category-card'
+import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
 
 const HomeEcommerce: React.FC = () => {
     const [searchParams] = useSearchParams()
@@ -24,6 +25,13 @@ const HomeEcommerce: React.FC = () => {
     const decodedTagName = tagName ? decodeURIComponent(tagName) : null
     const categoryFilter = searchParams.get('category') || null
     const searchQuery = searchParams.get('q') || ''
+
+    // Calculate testimonial statistics
+    const testimonialStats = useMemo(() => {
+        const products = productsData as Product[]
+        return calculateTestimonialStats(products)
+    }, [])
+    const { totalTestimonials, averageRating } = testimonialStats
 
     // Filter and sort products based on URL params
     const filteredProducts = useMemo(() => {
@@ -244,17 +252,23 @@ const HomeEcommerce: React.FC = () => {
                                 </div>
                                 <div className='text-primary/60 text-sm'>Students</div>
                             </div>
-                            <div>
-                                <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                    4.9/5
+                            <Link
+                                to='/testimonials'
+                                className='group transition-transform hover:scale-105'
+                            >
+                                <div className='text-secondary group-hover:text-secondary-text text-2xl font-bold transition-colors sm:text-3xl'>
+                                    {totalTestimonials}+
                                 </div>
-                                <div className='text-primary/60 text-sm'>Rating</div>
-                            </div>
-                            <div>
-                                <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                    100%
+                                <div className='text-primary/60 group-hover:text-primary text-sm transition-colors'>
+                                    Testimonials
                                 </div>
-                                <div className='text-primary/60 text-sm'>Satisfaction</div>
+                            </Link>
+                            <div>
+                                <div className='flex items-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl'>
+                                    {formatAverageRating(averageRating)}
+                                    <FaStar className='h-5 w-5 sm:h-6 sm:w-6' />
+                                </div>
+                                <div className='text-primary/60 text-sm'>Average Rating</div>
                             </div>
                         </div>
 
@@ -441,7 +455,10 @@ const HomeEcommerce: React.FC = () => {
                             <div className='font-semibold'>Happy Customers</div>
                         </div>
                         <div className='bg-primary/5 rounded-xl p-6'>
-                            <div className='text-secondary mb-3 text-4xl font-bold'>4.9/5</div>
+                            <div className='mb-3 flex items-center gap-2 text-4xl font-bold text-yellow-400'>
+                                {formatAverageRating(averageRating)}
+                                <FaStar className='h-8 w-8' />
+                            </div>
                             <div className='font-semibold'>Average Rating</div>
                         </div>
                         <div className='bg-primary/5 rounded-xl p-6'>

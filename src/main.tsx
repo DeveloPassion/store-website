@@ -20,6 +20,7 @@ import TagsPage from './pages/tags'
 import TagPage from './pages/tag'
 import CategoriesPage from './pages/categories'
 import CategoryPage from './pages/category'
+import AllTestimonialsPage from './pages/all-testimonials'
 import NotFoundPage from './pages/not-found'
 import ErrorPage from './pages/error'
 import RedirectPage from './components/redirect/redirect-page'
@@ -52,6 +53,7 @@ ReactDOM.createRoot(rootElement).render(
                             <Route path='/faq' element={<FAQPage />} />
                             <Route path='/wishlist' element={<WishlistPage />} />
                             <Route path='/shared-wishlist' element={<SharedWishlistPage />} />
+                            <Route path='/testimonials' element={<AllTestimonialsPage />} />
                             {/* Redirect routes */}
                             {getRedirects().map((redirect) => (
                                 <Route

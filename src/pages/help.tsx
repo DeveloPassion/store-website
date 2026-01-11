@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { FaQuestionCircle, FaEnvelope, FaBook, FaUndo, FaFileInvoice } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const HelpPage: React.FC = () => {
@@ -260,6 +261,14 @@ const HelpPage: React.FC = () => {
                         </div>
                     </div>
                 </div>
+            </Section>
+
+            {/* Quick Navigation CTA */}
+            <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
+                <QuickNavigation
+                    title='Ready to Get Started?'
+                    description='Explore our products and find the perfect tools for your needs'
+                />
             </Section>
         </>
     )

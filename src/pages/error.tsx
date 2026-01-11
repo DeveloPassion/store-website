@@ -1,8 +1,9 @@
 import { useMemo, useEffect } from 'react'
 import { Link, useRouteError, isRouteErrorResponse } from 'react-router'
-import { FaBug, FaHome, FaStar, FaTrophy, FaFire } from 'react-icons/fa'
+import { FaBug, FaHome } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { sortFeaturedProducts } from '@/lib/product-sort'
@@ -124,52 +125,11 @@ const ErrorPage: React.FC = () => {
             </Section>
 
             {/* Quick Navigation Section */}
-            <Section className='bg-primary/5 py-12 sm:py-16'>
-                <div className='mx-auto max-w-[1400px]'>
-                    <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
-                        Popular Destinations
-                    </h2>
-                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
-                        <Link
-                            to='/featured'
-                            className='border-primary/10 bg-background hover:border-secondary/50 group rounded-xl border p-6 transition-all hover:shadow-lg'
-                        >
-                            <FaStar className='text-secondary mb-4 h-8 w-8 transition-transform group-hover:scale-110' />
-                            <h3 className='mb-2 text-lg font-bold'>Featured Products</h3>
-                            <p className='text-primary/70 text-sm'>
-                                Our handpicked selection of the best products
-                            </p>
-                        </Link>
-                        <Link
-                            to='/best-value'
-                            className='border-primary/10 bg-background hover:border-secondary/50 group rounded-xl border p-6 transition-all hover:shadow-lg'
-                        >
-                            <FaTrophy className='mb-4 h-8 w-8 text-blue-500 transition-transform group-hover:scale-110' />
-                            <h3 className='mb-2 text-lg font-bold'>Best Value</h3>
-                            <p className='text-primary/70 text-sm'>
-                                Get the most bang for your buck
-                            </p>
-                        </Link>
-                        <Link
-                            to='/best-sellers'
-                            className='border-primary/10 bg-background hover:border-secondary/50 group rounded-xl border p-6 transition-all hover:shadow-lg'
-                        >
-                            <FaFire className='mb-4 h-8 w-8 text-orange-500 transition-transform group-hover:scale-110' />
-                            <h3 className='mb-2 text-lg font-bold'>Best Sellers</h3>
-                            <p className='text-primary/70 text-sm'>
-                                Most popular products among customers
-                            </p>
-                        </Link>
-                        <Link
-                            to='/products'
-                            className='border-primary/10 bg-background hover:border-secondary/50 group rounded-xl border p-6 transition-all hover:shadow-lg'
-                        >
-                            <FaHome className='mb-4 h-8 w-8 text-green-500 transition-transform group-hover:scale-110' />
-                            <h3 className='mb-2 text-lg font-bold'>All Products</h3>
-                            <p className='text-primary/70 text-sm'>Browse our complete catalog</p>
-                        </Link>
-                    </div>
-                </div>
+            <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
+                <QuickNavigation
+                    title='While We Fix This...'
+                    description='Explore our products while we resolve the issue'
+                />
             </Section>
 
             {/* Featured Products Section */}

@@ -164,17 +164,15 @@ describe('NotFoundPage Component', () => {
     })
 
     it('should render popular destinations section', () => {
-        const { getByRole, getAllByRole } = renderWithRouter(<NotFoundPage />)
+        const { getByRole, getByText } = renderWithRouter(<NotFoundPage />)
 
         expect(getByRole('heading', { name: /Popular Destinations/i })).toBeInTheDocument()
 
-        // Check for card headings
-        const headings = getAllByRole('heading', { level: 3 })
-        const headingTexts = headings.map((h) => h.textContent)
-        expect(headingTexts).toContain('Featured Products')
-        expect(headingTexts).toContain('Best Value')
-        expect(headingTexts).toContain('Best Sellers')
-        expect(headingTexts).toContain('All Products')
+        // Check for QuickNavigation links
+        expect(getByText('⭐ Featured')).toBeInTheDocument()
+        expect(getByText('💎 Best Value')).toBeInTheDocument()
+        expect(getByText('🔥 Best Sellers')).toBeInTheDocument()
+        expect(getByText('🛍️ All Products')).toBeInTheDocument()
     })
 
     it('should render links to featured, best-value, and best-sellers pages', () => {

@@ -73,7 +73,7 @@ const PromotionBanner: React.FC = () => {
                             config.promoLink.startsWith('https://') ? (
                                 <a
                                     href={config.promoLink}
-                                    className='text-amber-600 underline hover:text-amber-700'
+                                    className='text-amber-600 underline transition-colors hover:text-amber-400'
                                     target='_blank'
                                     rel='noopener noreferrer'
                                 >
@@ -82,7 +82,7 @@ const PromotionBanner: React.FC = () => {
                             ) : (
                                 <Link
                                     to={config.promoLink}
-                                    className='text-amber-600 underline hover:text-amber-700'
+                                    className='text-amber-600 underline transition-colors hover:text-amber-400'
                                 >
                                     {config.promoLinkText}
                                 </Link>

@@ -4,6 +4,7 @@ import { FaHeart, FaGift } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
@@ -141,41 +142,12 @@ const SharedWishlistPage: React.FC = () => {
                             </div>
                         </>
                     ) : (
-                        <div className='py-16 text-center'>
+                        <div className='py-8 text-center sm:py-12'>
                             <div className='mb-6 text-7xl'>🤷</div>
-                            <h3 className='mb-3 text-2xl font-semibold'>No products found</h3>
-                            <p className='text-primary/60 mb-8 text-lg'>
-                                The shared products might have been removed or are no longer
-                                available.
-                            </p>
-
-                            {/* Quick Links */}
-                            <div className='mx-auto grid max-w-3xl gap-4 sm:grid-cols-2 md:grid-cols-4'>
-                                <Link
-                                    to='/featured'
-                                    className='bg-secondary hover:bg-secondary/90 rounded-lg px-6 py-4 font-semibold text-white transition-colors'
-                                >
-                                    ⭐ Featured
-                                </Link>
-                                <Link
-                                    to='/best-value'
-                                    className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 rounded-lg border bg-transparent px-6 py-4 font-semibold transition-colors'
-                                >
-                                    💎 Best Value
-                                </Link>
-                                <Link
-                                    to='/best-sellers'
-                                    className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 rounded-lg border bg-transparent px-6 py-4 font-semibold transition-colors'
-                                >
-                                    🔥 Best Sellers
-                                </Link>
-                                <Link
-                                    to='/products'
-                                    className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 rounded-lg border bg-transparent px-6 py-4 font-semibold transition-colors'
-                                >
-                                    🛍️ All Products
-                                </Link>
-                            </div>
+                            <QuickNavigation
+                                title='No products found'
+                                description='The shared products might have been removed or are no longer available'
+                            />
                         </div>
                     )}
                 </div>

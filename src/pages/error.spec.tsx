@@ -230,17 +230,15 @@ describe('ErrorPage Component', () => {
     })
 
     it('should render popular destinations section', () => {
-        const { getByRole, getAllByRole } = renderWithRouter(<ErrorPage />)
+        const { getByRole, getByText } = renderWithRouter(<ErrorPage />)
 
-        expect(getByRole('heading', { name: /Popular Destinations/i })).toBeInTheDocument()
+        expect(getByRole('heading', { name: /While We Fix This/i })).toBeInTheDocument()
 
-        // Check for card headings
-        const headings = getAllByRole('heading', { level: 3 })
-        const headingTexts = headings.map((h) => h.textContent)
-        expect(headingTexts).toContain('Featured Products')
-        expect(headingTexts).toContain('Best Value')
-        expect(headingTexts).toContain('Best Sellers')
-        expect(headingTexts).toContain('All Products')
+        // Check for QuickNavigation links
+        expect(getByText('⭐ Featured')).toBeInTheDocument()
+        expect(getByText('💎 Best Value')).toBeInTheDocument()
+        expect(getByText('🔥 Best Sellers')).toBeInTheDocument()
+        expect(getByText('🛍️ All Products')).toBeInTheDocument()
     })
 
     it('should render links to featured, best-value, and best-sellers pages', () => {

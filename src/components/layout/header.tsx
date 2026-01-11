@@ -133,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
         // External link: DeveloPassion Website
         const websiteLink: NavLink = {
             to: 'https://www.dsebastien.net',
-            label: 'DeveloPassion Website',
+            label: 'Official Website',
             icon: <FaGlobe className='h-5 w-5' />,
             color: 'text-purple-400 bg-purple-500/10 hover:bg-purple-500/20',
             external: true
@@ -144,9 +144,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             featuredLink,
             bestValueLink,
             bestSellersLink,
-            wishlistLink,
             ...categoryLinks,
             ...staticLinks,
+            wishlistLink,
             websiteLink
         ]
     }, [featuredCategories, wishlistCount])

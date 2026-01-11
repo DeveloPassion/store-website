@@ -76,6 +76,7 @@ Store: https://store.dsebastien.net
 - /best-value - Best value products page
 - /best-sellers - Bestseller products page
 - /wishlist - User's saved products wishlist
+- /testimonials - All customer testimonials from all products
 - /l/{id} - Individual product pages
 - /tags - Browse all tags
 - /tags/{name} - Tag pages showing related products
