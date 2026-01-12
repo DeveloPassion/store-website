@@ -428,7 +428,7 @@ bun run update:products -- --operation testimonial:remove --id product-id \
 
 - FAQs: `src/data/products/{product-id}-faq.json`
 - Testimonials: `src/data/products/{product-id}-testimonials.json`
-- Media: Stored in product's `media` array field
+- **Media: `src/data/products/{product-id}-media.json`** (NEW)
 
 These files are automatically loaded during aggregation and attached to products.
 
@@ -437,7 +437,7 @@ These files are automatically loaded during aggregation and attached to products
 All changes are validated against Zod schemas before saving:
 - `src/schemas/faq.schema.ts` - FAQ validation
 - `src/schemas/testimonial.schema.ts` - Testimonial validation
-- `src/schemas/product.schema.ts` - Media validation (MediaItemSchema)
+- **`src/schemas/media.schema.ts` - Media validation (MediaItemSchema, MediaArraySchema)** (NEW)
 
 ### Auto-Sorting
 

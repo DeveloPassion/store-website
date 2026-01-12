@@ -3,6 +3,7 @@ import { CategoryIdSchema } from './category.schema.js'
 import { TagIdSchema } from './tag.schema.js'
 import { FAQSchema } from './faq.schema.js'
 import { TestimonialSchema } from './testimonial.schema.js'
+import { MediaItemSchema, MediaTypeSchema, MediaGroupSchema } from './media.schema.js'
 
 /**
  * Zod schema for product validation
@@ -64,30 +65,8 @@ export const StatsProofSchema = z.object({
     rating: z.string().optional()
 })
 
-// Media type and group enums
-export const MediaTypeSchema = z.enum(['image', 'video'])
-export const MediaGroupSchema = z.enum(['cover', 'banner', 'main', 'secondary', 'bonus'])
-
-// Media item with rich metadata
-export const MediaItemSchema = z.object({
-    id: z.string().min(1, 'Media ID is required'),
-    type: MediaTypeSchema,
-    url: z.string().url('Media URL must be a valid URL'),
-    title: z.string().min(1, 'Media title is required'),
-    description: z.string().optional(),
-    altText: z.string().min(1, 'Alt text is required for accessibility'),
-    caption: z.string().optional(),
-    order: z.number().int().min(0, 'Order must be a non-negative integer'),
-    group: MediaGroupSchema,
-
-    // Video-specific (YouTube)
-    youtubeId: z.string().optional(),
-    thumbnailUrl: z.string().url('Thumbnail URL must be a valid URL').optional(),
-
-    // Image-specific
-    width: z.number().int().positive('Width must be a positive integer').optional(),
-    height: z.number().int().positive('Height must be a positive integer').optional()
-})
+// Re-export media schemas for backwards compatibility
+export { MediaItemSchema, MediaTypeSchema, MediaGroupSchema }
 
 export const ProductSchema = z.object({
     // Identity
@@ -132,11 +111,9 @@ export const ProductSchema = z.object({
     testimonials: z.array(TestimonialSchema).optional(),
     statsProof: StatsProofSchema.optional(),
 
-    // Media
-    media: z.array(MediaItemSchema).default([]),
-
     // Content
     faqs: z.array(FAQSchema).optional(),
+    media: z.array(MediaItemSchema).optional(), // Auto-loaded from separate file during aggregation
     targetAudience: z.array(z.string()),
     perfectFor: z.array(z.string()),
     notForYou: z.array(z.string()),
@@ -175,8 +152,8 @@ export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>
 export type StatsProof = z.infer<typeof StatsProofSchema>
-export type MediaType = z.infer<typeof MediaTypeSchema>
-export type MediaGroup = z.infer<typeof MediaGroupSchema>
-export type MediaItem = z.infer<typeof MediaItemSchema>
 export type Product = z.infer<typeof ProductSchema>
 export type ProductsArray = z.infer<typeof ProductsArraySchema>
+
+// Re-export media types for convenience
+export type { MediaType, MediaGroup, MediaItem } from './media.schema.js'

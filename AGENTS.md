@@ -289,6 +289,48 @@ Product cards automatically display the first image from the media array with pr
 
 The first image from the media array (prioritized by group: cover → banner → main → secondary → bonus) is automatically used for og:image meta tags for social sharing. Cover images are recommended for social cards.
 
+**Storage:**
+
+Media is stored separately from product JSON files for better organization and cleaner git diffs:
+
+- FAQs: `src/data/products/{product-id}-faq.json`
+- Testimonials: `src/data/products/{product-id}-testimonials.json`
+- Media: `src/data/products/{product-id}-media.json`
+
+These files are automatically loaded during aggregation and attached to products.
+
+**Media File Format:**
+
+Media is stored as a JSON array sorted by group priority (cover → banner → main → secondary → bonus), then by order within each group.
+
+Example `knowii-voice-ai-media.json`:
+
+```json
+[
+    {
+        "id": "cover-1234567890",
+        "type": "image",
+        "url": "/assets/images/knowii/cover.png",
+        "title": "Knowii Cover",
+        "altText": "Knowii app cover image",
+        "order": 0,
+        "group": "cover",
+        "width": 1200,
+        "height": 630
+    },
+    {
+        "id": "main-1234567891",
+        "type": "video",
+        "url": "https://youtube.com/watch?v=abc123",
+        "title": "Demo Video",
+        "altText": "Product demonstration video",
+        "order": 0,
+        "group": "main",
+        "youtubeId": "abc123"
+    }
+]
+```
+
 ## Managing Promotion Banner
 
 Configuration in `src/data/promotion.json` (not gitignored).

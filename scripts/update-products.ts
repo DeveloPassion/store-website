@@ -93,6 +93,7 @@ import {
     ProductCategorySchema,
     MediaItemSchema
 } from '../src/schemas/product.schema.js'
+import { MediaArraySchema } from '../src/schemas/media.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
 import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
@@ -199,6 +200,77 @@ interface ProductReference {
 // Media Management Utilities
 // ============================================================================
 
+// ============================================================================
+// Media File I/O Utilities
+// ============================================================================
+
+/**
+ * Get the path to a product's media file
+ */
+function getMediaPath(productsDir: string, productId: string): string {
+    return join(productsDir, `${productId}-media.json`)
+}
+
+/**
+ * Load media items from a product's media file
+ */
+function loadMedia(productsDir: string, productId: string): MediaItem[] {
+    const mediaPath = getMediaPath(productsDir, productId)
+    if (!existsSync(mediaPath)) {
+        return []
+    }
+
+    try {
+        const content = readFileSync(mediaPath, 'utf-8')
+        const media = JSON.parse(content)
+        const result = MediaArraySchema.safeParse(media)
+
+        if (!result.success) {
+            throw new Error(`Invalid media data: ${result.error.message}`)
+        }
+
+        return result.data
+    } catch (error) {
+        throw new Error(
+            `Failed to load media: ${error instanceof Error ? error.message : String(error)}`
+        )
+    }
+}
+
+/**
+ * Save media items to a product's media file
+ */
+function saveMedia(productsDir: string, productId: string, media: MediaItem[]): void {
+    const mediaPath = getMediaPath(productsDir, productId)
+
+    // Validate before saving
+    const result = MediaArraySchema.safeParse(media)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error.message}`)
+    }
+
+    // Sort by group priority, then by order
+    const sorted = [...media].sort((a, b) => {
+        const groupPriority: Record<MediaGroup, number> = {
+            cover: 0,
+            banner: 1,
+            main: 2,
+            secondary: 3,
+            bonus: 4
+        }
+        const groupDiff = groupPriority[a.group] - groupPriority[b.group]
+        if (groupDiff !== 0) return groupDiff
+        return a.order - b.order
+    })
+
+    const json = JSON.stringify(sorted, null, 4)
+    writeFileSync(mediaPath, json + '\n', 'utf-8')
+}
+
+// ============================================================================
+// Media Management Utilities
+// ============================================================================
+
 /**
  * Extract YouTube video ID from various URL formats
  */
@@ -248,7 +320,8 @@ function getNextOrder(media: MediaItem[], group: MediaGroup): number {
  * Add a media item to a product
  */
 function addMediaToProduct(
-    product: Product,
+    productsDir: string,
+    productId: string,
     mediaData: {
         type: MediaType
         url: string
@@ -263,13 +336,14 @@ function addMediaToProduct(
         width?: number
         height?: number
     }
-): Product {
-    const existingMedia = product.media || []
-    const existingIds = existingMedia.map((item) => item.id)
+): MediaItem {
+    // Load existing media
+    const media = loadMedia(productsDir, productId)
+    const existingIds = media.map((item) => item.id)
 
     // Generate ID and determine order
     const id = generateMediaId(mediaData.group, existingIds)
-    const order = mediaData.order ?? getNextOrder(existingMedia, mediaData.group)
+    const order = mediaData.order ?? getNextOrder(media, mediaData.group)
 
     // For videos, extract YouTube ID if not provided
     let youtubeId = mediaData.youtubeId
@@ -299,28 +373,31 @@ function addMediaToProduct(
         throw new Error(`Invalid media item: ${result.error.message}`)
     }
 
-    return {
-        ...product,
-        media: [...existingMedia, result.data]
-    }
+    // Add and save
+    media.push(result.data)
+    saveMedia(productsDir, productId, media)
+
+    return result.data
 }
 
 /**
  * Edit an existing media item in a product
  */
 function editMediaInProduct(
-    product: Product,
+    productsDir: string,
+    productId: string,
     mediaId: string,
     updates: Partial<Omit<MediaItem, 'id'>>
-): Product {
-    const existingMedia = product.media || []
-    const mediaIndex = existingMedia.findIndex((item) => item.id === mediaId)
+): MediaItem {
+    // Load existing media
+    const media = loadMedia(productsDir, productId)
+    const mediaIndex = media.findIndex((item) => item.id === mediaId)
 
     if (mediaIndex === -1) {
         throw new Error(`Media item with ID "${mediaId}" not found`)
     }
 
-    const existingItem = existingMedia[mediaIndex]
+    const existingItem = media[mediaIndex]
     const updatedItem: MediaItem = {
         ...existingItem,
         ...updates,
@@ -343,39 +420,40 @@ function editMediaInProduct(
         throw new Error(`Invalid media item: ${result.error.message}`)
     }
 
-    const updatedMedia = [...existingMedia]
-    updatedMedia[mediaIndex] = result.data
+    // Update and save
+    media[mediaIndex] = result.data
+    saveMedia(productsDir, productId, media)
 
-    return {
-        ...product,
-        media: updatedMedia
-    }
+    return result.data
 }
 
 /**
  * Remove a media item from a product
  */
-function removeMediaFromProduct(product: Product, mediaId: string): Product {
-    const existingMedia = product.media || []
-    const mediaIndex = existingMedia.findIndex((item) => item.id === mediaId)
+function removeMediaFromProduct(productsDir: string, productId: string, mediaId: string): void {
+    // Load existing media
+    const media = loadMedia(productsDir, productId)
+    const mediaIndex = media.findIndex((item) => item.id === mediaId)
 
     if (mediaIndex === -1) {
         throw new Error(`Media item with ID "${mediaId}" not found`)
     }
 
-    const updatedMedia = existingMedia.filter((item) => item.id !== mediaId)
-
-    return {
-        ...product,
-        media: updatedMedia
-    }
+    // Remove and save
+    const updatedMedia = media.filter((item) => item.id !== mediaId)
+    saveMedia(productsDir, productId, updatedMedia)
 }
 
 /**
  * List media items in a product (optionally filtered by group)
  */
-function listMediaInProduct(product: Product, group?: MediaGroup): MediaItem[] {
-    const media = product.media || []
+function listMediaInProduct(
+    productsDir: string,
+    productId: string,
+    group?: MediaGroup
+): MediaItem[] {
+    // Load media
+    const media = loadMedia(productsDir, productId)
 
     if (group) {
         return media.filter((item) => item.group === group).sort((a, b) => a.order - b.order)
@@ -396,26 +474,32 @@ function listMediaInProduct(product: Product, group?: MediaGroup): MediaItem[] {
 /**
  * Reorder a media item within its group
  */
-function reorderMediaInProduct(product: Product, mediaId: string, newOrder: number): Product {
-    const existingMedia = product.media || []
-    const mediaItem = existingMedia.find((item) => item.id === mediaId)
+function reorderMediaInProduct(
+    productsDir: string,
+    productId: string,
+    mediaId: string,
+    newOrder: number
+): MediaItem {
+    // Load existing media
+    const media = loadMedia(productsDir, productId)
+    const mediaItem = media.find((item) => item.id === mediaId)
 
     if (!mediaItem) {
         throw new Error(`Media item with ID "${mediaId}" not found`)
     }
 
     // Update the order
-    const updatedMedia = existingMedia.map((item) => {
+    const updatedMedia = media.map((item) => {
         if (item.id === mediaId) {
             return { ...item, order: newOrder }
         }
         return item
     })
 
-    return {
-        ...product,
-        media: updatedMedia
-    }
+    // Save and return the updated item
+    saveMedia(productsDir, productId, updatedMedia)
+
+    return { ...mediaItem, order: newOrder }
 }
 
 /**
@@ -2172,7 +2256,7 @@ async function manageProductMedia(product: Product): Promise<void> {
     let managing = true
 
     while (managing) {
-        const mediaCount = product.media?.length || 0
+        const mediaCount = listMediaInProduct(PRODUCTS_DIR, product.id).length
 
         const action = await select({
             message: `Media Management (${mediaCount} total):`,
@@ -2195,7 +2279,7 @@ async function manageProductMedia(product: Product): Promise<void> {
         try {
             switch (action) {
                 case 'list': {
-                    const mediaItems = listMediaInProduct(product)
+                    const mediaItems = listMediaInProduct(PRODUCTS_DIR, product.id)
                     console.log(
                         `\n📦 Media for product: ${product.name} ${colors.dim}(${product.id})${colors.reset}`
                     )
@@ -2283,7 +2367,7 @@ async function manageProductMedia(product: Product): Promise<void> {
                         ])
                         .then((answers) => answers.caption || undefined)
 
-                    const updatedProduct = addMediaToProduct(product, {
+                    const newMedia = addMediaToProduct(PRODUCTS_DIR, product.id, {
                         type,
                         group,
                         url,
@@ -2293,15 +2377,13 @@ async function manageProductMedia(product: Product): Promise<void> {
                         caption
                     })
 
-                    // Update the product reference
-                    product.media = updatedProduct.media
                     trackChange('media', 'added', `${type} to ${group} group`)
-                    showSuccess(`Media added to ${group} group`)
+                    showSuccess(`Media added to ${group} group (ID: ${newMedia.id})`)
                     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
                     break
                 }
                 case 'edit': {
-                    const mediaItems = listMediaInProduct(product)
+                    const mediaItems = listMediaInProduct(PRODUCTS_DIR, product.id)
                     if (mediaItems.length === 0) {
                         showError('No media items found for this product')
                         await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
@@ -2340,15 +2422,14 @@ async function manageProductMedia(product: Product): Promise<void> {
                         ])
                         .then((answers) => answers.altText)
 
-                    const updatedProduct = editMediaInProduct(product, mediaId, { title, altText })
-                    product.media = updatedProduct.media
+                    editMediaInProduct(PRODUCTS_DIR, product.id, mediaId, { title, altText })
                     trackChange('media', 'edited', mediaId)
                     showSuccess(`Media item ${mediaId} updated`)
                     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
                     break
                 }
                 case 'remove': {
-                    const mediaItems = listMediaInProduct(product)
+                    const mediaItems = listMediaInProduct(PRODUCTS_DIR, product.id)
                     if (mediaItems.length === 0) {
                         showError('No media items found for this product')
                         await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
@@ -2367,8 +2448,7 @@ async function manageProductMedia(product: Product): Promise<void> {
                         `${colors.red}Confirm removal of media item?${colors.reset}`
                     )
                     if (confirmed) {
-                        const updatedProduct = removeMediaFromProduct(product, mediaId)
-                        product.media = updatedProduct.media
+                        removeMediaFromProduct(PRODUCTS_DIR, product.id, mediaId)
                         trackChange('media', 'removed', mediaId)
                         showSuccess(`Media item ${mediaId} removed`)
                     }
@@ -2376,7 +2456,7 @@ async function manageProductMedia(product: Product): Promise<void> {
                     break
                 }
                 case 'reorder': {
-                    const mediaItems = listMediaInProduct(product)
+                    const mediaItems = listMediaInProduct(PRODUCTS_DIR, product.id)
                     if (mediaItems.length === 0) {
                         showError('No media items found for this product')
                         await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
@@ -2403,8 +2483,7 @@ async function manageProductMedia(product: Product): Promise<void> {
                         ])
                         .then((answers) => answers.order)
 
-                    const updatedProduct = reorderMediaInProduct(product, mediaId, newOrder)
-                    product.media = updatedProduct.media
+                    reorderMediaInProduct(PRODUCTS_DIR, product.id, mediaId, newOrder)
                     trackChange('media', 'reordered', `${mediaId} to position ${newOrder}`)
                     showSuccess(`Media item ${mediaId} reordered to position ${newOrder}`)
                     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)

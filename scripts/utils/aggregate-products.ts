@@ -7,9 +7,10 @@
  * combines them into a single products.json file for backward compatibility
  * and optimal runtime performance.
  *
- * Additionally, it loads FAQs and testimonials from product-specific files:
+ * Additionally, it loads content from product-specific files:
  * - {product-id}-faq.json -> product.faqs[]
  * - {product-id}-testimonials.json -> product.testimonials[]
+ * - {product-id}-media.json -> product.media[]
  *
  * If these files don't exist, the arrays will be empty.
  *
@@ -53,11 +54,28 @@ interface Testimonial {
     featured: boolean
 }
 
+interface MediaItem {
+    id: string
+    type: 'image' | 'video'
+    url: string
+    title: string
+    description?: string
+    altText: string
+    caption?: string
+    order: number
+    group: 'cover' | 'banner' | 'main' | 'secondary' | 'bonus'
+    youtubeId?: string
+    thumbnailUrl?: string
+    width?: number
+    height?: number
+}
+
 interface Product {
     id: string
     priority?: number
     faqs?: FAQ[]
     testimonials?: Testimonial[]
+    media?: MediaItem[]
 }
 
 /**
@@ -106,6 +124,29 @@ function loadTestimonials(productId: string): Testimonial[] {
     }
 }
 
+/**
+ * Load media for a product from {product-id}-media.json
+ * Returns empty array if file doesn't exist
+ */
+function loadMedia(productId: string): MediaItem[] {
+    const mediaPath = join(PRODUCTS_DIR, `${productId}-media.json`)
+    if (!existsSync(mediaPath)) {
+        return []
+    }
+
+    try {
+        const content = readFileSync(mediaPath, 'utf-8')
+        return JSON.parse(content)
+    } catch (error) {
+        const message = `Failed to load media for ${productId}: ${error instanceof Error ? error.message : String(error)}`
+        console.warn(`⚠️  ${message}`)
+        if (STRICT_MODE) {
+            throw new Error(message)
+        }
+        return []
+    }
+}
+
 function main() {
     console.log('🔄 Aggregating product files...\n')
     console.log(`Reading from: ${PRODUCTS_DIR}`)
@@ -119,14 +160,15 @@ function main() {
     }
 
     // Read all JSON files from products directory
-    // Exclude FAQ and testimonial files (they'll be loaded separately)
+    // Exclude FAQ, testimonial, and media files (they'll be loaded separately)
     let files: string[]
     try {
         files = readdirSync(PRODUCTS_DIR).filter(
             (file) =>
                 file.endsWith('.json') &&
                 !file.endsWith('-faq.json') &&
-                !file.endsWith('-testimonials.json')
+                !file.endsWith('-testimonials.json') &&
+                !file.endsWith('-media.json')
         )
     } catch (error) {
         console.error('❌ Failed to read products directory')
@@ -157,21 +199,23 @@ function main() {
                 continue
             }
 
-            // Load FAQs and testimonials for this product
+            // Load FAQs, testimonials, and media for this product
             const faqs = loadFAQs(product.id)
             const testimonials = loadTestimonials(product.id)
+            const media = loadMedia(product.id)
 
-            // Create defensive copy with FAQs and testimonials (don't mutate original)
+            // Create defensive copy with loaded content (don't mutate original)
             const aggregatedProduct = {
                 ...product,
                 faqs,
-                testimonials
+                testimonials,
+                media
             }
 
             // Validate the aggregated product
             const validationResult = ProductSchema.safeParse(aggregatedProduct)
             if (!validationResult.success) {
-                console.error(`  ❌ ${file}: Invalid product after adding FAQs/testimonials`)
+                console.error(`  ❌ ${file}: Invalid product after adding FAQs/testimonials/media`)
                 validationResult.error.errors.forEach((err) => {
                     console.error(`     - ${err.path.join('.')}: ${err.message}`)
                 })
@@ -181,7 +225,7 @@ function main() {
 
             products.push(aggregatedProduct)
             console.log(
-                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials)`
+                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media)`
             )
         } catch (error) {
             const errorMsg = error instanceof Error ? error.message : String(error)
