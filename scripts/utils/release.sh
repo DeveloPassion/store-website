@@ -41,12 +41,6 @@ if ! gh auth status &> /dev/null; then
     exit 1
 fi
 
-# Check if git working directory is clean
-if [ -n "$(git status --porcelain)" ]; then
-    print_error "Error: Git working directory is not clean. Please commit or stash changes first."
-    exit 1
-fi
-
 # Check if on main branch
 CURRENT_BRANCH=$(git branch --show-current)
 if [ "$CURRENT_BRANCH" != "main" ]; then
@@ -58,9 +52,22 @@ if [ "$CURRENT_BRANCH" != "main" ]; then
     fi
 fi
 
+# Check if git working directory is clean before pull
+if [ -n "$(git status --porcelain)" ]; then
+    print_error "Error: Git working directory is not clean. Please commit or stash changes first."
+    exit 1
+fi
+
 # Pull latest changes
 print_step "Pulling latest changes from origin..."
 git pull origin "$CURRENT_BRANCH"
+
+# Check if git working directory is still clean after pull
+if [ -n "$(git status --porcelain)" ]; then
+    print_error "Error: Git working directory is not clean after pulling. Please resolve conflicts or issues first."
+    git status
+    exit 1
+fi
 
 # Prompt for tag name
 echo ""
