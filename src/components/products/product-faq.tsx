@@ -26,7 +26,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
     }
 
     return (
-        <Section className='bg-primary/5'>
+        <Section className='border-primary/10 border-t'>
             <style>{`
                 @media (min-width: 690px) {
                     .faq-container-fixed {
