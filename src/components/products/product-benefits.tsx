@@ -105,9 +105,9 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: benefitIdx * 0.05 }}
-                                            className='border-secondary/20 bg-background/50 flex gap-3 rounded-lg border p-4'
+                                            className='border-secondary/20 bg-background/50 flex items-center gap-3 rounded-lg border p-4'
                                         >
-                                            <FaCheckCircle className='text-secondary mt-1 h-5 w-5 shrink-0' />
+                                            <FaCheckCircle className='text-secondary h-5 w-5 shrink-0' />
                                             <p className='text-primary/80'>{benefit}</p>
                                         </motion.div>
                                     ))}
