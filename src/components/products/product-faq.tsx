@@ -27,7 +27,24 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
 
     return (
         <Section className='bg-primary/5'>
-            <div className='mx-auto max-w-4xl'>
+            <style>{`
+                @media (min-width: 690px) {
+                    .faq-container-fixed {
+                        width: 656px !important;
+                    }
+                }
+                @media (min-width: 960px) {
+                    .faq-container-fixed {
+                        width: 768px !important;
+                    }
+                }
+                @media (min-width: 1280px) {
+                    .faq-container-fixed {
+                        width: 896px !important;
+                    }
+                }
+            `}</style>
+            <div className='faq-container-fixed mx-auto w-full max-w-4xl'>
                 {/* Header */}
                 <SectionHeader
                     title='Frequently Asked Questions'
@@ -49,11 +66,11 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                     <div
                                         className={cn(
                                             'border-primary/10 bg-background/50 overflow-hidden rounded-lg border transition-all',
-                                            open && 'ring-secondary/30 ring-2'
+                                            open && 'ring-secondary/30 ring-2 ring-inset'
                                         )}
                                     >
                                         <Disclosure.Button className='hover:bg-primary/5 flex w-full items-center justify-between px-6 py-4 text-left transition-colors'>
-                                            <span className='pr-4 font-semibold'>
+                                            <span className='min-w-0 flex-1 pr-4 font-semibold break-words'>
                                                 {faq.question}
                                             </span>
                                             <FaChevronDown
@@ -64,7 +81,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className='border-primary/10 border-t px-6 py-4'>
-                                            <p className='text-primary/70 leading-relaxed'>
+                                            <p className='text-primary/70 leading-relaxed break-words'>
                                                 {faq.answer}
                                             </p>
                                         </Disclosure.Panel>
