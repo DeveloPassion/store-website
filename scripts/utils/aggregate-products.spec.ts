@@ -14,7 +14,7 @@
  * - STRICT_MODE behavior (throws on errors)
  */
 
-import { describe, it, expect, beforeEach, afterEach, spyOn, mock } from 'bun:test'
+import { describe, it, expect, beforeEach, afterEach, spyOn } from 'bun:test'
 import { mkdirSync, rmSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import { loadFAQs, loadTestimonials, loadMedia } from './aggregate-products.js'
@@ -80,7 +80,7 @@ afterEach(() => {
     // Clean up temp directory
     try {
         rmSync(tempDir, { recursive: true, force: true })
-    } catch (error) {
+    } catch {
         // Ignore cleanup errors
     }
 

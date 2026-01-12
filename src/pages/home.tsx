@@ -181,7 +181,7 @@ const HomeEcommerce: React.FC = () => {
             updateAllMetaTags({
                 title: `${decodedTagName} Products - Knowledge Forge`,
                 description: `Browse all products tagged with ${decodedTagName}`,
-                url: `https://store.dsebastien.net/#/tags/${encodeURIComponent(decodedTagName)}`
+                url: `https://store.dsebastien.net/tags/${encodeURIComponent(decodedTagName)}`
             })
         } else if (categoryFilter) {
             const categoryName = categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1)
