@@ -56,32 +56,21 @@ const ProductPage: React.FC = () => {
                 }
             }
 
-            // Update og:image - use first image from media array (prioritize cover → banner → main → secondary → bonus)
+            // Update og:image - use cover image if available, otherwise default social card
             const ogImage = document.querySelector('meta[property="og:image"]')
             if (ogImage) {
                 let imageUrl = 'https://store.dsebastien.net/assets/images/social-card.png'
 
-                // Find first image in media array (prioritize cover → banner → main → secondary → bonus)
-                const imageMediaItem = product.media
-                    ?.filter((item) => item.type === 'image')
-                    .sort((a, b) => {
-                        const groupPriority: Record<string, number> = {
-                            cover: 0, // Best for social cards
-                            banner: 1, // Good fallback
-                            main: 2,
-                            secondary: 3,
-                            bonus: 4
-                        }
-                        const aPriority = (a?.group && groupPriority[a.group]) ?? 999
-                        const bPriority = (b?.group && groupPriority[b.group]) ?? 999
-                        return aPriority - bPriority || (a?.order ?? 0) - (b?.order ?? 0)
-                    })[0]
+                // Find cover images and use the primary one (lowest order = highest priority)
+                const coverImage = product.media
+                    ?.filter((item) => item.type === 'image' && item.group === 'cover')
+                    .sort((a, b) => (a?.order ?? 0) - (b?.order ?? 0))[0]
 
-                if (imageMediaItem) {
-                    // Assume media URLs are absolute or add base URL if relative
-                    imageUrl = imageMediaItem.url.startsWith('http')
-                        ? imageMediaItem.url
-                        : `https://store.dsebastien.net${imageMediaItem.url}`
+                if (coverImage) {
+                    // Convert relative URLs to absolute
+                    imageUrl = coverImage.url.startsWith('http')
+                        ? coverImage.url
+                        : `https://store.dsebastien.net${coverImage.url}`
                 }
 
                 ogImage.setAttribute('content', imageUrl)

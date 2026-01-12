@@ -8,28 +8,11 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
+import type { Product, MediaItem } from '../../src/types/product.js'
+import type { Category } from '../../src/types/category.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const BASE_URL = 'https://store.dsebastien.net'
-
-interface Product {
-    id: string
-    name: string
-    permalink: string
-    tagline: string
-    secondaryTagline?: string
-    description: string
-    metaDescription: string
-    price: number
-    priceDisplay: string
-    features: string[]
-    tags: string[]
-    mainCategory: string
-    secondaryCategories: Array<{ id: string; distant: boolean }>
-    status?: string
-    featured?: boolean
-    testimonialIds?: string[]
-}
 
 // Load products data
 const productsJsonPath = join(__dirname, '../../src/data/products.json')
@@ -37,11 +20,6 @@ const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8
 
 // Load categories data
 const categoriesJsonPath = join(__dirname, '../../src/data/categories.json')
-interface Category {
-    id: string
-    name: string
-    description: string
-}
 const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, 'utf-8'))
 
 // Extract all unique tags
@@ -62,6 +40,34 @@ function escapeHtml(text: string): string {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;')
+}
+
+/**
+ * Get the optimal Open Graph image URL for a product
+ * Uses cover image if available, otherwise falls back to default social card
+ */
+function getProductOgImageUrl(product: Product): string {
+    const defaultImage = `${BASE_URL}/assets/images/social-card.png`
+
+    if (!product.media || product.media.length === 0) {
+        return defaultImage
+    }
+
+    // Find cover images and use the primary one (lowest order = highest priority)
+    const coverImage = product.media
+        .filter((item) => item.type === 'image' && item.group === 'cover')
+        .sort((a, b) => (a?.order ?? 0) - (b?.order ?? 0))[0]
+
+    if (!coverImage) {
+        return defaultImage
+    }
+
+    // Convert relative URLs to absolute
+    const imageUrl = coverImage.url.startsWith('http')
+        ? coverImage.url
+        : `${BASE_URL}${coverImage.url}`
+
+    return imageUrl
 }
 
 // Shared author schema for all pages
@@ -808,6 +814,13 @@ function generateProductPageHtml(product: Product): string {
     html = html.replace(
         /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
         `<meta property="og:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update og:image with cover image if available, otherwise default social card
+    const ogImageUrl = getProductOgImageUrl(product)
+    html = html.replace(
+        /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:image" content="${ogImageUrl}" />`
     )
 
     // Update Twitter tags
