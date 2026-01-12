@@ -7,9 +7,6 @@ on:
                 description: 'Tag name (e.g., 1.0.0, 2024-01-15, release-candidate-1)'
                 required: true
                 type: string
-    push:
-        tags:
-            - '**'
 
 permissions:
     contents: write
@@ -79,29 +76,13 @@ jobs:
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            - name: Create and push tag
-              if: github.event_name == 'workflow_dispatch'
-              run: |
-                  git tag "${{ inputs.tag }}"
-                  git push origin "${{ inputs.tag }}"
-
-            - name: Determine tag name
-              id: tag
-              run: |
-                  if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-                      echo "name=${{ inputs.tag }}" >> $GITHUB_OUTPUT
-                  else
-                      echo "name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-                  fi
-
             - name: Install dependencies
               run: bun install --frozen-lockfile
 
-            - name: Update version and changelog (workflow_dispatch only)
-              if: github.event_name == 'workflow_dispatch'
+            - name: Update version and changelog
               run: |
                   # Update package.json version
-                  bun run release:update-version ${{ steps.tag.outputs.name }}
+                  bun run release:update-version ${{ inputs.tag }}
 
                   # Update bun.lock
                   bun install
@@ -109,14 +90,16 @@ jobs:
                   # Generate changelog
                   bun run release:changelog
 
-                  # Commit changes
+                  # Commit changes to main
                   git add package.json bun.lock CHANGELOG.md
-                  git commit -m "chore(release): ${{ steps.tag.outputs.name }}"
+                  git commit -m "chore(release): ${{ inputs.tag }}"
                   git push origin HEAD:main
 
-                  # Update tag to point to the new commit
-                  git tag -f "${{ steps.tag.outputs.name }}"
-                  git push -f origin "${{ steps.tag.outputs.name }}"
+            - name: Create and push tag
+              run: |
+                  # Create tag pointing to the release commit
+                  git tag "${{ inputs.tag }}"
+                  git push origin "${{ inputs.tag }}"
 
             - name: Extract changelog for release notes
               id: changelog
@@ -127,7 +110,7 @@ jobs:
                       NOTES=$(awk '/^## \[?[0-9]/{if(p) exit; p=1} p' CHANGELOG.md)
                   else
                       # Provide default notes if CHANGELOG.md doesn't exist
-                      NOTES="Release ${{ steps.tag.outputs.name }}"
+                      NOTES="Release ${{ inputs.tag }}"
                   fi
                   # Handle multi-line output
                   echo "notes<<EOF" >> $GITHUB_OUTPUT
@@ -137,8 +120,8 @@ jobs:
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v2
               with:
-                  tag_name: ${{ steps.tag.outputs.name }}
-                  name: Release ${{ steps.tag.outputs.name }}
+                  tag_name: ${{ inputs.tag }}
+                  name: Release ${{ inputs.tag }}
                   body: ${{ steps.changelog.outputs.notes }}
                   draft: false
                   prerelease: false
@@ -154,7 +137,7 @@ jobs:
                   git checkout production
 
                   # Merge the tagged commit
-                  git merge --ff-only ${{ steps.tag.outputs.name }}
+                  git merge --ff-only ${{ inputs.tag }}
 
                   # Push to production (triggers Cloudflare Pages deployment)
                   git push origin production
