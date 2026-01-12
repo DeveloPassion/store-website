@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
     }
 
     return (
-        <footer className='border-primary/10 bg-background border-t'>
+        <footer id='footer' role='contentinfo' className='border-primary/10 bg-background border-t'>
             {/* Newsletter Section */}
             <div className='bg-secondary/5 border-primary/10 border-b py-12 sm:py-16'>
                 <div className='mx-auto max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20'>

@@ -181,11 +181,19 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
     return (
         <>
-            <header className='border-primary/10 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b shadow-lg shadow-black/5 backdrop-blur-md'>
+            <header
+                id='navigation'
+                role='banner'
+                className='border-primary/10 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b shadow-lg shadow-black/5 backdrop-blur-md'
+            >
                 <PromotionBanner />
 
                 {/* Main header */}
-                <nav className='mx-auto max-w-[1800px] 2xl:max-w-[2200px]'>
+                <nav
+                    role='navigation'
+                    aria-label='Main navigation'
+                    className='mx-auto max-w-[1800px] 2xl:max-w-[2200px]'
+                >
                     <div className='flex h-16 items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8 lg:px-12 xl:px-16'>
                         {/* Logo */}
                         <div className='flex items-center'>

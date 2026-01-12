@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Outlet } from 'react-router'
 import Header from './header'
 import Footer from './footer'
+import SkipLinks from './skip-links'
 import ScrollToTop from '@/components/ui/scroll-to-top'
 import ScrollToTopButton from '@/components/ui/scroll-to-top-button'
 import CommandPalette from '@/components/products/command-palette'
@@ -36,9 +37,10 @@ const AppLayout: React.FC = () => {
 
     return (
         <>
+            <SkipLinks />
             <ScrollToTop />
             <Header onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
-            <main className='flex w-full flex-1 flex-col items-center'>
+            <main id='main-content' className='flex w-full flex-1 flex-col items-center'>
                 <Outlet />
             </main>
             <Footer />
