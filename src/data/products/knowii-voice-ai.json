@@ -154,14 +154,18 @@
     "demoUrl": "https://docs.voice-ai.knowii.net/",
     "priority": 60,
     "id": "knowii-voice-ai",
-    "mainCategory": "tools",
+    "mainCategory": "ai-tools",
     "secondaryCategories": [
         {
             "id": "productivity",
             "distant": true
         },
         {
-            "id": "ai-tools",
+            "id": "tools",
+            "distant": false
+        },
+        {
+            "id": "ai-mastery",
             "distant": false
         }
     ]
