@@ -25,6 +25,7 @@ import { CategoryCard } from '@/components/categories/category-card'
 import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
 import { getWeightedRandomTagline } from '@/lib/tagline-utils'
 import { getWeightedRandomAnimatedHeroText } from '@/lib/animated-hero-text-utils'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const HomeEcommerce: React.FC = () => {
     const [searchParams] = useSearchParams()
@@ -174,53 +175,34 @@ const HomeEcommerce: React.FC = () => {
         return getFeaturedSorted(categoriesData as Category[])
     }, [])
 
-    // Helper function to update meta tags
-    const updateMetaTag = (property: string, content: string) => {
-        const tag =
-            document.querySelector(`meta[property="${property}"]`) ||
-            document.querySelector(`meta[name="${property}"]`)
-        if (tag) {
-            tag.setAttribute('content', content)
-        }
-    }
-
     // Update meta tags based on URL parameters
     useEffect(() => {
-        const baseTitle = 'Knowledge Forge - Sébastien Dubois'
-        const baseDescription = randomTagline.text
-        const baseImage = 'https://store.dsebastien.net/assets/images/social-card.png'
-        const baseUrl = 'https://store.dsebastien.net'
-
         if (decodedTagName) {
-            document.title = `${decodedTagName} Products - Knowledge Forge`
-            updateMetaTag('description', `Browse all products tagged with ${decodedTagName}`)
-            updateMetaTag('og:title', `${decodedTagName} Products`)
-            updateMetaTag('og:description', `Browse all products tagged with ${decodedTagName}`)
-            updateMetaTag('og:url', `${baseUrl}/#/tags/${encodeURIComponent(decodedTagName)}`)
-            updateMetaTag('og:image', baseImage)
+            updateAllMetaTags({
+                title: `${decodedTagName} Products - Knowledge Forge`,
+                description: `Browse all products tagged with ${decodedTagName}`,
+                url: `https://store.dsebastien.net/#/tags/${encodeURIComponent(decodedTagName)}`
+            })
         } else if (categoryFilter) {
             const categoryName = categoryFilter.charAt(0).toUpperCase() + categoryFilter.slice(1)
-            document.title = `${categoryName} - Knowledge Forge`
-            updateMetaTag('description', `Browse ${categoryName} products`)
-            updateMetaTag('og:title', `${categoryName} Products`)
-            updateMetaTag('og:description', `Browse ${categoryName} products`)
-            updateMetaTag('og:url', `${baseUrl}/?category=${encodeURIComponent(categoryFilter)}`)
-            updateMetaTag('og:image', baseImage)
+            updateAllMetaTags({
+                title: `${categoryName} - Knowledge Forge`,
+                description: `Browse ${categoryName} products`,
+                url: `https://store.dsebastien.net/?category=${encodeURIComponent(categoryFilter)}`
+            })
         } else if (searchQuery) {
-            document.title = `Search: ${searchQuery} - Knowledge Forge`
-            updateMetaTag('description', `Search results for ${searchQuery}`)
-            updateMetaTag('og:title', `Search: ${searchQuery}`)
-            updateMetaTag('og:description', `Search results for ${searchQuery}`)
-            updateMetaTag('og:url', `${baseUrl}/?q=${encodeURIComponent(searchQuery)}`)
-            updateMetaTag('og:image', baseImage)
+            updateAllMetaTags({
+                title: `Search: ${searchQuery} - Knowledge Forge`,
+                description: `Search results for ${searchQuery}`,
+                url: `https://store.dsebastien.net/?q=${encodeURIComponent(searchQuery)}`
+            })
         } else {
             // Default home page meta tags
-            document.title = baseTitle
-            updateMetaTag('description', baseDescription)
-            updateMetaTag('og:title', baseTitle)
-            updateMetaTag('og:description', baseDescription)
-            updateMetaTag('og:url', baseUrl)
-            updateMetaTag('og:image', baseImage)
+            updateAllMetaTags({
+                title: 'Knowledge Forge - Sébastien Dubois',
+                description: randomTagline.text,
+                url: 'https://store.dsebastien.net'
+            })
         }
     }, [decodedTagName, categoryFilter, searchQuery, randomTagline])
 

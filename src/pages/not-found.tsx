@@ -7,6 +7,7 @@ import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { sortFeaturedProducts } from '@/lib/product-sort'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const NotFoundPage: React.FC = () => {
     const products = productsData as Product[]
@@ -18,44 +19,12 @@ const NotFoundPage: React.FC = () => {
     }, [products])
 
     useEffect(() => {
-        document.title = '404 - Page Not Found - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                "The page you're looking for doesn't exist. Browse our featured products instead."
-            )
-        }
-
-        // Update OG tags
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', '404 - Page Not Found - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                "The page you're looking for doesn't exist. Browse our featured products instead."
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/404')
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
+        updateAllMetaTags({
+            title: '404 - Page Not Found - Knowledge Forge',
+            description:
+                "The page you're looking for doesn't exist. Browse our featured products instead.",
+            url: 'https://store.dsebastien.net/404'
+        })
     }, [])
 
     return (

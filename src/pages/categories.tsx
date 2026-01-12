@@ -11,6 +11,7 @@ import type { Category } from '@/types/category'
 import { sortByPriority } from '@/lib/collection-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 export interface CategoryData extends Category {
     count: number
@@ -26,42 +27,12 @@ const CategoriesPage: React.FC = () => {
 
     // Set page title and meta tags
     useEffect(() => {
-        document.title = 'Categories - Knowledge Forge'
-
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Browse products by category. Find courses, kits, templates, and tools organized by topic.'
-            )
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
-
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Categories - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Browse products by category. Find courses, kits, templates, and tools organized by topic.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/categories')
-        }
+        updateAllMetaTags({
+            title: 'Categories - Knowledge Forge',
+            description:
+                'Browse products by category. Find courses, kits, templates, and tools organized by topic.',
+            url: 'https://store.dsebastien.net/categories'
+        })
     }, [])
 
     // Build category data with product counts and separate featured/non-featured

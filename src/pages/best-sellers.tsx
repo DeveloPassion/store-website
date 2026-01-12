@@ -8,6 +8,7 @@ import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { sortProductsIntelligently } from '@/lib/product-sort'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const BestSellersPage: React.FC = () => {
     const products = productsData as Product[]
@@ -22,44 +23,12 @@ const BestSellersPage: React.FC = () => {
     }, [products])
 
     useEffect(() => {
-        document.title = 'Best Sellers - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Discover our most popular products. Bestsellers trusted by thousands of knowledge workers worldwide.'
-            )
-        }
-
-        // Update OG tags
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Best Sellers - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Discover our most popular products. Bestsellers trusted by thousands of knowledge workers worldwide.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/best-sellers')
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
+        updateAllMetaTags({
+            title: 'Best Sellers - Knowledge Forge',
+            description:
+                'Discover our most popular products. Bestsellers trusted by thousands of knowledge workers worldwide.',
+            url: 'https://store.dsebastien.net/best-sellers'
+        })
     }, [])
 
     return (

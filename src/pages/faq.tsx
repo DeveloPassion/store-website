@@ -12,6 +12,7 @@ import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import QuickNavigation from '@/components/navigation/quick-navigation'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const FAQPage: React.FC = () => {
     // Set breadcrumbs
@@ -19,42 +20,12 @@ const FAQPage: React.FC = () => {
 
     // Set page title and meta tags
     useEffect(() => {
-        document.title = 'Frequently Asked Questions - Knowledge Forge'
-
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Learn about our store, why we use Gumroad for secure payments, and how the shopping experience works.'
-            )
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
-
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Frequently Asked Questions - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Learn about our store, why we use Gumroad for secure payments, and how the shopping experience works.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/faq')
-        }
+        updateAllMetaTags({
+            title: 'Frequently Asked Questions - Knowledge Forge',
+            description:
+                'Learn about our store, why we use Gumroad for secure payments, and how the shopping experience works.',
+            url: 'https://store.dsebastien.net/faq'
+        })
     }, [])
 
     return (

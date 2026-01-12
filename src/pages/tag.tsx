@@ -14,6 +14,7 @@ import type { Tag, TagId } from '@/types/tag'
 import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-sort'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const TagPage: React.FC = () => {
     const { tagId } = useParams<{ tagId: string }>()
@@ -87,47 +88,14 @@ const TagPage: React.FC = () => {
         }
     }, [tagData])
 
-    // Set page title
+    // Set page title and meta tags
     useEffect(() => {
         if (tagData) {
-            document.title = `${tagData.name} Products - Knowledge Forge`
-
-            // Update meta description
-            const metaDescription = document.querySelector('meta[name="description"]')
-            if (metaDescription) {
-                metaDescription.setAttribute(
-                    'content',
-                    `Explore all ${tagData.count} products tagged with ${tagData.name}. Find courses, templates, kits, and tools for ${tagData.name}.`
-                )
-            }
-
-            // Update OG tags
-            const ogTitle = document.querySelector('meta[property="og:title"]')
-            if (ogTitle) {
-                ogTitle.setAttribute('content', `${tagData.name} Products - Knowledge Forge`)
-            }
-
-            const ogDescription = document.querySelector('meta[property="og:description"]')
-            if (ogDescription) {
-                ogDescription.setAttribute(
-                    'content',
-                    `Browse ${tagData.count} products related to ${tagData.name}`
-                )
-            }
-
-            const ogUrl = document.querySelector('meta[property="og:url"]')
-            if (ogUrl) {
-                ogUrl.setAttribute('content', `https://store.dsebastien.net/tags/${tagId}`)
-            }
-
-            // Reset og:image to default for generic pages
-            const ogImage = document.querySelector('meta[property="og:image"]')
-            if (ogImage) {
-                ogImage.setAttribute(
-                    'content',
-                    'https://store.dsebastien.net/assets/images/social-card.png'
-                )
-            }
+            updateAllMetaTags({
+                title: `${tagData.name} Products - Knowledge Forge`,
+                description: `Explore all ${tagData.count} products tagged with ${tagData.name}. Find courses, templates, kits, and tools for ${tagData.name}.`,
+                url: `https://store.dsebastien.net/tags/${tagId}`
+            })
         }
     }, [tagData, tagId])
 

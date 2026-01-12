@@ -12,6 +12,7 @@ import type { Category } from '@/types/category'
 import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-sort'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const CategoryPage: React.FC = () => {
     const { categoryId } = useParams<{ categoryId: string }>()
@@ -55,47 +56,14 @@ const CategoryPage: React.FC = () => {
         }
     }, [categoryProducts])
 
-    // Set page title
+    // Set page title and meta tags
     useEffect(() => {
         if (category) {
-            document.title = `${category.name} - Knowledge Forge`
-
-            // Update meta description
-            const metaDescription = document.querySelector('meta[name="description"]')
-            if (metaDescription) {
-                metaDescription.setAttribute(
-                    'content',
-                    `${category.description} - Explore all products in the ${category.name} category.`
-                )
-            }
-
-            // Update OG tags
-            const ogTitle = document.querySelector('meta[property="og:title"]')
-            if (ogTitle) {
-                ogTitle.setAttribute('content', `${category.name} - Knowledge Forge`)
-            }
-
-            const ogDescription = document.querySelector('meta[property="og:description"]')
-            if (ogDescription) {
-                ogDescription.setAttribute('content', category.description)
-            }
-
-            const ogUrl = document.querySelector('meta[property="og:url"]')
-            if (ogUrl) {
-                ogUrl.setAttribute(
-                    'content',
-                    `https://store.dsebastien.net/categories/${categoryId}`
-                )
-            }
-
-            // Reset og:image to default for generic pages
-            const ogImage = document.querySelector('meta[property="og:image"]')
-            if (ogImage) {
-                ogImage.setAttribute(
-                    'content',
-                    'https://store.dsebastien.net/assets/images/social-card.png'
-                )
-            }
+            updateAllMetaTags({
+                title: `${category.name} - Knowledge Forge`,
+                description: `${category.description} - Explore all products in the ${category.name} category.`,
+                url: `https://store.dsebastien.net/categories/${categoryId}`
+            })
         }
     }, [category, categoryId])
 

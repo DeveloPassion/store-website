@@ -4,6 +4,7 @@ import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import QuickNavigation from '@/components/navigation/quick-navigation'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const HelpPage: React.FC = () => {
     // Set breadcrumbs
@@ -11,39 +12,12 @@ const HelpPage: React.FC = () => {
 
     // Set page title and meta tags
     useEffect(() => {
-        document.title = 'Help - Knowledge Forge'
-
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Get assistance with your purchases and products. Contact support for issues, refunds, or product questions.'
-            )
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
-
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Help - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute('content', 'Get assistance with your purchases and products')
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/help')
-        }
+        updateAllMetaTags({
+            title: 'Help - Knowledge Forge',
+            description:
+                'Get assistance with your purchases and products. Contact support for issues, refunds, or product questions.',
+            url: 'https://store.dsebastien.net/help'
+        })
     }, [])
 
     return (

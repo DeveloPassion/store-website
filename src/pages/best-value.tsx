@@ -8,6 +8,7 @@ import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { sortBestValueProducts } from '@/lib/product-sort'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const MostValuePage: React.FC = () => {
     const products = productsData as Product[]
@@ -22,7 +23,12 @@ const MostValuePage: React.FC = () => {
     }, [products])
 
     useEffect(() => {
-        document.title = 'Best Value Products - Knowledge Forge'
+        updateAllMetaTags({
+            title: 'Best Value Products - Knowledge Forge',
+            description:
+                'Get the most bang for your buck. Our carefully curated selection of products that deliver exceptional value for knowledge workers.',
+            url: 'https://store.dsebastien.net/best-value'
+        })
     }, [])
 
     return (

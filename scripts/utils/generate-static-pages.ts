@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import type { Product, MediaItem } from '../../src/types/product.js'
+import type { Product } from '../../src/types/product.js'
 import type { Category } from '../../src/types/category.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

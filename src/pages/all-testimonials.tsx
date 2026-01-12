@@ -9,6 +9,7 @@ import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { calculateTestimonialStats, type ProductWithTestimonials } from '@/lib/testimonial-stats'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 /**
  * Randomize array using Fisher-Yates shuffle algorithm
@@ -212,43 +213,11 @@ const AllTestimonialsPage: React.FC = () => {
 
     // Update meta tags
     useEffect(() => {
-        document.title = 'All Testimonials - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                `Read ${totalTestimonials} authentic testimonials from satisfied customers across all our products. See what people are saying about their experience.`
-            )
-        }
-
-        // Update Open Graph tags
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'All Testimonials - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                `Read ${totalTestimonials} authentic testimonials from satisfied customers across all our products.`
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', `${window.location.origin}/testimonials`)
-        }
-
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                `${window.location.origin}/assets/images/social-card.png`
-            )
-        }
+        updateAllMetaTags({
+            title: 'All Testimonials - Knowledge Forge',
+            description: `Read ${totalTestimonials} authentic testimonials from satisfied customers across all our products. See what people are saying about their experience.`,
+            url: 'https://store.dsebastien.net/testimonials'
+        })
     }, [totalTestimonials])
 
     if (randomizedProductsWithTestimonials.length === 0) {

@@ -9,6 +9,7 @@ import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { getWishlist } from '@/lib/wishlist'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const WishlistPage: React.FC = () => {
     const products = productsData as Product[]
@@ -63,44 +64,12 @@ const WishlistPage: React.FC = () => {
     }
 
     useEffect(() => {
-        document.title = 'My Wishlist - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'View and manage your saved products. Your personal wishlist of tools, courses, and resources.'
-            )
-        }
-
-        // Update OG tags
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'My Wishlist - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'View and manage your saved products. Your personal wishlist of tools, courses, and resources.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/wishlist')
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
+        updateAllMetaTags({
+            title: 'My Wishlist - Knowledge Forge',
+            description:
+                'View and manage your saved products. Your personal wishlist of tools, courses, and resources.',
+            url: 'https://store.dsebastien.net/wishlist'
+        })
     }, [])
 
     return (

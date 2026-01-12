@@ -7,6 +7,7 @@ import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { sortFeaturedProducts } from '@/lib/product-sort'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const ErrorPage: React.FC = () => {
     const error = useRouteError()
@@ -30,44 +31,12 @@ const ErrorPage: React.FC = () => {
     }, [products])
 
     useEffect(() => {
-        document.title = 'Error - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Something went wrong. Browse our featured products while we fix the issue.'
-            )
-        }
-
-        // Update OG tags
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Error - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Something went wrong. Browse our featured products while we fix the issue.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/error')
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
+        updateAllMetaTags({
+            title: 'Error - Knowledge Forge',
+            description:
+                'Something went wrong. Browse our featured products while we fix the issue.',
+            url: 'https://store.dsebastien.net/error'
+        })
     }, [])
 
     return (

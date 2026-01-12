@@ -12,6 +12,7 @@ import type { Tag, TagId, TagWithCount } from '@/types/tag'
 import { buildTagsWithCounts } from '@/lib/tag-utils'
 import { getFeaturedSorted, getNonFeaturedSorted } from '@/lib/collection-utils'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const TagsPage: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -22,42 +23,12 @@ const TagsPage: React.FC = () => {
 
     // Set page title and meta tags
     useEffect(() => {
-        document.title = 'Tags - Knowledge Forge'
-
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Browse products by tag. Discover courses, kits, templates, and tools by specific topics and features.'
-            )
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
-
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Tags - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Browse products by tag. Discover courses, kits, templates, and tools by specific topics and features.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/tags')
-        }
+        updateAllMetaTags({
+            title: 'Tags - Knowledge Forge',
+            description:
+                'Browse products by tag. Discover courses, kits, templates, and tools by specific topics and features.',
+            url: 'https://store.dsebastien.net/tags'
+        })
     }, [])
 
     // Build tags with counts and split into featured/non-featured
