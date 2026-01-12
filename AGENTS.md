@@ -583,4 +583,31 @@ bun run ci:local  # Runs: tests, lint, tsc, validate:all, build, format
 
 ## Claude Code Skills
 
-Dedicated skills available in `.claude/skills/` for products, promotion, tags, categories. Mention keywords to invoke (e.g., "product", "tags", "validate categories").
+Dedicated skills available in `.claude/skills/` for comprehensive store management and optimization:
+
+### Data Management Skills
+
+- **manage-products** - Add, edit, list, remove products with full CRUD operations
+    - Keywords: product, products, add product, edit product, list products
+- **manage-categories** - Add, modify, list, remove product categories
+    - Keywords: category, categories, taxonomy
+- **manage-tags** - Add, modify, list, remove product tags
+    - Keywords: tag, tags, taxonomy
+- **manage-promotion** - Configure promotion banner (behavior, dates, text, links)
+    - Keywords: promotion, banner, promo, discount
+- **manage-product-media** - Add, optimize, and organize product images/videos (screenshots, covers, banners)
+    - Keywords: media, screenshot, video, image, cover, banner, visual
+
+### Content Enhancement Skills
+
+- **manage-taglines** - Generate and optimize product taglines and value propositions
+    - Keywords: tagline, taglines, headline, value proposition
+- **add-icons-to-taxonomy** - Add icons and colors to categories and tags
+    - Keywords: icon, icons, color, colors, taxonomy
+
+### Marketing & Optimization Skills
+
+- **optimize-product-images** - Generate AI image prompts, cover text overlays, and screenshot strategies for maximum conversion
+    - Keywords: optimize images, image prompt, marketing visuals, conversion, screenshot strategy, cover image, headline, cta
+
+**Invocation**: Skills are automatically triggered when you mention their keywords in conversation. Example: "optimize images for knowii" will invoke the optimize-product-images skill.

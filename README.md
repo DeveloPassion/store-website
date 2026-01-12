@@ -403,6 +403,106 @@ store-website/
 - **CLI**: `bun run update:promotion`
 - **Validation**: `bun run validate:promotion`
 
+## Image Requirements
+
+Product images are organized into five groups, each with specific size and format requirements.
+
+### Image Groups & Specifications
+
+#### Cover Images (Product Card Thumbnails)
+
+- **Aspect Ratio**: 16:9 (recommended for consistent card display)
+- **Recommended Size**: 800x450 pixels
+- **Maximum Size**: 1200x675 pixels
+- **Format**: WebP (preferred) or PNG/JPG
+- **Compression**: Optimize for web (target ~100-200KB per image)
+- **Usage**: Displayed on product cards, used for og:image social sharing
+- **Best Practice**: Use 1-2 high-quality cover images per product
+
+#### Banner Images (Hero Section)
+
+- **Aspect Ratio**: 16:9 or wider (e.g., 21:9 for cinematic effect)
+- **Recommended Size**: 1920x1080 pixels
+- **Maximum Size**: 2560x1440 pixels
+- **Format**: WebP (preferred) or PNG/JPG
+- **Compression**: High quality acceptable (target ~200-400KB per image)
+- **Usage**: Top of product page hero section for high visual impact
+- **Best Practice**: Use 1-2 stunning hero images that capture product essence
+
+#### Main Images (Primary Product Showcase)
+
+- **Aspect Ratio**: Flexible (16:9 recommended, but can vary)
+- **Recommended Size**: 1600x900 pixels (for 16:9) or appropriate for aspect ratio
+- **Maximum Size**: 1920x1080 pixels
+- **Format**: WebP (preferred) or PNG/JPG
+- **Compression**: Balanced quality (target ~150-300KB per image)
+- **Usage**: Above "What's Included" section for primary product demonstrations
+- **Best Practice**: Screenshots, feature highlights, key visuals
+
+#### Secondary Images (Deep Dive Content)
+
+- **Aspect Ratio**: Flexible (match your content needs)
+- **Recommended Size**: 1200x675 pixels (for 16:9) or appropriate for aspect ratio
+- **Maximum Size**: 1600x900 pixels
+- **Format**: WebP (preferred) or PNG/JPG
+- **Compression**: Balanced quality (target ~100-250KB per image)
+- **Usage**: Below "Benefits You'll Experience" section for detailed features
+- **Best Practice**: Detailed screenshots, workflow diagrams, use cases
+
+#### Bonus Images (Additional Resources)
+
+- **Aspect Ratio**: Flexible (match your content needs)
+- **Recommended Size**: 1200x675 pixels (for 16:9) or appropriate for aspect ratio
+- **Maximum Size**: 1600x900 pixels
+- **Format**: WebP (preferred) or PNG/JPG
+- **Compression**: Balanced quality (target ~100-250KB per image)
+- **Usage**: Below "Ready to Get Started" for testimonials, social proof, extras
+- **Best Practice**: Additional screenshots, community content, bonus materials
+
+### Video Requirements (YouTube)
+
+- **Type**: YouTube videos only (embedded, click-to-play)
+- **Formats Supported**:
+    - `youtube.com/watch?v=VIDEO_ID`
+    - `youtu.be/VIDEO_ID`
+    - `youtube.com/embed/VIDEO_ID`
+- **Thumbnail**: Auto-generated high-quality thumbnail from YouTube
+- **Privacy**: Uses `youtube-nocookie.com` domain
+- **Playback**: User click required (no autoplay)
+
+### General Best Practices
+
+1. **File Format Priority**: WebP > PNG > JPG
+2. **Compression**: Always compress images before upload to reduce page load time
+3. **Aspect Ratios**: Maintain consistent aspect ratios within each group
+4. **Accessibility**: Always provide descriptive `title` and `altText` for every image
+5. **Organization**: Keep images organized by group (cover, banner, main, secondary, bonus)
+6. **Naming**: Use descriptive filenames (e.g., `knowii-dashboard-overview.webp`)
+7. **Testing**: Test images at different screen sizes to ensure responsiveness
+
+### Image Management CLI
+
+```bash
+# Interactive mode (recommended)
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "🖼️ Manage Media"
+
+# CLI mode
+bun run update:products -- --operation media:list --id product-id
+bun run update:products -- --operation media:add --id product-id \
+    --media-type image \
+    --media-url "/assets/images/product/cover.webp" \
+    --media-title "Product Cover" \
+    --media-altText "Product interface showing main dashboard" \
+    --media-group cover
+```
+
+### Compression Tools Recommendations
+
+- **WebP Conversion**: `cwebp` (Google's WebP encoder)
+- **Batch Optimization**: ImageOptim (Mac), Squoosh (Web), Sharp (Node.js)
+- **Online Tools**: TinyPNG, Squoosh.app, Cloudinary
+
 ## Tech Stack
 
 - **Runtime & Package Manager**: Bun
