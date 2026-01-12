@@ -19,7 +19,6 @@
         "dev": "bun run aggregate:products && bun scripts/utils/dev.ts",
         "build": "bun run aggregate:products && tsc && bun scripts/utils/build.ts && bun scripts/utils/generate-static-pages.ts && bun scripts/utils/generate-sitemap.ts && bun scripts/utils/generate-llms-txt.ts",
         "preview": "bun --bun serve dist --port 4173",
-        "deploy:cloudflare": "wrangler pages deploy dist --project-name=store-website",
         "preview:cloudflare": "wrangler pages dev dist",
         "prepare": "husky",
         "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
