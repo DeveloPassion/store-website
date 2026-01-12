@@ -218,10 +218,10 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
         ]
     }, [filteredCommands])
 
-    // Reset selection when displayed results change
+    // Reset selection when query changes (user is searching)
     useEffect(() => {
         setSelectedIndex(0)
-    }, [displayedCommandsForNav])
+    }, [query])
 
     // Focus input when opened
     useEffect(() => {
