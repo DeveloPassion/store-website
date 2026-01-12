@@ -1,3 +1,17 @@
+## [0.5.1](https://github.com/DeveloPassion/store-website/compare/0.5.0...0.5.1) (2026-01-12)
+
+### Features
+
+* **all:** added animation for the headline ([81e4ac2](https://github.com/DeveloPassion/store-website/commit/81e4ac256ffad31e70c9948ca2a10fa884b9771f))
+* **all:** added CLI and randomization for headlines ([89b61f8](https://github.com/DeveloPassion/store-website/commit/89b61f8ccb4742df98a56f278228d0e83ca79346))
+* **all:** additional a11y improvements ([4e8cc48](https://github.com/DeveloPassion/store-website/commit/4e8cc4883710474022ae7017c841c9007f95f143))
+* **all:** extracted reusable button component ([303846a](https://github.com/DeveloPassion/store-website/commit/303846a578be1386803d513fffe4137794b1d326))
+* **all:** improved a11y ([7a04b0e](https://github.com/DeveloPassion/store-website/commit/7a04b0ec6c91057d82bfc090cea75d744bb4e51a))
+* **all:** improved code reuse ([700ce9d](https://github.com/DeveloPassion/store-website/commit/700ce9da765f6764cf94f9a39b17d70cef9af12b))
+* **all:** improved code reuse for categories and tags pages cards ([f9b7cb3](https://github.com/DeveloPassion/store-website/commit/f9b7cb3cd1bce13791c52525a53390bdbe570f9e))
+* **all:** improved code reuse for features, benefits, pas and faq ([18cd997](https://github.com/DeveloPassion/store-website/commit/18cd997c1027e48493997398a323596d8406b302))
+* **all:** moved build scripts ([2bf5e84](https://github.com/DeveloPassion/store-website/commit/2bf5e84a760f8a0deed4746dd467d44af3c9b78a))
+* **all:** updatd knowii members count ([2c11d85](https://github.com/DeveloPassion/store-website/commit/2c11d851320264c5d7703ae1fd9127464cf29e0d))
 ## [0.5.0](https://github.com/DeveloPassion/store-website/compare/0.4.4...0.5.0) (2026-01-11)
 
 ### Features
