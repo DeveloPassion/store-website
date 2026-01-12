@@ -65,7 +65,7 @@ bun run update:products -- --operation add \
     --price 49.99 \
     --priceTier standard \
     --permalink abc123 \
-    --gumroadUrl "https://store.dsebastien.net/l/abc123" \
+    --gumroadUrl "https://store.dsebastien.net/product/abc123" \
     --mainCategory guides \
     --tags "obsidian,pkm,productivity" \
     --problem "Problem description" \

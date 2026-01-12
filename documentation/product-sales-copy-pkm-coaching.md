@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €99.99 per session
 - **Price Tier**: premium
-- **Gumroad URL**: https://www.store.dsebastien.net/l/pkm-coaching
+- **Gumroad URL**: https://www.store.dsebastien.net/product/pkm-coaching
 
 **Important Notes**:
 
@@ -186,7 +186,7 @@ A: Booking process includes scheduling that works for both timezones.
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/pkm-coaching
+- **Purchase**: https://www.store.dsebastien.net/product/pkm-coaching
 - **Coach Profile**: https://www.dsebastien.net
 - **Knowii Community**: https://www.knowii.net (includes check-ins in Knowledge Master tier)
 

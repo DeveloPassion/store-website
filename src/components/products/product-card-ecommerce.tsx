@@ -71,7 +71,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
         <div className='group border-primary/10 bg-primary/5 hover:border-secondary/30 hover:shadow-secondary/10 relative flex flex-col overflow-hidden rounded-xl border transition-all hover:shadow-xl'>
             {/* Image Container */}
             <div className='from-secondary/10 relative aspect-[16/9] overflow-hidden bg-gradient-to-br to-purple-500/10'>
-                <Link to={`/l/${product.id}`} className='block h-full w-full'>
+                <Link to={`/product/${product.id}`} className='block h-full w-full'>
                     {(() => {
                         // Get first image from media array (prioritize cover → main → secondary → bonus)
                         const firstImage = product.media

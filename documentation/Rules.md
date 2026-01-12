@@ -18,8 +18,8 @@
 - **Example**:
     - ID: `obsidian-starter-kit`
     - Permalink: `mghmmj`
-    - URL: `https://store.dsebastien.net/l/mghmmj`
-    - Maps to: `https://www.store.dsebastien.net/l/mghmmj` (current Gumroad)
+    - URL: `https://store.dsebastien.net/product/mghmmj`
+    - Maps to: `https://www.store.dsebastien.net/product/mghmmj` (current Gumroad)
 
 **Permalink Mapping** (ID → Gumroad Code):
 
@@ -96,7 +96,7 @@ public/assets/products
 }
 ```
 
-**Relationship**: `gumroadUrl = "https://www.store.dsebastien.net/l/" + permalink`
+**Relationship**: `gumroadUrl = "https://www.store.dsebastien.net/product/" + permalink`
 
 ---
 
@@ -126,7 +126,7 @@ Master the complete PKM methodology.
 - **Meta Title**: "Obsidian Starter Kit - Transform Chaos Into Clarity" ✅
 - **Meta Title**: "mghmmj - Product Page" ❌
 - **URL Slug**: `/l/mghmmj` (for compatibility)
-- **Canonical**: `https://store.dsebastien.net/l/mghmmj`
+- **Canonical**: `https://store.dsebastien.net/product/mghmmj`
 
 ---
 

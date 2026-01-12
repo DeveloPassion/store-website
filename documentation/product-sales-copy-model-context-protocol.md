@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €19.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp
+- **Gumroad URL**: https://www.store.dsebastien.net/product/knowii-model-context-protocol-mcp
 
 **Important Notes**:
 
@@ -477,8 +477,8 @@ A: Very relevant! MCP is growing rapidly. OpenAI just added support (March 2025)
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/knowii-model-context-protocol-mcp
-- **Knowii Community**: https://www.store.dsebastien.net/l/knowii
+- **Purchase**: https://www.store.dsebastien.net/product/knowii-model-context-protocol-mcp
+- **Knowii Community**: https://www.store.dsebastien.net/product/knowii
 - **Knowii Event Page**: https://www.knowii.net/c/events-and-office-hours/model-context-protocol-mcp
 - **Official MCP Site**: https://modelcontextprotocol.io/introduction
 - **MCP Specification**: https://spec.modelcontextprotocol.io/specification

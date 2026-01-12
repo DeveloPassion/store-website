@@ -1,9 +1,0 @@
-[
-    {
-        "from": "/affiliates",
-        "to": "https://developassion.gumroad.com/affiliates",
-        "type": "PERMANENT",
-        "description": "Redirect to Gumroad affiliates program",
-        "includeInSitemap": false
-    }
-]

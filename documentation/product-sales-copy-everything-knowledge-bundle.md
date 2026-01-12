@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €299.99 (Save $200+ vs individual purchases)
 - **Price Tier**: premium
-- **Gumroad URL**: https://www.store.dsebastien.net/l/everything-knowledge
+- **Gumroad URL**: https://www.store.dsebastien.net/product/everything-knowledge
 
 **Important Notes**:
 
@@ -296,7 +296,7 @@ A: After purchase, all products are immediately available in your account. Downl
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/everything-knowledge
+- **Purchase**: https://www.store.dsebastien.net/product/everything-knowledge
 - **Creator Website**: https://www.dsebastien.net
 - **Knowii Community** (Alternative with live events): https://www.knowii.net
 

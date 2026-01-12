@@ -1551,7 +1551,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
     const gumroadUrl =
         args.gumroadUrl ||
         (await prompt(`${colors.bright}Gumroad URL${colors.reset} (required): `)) ||
-        `https://store.dsebastien.net/l/${permalink}`
+        `https://store.dsebastien.net/product/${permalink}`
 
     // Taxonomy
     showSectionHeader('STEP 3/5: Taxonomy')

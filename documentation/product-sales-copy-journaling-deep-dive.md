@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €29.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://store.dsebastien.net/l/knowii-journaling-deep-dive
+- **Gumroad URL**: https://store.dsebastien.net/product/knowii-journaling-deep-dive
 
 **Important Notes**:
 
@@ -383,8 +383,8 @@ A: Fair. Most journaling advice is fluff. This is a systematic approach from som
 
 ## External Links
 
-- **Purchase**: https://store.dsebastien.net/l/knowii-journaling-deep-dive
-- **Knowii Community**: https://www.store.dsebastien.net/l/knowii
+- **Purchase**: https://store.dsebastien.net/product/knowii-journaling-deep-dive
+- **Knowii Community**: https://www.store.dsebastien.net/product/knowii
 - **Articles on Journaling**: https://www.dsebastien.net/tag/journaling
 - **Creator Website**: https://www.dsebastien.net
 

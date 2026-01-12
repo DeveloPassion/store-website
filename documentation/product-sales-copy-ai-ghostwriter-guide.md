@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €49.99
 - **Price Tier**: standard
-- **Gumroad URL**: https://store.dsebastien.net/l/ai-ghostwriter-guide
+- **Gumroad URL**: https://store.dsebastien.net/product/ai-ghostwriter-guide
 
 ## Marketing Copy - PAS Framework
 
@@ -278,7 +278,7 @@ A: Yes—private community access for questions and knowledge sharing.
 
 ## External Links
 
-- **Purchase**: https://store.dsebastien.net/l/ai-ghostwriter-guide
+- **Purchase**: https://store.dsebastien.net/product/ai-ghostwriter-guide
 - **Creator Website**: https://www.dsebastien.net
 - **Newsletter**: https://dsebastien.net/newsletter
 

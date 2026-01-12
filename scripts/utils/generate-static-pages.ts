@@ -119,7 +119,7 @@ const publisherSchema = {
  * Generate Product JSON-LD schema for a product
  */
 function generateProductSchema(product: Product): string {
-    const productUrl = `${BASE_URL}/l/${product.id}`
+    const productUrl = `${BASE_URL}/product/${product.id}`
     const today = new Date().toISOString().split('T')[0]
 
     const schema = {
@@ -548,7 +548,7 @@ function generateCategoryNoscript(category: Category): string {
 ${categoryProducts
     .map(
         (p) =>
-            `                <li><a href="/l/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
+            `                <li><a href="/product/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
     )
     .join('\n')}
             </ul>
@@ -781,7 +781,7 @@ function generateProductNoscript(product: Product): string {
  * Generate customized HTML for a product page with appropriate meta tags
  */
 function generateProductPageHtml(product: Product): string {
-    const productUrl = `${BASE_URL}/l/${product.id}`
+    const productUrl = `${BASE_URL}/product/${product.id}`
     const title = product.metaTitle || `${product.name} - Knowledge Forge`
     const description = product.metaDescription
 
@@ -901,7 +901,7 @@ console.log(`  ✓ Created ${categoryCount} individual category pages`)
 console.log('Generating static pages for products...')
 let productCount = 0
 for (const product of productsData) {
-    const productDir = join(distDir, 'l', product.id)
+    const productDir = join(distDir, 'product', product.id)
     mkdirSync(productDir, { recursive: true })
     const productHtml = generateProductPageHtml(product)
     writeFileSync(join(productDir, 'index.html'), productHtml)

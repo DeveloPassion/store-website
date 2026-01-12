@@ -120,7 +120,7 @@ Created by Sébastien Dubois, experienced developer and CTO, to provide the comp
 - Senior developer mentorship
 - 14-day money-back guarantee
 
-[**Get Starter Edition →**](https://www.store.dsebastien.net/l/dev-concepts-starter)
+[**Get Starter Edition →**](https://www.store.dsebastien.net/product/dev-concepts-starter)
 
 ### Option 3: Lifetime Collection Access
 
@@ -255,9 +255,9 @@ A: Yes. Contact support for upgrade pricing if you've already purchased the Star
 ## External Links
 
 - **Official Website**: https://dev-concepts.dev
-- **Starter Edition**: https://www.store.dsebastien.net/l/dev-concepts-starter
-- **Volume 1**: https://www.store.dsebastien.net/l/dev-concepts-volume-1
-- **Volume 2**: https://www.store.dsebastien.net/l/dev-concepts-volume-2
+- **Starter Edition**: https://www.store.dsebastien.net/product/dev-concepts-starter
+- **Volume 1**: https://www.store.dsebastien.net/product/dev-concepts-volume-1
+- **Volume 2**: https://www.store.dsebastien.net/product/dev-concepts-volume-2
 - **Creator Website**: https://www.dsebastien.net
 
 ## Call to Action
@@ -279,7 +279,7 @@ A: Yes. Contact support for upgrade pricing if you've already purchased the Star
 - Lifetime Slack community access
 - Perfect beginner's foundation
 
-[**Get Started →**](https://www.store.dsebastien.net/l/dev-concepts-starter)
+[**Get Started →**](https://www.store.dsebastien.net/product/dev-concepts-starter)
 
 ## SEO Metadata
 

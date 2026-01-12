@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €39.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://store.dsebastien.net/l/PersonalKnowledgeManagementLibrary
+- **Gumroad URL**: https://store.dsebastien.net/product/PersonalKnowledgeManagementLibrary
 
 **Important Notes**:
 
@@ -355,7 +355,7 @@ A: The library includes my own content alongside 2,000+ other resources. It's ab
 
 ## External Links
 
-- **Purchase**: https://store.dsebastien.net/l/PersonalKnowledgeManagementLibrary
+- **Purchase**: https://store.dsebastien.net/product/PersonalKnowledgeManagementLibrary
 - **Video Introduction**: https://www.youtube.com/watch?v=M6HNRN6SkE4
 - **Creator Website**: https://www.dsebastien.net
 - **Newsletter**: https://dsebastien.net/newsletter

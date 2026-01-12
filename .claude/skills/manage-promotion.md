@@ -62,7 +62,7 @@ The promotion schema is defined in `src/schemas/promotion.schema.ts` using Zod. 
   "bannerBehavior": "ALWAYS",
   "promoText": "🚀 New Knowledge Worker Kit just launched!",
   "promoLinkText": "Check it out",
-  "promoLink": "https://store.dsebastien.net/l/knowledge-worker-kit"
+  "promoLink": "https://store.dsebastien.net/product/knowledge-worker-kit"
 }
 ```
 
@@ -105,7 +105,7 @@ bun run update:promotion -- --behavior PROMOTIONS --text "🎉 Spring Sale! 30% 
 bun run update:promotion -- --behavior NEVER --text "" --link "https://store.dsebastien.net/"
 
 # Always-on announcement
-bun run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/l/product" --linkText "Check it out"
+bun run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/product/product" --linkText "Check it out"
 ```
 
 **Arguments:**
@@ -224,7 +224,7 @@ Set `bannerBehavior` to `NEVER` (keep other fields for reference)
 
 **Using CLI:**
 ```bash
-bun run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/l/product" --linkText "Learn more"
+bun run update:promotion -- --behavior ALWAYS --text "🚀 New product launched!" --link "https://store.dsebastien.net/product/product" --linkText "Learn more"
 ```
 
 **Manual Editing:**

@@ -78,7 +78,7 @@ bun run update:products -- --operation add \
     --price 49.99 \
     --priceTier standard \
     --permalink abc123 \
-    --gumroadUrl "https://store.dsebastien.net/l/abc123" \
+    --gumroadUrl "https://developassion.gumroad.com/l/abc123" \
     --mainCategory guides \
     --tags "tag1,tag2,tag3" \
     --problem "Problem description" \

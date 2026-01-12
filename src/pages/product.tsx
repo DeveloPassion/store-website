@@ -49,7 +49,7 @@ const ProductPage: React.FC = () => {
         if (product) {
             const title = product.metaTitle || `${product.name} - Knowledge Forge`
             const description = product.metaDescription || product.description
-            const url = `https://store.dsebastien.net/l/${product.id}`
+            const url = `https://store.dsebastien.net/product/${product.id}`
 
             // Find cover image - use the primary one (lowest order = highest priority)
             const coverImage = product.media

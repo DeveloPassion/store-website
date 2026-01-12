@@ -18,7 +18,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €9.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://www.store.dsebastien.net/l/it-concepts-wall
+- **Gumroad URL**: https://www.store.dsebastien.net/product/it-concepts-wall
 
 **Important Notes**:
 
@@ -91,7 +91,7 @@ A: Yes! Digital format allows printing at any size.
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/it-concepts-wall
+- **Purchase**: https://www.store.dsebastien.net/product/it-concepts-wall
 
 ## SEO Metadata
 

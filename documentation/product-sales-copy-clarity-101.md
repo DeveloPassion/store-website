@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €19.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://www.store.dsebastien.net/l/knowii-clarity-101
+- **Gumroad URL**: https://www.store.dsebastien.net/product/knowii-clarity-101
 
 **Important Notes**:
 
@@ -396,8 +396,8 @@ A: Yes - included free with:
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/knowii-clarity-101
-- **Knowii Community**: https://www.store.dsebastien.net/l/knowii
+- **Purchase**: https://www.store.dsebastien.net/product/knowii-clarity-101
+- **Knowii Community**: https://www.store.dsebastien.net/product/knowii
 
 ## SEO Metadata
 

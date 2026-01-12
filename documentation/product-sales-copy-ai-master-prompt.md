@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €19.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://www.store.dsebastien.net/l/knowii-ai-master-prompt
+- **Gumroad URL**: https://www.store.dsebastien.net/product/knowii-ai-master-prompt
 
 **Important Notes**:
 
@@ -419,8 +419,8 @@ A: The framework is timeless - it's about providing context effectively. While A
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/knowii-ai-master-prompt
-- **Knowii Community**: https://www.store.dsebastien.net/l/knowii
+- **Purchase**: https://www.store.dsebastien.net/product/knowii-ai-master-prompt
+- **Knowii Community**: https://www.store.dsebastien.net/product/knowii
 - **Knowii Event Page**: https://www.knowii.net/c/events-and-office-hours/ai-master-prompt
 
 ## SEO Metadata

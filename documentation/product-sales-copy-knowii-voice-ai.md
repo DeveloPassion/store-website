@@ -22,7 +22,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €49
 - **Price Tier**: budget/standard
-- **Gumroad URL**: https://store.dsebastien.net/l/knowii-voice-ai
+- **Gumroad URL**: https://store.dsebastien.net/product/knowii-voice-ai
 
 **Important Notes**:
 
@@ -412,10 +412,10 @@ A: Part of growing Knowii ecosystem. Voice AI helps capture thoughts faster. Kno
 
 - **Landing Page**: https://voice-ai.knowii.net ✅
 - **Documentation**: https://docs.voice-ai.knowii.net/ ✅
-- **Purchase**: https://store.dsebastien.net/l/knowii-voice-ai
+- **Purchase**: https://store.dsebastien.net/product/knowii-voice-ai
 - **Demo Video**: https://www.youtube.com/watch?v=Z3nnUCJRWhI
 - **Creator Website**: https://www.dsebastien.net
-- **Knowii Community**: https://knowii.net & https://www.store.dsebastien.net/l/knowii
+- **Knowii Community**: https://knowii.net & https://www.store.dsebastien.net/product/knowii
 - **Newsletter**: https://dsebastien.net/newsletter
 
 ## Comparison Table: Knowii Voice AI vs Cloud Services

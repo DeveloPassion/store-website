@@ -18,7 +18,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €19.99
 - **Price Tier**: budget
-- **Gumroad URL**: https://www.store.dsebastien.net/l/knowii-personal-organization-101
+- **Gumroad URL**: https://www.store.dsebastien.net/product/knowii-personal-organization-101
 
 **Important Notes**:
 
@@ -326,8 +326,8 @@ A: Yes - included free with:
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/knowii-personal-organization-101
-- **Knowii Community**: https://www.store.dsebastien.net/l/knowii
+- **Purchase**: https://www.store.dsebastien.net/product/knowii-personal-organization-101
+- **Knowii Community**: https://www.store.dsebastien.net/product/knowii
 - **Join Knowii**: https://dsebastien.net/join-the-knowii-community-and-fix-your-information-overload-problem/
 
 ## SEO Metadata

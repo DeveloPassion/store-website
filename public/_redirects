@@ -1,0 +1,48 @@
+# Product page redirects - /l/:id → /product/:id (Primary IDs)
+/l/obsidian-starter-kit /product/obsidian-starter-kit 301
+/l/everything-knowledge-bundle /product/everything-knowledge-bundle 301
+/l/knowledge-management-for-beginners /product/knowledge-management-for-beginners 301
+/l/knowledge-worker-kit /product/knowledge-worker-kit 301
+/l/obsidian-starter-course /product/obsidian-starter-course 301
+/l/ai-ghostwriter-guide /product/ai-ghostwriter-guide 301
+/l/pkm-library /product/pkm-library 301
+/l/ai-master-prompt /product/ai-master-prompt 301
+/l/clarity-101 /product/clarity-101 301
+/l/journaling-deep-dive /product/journaling-deep-dive 301
+/l/model-context-protocol /product/model-context-protocol 301
+/l/personal-organization-101 /product/personal-organization-101 301
+/l/dev-concepts-starter-bundle /product/dev-concepts-starter-bundle 301
+/l/knowii-voice-ai /product/knowii-voice-ai 301
+/l/dev-concepts-volume-01 /product/dev-concepts-volume-01 301
+/l/dev-concepts-volume-02 /product/dev-concepts-volume-02 301
+/l/pkm-coaching /product/pkm-coaching 301
+/l/it-concepts-wall /product/it-concepts-wall 301
+/l/beginners-guide-obsidian /product/beginners-guide-obsidian 301
+/l/knowledge-system-checklist /product/knowledge-system-checklist 301
+/l/knowii-community /product/knowii-community 301
+
+# Product page redirects - /l/:permalink → /product/:id (Gumroad Permalinks)
+/l/mghmmj /product/obsidian-starter-kit 301
+/l/lbocum /product/everything-knowledge-bundle 301
+/l/wazqkq /product/knowledge-management-for-beginners 301
+/l/pyjrr /product/knowledge-worker-kit 301
+/l/nolle /product/obsidian-starter-course 301
+/l/vsrnk /product/ai-ghostwriter-guide 301
+/l/PersonalKnowledgeManagementLibrary /product/pkm-library 301
+/l/knowii-ai-master-prompt /product/ai-master-prompt 301
+/l/uysik /product/clarity-101 301
+/l/cdwol /product/journaling-deep-dive 301
+/l/knowii-model-context-protocol-mcp /product/model-context-protocol 301
+/l/zyuwjd /product/personal-organization-101 301
+/l/tbdlrt /product/knowii-voice-ai 301
+/l/mwldmd /product/pkm-coaching 301
+/l/mwdbm /product/it-concepts-wall 301
+/l/imkjic /product/beginners-guide-obsidian 301
+/l/qctpj /product/knowledge-system-checklist 301
+/l/xjpgo /product/knowii-community 301
+
+# Other redirects
+/affiliates https://developassion.gumroad.com/affiliates 301
+
+# SPA fallback - catch all non-file requests and serve index.html
+/*  /index.html  200

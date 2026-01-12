@@ -21,7 +21,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: From FREE (Explorer) to €39.99/month (Knowledge Master)
 - **Price Tier**: subscription
-- **Gumroad URL**: https://www.store.dsebastien.net/l/knowii
+- **Gumroad URL**: https://www.store.dsebastien.net/product/knowii
 - **Community URL**: https://www.knowii.net
 
 **Important Notes**:
@@ -147,7 +147,7 @@ Whether you're drowning in browser tabs or building sophisticated knowledge syst
 **Tools & Courses Package ($150+ value):**
 
 - ✅ [Obsidian Starter Kit](https://obsidianstarterkit.com/) (€49.99-118.99 value)
-- ✅ [Obsidian Starter Course](https://store.dsebastien.net/l/obsidian-starter-course) (€69.99 value)
+- ✅ [Obsidian Starter Course](https://store.dsebastien.net/product/obsidian-starter-course) (€69.99 value)
 - ✅ Access to ALL workshops (€19.99-29.99 each):
     - Journaling Deep Dive
     - Personal Organization 101
@@ -190,16 +190,16 @@ Whether you're drowning in browser tabs or building sophisticated knowledge syst
 **Complete Course Library:**
 
 - ✅ [Knowledge Management for Beginners](https://knowledge-management-for-beginners.com/) (€69.99 value)
-- ✅ [Obsidian Starter Course](https://store.dsebastien.net/l/obsidian-starter-course) (€69.99 value)
+- ✅ [Obsidian Starter Course](https://store.dsebastien.net/product/obsidian-starter-course) (€69.99 value)
 - ✅ All future courses
 
 **ALL Knowledge Tools ($500+ value):**
 
-- ✅ [Knowledge Worker Kit](https://store.dsebastien.net/l/knowledge-worker-kit) (€149.99 value)
+- ✅ [Knowledge Worker Kit](https://store.dsebastien.net/product/knowledge-worker-kit) (€149.99 value)
 - ✅ [Obsidian Starter Kit](https://obsidianstarterkit.com/) (€49.99-118.99 value)
-- ✅ [PKM Library](https://www.store.dsebastien.net/l/PersonalKnowledgeManagementLibrary) (€39.99 value)
-- ✅ [AI Ghostwriter Guide](https://www.store.dsebastien.net/l/ai-ghostwriter-guide) (€49.99 value)
-- ✅ [AI Master Prompt](https://www.store.dsebastien.net/l/knowii-ai-master-prompt) (€19.99 value)
+- ✅ [PKM Library](https://www.store.dsebastien.net/product/PersonalKnowledgeManagementLibrary) (€39.99 value)
+- ✅ [AI Ghostwriter Guide](https://www.store.dsebastien.net/product/ai-ghostwriter-guide) (€49.99 value)
+- ✅ [AI Master Prompt](https://www.store.dsebastien.net/product/knowii-ai-master-prompt) (€19.99 value)
 - ✅ All future tools
 
 **Premium Support:**
@@ -456,7 +456,7 @@ A: As Knowii grows, new courses, workshops, and tools are added. Knowledge Build
 ## External Links
 
 - **Join Knowii**: https://www.knowii.net/join?invitation_token=ba6e470984b237119d0acd11f7b3c5b9c1fc9a41-8a5e1353-3443-45fc-9784-4218b28e312c
-- **Purchase**: https://www.store.dsebastien.net/l/knowii
+- **Purchase**: https://www.store.dsebastien.net/product/knowii
 - **Knowledge Builder**: https://www.knowii.net/checkout/knowledge-builder
 - **Knowledge Master**: https://www.knowii.net/checkout/knowledge-master
 - **Creator Website**: https://www.dsebastien.net

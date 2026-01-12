@@ -19,7 +19,7 @@
 
 - **Currency**: EUR (€) - Gumroad handles automatic conversion for other currencies
 - **Price Tier**: standard
-- **Gumroad URL**: https://www.store.dsebastien.net/l/obsidian-starter-kit
+- **Gumroad URL**: https://www.store.dsebastien.net/product/obsidian-starter-kit
 
 **Variants** (Display Strategy: Both - side-by-side comparison):
 
@@ -289,7 +289,7 @@ A: Yes, absolutely. Many consultants, project managers, and knowledge workers us
 - **Landing Page**: https://obsidianstarterkit.com
 - **dSebastien Article**: (QUESTION: Is there a main article about OSK on dsebastien.net?)
 - **Newsletter**: https://dsebastien.net/newsletter
-- **Community**: https://www.store.dsebastien.net/l/knowii
+- **Community**: https://www.store.dsebastien.net/product/knowii
 
 ## Comparison Table: OSK vs. Building From Scratch
 

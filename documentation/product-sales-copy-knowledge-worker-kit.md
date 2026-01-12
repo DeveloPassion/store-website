@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €149.99
 - **Price Tier**: premium
-- **Gumroad URL**: https://store.dsebastien.net/l/knowledge-worker-kit
+- **Gumroad URL**: https://store.dsebastien.net/product/knowledge-worker-kit
 
 **Important Notes**:
 
@@ -343,7 +343,7 @@ A: It won't. This is an evergreen project that continuously updates. Lifetime ac
 
 ## External Links
 
-- **Purchase**: https://store.dsebastien.net/l/knowledge-worker-kit
+- **Purchase**: https://store.dsebastien.net/product/knowledge-worker-kit
 - **Creator Website**: https://www.dsebastien.net
 - **Newsletter**: https://dsebastien.net/newsletter
 - **Knowii Community**: https://knowii.net

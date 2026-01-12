@@ -145,7 +145,7 @@ function generateSitemap(): string {
     // Add each product page
     for (const product of productsData) {
         urls.push({
-            loc: `${BASE_URL}/l/${product.id}`,
+            loc: `${BASE_URL}/product/${product.id}`,
             lastmod: today,
             changefreq: 'monthly',
             priority: '0.8'

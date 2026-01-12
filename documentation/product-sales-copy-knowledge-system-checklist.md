@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: FREE
 - **Price Tier**: free
-- **Gumroad URL**: https://www.store.dsebastien.net/l/knowledge-system-checklist
+- **Gumroad URL**: https://www.store.dsebastien.net/product/knowledge-system-checklist
 
 **Important Notes**:
 
@@ -167,7 +167,7 @@ A: This is part of Knowii Community free resources. Explore other free resources
 
 ## External Links
 
-- **Download FREE**: https://www.store.dsebastien.net/l/knowledge-system-checklist
+- **Download FREE**: https://www.store.dsebastien.net/product/knowledge-system-checklist
 - **Knowii Community**: https://www.knowii.net (Explorer tier is also free)
 - **Creator Website**: https://www.dsebastien.net
 

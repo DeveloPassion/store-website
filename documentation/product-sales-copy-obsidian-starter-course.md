@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €69.99
 - **Price Tier**: mid
-- **Gumroad URL**: https://www.store.dsebastien.net/l/obsidian-starter-course
+- **Gumroad URL**: https://www.store.dsebastien.net/product/obsidian-starter-course
 
 **Important Notes**:
 
@@ -338,7 +338,7 @@ A: Yes. One-time purchase, lifetime access to the video course.
 
 ## External Links
 
-- **Purchase**: https://www.store.dsebastien.net/l/obsidian-starter-course
+- **Purchase**: https://www.store.dsebastien.net/product/obsidian-starter-course
 - **Creator Website**: https://www.dsebastien.net
 
 ## SEO Metadata

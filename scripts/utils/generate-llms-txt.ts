@@ -77,7 +77,7 @@ Store: https://store.dsebastien.net
 - /best-sellers - Bestseller products page
 - /wishlist - User's saved products wishlist
 - /testimonials - All customer testimonials from all products
-- /l/{id} - Individual product pages
+- /product/{id} - Individual product pages
 - /tags - Browse all tags
 - /tags/{name} - Tag pages showing related products
 - /categories - Browse all categories
@@ -117,7 +117,7 @@ ${categoryProducts
     .map(
         (product) => `- **${product.name}**: ${product.tagline}
   Price: ${product.priceDisplay}
-  URL: https://store.dsebastien.net/l/${product.id}`
+  URL: https://store.dsebastien.net/product/${product.id}`
     )
     .join('\n')}`
     })

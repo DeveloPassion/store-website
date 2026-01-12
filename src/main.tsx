@@ -7,8 +7,6 @@ import { BreadcrumbProvider } from './contexts/breadcrumb-context'
 import ErrorBoundary from './components/error/error-boundary'
 import AppLayout from './components/layout/app-layout'
 import HomePage from './pages/home'
-import RedirectPage from './components/redirect/redirect-page'
-import { getRedirects } from './lib/redirects'
 
 // Lazy load all pages except HomePage for better initial load performance
 const ProductsPage = lazy(() => import('./pages/products'))
@@ -114,7 +112,7 @@ ReactDOM.createRoot(rootElement).render(
                                 }
                             />
                             <Route
-                                path='/l/:productSlug'
+                                path='/product/:productSlug'
                                 element={
                                     <Suspense fallback={<RouteLoadingFallback />}>
                                         <ProductPage />
@@ -161,14 +159,6 @@ ReactDOM.createRoot(rootElement).render(
                                     </Suspense>
                                 }
                             />
-                            {/* Redirect routes */}
-                            {getRedirects().map((redirect) => (
-                                <Route
-                                    key={redirect.from}
-                                    path={redirect.from}
-                                    element={<RedirectPage />}
-                                />
-                            ))}
                             {/* 404 catch-all route */}
                             <Route
                                 path='*'

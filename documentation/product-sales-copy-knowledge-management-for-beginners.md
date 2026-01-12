@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: €69.99
 - **Price Tier**: standard
-- **Gumroad URL**: https://store.dsebastien.net/l/knowledge-management-for-beginners
+- **Gumroad URL**: https://store.dsebastien.net/product/knowledge-management-for-beginners
 
 **Important Notes**:
 
@@ -415,7 +415,7 @@ A: Yes. Evergreen content means regular updates to keep material fresh and relev
 ## External Links
 
 - **Landing Page**: https://knowledge-management-for-beginners.com
-- **Purchase**: https://store.dsebastien.net/l/knowledge-management-for-beginners
+- **Purchase**: https://store.dsebastien.net/product/knowledge-management-for-beginners
 - **Creator Website**: https://www.dsebastien.net
 - **Newsletter**: https://dsebastien.net/newsletter
 - **Course Resources**: [[Knowledge Management for Beginners - Course Resources]]

@@ -19,7 +19,7 @@
 - **Currency**: EUR (€)
 - **Price Display**: FREE
 - **Price Tier**: free
-- **Gumroad URL**: https://www.store.dsebastien.net/l/beginners-guide-to-obsidian
+- **Gumroad URL**: https://www.store.dsebastien.net/product/beginners-guide-to-obsidian
 - **Landing Page**: https://www.dsebastien.net/free-beginners-guide-to-mastering-obsidian/
 
 **Important Notes**:
@@ -172,7 +172,7 @@ A: It covers getting started and fundamentals. For comprehensive training, see t
 
 ## External Links
 
-- **Download FREE**: https://www.store.dsebastien.net/l/beginners-guide-to-obsidian
+- **Download FREE**: https://www.store.dsebastien.net/product/beginners-guide-to-obsidian
 - **Landing Page**: https://www.dsebastien.net/free-beginners-guide-to-mastering-obsidian/
 - **Knowii Community**: https://www.knowii.net (Explorer tier is also free)
 - **Creator Website**: https://www.dsebastien.net
