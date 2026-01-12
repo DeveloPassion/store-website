@@ -17,7 +17,7 @@ import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import socialsData from '@/data/socials.json'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
-import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
+import { getFeaturedSorted } from '@/lib/collection-utils'
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear()
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
 
     // Get featured categories
     const featuredCategories = useMemo(() => {
-        return getFeaturedCategoriesSorted(categoriesData as Category[])
+        return getFeaturedSorted(categoriesData as Category[])
     }, [])
 
     const handleNewsletterSubmit = (e: React.FormEvent) => {

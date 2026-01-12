@@ -9,11 +9,8 @@ import productsData from '@/data/products.json'
 import tagsData from '@/data/tags.json'
 import type { Product } from '@/types/product'
 import type { Tag, TagId, TagWithCount } from '@/types/tag'
-import {
-    buildTagsWithCounts,
-    getFeaturedTagsSorted,
-    getNonFeaturedTagsSorted
-} from '@/lib/tag-utils'
+import { buildTagsWithCounts } from '@/lib/tag-utils'
+import { getFeaturedSorted, getNonFeaturedSorted } from '@/lib/collection-utils'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
 const TagsPage: React.FC = () => {
@@ -70,8 +67,8 @@ const TagsPage: React.FC = () => {
         const allTagsWithCounts = buildTagsWithCounts(products, tagsMetadata)
 
         return {
-            featuredTags: getFeaturedTagsSorted(allTagsWithCounts),
-            nonFeaturedTags: getNonFeaturedTagsSorted(allTagsWithCounts),
+            featuredTags: getFeaturedSorted(allTagsWithCounts),
+            nonFeaturedTags: getNonFeaturedSorted(allTagsWithCounts),
             allTagsCount: allTagsWithCounts.length
         }
     }, [])

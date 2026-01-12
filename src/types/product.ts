@@ -11,9 +11,9 @@ export type {
     ProductVariant,
     ProductBenefits,
     StatsProof,
-    MediaType,
-    MediaGroup,
-    MediaItem,
     Product,
     ProductsArray
 } from '@/schemas/product.schema'
+
+// Re-export media types from media schema
+export type { MediaType, MediaGroup, MediaItem } from '@/schemas/media.schema'

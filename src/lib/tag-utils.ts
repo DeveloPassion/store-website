@@ -1,17 +1,9 @@
 /**
  * Tag utility functions
- * Uses generic collection utilities from collection-utils.ts
  */
 
 import type { Tag, TagId, TagWithCount } from '@/types/tag'
 import type { Product } from '@/types/product'
-import {
-    getFeatured,
-    getNonFeatured,
-    sortByPriority,
-    getFeaturedSorted,
-    getNonFeaturedSorted
-} from './collection-utils'
 
 /**
  * Build tag data with product counts from products array
@@ -37,23 +29,7 @@ export function buildTagsWithCounts(
     }))
 }
 
-// Re-export generic functions with tag-specific names for backwards compatibility
-export function getFeaturedTags<T extends Tag>(tags: T[]): T[] {
-    return getFeatured(tags)
-}
-
-export function getNonFeaturedTags<T extends Tag>(tags: T[]): T[] {
-    return getNonFeatured(tags)
-}
-
-export function sortTagsByPriority<T extends Tag>(tags: T[]): T[] {
-    return sortByPriority(tags)
-}
-
-export function getFeaturedTagsSorted<T extends Tag>(tags: T[]): T[] {
-    return getFeaturedSorted(tags)
-}
-
-export function getNonFeaturedTagsSorted<T extends Tag>(tags: T[]): T[] {
-    return getNonFeaturedSorted(tags)
-}
+/**
+ * Note: Generic tag operations (getFeatured, sortByPriority, etc.) are available
+ * in collection-utils.ts. Import those directly instead of using wrapper functions.
+ */

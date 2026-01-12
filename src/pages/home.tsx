@@ -20,7 +20,7 @@ import {
     sortFeaturedProducts,
     sortBestValueProducts
 } from '@/lib/product-sort'
-import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
+import { getFeaturedSorted } from '@/lib/collection-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
 import { getWeightedRandomTagline } from '@/lib/tagline-utils'
@@ -171,7 +171,7 @@ const HomeEcommerce: React.FC = () => {
 
     // Get featured categories
     const featuredCategories = useMemo(() => {
-        return getFeaturedCategoriesSorted(categoriesData as Category[])
+        return getFeaturedSorted(categoriesData as Category[])
     }, [])
 
     // Helper function to update meta tags

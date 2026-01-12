@@ -3,7 +3,7 @@ import { CategoryIdSchema } from './category.schema.js'
 import { TagIdSchema } from './tag.schema.js'
 import { FAQSchema } from './faq.schema.js'
 import { TestimonialSchema } from './testimonial.schema.js'
-import { MediaItemSchema, MediaTypeSchema, MediaGroupSchema } from './media.schema.js'
+import { MediaItemSchema } from './media.schema.js'
 
 /**
  * Zod schema for product validation
@@ -64,9 +64,6 @@ export const StatsProofSchema = z.object({
     timeSaved: z.string().optional(),
     rating: z.string().optional()
 })
-
-// Re-export media schemas for backwards compatibility
-export { MediaItemSchema, MediaTypeSchema, MediaGroupSchema }
 
 export const ProductSchema = z.object({
     // Identity
@@ -154,6 +151,3 @@ export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>
 export type StatsProof = z.infer<typeof StatsProofSchema>
 export type Product = z.infer<typeof ProductSchema>
 export type ProductsArray = z.infer<typeof ProductsArraySchema>
-
-// Re-export media types for convenience
-export type { MediaType, MediaGroup, MediaItem } from './media.schema.js'

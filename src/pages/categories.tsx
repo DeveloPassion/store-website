@@ -8,7 +8,7 @@ import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
-import { sortCategoriesByPriority } from '@/lib/category-utils'
+import { sortByPriority } from '@/lib/collection-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 
@@ -79,10 +79,8 @@ const CategoriesPage: React.FC = () => {
             }
         })
 
-        const featured = sortCategoriesByPriority(categoriesWithCounts.filter((c) => c.featured))
-        const nonFeatured = sortCategoriesByPriority(
-            categoriesWithCounts.filter((c) => !c.featured)
-        )
+        const featured = sortByPriority(categoriesWithCounts.filter((c) => c.featured))
+        const nonFeatured = sortByPriority(categoriesWithCounts.filter((c) => !c.featured))
 
         return { featuredCategories: featured, nonFeaturedCategories: nonFeatured }
     }, [categories])

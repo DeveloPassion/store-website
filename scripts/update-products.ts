@@ -90,22 +90,16 @@ import { select } from '@inquirer/prompts'
 import {
     ProductSchema,
     PriceTierSchema,
-    ProductCategorySchema,
-    MediaItemSchema
+    ProductCategorySchema
 } from '../src/schemas/product.schema.js'
-import { MediaArraySchema } from '../src/schemas/media.schema.js'
+import { MediaArraySchema, MediaItemSchema } from '../src/schemas/media.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
 import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
 import { FAQsArraySchema } from '../src/schemas/faq.schema.js'
 import { TestimonialsArraySchema } from '../src/schemas/testimonial.schema.js'
-import type {
-    Product,
-    SecondaryCategory,
-    MediaGroup,
-    MediaType,
-    MediaItem
-} from '../src/types/product'
+import type { Product, SecondaryCategory } from '../src/types/product'
+import type { MediaGroup, MediaType, MediaItem } from '../src/schemas/media.schema.js'
 import type { TagsMap, TagId } from '../src/types/tag'
 import type { Category } from '../src/types/category'
 import type { FAQ } from '../src/types/faq'

@@ -1,30 +1,10 @@
 import { describe, it, expect } from 'bun:test'
-import { tagIconMap, getTagIcon } from './tag-icons'
+import { getTagIcon } from './tag-icons'
 import { iconRegistry, getIconWithFallback } from './icon-registry'
 import { getCategoryIcon } from './category-icons'
 import { FaTag } from 'react-icons/fa'
 
 describe('Tag Icons', () => {
-    describe('tagIconMap', () => {
-        it('should be the same as iconRegistry', () => {
-            expect(tagIconMap).toBe(iconRegistry)
-        })
-
-        it('should contain all icons from iconRegistry', () => {
-            expect(Object.keys(tagIconMap).length).toBe(Object.keys(iconRegistry).length)
-        })
-
-        it('should have the same icon components as iconRegistry', () => {
-            Object.keys(iconRegistry).forEach((key) => {
-                expect(tagIconMap[key]).toBe(iconRegistry[key])
-            })
-        })
-
-        it('should be a backwards compatibility export', () => {
-            expect(tagIconMap).toEqual(iconRegistry)
-        })
-    })
-
     describe('getTagIcon', () => {
         it('should return icon component for valid icon name', () => {
             const icon = getTagIcon('FaRobot')

@@ -17,7 +17,7 @@ import {
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
-import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
+import { getFeaturedSorted } from '@/lib/collection-utils'
 import { getCategoryIcon } from '@/lib/category-icons'
 import { getWishlistCount } from '@/lib/wishlist'
 import PromotionBanner from './promotion-banner'
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
     // Get featured categories
     const featuredCategories = useMemo(() => {
-        return getFeaturedCategoriesSorted(categoriesData as Category[])
+        return getFeaturedSorted(categoriesData as Category[])
     }, [])
 
     // Generate menu links dynamically

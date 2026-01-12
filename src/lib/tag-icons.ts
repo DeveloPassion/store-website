@@ -6,9 +6,6 @@
 import { FaTag } from 'react-icons/fa'
 import { getIconWithFallback } from './icon-registry'
 
-// Re-export for backwards compatibility
-export { iconRegistry as tagIconMap } from './icon-registry'
-
 /**
  * Get icon component for a tag
  * Falls back to FaTag if icon not found

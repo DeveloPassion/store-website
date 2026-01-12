@@ -1,28 +1,8 @@
 import { describe, it, expect } from 'bun:test'
-import { categoryIconMap, getCategoryIcon } from './category-icons'
+import { getCategoryIcon } from './category-icons'
 import { iconRegistry, getIcon } from './icon-registry'
 
 describe('Category Icons', () => {
-    describe('categoryIconMap', () => {
-        it('should be the same as iconRegistry', () => {
-            expect(categoryIconMap).toBe(iconRegistry)
-        })
-
-        it('should contain all icons from iconRegistry', () => {
-            expect(Object.keys(categoryIconMap).length).toBe(Object.keys(iconRegistry).length)
-        })
-
-        it('should have the same icon components as iconRegistry', () => {
-            Object.keys(iconRegistry).forEach((key) => {
-                expect(categoryIconMap[key]).toBe(iconRegistry[key])
-            })
-        })
-
-        it('should be a backwards compatibility export', () => {
-            expect(categoryIconMap).toEqual(iconRegistry)
-        })
-    })
-
     describe('getCategoryIcon', () => {
         it('should return icon component for valid icon name', () => {
             const icon = getCategoryIcon('FaRobot')
