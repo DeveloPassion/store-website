@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { Outlet } from 'react-router'
 import Header from './header'
 import Footer from './footer'
 import SkipLinks from './skip-links'
 import ScrollToTop from '@/components/ui/scroll-to-top'
 import ScrollToTopButton from '@/components/ui/scroll-to-top-button'
-import CommandPalette from '@/components/products/command-palette'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
+
+// Lazy load CommandPalette for better initial load performance
+const CommandPalette = lazy(() => import('@/components/products/command-palette'))
 
 const AppLayout: React.FC = () => {
     const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
@@ -45,11 +47,15 @@ const AppLayout: React.FC = () => {
             </main>
             <Footer />
             <ScrollToTopButton />
-            <CommandPalette
-                isOpen={isCommandPaletteOpen}
-                onClose={() => setIsCommandPaletteOpen(false)}
-                products={productsData as Product[]}
-            />
+            {isCommandPaletteOpen && (
+                <Suspense fallback={null}>
+                    <CommandPalette
+                        isOpen={isCommandPaletteOpen}
+                        onClose={() => setIsCommandPaletteOpen(false)}
+                        products={productsData as Product[]}
+                    />
+                </Suspense>
+            )}
         </>
     )
 }

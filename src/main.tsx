@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import './styles/index.css'
@@ -7,24 +7,33 @@ import { BreadcrumbProvider } from './contexts/breadcrumb-context'
 import ErrorBoundary from './components/error/error-boundary'
 import AppLayout from './components/layout/app-layout'
 import HomePage from './pages/home'
-import ProductsPage from './pages/products'
-import BestValuePage from './pages/best-value'
-import BestSellersPage from './pages/best-sellers'
-import FeaturedPage from './pages/featured'
-import ProductPage from './pages/product'
-import HelpPage from './pages/help'
-import FAQPage from './pages/faq'
-import WishlistPage from './pages/wishlist'
-import SharedWishlistPage from './pages/shared-wishlist'
-import TagsPage from './pages/tags'
-import TagPage from './pages/tag'
-import CategoriesPage from './pages/categories'
-import CategoryPage from './pages/category'
-import AllTestimonialsPage from './pages/all-testimonials'
-import NotFoundPage from './pages/not-found'
-import ErrorPage from './pages/error'
 import RedirectPage from './components/redirect/redirect-page'
 import { getRedirects } from './lib/redirects'
+
+// Lazy load all pages except HomePage for better initial load performance
+const ProductsPage = lazy(() => import('./pages/products'))
+const BestValuePage = lazy(() => import('./pages/best-value'))
+const BestSellersPage = lazy(() => import('./pages/best-sellers'))
+const FeaturedPage = lazy(() => import('./pages/featured'))
+const ProductPage = lazy(() => import('./pages/product'))
+const HelpPage = lazy(() => import('./pages/help'))
+const FAQPage = lazy(() => import('./pages/faq'))
+const WishlistPage = lazy(() => import('./pages/wishlist'))
+const SharedWishlistPage = lazy(() => import('./pages/shared-wishlist'))
+const TagsPage = lazy(() => import('./pages/tags'))
+const TagPage = lazy(() => import('./pages/tag'))
+const CategoriesPage = lazy(() => import('./pages/categories'))
+const CategoryPage = lazy(() => import('./pages/category'))
+const AllTestimonialsPage = lazy(() => import('./pages/all-testimonials'))
+const NotFoundPage = lazy(() => import('./pages/not-found'))
+const ErrorPage = lazy(() => import('./pages/error'))
+
+// Loading fallback component for route transitions
+const RouteLoadingFallback = () => (
+    <div className='flex min-h-screen items-center justify-center'>
+        <div className='text-primary animate-pulse text-xl'>●</div>
+    </div>
+)
 
 const rootElement = document.getElementById('root')
 
@@ -40,20 +49,118 @@ ReactDOM.createRoot(rootElement).render(
                     <Routes>
                         <Route element={<AppLayout />} errorElement={<ErrorPage />}>
                             <Route path='/' element={<HomePage />} />
-                            <Route path='/tags' element={<TagsPage />} />
-                            <Route path='/tags/:tagId' element={<TagPage />} />
-                            <Route path='/categories' element={<CategoriesPage />} />
-                            <Route path='/categories/:categoryId' element={<CategoryPage />} />
-                            <Route path='/products' element={<ProductsPage />} />
-                            <Route path='/best-value' element={<BestValuePage />} />
-                            <Route path='/best-sellers' element={<BestSellersPage />} />
-                            <Route path='/featured' element={<FeaturedPage />} />
-                            <Route path='/l/:productSlug' element={<ProductPage />} />
-                            <Route path='/help' element={<HelpPage />} />
-                            <Route path='/faq' element={<FAQPage />} />
-                            <Route path='/wishlist' element={<WishlistPage />} />
-                            <Route path='/shared-wishlist' element={<SharedWishlistPage />} />
-                            <Route path='/testimonials' element={<AllTestimonialsPage />} />
+                            <Route
+                                path='/tags'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <TagsPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/tags/:tagId'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <TagPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/categories'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <CategoriesPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/categories/:categoryId'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <CategoryPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/products'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <ProductsPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/best-value'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <BestValuePage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/best-sellers'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <BestSellersPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/featured'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <FeaturedPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/l/:productSlug'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <ProductPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/help'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <HelpPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/faq'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <FAQPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/wishlist'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <WishlistPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/shared-wishlist'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <SharedWishlistPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/testimonials'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <AllTestimonialsPage />
+                                    </Suspense>
+                                }
+                            />
                             {/* Redirect routes */}
                             {getRedirects().map((redirect) => (
                                 <Route
@@ -63,7 +170,14 @@ ReactDOM.createRoot(rootElement).render(
                                 />
                             ))}
                             {/* 404 catch-all route */}
-                            <Route path='*' element={<NotFoundPage />} />
+                            <Route
+                                path='*'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <NotFoundPage />
+                                    </Suspense>
+                                }
+                            />
                         </Route>
                     </Routes>
                 </BreadcrumbProvider>
