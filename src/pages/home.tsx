@@ -4,6 +4,7 @@ import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap, FaTrophy } fro
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import ProductCarousel from '@/components/products/product-carousel'
+import AnimatedKnowledgeSystem from '@/components/ui/animated-knowledge-system'
 import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import tagsData from '@/data/tags.json'
@@ -235,8 +236,7 @@ const HomeEcommerce: React.FC = () => {
                                 </>
                             ) : heroProduct ? (
                                 <>
-                                    Build Your{' '}
-                                    <span className='text-secondary'>Knowledge System</span> Today
+                                    Build Your <AnimatedKnowledgeSystem /> Today
                                 </>
                             ) : (
                                 <>
