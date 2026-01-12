@@ -95,9 +95,9 @@ describe('ProductCTA Component', () => {
     it('should have correct Gumroad URL with wanted=true and quantity=1 parameters', () => {
         const product = createMockProduct({ gumroadUrl: 'https://gumroad.com/test-product' })
 
-        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
+        const { getByRole } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Now')
+        const buyButton = getByRole('link', { name: /buy now/i })
         expect(buyButton).toHaveAttribute(
             'href',
             'https://gumroad.com/test-product?wanted=true&quantity=1'
@@ -110,9 +110,9 @@ describe('ProductCTA Component', () => {
             gumroadUrl: 'https://gumroad.com/test-product?discount=SAVE20'
         })
 
-        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
+        const { getByRole } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Now')
+        const buyButton = getByRole('link', { name: /buy now/i })
         expect(buyButton).toHaveAttribute(
             'href',
             'https://gumroad.com/test-product?discount=SAVE20&wanted=true&quantity=1'
@@ -122,9 +122,9 @@ describe('ProductCTA Component', () => {
     it('should use # as href when gumroadUrl is undefined', () => {
         const product = createMockProduct({ gumroadUrl: undefined })
 
-        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
+        const { getByRole } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Now')
+        const buyButton = getByRole('link', { name: /buy now/i })
         expect(buyButton).toHaveAttribute('href', '#')
     })
 
@@ -227,9 +227,9 @@ describe('ProductCTA Component', () => {
 
     it('should have proper styling classes', () => {
         const product = createMockProduct()
-        const { container, getByText } = renderWithRouter(<ProductCTA product={product} />)
+        const { container, getByRole } = renderWithRouter(<ProductCTA product={product} />)
 
-        const buyButton = getByText('Buy Now')
+        const buyButton = getByRole('link', { name: /buy now/i })
         expect(buyButton).toHaveClass('bg-secondary')
         expect(buyButton).toHaveClass('hover:bg-secondary/90')
 

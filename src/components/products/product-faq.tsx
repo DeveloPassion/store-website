@@ -6,6 +6,7 @@ import type { Product } from '@/types/product'
 import { cn } from '@/lib/utils'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { SectionHeader } from '@/components/ui/section-header'
+import { Button } from '@/components/ui/button'
 
 interface ProductFAQProps {
     product: Product
@@ -85,12 +86,9 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                     <p className='text-primary/70 mb-4'>
                         Feel free to reach out. I'm here to help you make the right decision.
                     </p>
-                    <a
-                        href='mailto:sebastien@dsebastien.net'
-                        className='bg-secondary hover:bg-secondary/90 inline-block rounded-lg px-6 py-3 font-semibold text-white transition-colors'
-                    >
+                    <Button as='a' href='mailto:sebastien@dsebastien.net'>
                         Contact Me
-                    </a>
+                    </Button>
                 </motion.div>
             </div>
         </Section>

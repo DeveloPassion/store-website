@@ -3,6 +3,7 @@ import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo } from 'react-
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { Button } from '@/components/ui/button'
 
 interface ProductCTAProps {
     product: Product
@@ -44,13 +45,15 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     </div>
 
                     {/* CTA Button */}
-                    <a
+                    <Button
+                        as='a'
                         href={buildGumroadUrlFromProduct(product)}
                         data-gumroad-overlay-checkout='true'
-                        className='bg-secondary hover:bg-secondary/90 mb-8 inline-block cursor-pointer rounded-lg px-8 py-4 text-lg font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl sm:px-12 sm:text-xl'
+                        size='lg'
+                        className='mb-8 shadow-xl hover:shadow-2xl sm:px-12 sm:text-xl'
                     >
                         {isFree ? 'Get Now' : product.isSubscription ? 'Subscribe Now' : 'Buy Now'}
-                    </a>
+                    </Button>
 
                     {/* Guarantees */}
                     {product.guarantees.length > 0 && (

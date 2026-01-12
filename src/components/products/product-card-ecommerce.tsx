@@ -6,6 +6,7 @@ import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
+import { Button } from '@/components/ui/button'
 
 interface ProductCardEcommerceProps {
     product: Product
@@ -199,22 +200,23 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                         )}
                     </div>
                     {onAddToCart ? (
-                        <button
+                        <Button
                             onClick={handleAddToCart}
-                            className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                            size='sm'
+                            leftIcon={<FaShoppingCart className='h-4 w-4' />}
                         >
-                            <FaShoppingCart className='h-4 w-4' />
                             {isFree ? 'Get Now' : 'Buy'}
-                        </button>
+                        </Button>
                     ) : (
-                        <a
+                        <Button
+                            as='a'
                             href={buildGumroadUrlFromProduct(product)}
                             data-gumroad-overlay-checkout='true'
-                            className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                            size='sm'
+                            leftIcon={<FaShoppingCart className='h-4 w-4' />}
                         >
-                            <FaShoppingCart className='h-4 w-4' />
                             {isFree ? 'Get Now' : 'Buy'}
-                        </a>
+                        </Button>
                     )}
                 </div>
             </div>

@@ -6,6 +6,7 @@ import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
+import { Button } from '@/components/ui/button'
 
 interface ProductHeroProps {
     product: Product
@@ -239,18 +240,20 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                     {displayPrice}
                                 </div>
                             </div>
-                            <a
+                            <Button
                                 ref={buyButtonRef}
+                                as='a'
                                 href={buildGumroadUrlFromProduct(
                                     product,
                                     selectedVariant,
                                     selectedFrequency
                                 )}
                                 data-gumroad-overlay-checkout='true'
-                                className='bg-secondary hover:bg-secondary/90 flex flex-1 cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:shadow-xl sm:flex-none'
+                                size='lg'
+                                className='flex-1 sm:flex-none'
                             >
                                 {isFree ? 'Get Now' : 'Buy Now'}
-                            </a>
+                            </Button>
                         </div>
 
                         {/* Trust Badges */}

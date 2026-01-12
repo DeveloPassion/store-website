@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import type { Product, ProductVariant } from '@/types/product'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { Button } from '@/components/ui/button'
 
 interface StickyBuyButtonProps {
     product: Product
@@ -122,18 +123,20 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                         {displayPrice}
                                     </div>
                                 </div>
-                                <a
+                                <Button
+                                    as='a'
                                     href={buildGumroadUrlFromProduct(
                                         product,
                                         selectedVariant,
                                         selectedFrequency
                                     )}
                                     data-gumroad-overlay-checkout='true'
-                                    className='bg-secondary hover:bg-secondary/90 flex shrink-0 cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl'
+                                    size='md'
+                                    leftIcon={<FaShoppingCart className='h-4 w-4' />}
+                                    className='shrink-0'
                                 >
-                                    <FaShoppingCart className='h-4 w-4' />
-                                    <span>{isFree ? 'Get Now' : 'Buy Now'}</span>
-                                </a>
+                                    {isFree ? 'Get Now' : 'Buy Now'}
+                                </Button>
                             </div>
 
                             {/* Desktop/Tablet: Full CTA */}
@@ -143,18 +146,20 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                         {product.guarantees[0]}
                                     </div>
                                 )}
-                                <a
+                                <Button
+                                    as='a'
                                     href={buildGumroadUrlFromProduct(
                                         product,
                                         selectedVariant,
                                         selectedFrequency
                                     )}
                                     data-gumroad-overlay-checkout='true'
-                                    className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-8 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl'
+                                    size='md'
+                                    leftIcon={<FaShoppingCart className='h-5 w-5' />}
+                                    className='px-8'
                                 >
-                                    <FaShoppingCart className='h-5 w-5' />
-                                    <span>{isFree ? 'Get Now' : 'Buy Now'}</span>
-                                </a>
+                                    {isFree ? 'Get Now' : 'Buy Now'}
+                                </Button>
                             </div>
                         </div>
                     </div>
