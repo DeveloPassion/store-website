@@ -3,59 +3,67 @@ import { render } from '@testing-library/react'
 import AnimatedKnowledgeSystem from './animated-knowledge-system'
 
 describe('AnimatedKnowledgeSystem', () => {
+    const testText = 'Knowledge System'
+
     describe('Rendering', () => {
-        it('renders the text "Knowledge System"', () => {
-            const { getByLabelText } = render(<AnimatedKnowledgeSystem />)
-            expect(getByLabelText('Knowledge System')).toBeInTheDocument()
+        it('renders the provided text', () => {
+            const { getByLabelText } = render(<AnimatedKnowledgeSystem text={testText} />)
+            expect(getByLabelText(testText)).toBeInTheDocument()
         })
 
         it('splits text into individual characters for animation', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
             // "Knowledge System" = 16 characters (including space)
             expect(chars).toHaveLength(16)
         })
 
         it('renders decorative particle effects', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const particles = container.querySelectorAll('.animate-particle')
             expect(particles).toHaveLength(3)
         })
 
         it('renders glow effect with proper ARIA hiding', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const glowEffect = container.querySelector('.animate-glow-pulse')
             expect(glowEffect).toBeInTheDocument()
             expect(glowEffect?.getAttribute('aria-hidden')).toBe('true')
         })
 
         it('renders shimmer overlay effect', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const shimmer = container.querySelector('.animate-shimmer')
             expect(shimmer).toBeInTheDocument()
+        })
+
+        it('renders different text when provided', () => {
+            const customText = 'Creation System'
+            const { getByLabelText } = render(<AnimatedKnowledgeSystem text={customText} />)
+            expect(getByLabelText(customText)).toBeInTheDocument()
         })
     })
 
     describe('Accessibility', () => {
         it('has proper aria-label for screen readers', () => {
-            const { getByLabelText } = render(<AnimatedKnowledgeSystem />)
-            expect(getByLabelText('Knowledge System')).toBeInTheDocument()
+            const { getByLabelText } = render(<AnimatedKnowledgeSystem text={testText} />)
+            expect(getByLabelText(testText)).toBeInTheDocument()
         })
 
         it('marks decorative elements as aria-hidden', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const decorativeElements = container.querySelectorAll('[aria-hidden="true"]')
             expect(decorativeElements.length).toBeGreaterThan(0)
         })
 
         it('includes prefers-reduced-motion media query in styles', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const styleElement = container.querySelector('style')
             expect(styleElement?.textContent).toContain('@media (prefers-reduced-motion: reduce)')
         })
 
         it('disables animations for reduced motion preference', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const styleElement = container.querySelector('style')
             const styleContent = styleElement?.textContent || ''
 
@@ -68,7 +76,7 @@ describe('AnimatedKnowledgeSystem', () => {
 
     describe('Animation Properties', () => {
         it('applies staggered animation delays to characters', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
 
             chars.forEach((char, index) => {
@@ -78,7 +86,7 @@ describe('AnimatedKnowledgeSystem', () => {
         })
 
         it('sets animation fill mode to both for characters', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
 
             chars.forEach((char) => {
@@ -88,7 +96,7 @@ describe('AnimatedKnowledgeSystem', () => {
         })
 
         it('applies different animation durations to particles', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const particles = container.querySelectorAll('.animate-particle')
 
             particles.forEach((particle, index) => {
@@ -98,7 +106,7 @@ describe('AnimatedKnowledgeSystem', () => {
         })
 
         it('applies different animation delays to particles', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const particles = container.querySelectorAll('.animate-particle')
 
             particles.forEach((particle, index) => {
@@ -110,7 +118,7 @@ describe('AnimatedKnowledgeSystem', () => {
 
     describe('Styling', () => {
         it('includes all required animation keyframes', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const styleElement = container.querySelector('style')
             const styleContent = styleElement?.textContent || ''
 
@@ -121,7 +129,7 @@ describe('AnimatedKnowledgeSystem', () => {
         })
 
         it('applies gradient background to shimmer effect', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const shimmer = container.querySelector('.animate-shimmer') as HTMLElement
 
             expect(shimmer).toBeInTheDocument()
@@ -130,7 +138,7 @@ describe('AnimatedKnowledgeSystem', () => {
         })
 
         it('uses non-breaking space for space character', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
             const spaceChar = chars[9] // Space is at index 9 in "Knowledge System"
 
@@ -141,13 +149,13 @@ describe('AnimatedKnowledgeSystem', () => {
 
     describe('Component Structure', () => {
         it('wraps content in a span with relative positioning', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const wrapper = container.querySelector('.relative.inline-block')
             expect(wrapper).toBeInTheDocument()
         })
 
         it('contains all visual effect layers', () => {
-            const { container } = render(<AnimatedKnowledgeSystem />)
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
 
             // Main text layer
             expect(container.querySelector('.animate-char-reveal')).toBeInTheDocument()

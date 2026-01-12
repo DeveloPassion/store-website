@@ -1,0 +1,12 @@
+[
+    {
+        "id": "knowledge-system",
+        "text": "Knowledge System",
+        "featured": true
+    },
+    {
+        "id": "creation-system",
+        "text": "Creation System",
+        "featured": true
+    }
+]

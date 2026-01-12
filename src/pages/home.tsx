@@ -9,10 +9,12 @@ import productsData from '@/data/products.json'
 import categoriesData from '@/data/categories.json'
 import tagsData from '@/data/tags.json'
 import taglinesData from '@/data/taglines.json'
+import animatedHeroTextsData from '@/data/animated-hero-texts.json'
 import type { Product } from '@/types/product'
 import type { Category } from '@/types/category'
 import type { TagId } from '@/types/tag'
 import type { Tagline } from '@/types/tagline'
+import type { AnimatedHeroText } from '@/types/animated-hero-text'
 import {
     sortProductsIntelligently,
     sortFeaturedProducts,
@@ -22,6 +24,7 @@ import { getFeaturedCategoriesSorted } from '@/lib/category-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
 import { getWeightedRandomTagline } from '@/lib/tagline-utils'
+import { getWeightedRandomAnimatedHeroText } from '@/lib/animated-hero-text-utils'
 
 const HomeEcommerce: React.FC = () => {
     const [searchParams] = useSearchParams()
@@ -41,6 +44,12 @@ const HomeEcommerce: React.FC = () => {
     const randomTagline = useMemo(() => {
         const taglines = taglinesData as Tagline[]
         return getWeightedRandomTagline(taglines, 0.25)
+    }, [])
+
+    // Get random animated hero text (featured 50% of the time, non-featured 50% of the time)
+    const randomAnimatedHeroText = useMemo(() => {
+        const texts = animatedHeroTextsData as AnimatedHeroText[]
+        return getWeightedRandomAnimatedHeroText(texts, 0.5)
     }, [])
 
     // Filter and sort products based on URL params
@@ -236,7 +245,9 @@ const HomeEcommerce: React.FC = () => {
                                 </>
                             ) : heroProduct ? (
                                 <>
-                                    Build Your <AnimatedKnowledgeSystem /> Today
+                                    Build Your{' '}
+                                    <AnimatedKnowledgeSystem text={randomAnimatedHeroText.text} />{' '}
+                                    Today
                                 </>
                             ) : (
                                 <>

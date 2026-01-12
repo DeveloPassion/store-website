@@ -83,6 +83,11 @@ function buildChoices(): Choice[] {
             description: 'Manage homepage taglines'
         },
         {
+            name: '🎨 Manage Animated Hero Texts',
+            value: 'update-animated-hero-texts.ts',
+            description: 'Manage animated hero text variations'
+        },
+        {
             name: '🔄 Manage Redirects',
             value: 'update-redirects.ts',
             description: 'Manage client-side redirects'

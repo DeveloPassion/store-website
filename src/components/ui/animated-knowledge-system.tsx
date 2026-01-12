@@ -1,5 +1,5 @@
 /**
- * Animated "Knowledge System" text component with multiple visual effects:
+ * Animated hero text component with multiple visual effects:
  * - Gradient sweep animation
  * - Character-by-character stagger reveal
  * - Pulsing glow effect
@@ -14,12 +14,15 @@ const PARTICLE_POSITIONS = [
     { x: 8, y: -93 }
 ]
 
-const AnimatedKnowledgeSystem: React.FC = () => {
-    const text = 'Knowledge System'
+interface AnimatedKnowledgeSystemProps {
+    text: string
+}
+
+const AnimatedKnowledgeSystem: React.FC<AnimatedKnowledgeSystemProps> = ({ text }) => {
     const chars = text.split('')
 
     return (
-        <span className='relative inline-block' aria-label='Knowledge System'>
+        <span className='relative inline-block' aria-label={text}>
             {/* Main animated text */}
             <span className='relative inline-flex items-center'>
                 {chars.map((char, index) => (
