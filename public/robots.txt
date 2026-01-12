@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://tools.dsebastien.net/sitemap.xml
+Sitemap: https://store.dsebastien.net/sitemap.xml
