@@ -76,6 +76,18 @@ describe('Testimonial Schema Validation', () => {
             expect(result.success).toBe(false)
         })
 
+        it('should reject testimonial with whitespace-only author', () => {
+            const invalid = { ...validTestimonial, author: '   ' }
+            const result = TestimonialSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject testimonial with whitespace-only quote', () => {
+            const invalid = { ...validTestimonial, quote: '   ' }
+            const result = TestimonialSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
         it('should reject testimonial without featured flag', () => {
             const invalid = Object.fromEntries(
                 Object.entries(validTestimonial).filter(([key]) => key !== 'featured')
@@ -202,14 +214,14 @@ describe('Testimonial Schema Validation', () => {
             expect(result.success).toBe(true)
         })
 
-        it('should accept empty string for avatarUrl', () => {
-            const valid = { ...validTestimonial, avatarUrl: '' }
+        it('should accept relative path for avatarUrl', () => {
+            const valid = { ...validTestimonial, avatarUrl: '/images/avatar.jpg' }
             const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should reject invalid avatarUrl', () => {
-            const invalid = { ...validTestimonial, avatarUrl: 'not-a-url' }
+        it('should reject empty string for avatarUrl', () => {
+            const invalid = { ...validTestimonial, avatarUrl: '' }
             const result = TestimonialSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
@@ -226,14 +238,14 @@ describe('Testimonial Schema Validation', () => {
             expect(result.success).toBe(true)
         })
 
-        it('should accept empty string for twitterUrl', () => {
-            const valid = { ...validTestimonial, twitterUrl: '' }
+        it('should accept relative path for twitterUrl', () => {
+            const valid = { ...validTestimonial, twitterUrl: '/user/profile' }
             const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should reject invalid twitterUrl', () => {
-            const invalid = { ...validTestimonial, twitterUrl: 'not-a-url' }
+        it('should reject empty string for twitterUrl', () => {
+            const invalid = { ...validTestimonial, twitterUrl: '' }
             const result = TestimonialSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })

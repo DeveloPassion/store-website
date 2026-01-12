@@ -57,6 +57,18 @@ describe('FAQ Schema Validation', () => {
             expect(result.success).toBe(false)
         })
 
+        it('should reject FAQ with whitespace-only question', () => {
+            const invalid = { ...validFAQ, question: '   ' }
+            const result = FAQSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject FAQ with whitespace-only answer', () => {
+            const invalid = { ...validFAQ, answer: '   ' }
+            const result = FAQSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
         it('should reject FAQ without order', () => {
             const invalid = Object.fromEntries(
                 Object.entries(validFAQ).filter(([key]) => key !== 'order')

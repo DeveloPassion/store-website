@@ -16,10 +16,19 @@ export const MediaGroupSchema = z.enum(['cover', 'banner', 'main', 'secondary', 
 export const MediaItemSchema = z.object({
     id: z.string().min(1),
     type: MediaTypeSchema,
-    url: z.string().min(1),
-    title: z.string().min(1),
+    url: z
+        .string()
+        .min(1)
+        .refine((val) => val.trim().length > 0, 'URL cannot be only whitespace'),
+    title: z
+        .string()
+        .min(1)
+        .refine((val) => val.trim().length > 0, 'Title cannot be only whitespace'),
     description: z.string().optional(),
-    altText: z.string().min(1),
+    altText: z
+        .string()
+        .min(1)
+        .refine((val) => val.trim().length > 0, 'Alt text cannot be only whitespace'),
     caption: z.string().optional(),
     order: z.number().int().min(0),
     group: MediaGroupSchema,

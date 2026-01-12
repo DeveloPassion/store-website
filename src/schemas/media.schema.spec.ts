@@ -174,6 +174,24 @@ describe('Media Schema Validation', () => {
             expect(result.success).toBe(false)
         })
 
+        it('should reject media with whitespace-only url', () => {
+            const invalid = { ...validImageMedia, url: '   ' }
+            const result = MediaItemSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject media with whitespace-only title', () => {
+            const invalid = { ...validImageMedia, title: '   ' }
+            const result = MediaItemSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject media with whitespace-only altText', () => {
+            const invalid = { ...validImageMedia, altText: '   ' }
+            const result = MediaItemSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
         it('should reject media without order', () => {
             const invalid = Object.fromEntries(
                 Object.entries(validImageMedia).filter(([key]) => key !== 'order')

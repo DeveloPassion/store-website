@@ -30,9 +30,15 @@ import { ProductSchema } from '../../src/schemas/product.schema.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const PRODUCTS_DIR = resolve(__dirname, '../../src/data/products')
+
+// Helper to get products directory (allow override for testing)
+const getProductsDir = () =>
+    process.env.TEST_PRODUCTS_DIR || resolve(__dirname, '../../src/data/products')
+
 const OUTPUT_FILE = resolve(__dirname, '../../src/data/products.json')
-const STRICT_MODE = process.env.STRICT_VALIDATION === 'true'
+
+// Helper to check strict mode (evaluated at runtime)
+const isStrictMode = () => process.env.STRICT_VALIDATION === 'true'
 
 interface FAQ {
     id: string
@@ -81,9 +87,10 @@ interface Product {
 /**
  * Load FAQs for a product from {product-id}-faq.json
  * Returns empty array if file doesn't exist
+ * @internal - Exported for testing purposes only
  */
-function loadFAQs(productId: string): FAQ[] {
-    const faqPath = join(PRODUCTS_DIR, `${productId}-faq.json`)
+export function loadFAQs(productId: string): FAQ[] {
+    const faqPath = join(getProductsDir(), `${productId}-faq.json`)
     if (!existsSync(faqPath)) {
         return []
     }
@@ -93,9 +100,17 @@ function loadFAQs(productId: string): FAQ[] {
         const file = JSON.parse(content)
         return file.data || []
     } catch (error) {
+        if (error instanceof SyntaxError) {
+            const message = `Failed to parse FAQ file for ${productId} (invalid JSON): ${error.message}`
+            console.error(`❌ ${message}`)
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return []
+        }
         const message = `Failed to load FAQs for ${productId}: ${error instanceof Error ? error.message : String(error)}`
-        console.warn(`⚠️  ${message}`)
-        if (STRICT_MODE) {
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
             throw new Error(message)
         }
         return []
@@ -105,9 +120,10 @@ function loadFAQs(productId: string): FAQ[] {
 /**
  * Load testimonials for a product from {product-id}-testimonials.json
  * Returns empty array if file doesn't exist
+ * @internal - Exported for testing purposes only
  */
-function loadTestimonials(productId: string): Testimonial[] {
-    const testimonialsPath = join(PRODUCTS_DIR, `${productId}-testimonials.json`)
+export function loadTestimonials(productId: string): Testimonial[] {
+    const testimonialsPath = join(getProductsDir(), `${productId}-testimonials.json`)
     if (!existsSync(testimonialsPath)) {
         return []
     }
@@ -117,9 +133,17 @@ function loadTestimonials(productId: string): Testimonial[] {
         const file = JSON.parse(content)
         return file.data || []
     } catch (error) {
+        if (error instanceof SyntaxError) {
+            const message = `Failed to parse testimonials file for ${productId} (invalid JSON): ${error.message}`
+            console.error(`❌ ${message}`)
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return []
+        }
         const message = `Failed to load testimonials for ${productId}: ${error instanceof Error ? error.message : String(error)}`
-        console.warn(`⚠️  ${message}`)
-        if (STRICT_MODE) {
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
             throw new Error(message)
         }
         return []
@@ -129,9 +153,10 @@ function loadTestimonials(productId: string): Testimonial[] {
 /**
  * Load media for a product from {product-id}-media.json
  * Returns empty array if file doesn't exist
+ * @internal - Exported for testing purposes only
  */
-function loadMedia(productId: string): MediaItem[] {
-    const mediaPath = join(PRODUCTS_DIR, `${productId}-media.json`)
+export function loadMedia(productId: string): MediaItem[] {
+    const mediaPath = join(getProductsDir(), `${productId}-media.json`)
     if (!existsSync(mediaPath)) {
         return []
     }
@@ -141,9 +166,17 @@ function loadMedia(productId: string): MediaItem[] {
         const file = JSON.parse(content)
         return file.data || []
     } catch (error) {
+        if (error instanceof SyntaxError) {
+            const message = `Failed to parse media file for ${productId} (invalid JSON): ${error.message}`
+            console.error(`❌ ${message}`)
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return []
+        }
         const message = `Failed to load media for ${productId}: ${error instanceof Error ? error.message : String(error)}`
-        console.warn(`⚠️  ${message}`)
-        if (STRICT_MODE) {
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
             throw new Error(message)
         }
         return []
@@ -151,6 +184,7 @@ function loadMedia(productId: string): MediaItem[] {
 }
 
 function main() {
+    const PRODUCTS_DIR = getProductsDir()
     console.log('🔄 Aggregating product files...\n')
     console.log(`Reading from: ${PRODUCTS_DIR}`)
     console.log(`Writing to: ${OUTPUT_FILE}\n`)
@@ -297,4 +331,7 @@ function main() {
     }
 }
 
-main()
+// Only run main() if this script is executed directly (not imported for testing)
+if (import.meta.main) {
+    main()
+}

@@ -13,8 +13,14 @@ import { z } from 'zod'
 
 export const FAQSchema = z.object({
     id: z.string().min(1, 'FAQ ID is required'),
-    question: z.string().min(1, 'Question is required'),
-    answer: z.string().min(1, 'Answer is required'),
+    question: z
+        .string()
+        .min(1, 'Question is required')
+        .refine((val) => val.trim().length > 0, 'Question cannot be only whitespace'),
+    answer: z
+        .string()
+        .min(1, 'Answer is required')
+        .refine((val) => val.trim().length > 0, 'Answer cannot be only whitespace'),
     order: z.number().int().nonnegative('Order must be non-negative')
 })
 

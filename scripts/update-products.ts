@@ -92,15 +92,12 @@ import {
     PriceTierSchema,
     ProductCategorySchema
 } from '../src/schemas/product.schema.js'
-import { MediaArraySchema, MediaItemSchema, MediaFileSchema } from '../src/schemas/media.schema.js'
+import { MediaItemSchema, MediaFileSchema } from '../src/schemas/media.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
 import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
-import { FAQsArraySchema, FAQFileSchema } from '../src/schemas/faq.schema.js'
-import {
-    TestimonialsArraySchema,
-    TestimonialFileSchema
-} from '../src/schemas/testimonial.schema.js'
+import { FAQFileSchema } from '../src/schemas/faq.schema.js'
+import { TestimonialFileSchema } from '../src/schemas/testimonial.schema.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
 import type { MediaGroup, MediaType, MediaItem } from '../src/schemas/media.schema.js'
 import type { TagsMap, TagId } from '../src/types/tag'
@@ -211,7 +208,7 @@ function getMediaPath(productsDir: string, productId: string): string {
 /**
  * Load media items from a product's media file
  */
-function loadMedia(productsDir: string, productId: string): MediaItem[] {
+export function loadMedia(productsDir: string, productId: string): MediaItem[] {
     const mediaPath = getMediaPath(productsDir, productId)
     if (!existsSync(mediaPath)) {
         return []
@@ -228,8 +225,13 @@ function loadMedia(productsDir: string, productId: string): MediaItem[] {
 
         return result.data.data
     } catch (error) {
+        if (error instanceof SyntaxError) {
+            throw new Error(
+                `Failed to parse media file for ${productId} (invalid JSON): ${error.message}`
+            )
+        }
         throw new Error(
-            `Failed to load media: ${error instanceof Error ? error.message : String(error)}`
+            `Failed to load media for ${productId}: ${error instanceof Error ? error.message : String(error)}`
         )
     }
 }
@@ -237,7 +239,7 @@ function loadMedia(productsDir: string, productId: string): MediaItem[] {
 /**
  * Save media items to a product's media file
  */
-function saveMedia(productsDir: string, productId: string, media: MediaItem[]): void {
+export function saveMedia(productsDir: string, productId: string, media: MediaItem[]): void {
     const mediaPath = getMediaPath(productsDir, productId)
 
     // Sort by group priority, then by order
@@ -577,7 +579,7 @@ function getFaqPath(productsDir: string, productId: string): string {
     return join(productsDir, `${productId}-faq.json`)
 }
 
-function loadFaqs(productsDir: string, productId: string): FAQ[] {
+export function loadFaqs(productsDir: string, productId: string): FAQ[] {
     const faqPath = getFaqPath(productsDir, productId)
     if (!existsSync(faqPath)) {
         return []
@@ -594,13 +596,18 @@ function loadFaqs(productsDir: string, productId: string): FAQ[] {
 
         return result.data.data
     } catch (error) {
+        if (error instanceof SyntaxError) {
+            throw new Error(
+                `Failed to parse FAQ file for ${productId} (invalid JSON): ${error.message}`
+            )
+        }
         throw new Error(
-            `Failed to load FAQs: ${error instanceof Error ? error.message : String(error)}`
+            `Failed to load FAQs for ${productId}: ${error instanceof Error ? error.message : String(error)}`
         )
     }
 }
 
-function saveFaqs(productsDir: string, productId: string, faqs: FAQ[]): void {
+export function saveFaqs(productsDir: string, productId: string, faqs: FAQ[]): void {
     const faqPath = getFaqPath(productsDir, productId)
 
     // Sort by order
@@ -688,7 +695,7 @@ function getTestimonialPath(productsDir: string, productId: string): string {
     return join(productsDir, `${productId}-testimonials.json`)
 }
 
-function loadTestimonials(productsDir: string, productId: string): Testimonial[] {
+export function loadTestimonials(productsDir: string, productId: string): Testimonial[] {
     const testimonialPath = getTestimonialPath(productsDir, productId)
     if (!existsSync(testimonialPath)) {
         return []
@@ -705,13 +712,18 @@ function loadTestimonials(productsDir: string, productId: string): Testimonial[]
 
         return result.data.data
     } catch (error) {
+        if (error instanceof SyntaxError) {
+            throw new Error(
+                `Failed to parse testimonial file for ${productId} (invalid JSON): ${error.message}`
+            )
+        }
         throw new Error(
-            `Failed to load testimonials: ${error instanceof Error ? error.message : String(error)}`
+            `Failed to load testimonials for ${productId}: ${error instanceof Error ? error.message : String(error)}`
         )
     }
 }
 
-function saveTestimonials(
+export function saveTestimonials(
     productsDir: string,
     productId: string,
     testimonials: Testimonial[]
@@ -3159,4 +3171,6 @@ async function main() {
     }
 }
 
-main()
+if (import.meta.main) {
+    main()
+}

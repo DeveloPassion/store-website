@@ -13,14 +13,20 @@ import { z } from 'zod'
 
 export const TestimonialSchema = z.object({
     id: z.string().min(1, 'Testimonial ID is required'),
-    author: z.string().min(1, 'Author is required'),
+    author: z
+        .string()
+        .min(1, 'Author is required')
+        .refine((val) => val.trim().length > 0, 'Author cannot be only whitespace'),
     role: z.string().optional(),
     company: z.string().optional(),
-    avatarUrl: z.string().url().optional().or(z.literal('')),
+    avatarUrl: z.string().min(1).optional(),
     twitterHandle: z.string().optional(),
-    twitterUrl: z.string().url().optional().or(z.literal('')),
+    twitterUrl: z.string().min(1).optional(),
     rating: z.number().int().min(1).max(5, 'Rating must be between 1 and 5'),
-    quote: z.string().min(1, 'Quote is required'),
+    quote: z
+        .string()
+        .min(1, 'Quote is required')
+        .refine((val) => val.trim().length > 0, 'Quote cannot be only whitespace'),
     featured: z.boolean()
 })
 
