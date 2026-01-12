@@ -72,34 +72,17 @@ const PERMALINK_MAP = {
 **Structure**:
 
 ```
-documentation/assets/
+public/assets/products
 ├── obsidian-starter-kit/     # Use ID (readable)
-│   ├── cover.png
-│   └── screenshots/
+│   ├── ...
 ├── knowii-voice-ai/           # Use ID (readable)
-│   ├── logo.svg
-│   └── screenshots/
+│   ├── ...
 └── [product-id]/
 ```
 
-**Rationale**: IDs are human-readable. Permalinks are obfuscated codes for URLs only.
-
 ---
 
-### 4. Sales Copy File Naming
-
-**Rule**: Sales copy files use product ID with prefix.
-
-**Format**: `product-sales-copy-{product-id}.md`
-
-**Examples**:
-
-- `product-sales-copy-obsidian-starter-kit.md` ✅
-- `product-sales-copy-mghmmj.md` ❌ (don't use permalink)
-
----
-
-### 5. Product Data Schema Consistency
+### 4. Product Data Schema Consistency
 
 **Rule**: Every product MUST have both ID and permalink fields.
 
@@ -109,10 +92,6 @@ documentation/assets/
 {
   id: string,              // Human-readable: 'obsidian-starter-kit'
   permalink: string,       // Gumroad code: 'mghmmj'
-  name: string,
-  price: number,
-  priceDisplay: string,
-  gumroadUrl: string,
   // ... rest of schema
 }
 ```

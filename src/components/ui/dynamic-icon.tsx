@@ -2,33 +2,119 @@
  * DynamicIcon component - Renders icons dynamically
  * This component intentionally creates icons dynamically as its core purpose.
  * The ESLint rule is disabled for this utility component.
+ *
+ * Supports:
+ * - React icon names (e.g., "FaRobot", "SiObsidian")
+ * - Image URLs (http/https)
+ * - Local image paths (starting with /)
+ * - Brand color mapping for specific icons
+ * - Size presets (sm, md, lg, xl)
  */
 
 import { getIcon } from '@/lib/icon-registry'
+
+// Icon-specific colors (brand colors where applicable)
+const iconColors: Record<string, string> = {
+    FaYoutube: 'text-red-500',
+    FaGhost: 'text-gray-300',
+    SiObsidian: 'text-purple-400',
+    SiAngular: 'text-red-500',
+    SiNotion: 'text-gray-200',
+    SiTrello: 'text-blue-400',
+    FaReddit: 'text-orange-500',
+    FaCalendarAlt: 'text-blue-400',
+    FaTerminal: 'text-green-400',
+    FaLightbulb: 'text-yellow-400',
+    FaRobot: 'text-cyan-400',
+    FaCode: 'text-emerald-400',
+    FaGlobe: 'text-blue-400',
+    FaGraduationCap: 'text-indigo-400',
+    FaBook: 'text-amber-500',
+    FaBookOpen: 'text-teal-400',
+    FaNewspaper: 'text-gray-300',
+    FaBrain: 'text-pink-400',
+    FaPen: 'text-violet-400',
+    FaChalkboardTeacher: 'text-orange-400',
+    FaBoxOpen: 'text-amber-400',
+    FaCheckSquare: 'text-green-400',
+    FaUser: 'text-blue-400',
+    FaEnvelope: 'text-amber-400',
+    FaStickyNote: 'text-yellow-400',
+    FaStore: 'text-emerald-400',
+    FaHandshake: 'text-teal-400',
+    FaGithub: 'text-gray-300',
+    FaTiktok: 'text-gray-200',
+    FaMedium: 'text-gray-200',
+    FaLinkedin: 'text-blue-500',
+    FaHackerNews: 'text-orange-500',
+    FaPodcast: 'text-purple-400',
+    FaGift: 'text-pink-400',
+    FaRocket: 'text-orange-500',
+    FaStar: 'text-yellow-400',
+    FaDatabase: 'text-cyan-400',
+    SiSubstack: 'text-orange-400',
+    SiBluesky: 'text-sky-400',
+    FaXTwitter: 'text-gray-200',
+    FaThreads: 'text-gray-200',
+    SiBuymeacoffee: 'text-yellow-400'
+}
+
+const sizeClasses = {
+    sm: 'h-4 w-4',
+    md: 'h-6 w-6',
+    lg: 'h-8 w-8',
+    xl: 'h-10 w-10'
+}
 
 interface DynamicIconProps {
     iconName?: string
     className?: string
     style?: React.CSSProperties
+    /** Size preset (sm, md, lg, xl). Only applies to SVG icons, not images. */
+    size?: 'sm' | 'md' | 'lg' | 'xl'
+    /** Whether to apply brand colors. Default: true */
+    useBrandColors?: boolean
 }
 
 /* eslint-disable react-hooks/static-components */
-export const DynamicIcon: React.FC<DynamicIconProps> = ({ iconName, className, style }) => {
+export const DynamicIcon: React.FC<DynamicIconProps> = ({
+    iconName,
+    className = '',
+    style,
+    size = 'md',
+    useBrandColors = true
+}) => {
+    // If iconName is a URL or path, render an image
+    if (iconName && (iconName.startsWith('http') || iconName.startsWith('/'))) {
+        return (
+            <img
+                src={iconName}
+                alt=''
+                className={`${sizeClasses[size]} object-contain ${className}`}
+            />
+        )
+    }
+
+    // If iconName is a known react-icon name, render it
     const IconComponent = getIcon(iconName)
 
     if (!IconComponent) {
         return null
     }
 
+    // Apply brand color if enabled and available
+    const colorClass = useBrandColors && iconName ? iconColors[iconName] || '' : ''
+    const combinedClassName = `${sizeClasses[size]} ${colorClass} ${className}`.trim()
+
     // Wrap in a span to apply style, as react-icons IconType doesn't accept style prop
     if (style) {
         return (
             <span style={style}>
-                <IconComponent className={className} />
+                <IconComponent className={combinedClassName} />
             </span>
         )
     }
 
-    return <IconComponent className={className} />
+    return <IconComponent className={combinedClassName} />
 }
 /* eslint-enable react-hooks/static-components */

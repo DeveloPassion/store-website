@@ -13,7 +13,7 @@ import {
     FaWrench
 } from 'react-icons/fa'
 import { SiBuymeacoffee } from 'react-icons/si'
-import ToolIcon from '@/components/tools/tool-icon'
+import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import socialsData from '@/data/socials.json'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
@@ -154,9 +154,8 @@ const Footer: React.FC = () => {
                                             to={`/categories/${cat.id}`}
                                             className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                         >
-                                            <ToolIcon
-                                                icon={cat.icon || 'FaFolder'}
-                                                category=''
+                                            <DynamicIcon
+                                                iconName={cat.icon || 'FaFolder'}
                                                 size='sm'
                                             />
                                             {cat.name}
@@ -338,7 +337,7 @@ const Footer: React.FC = () => {
                                         aria-label={social.name}
                                         title={social.name}
                                     >
-                                        <ToolIcon icon={social.icon} category='' size='md' />
+                                        <DynamicIcon iconName={social.icon} size='md' />
                                     </a>
                                 ))}
                             </div>

@@ -280,4 +280,141 @@ describe('DynamicIcon Component', () => {
             expect(svg).toBeTruthy()
         })
     })
+
+    describe('URL and Image Support', () => {
+        it('should render image for HTTP URL', () => {
+            const { container } = render(<DynamicIcon iconName='https://example.com/icon.png' />)
+            const img = container.querySelector('img')
+
+            expect(img).toBeTruthy()
+            expect(img?.getAttribute('src')).toBe('https://example.com/icon.png')
+        })
+
+        it('should render image for local path', () => {
+            const { container } = render(<DynamicIcon iconName='/assets/icon.png' />)
+            const img = container.querySelector('img')
+
+            expect(img).toBeTruthy()
+            expect(img?.getAttribute('src')).toBe('/assets/icon.png')
+        })
+
+        it('should apply size class to image', () => {
+            const { container } = render(<DynamicIcon iconName='/icon.png' size='lg' />)
+            const img = container.querySelector('img')
+
+            expect(img).toBeTruthy()
+            expect(img?.className).toContain('h-8')
+            expect(img?.className).toContain('w-8')
+        })
+
+        it('should apply custom className to image', () => {
+            const { container } = render(
+                <DynamicIcon iconName='/icon.png' className='custom-class' />
+            )
+            const img = container.querySelector('img')
+
+            expect(img).toBeTruthy()
+            expect(img?.classList.contains('custom-class')).toBe(true)
+        })
+    })
+
+    describe('Size Presets', () => {
+        it('should apply sm size class', () => {
+            const { container } = render(<DynamicIcon iconName='FaRobot' size='sm' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('h-4')
+            expect(svg?.className).toContain('w-4')
+        })
+
+        it('should apply md size class by default', () => {
+            const { container } = render(<DynamicIcon iconName='FaRobot' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('h-6')
+            expect(svg?.className).toContain('w-6')
+        })
+
+        it('should apply lg size class', () => {
+            const { container } = render(<DynamicIcon iconName='FaRobot' size='lg' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('h-8')
+            expect(svg?.className).toContain('w-8')
+        })
+
+        it('should apply xl size class', () => {
+            const { container } = render(<DynamicIcon iconName='FaRobot' size='xl' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('h-10')
+            expect(svg?.className).toContain('w-10')
+        })
+    })
+
+    describe('Brand Colors', () => {
+        it('should apply brand color for FaYoutube', () => {
+            const { container } = render(<DynamicIcon iconName='FaYoutube' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('text-red-500')
+        })
+
+        it('should apply brand color for SiObsidian', () => {
+            const { container } = render(<DynamicIcon iconName='SiObsidian' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('text-purple-400')
+        })
+
+        it('should not apply brand color when useBrandColors is false', () => {
+            const { container } = render(
+                <DynamicIcon iconName='FaYoutube' useBrandColors={false} />
+            )
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).not.toContain('text-red-500')
+        })
+
+        it('should combine brand color with custom className', () => {
+            const { container } = render(
+                <DynamicIcon iconName='FaYoutube' className='custom-class' />
+            )
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('text-red-500')
+            expect(svg?.classList.contains('custom-class')).toBe(true)
+        })
+    })
+
+    describe('Combined Features', () => {
+        it('should apply size and brand color together', () => {
+            const { container } = render(<DynamicIcon iconName='FaYoutube' size='lg' />)
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('h-8')
+            expect(svg?.className).toContain('text-red-500')
+        })
+
+        it('should apply size, brand color, and custom className', () => {
+            const { container } = render(
+                <DynamicIcon iconName='FaYoutube' size='sm' className='my-custom-class' />
+            )
+            const svg = container.querySelector('svg')
+
+            expect(svg).toBeTruthy()
+            expect(svg?.className).toContain('h-4')
+            expect(svg?.className).toContain('text-red-500')
+            expect(svg?.classList.contains('my-custom-class')).toBe(true)
+        })
+    })
 })

@@ -12,7 +12,7 @@ Static website built with React 19+, TypeScript, Bun, Tailwind CSS v4, React Rou
 
 ## Icons
 
-Icons can be React-icon names (e.g., `"FaCalendarAlt"`, `"SiObsidian"`) or URLs. Available icons include FontAwesome (Fa*) and Simple Icons (Si*). Add more in `/src/components/tools/tool-icon.tsx`. Falls back to category-based emojis if not found.
+Icons can be React-icon names (e.g., `"FaCalendarAlt"`, `"SiObsidian"`) or URLs. Available icons include FontAwesome (Fa*) and Simple Icons (Si*). Icon registry is in `/src/lib/icon-registry.ts`. Brand colors and size presets are configured in `/src/components/ui/dynamic-icon.tsx`.
 
 ## Meta Tags and Open Graph Images
 
@@ -513,13 +513,6 @@ bun run release                       # Deploy to GitHub Pages
 ## Deployment
 
 Auto-deploy to GitHub Pages on tag push. Run `bun run release` and follow prompts. CHANGELOG.md is auto-generated from conventional commits.
-
-## Key Components
-
-- `ToolCard`: Individual tool cards (grid/list views)
-- `ToolsFilter`: Search, category tabs, filters
-- `CommandPalette`: Global search (`/` or `Ctrl+K`)
-- `ToolDetailModal`: Detailed tool information
 
 ## Accessibility
 
