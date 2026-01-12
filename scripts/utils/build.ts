@@ -8,9 +8,9 @@ import { $ } from 'bun'
 import * as fs from 'fs'
 import * as path from 'path'
 
-const SRC_DIR = path.join(import.meta.dir, '../src')
-const DIST_DIR = path.join(import.meta.dir, '../dist')
-const PUBLIC_DIR = path.join(import.meta.dir, '../public')
+const SRC_DIR = path.join(process.cwd(), 'src')
+const DIST_DIR = path.join(process.cwd(), 'dist')
+const PUBLIC_DIR = path.join(process.cwd(), 'public')
 
 console.log('🚀 Building application with Bun...\n')
 

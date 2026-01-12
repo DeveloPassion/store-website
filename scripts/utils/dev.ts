@@ -8,8 +8,8 @@ import { $ } from 'bun'
 import * as path from 'path'
 import * as fs from 'fs'
 
-const SRC_DIR = path.join(import.meta.dir, '../src')
-const PUBLIC_DIR = path.join(import.meta.dir, '../public')
+const SRC_DIR = path.join(process.cwd(), 'src')
+const PUBLIC_DIR = path.join(process.cwd(), 'public')
 const PORT = 5173
 
 console.log('🚀 Starting development server...\n')
