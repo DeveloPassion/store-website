@@ -4,6 +4,7 @@ import { FaChevronDown } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
 import { cn } from '@/lib/utils'
+import { useAnimationVariants } from '@/hooks/use-animation-variants'
 
 interface ProductFAQProps {
     product: Product
@@ -13,23 +14,13 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
     // FAQs are now included in the product object (loaded from {product-id}-faq.json)
     const faqs = product.faqs || []
 
+    const { containerVariants, itemVariants } = useAnimationVariants({
+        staggerDelay: 0.05,
+        itemYOffset: 10
+    })
+
     if (faqs.length === 0) {
         return null
-    }
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.05
-            }
-        }
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 10 },
-        visible: { opacity: 1, y: 0 }
     }
 
     return (

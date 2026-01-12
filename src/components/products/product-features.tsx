@@ -12,6 +12,7 @@ import {
 import type { IconType } from 'react-icons'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
+import { useAnimationVariants } from '@/hooks/use-animation-variants'
 
 interface ProductFeaturesProps {
     product: Product
@@ -30,20 +31,7 @@ const icons: IconType[] = [
 ]
 
 const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
-    }
+    const { containerVariants, itemVariants } = useAnimationVariants()
 
     return (
         <Section className='border-primary/10 bg-background border-t'>

@@ -458,7 +458,7 @@ const HomeEcommerce: React.FC = () => {
                     </h2>
                     <div className='grid gap-6 sm:grid-cols-3'>
                         <div className='bg-primary/5 rounded-xl p-6'>
-                            <div className='text-secondary mb-3 text-4xl font-bold'>10,000+</div>
+                            <div className='text-secondary mb-3 text-4xl font-bold'>1,000+</div>
                             <div className='font-semibold'>Happy Customers</div>
                         </div>
                         <div className='bg-primary/5 rounded-xl p-6'>

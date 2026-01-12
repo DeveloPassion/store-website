@@ -2,26 +2,16 @@ import { motion } from 'framer-motion'
 import { FaTimesCircle, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
+import { useAnimationVariants } from '@/hooks/use-animation-variants'
 
 interface ProductPASProps {
     product: Product
 }
 
 const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2
-            }
-        }
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
-    }
+    const { containerVariants, itemVariants } = useAnimationVariants({
+        staggerDelay: 0.2
+    })
 
     return (
         <>

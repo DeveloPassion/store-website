@@ -70,7 +70,7 @@
 
 The Obsidian Starter Kit is a comprehensive knowledge system that transforms Obsidian into a complete productivity and learning environment. It combines proven methodologies (PARA, Zettelkasten, Johnny Decimal, GTD) with a battle-tested organization that scales from 10 notes to 10,000+ notes.
 
-Stop wasting hours searching for notes. Start with a system used by 10,000+ knowledge workers.
+Stop wasting hours searching for notes. Start with a system used by 1,000+ knowledge workers.
 
 It's a product created based on 20+ years of knowledge management expertise, including all the structure, templates, plugins, automation rules, and configuration, accompanied by comprehensive documentation.
 
@@ -213,43 +213,9 @@ It's a product created based on 20+ years of knowledge management expertise, inc
 
 ### Stats Proof
 
-- **User Count**: 10,000+ users
+- **User Count**: 1,000+ users
 - **Time Saved**: 100+ hours setup + 10 hours/month ongoing
 - **Rating**: 4.9/5 stars (estimated from reviews)
-
-### Hero Testimonials (User selected: Dwayne + Blake + Michael - Beginner transformation focus)
-
-#### ⭐⭐⭐⭐⭐ "Game Changing"
-
-"The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for keeping track of all the details. The templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool."
-**— Dwayne Appleby**
-
-#### ⭐⭐⭐⭐⭐ "Finally Clicked"
-
-"Finally clicked how awesome Obsidian is! Thanks to your excellent Obsidian Starter Kit!"
-**— Cal Desmond-Pearson** ([@CalSocialHermit](https://x.com/CalSocialHermit/status/1527755690894409728))
-
-#### ⭐⭐⭐⭐⭐ "100% Worth It"
-
-"As someone who has bounced around trying to find the right Knowledge tool, I've realized many of my issues have been related to complexity. The structure, design and explanations in OSK have finally given me the foundation I needed. 100% worth it."
-**— Michael Aaron**
-
-#### ⭐⭐⭐⭐⭐ "1-2 Days to Intermediate Level"
-
-"Starting as an absolute beginner, this kit allowed me to jump to what I feel is an intermediate level of Obsidian understanding and effective note taking in the span of 1-2 days, and I am grateful that I found it."
-**— Blake Holder**
-
-#### ⭐⭐⭐⭐⭐ "Easy, Complete and FANTASTIC!"
-
-"Easy, complete and FANTASTIC!!!"
-**— Miriam G**
-
-#### ⭐⭐⭐⭐⭐ "Must-Have for PKM"
-
-"The Obsidian Starter Kit is an excellent resource for anyone interested in Personal Knowledge Management (PKM) and building their own 'second brain.' A must-have for those looking to take control of their knowledge and productivity!"
-**— Franjo Pehar**
-
-### Additional Testimonials (30+ more available in source note)
 
 ## Media Assets
 
@@ -314,7 +280,7 @@ A: Yes, absolutely. Many consultants, project managers, and knowledge workers us
 - 💰 **30-Day Money-Back Guarantee** - Not satisfied? Full refund, no questions asked.
 - ✅ **Lifetime Updates** - All future versions included
 - 🔒 **Secure Checkout** - Powered by Gumroad
-- 👥 **10,000+ Users** - Battle-tested by thousands
+- 👥 **1,000+ Users** - Battle-tested by thousands
 - ⭐ **4.9/5 Rating** - Highly rated by customers
 - 🎓 **Beginner Friendly** - Start day 1, intermediate by day 2
 
@@ -371,7 +337,7 @@ A: Yes, absolutely. Many consultants, project managers, and knowledge workers us
 ## SEO Metadata
 
 - **Meta Title**: Obsidian Starter Kit - Transform Chaos Into Clarity in 30 Minutes | dSebastien
-- **Meta Description**: Battle-tested Obsidian vault with 40+ templates, pre-configured plugins, and comprehensive PKM guide. Join 10,000+ knowledge workers. 30-day guarantee.
+- **Meta Description**: Battle-tested Obsidian vault with 40+ templates, pre-configured plugins, and comprehensive PKM guide. Join 1,000+ knowledge workers. 30-day guarantee.
 - **Keywords**: obsidian starter kit, obsidian templates, pkm system, personal knowledge management, obsidian vault, zettelkasten, para method, note-taking system, second brain, obsidian plugins
 
 ---
@@ -397,7 +363,7 @@ A: Yes, absolutely. Many consultants, project managers, and knowledge workers us
 - "All future updates free forever - your investment compounds over time"
 - "Evergreen project - continuously improving with new features and content"
 - "One-time payment, lifetime value"
-- "Join 10,000+ knowledge workers already transforming their note-taking"
+- "Join 1,000+ knowledge workers already transforming their note-taking"
 
 **Cross-Sell Section** (at page bottom):
 

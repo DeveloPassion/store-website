@@ -304,7 +304,7 @@ Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegra
 
 - **Creator Credibility**: Built by Sébastien Dubois - 20+ years IT experience, Software Architect, Knowledge Management Expert
 - **Ecosystem**: Part of Knowii Community (thousands of members)
-- **Proven Track Record**: Creator of Obsidian Starter Kit (10,000+ users), Knowledge Worker Kit, Dev Concepts books
+- **Proven Track Record**: Creator of Obsidian Starter Kit (1,000+ users), Knowledge Worker Kit, Dev Concepts books
 - **Early Access Status**: Actively building based on user feedback
 
 ### Testimonials
@@ -404,7 +404,7 @@ A: Part of growing Knowii ecosystem. Voice AI helps capture thoughts faster. Kno
 - 🔒 **Complete Privacy** - Everything runs on your computer, no cloud
 - 💻 **Works Everywhere** - Every application where you can type
 - 🚀 **Early Access** - Help shape development, get lowest price ever
-- 🏆 **Creator Track Record** - Built by Sébastien Dubois (Obsidian Starter Kit: 10,000+ users)
+- 🏆 **Creator Track Record** - Built by Sébastien Dubois (Obsidian Starter Kit: 1,000+ users)
 - 🌍 **No Subscription** - $49 once, own forever
 - ⚡ **GPU Accelerated** - Near-instant transcription with NVIDIA
 
