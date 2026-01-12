@@ -37,7 +37,6 @@
         "update:redirects": "bun scripts/update-redirects.ts",
         "update:taglines": "bun scripts/update-taglines.ts",
         "update:animated-hero-texts": "bun scripts/update-animated-hero-texts.ts",
-        "manage:product-content": "bun scripts/manage-product-content.ts",
         "validate:relationships": "bun scripts/validate-relationships.ts",
         "validate:categories": "bun scripts/validate-categories.ts",
         "validate:tags": "bun scripts/validate-tags.ts",

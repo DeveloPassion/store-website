@@ -114,13 +114,12 @@ bun run update:products -- --operation remove --id product-id --force
 ### Use Direct Editing for:
 - ✅ Complex marketing copy (problemPoints, agitatePoints, solutionPoints)
 - ✅ Adding detailed content (features, benefits, included)
-- ✅ Media management (coverImage, screenshots, videoUrl)
 - ✅ Cross-references (crossSellIds)
 - ✅ SEO metadata (metaTitle, metaDescription, keywords)
 - ✅ Advanced fields (variants, statsProof, guarantees)
 
-**For FAQs and Testimonials:**
-Use the dedicated CLI tool: `bun run manage:product-content`
+**For Media, FAQs, and Testimonials:**
+Use the CLI's integrated management features (see sections below)
 
 ## Schema Documentation
 
@@ -326,46 +325,123 @@ When updating the product schema:
 
 Note: TypeScript types are auto-exported from the schema, no manual sync needed.
 
-## Managing FAQs and Testimonials
+## Managing Media, FAQs, and Testimonials
 
-FAQs and testimonials are managed separately using a dedicated CLI tool:
+Media, FAQs, and testimonials are now integrated into the main products CLI.
 
+### Media Management
+
+Products support rich media organized into five groups: cover, banner, main, secondary, and bonus.
+
+**Interactive Mode:**
 ```bash
-# Via Store CLI (easiest)
-bun run store
-# Then select "📝 Manage Product Content"
-
-# Direct access
-bun run manage:product-content
-
-# CLI mode - specify product and type
-bun run manage:product-content -- --product=product-id --type=faqs
-bun run manage:product-content -- --product=product-id --type=testimonials
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "🖼️ Manage Media"
 ```
 
-### Features
+**CLI Mode:**
+```bash
+# List media
+bun run update:products -- --operation media:list --id product-id
 
-The CLI provides full CRUD operations:
-- 📋 **List** - View all FAQs/testimonials for a product
-- ➕ **Add** - Create new FAQ/testimonial with guided prompts
-- ✏️  **Edit** - Update existing FAQ/testimonial
-- 🗑️  **Delete** - Remove FAQ/testimonial with confirmation
+# Add media
+bun run update:products -- --operation media:add --id product-id \
+    --media-type image \
+    --media-url "/path/image.png" \
+    --media-title "Screenshot" \
+    --media-altText "App screenshot" \
+    --media-group cover
+
+# Edit media
+bun run update:products -- --operation media:edit --id product-id \
+    --media-id "media-123" \
+    --media-title "Updated title"
+
+# Remove media
+bun run update:products -- --operation media:remove --id product-id --media-id "media-123"
+
+# Reorder media
+bun run update:products -- --operation media:reorder --id product-id \
+    --media-id "media-123" \
+    --media-order 5
+```
+
+### FAQ Management
+
+**Interactive Mode:**
+```bash
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "📝💬 Manage Content" → "FAQs"
+```
+
+**CLI Mode:**
+```bash
+# List FAQs
+bun run update:products -- --operation faq:list --id product-id
+
+# Add FAQ
+bun run update:products -- --operation faq:add --id product-id \
+    --faq-question "How does it work?" \
+    --faq-answer "It works great!" \
+    --faq-order 0
+
+# Edit FAQ
+bun run update:products -- --operation faq:edit --id product-id \
+    --faq-id "faq-123" \
+    --faq-question "Updated question"
+
+# Remove FAQ
+bun run update:products -- --operation faq:remove --id product-id --faq-id "faq-123"
+```
+
+### Testimonial Management
+
+**Interactive Mode:**
+```bash
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "📝💬 Manage Content" → "Testimonials"
+```
+
+**CLI Mode:**
+```bash
+# List testimonials
+bun run update:products -- --operation testimonial:list --id product-id
+
+# Add testimonial
+bun run update:products -- --operation testimonial:add --id product-id \
+    --testimonial-author "John Doe" \
+    --testimonial-quote "Amazing product!" \
+    --testimonial-rating 5 \
+    --testimonial-featured true
+
+# Edit testimonial
+bun run update:products -- --operation testimonial:edit --id product-id \
+    --testimonial-id "test-123" \
+    --testimonial-quote "Updated quote"
+
+# Remove testimonial
+bun run update:products -- --operation testimonial:remove --id product-id \
+    --testimonial-id "test-123"
+```
 
 ### Storage
 
 - FAQs: `src/data/products/{product-id}-faq.json`
 - Testimonials: `src/data/products/{product-id}-testimonials.json`
+- Media: Stored in product's `media` array field
 
-These files are automatically loaded during aggregation and attached to products as `faqs` and `testimonials` arrays.
+These files are automatically loaded during aggregation and attached to products.
 
 ### Validation
 
-The CLI validates all changes against Zod schemas before saving:
+All changes are validated against Zod schemas before saving:
 - `src/schemas/faq.schema.ts` - FAQ validation
 - `src/schemas/testimonial.schema.ts` - Testimonial validation
+- `src/schemas/product.schema.ts` - Media validation (MediaItemSchema)
 
 ### Auto-Sorting
 
 Content is automatically sorted when saved:
 - **FAQs**: By `order` field (ascending)
 - **Testimonials**: By `featured` (featured first), then by `rating` (highest first)
+- **Media**: By `group` priority, then by `order` within group

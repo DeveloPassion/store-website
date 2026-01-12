@@ -86,7 +86,7 @@ bun run validate:products             # Validate after changes
 - Taxonomy (3): mainCategory, secondaryCategories, tags
 - Marketing (9): problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
 - Content (8): description, features, benefits, included, testimonialIds, faqIds, targetAudience, perfectFor, notForYou
-- Media (5): coverImage, screenshots, videoUrl, demoUrl
+- Media (1): media (array of MediaItem objects with rich metadata)
 - Meta/Status (8): featured, bestValue, bestseller, status, priority, trustBadges, guarantees, crossSellIds
 - Links (2): landingPageUrl, dsebastienUrl
 - SEO (3): metaTitle, metaDescription, keywords
@@ -195,6 +195,99 @@ Example subscription product structure:
 ```
 
 **Per-Frequency Pricing:** The `prices` object enables accurate savings calculation and dynamic price display in the PaymentFrequencySelector. When a user selects yearly or biennial frequency, the UI automatically calculates and displays the percentage savings compared to monthly pricing.
+
+## Managing Product Media
+
+Products support rich media (images and videos) organized into five groups: **cover**, **banner**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
+
+**Quick Commands:**
+
+```bash
+# Interactive mode (recommended)
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "🖼️ Manage Media"
+
+# CLI mode (for automation/scripts)
+bun run update:products -- --operation media:list --id product-id [--media-group cover]
+bun run update:products -- --operation media:add --id product-id --media-type image --media-url "/path/image.png" --media-title "Screenshot" --media-altText "App screenshot" --media-group cover
+bun run update:products -- --operation media:edit --id product-id --media-id "media-123" --media-title "Updated title"
+bun run update:products -- --operation media:remove --id product-id --media-id "media-123"
+bun run update:products -- --operation media:reorder --id product-id --media-id "media-123" --media-order 5
+```
+
+**Media Item Structure** (13 fields):
+
+- **Required**: id, type, url, title, altText, order, group
+- **Optional**: description, caption, youtubeId, thumbnailUrl, width, height
+
+**Media Types:**
+
+- `image`: Static images (PNG, JPG, WebP, etc.)
+- `video`: YouTube videos (click-to-play, no autoplay)
+
+**Media Groups & Placement:**
+
+- `cover`: Product card thumbnails - optimized for card display (16:9 aspect ratio recommended)
+- `banner`: Hero section images/videos - top of product page, high visual impact
+- `main`: Above "What's Included" section - primary product showcase
+- `secondary`: Below "Benefits You'll Experience" - deeper dive content
+- `bonus`: Below "Ready to Get Started" - additional resources/social proof
+
+**Media Display:**
+
+Each group displays in a mixed-media carousel with:
+
+- Auto-rotation (7 seconds, pauses on hover)
+- Keyboard navigation (Arrow keys)
+- Navigation arrows + dot indicators
+- Lightbox for images (full-screen viewing)
+- YouTube embeds for videos (click-to-play)
+- Captions (optional)
+
+**YouTube Video Support:**
+
+- Automatically extracts video ID from YouTube URLs
+- Supports formats: `youtube.com/watch?v=ID`, `youtu.be/ID`, `youtube.com/embed/ID`
+- Uses `youtube-nocookie.com` domain for privacy
+- Generates high-quality thumbnails automatically
+- Videos require user click to play (no autoplay)
+
+**Example Media Object:**
+
+```json
+{
+    "id": "main-1234567890",
+    "type": "image",
+    "url": "/assets/images/knowii/screenshot-dashboard.png",
+    "title": "Dashboard Overview",
+    "description": "Main dashboard showing knowledge graph visualization",
+    "altText": "Knowii dashboard with interactive knowledge graph",
+    "caption": "Visualize your knowledge connections",
+    "order": 0,
+    "group": "main",
+    "width": 1920,
+    "height": 1080
+}
+```
+
+**Best Practices:**
+
+- Use descriptive titles and alt text for accessibility
+- Keep order sequential within groups (0, 1, 2...)
+- **Cover images**: Use 16:9 aspect ratio, compress to WebP (max 800x450)
+- **Banner images**: High-quality hero images, WebP preferred (max 1920x1080)
+- **Main/secondary/bonus**: Screenshots, demos, tutorials
+- Compress images before upload (WebP preferred)
+- Use high-quality YouTube thumbnails (auto-generated)
+- Add 1-2 cover images, 1-2 banner images for best UX
+
+**Product Card Display:**
+
+Product cards automatically display the first image from the media array with priority: cover → main → secondary → bonus. Cover images are recommended for consistent card thumbnails.
+
+**Open Graph Images:**
+
+The first image from the media array (prioritized by group: cover → banner → main → secondary → bonus) is automatically used for og:image meta tags for social sharing. Cover images are recommended for social cards.
 
 ## Managing Promotion Banner
 
@@ -306,14 +399,27 @@ Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.j
 **Quick Commands:**
 
 ```bash
-bun run manage:product-content        # Interactive (via Store CLI)
-bun run manage:product-content -- --product=<id> --type=faqs|testimonials
+# Interactive mode (recommended)
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "📝💬 Manage Content"
+
+# CLI mode - FAQs
+bun run update:products -- --operation faq:list --id product-id
+bun run update:products -- --operation faq:add --id product-id --faq-question "How does it work?" --faq-answer "It works great!" [--faq-order 0]
+bun run update:products -- --operation faq:edit --id product-id --faq-id "faq-123" --faq-question "Updated question"
+bun run update:products -- --operation faq:remove --id product-id --faq-id "faq-123"
+
+# CLI mode - Testimonials
+bun run update:products -- --operation testimonial:list --id product-id
+bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "John Doe" --testimonial-quote "Amazing product!" --testimonial-rating 5 [--testimonial-featured true]
+bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" --testimonial-quote "Updated quote"
+bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"
 ```
 
 **FAQ Fields**: id, question, answer, order
 **Testimonial Fields**: id, author, rating (1-5), quote, featured, role, company, avatarUrl, twitterHandle, twitterUrl
 
-CLI provides: list, add, edit, delete, auto-sorting, schema validation.
+CLI provides: list, add, edit, remove, auto-sorting, schema validation.
 
 ## Testing Requirements
 

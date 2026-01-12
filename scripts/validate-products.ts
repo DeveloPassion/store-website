@@ -35,7 +35,106 @@ interface ValidationError {
     errors: string[]
 }
 
-function validateIndividualFiles(): { products: Product[]; errors: ValidationError[] } {
+interface MediaValidationWarning {
+    productId: string
+    filename?: string
+    warnings: string[]
+}
+
+/**
+ * Extract YouTube video ID from various URL formats
+ */
+function extractYouTubeId(url: string): string | null {
+    const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/
+    ]
+
+    for (const pattern of patterns) {
+        const match = url.match(pattern)
+        if (match) return match[1]
+    }
+
+    return null
+}
+
+/**
+ * Validate media items for a product
+ * Returns warnings (not errors) for media-specific issues
+ */
+function validateMediaItems(product: Product): string[] {
+    const warnings: string[] = []
+
+    if (!product.media || product.media.length === 0) {
+        return warnings
+    }
+
+    // Check for duplicate media IDs
+    const mediaIds = new Map<string, number>()
+    product.media.forEach((item) => {
+        mediaIds.set(item.id, (mediaIds.get(item.id) || 0) + 1)
+    })
+
+    const duplicateIds = Array.from(mediaIds.entries()).filter(([, count]) => count > 1)
+    if (duplicateIds.length > 0) {
+        warnings.push(`Duplicate media IDs: ${duplicateIds.map(([id]) => id).join(', ')}`)
+    }
+
+    // Check order gaps within groups
+    const groups = new Map<string, number[]>()
+    product.media.forEach((item) => {
+        if (!groups.has(item.group)) {
+            groups.set(item.group, [])
+        }
+        groups.get(item.group)!.push(item.order)
+    })
+
+    groups.forEach((orders, group) => {
+        const sorted = [...orders].sort((a, b) => a - b)
+        for (let i = 1; i < sorted.length; i++) {
+            if (sorted[i] - sorted[i - 1] > 1) {
+                warnings.push(`Order gap in ${group} group: ${sorted[i - 1]} to ${sorted[i]}`)
+                break // Only report first gap per group
+            }
+        }
+    })
+
+    // Validate video-specific fields
+    product.media.forEach((item) => {
+        if (item.type === 'video') {
+            // Check if YouTube ID can be extracted
+            const extractedId = extractYouTubeId(item.url)
+            if (!extractedId && !item.youtubeId) {
+                warnings.push(
+                    `Video "${item.title}" (${item.id}): Cannot extract YouTube ID from URL`
+                )
+            }
+
+            // If youtubeId is provided, verify it matches extracted ID
+            if (item.youtubeId && extractedId && item.youtubeId !== extractedId) {
+                warnings.push(
+                    `Video "${item.title}" (${item.id}): youtubeId mismatch (provided: ${item.youtubeId}, extracted: ${extractedId})`
+                )
+            }
+        }
+
+        if (item.type === 'image') {
+            // Verify images have alt text (schema already requires this, but good to check)
+            if (!item.altText || item.altText.trim().length === 0) {
+                warnings.push(`Image "${item.title}" (${item.id}): Missing or empty alt text`)
+            }
+        }
+    })
+
+    return warnings
+}
+
+function validateIndividualFiles(): {
+    products: Product[]
+    errors: ValidationError[]
+    warnings: MediaValidationWarning[]
+} {
     console.log('📁 Validating individual product files...\n')
 
     const files = readdirSync(PRODUCTS_DIR).filter(
@@ -48,6 +147,7 @@ function validateIndividualFiles(): { products: Product[]; errors: ValidationErr
 
     const products: Product[] = []
     const errors: ValidationError[] = []
+    const warnings: MediaValidationWarning[] = []
 
     files.forEach((file, index) => {
         const filepath = join(PRODUCTS_DIR, file)
@@ -58,7 +158,19 @@ function validateIndividualFiles(): { products: Product[]; errors: ValidationErr
             const result = ProductSchema.safeParse(product)
             if (result.success) {
                 products.push(result.data)
-                console.log(`  ✅ ${file}`)
+
+                // Validate media items
+                const mediaWarnings = validateMediaItems(result.data)
+                if (mediaWarnings.length > 0) {
+                    warnings.push({
+                        productId: result.data.id,
+                        filename: file,
+                        warnings: mediaWarnings
+                    })
+                    console.log(`  ✅ ${file} (⚠️  ${mediaWarnings.length} media warning(s))`)
+                } else {
+                    console.log(`  ✅ ${file}`)
+                }
             } else {
                 let productErrors: string[]
                 if (result.error && result.error.issues) {
@@ -93,7 +205,7 @@ function validateIndividualFiles(): { products: Product[]; errors: ValidationErr
     })
 
     console.log('')
-    return { products, errors }
+    return { products, errors, warnings }
 }
 
 function validateAggregated(products: Product[]): ValidationError[] {
@@ -232,7 +344,7 @@ function main() {
     }
 
     // Validate individual files
-    const { products, errors: individualErrors } = validateIndividualFiles()
+    const { products, errors: individualErrors, warnings } = validateIndividualFiles()
 
     // Validate aggregated result
     const aggregationErrors = validateAggregated(products)
@@ -244,6 +356,19 @@ function main() {
     if (allErrors.length === 0) {
         console.log('✅ All products are valid!\n')
         displaySummary(products)
+
+        // Display media warnings if any
+        if (warnings.length > 0) {
+            console.log('\n⚠️  Media Validation Warnings:')
+            console.log(`Found ${warnings.length} product(s) with media warnings (non-blocking):\n`)
+            warnings.forEach(({ filename, productId, warnings: mediaWarnings }) => {
+                console.log(`⚠️  ${filename || productId}`)
+                mediaWarnings.forEach((warning) => console.log(`     • ${warning}`))
+                console.log('')
+            })
+            console.log('💡 Tip: These are warnings, not errors. Products are still valid.')
+        }
+
         process.exit(0)
     }
 

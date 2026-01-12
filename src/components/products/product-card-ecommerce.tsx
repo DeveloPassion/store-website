@@ -72,17 +72,34 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
             {/* Image Container */}
             <div className='from-secondary/10 relative aspect-[16/9] overflow-hidden bg-gradient-to-br to-purple-500/10'>
                 <Link to={`/l/${product.id}`} className='block h-full w-full'>
-                    {product.coverImage ? (
-                        <img
-                            src={product.coverImage}
-                            alt={product.name}
-                            className='h-full w-full object-cover transition-transform group-hover:scale-105'
-                        />
-                    ) : (
-                        <div className='flex h-full w-full items-center justify-center'>
-                            <span className='text-6xl opacity-30'>📦</span>
-                        </div>
-                    )}
+                    {(() => {
+                        // Get first image from media array (prioritize cover → main → secondary → bonus)
+                        const firstImage = product.media
+                            ?.filter((item) => item.type === 'image')
+                            .sort((a, b) => {
+                                const groupPriority: Record<string, number> = {
+                                    cover: 0, // Highest priority for cards
+                                    main: 1,
+                                    secondary: 2,
+                                    bonus: 3
+                                }
+                                const aPriority = (a?.group && groupPriority[a.group]) ?? 999
+                                const bPriority = (b?.group && groupPriority[b.group]) ?? 999
+                                return aPriority - bPriority || (a?.order ?? 0) - (b?.order ?? 0)
+                            })[0]
+
+                        return firstImage ? (
+                            <img
+                                src={firstImage.url}
+                                alt={firstImage.altText}
+                                className='h-full w-full object-cover transition-transform group-hover:scale-105'
+                            />
+                        ) : (
+                            <div className='flex h-full w-full items-center justify-center'>
+                                <span className='text-6xl opacity-30'>📦</span>
+                            </div>
+                        )
+                    })()}
 
                     {/* Call-to-Action Overlay */}
                     <div className='absolute inset-0 flex items-end justify-end bg-black/40 p-3 opacity-0 transition-opacity group-hover:opacity-100 md:items-center md:justify-center md:p-0'>

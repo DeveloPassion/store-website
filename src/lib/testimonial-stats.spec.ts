@@ -45,6 +45,7 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     trustBadges: [],
     guarantees: [],
     crossSellIds: [],
+    media: [],
     featured: false,
     bestseller: false,
     bestValue: false,

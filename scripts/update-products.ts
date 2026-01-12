@@ -1,47 +1,88 @@
 #!/usr/bin/env bun
 
 /**
- * Interactive CLI tool to manage products
+ * Interactive CLI tool to manage products, media, FAQs, and testimonials
  *
- * This script provides an easy way to manage products (list/add/edit/remove)
- * with interactive prompts featuring keyboard-navigable multi-select interfaces
- * for tags and categories.
+ * This script provides an easy way to manage all product data with interactive prompts
+ * featuring keyboard-navigable multi-select interfaces or via CLI arguments.
  *
  * Usage:
  *   Interactive mode:
- *     npm run update:products
- *     bun scripts/update-products.ts
+ *     bun run update:products
  *
- *   CLI arguments mode:
- *     npm run update:products -- --operation list [--featured] [--status active] [--category guides] [--tag ai] [--format json|table|detailed]
- *     npm run update:products -- --operation add --name "Product Name" --tagline "..." --price 49.99 --priceTier standard --permalink abc123 --gumroadUrl "https://..." --mainCategory guides --tags "tag1,tag2" --problem "..." --agitate "..." --solution "..."
- *     npm run update:products -- --operation edit --id product-id [--name "..."] [--price 49.99] [--priority 95] [--tags "tag1,tag2"]
- *     npm run update:products -- --operation remove --id product-id [--force]
+ *   Product operations:
+ *     bun run update:products -- --operation list [--featured] [--status active] [--category guides] [--tag ai] [--format json|table|detailed]
+ *     bun run update:products -- --operation add --name "Product Name" --tagline "..." --price 49.99 --priceTier standard --permalink abc123 --gumroadUrl "https://..." --mainCategory guides --tags "tag1,tag2"
+ *     bun run update:products -- --operation edit --id product-id [--name "..."] [--price 49.99] [--priority 95]
+ *     bun run update:products -- --operation remove --id product-id [--force]
+ *
+ *   Media operations:
+ *     bun run update:products -- --operation media:list --id product-id [--media-group cover]
+ *     bun run update:products -- --operation media:add --id product-id --media-type image|video --media-url "..." --media-title "..." --media-altText "..." --media-group cover|banner|main|secondary|bonus [--media-description "..."] [--media-caption "..."] [--media-order 0]
+ *     bun run update:products -- --operation media:edit --id product-id --media-id "media-123" [--media-title "..."] [--media-url "..."] [--media-altText "..."]
+ *     bun run update:products -- --operation media:remove --id product-id --media-id "media-123"
+ *     bun run update:products -- --operation media:reorder --id product-id --media-id "media-123" --media-order 5
+ *
+ *   FAQ operations:
+ *     bun run update:products -- --operation faq:list --id product-id
+ *     bun run update:products -- --operation faq:add --id product-id --faq-question "..." --faq-answer "..." [--faq-order 0] [--faq-id "custom-id"]
+ *     bun run update:products -- --operation faq:edit --id product-id --faq-id "faq-123" [--faq-question "..."] [--faq-answer "..."] [--faq-order 1]
+ *     bun run update:products -- --operation faq:remove --id product-id --faq-id "faq-123"
+ *
+ *   Testimonial operations:
+ *     bun run update:products -- --operation testimonial:list --id product-id
+ *     bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "..." --testimonial-quote "..." --testimonial-rating 5 [--testimonial-featured true] [--testimonial-role "..."] [--testimonial-company "..."] [--testimonial-id "custom-id"]
+ *     bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" [--testimonial-author "..."] [--testimonial-quote "..."] [--testimonial-rating 4] [--testimonial-featured false]
+ *     bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"
  *
  * Arguments:
- *   --operation <list|add|edit|remove>  Operation to perform (required for CLI mode)
- *   --id <string>                       Product ID (required for edit/remove)
- *   --name <string>                     Product name
- *   --tagline <string>                  Product tagline
- *   --price <number>                    Price in EUR
- *   --priceTier <string>                Price tier (free/budget/standard/premium/enterprise/subscription)
- *   --permalink <string>                Gumroad permalink code
- *   --gumroadUrl <string>               Full Gumroad URL
- *   --mainCategory <string>             Main category ID
- *   --tags <string>                     Comma-separated tag IDs
- *   --secondaryCategories <string>      Secondary categories format: "id:distant,id:distant"
- *   --featured <true|false>             Featured status
- *   --priority <number>                 Priority (higher = more prominent)
- *   --status <string>                   Status (active/coming-soon/archived)
- *   --problem <string>                  Problem description
- *   --agitate <string>                  Agitation description
- *   --solution <string>                 Solution description
- *   --force                             Force removal even if referenced
- *   --format <json|table|detailed>      Output format (for list only)
+ *   Product:
+ *     --operation <list|add|edit|remove|media:*|faq:*|testimonial:*>
+ *     --id <string>                       Product ID
+ *     --name <string>                     Product name
+ *     --tagline <string>                  Product tagline
+ *     --price <number>                    Price in EUR
+ *     --priceTier <string>                Price tier
+ *     --permalink <string>                Gumroad permalink
+ *     --gumroadUrl <string>               Gumroad URL
+ *     --mainCategory <string>             Main category ID
+ *     --tags <string>                     Comma-separated tag IDs
+ *     --secondaryCategories <string>      Format: "id:distant,id:distant"
+ *     --featured <true|false>             Featured status
+ *     --priority <number>                 Priority
+ *     --status <string>                   Status
+ *     --force                             Force removal
+ *     --format <json|table|detailed>      Output format
+ *
+ *   Media:
+ *     --media-id <string>                 Media item ID
+ *     --media-type <image|video>          Media type
+ *     --media-url <string>                Media URL
+ *     --media-title <string>              Media title
+ *     --media-description <string>        Media description
+ *     --media-altText <string>            Alt text for accessibility
+ *     --media-caption <string>            Display caption
+ *     --media-group <cover|banner|main|secondary|bonus>  Media group
+ *     --media-order <number>              Display order
+ *
+ *   FAQ:
+ *     --faq-id <string>                   FAQ ID
+ *     --faq-question <string>             Question text
+ *     --faq-answer <string>               Answer text
+ *     --faq-order <number>                Display order
+ *
+ *   Testimonial:
+ *     --testimonial-id <string>           Testimonial ID
+ *     --testimonial-author <string>       Author name
+ *     --testimonial-quote <string>        Quote text
+ *     --testimonial-rating <1-5>          Rating
+ *     --testimonial-featured <true|false> Featured status
+ *     --testimonial-role <string>         Author role
+ *     --testimonial-company <string>      Author company
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from 'fs'
-import { resolve, dirname } from 'path'
+import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { createInterface } from 'readline'
 import inquirer from 'inquirer'
@@ -49,14 +90,25 @@ import { select } from '@inquirer/prompts'
 import {
     ProductSchema,
     PriceTierSchema,
-    ProductCategorySchema
+    ProductCategorySchema,
+    MediaItemSchema
 } from '../src/schemas/product.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
 import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
-import type { Product, SecondaryCategory } from '../src/types/product'
+import { FAQsArraySchema } from '../src/schemas/faq.schema.js'
+import { TestimonialsArraySchema } from '../src/schemas/testimonial.schema.js'
+import type {
+    Product,
+    SecondaryCategory,
+    MediaGroup,
+    MediaType,
+    MediaItem
+} from '../src/types/product'
 import type { TagsMap, TagId } from '../src/types/tag'
 import type { Category } from '../src/types/category'
+import type { FAQ } from '../src/types/faq'
+import type { Testimonial } from '../src/types/testimonial'
 
 // ANSI color codes for better UX
 const colors = {
@@ -78,36 +130,675 @@ const TAGS_FILE = resolve(__dirname, '../src/data/tags.json')
 const CATEGORIES_FILE = resolve(__dirname, '../src/data/categories.json')
 
 interface CliArgs {
-    operation?: 'list' | 'add' | 'edit' | 'remove'
-    id?: string
-    name?: string
-    tagline?: string
-    secondaryTagline?: string
-    price?: string
-    priceDisplay?: string
-    priceTier?: string
-    permalink?: string
-    gumroadUrl?: string
-    mainCategory?: string
-    tags?: string // comma-separated
-    secondaryCategories?: string // format: "id:distant,id:distant"
-    featured?: string
-    priority?: string
-    problem?: string
-    agitate?: string
-    solution?: string
-    force?: boolean
+    // Core operations
+    'operation'?: string // Supports: list, add, edit, remove, media:*, faq:*, testimonial:*
+    'id'?: string
+
+    // Product fields
+    'name'?: string
+    'tagline'?: string
+    'secondaryTagline'?: string
+    'price'?: string
+    'priceDisplay'?: string
+    'priceTier'?: string
+    'permalink'?: string
+    'gumroadUrl'?: string
+    'mainCategory'?: string
+    'tags'?: string // comma-separated
+    'secondaryCategories'?: string // format: "id:distant,id:distant"
+    'featured'?: string
+    'priority'?: string
+    'problem'?: string
+    'agitate'?: string
+    'solution'?: string
+    'force'?: boolean
+
     // List filters
-    featured_filter?: boolean
-    category_filter?: string
-    tag_filter?: string
-    format?: 'json' | 'table' | 'detailed'
+    'featured_filter'?: boolean
+    'category_filter'?: string
+    'tag_filter'?: string
+    'format'?: 'json' | 'table' | 'detailed'
+
+    // Media arguments
+    'media-id'?: string
+    'media-type'?: string
+    'media-url'?: string
+    'media-title'?: string
+    'media-description'?: string
+    'media-altText'?: string
+    'media-caption'?: string
+    'media-group'?: string
+    'media-order'?: string
+
+    // FAQ arguments
+    'faq-id'?: string
+    'faq-question'?: string
+    'faq-answer'?: string
+    'faq-order'?: string
+
+    // Testimonial arguments
+    'testimonial-id'?: string
+    'testimonial-author'?: string
+    'testimonial-quote'?: string
+    'testimonial-rating'?: string
+    'testimonial-featured'?: string
+    'testimonial-role'?: string
+    'testimonial-company'?: string
+    'testimonial-twitterHandle'?: string
+    'testimonial-twitterUrl'?: string
+    'testimonial-avatarUrl'?: string
 }
 
 interface ProductReference {
     productId: string
     productName: string
     referenceType: 'crossSell'
+}
+
+// ============================================================================
+// Media Management Utilities
+// ============================================================================
+
+/**
+ * Extract YouTube video ID from various URL formats
+ */
+function extractYouTubeId(url: string): string | null {
+    const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/
+    ]
+
+    for (const pattern of patterns) {
+        const match = url.match(pattern)
+        if (match && match[1]) return match[1]
+    }
+
+    return null
+}
+
+/**
+ * Generate a unique media ID
+ */
+function generateMediaId(group: MediaGroup, existingIds: string[]): string {
+    const timestamp = Date.now()
+    let counter = 0
+    let id = `${group}-${timestamp}`
+
+    while (existingIds.includes(id)) {
+        counter++
+        id = `${group}-${timestamp}-${counter}`
+    }
+
+    return id
+}
+
+/**
+ * Get the next available order number for a media group
+ */
+function getNextOrder(media: MediaItem[], group: MediaGroup): number {
+    const groupMedia = media.filter((item) => item.group === group)
+    if (groupMedia.length === 0) return 0
+
+    const maxOrder = Math.max(...groupMedia.map((item) => item.order))
+    return maxOrder + 1
+}
+
+/**
+ * Add a media item to a product
+ */
+function addMediaToProduct(
+    product: Product,
+    mediaData: {
+        type: MediaType
+        url: string
+        title: string
+        description?: string
+        altText: string
+        caption?: string
+        group: MediaGroup
+        order?: number
+        youtubeId?: string
+        thumbnailUrl?: string
+        width?: number
+        height?: number
+    }
+): Product {
+    const existingMedia = product.media || []
+    const existingIds = existingMedia.map((item) => item.id)
+
+    // Generate ID and determine order
+    const id = generateMediaId(mediaData.group, existingIds)
+    const order = mediaData.order ?? getNextOrder(existingMedia, mediaData.group)
+
+    // For videos, extract YouTube ID if not provided
+    let youtubeId = mediaData.youtubeId
+    if (mediaData.type === 'video' && !youtubeId) {
+        youtubeId = extractYouTubeId(mediaData.url) || undefined
+    }
+
+    const newMediaItem: MediaItem = {
+        id,
+        type: mediaData.type,
+        url: mediaData.url,
+        title: mediaData.title,
+        description: mediaData.description,
+        altText: mediaData.altText,
+        caption: mediaData.caption,
+        order,
+        group: mediaData.group,
+        youtubeId,
+        thumbnailUrl: mediaData.thumbnailUrl,
+        width: mediaData.width,
+        height: mediaData.height
+    }
+
+    // Validate the media item
+    const result = MediaItemSchema.safeParse(newMediaItem)
+    if (!result.success) {
+        throw new Error(`Invalid media item: ${result.error.message}`)
+    }
+
+    return {
+        ...product,
+        media: [...existingMedia, result.data]
+    }
+}
+
+/**
+ * Edit an existing media item in a product
+ */
+function editMediaInProduct(
+    product: Product,
+    mediaId: string,
+    updates: Partial<Omit<MediaItem, 'id'>>
+): Product {
+    const existingMedia = product.media || []
+    const mediaIndex = existingMedia.findIndex((item) => item.id === mediaId)
+
+    if (mediaIndex === -1) {
+        throw new Error(`Media item with ID "${mediaId}" not found`)
+    }
+
+    const existingItem = existingMedia[mediaIndex]
+    const updatedItem: MediaItem = {
+        ...existingItem,
+        ...updates,
+        id: mediaId // Preserve ID
+    }
+
+    // For videos, extract YouTube ID if URL changed and youtubeId not provided
+    if (
+        updatedItem.type === 'video' &&
+        updates.url &&
+        !updates.youtubeId &&
+        !updatedItem.youtubeId
+    ) {
+        updatedItem.youtubeId = extractYouTubeId(updatedItem.url) || undefined
+    }
+
+    // Validate the updated media item
+    const result = MediaItemSchema.safeParse(updatedItem)
+    if (!result.success) {
+        throw new Error(`Invalid media item: ${result.error.message}`)
+    }
+
+    const updatedMedia = [...existingMedia]
+    updatedMedia[mediaIndex] = result.data
+
+    return {
+        ...product,
+        media: updatedMedia
+    }
+}
+
+/**
+ * Remove a media item from a product
+ */
+function removeMediaFromProduct(product: Product, mediaId: string): Product {
+    const existingMedia = product.media || []
+    const mediaIndex = existingMedia.findIndex((item) => item.id === mediaId)
+
+    if (mediaIndex === -1) {
+        throw new Error(`Media item with ID "${mediaId}" not found`)
+    }
+
+    const updatedMedia = existingMedia.filter((item) => item.id !== mediaId)
+
+    return {
+        ...product,
+        media: updatedMedia
+    }
+}
+
+/**
+ * List media items in a product (optionally filtered by group)
+ */
+function listMediaInProduct(product: Product, group?: MediaGroup): MediaItem[] {
+    const media = product.media || []
+
+    if (group) {
+        return media.filter((item) => item.group === group).sort((a, b) => a.order - b.order)
+    }
+
+    return media.sort((a, b) => {
+        const groupPriority: Record<MediaGroup, number> = {
+            cover: 0,
+            banner: 1,
+            main: 2,
+            secondary: 3,
+            bonus: 4
+        }
+        return groupPriority[a.group] - groupPriority[b.group] || a.order - b.order
+    })
+}
+
+/**
+ * Reorder a media item within its group
+ */
+function reorderMediaInProduct(product: Product, mediaId: string, newOrder: number): Product {
+    const existingMedia = product.media || []
+    const mediaItem = existingMedia.find((item) => item.id === mediaId)
+
+    if (!mediaItem) {
+        throw new Error(`Media item with ID "${mediaId}" not found`)
+    }
+
+    // Update the order
+    const updatedMedia = existingMedia.map((item) => {
+        if (item.id === mediaId) {
+            return { ...item, order: newOrder }
+        }
+        return item
+    })
+
+    return {
+        ...product,
+        media: updatedMedia
+    }
+}
+
+/**
+ * Display media items in a formatted table
+ */
+function formatMediaList(mediaItems: MediaItem[]): string {
+    if (mediaItems.length === 0) {
+        return 'No media items found.'
+    }
+
+    const rows = mediaItems.map((item) => {
+        const typeIcon = item.type === 'video' ? '🎥' : '🖼️'
+        const groupBadge = {
+            cover: '🖼️',
+            banner: '🎨',
+            main: '⭐',
+            secondary: '📌',
+            bonus: '🎁'
+        }[item.group]
+
+        return [
+            item.id,
+            `${typeIcon} ${item.type}`,
+            `${groupBadge} ${item.group}`,
+            item.order.toString(),
+            item.title,
+            item.url.length > 40 ? item.url.substring(0, 37) + '...' : item.url
+        ]
+    })
+
+    const headers = ['ID', 'Type', 'Group', 'Order', 'Title', 'URL']
+    const columnWidths = headers.map((header, i) =>
+        Math.max(header.length, ...rows.map((row) => row[i]?.length || 0))
+    )
+
+    const separator = columnWidths.map((width) => '-'.repeat(width + 2)).join('+')
+    const headerRow = headers.map((header, i) => header.padEnd(columnWidths[i])).join(' | ')
+
+    const dataRows = rows
+        .map((row) => row.map((cell, i) => cell.padEnd(columnWidths[i])).join(' | '))
+        .join('\n')
+
+    return `${headerRow}\n${separator}\n${dataRows}`
+}
+
+// ============================================================================
+// Content Management Utilities (FAQs & Testimonials)
+// ============================================================================
+
+/**
+ * Generate a random alphanumeric string
+ */
+function generateRandomString(length: number = 8): string {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    let result = ''
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length))
+    }
+    return result
+}
+
+/**
+ * Generate FAQ ID with product prefix
+ */
+function generateFaqId(productId: string): string {
+    return `${productId}-faq-${generateRandomString(8)}`
+}
+
+/**
+ * Generate testimonial ID with product prefix
+ */
+function generateTestimonialId(productId: string): string {
+    return `${productId}-testimonial-${generateRandomString(8)}`
+}
+
+function getFaqPath(productsDir: string, productId: string): string {
+    return join(productsDir, `${productId}-faq.json`)
+}
+
+function loadFaqs(productsDir: string, productId: string): FAQ[] {
+    const faqPath = getFaqPath(productsDir, productId)
+    if (!existsSync(faqPath)) {
+        return []
+    }
+
+    try {
+        const content = readFileSync(faqPath, 'utf-8')
+        const faqs = JSON.parse(content)
+        const result = FAQsArraySchema.safeParse(faqs)
+
+        if (!result.success) {
+            throw new Error(`Invalid FAQ data: ${result.error.message}`)
+        }
+
+        return result.data
+    } catch (error) {
+        throw new Error(
+            `Failed to load FAQs: ${error instanceof Error ? error.message : String(error)}`
+        )
+    }
+}
+
+function saveFaqs(productsDir: string, productId: string, faqs: FAQ[]): void {
+    const faqPath = getFaqPath(productsDir, productId)
+
+    // Validate before saving
+    const result = FAQsArraySchema.safeParse(faqs)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error.message}`)
+    }
+
+    // Sort by order
+    const sorted = [...faqs].sort((a, b) => a.order - b.order)
+
+    const json = JSON.stringify(sorted, null, 4)
+    writeFileSync(faqPath, json + '\n', 'utf-8')
+}
+
+function addFaqToProduct(
+    productsDir: string,
+    productId: string,
+    faqData: Omit<FAQ, 'id'> & { id?: string }
+): FAQ {
+    const faqs = loadFaqs(productsDir, productId)
+
+    const id = faqData.id || generateFaqId(productId)
+
+    // Check if ID already exists
+    if (faqs.some((f) => f.id === id)) {
+        throw new Error(`FAQ with ID "${id}" already exists`)
+    }
+
+    const newFaq: FAQ = {
+        id,
+        question: faqData.question,
+        answer: faqData.answer,
+        order: faqData.order
+    }
+
+    faqs.push(newFaq)
+    saveFaqs(productsDir, productId, faqs)
+
+    return newFaq
+}
+
+function editFaqInProduct(
+    productsDir: string,
+    productId: string,
+    faqId: string,
+    updates: Partial<Omit<FAQ, 'id'>>
+): FAQ {
+    const faqs = loadFaqs(productsDir, productId)
+    const faqIndex = faqs.findIndex((f) => f.id === faqId)
+
+    if (faqIndex === -1) {
+        throw new Error(`FAQ with ID "${faqId}" not found`)
+    }
+
+    const updatedFaq: FAQ = {
+        ...faqs[faqIndex],
+        ...updates,
+        id: faqId // Preserve ID
+    }
+
+    faqs[faqIndex] = updatedFaq
+    saveFaqs(productsDir, productId, faqs)
+
+    return updatedFaq
+}
+
+function removeFaqFromProduct(productsDir: string, productId: string, faqId: string): void {
+    const faqs = loadFaqs(productsDir, productId)
+    const filtered = faqs.filter((f) => f.id !== faqId)
+
+    if (filtered.length === faqs.length) {
+        throw new Error(`FAQ with ID "${faqId}" not found`)
+    }
+
+    saveFaqs(productsDir, productId, filtered)
+}
+
+function listFaqsInProduct(productsDir: string, productId: string): FAQ[] {
+    return loadFaqs(productsDir, productId).sort((a, b) => a.order - b.order)
+}
+
+function getTestimonialPath(productsDir: string, productId: string): string {
+    return join(productsDir, `${productId}-testimonials.json`)
+}
+
+function loadTestimonials(productsDir: string, productId: string): Testimonial[] {
+    const testimonialPath = getTestimonialPath(productsDir, productId)
+    if (!existsSync(testimonialPath)) {
+        return []
+    }
+
+    try {
+        const content = readFileSync(testimonialPath, 'utf-8')
+        const testimonials = JSON.parse(content)
+        const result = TestimonialsArraySchema.safeParse(testimonials)
+
+        if (!result.success) {
+            throw new Error(`Invalid testimonial data: ${result.error.message}`)
+        }
+
+        return result.data
+    } catch (error) {
+        throw new Error(
+            `Failed to load testimonials: ${error instanceof Error ? error.message : String(error)}`
+        )
+    }
+}
+
+function saveTestimonials(
+    productsDir: string,
+    productId: string,
+    testimonials: Testimonial[]
+): void {
+    const testimonialPath = getTestimonialPath(productsDir, productId)
+
+    // Validate before saving
+    const result = TestimonialsArraySchema.safeParse(testimonials)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error.message}`)
+    }
+
+    // Sort by featured (featured first), then by rating
+    const sorted = [...testimonials].sort((a, b) => {
+        if (a.featured !== b.featured) return a.featured ? -1 : 1
+        return b.rating - a.rating
+    })
+
+    const json = JSON.stringify(sorted, null, 4)
+    writeFileSync(testimonialPath, json + '\n', 'utf-8')
+}
+
+function addTestimonialToProduct(
+    productsDir: string,
+    productId: string,
+    testimonialData: Omit<Testimonial, 'id'> & { id?: string }
+): Testimonial {
+    const testimonials = loadTestimonials(productsDir, productId)
+
+    const id = testimonialData.id || generateTestimonialId(productId)
+
+    // Check if ID already exists
+    if (testimonials.some((t) => t.id === id)) {
+        throw new Error(`Testimonial with ID "${id}" already exists`)
+    }
+
+    const newTestimonial: Testimonial = {
+        id,
+        author: testimonialData.author,
+        rating: testimonialData.rating,
+        quote: testimonialData.quote,
+        featured: testimonialData.featured,
+        role: testimonialData.role,
+        company: testimonialData.company,
+        avatarUrl: testimonialData.avatarUrl,
+        twitterHandle: testimonialData.twitterHandle,
+        twitterUrl: testimonialData.twitterUrl
+    }
+
+    testimonials.push(newTestimonial)
+    saveTestimonials(productsDir, productId, testimonials)
+
+    return newTestimonial
+}
+
+function editTestimonialInProduct(
+    productsDir: string,
+    productId: string,
+    testimonialId: string,
+    updates: Partial<Omit<Testimonial, 'id'>>
+): Testimonial {
+    const testimonials = loadTestimonials(productsDir, productId)
+    const testimonialIndex = testimonials.findIndex((t) => t.id === testimonialId)
+
+    if (testimonialIndex === -1) {
+        throw new Error(`Testimonial with ID "${testimonialId}" not found`)
+    }
+
+    const updatedTestimonial: Testimonial = {
+        ...testimonials[testimonialIndex],
+        ...updates,
+        id: testimonialId // Preserve ID
+    }
+
+    testimonials[testimonialIndex] = updatedTestimonial
+    saveTestimonials(productsDir, productId, testimonials)
+
+    return updatedTestimonial
+}
+
+function removeTestimonialFromProduct(
+    productsDir: string,
+    productId: string,
+    testimonialId: string
+): void {
+    const testimonials = loadTestimonials(productsDir, productId)
+    const filtered = testimonials.filter((t) => t.id !== testimonialId)
+
+    if (filtered.length === testimonials.length) {
+        throw new Error(`Testimonial with ID "${testimonialId}" not found`)
+    }
+
+    saveTestimonials(productsDir, productId, filtered)
+}
+
+function listTestimonialsInProduct(productsDir: string, productId: string): Testimonial[] {
+    const testimonials = loadTestimonials(productsDir, productId)
+    // Sort by featured (featured first), then by rating
+    return testimonials.sort((a, b) => {
+        if (a.featured !== b.featured) return a.featured ? -1 : 1
+        return b.rating - a.rating
+    })
+}
+
+function formatFaqList(faqs: FAQ[]): string {
+    if (faqs.length === 0) {
+        return 'No FAQs found.'
+    }
+
+    const rows = faqs.map((faq) => {
+        const truncatedAnswer =
+            faq.answer.length > 60 ? faq.answer.substring(0, 57) + '...' : faq.answer
+
+        return [faq.order.toString(), faq.id, faq.question, truncatedAnswer]
+    })
+
+    const headers = ['Order', 'ID', 'Question', 'Answer']
+    const columnWidths = headers.map((header, i) =>
+        Math.max(header.length, ...rows.map((row) => row[i]?.length || 0))
+    )
+
+    const separator = columnWidths.map((width) => '─'.repeat(width + 2)).join('┼')
+    const headerRow = headers.map((header, i) => header.padEnd(columnWidths[i])).join(' │ ')
+
+    const dataRows = rows
+        .map((row) => row.map((cell, i) => cell.padEnd(columnWidths[i])).join(' │ '))
+        .join('\n')
+
+    return `${headerRow}\n${separator}\n${dataRows}`
+}
+
+function formatTestimonialList(testimonials: Testimonial[]): string {
+    if (testimonials.length === 0) {
+        return 'No testimonials found.'
+    }
+
+    const rows = testimonials.map((testimonial) => {
+        const featuredMark = testimonial.featured ? '⭐' : '  '
+        const truncatedQuote =
+            testimonial.quote.length > 50
+                ? testimonial.quote.substring(0, 47) + '...'
+                : testimonial.quote
+        const authorInfo =
+            testimonial.role || testimonial.company
+                ? `${testimonial.role || ''}${testimonial.role && testimonial.company ? ' at ' : ''}${testimonial.company || ''}`
+                : ''
+
+        return [
+            featuredMark,
+            testimonial.id,
+            testimonial.author,
+            `${testimonial.rating}/5`,
+            truncatedQuote,
+            authorInfo
+        ]
+    })
+
+    const headers = ['★', 'ID', 'Author', 'Rating', 'Quote', 'Info']
+    const columnWidths = headers.map((header, i) =>
+        Math.max(header.length, ...rows.map((row) => row[i]?.length || 0))
+    )
+
+    const separator = columnWidths.map((width) => '─'.repeat(width + 2)).join('┼')
+    const headerRow = headers.map((header, i) => header.padEnd(columnWidths[i])).join(' │ ')
+
+    const dataRows = rows
+        .map((row) => row.map((cell, i) => cell.padEnd(columnWidths[i])).join(' │ '))
+        .join('\n')
+
+    return `${headerRow}\n${separator}\n${dataRows}`
 }
 
 // ============================================================================
@@ -1063,12 +1754,14 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     { name: '💰 Edit Pricing', value: 'pricing' },
                     { name: '🏷️ Edit Taxonomy', value: 'taxonomy' },
                     { name: '⚙️ Edit Meta/Status', value: 'meta' },
+                    { name: '🖼️ Manage Media', value: 'media' },
+                    { name: '📝 Manage Content (FAQs & Testimonials)', value: 'content' },
                     { name: '🔍 View Current Details', value: 'view' },
                     { name: '📊 View Changes Summary', value: 'changes' },
                     { name: '💾 Save and Exit', value: 'save' },
                     { name: '❌ Cancel (Discard Changes)', value: 'cancel' }
                 ],
-                pageSize: 12
+                pageSize: 13
             })
 
             switch (action) {
@@ -1083,6 +1776,12 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     break
                 case 'meta':
                     await editMeta(product)
+                    break
+                case 'media':
+                    await manageProductMedia(product)
+                    break
+                case 'content':
+                    await manageProductContent(product)
                     break
                 case 'view':
                     showProductDetails(product)
@@ -1464,6 +2163,700 @@ async function editMeta(product: Product): Promise<void> {
     }
 
     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Manage product media (interactive submenu)
+ */
+async function manageProductMedia(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        const mediaCount = product.media?.length || 0
+
+        const action = await select({
+            message: `Media Management (${mediaCount} total):`,
+            choices: [
+                { name: `📋 List all media (${mediaCount} items)`, value: 'list' },
+                { name: '➕ Add new media', value: 'add' },
+                { name: '✏️ Edit media item', value: 'edit' },
+                { name: '🗑️ Remove media item', value: 'remove' },
+                { name: '🔄 Reorder media item', value: 'reorder' },
+                { name: '← Back to edit menu', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'list': {
+                    const mediaItems = listMediaInProduct(product)
+                    console.log(
+                        `\n📦 Media for product: ${product.name} ${colors.dim}(${product.id})${colors.reset}`
+                    )
+                    console.log(`   Total: ${mediaItems.length} item(s)\n`)
+
+                    if (mediaItems.length > 0) {
+                        console.log(formatMediaList(mediaItems))
+                    } else {
+                        console.log(colors.dim + '   No media items found' + colors.reset)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'add': {
+                    const type = (await select({
+                        message: 'Media type:',
+                        choices: [
+                            { name: '🖼️  Image', value: 'image' },
+                            { name: '🎥 Video (YouTube)', value: 'video' }
+                        ]
+                    })) as MediaType
+
+                    const group = (await select({
+                        message: 'Media group:',
+                        choices: [
+                            { name: '🖼️  Cover (product card thumbnails)', value: 'cover' },
+                            { name: '🎨 Banner (hero section)', value: 'banner' },
+                            { name: "⭐ Main (above What's Included)", value: 'main' },
+                            { name: '📌 Secondary (below Benefits)', value: 'secondary' },
+                            { name: '🎁 Bonus (below Ready to Get Started)', value: 'bonus' }
+                        ]
+                    })) as MediaGroup
+
+                    const url = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'url',
+                                message: 'Media URL:',
+                                validate: (input) => input.trim().length > 0 || 'URL is required'
+                            }
+                        ])
+                        .then((answers) => answers.url)
+
+                    const title = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'title',
+                                message: 'Title:',
+                                validate: (input) => input.trim().length > 0 || 'Title is required'
+                            }
+                        ])
+                        .then((answers) => answers.title)
+
+                    const altText = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'altText',
+                                message: 'Alt text (accessibility):',
+                                validate: (input) =>
+                                    input.trim().length > 0 || 'Alt text is required'
+                            }
+                        ])
+                        .then((answers) => answers.altText)
+
+                    const description = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'description',
+                                message: 'Description (optional):'
+                            }
+                        ])
+                        .then((answers) => answers.description || undefined)
+
+                    const caption = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'caption',
+                                message: 'Caption (optional):'
+                            }
+                        ])
+                        .then((answers) => answers.caption || undefined)
+
+                    const updatedProduct = addMediaToProduct(product, {
+                        type,
+                        group,
+                        url,
+                        title,
+                        altText,
+                        description,
+                        caption
+                    })
+
+                    // Update the product reference
+                    product.media = updatedProduct.media
+                    trackChange('media', 'added', `${type} to ${group} group`)
+                    showSuccess(`Media added to ${group} group`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'edit': {
+                    const mediaItems = listMediaInProduct(product)
+                    if (mediaItems.length === 0) {
+                        showError('No media items found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const mediaId = await select({
+                        message: 'Select media item to edit:',
+                        choices: mediaItems.map((item) => ({
+                            name: `${item.type === 'video' ? '🎥' : '🖼️'} ${item.title} (${item.group})`,
+                            value: item.id
+                        }))
+                    })
+
+                    const currentMedia = mediaItems.find((m) => m.id === mediaId)!
+
+                    const title = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'title',
+                                message: 'Title:',
+                                default: currentMedia.title
+                            }
+                        ])
+                        .then((answers) => answers.title)
+
+                    const altText = await inquirer
+                        .prompt([
+                            {
+                                type: 'input',
+                                name: 'altText',
+                                message: 'Alt text:',
+                                default: currentMedia.altText
+                            }
+                        ])
+                        .then((answers) => answers.altText)
+
+                    const updatedProduct = editMediaInProduct(product, mediaId, { title, altText })
+                    product.media = updatedProduct.media
+                    trackChange('media', 'edited', mediaId)
+                    showSuccess(`Media item ${mediaId} updated`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'remove': {
+                    const mediaItems = listMediaInProduct(product)
+                    if (mediaItems.length === 0) {
+                        showError('No media items found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const mediaId = await select({
+                        message: 'Select media item to remove:',
+                        choices: mediaItems.map((item) => ({
+                            name: `${item.type === 'video' ? '🎥' : '🖼️'} ${item.title} (${item.group})`,
+                            value: item.id
+                        }))
+                    })
+
+                    const confirmed = await confirm(
+                        `${colors.red}Confirm removal of media item?${colors.reset}`
+                    )
+                    if (confirmed) {
+                        const updatedProduct = removeMediaFromProduct(product, mediaId)
+                        product.media = updatedProduct.media
+                        trackChange('media', 'removed', mediaId)
+                        showSuccess(`Media item ${mediaId} removed`)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'reorder': {
+                    const mediaItems = listMediaInProduct(product)
+                    if (mediaItems.length === 0) {
+                        showError('No media items found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const mediaId = await select({
+                        message: 'Select media item to reorder:',
+                        choices: mediaItems.map((item) => ({
+                            name: `${item.type === 'video' ? '🎥' : '🖼️'} ${item.title} (order: ${item.order}, group: ${item.group})`,
+                            value: item.id
+                        }))
+                    })
+
+                    const newOrder = await inquirer
+                        .prompt([
+                            {
+                                type: 'number',
+                                name: 'order',
+                                message: 'New order (0-based):',
+                                default: 0,
+                                validate: (input) => input >= 0 || 'Order must be non-negative'
+                            }
+                        ])
+                        .then((answers) => answers.order)
+
+                    const updatedProduct = reorderMediaInProduct(product, mediaId, newOrder)
+                    product.media = updatedProduct.media
+                    trackChange('media', 'reordered', `${mediaId} to position ${newOrder}`)
+                    showSuccess(`Media item ${mediaId} reordered to position ${newOrder}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Manage product content (FAQs and testimonials) - interactive submenu
+ */
+async function manageProductContent(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        const faqCount = listFaqsInProduct(PRODUCTS_DIR, product.id).length
+        const testimonialCount = listTestimonialsInProduct(PRODUCTS_DIR, product.id).length
+
+        const contentType = await select({
+            message: `Content Management (${faqCount} FAQs, ${testimonialCount} Testimonials):`,
+            choices: [
+                { name: `📝 Manage FAQs (${faqCount} items)`, value: 'faqs' },
+                {
+                    name: `💬 Manage Testimonials (${testimonialCount} items)`,
+                    value: 'testimonials'
+                },
+                { name: '← Back to edit menu', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (contentType === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            if (contentType === 'faqs') {
+                await manageFaqs(product)
+            } else if (contentType === 'testimonials') {
+                await manageTestimonials(product)
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Manage FAQs for a product
+ */
+async function manageFaqs(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        const faqs = listFaqsInProduct(PRODUCTS_DIR, product.id)
+
+        const action = await select({
+            message: `FAQ Management (${faqs.length} total):`,
+            choices: [
+                { name: `📋 List all FAQs (${faqs.length} items)`, value: 'list' },
+                { name: '➕ Add new FAQ', value: 'add' },
+                { name: '✏️ Edit FAQ', value: 'edit' },
+                { name: '🗑️ Remove FAQ', value: 'remove' },
+                { name: '← Back', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'list': {
+                    console.log(
+                        `\n📝 FAQs for product: ${product.name} ${colors.dim}(${product.id})${colors.reset}`
+                    )
+                    console.log(`   Total: ${faqs.length} item(s)\n`)
+
+                    if (faqs.length > 0) {
+                        console.log(formatFaqList(faqs))
+                    } else {
+                        console.log(colors.dim + '   No FAQs found' + colors.reset)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'add': {
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'id',
+                            message: 'FAQ ID:',
+                            default: generateFaqId(product.id),
+                            validate: (input) => {
+                                if (!input) return 'ID is required'
+                                if (faqs.some((f) => f.id === input)) return 'ID already exists'
+                                return true
+                            }
+                        },
+                        {
+                            type: 'input',
+                            name: 'question',
+                            message: 'Question:',
+                            validate: (input) => (input ? true : 'Question is required')
+                        },
+                        {
+                            type: 'input',
+                            name: 'answer',
+                            message: 'Answer:',
+                            validate: (input) => (input ? true : 'Answer is required')
+                        },
+                        {
+                            type: 'number',
+                            name: 'order',
+                            message: 'Display order:',
+                            default: faqs.length
+                        }
+                    ])
+
+                    const newFaq = addFaqToProduct(PRODUCTS_DIR, product.id, {
+                        id: answers.id,
+                        question: answers.question,
+                        answer: answers.answer,
+                        order: answers.order
+                    })
+
+                    showSuccess(`FAQ added: ${newFaq.id}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'edit': {
+                    if (faqs.length === 0) {
+                        showError('No FAQs found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const faqId = await select({
+                        message: 'Select FAQ to edit:',
+                        choices: faqs.map((faq) => ({
+                            name: `[${faq.order}] ${faq.question}`,
+                            value: faq.id
+                        }))
+                    })
+
+                    const currentFaq = faqs.find((f) => f.id === faqId)!
+
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'question',
+                            message: 'Question:',
+                            default: currentFaq.question
+                        },
+                        {
+                            type: 'input',
+                            name: 'answer',
+                            message: 'Answer:',
+                            default: currentFaq.answer
+                        },
+                        {
+                            type: 'number',
+                            name: 'order',
+                            message: 'Display order:',
+                            default: currentFaq.order
+                        }
+                    ])
+
+                    editFaqInProduct(PRODUCTS_DIR, product.id, faqId, answers)
+                    showSuccess(`FAQ updated: ${faqId}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'remove': {
+                    if (faqs.length === 0) {
+                        showError('No FAQs found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const faqId = await select({
+                        message: 'Select FAQ to remove:',
+                        choices: faqs.map((faq) => ({
+                            name: `[${faq.order}] ${faq.question}`,
+                            value: faq.id
+                        }))
+                    })
+
+                    const confirmed = await confirm(
+                        `${colors.red}Confirm removal of FAQ?${colors.reset}`
+                    )
+                    if (confirmed) {
+                        removeFaqFromProduct(PRODUCTS_DIR, product.id, faqId)
+                        showSuccess(`FAQ removed: ${faqId}`)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Manage testimonials for a product
+ */
+async function manageTestimonials(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        const testimonials = listTestimonialsInProduct(PRODUCTS_DIR, product.id)
+
+        const action = await select({
+            message: `Testimonial Management (${testimonials.length} total):`,
+            choices: [
+                { name: `📋 List all testimonials (${testimonials.length} items)`, value: 'list' },
+                { name: '➕ Add new testimonial', value: 'add' },
+                { name: '✏️ Edit testimonial', value: 'edit' },
+                { name: '🗑️ Remove testimonial', value: 'remove' },
+                { name: '← Back', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'list': {
+                    console.log(
+                        `\n💬 Testimonials for product: ${product.name} ${colors.dim}(${product.id})${colors.reset}`
+                    )
+                    console.log(`   Total: ${testimonials.length} item(s)\n`)
+
+                    if (testimonials.length > 0) {
+                        console.log(formatTestimonialList(testimonials))
+                    } else {
+                        console.log(colors.dim + '   No testimonials found' + colors.reset)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'add': {
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'id',
+                            message: 'Testimonial ID:',
+                            default: generateTestimonialId(product.id),
+                            validate: (input) => {
+                                if (!input) return 'ID is required'
+                                if (testimonials.some((t) => t.id === input))
+                                    return 'ID already exists'
+                                return true
+                            }
+                        },
+                        {
+                            type: 'input',
+                            name: 'author',
+                            message: 'Author name:',
+                            validate: (input) => (input ? true : 'Author is required')
+                        },
+                        {
+                            type: 'input',
+                            name: 'role',
+                            message: 'Role (optional):'
+                        },
+                        {
+                            type: 'input',
+                            name: 'company',
+                            message: 'Company (optional):'
+                        },
+                        {
+                            type: 'input',
+                            name: 'twitterHandle',
+                            message: 'Twitter handle (optional, without @):'
+                        },
+                        {
+                            type: 'input',
+                            name: 'twitterUrl',
+                            message: 'Twitter URL (optional):'
+                        },
+                        {
+                            type: 'number',
+                            name: 'rating',
+                            message: 'Rating (1-5):',
+                            default: 5,
+                            validate: (input) => {
+                                const num = Number(input)
+                                if (num < 1 || num > 5) return 'Rating must be between 1 and 5'
+                                return true
+                            }
+                        },
+                        {
+                            type: 'input',
+                            name: 'quote',
+                            message: 'Quote:',
+                            validate: (input) => (input ? true : 'Quote is required')
+                        },
+                        {
+                            type: 'confirm',
+                            name: 'featured',
+                            message: 'Featured?',
+                            default: false
+                        }
+                    ])
+
+                    const newTestimonial = addTestimonialToProduct(PRODUCTS_DIR, product.id, {
+                        id: answers.id,
+                        author: answers.author,
+                        rating: answers.rating,
+                        quote: answers.quote,
+                        featured: answers.featured,
+                        role: answers.role || undefined,
+                        company: answers.company || undefined,
+                        twitterHandle: answers.twitterHandle || undefined,
+                        twitterUrl: answers.twitterUrl || undefined
+                    })
+
+                    showSuccess(`Testimonial added: ${newTestimonial.id}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'edit': {
+                    if (testimonials.length === 0) {
+                        showError('No testimonials found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const testimonialId = await select({
+                        message: 'Select testimonial to edit:',
+                        choices: testimonials.map((t) => ({
+                            name: `${t.author} (${t.rating}/5) - "${t.quote.substring(0, 50)}..."`,
+                            value: t.id
+                        }))
+                    })
+
+                    const currentTestimonial = testimonials.find((t) => t.id === testimonialId)!
+
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'author',
+                            message: 'Author name:',
+                            default: currentTestimonial.author
+                        },
+                        {
+                            type: 'input',
+                            name: 'role',
+                            message: 'Role (optional):',
+                            default: currentTestimonial.role || ''
+                        },
+                        {
+                            type: 'input',
+                            name: 'company',
+                            message: 'Company (optional):',
+                            default: currentTestimonial.company || ''
+                        },
+                        {
+                            type: 'input',
+                            name: 'twitterHandle',
+                            message: 'Twitter handle (optional):',
+                            default: currentTestimonial.twitterHandle || ''
+                        },
+                        {
+                            type: 'input',
+                            name: 'twitterUrl',
+                            message: 'Twitter URL (optional):',
+                            default: currentTestimonial.twitterUrl || ''
+                        },
+                        {
+                            type: 'number',
+                            name: 'rating',
+                            message: 'Rating (1-5):',
+                            default: currentTestimonial.rating
+                        },
+                        {
+                            type: 'input',
+                            name: 'quote',
+                            message: 'Quote:',
+                            default: currentTestimonial.quote
+                        },
+                        {
+                            type: 'confirm',
+                            name: 'featured',
+                            message: 'Featured?',
+                            default: currentTestimonial.featured
+                        }
+                    ])
+
+                    editTestimonialInProduct(PRODUCTS_DIR, product.id, testimonialId, {
+                        author: answers.author,
+                        rating: answers.rating,
+                        quote: answers.quote,
+                        featured: answers.featured,
+                        role: answers.role || undefined,
+                        company: answers.company || undefined,
+                        twitterHandle: answers.twitterHandle || undefined,
+                        twitterUrl: answers.twitterUrl || undefined
+                    })
+                    showSuccess(`Testimonial updated: ${testimonialId}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'remove': {
+                    if (testimonials.length === 0) {
+                        showError('No testimonials found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const testimonialId = await select({
+                        message: 'Select testimonial to remove:',
+                        choices: testimonials.map((t) => ({
+                            name: `${t.author} - "${t.quote.substring(0, 50)}..."`,
+                            value: t.id
+                        }))
+                    })
+
+                    const confirmed = await confirm(
+                        `${colors.red}Confirm removal of testimonial?${colors.reset}`
+                    )
+                    if (confirmed) {
+                        removeTestimonialFromProduct(PRODUCTS_DIR, product.id, testimonialId)
+                        showSuccess(`Testimonial removed: ${testimonialId}`)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
 }
 
 /**

@@ -4,7 +4,7 @@ import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductHero from '@/components/products/product-hero'
 import ProductPAS from '@/components/products/product-pas'
 import ProductFeatures from '@/components/products/product-features'
-import ProductScreenshots from '@/components/products/product-screenshots'
+import MediaCarouselSection from '@/components/products/media-carousel-section'
 import ProductBenefits from '@/components/products/product-benefits'
 import ProductTestimonials from '@/components/products/product-testimonials'
 import ProductFAQ from '@/components/products/product-faq'
@@ -56,12 +56,34 @@ const ProductPage: React.FC = () => {
                 }
             }
 
-            // Update og:image - use product coverImage if available, otherwise default
+            // Update og:image - use first image from media array (prioritize cover → banner → main → secondary → bonus)
             const ogImage = document.querySelector('meta[property="og:image"]')
             if (ogImage) {
-                const imageUrl = product.coverImage
-                    ? `https://store.dsebastien.net${product.coverImage}`
-                    : 'https://store.dsebastien.net/assets/images/social-card.png'
+                let imageUrl = 'https://store.dsebastien.net/assets/images/social-card.png'
+
+                // Find first image in media array (prioritize cover → banner → main → secondary → bonus)
+                const imageMediaItem = product.media
+                    ?.filter((item) => item.type === 'image')
+                    .sort((a, b) => {
+                        const groupPriority: Record<string, number> = {
+                            cover: 0, // Best for social cards
+                            banner: 1, // Good fallback
+                            main: 2,
+                            secondary: 3,
+                            bonus: 4
+                        }
+                        const aPriority = (a?.group && groupPriority[a.group]) ?? 999
+                        const bPriority = (b?.group && groupPriority[b.group]) ?? 999
+                        return aPriority - bPriority || (a?.order ?? 0) - (b?.order ?? 0)
+                    })[0]
+
+                if (imageMediaItem) {
+                    // Assume media URLs are absolute or add base URL if relative
+                    imageUrl = imageMediaItem.url.startsWith('http')
+                        ? imageMediaItem.url
+                        : `https://store.dsebastien.net${imageMediaItem.url}`
+                }
+
                 ogImage.setAttribute('content', imageUrl)
             }
 
@@ -126,11 +148,28 @@ const ProductPage: React.FC = () => {
             />
             <ProductPAS product={product} />
             <ProductFeatures product={product} />
-            <ProductScreenshots product={product} />
+            <MediaCarouselSection
+                product={product}
+                group='main'
+                heading='See It In Action'
+                description={`Explore screenshots and videos to see exactly what you'll get with ${product.name}`}
+            />
             <ProductBenefits product={product} />
+            <MediaCarouselSection
+                product={product}
+                group='secondary'
+                heading='Dive Deeper'
+                description='Take a closer look at the details and features'
+            />
             <ProductTestimonials product={product} />
             <ProductFAQ product={product} />
             <ProductCTA product={product} />
+            <MediaCarouselSection
+                product={product}
+                group='bonus'
+                heading='Bonus Content'
+                description='Additional resources and insights'
+            />
             <StickyBuyButton
                 product={product}
                 heroButtonRef={heroBuyButtonRef}

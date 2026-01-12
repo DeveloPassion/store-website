@@ -279,29 +279,73 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className='flex items-center justify-center'
                     >
-                        {product.videoUrl ? (
-                            <div className='aspect-video w-full overflow-hidden rounded-xl shadow-2xl'>
-                                <iframe
-                                    src={product.videoUrl}
-                                    className='h-full w-full'
-                                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                                    allowFullScreen
-                                />
-                            </div>
-                        ) : product.coverImage ? (
-                            <img
-                                src={product.coverImage}
-                                alt={product.name}
-                                className='w-full rounded-xl shadow-2xl'
-                            />
-                        ) : (
-                            <div className='border-primary/20 bg-primary/5 flex aspect-video w-full items-center justify-center rounded-xl border-2 border-dashed'>
-                                <div className='text-primary/40 text-center'>
-                                    <div className='mb-2 text-4xl'>📦</div>
-                                    <div className='text-sm'>Product Preview</div>
-                                </div>
-                            </div>
-                        )}
+                        {(() => {
+                            // Get first media item: prioritize banner → main → any group
+                            const bannerMedia = product.media
+                                ?.filter((item) => item.group === 'banner')
+                                .sort((a, b) => a.order - b.order)[0]
+                            const mainMedia = product.media
+                                ?.filter((item) => item.group === 'main')
+                                .sort((a, b) => a.order - b.order)[0]
+                            const firstMedia =
+                                bannerMedia ||
+                                mainMedia ||
+                                product.media?.sort((a, b) => a.order - b.order)[0]
+
+                            if (!firstMedia) {
+                                // Fallback placeholder
+                                return (
+                                    <div className='border-primary/20 bg-primary/5 flex aspect-video w-full items-center justify-center rounded-xl border-2 border-dashed'>
+                                        <div className='text-primary/40 text-center'>
+                                            <div className='mb-2 text-4xl'>📦</div>
+                                            <div className='text-sm'>Product Preview</div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            if (firstMedia.type === 'video') {
+                                // Extract YouTube ID from URL or use provided youtubeId
+                                const youtubeId =
+                                    firstMedia.youtubeId ||
+                                    (() => {
+                                        const patterns = [
+                                            /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+                                            /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+                                            /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/
+                                        ]
+                                        for (const pattern of patterns) {
+                                            const match = firstMedia.url.match(pattern)
+                                            if (match) return match[1]
+                                        }
+                                        return null
+                                    })()
+
+                                return (
+                                    <div className='aspect-video w-full overflow-hidden rounded-xl shadow-2xl'>
+                                        <iframe
+                                            src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`}
+                                            title={firstMedia.title}
+                                            className='h-full w-full'
+                                            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                                            allowFullScreen
+                                        />
+                                    </div>
+                                )
+                            }
+
+                            if (firstMedia.type === 'image') {
+                                return (
+                                    <img
+                                        src={firstMedia.url}
+                                        alt={firstMedia.altText}
+                                        className='w-full rounded-xl shadow-2xl'
+                                    />
+                                )
+                            }
+
+                            return null
+                        })()}
                     </motion.div>
                 </div>
             </div>

@@ -11,6 +11,9 @@ export type {
     ProductVariant,
     ProductBenefits,
     StatsProof,
+    MediaType,
+    MediaGroup,
+    MediaItem,
     Product,
     ProductsArray
 } from '@/schemas/product.schema'

@@ -275,10 +275,6 @@ describe('Product Schema Validation', () => {
                 secondaryTagline: undefined,
                 variants: undefined,
                 statsProof: undefined,
-                coverImage: undefined,
-                screenshots: undefined,
-                videoUrl: undefined,
-                demoUrl: undefined,
                 landingPageUrl: undefined,
                 dsebastienUrl: undefined,
                 metaTitle: undefined,
@@ -287,24 +283,6 @@ describe('Product Schema Validation', () => {
             }
             const result = ProductSchema.safeParse(minimal)
             expect(result.success).toBe(true)
-        })
-
-        it('should accept empty string for videoUrl', () => {
-            const valid = { ...validProduct, videoUrl: '' }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept empty string for demoUrl', () => {
-            const valid = { ...validProduct, demoUrl: '' }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should reject invalid URL for videoUrl', () => {
-            const invalid = { ...validProduct, videoUrl: 'not-a-url' }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
         })
     })
 

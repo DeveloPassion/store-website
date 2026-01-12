@@ -40,6 +40,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     bestseller: false,
     bestValue: false,
     priority: 50,
+    media: [],
     ...overrides
 })
 
@@ -118,7 +119,20 @@ describe('ProductCardEcommerce Component', () => {
     })
 
     it('should display cover image when provided', () => {
-        const product = createMockProduct({ coverImage: '/test-image.jpg', name: 'Test Product' })
+        const product = createMockProduct({
+            name: 'Test Product',
+            media: [
+                {
+                    id: 'cover-1',
+                    type: 'image' as const,
+                    url: '/test-image.jpg',
+                    title: 'Test Image',
+                    altText: 'Test Product',
+                    order: 0,
+                    group: 'cover' as const
+                }
+            ]
+        })
         const { container } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         const image = container.querySelector('img[alt="Test Product"]')
@@ -127,7 +141,7 @@ describe('ProductCardEcommerce Component', () => {
     })
 
     it('should show placeholder emoji when no cover image', () => {
-        const product = createMockProduct({ coverImage: undefined })
+        const product = createMockProduct({ media: [] })
         const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         expect(getByText('📦')).toBeInTheDocument()

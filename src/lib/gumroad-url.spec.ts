@@ -240,7 +240,8 @@ describe('buildGumroadUrlFromProduct', () => {
         priority: 50,
         trustBadges: [],
         guarantees: [],
-        crossSellIds: []
+        crossSellIds: [],
+        media: []
     }
 
     describe('Product without variants', () => {

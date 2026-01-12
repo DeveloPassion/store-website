@@ -50,6 +50,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     trustBadges: [],
     guarantees: [],
     crossSellIds: [],
+    media: [],
     ...overrides
 })
 

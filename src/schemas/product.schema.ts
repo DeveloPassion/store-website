@@ -64,6 +64,31 @@ export const StatsProofSchema = z.object({
     rating: z.string().optional()
 })
 
+// Media type and group enums
+export const MediaTypeSchema = z.enum(['image', 'video'])
+export const MediaGroupSchema = z.enum(['cover', 'banner', 'main', 'secondary', 'bonus'])
+
+// Media item with rich metadata
+export const MediaItemSchema = z.object({
+    id: z.string().min(1, 'Media ID is required'),
+    type: MediaTypeSchema,
+    url: z.string().url('Media URL must be a valid URL'),
+    title: z.string().min(1, 'Media title is required'),
+    description: z.string().optional(),
+    altText: z.string().min(1, 'Alt text is required for accessibility'),
+    caption: z.string().optional(),
+    order: z.number().int().min(0, 'Order must be a non-negative integer'),
+    group: MediaGroupSchema,
+
+    // Video-specific (YouTube)
+    youtubeId: z.string().optional(),
+    thumbnailUrl: z.string().url('Thumbnail URL must be a valid URL').optional(),
+
+    // Image-specific
+    width: z.number().int().positive('Width must be a positive integer').optional(),
+    height: z.number().int().positive('Height must be a positive integer').optional()
+})
+
 export const ProductSchema = z.object({
     // Identity
     id: z.string().min(1, 'Product ID is required'),
@@ -108,10 +133,7 @@ export const ProductSchema = z.object({
     statsProof: StatsProofSchema.optional(),
 
     // Media
-    coverImage: z.string().optional(),
-    screenshots: z.array(z.string()).optional(),
-    videoUrl: z.string().url().optional().or(z.literal('')),
-    demoUrl: z.string().url().optional().or(z.literal('')),
+    media: z.array(MediaItemSchema).default([]),
 
     // Content
     faqs: z.array(FAQSchema).optional(),
@@ -153,5 +175,8 @@ export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ProductBenefits = z.infer<typeof ProductBenefitsSchema>
 export type StatsProof = z.infer<typeof StatsProofSchema>
+export type MediaType = z.infer<typeof MediaTypeSchema>
+export type MediaGroup = z.infer<typeof MediaGroupSchema>
+export type MediaItem = z.infer<typeof MediaItemSchema>
 export type Product = z.infer<typeof ProductSchema>
 export type ProductsArray = z.infer<typeof ProductsArraySchema>
