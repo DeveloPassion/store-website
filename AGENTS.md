@@ -16,13 +16,51 @@ Icons can be React-icon names (e.g., `"FaCalendarAlt"`, `"SiObsidian"`) or URLs.
 
 ## Meta Tags and Open Graph Images
 
-All pages must set `og:image` meta tags.
+**CRITICAL**: All pages must properly handle meta tags for SEO and social sharing. This includes both static generation (build time) and runtime updates (client-side navigation).
+
+### Required Meta Tags
+
+Every page must update these meta tags:
+
+1. **Document title**: `document.title`
+2. **Meta description**: `<meta name="description">`
+3. **Open Graph tags**: `og:title`, `og:description`, `og:url`, `og:image`
+4. **Twitter Card tags**: `twitter:title`, `twitter:description`, `twitter:url`, `twitter:image`
+5. **Canonical URL**: `<link rel="canonical">`
+
+### OG Image Rules
 
 - **Generic pages**: `https://store.dsebastien.net/assets/images/social-card.png`
-- **Product pages**: coverImage of the product if any available or fall back to the default otherwise
+- **Product pages**: Use primary cover image (`media.group === 'cover'`, sorted by `order`, lowest first) if available, otherwise fall back to default social card
 - **Home page**: Set in `index.html`
 
-Include `useEffect` hook to update meta tags (title, description, og:image, og:title, og:description, og:url).
+### Implementation
+
+**Use the utility function** `updateAllMetaTags()` from `/src/lib/update-meta-tags.ts`:
+
+```typescript
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
+
+useEffect(() => {
+    updateAllMetaTags({
+        title: 'Page Title - Knowledge Forge',
+        description: 'Page description for SEO and social sharing',
+        url: 'https://store.dsebastien.net/page-path',
+        image: 'https://store.dsebastien.net/image.png' // Optional, defaults to social-card.png
+    })
+}, [dependencies])
+```
+
+### Static Generation
+
+Product pages, category pages, and tag pages have their meta tags pre-rendered at build time via `scripts/utils/generate-static-pages.ts`. This ensures search engines and social media crawlers see correct metadata without JavaScript execution.
+
+**When adding new page types**, update `generate-static-pages.ts` to pre-render their meta tags.
+
+### Why Both?
+
+- **Static HTML**: For SEO crawlers and social media link unfurling (they don't execute JavaScript)
+- **Runtime updates**: For correct meta tags during client-side navigation with React Router
 
 ## Styling
 
@@ -529,6 +567,13 @@ Keyboard navigation, ARIA labels, focus management, command palette shortcuts, s
 7. **Backwards Compatibility**: When there is a question of backwards compatibility (e.g., renaming routes, changing URLs, renaming fields), ALWAYS ASK the user whether they want to maintain backwards compatibility or if breaking changes are acceptable. Do not assume either way.
 8. **TypeScript Types**: NEVER use `any` type unless absolutely unavoidable. Always use proper TypeScript types such as `React.ComponentPropsWithoutRef<'element'>`, `React.ReactNode`, specific interface types, or generic constraints. The `any` type bypasses type safety and should be avoided.
 9. **No Re-exports for Backwards Compatibility**: NEVER re-export types, interfaces, schemas, or functions from one module just for backwards compatibility. Always import from the original source where they are defined. Update all import statements throughout the codebase to point to the correct source. This keeps the codebase clean and makes dependencies explicit.
+10. **Branding Consistency**: When making branding changes (site name, taglines, descriptions), update ALL of these locations:
+    - `src/index.html` - Base HTML template with meta tags
+    - `scripts/utils/generate-static-pages.ts` - Static page generation (JSON-LD schemas, page titles, meta tags)
+    - `scripts/utils/generate-llms-txt.ts` - LLMs.txt file generation (site title)
+    - React page components (if they have hardcoded branding in `useEffect` hooks or titles)
+
+    **Search strategy**: Use `grep -r "old-brand-name"` across the codebase to find all instances that need updating. The build scripts must match the branding in `index.html` to ensure consistency between static generation and runtime.
 
 **Pre-Commit Checklist:**
 

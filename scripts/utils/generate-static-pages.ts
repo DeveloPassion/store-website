@@ -143,7 +143,7 @@ function generateProductSchema(product: Product): string {
                 'publisher': { '@id': `${BASE_URL}/#organization` },
                 'provider': {
                     '@type': 'Organization',
-                    'name': 'DeveloPassion Store',
+                    'name': 'Knowledge Forge',
                     'url': BASE_URL
                 },
                 'datePublished': today,
@@ -153,7 +153,7 @@ function generateProductSchema(product: Product): string {
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
-                    'name': 'DeveloPassion Store',
+                    'name': 'Knowledge Forge',
                     'url': BASE_URL
                 }
             },
@@ -195,7 +195,7 @@ function generateTagSchema(tag: string, encodedTag: string): string {
             {
                 '@type': 'CollectionPage',
                 '@id': `${tagUrl}#collection`,
-                'name': `${tag} - DeveloPassion Store`,
+                'name': `${tag} - Knowledge Forge`,
                 'description': `Products tagged with "${tag}"`,
                 'url': tagUrl,
                 'creator': { '@id': `${BASE_URL}/#person` },
@@ -203,7 +203,7 @@ function generateTagSchema(tag: string, encodedTag: string): string {
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
-                    'name': 'DeveloPassion Store',
+                    'name': 'Knowledge Forge',
                     'url': BASE_URL
                 },
                 'about': {
@@ -269,7 +269,7 @@ ${taggedProducts
  */
 function generateTagPageHtml(tag: string, encodedTag: string): string {
     const tagUrl = `${BASE_URL}/tags/${encodedTag}`
-    const title = `${tag} - dSebastien's Toolbox`
+    const title = `${tag} - Knowledge Forge`
     const description = `Products tagged with "${tag}"`
 
     let html = indexHtml
@@ -343,7 +343,7 @@ function generateTagsIndexSchema(): string {
             {
                 '@type': 'CollectionPage',
                 '@id': `${tagsUrl}#collection`,
-                'name': 'Tags - DeveloPassion Store',
+                'name': 'Tags - Knowledge Forge',
                 'description': 'Browse products by tag',
                 'url': tagsUrl,
                 'creator': { '@id': `${BASE_URL}/#person` },
@@ -351,7 +351,7 @@ function generateTagsIndexSchema(): string {
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
-                    'name': 'DeveloPassion Store',
+                    'name': 'Knowledge Forge',
                     'url': BASE_URL
                 },
                 'inLanguage': 'en'
@@ -411,7 +411,7 @@ ${allTags
  */
 function generateTagsIndexPageHtml(): string {
     const tagsUrl = `${BASE_URL}/tags`
-    const title = "Tags - dSebastien's Store"
+    const title = 'Tags - Knowledge Forge'
     const description = 'Browse all product tags to find what you need'
 
     let html = indexHtml
@@ -485,7 +485,7 @@ function generateCategorySchema(category: Category): string {
             {
                 '@type': 'CollectionPage',
                 '@id': `${categoryUrl}#collection`,
-                'name': `${category.name} - DeveloPassion Store`,
+                'name': `${category.name} - Knowledge Forge`,
                 'description': category.description,
                 'url': categoryUrl,
                 'creator': { '@id': `${BASE_URL}/#person` },
@@ -493,7 +493,7 @@ function generateCategorySchema(category: Category): string {
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
-                    'name': 'DeveloPassion Store',
+                    'name': 'Knowledge Forge',
                     'url': BASE_URL
                 },
                 'about': {
@@ -632,7 +632,7 @@ function generateCategoriesIndexSchema(): string {
             {
                 '@type': 'CollectionPage',
                 '@id': `${categoriesUrl}#collection`,
-                'name': 'Categories - DeveloPassion Store',
+                'name': 'Categories - Knowledge Forge',
                 'description': 'Browse products by category',
                 'url': categoriesUrl,
                 'creator': { '@id': `${BASE_URL}/#person` },
@@ -640,7 +640,7 @@ function generateCategoriesIndexSchema(): string {
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
-                    'name': 'DeveloPassion Store',
+                    'name': 'Knowledge Forge',
                     'url': BASE_URL
                 },
                 'inLanguage': 'en'

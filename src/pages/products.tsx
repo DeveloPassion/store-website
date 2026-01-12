@@ -8,6 +8,7 @@ import productsData from '@/data/products.json'
 import type { Product, ProductCategory, PriceTier } from '@/types/product'
 import { sortProductsIntelligently } from '@/lib/product-sort'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const ProductsPage: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -75,43 +76,12 @@ const ProductsPage: React.FC = () => {
 
     // Update document title and meta tags
     useEffect(() => {
-        document.title = 'Products - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Browse all products. Discover courses, kits, templates, and tools to enhance your knowledge management and productivity.'
-            )
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
-
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Products - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Browse all products. Discover courses, kits, templates, and tools to enhance your knowledge management and productivity.'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute('content', 'https://store.dsebastien.net/products')
-        }
+        updateAllMetaTags({
+            title: 'Products - Knowledge Forge',
+            description:
+                'Browse all products. Discover courses, kits, templates, and tools to enhance your knowledge management and productivity.',
+            url: 'https://store.dsebastien.net/products'
+        })
     }, [])
 
     const clearFilters = () => {

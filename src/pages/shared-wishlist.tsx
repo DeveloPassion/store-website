@@ -8,6 +8,7 @@ import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import type { Product } from '@/types/product'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const SharedWishlistPage: React.FC = () => {
     const products = productsData as Product[]
@@ -42,47 +43,11 @@ const SharedWishlistPage: React.FC = () => {
     const productCount = sharedProducts.length
 
     useEffect(() => {
-        document.title = 'Shared Wishlist - Knowledge Forge'
-
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-            metaDescription.setAttribute(
-                'content',
-                'Check out this curated selection of products shared with you!'
-            )
-        }
-
-        // Update OG tags
-        const ogTitle = document.querySelector('meta[property="og:title"]')
-        if (ogTitle) {
-            ogTitle.setAttribute('content', 'Shared Wishlist - Knowledge Forge')
-        }
-
-        const ogDescription = document.querySelector('meta[property="og:description"]')
-        if (ogDescription) {
-            ogDescription.setAttribute(
-                'content',
-                'Check out this curated selection of products shared with you!'
-            )
-        }
-
-        const ogUrl = document.querySelector('meta[property="og:url"]')
-        if (ogUrl) {
-            ogUrl.setAttribute(
-                'content',
-                `https://store.dsebastien.net/shared-wishlist${productIdsParam ? `?products=${productIdsParam}` : ''}`
-            )
-        }
-
-        // Reset og:image to default for generic pages
-        const ogImage = document.querySelector('meta[property="og:image"]')
-        if (ogImage) {
-            ogImage.setAttribute(
-                'content',
-                'https://store.dsebastien.net/assets/images/social-card.png'
-            )
-        }
+        updateAllMetaTags({
+            title: 'Shared Wishlist - Knowledge Forge',
+            description: 'Check out this curated selection of products shared with you!',
+            url: `https://store.dsebastien.net/shared-wishlist${productIdsParam ? `?products=${productIdsParam}` : ''}`
+        })
     }, [productIdsParam])
 
     // Don't render anything if redirecting

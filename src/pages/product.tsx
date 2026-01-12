@@ -14,6 +14,7 @@ import productsData from '@/data/products.json'
 import type { Product, ProductVariant } from '@/types/product'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 const ProductPage: React.FC = () => {
     const { productSlug } = useParams<{ productSlug: string }>()
@@ -46,56 +47,24 @@ const ProductPage: React.FC = () => {
     // Update document title and meta tags
     useEffect(() => {
         if (product) {
-            document.title = product.metaTitle || `${product.name} - Knowledge Forge`
+            const title = product.metaTitle || `${product.name} - Knowledge Forge`
+            const description = product.metaDescription || product.description
+            const url = `https://store.dsebastien.net/products/${product.id}`
 
-            // Update meta description
-            if (product.metaDescription) {
-                const metaDescription = document.querySelector('meta[name="description"]')
-                if (metaDescription) {
-                    metaDescription.setAttribute('content', product.metaDescription)
-                }
-            }
+            // Find cover image - use the primary one (lowest order = highest priority)
+            const coverImage = product.media
+                ?.filter((item) => item.type === 'image' && item.group === 'cover')
+                .sort((a, b) => (a?.order ?? 0) - (b?.order ?? 0))[0]
 
-            // Update og:image - use cover image if available, otherwise default social card
-            const ogImage = document.querySelector('meta[property="og:image"]')
-            if (ogImage) {
-                let imageUrl = 'https://store.dsebastien.net/assets/images/social-card.png'
+            // Convert relative URLs to absolute
+            const image = coverImage
+                ? coverImage.url.startsWith('http')
+                    ? coverImage.url
+                    : `https://store.dsebastien.net${coverImage.url}`
+                : undefined
 
-                // Find cover images and use the primary one (lowest order = highest priority)
-                const coverImage = product.media
-                    ?.filter((item) => item.type === 'image' && item.group === 'cover')
-                    .sort((a, b) => (a?.order ?? 0) - (b?.order ?? 0))[0]
-
-                if (coverImage) {
-                    // Convert relative URLs to absolute
-                    imageUrl = coverImage.url.startsWith('http')
-                        ? coverImage.url
-                        : `https://store.dsebastien.net${coverImage.url}`
-                }
-
-                ogImage.setAttribute('content', imageUrl)
-            }
-
-            // Update og:title
-            const ogTitle = document.querySelector('meta[property="og:title"]')
-            if (ogTitle) {
-                ogTitle.setAttribute(
-                    'content',
-                    product.metaTitle || `${product.name} - Knowledge Forge`
-                )
-            }
-
-            // Update og:description
-            const ogDescription = document.querySelector('meta[property="og:description"]')
-            if (ogDescription && product.metaDescription) {
-                ogDescription.setAttribute('content', product.metaDescription)
-            }
-
-            // Update og:url
-            const ogUrl = document.querySelector('meta[property="og:url"]')
-            if (ogUrl) {
-                ogUrl.setAttribute('content', `https://store.dsebastien.net/products/${product.id}`)
-            }
+            // Update all meta tags (title, description, OG, Twitter, canonical)
+            updateAllMetaTags({ title, description, url, image })
         } else {
             document.title = 'Product Not Found - Knowledge Forge'
         }

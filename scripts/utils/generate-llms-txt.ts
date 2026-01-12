@@ -60,7 +60,7 @@ mainCategories.forEach((category) => {
 })
 
 // Generate llms.txt content
-const content = `# DeveloPassion Store
+const content = `# Knowledge Forge
 
 > A collection of ${productsData.length} professional products for knowledge workers and content creators.
 
