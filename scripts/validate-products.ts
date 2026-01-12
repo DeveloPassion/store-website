@@ -141,7 +141,8 @@ function validateIndividualFiles(): {
         (file) =>
             file.endsWith('.json') &&
             !file.endsWith('-faq.json') &&
-            !file.endsWith('-testimonials.json')
+            !file.endsWith('-testimonials.json') &&
+            !file.endsWith('-media.json')
     )
     console.log(`Found ${files.length} product file(s)\n`)
 
