@@ -133,7 +133,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                     data-gumroad-overlay-checkout='true'
                                     size='md'
                                     leftIcon={<FaShoppingCart className='h-4 w-4' />}
-                                    className='shrink-0'
+                                    className='shrink-0 hover:!scale-100'
                                 >
                                     {isFree ? 'Get Now' : 'Buy Now'}
                                 </Button>
@@ -156,7 +156,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                     data-gumroad-overlay-checkout='true'
                                     size='md'
                                     leftIcon={<FaShoppingCart className='h-5 w-5' />}
-                                    className='px-8'
+                                    className='px-8 hover:!scale-100'
                                 >
                                     {isFree ? 'Get Now' : 'Buy Now'}
                                 </Button>
