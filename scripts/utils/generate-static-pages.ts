@@ -29,7 +29,6 @@ interface Product {
     status?: string
     featured?: boolean
     testimonialIds?: string[]
-    videoUrl?: string
 }
 
 // Load products data
@@ -777,7 +776,7 @@ function generateProductNoscript(product: Product): string {
  */
 function generateProductPageHtml(product: Product): string {
     const productUrl = `${BASE_URL}/l/${product.id}`
-    const title = product.metaTitle || `${product.name} - DeveloPassion Store`
+    const title = product.metaTitle || `${product.name} - Knowledge Forge`
     const description = product.metaDescription
 
     let html = indexHtml

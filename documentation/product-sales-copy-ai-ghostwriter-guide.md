@@ -240,8 +240,6 @@ Months of perfection distilled into an actionable system. Used daily. Works flaw
 
 ### Other Assets
 
-**QUESTION**: Are there other screenshots, examples, or promotional images?
-
 ## FAQs
 
 **Q: Do I need deep technical skills?**

@@ -298,8 +298,6 @@ The Knowledge Worker Kit is a private community (part of Knowii Community) and d
 
 ### Assets Location
 
-**QUESTION**: Are there other promotional images, videos, or screenshots? Where are they located?
-
 ## FAQs
 
 **Q: What exactly do I get?**

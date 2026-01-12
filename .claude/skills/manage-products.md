@@ -134,7 +134,7 @@ The product schema is defined using Zod and contains 50+ fields organized into t
 - **Marketing (PAS Framework)**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
 - **Content**: description, features, benefits, included, targetAudience, perfectFor, notForYou
 - **Social Proof**: testimonials (auto-loaded), statsProof
-- **Media**: coverImage, screenshots, videoUrl, demoUrl
+- **Media**: coverImage, banners, screenshots, videos, ...
 - **Links**: landingPageUrl, dsebastienUrl
 - **Meta**: featured, bestValue, bestseller, priority (0-100)
 - **Trust**: trustBadges, guarantees

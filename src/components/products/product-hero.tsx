@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import type { Product, ProductVariant } from '@/types/product'
@@ -7,6 +7,8 @@ import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
 import { Button } from '@/components/ui/button'
+import HeroBackground from './hero-background'
+import MediaCarousel from './media-carousel'
 
 interface ProductHeroProps {
     product: Product
@@ -88,9 +90,27 @@ const ProductHero: React.FC<ProductHeroProps> = ({
         setIsWishlisted(newState)
     }
 
+    // Extract banner images for background
+    const bannerImages = useMemo(() => {
+        if (!product.media) return []
+        return product.media
+            .filter((item) => item.group === 'banner' && item.type === 'image')
+            .sort((a, b) => a.order - b.order)
+    }, [product.media])
+
+    // Extract cover images for carousel
+    const coverImages = useMemo(() => {
+        if (!product.media) return []
+        return product.media
+            .filter((item) => item.group === 'cover')
+            .sort((a, b) => a.order - b.order)
+    }, [product.media])
+
     return (
         <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'>
-            <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
+            {/* Rotating banner background */}
+            {bannerImages.length > 0 && <HeroBackground bannerImages={bannerImages} />}
+            <div className='relative z-10 container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                 <div className='grid gap-12 overflow-hidden lg:grid-cols-2 lg:gap-16'>
                     {/* Left Column: Content */}
                     <motion.div
@@ -272,80 +292,32 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         )}
                     </motion.div>
 
-                    {/* Right Column: Media */}
+                    {/* Right Column: Cover Image Carousel */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className='flex items-center justify-center'
+                        className='relative flex items-center justify-center'
                     >
-                        {(() => {
-                            // Get first media item: prioritize banner → main → any group
-                            const bannerMedia = product.media
-                                ?.filter((item) => item.group === 'banner')
-                                .sort((a, b) => a.order - b.order)[0]
-                            const mainMedia = product.media
-                                ?.filter((item) => item.group === 'main')
-                                .sort((a, b) => a.order - b.order)[0]
-                            const firstMedia =
-                                bannerMedia ||
-                                mainMedia ||
-                                product.media?.sort((a, b) => a.order - b.order)[0]
-
-                            if (!firstMedia) {
-                                // Fallback placeholder
-                                return (
-                                    <div className='border-primary/20 bg-primary/5 flex aspect-video w-full items-center justify-center rounded-xl border-2 border-dashed'>
-                                        <div className='text-primary/40 text-center'>
-                                            <div className='mb-2 text-4xl'>📦</div>
-                                            <div className='text-sm'>Product Preview</div>
-                                        </div>
-                                    </div>
-                                )
-                            }
-
-                            if (firstMedia.type === 'video') {
-                                // Extract YouTube ID from URL or use provided youtubeId
-                                const youtubeId =
-                                    firstMedia.youtubeId ||
-                                    (() => {
-                                        const patterns = [
-                                            /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
-                                            /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
-                                            /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/
-                                        ]
-                                        for (const pattern of patterns) {
-                                            const match = firstMedia.url.match(pattern)
-                                            if (match) return match[1]
-                                        }
-                                        return null
-                                    })()
-
-                                return (
-                                    <div className='aspect-video w-full overflow-hidden rounded-xl shadow-2xl'>
-                                        <iframe
-                                            src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`}
-                                            title={firstMedia.title}
-                                            className='h-full w-full'
-                                            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                                            allowFullScreen
-                                        />
-                                    </div>
-                                )
-                            }
-
-                            if (firstMedia.type === 'image') {
-                                return (
-                                    <img
-                                        src={firstMedia.url}
-                                        alt={firstMedia.altText}
-                                        className='w-full rounded-xl shadow-2xl'
-                                    />
-                                )
-                            }
-
-                            return null
-                        })()}
+                        {coverImages.length > 0 ? (
+                            <MediaCarousel
+                                media={coverImages}
+                                group='cover'
+                                autoRotateInterval={7000}
+                                showNavigation={coverImages.length > 1}
+                                showIndicators={coverImages.length > 1}
+                                showCaptions={false}
+                                className='w-full'
+                            />
+                        ) : (
+                            // Fallback placeholder if no cover images
+                            <div className='border-primary/20 bg-primary/5 flex aspect-video w-full items-center justify-center rounded-xl border-2 border-dashed'>
+                                <div className='text-primary/40 text-center'>
+                                    <div className='mb-2 text-4xl'>📦</div>
+                                    <div className='text-sm'>Product Preview</div>
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
                 </div>
             </div>

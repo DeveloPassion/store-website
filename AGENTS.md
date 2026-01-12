@@ -16,10 +16,10 @@ Icons can be React-icon names (e.g., `"FaCalendarAlt"`, `"SiObsidian"`) or URLs.
 
 ## Meta Tags and Open Graph Images
 
-All pages must set `og:image` meta tags:
+All pages must set `og:image` meta tags.
 
 - **Generic pages**: `https://store.dsebastien.net/assets/images/social-card.png`
-- **Product pages**: Use `product.coverImage` if available, else fall back to default
+- **Product pages**: coverImage of the product if any available or fall back to the default otherwise
 - **Home page**: Set in `index.html`
 
 Include `useEffect` hook to update meta tags (title, description, og:image, og:title, og:description, og:url).

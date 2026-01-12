@@ -1695,7 +1695,9 @@ async function operationAdd(args: CliArgs): Promise<void> {
     console.log(
         `  ${colors.dim}3.${colors.reset} Add marketing copy details by editing the file directly`
     )
-    console.log(`  ${colors.dim}4.${colors.reset} Add media (coverImage, screenshots, videoUrl)`)
+    console.log(
+        `  ${colors.dim}4.${colors.reset} Add media (coverImage, banners, screenshots, ...)`
+    )
     console.log(
         `  ${colors.dim}5.${colors.reset} Test locally: ${colors.green}npm run dev${colors.reset}`
     )

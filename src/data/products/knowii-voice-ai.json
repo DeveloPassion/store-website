@@ -150,8 +150,6 @@
         "knowledge worker tools",
         "productivity tools"
     ],
-    "videoUrl": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
-    "demoUrl": "https://docs.voice-ai.knowii.net/",
     "priority": 60,
     "id": "knowii-voice-ai",
     "mainCategory": "ai-tools",
