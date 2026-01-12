@@ -1,3 +1,10 @@
+## [0.5.3](https://github.com/DeveloPassion/store-website/compare/0.5.2...0.5.3) (2026-01-12)
+
+### Features
+
+* **all:** added sanity check ([01006eb](https://github.com/DeveloPassion/store-website/commit/01006ebb4d5c40517811480451e93045d2eec857))
+* **all:** improved release pipeline quality checks ([e61bb78](https://github.com/DeveloPassion/store-website/commit/e61bb7860c078b2ca64a7babcceeab5567bc04d1))
+* **all:** improved release script to use the gh cli to trigger the release workflow ([3db0a8c](https://github.com/DeveloPassion/store-website/commit/3db0a8c84d93ee1d1338447b86e2a8befbd12249))
 ## [0.5.2](https://github.com/DeveloPassion/store-website/compare/0.5.1...0.5.2) (2026-01-12)
 
 ### Features
