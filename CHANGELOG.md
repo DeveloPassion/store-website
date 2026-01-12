@@ -1,3 +1,36 @@
+## [0.5.2](https://github.com/DeveloPassion/store-website/compare/0.5.1...0.5.2) (2026-01-12)
+
+### Features
+
+* **all:** adapted release workflow ([9eeaaed](https://github.com/DeveloPassion/store-website/commit/9eeaaedb03249066246bbeaa4db0c6ed8850c341))
+* **all:** added Claude Code skill for media files ([3b10378](https://github.com/DeveloPassion/store-website/commit/3b10378789a4a9250212e3dfb59649d7a208faea))
+* **all:** added claude code skill to manage product media ([8374713](https://github.com/DeveloPassion/store-website/commit/8374713280e0b95811366a591abe81304f389664))
+* **all:** added KVA to KMBundle ([17b9d14](https://github.com/DeveloPassion/store-website/commit/17b9d140d942c96150dd05de24747ec703af197b))
+* **all:** added support for banner and improved media management ([bcbf5d2](https://github.com/DeveloPassion/store-website/commit/bcbf5d2ddc664c02dcb5d744c8e24427abb255d2))
+* **all:** added support for multiple media and media types for each product and added CLI ([099679c](https://github.com/DeveloPassion/store-website/commit/099679c9b5d75a59a1b48fc4c633ec39b5e8338a))
+* **all:** better handled OG metadata for products and shared-wishlist pages ([e843cc7](https://github.com/DeveloPassion/store-website/commit/e843cc79f294d9c76e10af9b2dd32a65b46c07dd))
+* **all:** created missing data files ([f013327](https://github.com/DeveloPassion/store-website/commit/f013327bc83cc42aa368326cf2dc478093d76649))
+* **all:** fixed bug with sticky buy button on product pages ([24dc285](https://github.com/DeveloPassion/store-website/commit/24dc285fb1032312887015ee26489863b21cc8d6))
+* **all:** implemented code splitting for some components ([645c1dd](https://github.com/DeveloPassion/store-website/commit/645c1dde10bb63eea3e5047393172e2bb0653c60))
+* **all:** improved branding and og metadata handling ([721db24](https://github.com/DeveloPassion/store-website/commit/721db242d6e72051a846bc02aa0411f4dba63936))
+* **all:** improved cards ([1492ea7](https://github.com/DeveloPassion/store-website/commit/1492ea7cca563b94cf63b54aaf101316aa7326da))
+* **all:** improved OG metadata and cover image handling for product pages ([5d90230](https://github.com/DeveloPassion/store-website/commit/5d902309daa2b724a62d77ad58e1766dd18d678c))
+* **all:** improved SEO and OG metadata on all pages ([27d6aa1](https://github.com/DeveloPassion/store-website/commit/27d6aa11f89b85ad95815692c555a745ce89cbe2))
+* **all:** improved testimonials, faq and media json files and usage ([796ef9a](https://github.com/DeveloPassion/store-website/commit/796ef9a6b997c0d69b5ec0410070b4f655de3b0c))
+* **all:** isolated FAQ from the previous section on desktop ([908bbf3](https://github.com/DeveloPassion/store-website/commit/908bbf38e8dd831d319784c68e3f09b67e8fd884))
+* **all:** isolated media from the products.json file into separate file ([16f0d7b](https://github.com/DeveloPassion/store-website/commit/16f0d7bc885b33947bfa8519b41e4003585bae60))
+* **all:** made the gumroad script delayed (non-blocking-) ([869f281](https://github.com/DeveloPassion/store-website/commit/869f2819ac072baf5a9e3253ab58948f9acce0a2))
+* **all:** refactor for cloudflare ([c22ee6a](https://github.com/DeveloPassion/store-website/commit/c22ee6a06be6d98c3f0544deeb9d5e34630ace0d))
+* **all:** started adapting for CF ([125c267](https://github.com/DeveloPassion/store-website/commit/125c267c8ab1d55a59c5019b7aff01ba7428ba59))
+* **all:** updated featured categories ([8fbd044](https://github.com/DeveloPassion/store-website/commit/8fbd044f011c41eb037975c58eb31eae7cc133e8))
+* **all:** updated kwk copy ([fbfb572](https://github.com/DeveloPassion/store-website/commit/fbfb572ba79e5503282f29f1e5e29750b2767909))
+* **all:** updated product ([7624b62](https://github.com/DeveloPassion/store-website/commit/7624b6234c27dc4be2209707ef594764bad608d5))
+
+### Bug Fixes
+
+* **all:** fixed bug with keyboard control and selections in command palette ([6106659](https://github.com/DeveloPassion/store-website/commit/6106659895d59a97b75008f6c305981b43acef68))
+* **all:** fixed FAQ expansion issue on desktop ([ee580c3](https://github.com/DeveloPassion/store-website/commit/ee580c342ae58a04ed8fe7a01357c4d07e5669f5))
+* **all:** fixed robots.txt ([24c6188](https://github.com/DeveloPassion/store-website/commit/24c6188d80cbe3f6a8a1b81de86b77778a71fa65))
 ## [0.5.1](https://github.com/DeveloPassion/store-website/compare/0.5.0...0.5.1) (2026-01-12)
 
 ### Features
