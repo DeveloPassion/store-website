@@ -337,36 +337,51 @@ Media is stored separately from product JSON files for better organization and c
 
 These files are automatically loaded during aggregation and attached to products.
 
+**File Format:**
+
+All FAQ, Testimonial, and Media files use a consistent JSON structure with a `data` property containing the array of items:
+
+```json
+{
+    "data": [
+        { "id": "item-1", ... },
+        { "id": "item-2", ... }
+    ]
+}
+```
+
 **Media File Format:**
 
-Media is stored as a JSON array sorted by group priority (cover → banner → main → secondary → bonus), then by order within each group.
+Media items are sorted by group priority (cover → banner → main → secondary → bonus), then by order within each group.
 
 Example `knowii-voice-ai-media.json`:
 
 ```json
-[
-    {
-        "id": "cover-1234567890",
-        "type": "image",
-        "url": "/assets/images/knowii/cover.png",
-        "title": "Knowii Cover",
-        "altText": "Knowii app cover image",
-        "order": 0,
-        "group": "cover",
-        "width": 1200,
-        "height": 630
-    },
-    {
-        "id": "main-1234567891",
-        "type": "video",
-        "url": "https://youtube.com/watch?v=abc123",
-        "title": "Demo Video",
-        "altText": "Product demonstration video",
-        "order": 0,
-        "group": "main",
-        "youtubeId": "abc123"
-    }
-]
+{
+    "data": [
+        {
+            "id": "cover-1234567890",
+            "type": "image",
+            "url": "/assets/images/knowii/cover.png",
+            "title": "Knowii Cover",
+            "altText": "Knowii app cover image",
+            "order": 0,
+            "group": "cover",
+            "width": 1200,
+            "height": 630
+        },
+        {
+            "id": "main-1234567891",
+            "type": "video",
+            "url": "https://youtube.com/watch?v=abc123",
+            "title": "Demo Video",
+            "altText": "Product demonstration video",
+            "order": 0,
+            "group": "main",
+            "youtubeId": "abc123"
+        }
+    ]
+}
 ```
 
 ## Managing Promotion Banner

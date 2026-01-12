@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'bun:test'
-import { TestimonialSchema, TestimonialsArraySchema, type Testimonial } from './testimonial.schema'
+import {
+    TestimonialSchema,
+    TestimonialsArraySchema,
+    TestimonialFileSchema,
+    type Testimonial
+} from './testimonial.schema'
 
 describe('Testimonial Schema Validation', () => {
     const validTestimonial: Testimonial = {
@@ -385,6 +390,66 @@ describe('Testimonial Schema Validation', () => {
             const valid = { ...validTestimonial, id: '550e8400-e29b-41d4-a716-446655440000' }
             const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
+        })
+    })
+
+    describe('TestimonialFileSchema - File Format Validation', () => {
+        it('should accept valid file with data array', () => {
+            const validFile = {
+                data: [validTestimonial]
+            }
+            const result = TestimonialFileSchema.safeParse(validFile)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept file with empty data array', () => {
+            const validFile = { data: [] }
+            const result = TestimonialFileSchema.safeParse(validFile)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept file with multiple testimonials', () => {
+            const validFile = {
+                data: [
+                    validTestimonial,
+                    { ...validTestimonial, id: 'test-2', author: 'Jane Smith' },
+                    { ...validTestimonial, id: 'test-3', author: 'Bob Johnson' }
+                ]
+            }
+            const result = TestimonialFileSchema.safeParse(validFile)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject file without data property', () => {
+            const invalid = [validTestimonial]
+            const result = TestimonialFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject file with null data', () => {
+            const invalid = { data: null }
+            const result = TestimonialFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject file with non-array data', () => {
+            const invalid = { data: validTestimonial }
+            const result = TestimonialFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject file with invalid testimonial in data array', () => {
+            const invalid = {
+                data: [validTestimonial, { ...validTestimonial, rating: 10 }]
+            }
+            const result = TestimonialFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject root-level array (old format)', () => {
+            const oldFormat = [validTestimonial]
+            const result = TestimonialFileSchema.safeParse(oldFormat)
+            expect(result.success).toBe(false)
         })
     })
 })

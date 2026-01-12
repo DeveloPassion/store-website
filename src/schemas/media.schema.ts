@@ -34,6 +34,15 @@ export const MediaItemSchema = z.object({
  */
 export const MediaArraySchema = z.array(MediaItemSchema)
 
+/**
+ * File-level schema for Media JSON files
+ * Wraps the array in a { data: [...] } object for valid JSON structure
+ */
+export const MediaFileSchema = z.object({
+    data: MediaArraySchema
+})
+
 export type MediaType = z.infer<typeof MediaTypeSchema>
 export type MediaGroup = z.infer<typeof MediaGroupSchema>
 export type MediaItem = z.infer<typeof MediaItemSchema>
+export type MediaFile = z.infer<typeof MediaFileSchema>

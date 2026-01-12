@@ -1,62 +1,64 @@
-[
-    {
-        "id": "unmotivated-frustrated",
-        "question": "I'm unmotivated and frustrated because of a lack of progress — not laziness. Is this going to fix that?",
-        "answer": "A book alone won't magically resolve career challenges, but it provides the foundational mindset required for success in software development. The bundle gives you both the software craftsmanship principles and client understanding skills that are essential for making real progress in your career.",
-        "order": 1
-    },
-    {
-        "id": "no-time-to-read",
-        "question": "I don't have time to read an entire book... let alone a collection! Can I still learn something here?",
-        "answer": "Yes. The volumes and chapters are designed as standalone resources, allowing quick searches when facing specific problems, plus external links for deeper exploration. You can jump to exactly what you need right now.",
-        "order": 2
-    },
-    {
-        "id": "technical-teaching",
-        "question": "Will this collection teach me the technical side of engineering?",
-        "answer": "The collection includes practical examples and code snippets but isn't a substitute for hands-on training. Concepts are presented separately to improve understanding. This focuses on the mindset, principles, and approaches that make you a better developer beyond just technical skills.",
-        "order": 3
-    },
-    {
-        "id": "slack-group",
-        "question": "How does the Slack community work?",
-        "answer": "Members can pose questions about software engineering and IT, with responses from senior engineers covering technical issues, conceptual challenges, and workplace situations. You get lifetime access to this supportive community of developers helping each other grow.",
-        "order": 4
-    },
-    {
-        "id": "money-back-guarantee",
-        "question": "What if I don't like the bundle? How does the money-back guarantee work?",
-        "answer": "Contact within 14 days for a full refund. The creator only requests feedback on unmet expectations. No hassle, no questions asked beyond understanding how to improve.",
-        "order": 5
-    },
-    {
-        "id": "future-volumes",
-        "question": "Why are only Volumes 1 and 2 available right now?",
-        "answer": "New volumes release every few months. The starter bundle gives you access to the first two foundational volumes. If you want all 12 volumes as they're released, consider the Lifetime Bundle for the complete collection.",
-        "order": 6
-    },
-    {
-        "id": "volume-contents",
-        "question": "I don't understand what's in each volume",
-        "answer": "Volume 1 covers software craftsmanship, mindset, and professional development. Volume 2 focuses on understanding client needs, UX design, and requirements discovery. Volume descriptions, full chapter breakdowns, and free samples are available on dev-concepts.dev.",
-        "order": 7
-    },
-    {
-        "id": "single-volume-option",
-        "question": "Can I buy just a single volume instead of the bundle?",
-        "answer": "Individual volumes are available separately, though the Starter Bundle offers better savings and includes lifetime Slack community access. The bundle is the best value for getting both foundational volumes plus ongoing support.",
-        "order": 8
-    },
-    {
-        "id": "cant-afford",
-        "question": "I can't afford to buy this...",
-        "answer": "Contact the author via Twitter or email to discuss options. Sébastien wants to help developers grow regardless of their financial situation.",
-        "order": 9
-    },
-    {
-        "id": "group-purchase",
-        "question": "I want to buy Dev Concepts for a group at work",
-        "answer": "Group licenses are available; contact the author for pricing details. This is perfect for onboarding junior developers or leveling up your team.",
-        "order": 10
-    }
-]
+{
+    "data": [
+        {
+            "id": "unmotivated-frustrated",
+            "question": "I'm unmotivated and frustrated because of a lack of progress — not laziness. Is this going to fix that?",
+            "answer": "A book alone won't magically resolve career challenges, but it provides the foundational mindset required for success in software development. The bundle gives you both the software craftsmanship principles and client understanding skills that are essential for making real progress in your career.",
+            "order": 1
+        },
+        {
+            "id": "no-time-to-read",
+            "question": "I don't have time to read an entire book... let alone a collection! Can I still learn something here?",
+            "answer": "Yes. The volumes and chapters are designed as standalone resources, allowing quick searches when facing specific problems, plus external links for deeper exploration. You can jump to exactly what you need right now.",
+            "order": 2
+        },
+        {
+            "id": "technical-teaching",
+            "question": "Will this collection teach me the technical side of engineering?",
+            "answer": "The collection includes practical examples and code snippets but isn't a substitute for hands-on training. Concepts are presented separately to improve understanding. This focuses on the mindset, principles, and approaches that make you a better developer beyond just technical skills.",
+            "order": 3
+        },
+        {
+            "id": "slack-group",
+            "question": "How does the Slack community work?",
+            "answer": "Members can pose questions about software engineering and IT, with responses from senior engineers covering technical issues, conceptual challenges, and workplace situations. You get lifetime access to this supportive community of developers helping each other grow.",
+            "order": 4
+        },
+        {
+            "id": "money-back-guarantee",
+            "question": "What if I don't like the bundle? How does the money-back guarantee work?",
+            "answer": "Contact within 14 days for a full refund. The creator only requests feedback on unmet expectations. No hassle, no questions asked beyond understanding how to improve.",
+            "order": 5
+        },
+        {
+            "id": "future-volumes",
+            "question": "Why are only Volumes 1 and 2 available right now?",
+            "answer": "New volumes release every few months. The starter bundle gives you access to the first two foundational volumes. If you want all 12 volumes as they're released, consider the Lifetime Bundle for the complete collection.",
+            "order": 6
+        },
+        {
+            "id": "volume-contents",
+            "question": "I don't understand what's in each volume",
+            "answer": "Volume 1 covers software craftsmanship, mindset, and professional development. Volume 2 focuses on understanding client needs, UX design, and requirements discovery. Volume descriptions, full chapter breakdowns, and free samples are available on dev-concepts.dev.",
+            "order": 7
+        },
+        {
+            "id": "single-volume-option",
+            "question": "Can I buy just a single volume instead of the bundle?",
+            "answer": "Individual volumes are available separately, though the Starter Bundle offers better savings and includes lifetime Slack community access. The bundle is the best value for getting both foundational volumes plus ongoing support.",
+            "order": 8
+        },
+        {
+            "id": "cant-afford",
+            "question": "I can't afford to buy this...",
+            "answer": "Contact the author via Twitter or email to discuss options. Sébastien wants to help developers grow regardless of their financial situation.",
+            "order": 9
+        },
+        {
+            "id": "group-purchase",
+            "question": "I want to buy Dev Concepts for a group at work",
+            "answer": "Group licenses are available; contact the author for pricing details. This is perfect for onboarding junior developers or leveling up your team.",
+            "order": 10
+        }
+    ]
+}

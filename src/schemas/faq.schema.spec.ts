@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'bun:test'
-import { FAQSchema, FAQsArraySchema, type FAQ } from './faq.schema'
+import { FAQSchema, FAQsArraySchema, FAQFileSchema, type FAQ } from './faq.schema'
 
 describe('FAQ Schema Validation', () => {
     const validFAQ: FAQ = {
@@ -256,6 +256,66 @@ describe('FAQ Schema Validation', () => {
             const valid = { ...validFAQ, question: 'Is this free?' }
             const result = FAQSchema.safeParse(valid)
             expect(result.success).toBe(true)
+        })
+    })
+
+    describe('FAQFileSchema - File Format Validation', () => {
+        it('should accept valid file with data array', () => {
+            const validFile = {
+                data: [validFAQ]
+            }
+            const result = FAQFileSchema.safeParse(validFile)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept file with empty data array', () => {
+            const validFile = { data: [] }
+            const result = FAQFileSchema.safeParse(validFile)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept file with multiple FAQs', () => {
+            const validFile = {
+                data: [
+                    validFAQ,
+                    { ...validFAQ, id: 'faq-2', order: 1 },
+                    { ...validFAQ, id: 'faq-3', order: 2 }
+                ]
+            }
+            const result = FAQFileSchema.safeParse(validFile)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject file without data property', () => {
+            const invalid = [validFAQ]
+            const result = FAQFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject file with null data', () => {
+            const invalid = { data: null }
+            const result = FAQFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject file with non-array data', () => {
+            const invalid = { data: validFAQ }
+            const result = FAQFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject file with invalid FAQ in data array', () => {
+            const invalid = {
+                data: [validFAQ, { ...validFAQ, question: '' }]
+            }
+            const result = FAQFileSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject root-level array (old format)', () => {
+            const oldFormat = [validFAQ]
+            const result = FAQFileSchema.safeParse(oldFormat)
+            expect(result.success).toBe(false)
         })
     })
 })

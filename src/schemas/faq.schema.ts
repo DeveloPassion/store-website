@@ -20,6 +20,15 @@ export const FAQSchema = z.object({
 
 export const FAQsArraySchema = z.array(FAQSchema)
 
+/**
+ * File-level schema for FAQ JSON files
+ * Wraps the array in a { data: [...] } object for valid JSON structure
+ */
+export const FAQFileSchema = z.object({
+    data: FAQsArraySchema
+})
+
 // Export TypeScript types derived from Zod schemas
 export type FAQ = z.infer<typeof FAQSchema>
 export type FAQsArray = z.infer<typeof FAQsArraySchema>
+export type FAQFile = z.infer<typeof FAQFileSchema>

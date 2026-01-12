@@ -1,9 +1,11 @@
-[
-    {
-        "id": "testimonial-1",
-        "author": "Julien Dambron",
-        "rating": 5,
-        "quote": "Big thanks. Truly deep. Truly useful. You nailed why journaling works",
-        "featured": true
-    }
-]
+{
+    "data": [
+        {
+            "id": "testimonial-1",
+            "author": "Julien Dambron",
+            "rating": 5,
+            "quote": "Big thanks. Truly deep. Truly useful. You nailed why journaling works",
+            "featured": true
+        }
+    ]
+}

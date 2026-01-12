@@ -90,7 +90,8 @@ function loadFAQs(productId: string): FAQ[] {
 
     try {
         const content = readFileSync(faqPath, 'utf-8')
-        return JSON.parse(content)
+        const file = JSON.parse(content)
+        return file.data || []
     } catch (error) {
         const message = `Failed to load FAQs for ${productId}: ${error instanceof Error ? error.message : String(error)}`
         console.warn(`⚠️  ${message}`)
@@ -113,7 +114,8 @@ function loadTestimonials(productId: string): Testimonial[] {
 
     try {
         const content = readFileSync(testimonialsPath, 'utf-8')
-        return JSON.parse(content)
+        const file = JSON.parse(content)
+        return file.data || []
     } catch (error) {
         const message = `Failed to load testimonials for ${productId}: ${error instanceof Error ? error.message : String(error)}`
         console.warn(`⚠️  ${message}`)
@@ -136,7 +138,8 @@ function loadMedia(productId: string): MediaItem[] {
 
     try {
         const content = readFileSync(mediaPath, 'utf-8')
-        return JSON.parse(content)
+        const file = JSON.parse(content)
+        return file.data || []
     } catch (error) {
         const message = `Failed to load media for ${productId}: ${error instanceof Error ? error.message : String(error)}`
         console.warn(`⚠️  ${message}`)

@@ -92,12 +92,15 @@ import {
     PriceTierSchema,
     ProductCategorySchema
 } from '../src/schemas/product.schema.js'
-import { MediaArraySchema, MediaItemSchema } from '../src/schemas/media.schema.js'
+import { MediaArraySchema, MediaItemSchema, MediaFileSchema } from '../src/schemas/media.schema.js'
 import { TagsMapSchema } from '../src/schemas/tag.schema.js'
 import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
-import { FAQsArraySchema } from '../src/schemas/faq.schema.js'
-import { TestimonialsArraySchema } from '../src/schemas/testimonial.schema.js'
+import { FAQsArraySchema, FAQFileSchema } from '../src/schemas/faq.schema.js'
+import {
+    TestimonialsArraySchema,
+    TestimonialFileSchema
+} from '../src/schemas/testimonial.schema.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
 import type { MediaGroup, MediaType, MediaItem } from '../src/schemas/media.schema.js'
 import type { TagsMap, TagId } from '../src/types/tag'
@@ -216,14 +219,14 @@ function loadMedia(productsDir: string, productId: string): MediaItem[] {
 
     try {
         const content = readFileSync(mediaPath, 'utf-8')
-        const media = JSON.parse(content)
-        const result = MediaArraySchema.safeParse(media)
+        const fileData = JSON.parse(content)
+        const result = MediaFileSchema.safeParse(fileData)
 
         if (!result.success) {
             throw new Error(`Invalid media data: ${result.error.message}`)
         }
 
-        return result.data
+        return result.data.data
     } catch (error) {
         throw new Error(
             `Failed to load media: ${error instanceof Error ? error.message : String(error)}`
@@ -236,12 +239,6 @@ function loadMedia(productsDir: string, productId: string): MediaItem[] {
  */
 function saveMedia(productsDir: string, productId: string, media: MediaItem[]): void {
     const mediaPath = getMediaPath(productsDir, productId)
-
-    // Validate before saving
-    const result = MediaArraySchema.safeParse(media)
-    if (!result.success) {
-        throw new Error(`Validation failed: ${result.error.message}`)
-    }
 
     // Sort by group priority, then by order
     const sorted = [...media].sort((a, b) => {
@@ -257,7 +254,14 @@ function saveMedia(productsDir: string, productId: string, media: MediaItem[]): 
         return a.order - b.order
     })
 
-    const json = JSON.stringify(sorted, null, 4)
+    // Wrap in file format and validate
+    const fileData = { data: sorted }
+    const result = MediaFileSchema.safeParse(fileData)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error.message}`)
+    }
+
+    const json = JSON.stringify(fileData, null, 4)
     writeFileSync(mediaPath, json + '\n', 'utf-8')
 }
 
@@ -581,14 +585,14 @@ function loadFaqs(productsDir: string, productId: string): FAQ[] {
 
     try {
         const content = readFileSync(faqPath, 'utf-8')
-        const faqs = JSON.parse(content)
-        const result = FAQsArraySchema.safeParse(faqs)
+        const fileData = JSON.parse(content)
+        const result = FAQFileSchema.safeParse(fileData)
 
         if (!result.success) {
             throw new Error(`Invalid FAQ data: ${result.error.message}`)
         }
 
-        return result.data
+        return result.data.data
     } catch (error) {
         throw new Error(
             `Failed to load FAQs: ${error instanceof Error ? error.message : String(error)}`
@@ -599,16 +603,17 @@ function loadFaqs(productsDir: string, productId: string): FAQ[] {
 function saveFaqs(productsDir: string, productId: string, faqs: FAQ[]): void {
     const faqPath = getFaqPath(productsDir, productId)
 
-    // Validate before saving
-    const result = FAQsArraySchema.safeParse(faqs)
+    // Sort by order
+    const sorted = [...faqs].sort((a, b) => a.order - b.order)
+
+    // Wrap in file format and validate
+    const fileData = { data: sorted }
+    const result = FAQFileSchema.safeParse(fileData)
     if (!result.success) {
         throw new Error(`Validation failed: ${result.error.message}`)
     }
 
-    // Sort by order
-    const sorted = [...faqs].sort((a, b) => a.order - b.order)
-
-    const json = JSON.stringify(sorted, null, 4)
+    const json = JSON.stringify(fileData, null, 4)
     writeFileSync(faqPath, json + '\n', 'utf-8')
 }
 
@@ -691,14 +696,14 @@ function loadTestimonials(productsDir: string, productId: string): Testimonial[]
 
     try {
         const content = readFileSync(testimonialPath, 'utf-8')
-        const testimonials = JSON.parse(content)
-        const result = TestimonialsArraySchema.safeParse(testimonials)
+        const fileData = JSON.parse(content)
+        const result = TestimonialFileSchema.safeParse(fileData)
 
         if (!result.success) {
             throw new Error(`Invalid testimonial data: ${result.error.message}`)
         }
 
-        return result.data
+        return result.data.data
     } catch (error) {
         throw new Error(
             `Failed to load testimonials: ${error instanceof Error ? error.message : String(error)}`
@@ -713,19 +718,20 @@ function saveTestimonials(
 ): void {
     const testimonialPath = getTestimonialPath(productsDir, productId)
 
-    // Validate before saving
-    const result = TestimonialsArraySchema.safeParse(testimonials)
-    if (!result.success) {
-        throw new Error(`Validation failed: ${result.error.message}`)
-    }
-
     // Sort by featured (featured first), then by rating
     const sorted = [...testimonials].sort((a, b) => {
         if (a.featured !== b.featured) return a.featured ? -1 : 1
         return b.rating - a.rating
     })
 
-    const json = JSON.stringify(sorted, null, 4)
+    // Wrap in file format and validate
+    const fileData = { data: sorted }
+    const result = TestimonialFileSchema.safeParse(fileData)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error.message}`)
+    }
+
+    const json = JSON.stringify(fileData, null, 4)
     writeFileSync(testimonialPath, json + '\n', 'utf-8')
 }
 

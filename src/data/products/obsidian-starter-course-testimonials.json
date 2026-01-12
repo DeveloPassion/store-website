@@ -1,16 +1,18 @@
-[
-    {
-        "id": "testimonial-19",
-        "author": "Anonymous",
-        "rating": 5,
-        "quote": "The perfect tool to start using the full power of Obsidian.",
-        "featured": false
-    },
-    {
-        "id": "testimonial-20",
-        "author": "Anonymous",
-        "rating": 5,
-        "quote": "Perfect!",
-        "featured": false
-    }
-]
+{
+    "data": [
+        {
+            "id": "testimonial-19",
+            "author": "Anonymous",
+            "rating": 5,
+            "quote": "The perfect tool to start using the full power of Obsidian.",
+            "featured": false
+        },
+        {
+            "id": "testimonial-20",
+            "author": "Anonymous",
+            "rating": 5,
+            "quote": "Perfect!",
+            "featured": false
+        }
+    ]
+}
