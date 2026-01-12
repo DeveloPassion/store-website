@@ -5,6 +5,7 @@ import { FaBolt, FaCog, FaInfinity, FaCheckCircle } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
 import { cn } from '@/lib/utils'
+import { SectionHeader } from '@/components/ui/section-header'
 
 interface ProductBenefitsProps {
     product: Product
@@ -42,19 +43,10 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
         <Section className='bg-primary/5'>
             <div className='mx-auto max-w-6xl'>
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className='mb-12 text-center'
-                >
-                    <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
-                        Benefits You'll Experience
-                    </h2>
-                    <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                        Transformation at every stage of your journey
-                    </p>
-                </motion.div>
+                <SectionHeader
+                    title="Benefits You'll Experience"
+                    subtitle='Transformation at every stage of your journey'
+                />
 
                 {/* Tabs */}
                 <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>

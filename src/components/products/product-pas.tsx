@@ -3,6 +3,7 @@ import { FaTimesCircle, FaExclamationTriangle, FaCheckCircle } from 'react-icons
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
+import { SectionHeader } from '@/components/ui/section-header'
 
 interface ProductPASProps {
     product: Product
@@ -24,16 +25,12 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     variants={containerVariants}
                     className='mx-auto max-w-4xl'
                 >
-                    <motion.div variants={itemVariants} className='mb-12 text-center'>
-                        <div className='mb-4 flex justify-center'>
-                            <FaTimesCircle className='h-12 w-12 text-red-500' />
-                        </div>
-                        <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
-                            The Problem
-                        </h2>
-                        <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                            {product.problem}
-                        </p>
+                    <motion.div variants={itemVariants}>
+                        <SectionHeader
+                            title='The Problem'
+                            subtitle={product.problem}
+                            icon={<FaTimesCircle className='h-12 w-12 text-red-500' />}
+                        />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
@@ -59,16 +56,12 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     variants={containerVariants}
                     className='mx-auto max-w-4xl'
                 >
-                    <motion.div variants={itemVariants} className='mb-12 text-center'>
-                        <div className='mb-4 flex justify-center'>
-                            <FaExclamationTriangle className='h-12 w-12 text-orange-500' />
-                        </div>
-                        <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
-                            Why This Matters
-                        </h2>
-                        <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                            {product.agitate}
-                        </p>
+                    <motion.div variants={itemVariants}>
+                        <SectionHeader
+                            title='Why This Matters'
+                            subtitle={product.agitate}
+                            icon={<FaExclamationTriangle className='h-12 w-12 text-orange-500' />}
+                        />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
@@ -94,16 +87,12 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     variants={containerVariants}
                     className='mx-auto max-w-4xl'
                 >
-                    <motion.div variants={itemVariants} className='mb-12 text-center'>
-                        <div className='mb-4 flex justify-center'>
-                            <FaCheckCircle className='text-secondary h-12 w-12' />
-                        </div>
-                        <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
-                            The Solution
-                        </h2>
-                        <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                            {product.solution}
-                        </p>
+                    <motion.div variants={itemVariants}>
+                        <SectionHeader
+                            title='The Solution'
+                            subtitle={product.solution}
+                            icon={<FaCheckCircle className='text-secondary h-12 w-12' />}
+                        />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>

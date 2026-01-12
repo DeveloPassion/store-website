@@ -13,6 +13,7 @@ import type { IconType } from 'react-icons'
 import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
+import { SectionHeader } from '@/components/ui/section-header'
 
 interface ProductFeaturesProps {
     product: Product
@@ -37,19 +38,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
         <Section className='border-primary/10 bg-background border-t'>
             <div className='mx-auto max-w-6xl'>
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className='mb-12 text-center'
-                >
-                    <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
-                        What's Included
-                    </h2>
-                    <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                        {product.description}
-                    </p>
-                </motion.div>
+                <SectionHeader title="What's Included" subtitle={product.description} />
 
                 {/* Features Grid */}
                 <motion.div

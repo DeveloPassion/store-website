@@ -5,6 +5,7 @@ import Section from '@/components/ui/section'
 import type { Product } from '@/types/product'
 import { cn } from '@/lib/utils'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
+import { SectionHeader } from '@/components/ui/section-header'
 
 interface ProductFAQProps {
     product: Product
@@ -27,19 +28,10 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
         <Section className='bg-primary/5'>
             <div className='mx-auto max-w-4xl'>
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className='mb-12 text-center'
-                >
-                    <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
-                        Frequently Asked Questions
-                    </h2>
-                    <p className='text-primary/70 mx-auto max-w-2xl text-lg sm:text-xl'>
-                        Everything you need to know
-                    </p>
-                </motion.div>
+                <SectionHeader
+                    title='Frequently Asked Questions'
+                    subtitle='Everything you need to know'
+                />
 
                 {/* FAQ Accordion */}
                 <motion.div
