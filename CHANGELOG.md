@@ -1,3 +1,10 @@
+## [0.5.6](https://github.com/DeveloPassion/store-website/compare/0.5.5...0.5.6) (2026-01-13)
+
+### Features
+
+* **all:** extracted sales copy and added support for multiple sales copy files ([da9e330](https://github.com/DeveloPassion/store-website/commit/da9e33016e73b9f6fcc5755461bfc7e0db5b71ba))
+* **all:** improved sales copy support in CLI and fixed product links ([03a4d80](https://github.com/DeveloPassion/store-website/commit/03a4d80e64211c7f1991daaee1ddb370649a0299))
+* **all:** removed noise in tests ([547e0f1](https://github.com/DeveloPassion/store-website/commit/547e0f19d7f7af46028d670a6f734df80b679cdb))
 ## [0.5.5](https://github.com/DeveloPassion/store-website/compare/0.5.4...0.5.5) (2026-01-13)
 
 ### Features
