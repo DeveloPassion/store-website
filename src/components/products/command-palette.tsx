@@ -72,7 +72,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                     <FaShoppingBag className='text-secondary h-5 w-5' />
                 ),
                 action: () => {
-                    navigate(`/l/${product.id}`)
+                    navigate(`/product/${product.id}`)
                     onClose()
                 },
                 product

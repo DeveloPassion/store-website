@@ -107,14 +107,7 @@ All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) fo
 
 Products are ~50 field JSON files in `/src/data/products/{product-id}.json`. Auto-aggregated into `products.json` (gitignored) at build time.
 
-**Quick Commands:**
-
-```bash
-bun run update:products               # Interactive CLI
-bun run update:products -- --operation list [--featured|--category X|--tag Y]
-bun run update:products -- --operation add|edit|remove [options]
-bun run validate:products             # Validate after changes
-```
+**CLI**: Use `bun run update:products` for interactive management or `bun run validate:products` to validate after changes.
 
 **Product Structure** (53+ fields):
 
@@ -238,20 +231,7 @@ Example subscription product structure:
 
 Products support rich media (images and videos) organized into five groups: **cover**, **banner**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
 
-**Quick Commands:**
-
-```bash
-# Interactive mode (recommended)
-bun run update:products
-# Select "Edit existing product" → Choose product → Select "🖼️ Manage Media"
-
-# CLI mode (for automation/scripts)
-bun run update:products -- --operation media:list --id product-id [--media-group cover]
-bun run update:products -- --operation media:add --id product-id --media-type image --media-url "/path/image.png" --media-title "Screenshot" --media-altText "App screenshot" --media-group cover
-bun run update:products -- --operation media:edit --id product-id --media-id "media-123" --media-title "Updated title"
-bun run update:products -- --operation media:remove --id product-id --media-id "media-123"
-bun run update:products -- --operation media:reorder --id product-id --media-id "media-123" --media-order 5
-```
+**CLI**: Use `bun run update:products` (select "Edit existing product" → "🖼️ Manage Media") for interactive media management with list, add, edit, remove, and reorder operations.
 
 **Media Item Structure** (13 fields):
 
@@ -395,17 +375,7 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 - **Active Variant**: Product JSON references active variant via `activeSalesCopyId` field
 - **Aggregation**: Sales copy auto-loaded and merged into product during build
 
-**Quick Commands:**
-
-```bash
-# CLI operations for managing variants
-bun run update:products -- --operation sales-copy:list --id product-id
-bun run update:products -- --operation sales-copy:add --id product-id --sales-copy-id holiday-2026
-bun run update:products -- --operation sales-copy:edit --id product-id --sales-copy-id default --sales-copy-tagline "New tagline"
-bun run update:products -- --operation sales-copy:enable --id product-id --sales-copy-id holiday-2026
-bun run update:products -- --operation sales-copy:duplicate --id product-id --sales-copy-id default --new-sales-copy-id test-variant
-bun run update:products -- --operation sales-copy:remove --id product-id --sales-copy-id old-variant
-```
+**CLI**: Use `bun run update:products` for managing sales copy variants with operations: list, add, edit, enable, duplicate, and remove.
 
 **Sales Copy Fields** (extracted from Product JSON):
 
@@ -477,19 +447,9 @@ Example `knowii-voice-ai-sales-copy-default.json`:
 
 Configuration in `src/data/promotion.json` (not gitignored).
 
-**Behavior Modes:**
+**Behavior Modes:** ALWAYS (always visible), NEVER (never shown), PROMOTIONS (shows during configured period)
 
-- ALWAYS: Always visible
-- NEVER: Never shown
-- PROMOTIONS: Shows during configured period
-
-**Quick Commands:**
-
-```bash
-bun run update:promotion              # Interactive
-bun run update:promotion -- --behavior PROMOTIONS --text "..." --link "..." --start "2026-01-01" --duration 30
-bun run validate:promotion
-```
+**CLI**: Use `bun run update:promotion` for interactive configuration or `bun run validate:promotion` to validate.
 
 **Fields**: bannerBehavior, promotionStart/End (ISO 8601 UTC), promoText, promoLinkText, promoLink, discountCode
 
@@ -497,13 +457,7 @@ bun run validate:promotion
 
 Configuration in `src/data/redirects.json` (not gitignored). Enables automated client-side redirects for GitHub Pages.
 
-**Quick Commands:**
-
-```bash
-bun run update:redirects              # Interactive CLI
-bun run update:redirects -- --operation list|add|remove
-bun run validate:redirects            # Validate after changes
-```
+**CLI**: Use `bun run update:redirects` for interactive management or `bun run validate:redirects` to validate after changes.
 
 **Structure** (5 fields):
 
@@ -546,13 +500,7 @@ All redirects are client-side (no server config needed). Static HTML pages are g
 
 96 tags in `src/data/tags.json` (object/map structure). Used for detailed product metadata.
 
-**Quick Commands:**
-
-```bash
-bun run update:tags                   # Interactive
-bun run update:tags -- --operation list|add|modify|remove|remove-unused [options]
-bun run validate:tags
-```
+**CLI**: Use `bun run update:tags` for interactive management or `bun run validate:tags` to validate after changes.
 
 **Structure**: id, name, description, icon, color (#RRGGBB), featured, priority
 **Priority**: Featured 1-8, Non-featured 21+
@@ -562,13 +510,7 @@ bun run validate:tags
 
 23 categories in `src/data/categories.json` (array structure). Used for broad product organization.
 
-**Quick Commands:**
-
-```bash
-bun run update:categories             # Interactive
-bun run update:categories -- --operation list|add|modify|remove|remove-unused [options]
-bun run validate:categories
-```
+**CLI**: Use `bun run update:categories` for interactive management or `bun run validate:categories` to validate after changes.
 
 **Structure**: id, name, description, icon, color, featured, priority
 **Priority**: Featured 1-7, Non-featured 8-23
@@ -580,30 +522,10 @@ bun run validate:categories
 
 Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.json`. Auto-loaded during product aggregation.
 
-**Quick Commands:**
-
-```bash
-# Interactive mode (recommended)
-bun run update:products
-# Select "Edit existing product" → Choose product → Select "📝💬 Manage Content"
-
-# CLI mode - FAQs
-bun run update:products -- --operation faq:list --id product-id
-bun run update:products -- --operation faq:add --id product-id --faq-question "How does it work?" --faq-answer "It works great!" [--faq-order 0]
-bun run update:products -- --operation faq:edit --id product-id --faq-id "faq-123" --faq-question "Updated question"
-bun run update:products -- --operation faq:remove --id product-id --faq-id "faq-123"
-
-# CLI mode - Testimonials
-bun run update:products -- --operation testimonial:list --id product-id
-bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "John Doe" --testimonial-quote "Amazing product!" --testimonial-rating 5 [--testimonial-featured true]
-bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" --testimonial-quote "Updated quote"
-bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"
-```
+**CLI**: Use `bun run update:products` (select "Edit existing product" → "📝💬 Manage Content") for interactive FAQ and testimonial management with list, add, edit, and remove operations.
 
 **FAQ Fields**: id, question, answer, order
 **Testimonial Fields**: id, author, rating (1-5), quote, featured, role, company, avatarUrl, twitterHandle, twitterUrl
-
-CLI provides: list, add, edit, remove, auto-sorting, schema validation.
 
 ## Testing Requirements
 
@@ -668,10 +590,11 @@ Keyboard navigation, ARIA labels, focus management, command palette shortcuts, s
 4. Validate data after edits (`bun run validate:all`)
 5. Use conventional commits
 6. Don't edit CHANGELOG.md (auto-generated)
-7. **Backwards Compatibility**: When there is a question of backwards compatibility (e.g., renaming routes, changing URLs, renaming fields), ALWAYS ASK the user whether they want to maintain backwards compatibility or if breaking changes are acceptable. Do not assume either way.
-8. **TypeScript Types**: NEVER use `any` type unless absolutely unavoidable. Always use proper TypeScript types such as `React.ComponentPropsWithoutRef<'element'>`, `React.ReactNode`, specific interface types, or generic constraints. The `any` type bypasses type safety and should be avoided.
-9. **No Re-exports for Backwards Compatibility**: NEVER re-export types, interfaces, schemas, or functions from one module just for backwards compatibility. Always import from the original source where they are defined. Update all import statements throughout the codebase to point to the correct source. This keeps the codebase clean and makes dependencies explicit.
-10. **Branding Consistency**: When making branding changes (site name, taglines, descriptions), update ALL of these locations:
+7. **CLI Documentation**: When documenting CLIs in AGENTS.md, keep explanations succinct - one sentence about what the CLI can be used for and the basic command invocation. Detailed CLI arguments and examples belong in skill files (`.claude/skills/`) only.
+8. **Backwards Compatibility**: When there is a question of backwards compatibility (e.g., renaming routes, changing URLs, renaming fields), ALWAYS ASK the user whether they want to maintain backwards compatibility or if breaking changes are acceptable. Do not assume either way.
+9. **TypeScript Types**: NEVER use `any` type unless absolutely unavoidable. Always use proper TypeScript types such as `React.ComponentPropsWithoutRef<'element'>`, `React.ReactNode`, specific interface types, or generic constraints. The `any` type bypasses type safety and should be avoided.
+10. **No Re-exports for Backwards Compatibility**: NEVER re-export types, interfaces, schemas, or functions from one module just for backwards compatibility. Always import from the original source where they are defined. Update all import statements throughout the codebase to point to the correct source. This keeps the codebase clean and makes dependencies explicit.
+11. **Branding Consistency**: When making branding changes (site name, taglines, descriptions), update ALL of these locations:
     - `src/index.html` - Base HTML template with meta tags
     - `scripts/utils/generate-static-pages.ts` - Static page generation (JSON-LD schemas, page titles, meta tags)
     - `scripts/utils/generate-llms-txt.ts` - LLMs.txt file generation (site title)

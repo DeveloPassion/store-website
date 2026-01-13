@@ -189,7 +189,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                 </div>
 
                 {/* Title */}
-                <Link to={`/l/${product.id}`} className='group/title'>
+                <Link to={`/product/${product.id}`} className='group/title'>
                     <h3 className='group-hover/title:text-secondary mb-2 line-clamp-2 text-base font-bold transition-colors'>
                         {product.name}
                     </h3>

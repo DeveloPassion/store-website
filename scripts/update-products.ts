@@ -89,12 +89,29 @@
  *     --testimonial-company <string>      Author company
  *
  *   Sales Copy:
- *     --sales-copy-id <string>            Sales copy variant ID
- *     --new-sales-copy-id <string>        New variant ID (for duplicate operation)
- *     --sales-copy-tagline <string>       Product tagline
- *     --sales-copy-description <string>   Product description
- *     --sales-copy-problem <string>       Problem statement (PAS)
- *     --sales-copy-solution <string>      Solution statement (PAS)
+ *     --sales-copy-id <string>                  Sales copy variant ID
+ *     --new-sales-copy-id <string>              New variant ID (for duplicate operation)
+ *     --sales-copy-tagline <string>             Product tagline
+ *     --sales-copy-secondary-tagline <string>   Secondary tagline
+ *     --sales-copy-description <string>         Product description
+ *     --sales-copy-problem <string>             Problem statement (PAS)
+ *     --sales-copy-problem-points <string>      Problem points (JSON array or comma-separated)
+ *     --sales-copy-agitate <string>             Agitate statement (PAS)
+ *     --sales-copy-agitate-points <string>      Agitate points (JSON array or comma-separated)
+ *     --sales-copy-solution <string>            Solution statement (PAS)
+ *     --sales-copy-solution-points <string>     Solution points (JSON array or comma-separated)
+ *     --sales-copy-features <string>            Features (JSON array or comma-separated)
+ *     --sales-copy-benefits-immediate <string>  Immediate benefits (JSON array or comma-separated)
+ *     --sales-copy-benefits-systematic <string> Systematic benefits (JSON array or comma-separated)
+ *     --sales-copy-benefits-long-term <string>  Long-term benefits (JSON array or comma-separated)
+ *     --sales-copy-target-audience <string>     Target audience (JSON array or comma-separated)
+ *     --sales-copy-perfect-for <string>         Perfect for (JSON array or comma-separated)
+ *     --sales-copy-not-for-you <string>         Not for you (JSON array or comma-separated)
+ *     --sales-copy-trust-badges <string>        Trust badges (JSON array or comma-separated)
+ *     --sales-copy-guarantees <string>          Guarantees (JSON array or comma-separated)
+ *     --sales-copy-meta-title <string>          SEO meta title
+ *     --sales-copy-meta-description <string>    SEO meta description
+ *     --sales-copy-keywords <string>            SEO keywords (JSON array or comma-separated)
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from 'fs'
@@ -206,9 +223,26 @@ interface CliArgs {
     'sales-copy-id'?: string
     'new-sales-copy-id'?: string
     'sales-copy-tagline'?: string
+    'sales-copy-secondary-tagline'?: string
     'sales-copy-description'?: string
     'sales-copy-problem'?: string
+    'sales-copy-problem-points'?: string // JSON array or comma-separated
+    'sales-copy-agitate'?: string
+    'sales-copy-agitate-points'?: string // JSON array or comma-separated
     'sales-copy-solution'?: string
+    'sales-copy-solution-points'?: string // JSON array or comma-separated
+    'sales-copy-features'?: string // JSON array or comma-separated
+    'sales-copy-benefits-immediate'?: string // JSON array or comma-separated
+    'sales-copy-benefits-systematic'?: string // JSON array or comma-separated
+    'sales-copy-benefits-long-term'?: string // JSON array or comma-separated
+    'sales-copy-target-audience'?: string // JSON array or comma-separated
+    'sales-copy-perfect-for'?: string // JSON array or comma-separated
+    'sales-copy-not-for-you'?: string // JSON array or comma-separated
+    'sales-copy-trust-badges'?: string // JSON array or comma-separated
+    'sales-copy-guarantees'?: string // JSON array or comma-separated
+    'sales-copy-meta-title'?: string
+    'sales-copy-meta-description'?: string
+    'sales-copy-keywords'?: string // JSON array or comma-separated
 }
 
 interface ProductReference {
@@ -3226,7 +3260,7 @@ async function addSalesCopyVariant(product: Product): Promise<void> {
 }
 
 /**
- * Edit sales copy variant (basic fields only for now)
+ * Edit sales copy variant (comprehensive editor with submenus)
  */
 async function editSalesCopyVariant(productId: string, variants: string[]): Promise<void> {
     if (variants.length === 0) {
@@ -3245,41 +3279,276 @@ async function editSalesCopyVariant(productId: string, variants: string[]): Prom
         return
     }
 
+    let editing = true
+    while (editing) {
+        const section = await select({
+            message: `Edit Sales Copy: ${variantId}`,
+            choices: [
+                { name: '📝 Basic Info (Tagline, Description)', value: 'basic' },
+                { name: '⚡ PAS Framework (Problem, Agitate, Solution)', value: 'pas' },
+                { name: '✨ Features & Benefits', value: 'features' },
+                { name: '🎯 Target Audience', value: 'audience' },
+                { name: '🛡️ Trust & Guarantees', value: 'trust' },
+                { name: '🔍 SEO Metadata', value: 'seo' },
+                { name: '💾 Save & Exit', value: 'save' },
+                { name: '🔙 Cancel', value: 'cancel' }
+            ]
+        })
+
+        switch (section) {
+            case 'basic':
+                await editBasicInfo(file.salesCopy)
+                break
+            case 'pas':
+                await editPASFramework(file.salesCopy)
+                break
+            case 'features':
+                await editFeaturesAndBenefits(file.salesCopy)
+                break
+            case 'audience':
+                await editTargetAudience(file.salesCopy)
+                break
+            case 'trust':
+                await editTrustAndGuarantees(file.salesCopy)
+                break
+            case 'seo':
+                await editSEOMetadata(file.salesCopy)
+                break
+            case 'save':
+                saveSalesCopyFile(productId, variantId, file.salesCopy)
+                showSuccess(`Variant "${variantId}" saved`)
+                editing = false
+                break
+            case 'cancel':
+                editing = false
+                break
+        }
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+async function editBasicInfo(salesCopy: SalesCopyData): Promise<void> {
     const answers = await inquirer.prompt([
         {
             type: 'input',
             name: 'tagline',
             message: 'Tagline:',
-            default: file.salesCopy.tagline
+            default: salesCopy.tagline
+        },
+        {
+            type: 'input',
+            name: 'secondaryTagline',
+            message: 'Secondary Tagline (optional):',
+            default: salesCopy.secondaryTagline || ''
         },
         {
             type: 'input',
             name: 'description',
             message: 'Description:',
-            default: file.salesCopy.description
-        },
+            default: salesCopy.description
+        }
+    ])
+
+    salesCopy.tagline = answers.tagline
+    salesCopy.secondaryTagline = answers.secondaryTagline || undefined
+    salesCopy.description = answers.description
+    showSuccess('Basic info updated')
+}
+
+async function editPASFramework(salesCopy: SalesCopyData): Promise<void> {
+    const answers = await inquirer.prompt([
         {
             type: 'input',
             name: 'problem',
             message: 'Problem Statement:',
-            default: file.salesCopy.problem
+            default: salesCopy.problem
+        },
+        {
+            type: 'input',
+            name: 'problemPoints',
+            message: 'Problem Points (comma-separated):',
+            default: salesCopy.problemPoints.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'agitate',
+            message: 'Agitate Statement:',
+            default: salesCopy.agitate
+        },
+        {
+            type: 'input',
+            name: 'agitatePoints',
+            message: 'Agitate Points (comma-separated):',
+            default: salesCopy.agitatePoints.join(', ')
         },
         {
             type: 'input',
             name: 'solution',
             message: 'Solution Statement:',
-            default: file.salesCopy.solution
+            default: salesCopy.solution
+        },
+        {
+            type: 'input',
+            name: 'solutionPoints',
+            message: 'Solution Points (comma-separated):',
+            default: salesCopy.solutionPoints.join(', ')
         }
     ])
 
-    file.salesCopy.tagline = answers.tagline
-    file.salesCopy.description = answers.description
-    file.salesCopy.problem = answers.problem
-    file.salesCopy.solution = answers.solution
+    salesCopy.problem = answers.problem
+    salesCopy.problemPoints = answers.problemPoints.split(',').map((s: string) => s.trim())
+    salesCopy.agitate = answers.agitate
+    salesCopy.agitatePoints = answers.agitatePoints.split(',').map((s: string) => s.trim())
+    salesCopy.solution = answers.solution
+    salesCopy.solutionPoints = answers.solutionPoints.split(',').map((s: string) => s.trim())
+    showSuccess('PAS framework updated')
+}
 
-    saveSalesCopyFile(productId, variantId, file.salesCopy)
-    showSuccess(`Variant "${variantId}" updated`)
-    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+async function editFeaturesAndBenefits(salesCopy: SalesCopyData): Promise<void> {
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'features',
+            message: 'Features (comma-separated):',
+            default: salesCopy.features.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'benefitsImmediate',
+            message: 'Immediate Benefits (comma-separated):',
+            default: salesCopy.benefits.immediate.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'benefitsSystematic',
+            message: 'Systematic Benefits (comma-separated):',
+            default: salesCopy.benefits.systematic.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'benefitsLongTerm',
+            message: 'Long-term Benefits (comma-separated):',
+            default: salesCopy.benefits.longTerm.join(', ')
+        }
+    ])
+
+    salesCopy.features = answers.features
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s)
+    salesCopy.benefits = {
+        immediate: answers.benefitsImmediate
+            .split(',')
+            .map((s: string) => s.trim())
+            .filter((s: string) => s),
+        systematic: answers.benefitsSystematic
+            .split(',')
+            .map((s: string) => s.trim())
+            .filter((s: string) => s),
+        longTerm: answers.benefitsLongTerm
+            .split(',')
+            .map((s: string) => s.trim())
+            .filter((s: string) => s)
+    }
+    showSuccess('Features and benefits updated')
+}
+
+async function editTargetAudience(salesCopy: SalesCopyData): Promise<void> {
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'targetAudience',
+            message: 'Target Audience (comma-separated):',
+            default: salesCopy.targetAudience.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'perfectFor',
+            message: 'Perfect For (comma-separated):',
+            default: salesCopy.perfectFor.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'notForYou',
+            message: 'Not For You (comma-separated):',
+            default: salesCopy.notForYou.join(', ')
+        }
+    ])
+
+    salesCopy.targetAudience = answers.targetAudience
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s)
+    salesCopy.perfectFor = answers.perfectFor
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s)
+    salesCopy.notForYou = answers.notForYou
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s)
+    showSuccess('Target audience updated')
+}
+
+async function editTrustAndGuarantees(salesCopy: SalesCopyData): Promise<void> {
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'trustBadges',
+            message: 'Trust Badges (comma-separated):',
+            default: salesCopy.trustBadges.join(', ')
+        },
+        {
+            type: 'input',
+            name: 'guarantees',
+            message: 'Guarantees (comma-separated):',
+            default: salesCopy.guarantees.join(', ')
+        }
+    ])
+
+    salesCopy.trustBadges = answers.trustBadges
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s)
+    salesCopy.guarantees = answers.guarantees
+        .split(',')
+        .map((s: string) => s.trim())
+        .filter((s: string) => s)
+    showSuccess('Trust and guarantees updated')
+}
+
+async function editSEOMetadata(salesCopy: SalesCopyData): Promise<void> {
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'metaTitle',
+            message: 'Meta Title (optional):',
+            default: salesCopy.metaTitle || ''
+        },
+        {
+            type: 'input',
+            name: 'metaDescription',
+            message: 'Meta Description (optional):',
+            default: salesCopy.metaDescription || ''
+        },
+        {
+            type: 'input',
+            name: 'keywords',
+            message: 'Keywords (comma-separated, optional):',
+            default: salesCopy.keywords ? salesCopy.keywords.join(', ') : ''
+        }
+    ])
+
+    salesCopy.metaTitle = answers.metaTitle || undefined
+    salesCopy.metaDescription = answers.metaDescription || undefined
+    salesCopy.keywords = answers.keywords
+        ? answers.keywords
+              .split(',')
+              .map((s: string) => s.trim())
+              .filter((s: string) => s)
+        : undefined
+    showSuccess('SEO metadata updated')
 }
 
 /**
@@ -3514,6 +3783,31 @@ async function operationRemove(args: CliArgs): Promise<void> {
 // ============================================================================
 
 /**
+ * Parse array input from CLI (supports JSON array or comma-separated values)
+ */
+function parseArrayInput(input: string | undefined): string[] | undefined {
+    if (!input) return undefined
+
+    // Try parsing as JSON first
+    if (input.startsWith('[')) {
+        try {
+            const parsed = JSON.parse(input)
+            if (Array.isArray(parsed)) {
+                return parsed.map((item) => String(item))
+            }
+        } catch {
+            // Fall through to comma-separated parsing
+        }
+    }
+
+    // Parse as comma-separated values
+    return input
+        .split(',')
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0)
+}
+
+/**
  * Handle sales-copy:* CLI operations
  */
 async function handleSalesCopyOperation(args: CliArgs): Promise<void> {
@@ -3621,11 +3915,67 @@ async function operationSalesCopyEdit(args: CliArgs, product: Product): Promise<
         process.exit(1)
     }
 
-    // Update fields if provided
+    // Update fields if provided - Basic strings
     if (args['sales-copy-tagline']) file.salesCopy.tagline = args['sales-copy-tagline']
+    if (args['sales-copy-secondary-tagline'])
+        file.salesCopy.secondaryTagline = args['sales-copy-secondary-tagline']
     if (args['sales-copy-description']) file.salesCopy.description = args['sales-copy-description']
+
+    // PAS Framework
     if (args['sales-copy-problem']) file.salesCopy.problem = args['sales-copy-problem']
+    if (args['sales-copy-agitate']) file.salesCopy.agitate = args['sales-copy-agitate']
     if (args['sales-copy-solution']) file.salesCopy.solution = args['sales-copy-solution']
+
+    // PAS Arrays
+    const problemPoints = parseArrayInput(args['sales-copy-problem-points'])
+    if (problemPoints) file.salesCopy.problemPoints = problemPoints
+
+    const agitatePoints = parseArrayInput(args['sales-copy-agitate-points'])
+    if (agitatePoints) file.salesCopy.agitatePoints = agitatePoints
+
+    const solutionPoints = parseArrayInput(args['sales-copy-solution-points'])
+    if (solutionPoints) file.salesCopy.solutionPoints = solutionPoints
+
+    // Content Arrays
+    const features = parseArrayInput(args['sales-copy-features'])
+    if (features) file.salesCopy.features = features
+
+    const targetAudience = parseArrayInput(args['sales-copy-target-audience'])
+    if (targetAudience) file.salesCopy.targetAudience = targetAudience
+
+    const perfectFor = parseArrayInput(args['sales-copy-perfect-for'])
+    if (perfectFor) file.salesCopy.perfectFor = perfectFor
+
+    const notForYou = parseArrayInput(args['sales-copy-not-for-you'])
+    if (notForYou) file.salesCopy.notForYou = notForYou
+
+    // Trust Arrays
+    const trustBadges = parseArrayInput(args['sales-copy-trust-badges'])
+    if (trustBadges) file.salesCopy.trustBadges = trustBadges
+
+    const guarantees = parseArrayInput(args['sales-copy-guarantees'])
+    if (guarantees) file.salesCopy.guarantees = guarantees
+
+    // Benefits Object
+    const benefitsImmediate = parseArrayInput(args['sales-copy-benefits-immediate'])
+    const benefitsSystematic = parseArrayInput(args['sales-copy-benefits-systematic'])
+    const benefitsLongTerm = parseArrayInput(args['sales-copy-benefits-long-term'])
+
+    if (benefitsImmediate || benefitsSystematic || benefitsLongTerm) {
+        file.salesCopy.benefits = {
+            immediate: benefitsImmediate || file.salesCopy.benefits.immediate,
+            systematic: benefitsSystematic || file.salesCopy.benefits.systematic,
+            longTerm: benefitsLongTerm || file.salesCopy.benefits.longTerm
+        }
+    }
+
+    // SEO Fields
+    if (args['sales-copy-meta-title']) file.salesCopy.metaTitle = args['sales-copy-meta-title']
+    if (args['sales-copy-meta-description'])
+        file.salesCopy.metaDescription = args['sales-copy-meta-description']
+
+    const keywords = parseArrayInput(args['sales-copy-keywords'])
+    if (keywords) file.salesCopy.keywords = keywords
 
     saveSalesCopyFile(product.id, salesCopyId, file.salesCopy)
     showSuccess(`Variant "${salesCopyId}" updated`)

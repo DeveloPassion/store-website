@@ -255,7 +255,7 @@ function generateTagNoscript(tag: string): string {
 ${taggedProducts
     .map(
         (p) =>
-            `                <li><a href="/l/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
+            `                <li><a href="/product/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
     )
     .join('\n')}
             </ul>

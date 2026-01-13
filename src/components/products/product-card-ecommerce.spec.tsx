@@ -214,7 +214,9 @@ describe('ProductCardEcommerce Component', () => {
         const { getAllByRole } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         const links = getAllByRole('link')
-        const productLinks = links.filter((link) => link.getAttribute('href') === '/l/test-123')
+        const productLinks = links.filter(
+            (link) => link.getAttribute('href') === '/product/test-123'
+        )
         expect(productLinks.length).toBeGreaterThan(0)
     })
 

@@ -25,7 +25,7 @@ const TestimonialCardLinked: React.FC<TestimonialCardLinkedProps> = ({
     const navigate = useNavigate()
 
     const handleCardClick = () => {
-        navigate(`/l/${productId}`)
+        navigate(`/product/${productId}`)
     }
 
     // Build motion props conditionally

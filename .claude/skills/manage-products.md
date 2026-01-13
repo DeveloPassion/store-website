@@ -445,13 +445,120 @@ bun run update:products -- --operation sales-copy:add --id product-id \
     --sales-copy-tagline "Holiday Special" \
     --sales-copy-description "Limited time offer"
 
-# Edit variant
+# Edit variant - supports ALL fields (strings, arrays, nested objects)
+# Basic fields
 bun run update:products -- --operation sales-copy:edit --id product-id \
     --sales-copy-id default \
     --sales-copy-tagline "Updated tagline" \
-    --sales-copy-description "Updated description"
+    --sales-copy-description "Updated description" \
+    --sales-copy-secondary-tagline "Optional secondary tagline"
 
-# Enable variant (set as active)
+# Edit PAS Framework with arrays
+bun run update:products -- --operation sales-copy:edit --id product-id \
+    --sales-copy-id default \
+    --sales-copy-problem "Core problem" \
+    --sales-copy-problem-points "Pain 1,Pain 2,Pain 3" \
+    --sales-copy-agitate "Why it hurts" \
+    --sales-copy-agitate-points '["Cost 1","Cost 2"]' \
+    --sales-copy-solution "Our solution" \
+    --sales-copy-solution-points "Benefit 1,Benefit 2"
+
+# Edit all features and benefits at once
+bun run update:products -- --operation sales-copy:edit --id product-id \
+    --sales-copy-id default \
+    --sales-copy-features "Voice capture,AI organization,Smart search" \
+    --sales-copy-benefits-immediate "Start today,See results fast" \
+    --sales-copy-benefits-systematic "Build sustainable habits" \
+    --sales-copy-benefits-long-term "Compound knowledge over years"
+
+# Edit target audience
+bun run update:products -- --operation sales-copy:edit --id product-id \
+    --sales-copy-id default \
+    --sales-copy-target-audience "Knowledge workers,Researchers" \
+    --sales-copy-perfect-for "Content creators,Consultants" \
+    --sales-copy-not-for-you "If you prefer paper notes"
+
+# Edit trust signals and SEO
+bun run update:products -- --operation sales-copy:edit --id product-id \
+    --sales-copy-id default \
+    --sales-copy-trust-badges "30-day guarantee,Secure checkout" \
+    --sales-copy-guarantees "Money-back guarantee,Lifetime updates" \
+    --sales-copy-meta-title "SEO Title" \
+    --sales-copy-keywords "pkm,knowledge,productivity"
+```
+
+**Array Input Formats:**
+- Comma-separated: `"item1,item2,item3"`
+- JSON array: `'["item1","item2","item3"]'`
+
+**Comprehensive Edit Example:**
+```bash
+# Edit multiple fields at once
+bun run update:products -- --operation sales-copy:edit --id knowii-voice-ai --sales-copy-id default \
+    --sales-copy-tagline "Transform Your Voice Into Knowledge" \
+    --sales-copy-features "Voice capture,AI transcription,Smart categorization" \
+    --sales-copy-benefits-immediate "Start capturing today,Works offline" \
+    --sales-copy-benefits-systematic "Build knowledge base,Organize automatically" \
+    --sales-copy-benefits-long-term "Compound your expertise,Build institutional knowledge" \
+    --sales-copy-problem-points "Scattered notes,Lost ideas,Information overload" \
+    --sales-copy-solution-points "Unified system,AI organization,Quick retrieval"
+```
+
+**Array Input Formats:**
+- Comma-separated: `"item1,item2,item3"`
+- JSON array: `'["item1","item2","item3"]'`
+
+**Supported Edit Fields (ALL sales copy fields):**
+- Basic: `--sales-copy-tagline`, `--sales-copy-secondary-tagline`, `--sales-copy-description`
+- PAS Framework: `--sales-copy-problem`, `--sales-copy-problem-points`, `--sales-copy-agitate`, `--sales-copy-agitate-points`, `--sales-copy-solution`, `--sales-copy-solution-points`
+- Content: `--sales-copy-features`, `--sales-copy-benefits-immediate`, `--sales-copy-benefits-systematic`, `--sales-copy-benefits-long-term`
+- Audience: `--sales-copy-target-audience`, `--sales-copy-perfect-for`, `--sales-copy-not-for-you`
+- Trust: `--sales-copy-trust-badges`, `--sales-copy-guarantees`
+- SEO: `--sales-copy-meta-title`, `--sales-copy-meta-description`, `--sales-copy-keywords`
+
+**Array Input Formats:**
+- Comma-separated: `"item1,item2,item3"`
+- JSON array: `'["item1","item2","item3"]'`
+
+**Comprehensive Edit Example:**
+```bash
+bun run update:products -- --operation sales-copy:edit --id knowii-voice-ai --sales-copy-id default \
+    --sales-copy-tagline "Transform Your Knowledge Workflow" \
+    --sales-copy-features "Voice capture,AI organization,Smart categorization" \
+    --sales-copy-benefits-immediate "Start capturing today,Quick setup" \
+    --sales-copy-problem-points "Information overload,Lost ideas,Scattered notes" \
+    --sales-copy-guarantees "30-day money-back,Lifetime updates"
+```
+
+**Interactive Features:**
+- Create variants from active, another variant, or template
+- Comprehensive editor with 6 submenus:
+  - **Basic Info**: Tagline, secondary tagline, description
+  - **PAS Framework**: Problem, agitate, solution (statements + points)
+  - **Features & Benefits**: Features list + immediate/systematic/long-term benefits
+  - **Target Audience**: Target audience, perfect for, not for you
+  - **Trust & Guarantees**: Trust badges, guarantees
+  - **SEO Metadata**: Meta title, description, keywords
+- View detailed variant information including storytelling sections
+- Cannot remove active variant (safety check)
+
+**CLI Array Input Formats:**
+- Comma-separated: `"item1,item2,item3"`
+- JSON array: `'["item1","item2","item3"]'`
+
+**Comprehensive Edit Example:**
+```bash
+# Edit multiple fields at once
+bun run update:products -- --operation sales-copy:edit --id knowii-voice-ai --sales-copy-id default \
+    --sales-copy-tagline "Transform your knowledge workflow" \
+    --sales-copy-features "Voice capture,AI organization,Smart categorization" \
+    --sales-copy-benefits-immediate "Start capturing knowledge today,Quick setup" \
+    --sales-copy-benefits-systematic "Build habits,Develop systems" \
+    --sales-copy-benefits-long-term "Compound knowledge,Lasting value" \
+    --sales-copy-target-audience "Knowledge workers,Researchers,Content creators" \
+    --sales-copy-perfect-for "Writers,Consultants,Researchers" \
+    --sales-copy-guarantees "30-day money-back guarantee,Lifetime updates"
+```
 bun run update:products -- --operation sales-copy:enable --id product-id \
     --sales-copy-id holiday-2026
 
