@@ -1,6 +1,6 @@
 {
-    "permalink": "uysik",
-    "name": "Knowii Clarity 101",
+    "id": "clarity-101",
+    "name": "Knowii Clarity 101 Workshop",
     "price": 19.99,
     "priceDisplay": "€19.99",
     "priceTier": "budget",
@@ -30,7 +30,6 @@
     "bestseller": false,
     "crossSellIds": ["personal-organization-101", "journaling-deep-dive", "knowledge-worker-kit"],
     "priority": 65,
-    "id": "clarity-101",
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

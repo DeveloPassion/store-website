@@ -1,5 +1,5 @@
 {
-    "permalink": "knowii-ai-master-prompt",
+    "id": "ai-master-prompt",
     "name": "Knowii AI Master Prompt Workshop",
     "price": 19.99,
     "priceDisplay": "€19.99",
@@ -32,7 +32,6 @@
     "bestseller": false,
     "crossSellIds": ["model-context-protocol", "ai-ghostwriter-guide", "knowledge-worker-kit"],
     "priority": 65,
-    "id": "ai-master-prompt",
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

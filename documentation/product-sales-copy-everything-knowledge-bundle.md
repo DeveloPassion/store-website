@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: everything-knowledge
-- **Permalink**: lbocum
 - **Name**: Everything Knowledge Bundle
 - **Tagline**: Every Knowledge Tool, Course, and Workshop in One Complete Package
 - **Secondary Tagline**: Save $200+ and Get Lifetime Access to the Complete Knowledge System

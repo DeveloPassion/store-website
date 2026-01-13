@@ -1,5 +1,5 @@
 {
-    "permalink": "tbdlrt",
+    "id": "knowii-voice-ai",
     "name": "Knowii Voice AI",
     "price": 49,
     "priceDisplay": "€49",
@@ -27,7 +27,6 @@
     "bestseller": false,
     "crossSellIds": ["knowledge-worker-kit", "knowii-community"],
     "priority": 60,
-    "id": "knowii-voice-ai",
     "mainCategory": "ai-tools",
     "secondaryCategories": [
         {

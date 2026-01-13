@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: it-concepts-wall
-- **Permalink**: mwdbm
 - **Name**: IT Concepts Wall
 - **Tagline**: Essential IT Concepts at Your Fingertips
 - **Type**: resource

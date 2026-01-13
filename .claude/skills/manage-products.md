@@ -64,7 +64,6 @@ bun run update:products -- --operation add \
     --tagline "One-line description" \
     --price 49.99 \
     --priceTier standard \
-    --permalink abc123 \
     --gumroadUrl "https://store.dsebastien.net/product/abc123" \
     --mainCategory guides \
     --tags "obsidian,pkm,productivity" \
@@ -127,7 +126,7 @@ Use the CLI's integrated management features (see sections below)
 
 The product schema is defined using Zod and contains 50+ fields organized into these groups:
 
-- **Identity**: id, permalink, name, tagline, secondaryTagline
+- **Identity**: id, name, tagline, secondaryTagline
 - **Pricing**: price, priceDisplay, priceTier, gumroadUrl, variants
 - **Subscription**: isSubscription, paymentFrequencies, defaultPaymentFrequency
 - **Taxonomy**: mainCategory, secondaryCategories, tags

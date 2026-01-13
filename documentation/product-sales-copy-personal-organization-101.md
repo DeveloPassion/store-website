@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: personal-organization-101
-- **Permalink**: zyuwjd
 - **Name**: Knowii Personal Organization 101
 - **Tagline**: Stop Drowning in Tasks. Start Living with Intention.
 - **Type**: workshop

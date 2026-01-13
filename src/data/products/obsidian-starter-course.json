@@ -1,5 +1,5 @@
 {
-    "permalink": "nolle",
+    "id": "obsidian-starter-course",
     "name": "Obsidian Starter Course",
     "price": 69.99,
     "priceDisplay": "$69.99",
@@ -53,7 +53,6 @@
         "knowledge-worker-kit"
     ],
     "priority": 80,
-    "id": "obsidian-starter-course",
     "mainCategory": "courses",
     "secondaryCategories": [
         {

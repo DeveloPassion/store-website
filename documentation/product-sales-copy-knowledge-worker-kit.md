@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: knowledge-worker-kit
-- **Permalink**: pyjrr
 - **Name**: Knowledge Worker Kit
 - **Tagline**: Your Personal Shield Against AI Obsolescence
 - **Secondary Tagline**: Become a Top 1% Knowledge Worker with Battle-Tested Systems

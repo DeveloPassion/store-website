@@ -17,7 +17,6 @@ mock.module('react-router', () => ({
 const createMockProduct = (overrides: Partial<Product> = {}): Product =>
     ({
         id: 'test-product',
-        permalink: 'test-product',
         name: 'Test Product',
         tagline: 'A test product',
         description: 'Test description',

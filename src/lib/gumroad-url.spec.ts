@@ -211,7 +211,6 @@ describe('buildGumroadUrl', () => {
 describe('buildGumroadUrlFromProduct', () => {
     const baseProduct: Product = {
         id: 'test-product',
-        permalink: 'test',
         name: 'Test Product',
         tagline: 'Test',
         price: 99,

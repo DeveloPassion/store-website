@@ -1,5 +1,5 @@
 {
-    "permalink": "mghmmj",
+    "id": "obsidian-starter-kit",
     "name": "Obsidian Starter Kit",
     "price": 129.99,
     "priceDisplay": "€129.99-€198.99",
@@ -68,7 +68,6 @@
     "bestseller": true,
     "crossSellIds": ["knowledge-management-for-beginners", "everything-knowledge-bundle"],
     "priority": 100,
-    "id": "obsidian-starter-kit",
     "mainCategory": "kits-and-templates",
     "secondaryCategories": [
         {

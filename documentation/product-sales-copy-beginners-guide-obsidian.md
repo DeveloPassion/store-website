@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: beginners-guide-obsidian
-- **Permalink**: imkjic
 - **Name**: Beginner's Guide to Mastering Obsidian
 - **Tagline**: Start Your Obsidian Journey With Confidence
 - **Secondary Tagline**: FREE Guide From Obsidian Beginner to Confident User

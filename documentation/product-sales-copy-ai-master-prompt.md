@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: ai-master-prompt
-- **Permalink**: knowii-ai-master-prompt
 - **Name**: Knowii AI Master Prompt Workshop
 - **Tagline**: Transform AI From Generic Assistant to Your Personal Expert
 - **Secondary Tagline**: Stop Getting Generic AI Responses. Start Getting AI That Knows You.

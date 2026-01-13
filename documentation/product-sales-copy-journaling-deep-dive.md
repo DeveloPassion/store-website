@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: journaling-deep-dive
-- **Permalink**: cdwol
 - **Name**: Knowii Journaling Deep Dive
 - **Tagline**: Transform Your Journal From Diary to Personal Operating System
 - **Secondary Tagline**: Stop Forgetting Your Life. Start Building Intentionally.

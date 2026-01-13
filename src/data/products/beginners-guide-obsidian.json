@@ -1,5 +1,5 @@
 {
-    "permalink": "imkjic",
+    "id": "beginners-guide-obsidian",
     "name": "Beginner's Guide to Mastering Obsidian",
     "price": 0,
     "priceDisplay": "FREE",
@@ -31,7 +31,6 @@
     "bestseller": false,
     "crossSellIds": ["obsidian-starter-course", "obsidian-starter-kit"],
     "priority": 40,
-    "id": "beginners-guide-obsidian",
     "mainCategory": "free",
     "secondaryCategories": [
         {

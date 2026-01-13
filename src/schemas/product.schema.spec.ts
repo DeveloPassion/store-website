@@ -13,7 +13,6 @@ import type { TagId } from '@/types/tag'
 describe('Product Schema Validation', () => {
     const validProduct = {
         id: 'test-product',
-        permalink: 'test-product',
         name: 'Test Product',
         tagline: 'Test tagline',
         price: 99.99,

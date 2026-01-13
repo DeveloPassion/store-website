@@ -1,5 +1,5 @@
 {
-    "permalink": "mwldmd",
+    "id": "pkm-coaching",
     "name": "Personal Knowledge Management Coaching",
     "price": 99.99,
     "priceDisplay": "€99.99 per session",
@@ -23,7 +23,6 @@
     "bestseller": false,
     "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
     "priority": 55,
-    "id": "pkm-coaching",
     "mainCategory": "coaching",
     "secondaryCategories": [
         {

@@ -15,7 +15,6 @@ mock.module('framer-motion', () => ({
 
 const mockProduct: Product = {
     id: 'test-product',
-    permalink: 'test-product',
     name: 'Test Product',
     tagline: 'A test product',
     secondaryTagline: '',

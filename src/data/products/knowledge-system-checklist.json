@@ -1,5 +1,5 @@
 {
-    "permalink": "qctpj",
+    "id": "knowledge-system-checklist",
     "name": "Knowledge Management System Checklist",
     "price": 0,
     "priceDisplay": "FREE",
@@ -23,7 +23,6 @@
     "bestseller": false,
     "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
     "priority": 40,
-    "id": "knowledge-system-checklist",
     "mainCategory": "free",
     "secondaryCategories": [
         {

@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: obsidian-starter-kit
-- **Permalink**: mghmmj
 - **Name**: Obsidian Starter Kit
 - **Tagline**: Stop Wasting Time Configuring Obsidian. Start Being Productive Today.
 - **Secondary Tagline**: Transform Chaos Into Clarity in 30 Minutes

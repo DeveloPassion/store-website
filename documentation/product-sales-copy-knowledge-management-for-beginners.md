@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: knowledge-management-for-beginners
-- **Permalink**: wazqkq
 - **Name**: Knowledge Management for Beginners
 - **Tagline**: Stop Drowning in Information. Start Building Knowledge.
 - **Secondary Tagline**: Stop losing great ideas in a sea of tabs, notes, and documents. Start building a knowledge system that works for you – forever.

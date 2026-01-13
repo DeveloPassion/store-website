@@ -164,7 +164,7 @@ describe('TestimonialCardLinked Component', () => {
             <TestimonialCardLinked
                 testimonial={testimonial}
                 productName='Test Product'
-                productId='test-product-permalink'
+                productId='test-product-foo'
                 animated={false}
             />
         )

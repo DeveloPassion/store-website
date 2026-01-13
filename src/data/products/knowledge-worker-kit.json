@@ -1,5 +1,5 @@
 {
-    "permalink": "pyjrr",
+    "id": "knowledge-worker-kit",
     "name": "Knowledge Worker Kit",
     "price": 149.99,
     "priceDisplay": "€149.99",
@@ -48,7 +48,6 @@
     "crossSellIds": ["obsidian-starter-kit", "knowledge-management-for-beginners", "pkm-library"],
     "landingPageUrl": "https://www.dsebastien.net",
     "priority": 90,
-    "id": "knowledge-worker-kit",
     "mainCategory": "knowledge-work",
     "secondaryCategories": [
         {

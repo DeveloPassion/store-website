@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: obsidian-starter-course
-- **Permalink**: nolle
 - **Name**: Obsidian Starter Course
 - **Tagline**: From Obsidian Newbie to Obsidian Hero in 2h20
 - **Secondary Tagline**: Stop Guessing. Master Obsidian With a Complete Video Course.

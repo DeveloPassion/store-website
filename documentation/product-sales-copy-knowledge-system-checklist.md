@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: knowledge-system-checklist
-- **Permalink**: qctpj
 - **Name**: Knowledge Management System Checklist
 - **Tagline**: Build Your Knowledge System With Confidence
 - **Secondary Tagline**: FREE Checklist to Ensure You Have All Essential Components

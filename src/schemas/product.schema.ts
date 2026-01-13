@@ -69,7 +69,6 @@ export const StatsProofSchema = z.object({
 export const ProductSchema = z.object({
     // Identity
     id: z.string().min(1, 'Product ID is required'),
-    permalink: z.string().min(1, 'Permalink is required'),
     name: z.string().min(1, 'Product name is required'),
 
     // Pricing

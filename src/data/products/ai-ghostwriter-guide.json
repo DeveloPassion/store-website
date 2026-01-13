@@ -1,5 +1,5 @@
 {
-    "permalink": "vsrnk",
+    "id": "ai-ghostwriter-guide",
     "name": "Build Your AI Ghostwriter",
     "price": 49.99,
     "priceDisplay": "€49.99",
@@ -37,7 +37,6 @@
     "bestseller": false,
     "crossSellIds": ["knowledge-management-for-beginners", "knowledge-worker-kit"],
     "priority": 75,
-    "id": "ai-ghostwriter-guide",
     "mainCategory": "guides",
     "secondaryCategories": [
         {

@@ -8,7 +8,6 @@ import * as wishlistUtils from '@/lib/wishlist'
 // Mock product data
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     id: 'test-product',
-    permalink: 'test-product',
     name: 'Test Product',
     tagline: 'This is a test product tagline',
     price: 99.99,

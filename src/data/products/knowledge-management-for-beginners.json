@@ -1,5 +1,5 @@
 {
-    "permalink": "wazqkq",
+    "id": "knowledge-management-for-beginners",
     "name": "Knowledge Management for Beginners",
     "price": 69.99,
     "priceDisplay": "€69.99",
@@ -46,7 +46,6 @@
     "bestseller": false,
     "crossSellIds": ["obsidian-starter-kit", "knowledge-worker-kit", "everything-knowledge-bundle"],
     "priority": 90,
-    "id": "knowledge-management-for-beginners",
     "mainCategory": "courses",
     "secondaryCategories": [
         {

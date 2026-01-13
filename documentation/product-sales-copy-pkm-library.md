@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: pkm-library
-- **Permalink**: PersonalKnowledgeManagementLibrary
 - **Name**: PKM Library: Your Gateway to Information Management Mastery
 - **Tagline**: The Most Comprehensive PKM Resource Collection Ever Created
 - **Secondary Tagline**: Lifetime Access to 2,000+ Curated Resources About Personal Knowledge Management

@@ -17,7 +17,6 @@ const createMockTestimonial = (id: string, rating: number): Testimonial => ({
 
 const createMockProduct = (id: string, testimonials: Testimonial[]): Product => ({
     id,
-    permalink: `product-${id}`,
     name: `Product ${id}`,
     tagline: 'Test tagline',
     price: 99.99,

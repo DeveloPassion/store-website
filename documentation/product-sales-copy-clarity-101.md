@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: clarity-101
-- **Permalink**: uysik
 - **Name**: Knowii Clarity 101
 - **Tagline**: Find Your Direction. Design Your Life.
 - **Secondary Tagline**: If You Feel Lost, Wonder What Should Come Next—Start Here

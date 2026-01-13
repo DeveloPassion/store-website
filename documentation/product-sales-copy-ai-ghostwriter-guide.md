@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: ai-ghostwriter-guide
-- **Permalink**: vsrnk
 - **Name**: Build Your AI Ghostwriter
 - **Tagline**: Stop Using AI Like a Dummy. Start Training It.
 - **Secondary Tagline**: Transform any AI into your personal ghostwriter that writes with your exact voice, style, and expertise

@@ -1,5 +1,5 @@
 {
-    "permalink": "knowii-model-context-protocol-mcp",
+    "id": "model-context-protocol",
     "name": "Knowii Model Context Protocol (MCP) Masterclass",
     "price": 19.99,
     "priceDisplay": "€19.99",
@@ -20,7 +20,6 @@
     "bestseller": false,
     "crossSellIds": ["ai-master-prompt", "obsidian-starter-kit", "knowledge-worker-kit"],
     "priority": 65,
-    "id": "model-context-protocol",
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

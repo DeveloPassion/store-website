@@ -1,5 +1,5 @@
 {
-    "permalink": "zyuwjd",
+    "id": "personal-organization-101",
     "name": "Knowii Personal Organization 101",
     "price": 19.99,
     "priceDisplay": "€19.99",
@@ -31,7 +31,6 @@
     "bestseller": false,
     "crossSellIds": ["clarity-101", "journaling-deep-dive", "knowledge-worker-kit"],
     "priority": 65,
-    "id": "personal-organization-101",
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

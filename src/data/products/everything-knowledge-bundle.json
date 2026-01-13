@@ -1,5 +1,5 @@
 {
-    "permalink": "lbocum",
+    "id": "everything-knowledge-bundle",
     "name": "Everything Knowledge Bundle",
     "price": 299.99,
     "priceDisplay": "€299.99 (Save €289)",
@@ -28,7 +28,6 @@
     "bestseller": true,
     "crossSellIds": ["knowledge-worker-kit", "obsidian-starter-kit"],
     "priority": 95,
-    "id": "everything-knowledge-bundle",
     "mainCategory": "bundles",
     "secondaryCategories": [
         {

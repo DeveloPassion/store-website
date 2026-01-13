@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: pkm-coaching
-- **Permalink**: mwldmd
 - **Name**: Personal Knowledge Management Coaching
 - **Tagline**: Expert 1-on-1 Guidance to Transform Your Knowledge System
 - **Secondary Tagline**: Stop Struggling Alone. Get Personalized PKM Coaching From an Expert.

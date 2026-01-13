@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: dev-concepts
-- **Permalink**: dev-concepts (collection page, not Gumroad link)
 - **Name**: Dev Concepts
 - **Tagline**: Master Software Development From Zero to Hero
 - **Secondary Tagline**: 12-Volume Digital Book Collection to Build Rock-Solid IT Foundations

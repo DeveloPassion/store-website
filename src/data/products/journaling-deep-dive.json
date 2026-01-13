@@ -1,5 +1,5 @@
 {
-    "permalink": "cdwol",
+    "id": "journaling-deep-dive",
     "name": "Knowii Journaling Deep Dive",
     "price": 29.99,
     "priceDisplay": "€29.99",
@@ -31,7 +31,6 @@
     "bestseller": false,
     "crossSellIds": ["personal-organization-101", "clarity-101", "knowledge-worker-kit"],
     "priority": 65,
-    "id": "journaling-deep-dive",
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

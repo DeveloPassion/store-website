@@ -14,7 +14,6 @@ const BASE_URL = 'https://store.dsebastien.net'
 interface Product {
     id: string
     name: string
-    permalink: string
     tagline: string
     description: string
     price: number

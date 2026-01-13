@@ -1,45 +1,80 @@
-# Product page redirects - /l/:id → /product/:id (Primary IDs)
-/l/obsidian-starter-kit /product/obsidian-starter-kit 301
-/l/everything-knowledge-bundle /product/everything-knowledge-bundle 301
-/l/knowledge-management-for-beginners /product/knowledge-management-for-beginners 301
-/l/knowledge-worker-kit /product/knowledge-worker-kit 301
-/l/obsidian-starter-course /product/obsidian-starter-course 301
-/l/ai-ghostwriter-guide /product/ai-ghostwriter-guide 301
-/l/pkm-library /product/pkm-library 301
-/l/ai-master-prompt /product/ai-master-prompt 301
-/l/clarity-101 /product/clarity-101 301
-/l/journaling-deep-dive /product/journaling-deep-dive 301
-/l/model-context-protocol /product/model-context-protocol 301
-/l/personal-organization-101 /product/personal-organization-101 301
-/l/dev-concepts-starter-bundle /product/dev-concepts-starter-bundle 301
-/l/knowii-voice-ai /product/knowii-voice-ai 301
-/l/dev-concepts-volume-01 /product/dev-concepts-volume-01 301
-/l/dev-concepts-volume-02 /product/dev-concepts-volume-02 301
-/l/pkm-coaching /product/pkm-coaching 301
-/l/it-concepts-wall /product/it-concepts-wall 301
-/l/beginners-guide-obsidian /product/beginners-guide-obsidian 301
-/l/knowledge-system-checklist /product/knowledge-system-checklist 301
-/l/knowii-community /product/knowii-community 301
 
-# Product page redirects - /l/:permalink → /product/:id (Gumroad Permalinks)
-/l/mghmmj /product/obsidian-starter-kit 301
-/l/lbocum /product/everything-knowledge-bundle 301
-/l/wazqkq /product/knowledge-management-for-beginners 301
-/l/pyjrr /product/knowledge-worker-kit 301
-/l/nolle /product/obsidian-starter-course 301
-/l/vsrnk /product/ai-ghostwriter-guide 301
+# Redirects: From Gumroad /l/:product-slug to /product/:id
+
+## PKM Library
 /l/PersonalKnowledgeManagementLibrary /product/pkm-library 301
-/l/knowii-ai-master-prompt /product/ai-master-prompt 301
-/l/uysik /product/clarity-101 301
-/l/cdwol /product/journaling-deep-dive 301
-/l/knowii-model-context-protocol-mcp /product/model-context-protocol 301
-/l/zyuwjd /product/personal-organization-101 301
-/l/tbdlrt /product/knowii-voice-ai 301
-/l/mwldmd /product/pkm-coaching 301
-/l/mwdbm /product/it-concepts-wall 301
+/l/PersonalKnowledgeManagementLibrary /product/pkm-library 301
+
+## Beginner's Guide to Obsidian - Sales Copy
+/l/beginners-guide-to-obsidian /product/beginners-guide-obsidian 301
 /l/imkjic /product/beginners-guide-obsidian 301
-/l/qctpj /product/knowledge-system-checklist 301
+
+## AI Ghostwriter Guide
+/l/ai-ghostwriter-guide /product/ai-ghostwriter-guide 301
+/l/vsrnk /product/ai-ghostwriter-guide 301
+
+## Dev Concepts
+/l/DevConcepts-Volume-01-SoftwareCraft /product/dev-concepts-volume-01 301
+/l/DevConcepts-Volume-02-WhatClientsNeed /product/dev-concepts-volume-02 301
+/l/DevConceptsStarter /product/dev-concepts-starter-bundle 301
+
+## Everything Knowledge Bundle
+/l/everything-knowledge /product/everything-knowledge-bundle 301
+/l/lbocum /product/everything-knowledge-bundle 301
+
+## IT Concepts Wall
+/l/it-concepts-wall /product/it-concepts-wall 301
+/l/mwdbm /product/it-concepts-wall 301
+
+## Knowii Community
+/l/knowii /product/knowii-community 301
 /l/xjpgo /product/knowii-community 301
+
+## Knowii - AI Master Prompt
+/l/knowii-ai-master-prompt /product/ai-master-prompt 301
+
+## Knowii - Clarity 101
+/l/knowii-clarity-101 /product/clarity-101 301
+/l/uysik /product/clarity-101 301
+
+## Knowii - Journaling Deep Dive (JDD)
+/l/knowii-journaling-deep-dive /product/journaling-deep-dive 301
+/l/cdwol /product/journaling-deep-dive 301
+
+## Knowii - Model Context Protocol (MCP)
+/l/knowii-model-context-protocol-mcp /product/model-context-protocol 301
+
+## Knowii - Personal Organization 101 (PO101)
+/l/knowii-personal-organization-101 /product/personal-organization-101 301
+/l/zyuwjd /product/personal-organization-101 301
+
+## Knowii Voice AI
+/l/knowii-voice-ai /product/knowii-voice-ai 301
+/l/tbdlrt /product/knowii-voice-ai 301
+
+## Knowledge Management for Beginners (KMB)
+/l/knowledge-management-for-beginners /product/knowledge-management-for-beginners 301
+/l/wazqkq /product/knowledge-management-for-beginners 301
+
+## Knowledge System Checklist
+/l/knowledge-system-checklist /product/knowledge-system-checklist 301
+/l/qctpj /product/knowledge-system-checklist 301
+
+## Knowledge Worker Kit (KWK)
+/l/knowledge-worker-kit /product/knowledge-worker-kit 301
+/l/pyjrr /product/knowledge-worker-kit 301
+
+## Obsidian Starter Course (OSC)
+/l/obsidian-starter-course /product/obsidian-starter-course 301
+/l/nolle /product/obsidian-starter-course 301
+
+## Obsidian Starter Kit (OSK)
+/l/obsidian-starter-kit /product/obsidian-starter-kit 301
+/l/mghmmj /product/obsidian-starter-kit 301
+
+## PKM Coaching (PKMC)
+/l/pkm-coaching /product/pkm-coaching 301
+/l/mwldmd /product/pkm-coaching 301
 
 # Other redirects
 /affiliates https://developassion.gumroad.com/affiliates 301

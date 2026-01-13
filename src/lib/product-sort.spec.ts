@@ -10,7 +10,6 @@ import type { Product } from '@/types/product'
 // Mock products for testing
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     id: 'test-id',
-    permalink: 'test',
     name: 'Test Product',
     tagline: 'Test tagline',
     price: 100,

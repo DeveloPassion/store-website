@@ -1,5 +1,5 @@
 {
-    "permalink": "mwdbm",
+    "id": "it-concepts-wall",
     "name": "IT Concepts Wall",
     "price": 9.99,
     "priceDisplay": "€9.99",
@@ -29,7 +29,6 @@
         }
     ],
     "priority": 50,
-    "id": "it-concepts-wall",
     "mainCategory": "dev-and-it",
     "secondaryCategories": [
         {

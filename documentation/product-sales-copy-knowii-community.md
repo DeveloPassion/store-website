@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: knowii-community
-- **Permalink**: xjpgo
 - **Name**: Knowii: Complete Knowledge System Community
 - **Tagline**: Transform Information Chaos Into Your Greatest Advantage
 - **Secondary Tagline**: Community + Premium Courses + Professional Tools = Your All-in-One Knowledge Solution

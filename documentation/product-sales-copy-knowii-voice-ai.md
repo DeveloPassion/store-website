@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: knowii-voice-ai
-- **Permalink**: tbdlrt
 - **Name**: Knowii Voice AI
 - **Tagline**: You Think Faster Than You Type
 - **Secondary Tagline**: Your Keyboard Is Costing You Hours Every Week

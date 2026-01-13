@@ -2,8 +2,6 @@
 
 ## Product Identity
 
-- **ID**: model-context-protocol
-- **Permalink**: knowii-model-context-protocol-mcp
 - **Name**: Knowii Model Context Protocol (MCP) Masterclass
 - **Tagline**: Give AI Superpowers: Connect to Any Data Source or Tool
 - **Secondary Tagline**: Stop Copy-Pasting Context. Let AI Access What It Needs Automatically.

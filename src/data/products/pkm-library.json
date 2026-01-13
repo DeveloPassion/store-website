@@ -1,5 +1,5 @@
 {
-    "permalink": "PersonalKnowledgeManagementLibrary",
+    "id": "pkm-library",
     "name": "PKM Library: Your Gateway to Information Management Mastery",
     "price": 39.99,
     "priceDisplay": "€39.99",
@@ -63,7 +63,6 @@
         }
     ],
     "priority": 70,
-    "id": "pkm-library",
     "mainCategory": "knowledge-bases",
     "secondaryCategories": [
         {

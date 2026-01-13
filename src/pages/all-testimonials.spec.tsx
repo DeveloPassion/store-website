@@ -9,7 +9,6 @@ mock.module('@/data/products.json', () => ({
     default: [
         {
             id: 'product-1',
-            permalink: 'product-1',
             name: 'Product One',
             tagline: 'Test tagline 1',
             price: 99.99,
@@ -61,7 +60,6 @@ mock.module('@/data/products.json', () => ({
         },
         {
             id: 'product-2',
-            permalink: 'product-2',
             name: 'Product Two',
             tagline: 'Test tagline 2',
             price: 49.99,
@@ -104,7 +102,6 @@ mock.module('@/data/products.json', () => ({
         },
         {
             id: 'product-3',
-            permalink: 'product-3',
             name: 'Product Three',
             tagline: 'Test tagline 3',
             price: 0,

@@ -12,7 +12,7 @@
  *
  *   Product operations:
  *     bun run update:products -- --operation list [--featured] [--status active] [--category guides] [--tag ai] [--format json|table|detailed]
- *     bun run update:products -- --operation add --name "Product Name" --tagline "..." --price 49.99 --priceTier standard --permalink abc123 --gumroadUrl "https://..." --mainCategory guides --tags "tag1,tag2"
+ *     bun run update:products -- --operation add --name "Product Name" --tagline "..." --price 49.99 --priceTier standard --gumroadUrl "https://..." --mainCategory guides --tags "tag1,tag2"
  *     bun run update:products -- --operation edit --id product-id [--name "..."] [--price 49.99] [--priority 95]
  *     bun run update:products -- --operation remove --id product-id [--force]
  *
@@ -51,7 +51,6 @@
  *     --tagline <string>                  Product tagline
  *     --price <number>                    Price in EUR
  *     --priceTier <string>                Price tier
- *     --permalink <string>                Gumroad permalink
  *     --gumroadUrl <string>               Gumroad URL
  *     --mainCategory <string>             Main category ID
  *     --tags <string>                     Comma-separated tag IDs
@@ -172,7 +171,6 @@ interface CliArgs {
     'price'?: string
     'priceDisplay'?: string
     'priceTier'?: string
-    'permalink'?: string
     'gumroadUrl'?: string
     'mainCategory'?: string
     'tags'?: string // comma-separated
@@ -1037,7 +1035,6 @@ function showProductDetails(product: Product): void {
     console.log(
         `${colors.bright}Price:${colors.reset} ${product.priceDisplay} ${colors.dim}(${product.priceTier})${colors.reset}`
     )
-    console.log(`${colors.bright}Permalink:${colors.reset} ${product.permalink}`)
     console.log(
         `${colors.bright}Main Category:${colors.reset} ${product.mainCategory} ${colors.dim}(${loadCategories().find((c) => c.id === product.mainCategory)?.name})${colors.reset}`
     )
@@ -1586,14 +1583,6 @@ async function operationAdd(args: CliArgs): Promise<void> {
         (await prompt(`${colors.bright}Secondary Tagline${colors.reset} (optional): `)) ||
         undefined
 
-    const permalink =
-        args.permalink ||
-        (await prompt(`${colors.bright}Permalink${colors.reset} (Gumroad code, required): `))
-    if (!permalink) {
-        showError('Permalink is required')
-        throw new Error('Permalink is required')
-    }
-
     // Pricing
     showSectionHeader('STEP 2/5: Pricing')
 
@@ -1615,9 +1604,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
     const priceTier = args.priceTier || (await selectPriceTier())
 
     const gumroadUrl =
-        args.gumroadUrl ||
-        (await prompt(`${colors.bright}Gumroad URL${colors.reset} (required): `)) ||
-        `https://store.dsebastien.net/product/${permalink}`
+        args.gumroadUrl || (await prompt(`${colors.bright}Gumroad URL${colors.reset} (required): `))
 
     // Taxonomy
     showSectionHeader('STEP 3/5: Taxonomy')
@@ -1708,7 +1695,6 @@ async function operationAdd(args: CliArgs): Promise<void> {
     // Create minimal product
     const product: Product = {
         id,
-        permalink,
         name,
         tagline,
         secondaryTagline,
@@ -1846,10 +1832,6 @@ async function operationEdit(args: CliArgs): Promise<void> {
         const newTier = PriceTierSchema.parse(args.priceTier)
         trackChange('priceTier', product.priceTier, newTier)
         product.priceTier = newTier
-    }
-    if (args.permalink) {
-        trackChange('permalink', product.permalink, args.permalink)
-        product.permalink = args.permalink
     }
     if (args.gumroadUrl) {
         trackChange('gumroadUrl', product.gumroadUrl, args.gumroadUrl)
@@ -2035,10 +2017,6 @@ async function editBasicInfo(product: Product): Promise<void> {
                 name: `Secondary Tagline: ${colors.cyan}${product.secondaryTagline || '(none)'}${colors.reset}`,
                 value: 'secondaryTagline'
             },
-            {
-                name: `Permalink: ${colors.cyan}${product.permalink}${colors.reset}`,
-                value: 'permalink'
-            },
             { name: '← Back', value: 'back' }
         ]
     })
@@ -2079,18 +2057,6 @@ async function editBasicInfo(product: Product): Promise<void> {
                 trackChange('secondaryTagline', oldValue, newValue || undefined)
                 product.secondaryTagline = newValue || undefined
                 showSuccess('Secondary tagline updated')
-            }
-            break
-        }
-        case 'permalink': {
-            const oldValue = product.permalink
-            const newValue = await prompt(
-                `${colors.bright}Permalink${colors.reset} [${colors.cyan}${oldValue}${colors.reset}]: `
-            )
-            if (newValue && newValue !== oldValue) {
-                trackChange('permalink', oldValue, newValue)
-                product.permalink = newValue
-                showSuccess('Permalink updated')
             }
             break
         }
