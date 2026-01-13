@@ -17,23 +17,123 @@
  *   1 - Validation errors found
  */
 
-import { readFileSync, existsSync } from 'fs'
-import { resolve, dirname } from 'path'
+import { readFileSync, existsSync, readdirSync } from 'fs'
+import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import {
     AggregatedProductsArraySchema,
+    IndividualProductSchema,
     type AggregatedProduct
 } from '../src/schemas/product.schema.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const PRODUCTS_FILE = resolve(__dirname, '../src/data/products.json')
+const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
 
 interface ValidationError {
     productId: string
     productIndex: number
     filename?: string
     errors: string[]
+}
+
+/**
+ * Validate individual product files
+ * Checks schema validity and ensures sales copy files exist
+ */
+function validateIndividualProducts(): ValidationError[] {
+    console.log('📁 Validating individual product files...\n')
+
+    if (!existsSync(PRODUCTS_DIR)) {
+        console.error('  ❌ Products directory not found:', PRODUCTS_DIR)
+        return [
+            {
+                productId: '[directory]',
+                productIndex: -1,
+                errors: ['Products directory not found']
+            }
+        ]
+    }
+
+    // Get all individual product files (exclude auxiliary files)
+    const files = readdirSync(PRODUCTS_DIR).filter(
+        (f) =>
+            f.endsWith('.json') &&
+            !f.endsWith('-faq.json') &&
+            !f.endsWith('-testimonials.json') &&
+            !f.endsWith('-media.json') &&
+            !f.endsWith('-stats.json') &&
+            !f.includes('-sales-copy-')
+    )
+
+    const errors: ValidationError[] = []
+    let validCount = 0
+
+    for (const file of files) {
+        const filePath = join(PRODUCTS_DIR, file)
+        const fileErrors: string[] = []
+
+        try {
+            const content = readFileSync(filePath, 'utf-8')
+            const productData = JSON.parse(content)
+
+            // Validate against IndividualProductSchema
+            const result = IndividualProductSchema.safeParse(productData)
+            if (!result.success) {
+                result.error.errors.forEach((err) => {
+                    fileErrors.push(`Schema: ${err.path.join('.')}: ${err.message}`)
+                })
+            }
+
+            const productId = productData.id || file.replace('.json', '')
+            const activeSalesCopyId = productData.activeSalesCopyId
+
+            // Check activeSalesCopyId is set
+            if (!activeSalesCopyId) {
+                fileErrors.push(
+                    'Missing activeSalesCopyId - every product must have an active sales copy'
+                )
+            } else {
+                // Check sales copy file exists
+                const salesCopyFile = `${productId}-sales-copy-${activeSalesCopyId}.json`
+                const salesCopyPath = join(PRODUCTS_DIR, salesCopyFile)
+
+                if (!existsSync(salesCopyPath)) {
+                    fileErrors.push(
+                        `Sales copy file not found: ${salesCopyFile} (activeSalesCopyId: "${activeSalesCopyId}")`
+                    )
+                }
+            }
+
+            if (fileErrors.length > 0) {
+                errors.push({
+                    productId,
+                    productIndex: -1,
+                    filename: file,
+                    errors: fileErrors
+                })
+                console.log(`  ❌ ${file}`)
+                fileErrors.forEach((err) => console.log(`     • ${err}`))
+            } else {
+                validCount++
+                console.log(`  ✅ ${file}`)
+            }
+        } catch (error) {
+            const errorMsg = error instanceof Error ? error.message : String(error)
+            errors.push({
+                productId: file.replace('.json', ''),
+                productIndex: -1,
+                filename: file,
+                errors: [`Failed to parse: ${errorMsg}`]
+            })
+            console.log(`  ❌ ${file}: ${errorMsg}`)
+        }
+    }
+
+    console.log(`\n  Summary: ${validCount}/${files.length} products valid\n`)
+
+    return errors
 }
 
 function validateAggregated(products: AggregatedProduct[]): ValidationError[] {
@@ -87,19 +187,19 @@ function displaySummary(products: AggregatedProduct[]) {
 }
 
 function main() {
-    console.log('🔍 Validating aggregated products...\n')
+    console.log('🔍 Validating products...\n')
 
-    // Note: Individual product files are validated during aggregation
-    // This script only validates the aggregated products.json file
+    // Step 1: Validate individual product files (schema + sales copy existence)
+    const individualErrors = validateIndividualProducts()
 
-    // Check if aggregated products file exists
+    // Step 2: Check if aggregated products file exists
     if (!existsSync(PRODUCTS_FILE)) {
         console.error('❌ Aggregated products file not found:', PRODUCTS_FILE)
         console.error('💡 Tip: Run `bun run aggregate:products` first')
         process.exit(1)
     }
 
-    // Load and validate aggregated products
+    // Step 3: Load and validate aggregated products
     try {
         const content = readFileSync(PRODUCTS_FILE, 'utf-8')
         const products = JSON.parse(content)
@@ -108,8 +208,10 @@ function main() {
         const aggregationErrors = validateAggregated(products)
 
         // Display results
-        if (aggregationErrors.length === 0) {
-            console.log('✅ All aggregated products are valid!\n')
+        const hasErrors = individualErrors.length > 0 || aggregationErrors.length > 0
+
+        if (!hasErrors) {
+            console.log('✅ All products are valid!\n')
             displaySummary(products)
             process.exit(0)
         }
@@ -117,16 +219,28 @@ function main() {
         // Display errors
         console.error('❌ Validation failed!\n')
 
+        if (individualErrors.length > 0) {
+            console.error('Individual file errors:')
+            individualErrors.forEach(({ filename, errors: fileErrors }) => {
+                console.error(`  ${filename}:`)
+                fileErrors.forEach((err) => console.error(`    • ${err}`))
+            })
+            console.error('')
+        }
+
         if (aggregationErrors.length > 0) {
-            console.error('Aggregation errors:\n')
+            console.error('Aggregation errors:')
             aggregationErrors.forEach(({ errors: aggErrors }) => {
-                aggErrors.forEach((err) => console.error(err))
+                aggErrors.forEach((err) => console.error(`    ${err}`))
             })
             console.error('')
         }
 
         console.error('💡 Tip: Check the schema definition at src/schemas/product.schema.ts')
-        console.error('💡 Tip: Ensure all required fields are present and correctly typed\n')
+        console.error('💡 Tip: Ensure all required fields are present and correctly typed')
+        console.error(
+            '💡 Tip: Ensure each product has a valid activeSalesCopyId with corresponding file\n'
+        )
 
         process.exit(1)
     } catch (error) {
