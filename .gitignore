@@ -26,5 +26,8 @@ dist-ssr
 # Generated data files
 src/data/products.json
 
+# Lighthouse reports
+lighthouse-reports
+
 # Bun dev server
 src/.dev
