@@ -34,8 +34,9 @@ The product system uses two distinct schemas to maintain clean separation betwee
 | ------------------- | ----------------------- | ----------------------------------- |
 | `activeSalesCopyId` | Required (non-nullable) | Required (non-nullable)             |
 | `salesCopy`         | Not present             | Required object with all PAS fields |
-| `faqs`              | Not present             | Optional array                      |
-| `media`             | Not present             | Optional array                      |
+| `faqs`              | Not present             | Required array (can be empty)       |
+| `testimonials`      | Not present             | Required array (can be empty)       |
+| `media`             | Not present             | Required array (can be empty)       |
 | Inline sales fields | Not present             | Not present (use `salesCopy.*`)     |
 
 **Type Usage in Code:**
@@ -160,6 +161,10 @@ All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) fo
 - **Validation**: Scripts in `/scripts/validate-*.ts`
 - **Skills**: Claude Code skills in `.claude/skills/manage-*.md`
 
+**Schema Organization:**
+
+Each schema file contains ONE primary schema with optional tightly-coupled helper schemas. Independent schemas must be in separate files (e.g., `ProductBenefitsSchema` in `product-benefits.schema.ts`, `StatsProofSchema` in `stats-proof.schema.ts`).
+
 **Product Data Architecture:**
 
 Individual product files (`{product-id}.json`) contain ONLY core product data. External data is stored separately and merged during aggregation:
@@ -215,9 +220,9 @@ Products are JSON files in `/src/data/products/{product-id}.json`. Auto-aggregat
 
 - Everything from `IndividualProductSchema`
 - PLUS `salesCopy` object with all PAS framework fields (merged from active sales copy variant)
-- PLUS `faqs` array (optional, from FAQ file)
-- PLUS `testimonials` array (optional, from testimonials file)
-- PLUS `media` array (optional, from media file)
+- PLUS `faqs` array (required but can be empty, from FAQ file)
+- PLUS `testimonials` array (required but can be empty, from testimonials file)
+- PLUS `media` array (required but can be empty, from media file)
 
 **CLI vs Direct Editing:**
 

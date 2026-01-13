@@ -1,4 +1,4 @@
-import type { Tagline, TaglineCategory } from '@/types/tagline'
+import type { Tagline, TaglineCategory } from '@/schemas/tagline.schema'
 
 /**
  * Get a random tagline from an array of taglines

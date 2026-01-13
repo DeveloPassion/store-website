@@ -5,7 +5,7 @@ import { FAQSchema } from './faq.schema.js'
 import { TestimonialSchema } from './testimonial.schema.js'
 import { MediaItemSchema } from './media.schema.js'
 import { SalesCopyDataSchema } from './sales-copy.schema.js'
-import { StatsProofSchema } from './shared.schema.js'
+import { StatsProofSchema } from './stats-proof.schema.js'
 
 /**
  * Product Schemas - Separated for Individual and Aggregated Products
@@ -150,9 +150,6 @@ export type ProductCategory = z.infer<typeof ProductCategorySchema>
 export type SecondaryCategory = z.infer<typeof SecondaryCategorySchema>
 export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
-
-// Re-export shared types for convenience
-export type { ProductBenefits, StatsProof } from './shared.schema.js'
 
 // Product types
 export type IndividualProduct = z.infer<typeof IndividualProductSchema>

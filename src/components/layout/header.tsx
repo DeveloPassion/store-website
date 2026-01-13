@@ -16,7 +16,7 @@ import {
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
-import type { Category } from '@/types/category'
+import type { Category } from '@/schemas/category.schema'
 import { getFeaturedSorted } from '@/lib/collection-utils'
 import { getCategoryIcon } from '@/lib/category-icons'
 import { getWishlistCount } from '@/lib/wishlist'

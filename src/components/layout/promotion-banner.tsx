@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import { FaTimes } from 'react-icons/fa'
 import promotionConfig from '@/data/promotion.json'
-import type { PromotionConfig } from '@/types/promotion'
+import type { PromotionConfig } from '@/schemas/promotion.schema'
 
 const STORAGE_KEY = 'promo-banner-dismissed'
 

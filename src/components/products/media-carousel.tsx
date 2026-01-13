@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import MediaItem from '@/components/products/media-item'
-import type { MediaItem as MediaItemType, MediaGroup } from '@/types/product'
+import type { MediaItem as MediaItemType, MediaGroup } from '@/schemas/media.schema'
 
 interface MediaCarouselProps {
     media: MediaItemType[]

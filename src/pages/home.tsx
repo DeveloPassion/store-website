@@ -10,11 +10,11 @@ import categoriesData from '@/data/categories.json'
 import tagsData from '@/data/tags.json'
 import taglinesData from '@/data/taglines.json'
 import animatedHeroTextsData from '@/data/animated-hero-texts.json'
-import type { Product } from '@/types/product'
-import type { Category } from '@/types/category'
-import type { TagId } from '@/types/tag'
-import type { Tagline } from '@/types/tagline'
-import type { AnimatedHeroText } from '@/types/animated-hero-text'
+import type { Product } from '@/schemas/product.schema'
+import type { Category } from '@/schemas/category.schema'
+import type { TagId } from '@/schemas/tag.schema'
+import type { Tagline } from '@/schemas/tagline.schema'
+import type { AnimatedHeroText } from '@/schemas/animated-hero-text.schema'
 import {
     sortProductsIntelligently,
     sortFeaturedProducts,

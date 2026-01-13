@@ -13,8 +13,8 @@ import {
     FaTrophy
 } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
-import type { Product } from '@/types/product'
-import type { Category } from '@/types/category'
+import type { Product } from '@/schemas/product.schema'
+import type { Category } from '@/schemas/category.schema'
 import categoriesData from '@/data/categories.json'
 
 interface CommandPaletteProps {

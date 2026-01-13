@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import type { MediaItem } from '@/types/product'
+import type { MediaItem } from '@/schemas/media.schema'
 
 interface HeroBackgroundProps {
     /** Banner images to rotate through */

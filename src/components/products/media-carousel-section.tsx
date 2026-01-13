@@ -2,7 +2,8 @@ import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import MediaCarousel from '@/components/products/media-carousel'
 import MediaLightbox from '@/components/products/media-lightbox'
-import type { Product, MediaGroup } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
+import type { MediaGroup } from '@/schemas/media.schema'
 
 interface MediaCarouselSectionProps {
     product: Product

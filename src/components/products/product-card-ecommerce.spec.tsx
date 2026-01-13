@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, mock, spyOn } from 'bun:te
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCardEcommerce from './product-card-ecommerce'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import * as wishlistUtils from '@/lib/wishlist'
 
 // Mock product data

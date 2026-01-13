@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaExpand, FaPlay } from 'react-icons/fa'
-import type { MediaItem } from '@/types/product'
+import type { MediaItem } from '@/schemas/media.schema'
 
 interface MediaItemProps {
     item: MediaItem

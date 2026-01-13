@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import * as ReactRouter from 'react-router'
 import { BrowserRouter } from 'react-router'
 import CommandPalette from './command-palette'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 const mockNavigate = mock(() => {})
 

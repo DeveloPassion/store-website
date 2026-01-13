@@ -8,13 +8,13 @@
  * and optimal runtime performance.
  *
  * Additionally, it loads content from product-specific files:
- * - {product-id}-faq.json -> product.faqs[]
- * - {product-id}-testimonials.json -> product.testimonials[]
- * - {product-id}-media.json -> product.media[]
- * - {product-id}-sales-copy-{variant}.json -> product.tagline, problem, features, etc.
+ * - {product-id}-faq.json -> product.faqs[] (required array, empty if file missing)
+ * - {product-id}-testimonials.json -> product.testimonials[] (required array, empty if file missing)
+ * - {product-id}-media.json -> product.media[] (required array, empty if file missing)
+ * - {product-id}-sales-copy-{variant}.json -> product.salesCopy.* (nested object: tagline, problem, features, etc.)
  *
- * If these files don't exist, the arrays will be empty or null.
- * Sales copy is loaded based on product.activeSalesCopyId (e.g., "default", "holiday-2026").
+ * Sales copy is strictly required and loaded based on product.activeSalesCopyId (e.g., "default", "holiday-2026").
+ * If sales copy is missing or invalid, the product will be skipped during aggregation.
  *
  * Usage:
  *   npm run aggregate:products

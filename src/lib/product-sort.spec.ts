@@ -5,7 +5,7 @@ import {
     sortBestValueProducts,
     sortFeaturedProducts
 } from './product-sort'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 // Mock products for testing
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({

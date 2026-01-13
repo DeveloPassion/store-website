@@ -1,5 +1,5 @@
 import { CollectionCard } from '@/components/ui/collection-card'
-import type { Category } from '@/types/category'
+import type { Category } from '@/schemas/category.schema'
 
 interface CategoryCardProps {
     category: Category

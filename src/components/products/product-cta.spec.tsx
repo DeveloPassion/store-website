@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, mock } from 'bun:test'
 import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCTA from './product-cta'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 // Mock framer-motion - Bun will handle motion components automatically
 mock.module('framer-motion', () => ({

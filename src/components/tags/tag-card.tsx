@@ -1,5 +1,5 @@
 import { CollectionCard } from '@/components/ui/collection-card'
-import type { Tag } from '@/types/tag'
+import type { Tag } from '@/schemas/tag.schema'
 
 interface TagCardProps {
     tag: Tag

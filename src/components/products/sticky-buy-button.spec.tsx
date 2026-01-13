@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, mock } from 'bun:test'
 import { render, waitFor } from '@testing-library/react'
 import StickyBuyButton from './sticky-buy-button'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 // Mock framer-motion to avoid animation complexities in tests
 mock.module('framer-motion', () => ({

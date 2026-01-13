@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaTimes, FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa'
-import type { MediaItem } from '@/types/product'
+import type { MediaItem } from '@/schemas/media.schema'
 import { extractYouTubeId } from './media-item'
 
 export interface MediaLightboxProps {

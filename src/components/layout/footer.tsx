@@ -17,7 +17,7 @@ import { SiBuymeacoffee } from 'react-icons/si'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import socialsData from '@/data/socials.json'
 import categoriesData from '@/data/categories.json'
-import type { Category } from '@/types/category'
+import type { Category } from '@/schemas/category.schema'
 import { getFeaturedSorted } from '@/lib/collection-utils'
 import { subscribeToNewsletter } from '@/lib/ghost-api'
 

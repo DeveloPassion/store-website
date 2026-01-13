@@ -6,8 +6,9 @@ import {
     SecondaryCategorySchema,
     ProductVariantSchema
 } from './product.schema'
-import { ProductBenefitsSchema, StatsProofSchema } from './shared.schema'
-import type { TagId } from '@/types/tag'
+import { ProductBenefitsSchema } from './product-benefits.schema'
+import { StatsProofSchema } from './stats-proof.schema'
+import type { TagId } from '@/schemas/tag.schema'
 
 describe('Product Schema Validation', () => {
     const validProduct = {

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaTimesCircle, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa'
 import Section from '@/components/ui/section'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { SectionHeader } from '@/components/ui/section-header'
 

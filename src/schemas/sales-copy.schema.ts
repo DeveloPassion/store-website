@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { StorytellingSchema } from './storytelling.schema.js'
-import { ProductBenefitsSchema } from './shared.schema.js'
+import { ProductBenefitsSchema } from './product-benefits.schema.js'
 
 /**
  * Sales Copy Data Schema

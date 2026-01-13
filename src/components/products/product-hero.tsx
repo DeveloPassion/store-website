@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
-import type { Product, ProductVariant } from '@/types/product'
+import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'

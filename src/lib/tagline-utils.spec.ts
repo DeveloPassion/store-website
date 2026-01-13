@@ -9,7 +9,7 @@ import {
     getDailySeed,
     getWeightedRandomTagline
 } from './tagline-utils'
-import type { Tagline } from '@/types/tagline'
+import type { Tagline } from '@/schemas/tagline.schema'
 
 describe('tagline-utils', () => {
     // Test data

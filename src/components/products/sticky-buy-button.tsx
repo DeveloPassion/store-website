@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaShoppingCart } from 'react-icons/fa'
-import type { Product, ProductVariant } from '@/types/product'
+import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { Button } from '@/components/ui/button'

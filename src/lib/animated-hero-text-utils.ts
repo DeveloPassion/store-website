@@ -1,4 +1,4 @@
-import type { AnimatedHeroText } from '@/types/animated-hero-text'
+import type { AnimatedHeroText } from '@/schemas/animated-hero-text.schema'
 
 /**
  * Get a random animated hero text from an array

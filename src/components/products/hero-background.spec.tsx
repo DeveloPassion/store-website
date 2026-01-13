@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'bun:test'
 import { render } from '@testing-library/react'
 import HeroBackground from './hero-background'
-import type { MediaItem } from '@/types/product'
+import type { MediaItem } from '@/schemas/media.schema'
 
 describe('HeroBackground', () => {
     const mockBannerImages: MediaItem[] = [

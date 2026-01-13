@@ -4,7 +4,7 @@ import {
     formatAverageRating,
     type ProductWithTestimonials
 } from './testimonial-stats'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
 const createMockTestimonial = (id: string, rating: number): Testimonial => ({

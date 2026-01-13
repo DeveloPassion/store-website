@@ -1,4 +1,4 @@
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 /**
  * Fisher-Yates shuffle algorithm for randomizing arrays

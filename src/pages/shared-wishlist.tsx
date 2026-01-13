@@ -6,7 +6,7 @@ import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 

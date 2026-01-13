@@ -5,7 +5,7 @@ import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import { sortFeaturedProducts } from '@/lib/product-sort'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 

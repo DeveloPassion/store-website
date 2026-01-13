@@ -129,3 +129,15 @@ export const StorytellingSchema = z.object({
     methodology: MethodologySchema.nullable().optional(),
     vision: VisionSchema.nullable().optional()
 })
+
+// Export TypeScript types
+export type OriginStory = z.infer<typeof OriginStorySchema>
+export type CreatorJourney = z.infer<typeof CreatorJourneySchema>
+export type TransformationPhase = z.infer<typeof TransformationPhaseSchema>
+export type TransformationArc = z.infer<typeof TransformationArcSchema>
+export type SuccessStory = z.infer<typeof SuccessStorySchema>
+export type SuccessStories = z.infer<typeof SuccessStoriesSchema>
+export type MethodologyStep = z.infer<typeof MethodologyStepSchema>
+export type Methodology = z.infer<typeof MethodologySchema>
+export type Vision = z.infer<typeof VisionSchema>
+export type Storytelling = z.infer<typeof StorytellingSchema>

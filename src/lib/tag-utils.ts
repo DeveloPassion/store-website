@@ -2,8 +2,9 @@
  * Tag utility functions
  */
 
-import type { Tag, TagId, TagWithCount } from '@/types/tag'
-import type { Product } from '@/types/product'
+import type { Tag, TagId } from '@/schemas/tag.schema'
+import type { TagWithCount } from '@/types/tag-with-count.intf'
+import type { Product } from '@/schemas/product.schema'
 
 /**
  * Build tag data with product counts from products array

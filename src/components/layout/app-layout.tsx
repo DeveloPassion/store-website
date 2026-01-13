@@ -6,7 +6,7 @@ import SkipLinks from './skip-links'
 import ScrollToTop from '@/components/ui/scroll-to-top'
 import ScrollToTopButton from '@/components/ui/scroll-to-top-button'
 import productsData from '@/data/products.json'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 // Lazy load CommandPalette for better initial load performance
 const CommandPalette = lazy(() => import('@/components/products/command-palette'))

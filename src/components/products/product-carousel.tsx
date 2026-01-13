@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 
 interface ProductCarouselProps {
     products: Product[]

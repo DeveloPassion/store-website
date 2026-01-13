@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo } from 'react-icons/fa'
 import Section from '@/components/ui/section'
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { Button } from '@/components/ui/button'
 

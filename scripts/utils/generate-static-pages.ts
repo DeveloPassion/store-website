@@ -8,8 +8,8 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import type { Product } from '../../src/types/product.js'
-import type { Category } from '../../src/types/category.js'
+import type { Product } from '../../src/schemas/product.schema.js'
+import type { Category } from '../../src/schemas/category.schema.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const BASE_URL = 'https://store.dsebastien.net'
@@ -129,7 +129,7 @@ function generateProductSchema(product: Product): string {
                 '@type': 'Product',
                 '@id': `${productUrl}#product`,
                 'name': product.name,
-                'description': product.description,
+                'description': product.salesCopy.description,
                 'url': productUrl,
                 'sku': product.id,
                 'offers': {
@@ -255,7 +255,7 @@ function generateTagNoscript(tag: string): string {
 ${taggedProducts
     .map(
         (p) =>
-            `                <li><a href="/product/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
+            `                <li><a href="/product/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.salesCopy.tagline)}</li>`
     )
     .join('\n')}
             </ul>
@@ -548,7 +548,7 @@ function generateCategoryNoscript(category: Category): string {
 ${categoryProducts
     .map(
         (p) =>
-            `                <li><a href="/product/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.tagline)}</li>`
+            `                <li><a href="/product/${p.id}">${escapeHtml(p.name)}</a> (${escapeHtml(p.priceDisplay)}) - ${escapeHtml(p.salesCopy.tagline)}</li>`
     )
     .join('\n')}
             </ul>
@@ -767,11 +767,11 @@ function generateProductNoscript(product: Product): string {
     <noscript>
         <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
             <h1>${escapeHtml(product.name)}</h1>
-            <p><em>${escapeHtml(product.tagline)}</em></p>
-            <p>${escapeHtml(product.description)}</p>
+            <p><em>${escapeHtml(product.salesCopy.tagline)}</em></p>
+            <p>${escapeHtml(product.salesCopy.description)}</p>
             <p><strong>Price:</strong> ${escapeHtml(product.priceDisplay)}</p>
             ${product.tags.length > 0 ? `<p><strong>Tags:</strong> ${product.tags.map(escapeHtml).join(', ')}</p>` : ''}
-            ${product.features.length > 0 ? `<h2>Features</h2><ul>${product.features.map((f) => `<li>${escapeHtml(f)}</li>`).join('')}</ul>` : ''}
+            ${product.salesCopy.features.length > 0 ? `<h2>Features</h2><ul>${product.salesCopy.features.map((f) => `<li>${escapeHtml(f)}</li>`).join('')}</ul>` : ''}
             <p><a href="/">← Back to store</a></p>
         </article>
     </noscript>`
@@ -782,8 +782,8 @@ function generateProductNoscript(product: Product): string {
  */
 function generateProductPageHtml(product: Product): string {
     const productUrl = `${BASE_URL}/product/${product.id}`
-    const title = product.metaTitle || `${product.name} - Knowledge Forge`
-    const description = product.metaDescription
+    const title = product.salesCopy.metaTitle || `${product.name} - Knowledge Forge`
+    const description = product.salesCopy.metaDescription
 
     let html = indexHtml
 

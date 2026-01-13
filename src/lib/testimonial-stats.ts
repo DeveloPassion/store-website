@@ -1,4 +1,4 @@
-import type { Product } from '@/types/product'
+import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
 export interface TestimonialStats {
