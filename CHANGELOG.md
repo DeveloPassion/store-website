@@ -1,3 +1,8 @@
+## [0.5.5](https://github.com/DeveloPassion/store-website/compare/0.5.4...0.5.5) (2026-01-13)
+
+### Features
+
+* **all:** improved newsletter integration ([652a025](https://github.com/DeveloPassion/store-website/commit/652a025f1b1417f6cecb50e8e3ace61dd550ac0c))
 ## [0.5.4](https://github.com/DeveloPassion/store-website/compare/0.5.3...0.5.4) (2026-01-13)
 
 ### Features
