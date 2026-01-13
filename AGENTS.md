@@ -6,6 +6,70 @@ This document provides instructions for AI agents and developers on how to maint
 
 Static website built with React 19+, TypeScript, Bun, Tailwind CSS v4, React Router, and React Icons. Features include product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), and fully responsive design.
 
+## Schema Architecture
+
+The product system uses two distinct schemas to maintain clean separation between individual product files and aggregated runtime data:
+
+**IndividualProductSchema** (`/src/schemas/product.schema.ts`):
+
+- Used for individual `{product-id}.json` files in `/src/data/products/`
+- Contains core product data: identity, pricing, subscription, taxonomy, variants, links, status, meta
+- Does NOT include: `faqs`, `media`, or inline sales copy fields (tagline, description, etc.)
+- References external data via `activeSalesCopyId` (required, non-nullable)
+- All boolean flags required: `featured`, `bestValue`, `bestseller`, `isSubscription`
+- All taxonomy fields required: `mainCategory`, `secondaryCategories`, `tags`
+
+**AggregatedProductSchema** (`/src/schemas/product.schema.ts`):
+
+- Used for aggregated `products.json` at build time
+- Merges individual product with external data files during aggregation
+- Includes `salesCopy` object (nested): `product.salesCopy.tagline`, `product.salesCopy.description`, etc.
+- Includes `faqs` array (loaded from `{product-id}-faq.json`)
+- Includes `media` array (loaded from `{product-id}-media.json`)
+- Used at runtime throughout the application
+
+**Key Differences:**
+
+| Field               | IndividualProduct       | AggregatedProduct                   |
+| ------------------- | ----------------------- | ----------------------------------- |
+| `activeSalesCopyId` | Required (non-nullable) | Required (non-nullable)             |
+| `salesCopy`         | Not present             | Required object with all PAS fields |
+| `faqs`              | Not present             | Optional array                      |
+| `media`             | Not present             | Optional array                      |
+| Inline sales fields | Not present             | Not present (use `salesCopy.*`)     |
+
+**Type Usage in Code:**
+
+```typescript
+import { IndividualProduct, AggregatedProduct } from '@/types/product'
+
+// For individual product files (before aggregation)
+const product: IndividualProduct = {
+    /* ... */
+}
+
+// For runtime use (after aggregation)
+const product: AggregatedProduct = {
+    /* ... */
+}
+// Access: product.salesCopy.tagline, product.salesCopy.description, etc.
+
+// Convenience alias
+const product: Product = {
+    /* ... */
+} // Same as AggregatedProduct
+```
+
+**Benefits Schema Requirements:**
+
+Both `IndividualBenefitsSchema` (in sales copy) and `AggregatedBenefitsSchema` (in aggregated product) require all three categories:
+
+- `immediate`: Array of immediate benefits
+- `systematic`: Array of systematic benefits
+- `longTerm`: Array of long-term benefits
+
+All three arrays must be present (can be empty arrays if no benefits for that category).
+
 ## Product Display
 
 **IMPORTANT**: Always use `ProductCardEcommerce` component (`/src/components/products/product-card-ecommerce.tsx`) when displaying products.
@@ -96,6 +160,24 @@ All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) fo
 - **Validation**: Scripts in `/scripts/validate-*.ts`
 - **Skills**: Claude Code skills in `.claude/skills/manage-*.md`
 
+**Product Data Architecture:**
+
+Individual product files (`{product-id}.json`) contain ONLY core product data. External data is stored separately and merged during aggregation:
+
+- **Individual product file**: Core data (pricing, taxonomy, variants, links, status, `activeSalesCopyId`)
+- **Sales copy files**: `{product-id}-sales-copy-{variant}.json` (marketing copy, PAS framework, storytelling)
+- **FAQ files**: `{product-id}-faq.json` (product-specific questions/answers)
+- **Media files**: `{product-id}-media.json` (images, videos, screenshots)
+- **Testimonials files**: `{product-id}-testimonials.json` (customer reviews)
+
+During build-time aggregation:
+
+1. Individual product files are validated against `IndividualProductSchema`
+2. External files (sales copy, FAQs, media, testimonials) are loaded
+3. Active sales copy variant is merged into product as `salesCopy` object
+4. Result is validated against `AggregatedProductSchema`
+5. Aggregated products are written to `products.json` (gitignored, runtime use)
+
 **Common Workflow:**
 
 1. Use CLI tool (`bun run update:<entity>`) or edit JSON directly
@@ -109,12 +191,38 @@ Products are JSON files in `/src/data/products/{product-id}.json`. Auto-aggregat
 
 **CLI**: Use `bun run update:products` for interactive management or `bun run validate:products` to validate after changes.
 
-**Schema**: See `/src/schemas/product.schema.ts` for complete field definitions. Includes identity, pricing, subscription, taxonomy, marketing (PAS framework), content, media, meta/status, links, and SEO fields. Variants are defined within the product schema.
+**Schema**: See `/src/schemas/product.schema.ts` for complete field definitions.
+
+**Individual Product Schema (`IndividualProductSchema`):**
+
+- Identity: `id`, `slug`, `name`, `activeSalesCopyId` (required, non-nullable)
+- Pricing: `price`, `priceDisplay`, `priceTier`, `currency`, `discount`
+- Subscription: `isSubscription` (required), `paymentFrequencies`, `defaultPaymentFrequency`
+- Taxonomy: `mainCategory` (required), `secondaryCategories` (required), `tags` (required)
+- Variants: Defined within product schema with pricing, Gumroad URLs, variant IDs
+- Links: `gumroadUrl`, `websiteUrl`, `demoUrl`, `documentationUrl`, `githubUrl`
+- Status: `status`, `featured` (required), `bestValue` (required), `bestseller` (required)
+- Meta: `priority`, `createdAt`, `updatedAt`
+
+**Fields NOT in Individual Product Files:**
+
+- NO `faqs` (loaded from `{product-id}-faq.json` during aggregation)
+- NO `testimonials` (loaded from `{product-id}-testimonials.json` during aggregation)
+- NO `media` (loaded from `{product-id}-media.json` during aggregation)
+- NO inline sales copy fields (tagline, description, etc. - use sales copy files instead)
+
+**Aggregated Product Schema (`AggregatedProductSchema`):**
+
+- Everything from `IndividualProductSchema`
+- PLUS `salesCopy` object with all PAS framework fields (merged from active sales copy variant)
+- PLUS `faqs` array (optional, from FAQ file)
+- PLUS `testimonials` array (optional, from testimonials file)
+- PLUS `media` array (optional, from media file)
 
 **CLI vs Direct Editing:**
 
-- **CLI**: Adding products, taxonomy changes, pricing/status/priority, quick updates
-- **Direct editing**: Complex arrays (problemPoints, features, benefits), media, cross-references, SEO, advanced fields
+- **CLI**: Adding products, taxonomy changes, pricing/status/priority, managing sales copy variants, media, FAQs
+- **Direct editing**: Variants configuration, links, subscription settings, advanced meta fields
 
 **Priority Guidelines:**
 
@@ -333,16 +441,33 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 
 **Architecture:**
 
-- **Product JSON**: Core product data (pricing, taxonomy, links, meta)
+- **Product JSON**: Core product data (pricing, taxonomy, links, meta) + `activeSalesCopyId` reference
 - **Sales Copy Files**: `{product-id}-sales-copy-{variant}.json` (marketing copy, features, benefits, storytelling)
-- **Active Variant**: Product JSON references active variant via `activeSalesCopyId` field
-- **Aggregation**: Sales copy auto-loaded and merged into product during build
+- **Active Variant**: Product JSON references active variant via `activeSalesCopyId` field (required, non-nullable)
+- **Aggregation**: Sales copy auto-loaded and merged into product as `salesCopy` object during build
+- **Runtime Access**: Use `product.salesCopy.tagline`, `product.salesCopy.description`, etc. in code
 
 **CLI**: Use `bun run update:products` for managing sales copy variants with operations: list, add, edit, enable, duplicate, and remove.
 
-**Schema**: See `/src/schemas/sales-copy.schema.ts` and `/src/schemas/storytelling.schema.ts` for complete field definitions. Includes identity, PAS framework, content, audience, trust, SEO, and optional storytelling sections.
+**Schema**: See `/src/schemas/sales-copy.schema.ts` and `/src/schemas/storytelling.schema.ts` for complete field definitions.
 
-**Storytelling Sections** (all optional):
+**Required Fields in `SalesCopyDataSchema`:**
+
+- **PAS Framework**: `problem` (required), `problemPoints` (required), `agitate` (required), `agitatePoints` (required), `solution` (required), `solutionPoints` (required)
+- **Content**: `tagline` (required), `secondaryTagline` (required but nullable), `description` (required), `features` (required), `benefits` (required with all three categories)
+- **Audience**: `targetAudience` (required), `perfectFor` (required), `notForYou` (required)
+- **Trust**: `trustBadges` (required), `guarantees` (required)
+- **SEO**: `metaTitle` (required), `metaDescription` (required), `keywords` (required)
+- **Storytelling**: `storytelling` (required but nullable - can be null or contain storytelling sections)
+
+**Benefits Object Requirements:**
+All three categories are strictly required (can be empty arrays):
+
+- `immediate`: Array of immediate benefits
+- `systematic`: Array of systematic benefits
+- `longTerm`: Array of long-term benefits
+
+**Storytelling Sections** (storytelling object can be null or contain any of these optional sections):
 
 1. **Origin Story** - Why product exists, genesis moment, inspiration
 2. **Creator Journey** - Personal story, struggles, credibility, achievements
@@ -350,6 +475,60 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 4. **Success Stories** - Detailed case studies with metrics, customer results
 5. **Methodology** - Step-by-step process, philosophy, differentiation
 6. **Vision** - Mission statement, bigger picture, values, future goals
+
+## Accessing Product Data in Code
+
+Understanding when to use `IndividualProduct` vs `AggregatedProduct` types is critical for type safety:
+
+**Use `AggregatedProduct` (or `Product` alias):**
+
+- In all React components (runtime, after aggregation)
+- When loading from `products.json`
+- When accessing sales copy data via `product.salesCopy.*`
+- When accessing FAQs via `product.faqs`
+- When accessing testimonials via `product.testimonials`
+- When accessing media via `product.media`
+
+**Use `IndividualProduct`:**
+
+- In build scripts working with individual product files
+- During validation before aggregation
+- In CLI tools that read/write individual product files
+- When you need to distinguish between pre-aggregation and post-aggregation data
+
+**Example Usage:**
+
+```typescript
+// React component (runtime - use AggregatedProduct)
+import { AggregatedProduct } from '@/types/product'
+
+function ProductCard({ product }: { product: AggregatedProduct }) {
+    return (
+        <div>
+            <h2>{product.salesCopy.tagline}</h2>
+            <p>{product.salesCopy.description}</p>
+            <p>Price: {product.priceDisplay}</p>
+            {product.media && <img src={product.media[0].url} />}
+        </div>
+    )
+}
+
+// Build script (pre-aggregation - use IndividualProduct)
+import { IndividualProduct } from '@/types/product'
+
+function validateProduct(product: IndividualProduct) {
+    console.log('Product:', product.name)
+    console.log('Active sales copy:', product.activeSalesCopyId)
+    // No access to product.salesCopy here - it doesn't exist yet
+}
+```
+
+**Important Notes:**
+
+- The `Product` type is a convenience alias for `AggregatedProduct`
+- Sales copy fields are accessed via `product.salesCopy.*` in aggregated products
+- Individual products reference sales copy via `activeSalesCopyId` only
+- FAQs and media are ONLY available in aggregated products
 
 **File Structure:**
 

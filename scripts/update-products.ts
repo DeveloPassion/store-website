@@ -120,7 +120,7 @@ import { createInterface } from 'readline'
 import inquirer from 'inquirer'
 import { select } from '@inquirer/prompts'
 import {
-    ProductSchema,
+    IndividualProductSchema,
     PriceTierSchema,
     ProductCategorySchema
 } from '../src/schemas/product.schema.js'
@@ -1231,7 +1231,7 @@ function loadCategories(): Category[] {
  * Validate a product against the schema
  */
 function validateProduct(product: Product): { success: boolean; errors: string[] } {
-    const result = ProductSchema.safeParse(product)
+    const result = IndividualProductSchema.safeParse(product)
     if (result.success) {
         return { success: true, errors: [] }
     }

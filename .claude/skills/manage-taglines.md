@@ -10,6 +10,8 @@ triggerKeywords: [tagline, taglines, add tagline, edit tagline, remove tagline, 
 
 This skill helps you manage the taglines displayed on the store website homepage. Taglines are motivational/descriptive phrases that rotate on the homepage subtitle. They are stored in a JSON file and validated against a Zod schema. The interactive CLI tool supports add, edit, remove, list, and toggle-featured operations with both interactive and CLI argument modes.
 
+**Note**: This skill manages homepage taglines (in `taglines.json`). For product taglines and sales copy, see the manage-products skill which manages sales copy variants stored in `{product-id}-sales-copy-{variant}.json` files.
+
 ## Tagline Data Location
 
 - **Configuration File**: `src/data/taglines.json` (60+ taglines, array structure)

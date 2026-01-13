@@ -16,9 +16,6 @@ mock.module('framer-motion', () => ({
 const mockProduct: Product = {
     id: 'test-product',
     name: 'Test Product',
-    tagline: 'A test product',
-    secondaryTagline: '',
-    description: 'Test description',
     price: 49,
     priceDisplay: '$49',
     priceTier: 'standard',
@@ -26,15 +23,7 @@ const mockProduct: Product = {
     mainCategory: 'productivity',
     secondaryCategories: [],
     tags: [],
-    features: [],
-    benefits: {
-        immediate: [],
-        systematic: [],
-        longTerm: []
-    },
     included: [],
-    guarantees: ['30-day money-back guarantee'],
-    trustBadges: [],
     media: [],
     testimonials: [],
     faqs: [],
@@ -42,21 +31,39 @@ const mockProduct: Product = {
     bestValue: false,
     bestseller: false,
     priority: 50,
-    landingPageUrl: '',
-    dsebastienUrl: '',
-    metaTitle: '',
-    metaDescription: '',
-    keywords: [],
-    problem: '',
-    problemPoints: [],
-    agitate: '',
-    agitatePoints: [],
-    solution: '',
-    solutionPoints: [],
-    targetAudience: [],
-    perfectFor: [],
-    notForYou: [],
-    crossSellIds: []
+    landingPageUrl: null,
+    dsebastienUrl: null,
+    crossSellIds: [],
+    statsProof: null,
+    variants: null,
+    isSubscription: false,
+    paymentFrequencies: null,
+    defaultPaymentFrequency: null,
+    activeSalesCopyId: 'default',
+    salesCopy: {
+        tagline: 'A test product',
+        problem: '',
+        problemPoints: [],
+        agitate: '',
+        agitatePoints: [],
+        solution: '',
+        solutionPoints: [],
+        description: 'Test description',
+        features: [],
+        benefits: {
+            immediate: [],
+            systematic: [],
+            longTerm: []
+        },
+        targetAudience: [],
+        perfectFor: [],
+        notForYou: [],
+        trustBadges: [],
+        guarantees: ['30-day money-back guarantee'],
+        metaTitle: '',
+        metaDescription: '',
+        keywords: []
+    }
 }
 
 const mockProductWithVariants: Product = {
@@ -195,7 +202,10 @@ describe('StickyBuyButton', () => {
 
     it('should handle products with no guarantees', async () => {
         window.scrollY = 600
-        const productNoGuarantees = { ...mockProduct, guarantees: [] }
+        const productNoGuarantees = {
+            ...mockProduct,
+            salesCopy: { ...mockProduct.salesCopy, guarantees: [] }
+        }
         const { queryByText } = render(<StickyBuyButton product={productNoGuarantees} />)
 
         await waitFor(() => {
@@ -230,7 +240,7 @@ describe('StickyBuyButton', () => {
 
     it('should use default variant when no variants provided', async () => {
         window.scrollY = 600
-        const productNoVariants = { ...mockProduct, variants: undefined }
+        const productNoVariants = { ...mockProduct, variants: null }
         const { getAllByText } = render(<StickyBuyButton product={productNoVariants} />)
 
         await waitFor(() => {

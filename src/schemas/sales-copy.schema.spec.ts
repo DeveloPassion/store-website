@@ -49,12 +49,19 @@ describe('SalesCopyDataSchema', () => {
             solutionPoints: ['Benefit 1'],
             description: 'Product description here.',
             features: ['Feature 1'],
-            benefits: {},
+            benefits: {
+                immediate: [],
+                systematic: [],
+                longTerm: []
+            },
             targetAudience: [],
             perfectFor: [],
             notForYou: [],
             trustBadges: [],
-            guarantees: []
+            guarantees: [],
+            metaTitle: '',
+            metaDescription: '',
+            keywords: []
         }
         expect(() => SalesCopyDataSchema.parse(minimalData)).not.toThrow()
     })
@@ -148,12 +155,24 @@ describe('SalesCopyDataSchema', () => {
         expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
     })
 
-    it('should accept empty benefits object', () => {
+    it('should accept benefits with all empty arrays', () => {
         const validData = {
+            ...validSalesCopyData,
+            benefits: {
+                immediate: [],
+                systematic: [],
+                longTerm: []
+            }
+        }
+        expect(() => SalesCopyDataSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should reject benefits with missing categories', () => {
+        const invalidData = {
             ...validSalesCopyData,
             benefits: {}
         }
-        expect(() => SalesCopyDataSchema.parse(validData)).not.toThrow()
+        expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
     })
 
     it('should accept empty targetAudience array', () => {
@@ -196,9 +215,19 @@ describe('SalesCopyDataSchema', () => {
         expect(() => SalesCopyDataSchema.parse(validData)).not.toThrow()
     })
 
-    it('should accept optional SEO fields as undefined', () => {
+    it('should require SEO fields (even if empty)', () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { metaTitle, metaDescription, keywords, ...validData } = validSalesCopyData
+        const { metaTitle, metaDescription, keywords, ...invalidData } = validSalesCopyData
+        expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should accept empty SEO fields', () => {
+        const validData = {
+            ...validSalesCopyData,
+            metaTitle: '',
+            metaDescription: '',
+            keywords: []
+        }
         expect(() => SalesCopyDataSchema.parse(validData)).not.toThrow()
     })
 
@@ -214,14 +243,14 @@ describe('SalesCopyDataSchema', () => {
         expect(() => SalesCopyDataSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate benefits with partial timeframes', () => {
-        const validData = {
+    it('should reject benefits with partial timeframes', () => {
+        const invalidData = {
             ...validSalesCopyData,
             benefits: {
                 immediate: ['Quick win 1']
             }
         }
-        expect(() => SalesCopyDataSchema.parse(validData)).not.toThrow()
+        expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
     })
 
     it('should accept empty arrays in benefits', () => {
@@ -250,12 +279,19 @@ describe('SalesCopyFileSchema', () => {
             solutionPoints: ['Unified workspace'],
             description: 'A comprehensive solution.',
             features: ['Voice capture'],
-            benefits: {},
+            benefits: {
+                immediate: [],
+                systematic: [],
+                longTerm: []
+            },
             targetAudience: [],
             perfectFor: [],
             notForYou: [],
             trustBadges: [],
-            guarantees: []
+            guarantees: [],
+            metaTitle: '',
+            metaDescription: '',
+            keywords: []
         }
     }
 

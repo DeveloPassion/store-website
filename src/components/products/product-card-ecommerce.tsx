@@ -197,7 +197,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
 
                 {/* Tagline */}
                 <p className='text-primary/60 mb-3 line-clamp-2 flex-1 text-sm'>
-                    {product.tagline}
+                    {product.salesCopy?.tagline}
                 </p>
 
                 {/* Rating (placeholder) */}

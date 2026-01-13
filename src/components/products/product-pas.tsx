@@ -28,13 +28,13 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     <motion.div variants={itemVariants}>
                         <SectionHeader
                             title='The Problem'
-                            subtitle={product.problem}
+                            subtitle={product.salesCopy?.problem}
                             icon={<FaTimesCircle className='h-12 w-12 text-red-500' />}
                         />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
-                        {product.problemPoints?.map((point, idx) => (
+                        {product.salesCopy?.problemPoints?.map((point, idx) => (
                             <div
                                 key={idx}
                                 className='border-primary/10 bg-background/50 flex gap-4 rounded-lg border p-4'
@@ -59,13 +59,13 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     <motion.div variants={itemVariants}>
                         <SectionHeader
                             title='Why This Matters'
-                            subtitle={product.agitate}
+                            subtitle={product.salesCopy?.agitate}
                             icon={<FaExclamationTriangle className='h-12 w-12 text-orange-500' />}
                         />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
-                        {product.agitatePoints?.map((point, idx) => (
+                        {product.salesCopy?.agitatePoints?.map((point, idx) => (
                             <div
                                 key={idx}
                                 className='border-primary/10 bg-background/50 flex gap-4 rounded-lg border p-4'
@@ -90,13 +90,13 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     <motion.div variants={itemVariants}>
                         <SectionHeader
                             title='The Solution'
-                            subtitle={product.solution}
+                            subtitle={product.salesCopy?.solution}
                             icon={<FaCheckCircle className='text-secondary h-12 w-12' />}
                         />
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
-                        {product.solutionPoints?.map((point, idx) => (
+                        {product.salesCopy?.solutionPoints?.map((point, idx) => (
                             <div
                                 key={idx}
                                 className='border-secondary/20 bg-secondary/5 flex gap-4 rounded-lg border p-4'

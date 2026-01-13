@@ -28,9 +28,16 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import { ProductSchema } from '../../src/schemas/product.schema.js'
-import { SalesCopyFileSchema } from '../../src/schemas/sales-copy.schema.js'
-import type { SalesCopyData } from '../../src/types/sales-copy.js'
+import {
+    IndividualProductSchema,
+    AggregatedProductSchema,
+    type IndividualProduct,
+    type AggregatedProduct
+} from '../../src/schemas/product.schema.js'
+import { SalesCopyFileSchema, type SalesCopyData } from '../../src/schemas/sales-copy.schema.js'
+import type { FAQ } from '../../src/schemas/faq.schema.js'
+import type { Testimonial } from '../../src/schemas/testimonial.schema.js'
+import type { MediaItem } from '../../src/schemas/media.schema.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -43,51 +50,6 @@ const OUTPUT_FILE = resolve(__dirname, '../../src/data/products.json')
 
 // Helper to check strict mode (evaluated at runtime)
 const isStrictMode = () => process.env.STRICT_VALIDATION === 'true'
-
-interface FAQ {
-    id: string
-    question: string
-    answer: string
-    order: number
-}
-
-interface Testimonial {
-    id: string
-    author: string
-    role?: string
-    company?: string
-    avatarUrl?: string
-    twitterHandle?: string
-    twitterUrl?: string
-    rating: number
-    quote: string
-    featured: boolean
-}
-
-interface MediaItem {
-    id: string
-    type: 'image' | 'video'
-    url: string
-    title: string
-    description?: string
-    altText: string
-    caption?: string
-    order: number
-    group: 'cover' | 'banner' | 'main' | 'secondary' | 'bonus'
-    youtubeId?: string
-    thumbnailUrl?: string
-    width?: number
-    height?: number
-}
-
-interface Product {
-    id: string
-    priority?: number
-    activeSalesCopyId?: string
-    faqs?: FAQ[]
-    testimonials?: Testimonial[]
-    media?: MediaItem[]
-}
 
 /**
  * Load FAQs for a product from {product-id}-faq.json
@@ -254,7 +216,7 @@ export function loadActiveSalesCopy(
         if (!validationResult.success) {
             const message = `Invalid sales copy file for ${productId} variant "${activeSalesCopyId}"`
             console.error(`❌ ${message}`)
-            validationResult.error.errors.forEach((err) => {
+            validationResult.error.issues.forEach((err) => {
                 console.error(`     - ${err.path.join('.')}: ${err.message}`)
             })
             if (isStrictMode()) {
@@ -322,14 +284,27 @@ function main() {
     console.log(`Found ${files.length} product file(s):\n`)
 
     // Parse all product files
-    const products: Product[] = []
+    const products: AggregatedProduct[] = []
     const errors: string[] = []
 
     for (const file of files) {
         const filePath = join(PRODUCTS_DIR, file)
         try {
             const content = readFileSync(filePath, 'utf-8')
-            const product = JSON.parse(content)
+            const productData = JSON.parse(content)
+
+            // Validate individual product file structure first
+            const individualValidation = IndividualProductSchema.safeParse(productData)
+            if (!individualValidation.success) {
+                console.error(`  ❌ ${file}: Invalid individual product schema`)
+                individualValidation.error.issues.forEach((err) => {
+                    console.error(`     - ${err.path.join('.')}: ${err.message}`)
+                })
+                errors.push(`  ❌ ${file}: Invalid individual product structure`)
+                continue
+            }
+
+            const product: IndividualProduct = individualValidation.data
 
             if (!product.id) {
                 errors.push(`  ❌ ${file}: Missing 'id' field`)
@@ -342,53 +317,38 @@ function main() {
             const media = loadMedia(product.id)
             const salesCopy = loadActiveSalesCopy(product.id, product.activeSalesCopyId)
 
-            // Create defensive copy with loaded content (don't mutate original)
-            // Spread sales copy fields conditionally to avoid overwriting with undefined
-            const aggregatedProduct = {
+            // Sales copy is strictly required in aggregated schema
+            if (!salesCopy) {
+                const message = `Missing or invalid sales copy for product ${product.id} (activeSalesCopyId: ${product.activeSalesCopyId})`
+                console.error(`  ❌ ${file}: ${message}`)
+                errors.push(`  ❌ ${file}: ${message}`)
+                continue
+            }
+
+            // Create aggregated product with proper structure
+            // salesCopy is a nested object (not spread into product)
+            const aggregatedProduct: AggregatedProduct = {
                 ...product,
                 faqs,
                 testimonials,
                 media,
-                ...(salesCopy
-                    ? {
-                          tagline: salesCopy.tagline,
-                          secondaryTagline: salesCopy.secondaryTagline,
-                          problem: salesCopy.problem,
-                          problemPoints: salesCopy.problemPoints,
-                          agitate: salesCopy.agitate,
-                          agitatePoints: salesCopy.agitatePoints,
-                          solution: salesCopy.solution,
-                          solutionPoints: salesCopy.solutionPoints,
-                          description: salesCopy.description,
-                          features: salesCopy.features,
-                          benefits: salesCopy.benefits,
-                          targetAudience: salesCopy.targetAudience,
-                          perfectFor: salesCopy.perfectFor,
-                          notForYou: salesCopy.notForYou,
-                          trustBadges: salesCopy.trustBadges,
-                          guarantees: salesCopy.guarantees,
-                          metaTitle: salesCopy.metaTitle,
-                          metaDescription: salesCopy.metaDescription,
-                          keywords: salesCopy.keywords,
-                          storytelling: salesCopy.storytelling
-                      }
-                    : {})
+                salesCopy
             }
 
             // Validate the aggregated product
-            const validationResult = ProductSchema.safeParse(aggregatedProduct)
-            if (!validationResult.success) {
+            const aggregatedValidation = AggregatedProductSchema.safeParse(aggregatedProduct)
+            if (!aggregatedValidation.success) {
                 console.error(
-                    `  ❌ ${file}: Invalid product after adding FAQs/testimonials/media/sales-copy`
+                    `  ❌ ${file}: Invalid aggregated product after adding FAQs/media/salesCopy`
                 )
-                validationResult.error.errors.forEach((err) => {
+                aggregatedValidation.error.issues.forEach((err) => {
                     console.error(`     - ${err.path.join('.')}: ${err.message}`)
                 })
-                errors.push(`  ❌ ${file}: Invalid product structure after mutation`)
+                errors.push(`  ❌ ${file}: Invalid aggregated product structure`)
                 continue
             }
 
-            products.push(aggregatedProduct)
+            products.push(aggregatedValidation.data)
             const salesCopyInfo = product.activeSalesCopyId
                 ? `sales-copy: ${product.activeSalesCopyId}`
                 : 'no sales-copy'

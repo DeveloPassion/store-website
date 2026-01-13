@@ -50,5 +50,9 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConcepts-Volume-01-SoftwareCraft?option=un5zJJnEPFQV8Vj9C196QQ%3D%3D"
         }
     ],
-    "activeSalesCopyId": "default"
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "statsProof": null
 }

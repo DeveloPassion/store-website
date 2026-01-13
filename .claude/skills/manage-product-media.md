@@ -45,6 +45,8 @@ This skill helps you manage product media (screenshots, videos, cover images, ba
 
 5. **CLI Integration**: Uses `update-products` CLI to add media with proper validation
 
+**Note**: Media is stored in separate `{product-id}-media.json` files and auto-loaded during product aggregation. In runtime/aggregated products, access media via `product.media` array. Individual product files do NOT contain media arrays.
+
 ## When to Use This Skill
 
 Invoke this skill when the user mentions:

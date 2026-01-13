@@ -93,5 +93,7 @@
             "distant": false
         }
     ],
-    "activeSalesCopyId": "default"
+    "activeSalesCopyId": "default",
+    "landingPageUrl": null,
+    "dsebastienUrl": null
 }

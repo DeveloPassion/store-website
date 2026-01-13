@@ -103,7 +103,9 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                     <div className='line-clamp-1 text-sm font-semibold md:text-base'>
                                         {product.name}
                                     </div>
-                                    <div className='text-primary/60 text-xs'>{product.tagline}</div>
+                                    <div className='text-primary/60 text-xs'>
+                                        {product.salesCopy?.tagline}
+                                    </div>
                                 </div>
                                 <div className='border-primary/20 hidden border-l pl-4 md:block'>
                                     <div className='text-primary/60 text-xs'>Price</div>
@@ -141,11 +143,12 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
 
                             {/* Desktop/Tablet: Full CTA */}
                             <div className='hidden items-center gap-4 sm:flex'>
-                                {product.guarantees && product.guarantees.length > 0 && (
-                                    <div className='text-primary/60 hidden text-xs lg:block'>
-                                        {product.guarantees?.[0]}
-                                    </div>
-                                )}
+                                {product.salesCopy?.guarantees &&
+                                    product.salesCopy.guarantees.length > 0 && (
+                                        <div className='text-primary/60 hidden text-xs lg:block'>
+                                            {product.salesCopy.guarantees?.[0]}
+                                        </div>
+                                    )}
                                 <Button
                                     as='a'
                                     href={buildGumroadUrlFromProduct(

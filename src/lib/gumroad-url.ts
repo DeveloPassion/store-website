@@ -87,7 +87,10 @@ export const buildGumroadUrlFromProduct = (
     return buildGumroadUrl(url, {
         variantId: variant?.gumroadVariantId,
         paymentFrequency:
-            selectedFrequency || variant?.paymentFrequency || product.defaultPaymentFrequency,
+            selectedFrequency ||
+            variant?.paymentFrequency ||
+            product.defaultPaymentFrequency ||
+            undefined,
         quantity: 1,
         wanted: true
     })

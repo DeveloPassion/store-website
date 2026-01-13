@@ -19,7 +19,6 @@ mock.module('framer-motion', () => ({
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     id: 'test-product',
     name: 'Test Product',
-    tagline: 'Test tagline',
     price: 99.99,
     priceDisplay: '€99.99',
     priceTier: 'standard',
@@ -27,29 +26,43 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     mainCategory: 'guides',
     secondaryCategories: [],
     tags: ['ai'], // Use valid tag ID from TagIdSchema
-    problem: 'Test problem',
-    problemPoints: ['Problem point 1'],
-    agitate: 'Test agitate',
-    agitatePoints: ['Agitate point 1'],
-    solution: 'Test solution',
-    solutionPoints: ['Solution point 1'],
-    description: 'Test description',
-    features: ['Feature 1'],
-    benefits: { immediate: ['Benefit 1'] }, // Use proper benefits structure
     included: ['Item 1'],
     testimonials: [],
     faqs: [],
-    targetAudience: [],
-    perfectFor: [],
-    notForYou: [],
     featured: false,
     bestseller: false,
     bestValue: false,
     priority: 50,
-    trustBadges: [],
-    guarantees: [],
     crossSellIds: [],
     media: [],
+    landingPageUrl: null,
+    dsebastienUrl: null,
+    statsProof: null,
+    variants: null,
+    isSubscription: false,
+    paymentFrequencies: null,
+    defaultPaymentFrequency: null,
+    activeSalesCopyId: 'default',
+    salesCopy: {
+        tagline: 'Test tagline',
+        problem: 'Test problem',
+        problemPoints: ['Problem point 1'],
+        agitate: 'Test agitate',
+        agitatePoints: ['Agitate point 1'],
+        solution: 'Test solution',
+        solutionPoints: ['Solution point 1'],
+        description: 'Test description',
+        features: ['Feature 1'],
+        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
+        targetAudience: [],
+        perfectFor: [],
+        notForYou: [],
+        trustBadges: [],
+        guarantees: [],
+        metaTitle: '',
+        metaDescription: '',
+        keywords: []
+    },
     ...overrides
 })
 
@@ -154,7 +167,10 @@ describe('ProductCTA Component', () => {
 
     it('should display product guarantees when provided', () => {
         const product = createMockProduct({
-            guarantees: ['30-Day Money Back', 'Lifetime Updates']
+            salesCopy: {
+                ...createMockProduct().salesCopy,
+                guarantees: ['30-Day Money Back', 'Lifetime Updates']
+            }
         })
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
@@ -163,7 +179,9 @@ describe('ProductCTA Component', () => {
     })
 
     it('should not render guarantees section when empty', () => {
-        const product = createMockProduct({ guarantees: [] })
+        const product = createMockProduct({
+            salesCopy: { ...createMockProduct().salesCopy, guarantees: [] }
+        })
         const { container } = renderWithRouter(<ProductCTA product={product} />)
 
         // The guarantees div should not exist
@@ -173,7 +191,10 @@ describe('ProductCTA Component', () => {
 
     it('should display product trust badges when provided', () => {
         const product = createMockProduct({
-            trustBadges: ['Trusted by 10,000+', 'Featured on Product Hunt']
+            salesCopy: {
+                ...createMockProduct().salesCopy,
+                trustBadges: ['Trusted by 10,000+', 'Featured on Product Hunt']
+            }
         })
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
@@ -182,7 +203,9 @@ describe('ProductCTA Component', () => {
     })
 
     it('should not render trust badges section when empty', () => {
-        const product = createMockProduct({ trustBadges: [] })
+        const product = createMockProduct({
+            salesCopy: { ...createMockProduct().salesCopy, trustBadges: [] }
+        })
         const { queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
         expect(queryByText('Trusted by')).not.toBeInTheDocument()

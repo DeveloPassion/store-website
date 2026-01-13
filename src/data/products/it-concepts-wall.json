@@ -36,5 +36,10 @@
             "distant": true
         }
     ],
-    "activeSalesCopyId": "default"
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "landingPageUrl": null,
+    "dsebastienUrl": null
 }

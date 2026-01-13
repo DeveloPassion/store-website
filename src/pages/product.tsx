@@ -47,10 +47,10 @@ const ProductPage: React.FC = () => {
     // Update document title and meta tags
     useEffect(() => {
         if (product) {
-            const title = product.metaTitle || `${product.name} - Knowledge Forge`
+            const title = product.salesCopy?.metaTitle || `${product.name} - Knowledge Forge`
             const description =
-                product.metaDescription ||
-                product.description ||
+                product.salesCopy?.metaDescription ||
+                product.salesCopy?.description ||
                 `${product.name} - Available at Knowledge Forge`
             const url = `https://store.dsebastien.net/product/${product.id}`
 

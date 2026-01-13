@@ -50,5 +50,9 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConcepts-Volume-02-WhatClientsNeed?option=APzm6Z3omVTZ417UK9EUAg%3D%3D"
         }
     ],
-    "activeSalesCopyId": "default"
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "statsProof": null
 }

@@ -18,7 +18,6 @@ const createMockTestimonial = (id: string, rating: number): Testimonial => ({
 const createMockProduct = (id: string, testimonials: Testimonial[]): Product => ({
     id,
     name: `Product ${id}`,
-    tagline: 'Test tagline',
     price: 99.99,
     priceDisplay: '€99.99',
     priceTier: 'standard',
@@ -26,29 +25,43 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     mainCategory: 'guides',
     secondaryCategories: [],
     tags: ['ai'],
-    problem: 'Test problem',
-    problemPoints: ['Problem 1'],
-    agitate: 'Test agitate',
-    agitatePoints: ['Agitate 1'],
-    solution: 'Test solution',
-    solutionPoints: ['Solution 1'],
-    description: 'Test description',
-    features: ['Feature 1'],
-    benefits: { immediate: ['Benefit 1'] },
     included: ['Item 1'],
     testimonials,
     faqs: [],
-    targetAudience: [],
-    perfectFor: [],
-    notForYou: [],
-    trustBadges: [],
-    guarantees: [],
-    crossSellIds: [],
     media: [],
     featured: false,
     bestseller: false,
     bestValue: false,
-    priority: 100
+    priority: 100,
+    crossSellIds: [],
+    landingPageUrl: null,
+    dsebastienUrl: null,
+    statsProof: null,
+    variants: null,
+    isSubscription: false,
+    paymentFrequencies: null,
+    defaultPaymentFrequency: null,
+    activeSalesCopyId: 'default',
+    salesCopy: {
+        tagline: 'Test tagline',
+        problem: 'Test problem',
+        problemPoints: ['Problem 1'],
+        agitate: 'Test agitate',
+        agitatePoints: ['Agitate 1'],
+        solution: 'Test solution',
+        solutionPoints: ['Solution 1'],
+        description: 'Test description',
+        features: ['Feature 1'],
+        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
+        targetAudience: [],
+        perfectFor: [],
+        notForYou: [],
+        trustBadges: [],
+        guarantees: [],
+        metaTitle: '',
+        metaDescription: '',
+        keywords: []
+    }
 })
 
 describe('calculateTestimonialStats', () => {
@@ -90,13 +103,8 @@ describe('calculateTestimonialStats', () => {
             expect(stats.averageRating).toBe(0)
         })
 
-        it('should handle products with undefined testimonials', () => {
-            const products: Product[] = [
-                {
-                    ...createMockProduct('1', []),
-                    testimonials: undefined
-                }
-            ]
+        it('should handle products with empty testimonials', () => {
+            const products: Product[] = [createMockProduct('1', [])]
 
             const stats = calculateTestimonialStats(products)
 

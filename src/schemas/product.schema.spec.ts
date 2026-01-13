@@ -1,49 +1,66 @@
 import { describe, it, expect } from 'bun:test'
 import {
-    ProductSchema,
+    AggregatedProductSchema,
     PriceTierSchema,
     PaymentFrequencySchema,
     SecondaryCategorySchema,
-    ProductVariantSchema,
-    ProductBenefitsSchema,
-    StatsProofSchema
+    ProductVariantSchema
 } from './product.schema'
+import { ProductBenefitsSchema, StatsProofSchema } from './shared.schema'
 import type { TagId } from '@/types/tag'
 
 describe('Product Schema Validation', () => {
     const validProduct = {
         id: 'test-product',
         name: 'Test Product',
-        tagline: 'Test tagline',
         price: 99.99,
         priceDisplay: '€99.99',
         priceTier: 'standard' as const,
         gumroadUrl: 'https://gumroad.com/test',
+        variants: null,
+        isSubscription: false,
+        paymentFrequencies: null,
+        defaultPaymentFrequency: null,
         mainCategory: 'guides' as const,
         secondaryCategories: [],
         tags: ['ai' as TagId],
-        problem: 'Test problem',
-        problemPoints: ['Point 1', 'Point 2'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate 1', 'Agitate 2'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution 1', 'Solution 2'],
-        description: 'Test description',
-        features: ['Feature 1', 'Feature 2'],
-        benefits: {},
         included: ['Item 1', 'Item 2'],
-        testimonialIds: [],
-        faqIds: [],
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
+        statsProof: null,
+        landingPageUrl: null,
+        dsebastienUrl: null,
+        faqs: [],
+        testimonials: [],
+        media: [],
         featured: false,
         bestseller: false,
         bestValue: false,
         priority: 50,
-        trustBadges: [],
-        guarantees: [],
-        crossSellIds: []
+        crossSellIds: [],
+        activeSalesCopyId: 'default',
+        salesCopy: {
+            tagline: 'Test tagline',
+            problem: 'Test problem',
+            problemPoints: ['Point 1', 'Point 2'],
+            agitate: 'Test agitate',
+            agitatePoints: ['Agitate 1', 'Agitate 2'],
+            solution: 'Test solution',
+            solutionPoints: ['Solution 1', 'Solution 2'],
+            description: 'Test description',
+            features: ['Feature 1', 'Feature 2'],
+            benefits: {
+                immediate: [],
+                systematic: [],
+                longTerm: []
+            },
+            targetAudience: [],
+            perfectFor: [],
+            notForYou: [],
+            trustBadges: [],
+            guarantees: [],
+            metaTitle: '',
+            metaDescription: '',
+            keywords: []
+        }
     }
 
     describe('PriceTierSchema', () => {
@@ -184,15 +201,20 @@ describe('Product Schema Validation', () => {
             expect(() => ProductBenefitsSchema.parse(valid)).not.toThrow()
         })
 
-        it('should accept partial benefits', () => {
+        it('should accept empty arrays for all benefit categories', () => {
             const valid = {
-                immediate: ['Quick win 1']
+                immediate: [],
+                systematic: [],
+                longTerm: []
             }
             expect(() => ProductBenefitsSchema.parse(valid)).not.toThrow()
         })
 
-        it('should accept empty benefits object', () => {
-            expect(() => ProductBenefitsSchema.parse({})).not.toThrow()
+        it('should reject partial benefits (missing required arrays)', () => {
+            const invalid = {
+                immediate: ['Quick win 1']
+            }
+            expect(() => ProductBenefitsSchema.parse(invalid)).toThrow()
         })
     })
 
@@ -212,95 +234,95 @@ describe('Product Schema Validation', () => {
         })
     })
 
-    describe('ProductSchema - Required Fields', () => {
+    describe('AggregatedProductSchema - Required Fields', () => {
         it('should accept valid complete product', () => {
-            const result = ProductSchema.safeParse(validProduct)
+            const result = AggregatedProductSchema.safeParse(validProduct)
             expect(result.success).toBe(true)
         })
 
         it('should reject product without id', () => {
             const invalid = { ...validProduct, id: '' }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
         it('should reject product without name', () => {
             const invalid = { ...validProduct, name: '' }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
         it('should reject product with negative price', () => {
             const invalid = { ...validProduct, price: -10 }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
         it('should reject product with invalid gumroadUrl', () => {
             const invalid = { ...validProduct, gumroadUrl: 'not-a-url' }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
         it('should reject product without tags', () => {
             const invalid = { ...validProduct, tags: [] }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
-        })
-
-        it('should accept product without problem points (moved to sales copy)', () => {
-            const valid = { ...validProduct, problemPoints: undefined }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept product without features (moved to sales copy)', () => {
-            const valid = { ...validProduct, features: undefined }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
         })
 
         it('should reject product without included items', () => {
             const invalid = { ...validProduct, included: [] }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should require salesCopy object', () => {
+            const invalid = { ...validProduct, salesCopy: undefined }
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
     })
 
-    describe('ProductSchema - Optional Fields', () => {
-        it('should accept product without optional fields', () => {
+    describe('AggregatedProductSchema - Optional Fields', () => {
+        it('should accept product with null optional fields', () => {
             const minimal = {
                 ...validProduct,
-                secondaryTagline: undefined,
-                variants: undefined,
-                statsProof: undefined,
-                landingPageUrl: undefined,
-                dsebastienUrl: undefined,
-                metaTitle: undefined,
-                metaDescription: undefined,
-                keywords: undefined
+                variants: null,
+                statsProof: null,
+                landingPageUrl: null,
+                dsebastienUrl: null
             }
-            const result = ProductSchema.safeParse(minimal)
+            const result = AggregatedProductSchema.safeParse(minimal)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept product with empty string URLs', () => {
+            const minimal = {
+                ...validProduct,
+                landingPageUrl: '',
+                dsebastienUrl: ''
+            }
+            const result = AggregatedProductSchema.safeParse(minimal)
             expect(result.success).toBe(true)
         })
     })
 
-    describe('ProductSchema - Taxonomy', () => {
+    describe('AggregatedProductSchema - Taxonomy', () => {
         it('should accept valid mainCategory', () => {
             const valid = { ...validProduct, mainCategory: 'courses' }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
         it('should reject invalid mainCategory', () => {
             const invalid = { ...validProduct, mainCategory: 'invalid-category' }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
         it('should accept empty secondaryCategories array', () => {
             const valid = { ...validProduct, secondaryCategories: [] }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
@@ -312,53 +334,64 @@ describe('Product Schema Validation', () => {
                     { id: 'productivity', distant: true }
                 ]
             }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
     })
 
-    describe('ProductSchema - Marketing Copy (PAS Framework - now optional, moved to sales copy)', () => {
-        it('should accept product without problem statement (moved to sales copy)', () => {
-            const valid = { ...validProduct, problem: undefined }
-            const result = ProductSchema.safeParse(valid)
+    describe('AggregatedProductSchema - Sales Copy (PAS Framework)', () => {
+        it('should accept sales copy with all optional fields', () => {
+            const valid = {
+                ...validProduct,
+                salesCopy: {
+                    ...validProduct.salesCopy,
+                    secondaryTagline: 'Secondary tagline',
+                    metaTitle: 'Meta Title',
+                    metaDescription: 'Meta description',
+                    keywords: ['keyword1', 'keyword2']
+                }
+            }
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept product without problem points (moved to sales copy)', () => {
-            const valid = { ...validProduct, problemPoints: undefined }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept product without agitate statement (moved to sales copy)', () => {
-            const valid = { ...validProduct, agitate: undefined }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept product without agitate points (moved to sales copy)', () => {
-            const valid = { ...validProduct, agitatePoints: undefined }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept product without solution statement (moved to sales copy)', () => {
-            const valid = { ...validProduct, solution: undefined }
-            const result = ProductSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept product without solution points (moved to sales copy)', () => {
-            const valid = { ...validProduct, solutionPoints: undefined }
-            const result = ProductSchema.safeParse(valid)
+        it('should accept sales copy with minimal PAS fields', () => {
+            const valid = {
+                ...validProduct,
+                salesCopy: {
+                    tagline: 'Test tagline',
+                    problem: 'Test problem',
+                    problemPoints: ['Point 1'],
+                    agitate: 'Test agitate',
+                    agitatePoints: ['Agitate 1'],
+                    solution: 'Test solution',
+                    solutionPoints: ['Solution 1'],
+                    description: 'Test description',
+                    features: ['Feature 1'],
+                    benefits: {
+                        immediate: [],
+                        systematic: [],
+                        longTerm: []
+                    },
+                    targetAudience: [],
+                    perfectFor: [],
+                    notForYou: [],
+                    trustBadges: [],
+                    guarantees: [],
+                    metaTitle: '',
+                    metaDescription: '',
+                    keywords: []
+                }
+            }
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
     })
 
-    describe('ProductSchema - Meta Flags', () => {
+    describe('AggregatedProductSchema - Meta Flags', () => {
         it('should accept featured product', () => {
             const valid = { ...validProduct, featured: true }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
@@ -369,36 +402,35 @@ describe('Product Schema Validation', () => {
                 bestseller: true,
                 bestValue: true
             }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
         it('should accept valid priority', () => {
             const valid = { ...validProduct, priority: 100 }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
     })
 
-    describe('ProductSchema - Subscription Fields', () => {
+    describe('AggregatedProductSchema - Subscription Fields', () => {
         it('should accept product with isSubscription true', () => {
             const valid = { ...validProduct, isSubscription: true }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
         it('should accept product with isSubscription false', () => {
             const valid = { ...validProduct, isSubscription: false }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept product without isSubscription (optional field)', () => {
-            const result = ProductSchema.safeParse(validProduct)
-            expect(result.success).toBe(true)
-            if (result.success) {
-                expect(result.data.isSubscription).toBeUndefined()
-            }
+        it('should require isSubscription field', () => {
+            const invalid = { ...validProduct }
+            delete (invalid as Partial<typeof validProduct>).isSubscription
+            const result = AggregatedProductSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
         })
 
         it('should accept product with paymentFrequencies array', () => {
@@ -407,7 +439,7 @@ describe('Product Schema Validation', () => {
                 isSubscription: true,
                 paymentFrequencies: ['monthly', 'yearly']
             }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
@@ -417,7 +449,7 @@ describe('Product Schema Validation', () => {
                 isSubscription: true,
                 paymentFrequencies: ['monthly']
             }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
@@ -428,7 +460,7 @@ describe('Product Schema Validation', () => {
                 paymentFrequencies: ['monthly', 'yearly'],
                 defaultPaymentFrequency: 'monthly'
             }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
@@ -440,7 +472,7 @@ describe('Product Schema Validation', () => {
                 paymentFrequencies: ['monthly', 'yearly'],
                 defaultPaymentFrequency: 'yearly'
             }
-            const result = ProductSchema.safeParse(valid)
+            const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
@@ -450,7 +482,7 @@ describe('Product Schema Validation', () => {
                 isSubscription: true,
                 paymentFrequencies: ['monthly', 'weekly']
             }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
@@ -460,12 +492,12 @@ describe('Product Schema Validation', () => {
                 isSubscription: true,
                 defaultPaymentFrequency: 'weekly'
             }
-            const result = ProductSchema.safeParse(invalid)
+            const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
         it('should accept product without subscription fields', () => {
-            const result = ProductSchema.safeParse(validProduct)
+            const result = AggregatedProductSchema.safeParse(validProduct)
             expect(result.success).toBe(true)
         })
     })

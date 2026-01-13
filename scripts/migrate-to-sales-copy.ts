@@ -22,7 +22,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, copyFileSync } from 'fs'
 import { resolve, join } from 'path'
 import { fileURLToPath } from 'url'
-import { ProductSchema } from '../src/schemas/product.schema.js'
+import { IndividualProductSchema } from '../src/schemas/product.schema.js'
 import { SalesCopyFileSchema } from '../src/schemas/sales-copy.schema.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -202,7 +202,7 @@ function migrateProduct(productId: string, dryRun: boolean): boolean {
         const cleanProduct = removeSalesCopyFields(product)
 
         // Validate clean product
-        const productValidation = ProductSchema.safeParse(cleanProduct)
+        const productValidation = IndividualProductSchema.safeParse(cleanProduct)
         if (!productValidation.success) {
             console.error(`  ❌ ${productId}: Invalid product after removing sales copy`)
             productValidation.error.errors.forEach((err) => {

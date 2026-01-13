@@ -46,5 +46,11 @@
             "distant": false
         }
     ],
-    "activeSalesCopyId": "default"
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "variants": null,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "landingPageUrl": null,
+    "dsebastienUrl": null
 }

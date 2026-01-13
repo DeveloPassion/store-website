@@ -7,22 +7,11 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
+import type { AggregatedProduct } from '../../src/schemas/product.schema.js'
+import type { Category } from '../../src/schemas/category.schema.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const BASE_URL = 'https://store.dsebastien.net'
-
-interface Product {
-    id: string
-    name: string
-    tagline: string
-    description: string
-    price: number
-    priceDisplay: string
-    features: string[]
-    tags: string[]
-    status?: string
-    featured?: boolean
-}
 
 interface SitemapUrl {
     loc: string
@@ -31,16 +20,12 @@ interface SitemapUrl {
     priority: string
 }
 
-// Read products data
+// Read products data (aggregated products.json with salesCopy nested object)
 const productsJsonPath = join(__dirname, '../../src/data/products.json')
-const productsData: Product[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
+const productsData: AggregatedProduct[] = JSON.parse(readFileSync(productsJsonPath, 'utf-8'))
 
 // Read categories data
 const categoriesJsonPath = join(__dirname, '../../src/data/categories.json')
-interface Category {
-    id: string
-    name: string
-}
 const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, 'utf-8'))
 
 // Extract all unique tags

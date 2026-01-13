@@ -107,15 +107,17 @@ bun run update:products -- --operation remove --id product-id --force
 - ✅ Adding new products (creates structure with validation)
 - ✅ Editing taxonomy (categories/tags with keyboard-navigable multi-select)
 - ✅ Changing pricing, priority, or meta flags (featured, bestValue, bestseller)
-- ✅ Quick updates to common fields
+- ✅ Quick updates to common fields (name, price, included items)
 - ✅ Listing and filtering products
+- ✅ Managing sales copy variants (see Sales Copy Management section)
+- ✅ Managing media, FAQs, and testimonials (see sections below)
 
 ### Use Direct Editing for:
-- ✅ Complex marketing copy (problemPoints, agitatePoints, solutionPoints)
-- ✅ Adding detailed content (features, benefits, included)
 - ✅ Cross-references (crossSellIds)
-- ✅ SEO metadata (metaTitle, metaDescription, keywords)
-- ✅ Advanced fields (variants, statsProof, guarantees)
+- ✅ Advanced fields (variants, statsProof)
+- ✅ Complex included items (multi-line editing)
+
+**IMPORTANT**: Sales copy fields (tagline, description, features, benefits, PAS framework, audience, trust, SEO) are NOT in individual product files. They are in separate `{product-id}-sales-copy-{variant}.json` files. Use the CLI's Sales Copy Management operations or edit the sales copy files directly.
 
 **For Media, FAQs, and Testimonials:**
 Use the CLI's integrated management features (see sections below)
@@ -124,28 +126,115 @@ Use the CLI's integrated management features (see sections below)
 
 **Source of Truth**: `src/schemas/product.schema.ts`
 
-The product schema is defined using Zod and contains 50+ fields organized into these groups:
+The product schema is defined using Zod with two distinct schemas:
 
-- **Identity**: id, name, tagline, secondaryTagline
+### IndividualProductSchema (for individual product files)
+
+Individual product files (`{product-id}.json`) contain core product data WITHOUT sales copy, FAQs, or media:
+
+- **Identity**: id, name
 - **Pricing**: price, priceDisplay, priceTier, gumroadUrl, variants
 - **Subscription**: isSubscription, paymentFrequencies, defaultPaymentFrequency
 - **Taxonomy**: mainCategory, secondaryCategories, tags
-- **Marketing (PAS Framework)**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
-- **Content**: description, features, benefits, included, targetAudience, perfectFor, notForYou
-- **Social Proof**: testimonials (auto-loaded), statsProof
-- **Media**: coverImage, banners, screenshots, videos, ...
+- **Content**: included
+- **Social Proof**: testimonials (nullable), statsProof (nullable)
 - **Links**: landingPageUrl, dsebastienUrl
-- **Meta**: featured, bestValue, bestseller, priority (0-100)
-- **Trust**: trustBadges, guarantees
+- **Meta**: featured, bestValue, bestseller, priority (0-100) - all strictly required
 - **Cross-sell**: crossSellIds
-- **SEO**: metaTitle, metaDescription, keywords
+- **Sales Copy Reference**: activeSalesCopyId (strictly required, non-nullable)
+
+### AggregatedProductSchema (for runtime/aggregated products.json)
+
+Aggregated products include auto-loaded content:
+
+- **All IndividualProductSchema fields** PLUS:
+- **FAQs**: Auto-loaded from `{product-id}-faq.json` (empty array if file doesn't exist)
+- **Media**: Auto-loaded from `{product-id}-media.json` (empty array if file doesn't exist)
+- **Sales Copy**: Auto-loaded from `{product-id}-sales-copy-{variant}.json` (strictly required)
+  - Access via `product.salesCopy.tagline`, `product.salesCopy.features`, etc.
+  - All PAS Framework fields: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
+  - All content: description, features, benefits (immediate, systematic, longTerm)
+  - All audience: targetAudience, perfectFor, notForYou
+  - All trust: trustBadges, guarantees
+  - All SEO: metaTitle, metaDescription, keywords
+  - Optional storytelling sections
 
 **Important Notes:**
-- FAQs and testimonials are stored in separate files (`{product-id}-faq.json` and `{product-id}-testimonials.json`) and auto-loaded during aggregation
-- Refer to the schema file for complete field details, types, and validation rules
-- All URLs must be valid or empty strings (not null)
+- Individual product files do NOT contain tagline, description, features, benefits, PAS framework, or other sales copy
+- Sales copy is in separate `{product-id}-sales-copy-{variant}.json` files
+- activeSalesCopyId is strictly required (non-nullable) and must reference a valid sales copy file
+- FAQs, media, and testimonials are stored in separate files and auto-loaded during aggregation
+- All boolean flags (featured, bestValue, bestseller, isSubscription) are strictly required
+- Benefits schema requires all three categories: immediate, systematic, longTerm
 - Priority must be between 0-100
 - Product IDs must be unique
+
+### Accessing Product Fields in Code
+
+**In individual product files** (`{product-id}.json`):
+```json
+{
+  "id": "product-id",
+  "name": "Product Name",
+  "price": 49.99,
+  "activeSalesCopyId": "default",
+  "included": ["Item 1", "Item 2"]
+}
+```
+
+**In runtime/aggregated products** (after aggregation):
+```typescript
+// Core product fields (from individual file)
+product.id
+product.name
+product.price
+product.activeSalesCopyId
+
+// Sales copy fields (loaded from sales copy file)
+product.salesCopy.tagline
+product.salesCopy.description
+product.salesCopy.features
+product.salesCopy.benefits.immediate
+product.salesCopy.benefits.systematic
+product.salesCopy.benefits.longTerm
+product.salesCopy.problem
+product.salesCopy.problemPoints
+product.salesCopy.targetAudience
+
+// Auto-loaded content (from separate files)
+product.faqs
+product.media
+product.testimonials
+```
+
+**Schema Usage**:
+- Use `IndividualProductSchema` when validating individual product files
+- Use `AggregatedProductSchema` when working with runtime/aggregated products
+- Sales copy files use `SalesCopyFileSchema` (wraps `SalesCopyDataSchema` in `{ data }` object)
+
+**Deprecated/Removed Fields**:
+- Inline sales copy fields: Moved to separate sales copy files
+
+**Nullable vs. Strictly Required Fields**:
+- **Strictly required (non-nullable)**: Must always be present with a value
+  - All boolean flags: `isSubscription`, `featured`, `bestValue`, `bestseller`
+  - Core identity: `id`, `name`, `activeSalesCopyId`
+  - Pricing: `price`, `priceDisplay`, `priceTier`, `gumroadUrl`
+  - Taxonomy: `mainCategory`, `tags` (at least one)
+  - Content: `included` (at least one)
+  - Meta: `priority`
+- **Nullable**: Can be `null` or omitted
+  - `variants`, `paymentFrequencies`, `defaultPaymentFrequency`
+  - `testimonials`, `statsProof`
+  - `landingPageUrl`, `dsebastienUrl` (can also be empty string `""`)
+- **Empty arrays allowed**: `secondaryCategories`, `crossSellIds`, `targetAudience`, `perfectFor`, `notForYou`, `trustBadges`, `guarantees`
+
+**Subscription Products**:
+For products with `priceTier: 'subscription'`:
+- `isSubscription`: Must be `true` (strictly required)
+- `paymentFrequencies`: Array of frequencies (nullable, but recommended for subscriptions)
+- `defaultPaymentFrequency`: Default selection (nullable, but recommended for subscriptions)
+- Variants can have `paymentFrequency` and `prices` object for per-frequency pricing
 
 ## Workflow
 

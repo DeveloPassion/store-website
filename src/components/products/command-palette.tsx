@@ -63,7 +63,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 id: `product-${product.id}`,
                 type: 'product',
                 title: product.name,
-                subtitle: `${product.priceDisplay} · ${product.tagline}`,
+                subtitle: `${product.priceDisplay} · ${product.salesCopy?.tagline}`,
                 icon: product.featured ? (
                     <FaStar className='text-secondary h-5 w-5' />
                 ) : isFree ? (

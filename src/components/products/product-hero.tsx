@@ -154,13 +154,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 
                         {/* Tagline */}
                         <p className='text-primary/80 mb-2 text-xl sm:text-2xl md:text-3xl'>
-                            {product.tagline}
+                            {product.salesCopy?.tagline}
                         </p>
 
                         {/* Secondary Tagline */}
-                        {product.secondaryTagline && (
+                        {product.salesCopy?.secondaryTagline && (
                             <p className='text-primary/60 mb-6 text-lg sm:text-xl'>
-                                {product.secondaryTagline}
+                                {product.salesCopy.secondaryTagline}
                             </p>
                         )}
 
@@ -277,19 +277,22 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         </div>
 
                         {/* Trust Badges */}
-                        {product.guarantees && product.guarantees.length > 0 && (
-                            <div className='mt-6 flex flex-wrap gap-3'>
-                                {product.guarantees?.slice(0, 2).map((guarantee, idx) => (
-                                    <div
-                                        key={idx}
-                                        className='bg-primary/5 text-primary/70 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm'
-                                    >
-                                        <FaCheckCircle className='text-secondary h-4 w-4' />
-                                        {guarantee}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                        {product.salesCopy?.guarantees &&
+                            product.salesCopy.guarantees.length > 0 && (
+                                <div className='mt-6 flex flex-wrap gap-3'>
+                                    {product.salesCopy.guarantees
+                                        ?.slice(0, 2)
+                                        .map((guarantee, idx) => (
+                                            <div
+                                                key={idx}
+                                                className='bg-primary/5 text-primary/70 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm'
+                                            >
+                                                <FaCheckCircle className='text-secondary h-4 w-4' />
+                                                {guarantee}
+                                            </div>
+                                        ))}
+                                </div>
+                            )}
                     </motion.div>
 
                     {/* Right Column: Cover Image Carousel */}

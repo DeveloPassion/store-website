@@ -53,7 +53,7 @@
         "Comprehensive User Guide (100+ pages)",
         "Migration guides from v2 or custom setups",
         "Video Course (Premium tier): 2h20m covering Obsidian + PKM",
-        "Lifetime access to Knowii Community",
+        "Lifetime access to private Community",
         "Free lifetime updates"
     ],
     "statsProof": {
@@ -87,5 +87,8 @@
             "distant": false
         }
     ],
-    "activeSalesCopyId": "default"
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null
 }
