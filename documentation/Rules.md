@@ -48,4 +48,4 @@ public/assets/products
 
 - Sans: `'Noto Sans', sans-serif`
 
-**DO NOT**: Create new color schemes or fonts. Clone tools-website aesthetic exactly.
+**DO NOT**: Create new color schemes or fonts.

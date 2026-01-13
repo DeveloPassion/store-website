@@ -105,29 +105,11 @@ All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) fo
 
 ## Managing Products
 
-Products are ~50 field JSON files in `/src/data/products/{product-id}.json`. Auto-aggregated into `products.json` (gitignored) at build time.
+Products are JSON files in `/src/data/products/{product-id}.json`. Auto-aggregated into `products.json` (gitignored) at build time.
 
 **CLI**: Use `bun run update:products` for interactive management or `bun run validate:products` to validate after changes.
 
-**Product Structure** (53+ fields):
-
-- Identity (5): id, permalink, name
-- Pricing (6): price, priceDisplay, priceTier, gumroadUrl, variants
-- Subscription (3): isSubscription, paymentFrequencies, defaultPaymentFrequency
-- Taxonomy (3): mainCategory, secondaryCategories, tags
-- Marketing (9): problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
-- Content (8): description, features, benefits, included, testimonialIds, faqIds, targetAudience, perfectFor, notForYou
-- Media (1): media (array of MediaItem objects with rich metadata)
-- Meta/Status (8): featured, bestValue, bestseller, status, priority, trustBadges, guarantees, crossSellIds
-- Links (2): landingPageUrl, dsebastienUrl
-- SEO (3): metaTitle, metaDescription, keywords
-
-**Variant Structure** (8 fields):
-
-- name, price, priceDisplay, description, gumroadUrl
-- gumroadVariantId (optional): Gumroad's variant ID for pre-selection
-- paymentFrequency (optional): 'monthly', 'yearly', 'biennial', or 'one-time'
-- prices (optional): Per-frequency pricing object with `monthly`, `yearly`, `biennial`, `oneTime` properties for accurate savings calculation
+**Schema**: See `/src/schemas/product.schema.ts` for complete field definitions. Includes identity, pricing, subscription, taxonomy, marketing (PAS framework), content, media, meta/status, links, and SEO fields. Variants are defined within the product schema.
 
 **CLI vs Direct Editing:**
 
@@ -179,24 +161,9 @@ Use boolean parameters to pre-select billing cycle:
 - `yearly=true` - Pre-selects yearly billing
 - `every_two_years=true` - Pre-selects 2-year billing
 
-**Example Working URLs:**
-
-```
-# Monthly Explorer tier
-https://developassion.gumroad.com/l/knowii?wanted=true&quantity=1&variant=explorer&monthly=true
-
-# Yearly Knowledge Builder tier
-https://developassion.gumroad.com/l/knowii?wanted=true&quantity=1&variant=knowledge-builder&yearly=true
-
-# 2-Year Knowledge Master tier
-https://developassion.gumroad.com/l/knowii?wanted=true&quantity=1&variant=knowledge-master&every_two_years=true
-```
-
 **Note:** Gumroad also supports `option={encoded_id}` for variant selection (seen in product URLs), but we use the simpler `variant={id}` parameter which is confirmed working.
 
 **Implementation:** See `/src/lib/gumroad-url.ts` for URL building logic. All parameters are automatically added by `buildGumroadUrlFromProduct()`.
-
-**Tested & Confirmed:** All parameters verified working on https://developassion.gumroad.com/l/knowii
 
 Example subscription product structure:
 
@@ -232,10 +199,7 @@ Products support rich media (images and videos) organized into five groups: **co
 
 **CLI**: Use `bun run update:products` (select "Edit existing product" → "🖼️ Manage Media") for interactive media management with list, add, edit, remove, and reorder operations.
 
-**Media Item Structure** (13 fields):
-
-- **Required**: id, type, url, title, altText, order, group
-- **Optional**: description, caption, youtubeId, thumbnailUrl, width, height
+**Schema**: See `/src/schemas/media.schema.ts` for complete field definitions.
 
 **Media Types:**
 
@@ -376,15 +340,7 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 
 **CLI**: Use `bun run update:products` for managing sales copy variants with operations: list, add, edit, enable, duplicate, and remove.
 
-**Sales Copy Fields** (extracted from Product JSON):
-
-- **Identity**: tagline, secondaryTagline
-- **PAS Framework**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
-- **Content**: description, features, benefits
-- **Audience**: targetAudience, perfectFor, notForYou
-- **Trust**: trustBadges, guarantees
-- **SEO**: metaTitle, metaDescription, keywords
-- **Storytelling**: originStory, creatorJourney, transformationArc, successStories, methodology, vision (all optional)
+**Schema**: See `/src/schemas/sales-copy.schema.ts` and `/src/schemas/storytelling.schema.ts` for complete field definitions. Includes identity, PAS framework, content, audience, trust, SEO, and optional storytelling sections.
 
 **Storytelling Sections** (all optional):
 
@@ -446,11 +402,11 @@ Example `knowii-voice-ai-sales-copy-default.json`:
 
 Configuration in `src/data/promotion.json` (not gitignored).
 
-**Behavior Modes:** ALWAYS (always visible), NEVER (never shown), PROMOTIONS (shows during configured period)
-
 **CLI**: Use `bun run update:promotion` for interactive configuration or `bun run validate:promotion` to validate.
 
-**Fields**: bannerBehavior, promotionStart/End (ISO 8601 UTC), promoText, promoLinkText, promoLink, discountCode
+**Schema**: See `/src/schemas/promotion.schema.ts` for complete field definitions.
+
+**Behavior Modes:** ALWAYS (always visible), NEVER (never shown), PROMOTIONS (shows during configured period)
 
 ## Managing Tags
 
@@ -458,8 +414,10 @@ Configuration in `src/data/promotion.json` (not gitignored).
 
 **CLI**: Use `bun run update:tags` for interactive management or `bun run validate:tags` to validate after changes.
 
-**Structure**: id, name, description, icon, color (#RRGGBB), featured, priority
-**Priority**: Featured 1-8, Non-featured 21+
+**Schema**: See `/src/schemas/tag.schema.ts` for complete field definitions.
+
+**Priority Guidelines**: Featured 1-8, Non-featured 21+
+
 **Critical**: Sync `TagIdSchema` enum in schema after add/remove operations
 
 ## Managing Categories
@@ -468,10 +426,14 @@ Configuration in `src/data/promotion.json` (not gitignored).
 
 **CLI**: Use `bun run update:categories` for interactive management or `bun run validate:categories` to validate after changes.
 
-**Structure**: id, name, description, icon, color, featured, priority
-**Priority**: Featured 1-7, Non-featured 8-23
+**Schema**: See `/src/schemas/category.schema.ts` for complete field definitions.
+
+**Priority Guidelines**: Featured 1-7, Non-featured 8-23
+
 **Usage**: Every product has one `mainCategory` (required) and 0-N `secondaryCategories` (optional, with `distant` flag)
+
 **Removal**: CANNOT remove if used as mainCategory; CAN remove (with --force) if only in secondaryCategories
+
 **Critical**: Sync `CategoryIdSchema` enum in schema after add/remove operations
 
 ## Managing FAQs and Testimonials
@@ -480,8 +442,7 @@ Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.j
 
 **CLI**: Use `bun run update:products` (select "Edit existing product" → "📝💬 Manage Content") for interactive FAQ and testimonial management with list, add, edit, and remove operations.
 
-**FAQ Fields**: id, question, answer, order
-**Testimonial Fields**: id, author, rating (1-5), quote, featured, role, company, avatarUrl, twitterHandle, twitterUrl
+**Schemas**: See `/src/schemas/faq.schema.ts` and `/src/schemas/testimonial.schema.ts` for complete field definitions.
 
 ## Testing Requirements
 
