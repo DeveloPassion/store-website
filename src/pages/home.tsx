@@ -63,7 +63,7 @@ const HomeEcommerce: React.FC = () => {
             products = products.filter(
                 (p) =>
                     p.name.toLowerCase().includes(query) ||
-                    p.tagline.toLowerCase().includes(query) ||
+                    (p.tagline && p.tagline.toLowerCase().includes(query)) ||
                     p.tags.some((t) => t.toLowerCase().includes(query))
             )
         }

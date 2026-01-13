@@ -1,8 +1,6 @@
 {
     "permalink": "xjpgo",
     "name": "Knowii: Complete Knowledge System & Community",
-    "tagline": "Transform Information Chaos Into Your Greatest Advantage",
-    "secondaryTagline": "Community + Premium Courses + Professional Tools = Your All-in-One Knowledge Solution",
     "price": 4.99,
     "priceDisplay": "From €4.99/month",
     "priceTier": "subscription",
@@ -20,67 +18,6 @@
         "courses",
         "second-brain"
     ],
-    "problem": "Information chaos sabotaging productivity. Drowning, can't find anything, forget what you learned.",
-    "problemPoints": [
-        "Drowning in tabs",
-        "Can't find anything",
-        "Forget what you learned",
-        "Scattered chaos",
-        "Context switches",
-        "Lost ideas"
-    ],
-    "agitate": "41% overwhelmed EVERY DAY. 23 context switches per day. 60% of ideas lost. More time searching than using.",
-    "agitatePoints": [
-        "Ideas vanish",
-        "Learnings forgotten",
-        "Time wasted",
-        "Bad decisions",
-        "No growth",
-        "Mental clutter"
-    ],
-    "solution": "Knowii Community: Complete knowledge transformation system with community, courses, and tools.",
-    "solutionPoints": [
-        "Find anything",
-        "Remember what matters",
-        "Reduce mental load",
-        "Make better decisions",
-        "Knowledge compounds",
-        "Integrate AI",
-        "Think in systems"
-    ],
-    "description": "Comprehensive community of hundreds of knowledge creators and lifelong learners committed to breaking free from information overload. Delivers: Community + Premium courses + Professional tools + Expert guidance.",
-    "features": [
-        "3 Membership Tiers",
-        "Explorer FREE",
-        "Knowledge Builder €19.99/month",
-        "Knowledge Master €39.99/month",
-        "Live events",
-        "Templates",
-        "Expert guidance",
-        "Implementation support"
-    ],
-    "benefits": {
-        "immediate": [
-            "Stop wasting time",
-            "Proven systems",
-            "Connect with people",
-            "Expert access"
-        ],
-        "systematic": [
-            "Complete System",
-            "Proven Approaches",
-            "Implementation Support",
-            "Continuous Learning",
-            "AI Integration",
-            "Scalable"
-        ],
-        "longTerm": [
-            "Sustainable management",
-            "Professional advancement",
-            "Mental clarity",
-            "Compound growth"
-        ]
-    },
     "included": [
         "3 membership tiers",
         "Explorer FREE tier",
@@ -96,52 +33,13 @@
         "userCount": "350+",
         "rating": "🌱 Growing"
     },
-    "targetAudience": [
-        "Knowledge Workers",
-        "Overwhelmed Professionals",
-        "Career Builders",
-        "Career Changers",
-        "Team Leaders",
-        "Executives",
-        "Founders",
-        "Consultants",
-        "Researchers",
-        "Content Creators"
-    ],
-    "perfectFor": [
-        "Feel overwhelmed",
-        "Want systematic",
-        "Need community",
-        "Value learning",
-        "Want transformation"
-    ],
-    "notForYou": ["Work alone", "Don't struggle", "Want only tools"],
     "featured": true,
     "bestValue": true,
     "bestseller": true,
-    "trustBadges": [
-        "Complete System",
-        "$150-500 Bonuses",
-        "Expert-Led",
-        "Growing Community",
-        "Live Events",
-        "Flexible",
-        "Free Tier"
-    ],
-    "guarantees": ["Flexible membership", "Free tier", "All resources", "Continuous content"],
     "crossSellIds": [
         "obsidian-starter-kit",
         "knowledge-management-for-beginners",
         "everything-knowledge-bundle"
-    ],
-    "metaTitle": "Knowii Community - Transform Information Chaos Into Clarity",
-    "metaDescription": "Join Knowii: Community + courses + tools. From FREE to €39.99/month. Fix information overload.",
-    "keywords": [
-        "knowledge management community",
-        "pkm community",
-        "information overload",
-        "second brain",
-        "obsidian community"
     ],
     "variants": [
         {
@@ -195,5 +93,6 @@
             "id": "knowledge-management",
             "distant": false
         }
-    ]
+    ],
+    "activeSalesCopyId": "default"
 }

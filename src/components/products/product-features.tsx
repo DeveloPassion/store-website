@@ -48,7 +48,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                     variants={containerVariants}
                     className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'
                 >
-                    {product.features.map((feature, idx) => {
+                    {product.features?.map((feature, idx) => {
                         const IconComponent = icons[idx % icons.length] as IconType
                         return (
                             <motion.div
@@ -97,7 +97,8 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                 )}
 
                 {/* Target Audience */}
-                {(product.perfectFor.length > 0 || product.notForYou.length > 0) && (
+                {((product.perfectFor && product.perfectFor.length > 0) ||
+                    (product.notForYou && product.notForYou.length > 0)) && (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -105,13 +106,13 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                         className='mt-16 grid gap-8 md:grid-cols-2'
                     >
                         {/* Perfect For */}
-                        {product.perfectFor.length > 0 && (
+                        {product.perfectFor && product.perfectFor.length > 0 && (
                             <div className='border-secondary/20 bg-secondary/5 rounded-xl border p-6'>
                                 <h3 className='text-secondary mb-4 text-xl font-bold'>
                                     Perfect For You If:
                                 </h3>
                                 <ul className='space-y-3'>
-                                    {product.perfectFor.map((item, idx) => (
+                                    {product.perfectFor?.map((item, idx) => (
                                         <li
                                             key={idx}
                                             className='grid grid-cols-[auto_1fr] items-center gap-3'
@@ -127,11 +128,11 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                         )}
 
                         {/* Not For You */}
-                        {product.notForYou.length > 0 && (
+                        {product.notForYou && product.notForYou.length > 0 && (
                             <div className='border-primary/20 bg-primary/5 rounded-xl border p-6'>
                                 <h3 className='mb-4 text-xl font-bold'>Not For You If:</h3>
                                 <ul className='space-y-3'>
-                                    {product.notForYou.map((item, idx) => (
+                                    {product.notForYou?.map((item, idx) => (
                                         <li
                                             key={idx}
                                             className='grid grid-cols-[auto_1fr] items-center gap-3'

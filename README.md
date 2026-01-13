@@ -403,6 +403,32 @@ store-website/
 - **CLI**: `bun run update:promotion`
 - **Validation**: `bun run validate:promotion`
 
+### Sales Copy Variant Management
+
+Multiple variants can exist for A/B testing or campaigns:
+
+- `{product-id}-sales-copy-default.json` - Standard sales copy
+- `{product-id}-sales-copy-holiday-2026.json` - Holiday campaign
+- `{product-id}-sales-copy-black-friday.json` - Black Friday sale
+
+Switch active variant by updating `activeSalesCopyId` in product JSON.
+
+**How It Works:**
+
+1. Product JSON stores `activeSalesCopyId: "default"`
+2. During aggregation, `loadActiveSalesCopy()` loads the variant file
+3. Sales copy fields are merged into the product object
+4. Aggregated product contains all fields for runtime use
+5. Storytelling sections conditionally render on product pages if present
+
+**Best Practices:**
+
+- Keep `default` variant as the evergreen sales copy
+- Create new variants for campaigns (holiday, seasonal, etc.)
+- Update product JSON `activeSalesCopyId` to switch variants
+- Run `bun run aggregate:products` after changes
+- Validate with `bun run validate:all`
+
 ## Image Requirements
 
 Product images are organized into five groups, each with specific size and format requirements.

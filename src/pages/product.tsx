@@ -48,7 +48,10 @@ const ProductPage: React.FC = () => {
     useEffect(() => {
         if (product) {
             const title = product.metaTitle || `${product.name} - Knowledge Forge`
-            const description = product.metaDescription || product.description
+            const description =
+                product.metaDescription ||
+                product.description ||
+                `${product.name} - Available at Knowledge Forge`
             const url = `https://store.dsebastien.net/product/${product.id}`
 
             // Find cover image - use the primary one (lowest order = highest priority)

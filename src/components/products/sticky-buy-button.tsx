@@ -141,9 +141,9 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
 
                             {/* Desktop/Tablet: Full CTA */}
                             <div className='hidden items-center gap-4 sm:flex'>
-                                {product.guarantees.length > 0 && (
+                                {product.guarantees && product.guarantees.length > 0 && (
                                     <div className='text-primary/60 hidden text-xs lg:block'>
-                                        {product.guarantees[0]}
+                                        {product.guarantees?.[0]}
                                     </div>
                                 )}
                                 <Button

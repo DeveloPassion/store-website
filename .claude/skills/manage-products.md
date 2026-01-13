@@ -424,11 +424,59 @@ bun run update:products -- --operation testimonial:remove --id product-id \
     --testimonial-id "test-123"
 ```
 
+### Sales Copy Management
+
+Products support versioned sales copy variants for A/B testing and seasonal campaigns.
+
+**Interactive Mode:**
+```bash
+bun run update:products
+# Select "Edit existing product" → Choose product → Select "💬 Manage Sales Copy"
+```
+
+**CLI Mode:**
+```bash
+# List all sales copy variants
+bun run update:products -- --operation sales-copy:list --id product-id
+
+# Add new variant
+bun run update:products -- --operation sales-copy:add --id product-id \
+    --sales-copy-id holiday-2026 \
+    --sales-copy-tagline "Holiday Special" \
+    --sales-copy-description "Limited time offer"
+
+# Edit variant
+bun run update:products -- --operation sales-copy:edit --id product-id \
+    --sales-copy-id default \
+    --sales-copy-tagline "Updated tagline" \
+    --sales-copy-description "Updated description"
+
+# Enable variant (set as active)
+bun run update:products -- --operation sales-copy:enable --id product-id \
+    --sales-copy-id holiday-2026
+
+# Duplicate variant
+bun run update:products -- --operation sales-copy:duplicate --id product-id \
+    --sales-copy-id default \
+    --new-sales-copy-id test-variant
+
+# Remove variant
+bun run update:products -- --operation sales-copy:remove --id product-id \
+    --sales-copy-id old-variant
+```
+
+**Interactive Features:**
+- Create variants from active, another variant, or template
+- Edit tagline, description, problem, and solution statements
+- View detailed variant information including storytelling sections
+- Cannot remove active variant (safety check)
+
 ### Storage
 
 - FAQs: `src/data/products/{product-id}-faq.json`
 - Testimonials: `src/data/products/{product-id}-testimonials.json`
-- **Media: `src/data/products/{product-id}-media.json`** (NEW)
+- Media: `src/data/products/{product-id}-media.json`
+- **Sales Copy: `src/data/products/{product-id}-sales-copy-{variant}.json`**
 
 These files are automatically loaded during aggregation and attached to products.
 
@@ -437,7 +485,8 @@ These files are automatically loaded during aggregation and attached to products
 All changes are validated against Zod schemas before saving:
 - `src/schemas/faq.schema.ts` - FAQ validation
 - `src/schemas/testimonial.schema.ts` - Testimonial validation
-- **`src/schemas/media.schema.ts` - Media validation (MediaItemSchema, MediaArraySchema)** (NEW)
+- `src/schemas/media.schema.ts` - Media validation (MediaItemSchema, MediaArraySchema)
+- **`src/schemas/sales-copy.schema.ts` - Sales copy validation (SalesCopyFileSchema, SalesCopyDataSchema)**
 
 ### Auto-Sorting
 

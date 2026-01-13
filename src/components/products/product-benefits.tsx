@@ -18,19 +18,19 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
         {
             name: 'Immediate',
             icon: FaBolt,
-            benefits: product.benefits.immediate || [],
+            benefits: product.benefits?.immediate || [],
             description: 'See results from day one'
         },
         {
             name: 'Systematic',
             icon: FaCog,
-            benefits: product.benefits.systematic || [],
+            benefits: product.benefits?.systematic || [],
             description: 'Build sustainable workflows'
         },
         {
             name: 'Long-Term',
             icon: FaInfinity,
-            benefits: product.benefits.longTerm || [],
+            benefits: product.benefits?.longTerm || [],
             description: 'Compound growth over time'
         }
     ].filter((tab) => tab.benefits.length > 0)

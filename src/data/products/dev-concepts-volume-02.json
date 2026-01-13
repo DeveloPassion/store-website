@@ -2,8 +2,6 @@
     "id": "dev-concepts-volume-02",
     "permalink": "dev-concepts-volume-02",
     "name": "Dev Concepts Volume 2 - What Clients Need",
-    "tagline": "Build products your clients will love by understanding what they truly need",
-    "secondaryTagline": "Master requirements discovery and user-centered design principles",
     "price": 9.99,
     "priceDisplay": "€9.99",
     "priceTier": "budget",
@@ -23,60 +21,6 @@
         "beginners",
         "design-thinking"
     ],
-    "problem": "Developers waste time building features nobody cares about because they don't understand what clients truly need",
-    "problemPoints": [
-        "Building features that clients never use or don't solve their real problems",
-        "Struggling to translate vague client requests into actionable requirements",
-        "Lacking understanding of user experience and design fundamentals",
-        "Missing critical requirements that only surface after development is complete",
-        "Unable to communicate effectively with non-technical stakeholders and clients"
-    ],
-    "agitate": "Without understanding client needs, you'll continue building the wrong things and disappointing stakeholders",
-    "agitatePoints": [
-        "Wasting development time and budget on features that miss the mark",
-        "Facing costly rework when real requirements emerge late in the project",
-        "Damaging client relationships through misaligned deliverables",
-        "Missing opportunities to truly delight users and create business value",
-        "Limiting your career growth by staying purely technical without business understanding"
-    ],
-    "solution": "Learn to discover real requirements and design user-centered solutions",
-    "solutionPoints": [
-        "Master requirements discovery and documentation techniques from 15 years of experience",
-        "Understand User-Centered Design principles and Jobs-To-Be-Done theory",
-        "Learn practical UX design fundamentals including research, personas, and design patterns",
-        "Apply Minimum Lovable Products and Design Sprints methodologies",
-        "Develop effective specifications that align stakeholders and guide development"
-    ],
-    "description": "Dev Concepts Volume 2 teaches professionals how to understand client needs and build products they'll love. This 50-page e-book draws from 15 years of industry experience to guide you through discovering what truly matters to users. Learn requirements discovery, User-Centered Design, Jobs-To-Be-Done theory, UX fundamentals, and effective specification development. Perfect for developers who want to avoid wasting time on features nobody cares about. Part of a comprehensive 12-volume series covering all aspects of software development.",
-    "features": [
-        "50-page comprehensive e-book on client needs and UX design",
-        "Practical guidance from 15 years of professional experience",
-        "Requirements discovery and documentation techniques",
-        "User-Centered Design principles and Jobs-To-Be-Done theory",
-        "UX Design fundamentals: research, personas, design patterns",
-        "Minimum Lovable Products and Design Sprints methodologies",
-        "Specifications development best practices",
-        "Part of a planned 12-book series covering comprehensive software topics"
-    ],
-    "benefits": {
-        "immediate": [
-            "Understand what clients truly need vs what they say they want",
-            "Learn practical requirements discovery techniques",
-            "Grasp fundamental UX design principles"
-        ],
-        "systematic": [
-            "Build the right features that clients actually want and need",
-            "Apply User-Centered Design and Jobs-To-Be-Done frameworks",
-            "Create effective specifications that align stakeholders",
-            "Use Design Sprints and MVP approaches effectively"
-        ],
-        "longTerm": [
-            "Save time and budget by avoiding misaligned development",
-            "Build stronger client relationships through understanding",
-            "Qualify for business analyst and functional analyst roles",
-            "Create products that truly delight users and deliver value"
-        ]
-    },
     "included": [
         "50-page digital e-book (PDF format)",
         "Lifetime access to all future updates",
@@ -84,55 +28,13 @@
         "Real-world lessons and applications",
         "External resource links for deeper learning"
     ],
-    "targetAudience": [
-        "Developers who want to build the right things for clients",
-        "Professionals exploring business or functional analysis roles",
-        "Anyone new to UX/design seeking foundational knowledge",
-        "Team members bridging technical and business perspectives"
-    ],
-    "perfectFor": [
-        "Developers frustrated with building features nobody uses",
-        "Technical professionals wanting to understand the business side",
-        "Anyone new to UX design and user research fundamentals",
-        "Developers considering functional analyst or business analyst roles",
-        "Team members who need to communicate better with non-technical stakeholders"
-    ],
-    "notForYou": [
-        "Experienced UX designers or business analysts already proficient in these areas",
-        "Developers only interested in pure technical implementation",
-        "Those looking for advanced UX research methodologies",
-        "Anyone expecting detailed design tool tutorials"
-    ],
     "landingPageUrl": "https://dev-concepts.dev",
     "dsebastienUrl": "",
     "featured": false,
     "bestValue": false,
     "bestseller": false,
     "priority": 55,
-    "trustBadges": [
-        "15+ years industry experience",
-        "Part of 12-volume comprehensive series",
-        "Lifetime updates included",
-        "5-star rated"
-    ],
-    "guarantees": [
-        "14-day money-back guarantee",
-        "Lifetime access to content",
-        "Free updates forever"
-    ],
     "crossSellIds": ["dev-concepts-starter-bundle", "dev-concepts-volume-01"],
-    "metaTitle": "Dev Concepts Volume 2 - What Clients Need | Master Requirements & UX Design",
-    "metaDescription": "Learn to understand client needs and build products they'll love. 50-page e-book covering requirements discovery, User-Centered Design, and UX fundamentals from 15 years of experience.",
-    "keywords": [
-        "client requirements",
-        "user experience design",
-        "UX fundamentals",
-        "requirements discovery",
-        "user-centered design",
-        "jobs to be done",
-        "software specifications",
-        "business analysis"
-    ],
     "variants": [
         {
             "name": "E-book Only",
@@ -148,5 +50,6 @@
             "description": "E-book plus personalized one-on-one coaching session with Sébastien Dubois",
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConcepts-Volume-02-WhatClientsNeed?option=APzm6Z3omVTZ417UK9EUAg%3D%3D"
         }
-    ]
+    ],
+    "activeSalesCopyId": "default"
 }

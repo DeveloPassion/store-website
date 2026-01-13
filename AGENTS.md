@@ -384,6 +384,95 @@ Example `knowii-voice-ai-media.json`:
 }
 ```
 
+## Managing Sales Copy
+
+Sales copy is extracted from product JSON files into versioned `-sales-copy-{variant}.json` files. This enables A/B testing, seasonal campaigns, and cleaner product data management.
+
+**Architecture:**
+
+- **Product JSON**: Core product data (pricing, taxonomy, links, meta)
+- **Sales Copy Files**: `{product-id}-sales-copy-{variant}.json` (marketing copy, features, benefits, storytelling)
+- **Active Variant**: Product JSON references active variant via `activeSalesCopyId` field
+- **Aggregation**: Sales copy auto-loaded and merged into product during build
+
+**Quick Commands:**
+
+```bash
+# CLI operations for managing variants
+bun run update:products -- --operation sales-copy:list --id product-id
+bun run update:products -- --operation sales-copy:add --id product-id --sales-copy-id holiday-2026
+bun run update:products -- --operation sales-copy:edit --id product-id --sales-copy-id default --sales-copy-tagline "New tagline"
+bun run update:products -- --operation sales-copy:enable --id product-id --sales-copy-id holiday-2026
+bun run update:products -- --operation sales-copy:duplicate --id product-id --sales-copy-id default --new-sales-copy-id test-variant
+bun run update:products -- --operation sales-copy:remove --id product-id --sales-copy-id old-variant
+```
+
+**Sales Copy Fields** (extracted from Product JSON):
+
+- **Identity**: tagline, secondaryTagline
+- **PAS Framework**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
+- **Content**: description, features, benefits
+- **Audience**: targetAudience, perfectFor, notForYou
+- **Trust**: trustBadges, guarantees
+- **SEO**: metaTitle, metaDescription, keywords
+- **Storytelling**: originStory, creatorJourney, transformationArc, successStories, methodology, vision (all optional)
+
+**Storytelling Sections** (all optional):
+
+1. **Origin Story** - Why product exists, genesis moment, inspiration
+2. **Creator Journey** - Personal story, struggles, credibility, achievements
+3. **Transformation Arc** - Before/during/after customer journey with timeline
+4. **Success Stories** - Detailed case studies with metrics, customer results
+5. **Methodology** - Step-by-step process, philosophy, differentiation
+6. **Vision** - Mission statement, bigger picture, values, future goals
+
+**File Structure:**
+
+Example `knowii-voice-ai-sales-copy-default.json`:
+
+```json
+{
+    "id": "default",
+    "salesCopy": {
+        "tagline": "Transform your knowledge workflow",
+        "secondaryTagline": "AI-powered knowledge management",
+        "problem": "Knowledge workers struggle with information overload",
+        "problemPoints": [
+            "Scattered information across multiple tools",
+            "No centralized knowledge base"
+        ],
+        "agitate": "This costs you time, money, and opportunities",
+        "agitatePoints": [
+            "Wasted hours searching for information",
+            "Missed deadlines due to disorganization"
+        ],
+        "solution": "Knowii brings everything together",
+        "solutionPoints": ["Unified knowledge workspace", "AI-powered organization"],
+        "description": "A comprehensive knowledge management solution",
+        "features": ["Voice-to-text capture", "AI categorization"],
+        "benefits": {
+            "immediate": ["Start capturing knowledge today"],
+            "systematic": ["Build a lasting knowledge base"],
+            "longTerm": ["Compound your expertise over time"]
+        },
+        "targetAudience": ["Knowledge workers", "Researchers"],
+        "perfectFor": ["Content creators", "Consultants"],
+        "notForYou": ["If you prefer paper notes"],
+        "trustBadges": ["30-day money-back guarantee"],
+        "guarantees": ["Full refund if not satisfied"],
+        "metaTitle": "Knowii - Knowledge Management Made Easy",
+        "metaDescription": "Transform your workflow with AI",
+        "keywords": ["pkm", "knowledge management"],
+        "storytelling": {
+            "originStory": {
+                "title": "How Knowii Was Born",
+                "story": "One day I realized there had to be a better way..."
+            }
+        }
+    }
+}
+```
+
 ## Managing Promotion Banner
 
 Configuration in `src/data/promotion.json` (not gitignored).

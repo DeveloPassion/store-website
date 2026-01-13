@@ -4,6 +4,7 @@ import { TagIdSchema } from './tag.schema.js'
 import { FAQSchema } from './faq.schema.js'
 import { TestimonialSchema } from './testimonial.schema.js'
 import { MediaItemSchema } from './media.schema.js'
+import { StorytellingSchema } from './storytelling.schema.js'
 
 /**
  * Zod schema for product validation
@@ -70,8 +71,6 @@ export const ProductSchema = z.object({
     id: z.string().min(1, 'Product ID is required'),
     permalink: z.string().min(1, 'Permalink is required'),
     name: z.string().min(1, 'Product name is required'),
-    tagline: z.string().min(1, 'Tagline is required'),
-    secondaryTagline: z.string().optional(),
 
     // Pricing
     price: z.number().nonnegative('Price must be non-negative'),
@@ -90,30 +89,16 @@ export const ProductSchema = z.object({
     secondaryCategories: z.array(SecondaryCategorySchema),
     tags: z.array(TagIdSchema).min(1, 'At least one tag is required'),
 
-    // Marketing Copy (PAS Framework)
-    problem: z.string().min(1, 'Problem statement is required'),
-    problemPoints: z.array(z.string()).min(1, 'At least one problem point is required'),
-    agitate: z.string().min(1, 'Agitation statement is required'),
-    agitatePoints: z.array(z.string()).min(1, 'At least one agitate point is required'),
-    solution: z.string().min(1, 'Solution statement is required'),
-    solutionPoints: z.array(z.string()).min(1, 'At least one solution point is required'),
-
-    // Features & Benefits
-    description: z.string().min(1, 'Description is required'),
-    features: z.array(z.string()).min(1, 'At least one feature is required'),
-    benefits: ProductBenefitsSchema,
+    // Content
     included: z.array(z.string()).min(1, 'At least one included item is required'),
 
     // Social Proof
     testimonials: z.array(TestimonialSchema).optional(),
     statsProof: StatsProofSchema.optional(),
 
-    // Content
+    // Content (auto-loaded during aggregation)
     faqs: z.array(FAQSchema).optional(),
-    media: z.array(MediaItemSchema).optional(), // Auto-loaded from separate file during aggregation
-    targetAudience: z.array(z.string()),
-    perfectFor: z.array(z.string()),
-    notForYou: z.array(z.string()),
+    media: z.array(MediaItemSchema).optional(),
 
     // Links
     landingPageUrl: z.string().url().optional().or(z.literal('')),
@@ -125,17 +110,35 @@ export const ProductSchema = z.object({
     bestseller: z.boolean(),
     priority: z.number().int().min(0).max(100, 'Priority must be between 0 and 100'),
 
-    // Trust & Guarantees
-    trustBadges: z.array(z.string()),
-    guarantees: z.array(z.string()),
-
     // Cross-sell
     crossSellIds: z.array(z.string()),
 
-    // SEO
+    // Sales Copy (references active variant)
+    activeSalesCopyId: z.string().optional(),
+
+    // Sales Copy Fields (auto-loaded from sales copy file during aggregation - all optional)
+    tagline: z.string().optional(),
+    secondaryTagline: z.string().optional(),
+    problem: z.string().optional(),
+    problemPoints: z.array(z.string()).optional(),
+    agitate: z.string().optional(),
+    agitatePoints: z.array(z.string()).optional(),
+    solution: z.string().optional(),
+    solutionPoints: z.array(z.string()).optional(),
+    description: z.string().optional(),
+    features: z.array(z.string()).optional(),
+    benefits: ProductBenefitsSchema.optional(),
+    targetAudience: z.array(z.string()).optional(),
+    perfectFor: z.array(z.string()).optional(),
+    notForYou: z.array(z.string()).optional(),
+    trustBadges: z.array(z.string()).optional(),
+    guarantees: z.array(z.string()).optional(),
     metaTitle: z.string().optional(),
     metaDescription: z.string().optional(),
-    keywords: z.array(z.string()).optional()
+    keywords: z.array(z.string()).optional(),
+
+    // Storytelling (auto-loaded from sales copy file during aggregation - optional)
+    storytelling: StorytellingSchema.optional()
 })
 
 export const ProductsArraySchema = z.array(ProductSchema)

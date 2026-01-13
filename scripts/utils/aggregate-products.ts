@@ -11,8 +11,10 @@
  * - {product-id}-faq.json -> product.faqs[]
  * - {product-id}-testimonials.json -> product.testimonials[]
  * - {product-id}-media.json -> product.media[]
+ * - {product-id}-sales-copy-{variant}.json -> product.tagline, problem, features, etc.
  *
- * If these files don't exist, the arrays will be empty.
+ * If these files don't exist, the arrays will be empty or null.
+ * Sales copy is loaded based on product.activeSalesCopyId (e.g., "default", "holiday-2026").
  *
  * Usage:
  *   npm run aggregate:products
@@ -27,6 +29,8 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { ProductSchema } from '../../src/schemas/product.schema.js'
+import { SalesCopyFileSchema } from '../../src/schemas/sales-copy.schema.js'
+import type { SalesCopyData } from '../../src/types/sales-copy.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -79,6 +83,7 @@ interface MediaItem {
 interface Product {
     id: string
     priority?: number
+    activeSalesCopyId?: string
     faqs?: FAQ[]
     testimonials?: Testimonial[]
     media?: MediaItem[]
@@ -183,6 +188,100 @@ export function loadMedia(productId: string): MediaItem[] {
     }
 }
 
+/**
+ * Discover all sales copy variant files for a product
+ * Returns array of variant IDs (e.g., ['default', 'holiday-2026'])
+ * @internal - Exported for testing purposes only
+ */
+export function discoverSalesCopyFiles(productId: string): string[] {
+    try {
+        const files = readdirSync(getProductsDir())
+        const pattern = new RegExp(`^${productId}-sales-copy-(.+)\\.json$`)
+        const variants: string[] = []
+
+        for (const file of files) {
+            const match = file.match(pattern)
+            if (match && match[1]) {
+                variants.push(match[1])
+            }
+        }
+
+        return variants
+    } catch (error) {
+        const message = `Failed to discover sales copy files for ${productId}: ${error instanceof Error ? error.message : String(error)}`
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
+            throw new Error(message)
+        }
+        return []
+    }
+}
+
+/**
+ * Load sales copy for a product from {product-id}-sales-copy-{variant}.json
+ * Returns null if file doesn't exist or if activeSalesCopyId is not provided
+ * @internal - Exported for testing purposes only
+ */
+export function loadActiveSalesCopy(
+    productId: string,
+    activeSalesCopyId?: string
+): SalesCopyData | null {
+    // If no active sales copy ID is specified, return null
+    if (!activeSalesCopyId) {
+        return null
+    }
+
+    const salesCopyPath = join(
+        getProductsDir(),
+        `${productId}-sales-copy-${activeSalesCopyId}.json`
+    )
+
+    if (!existsSync(salesCopyPath)) {
+        const message = `Sales copy file not found for ${productId} variant "${activeSalesCopyId}": ${salesCopyPath}`
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
+            throw new Error(message)
+        }
+        return null
+    }
+
+    try {
+        const content = readFileSync(salesCopyPath, 'utf-8')
+        const file = JSON.parse(content)
+
+        // Validate sales copy file structure
+        const validationResult = SalesCopyFileSchema.safeParse(file)
+        if (!validationResult.success) {
+            const message = `Invalid sales copy file for ${productId} variant "${activeSalesCopyId}"`
+            console.error(`❌ ${message}`)
+            validationResult.error.errors.forEach((err) => {
+                console.error(`     - ${err.path.join('.')}: ${err.message}`)
+            })
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return null
+        }
+
+        return validationResult.data.salesCopy
+    } catch (error) {
+        if (error instanceof SyntaxError) {
+            const message = `Failed to parse sales copy file for ${productId} variant "${activeSalesCopyId}" (invalid JSON): ${error.message}`
+            console.error(`❌ ${message}`)
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return null
+        }
+        const message = `Failed to load sales copy for ${productId} variant "${activeSalesCopyId}": ${error instanceof Error ? error.message : String(error)}`
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
+            throw new Error(message)
+        }
+        return null
+    }
+}
+
 function main() {
     const PRODUCTS_DIR = getProductsDir()
     console.log('🔄 Aggregating product files...\n')
@@ -197,7 +296,7 @@ function main() {
     }
 
     // Read all JSON files from products directory
-    // Exclude FAQ, testimonial, and media files (they'll be loaded separately)
+    // Exclude FAQ, testimonial, media, and sales-copy files (they'll be loaded separately)
     let files: string[]
     try {
         files = readdirSync(PRODUCTS_DIR).filter(
@@ -205,7 +304,8 @@ function main() {
                 file.endsWith('.json') &&
                 !file.endsWith('-faq.json') &&
                 !file.endsWith('-testimonials.json') &&
-                !file.endsWith('-media.json')
+                !file.endsWith('-media.json') &&
+                !file.includes('-sales-copy-')
         )
     } catch (error) {
         console.error('❌ Failed to read products directory')
@@ -236,23 +336,51 @@ function main() {
                 continue
             }
 
-            // Load FAQs, testimonials, and media for this product
+            // Load FAQs, testimonials, media, and sales copy for this product
             const faqs = loadFAQs(product.id)
             const testimonials = loadTestimonials(product.id)
             const media = loadMedia(product.id)
+            const salesCopy = loadActiveSalesCopy(product.id, product.activeSalesCopyId)
 
             // Create defensive copy with loaded content (don't mutate original)
+            // Spread sales copy fields conditionally to avoid overwriting with undefined
             const aggregatedProduct = {
                 ...product,
                 faqs,
                 testimonials,
-                media
+                media,
+                ...(salesCopy
+                    ? {
+                          tagline: salesCopy.tagline,
+                          secondaryTagline: salesCopy.secondaryTagline,
+                          problem: salesCopy.problem,
+                          problemPoints: salesCopy.problemPoints,
+                          agitate: salesCopy.agitate,
+                          agitatePoints: salesCopy.agitatePoints,
+                          solution: salesCopy.solution,
+                          solutionPoints: salesCopy.solutionPoints,
+                          description: salesCopy.description,
+                          features: salesCopy.features,
+                          benefits: salesCopy.benefits,
+                          targetAudience: salesCopy.targetAudience,
+                          perfectFor: salesCopy.perfectFor,
+                          notForYou: salesCopy.notForYou,
+                          trustBadges: salesCopy.trustBadges,
+                          guarantees: salesCopy.guarantees,
+                          metaTitle: salesCopy.metaTitle,
+                          metaDescription: salesCopy.metaDescription,
+                          keywords: salesCopy.keywords,
+                          storytelling: salesCopy.storytelling
+                      }
+                    : {})
             }
 
             // Validate the aggregated product
             const validationResult = ProductSchema.safeParse(aggregatedProduct)
             if (!validationResult.success) {
-                console.error(`  ❌ ${file}: Invalid product after adding FAQs/testimonials/media`)
+                console.error(
+                    `  ❌ ${file}: Invalid product after adding FAQs/testimonials/media/sales-copy`
+                )
                 validationResult.error.errors.forEach((err) => {
                     console.error(`     - ${err.path.join('.')}: ${err.message}`)
                 })
@@ -261,8 +389,11 @@ function main() {
             }
 
             products.push(aggregatedProduct)
+            const salesCopyInfo = product.activeSalesCopyId
+                ? `sales-copy: ${product.activeSalesCopyId}`
+                : 'no sales-copy'
             console.log(
-                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media)`
+                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media, ${salesCopyInfo})`
             )
         } catch (error) {
             const errorMsg = error instanceof Error ? error.message : String(error)

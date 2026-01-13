@@ -142,7 +142,9 @@ function validateIndividualFiles(): {
             file.endsWith('.json') &&
             !file.endsWith('-faq.json') &&
             !file.endsWith('-testimonials.json') &&
-            !file.endsWith('-media.json')
+            !file.endsWith('-media.json') &&
+            !file.includes('-sales-copy-') &&
+            !file.endsWith('.backup')
     )
     console.log(`Found ${files.length} product file(s)\n`)
 
@@ -254,19 +256,6 @@ function validateAggregated(products: Product[]): ValidationError[] {
 function displaySummary(products: Product[]) {
     console.log('📊 Product Summary:')
     console.log(`   Total products: ${products.length}`)
-
-    const byType = products.reduce(
-        (acc, p) => {
-            acc[p.type] = (acc[p.type] || 0) + 1
-            return acc
-        },
-        {} as Record<string, number>
-    )
-
-    console.log('\n   By type:')
-    Object.entries(byType).forEach(([type, count]) => {
-        console.log(`     - ${type}: ${count}`)
-    })
 
     const featuredCount = products.filter((p) => p.featured).length
     console.log(`\n   Featured products: ${featuredCount}`)

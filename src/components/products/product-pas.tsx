@@ -34,7 +34,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
-                        {product.problemPoints.map((point, idx) => (
+                        {product.problemPoints?.map((point, idx) => (
                             <div
                                 key={idx}
                                 className='border-primary/10 bg-background/50 flex gap-4 rounded-lg border p-4'
@@ -65,7 +65,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
-                        {product.agitatePoints.map((point, idx) => (
+                        {product.agitatePoints?.map((point, idx) => (
                             <div
                                 key={idx}
                                 className='border-primary/10 bg-background/50 flex gap-4 rounded-lg border p-4'
@@ -96,7 +96,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                     </motion.div>
 
                     <motion.div variants={itemVariants} className='space-y-4'>
-                        {product.solutionPoints.map((point, idx) => (
+                        {product.solutionPoints?.map((point, idx) => (
                             <div
                                 key={idx}
                                 className='border-secondary/20 bg-secondary/5 flex gap-4 rounded-lg border p-4'

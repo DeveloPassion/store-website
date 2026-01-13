@@ -1,0 +1,44 @@
+{
+    "id": "default",
+    "salesCopy": {
+        "tagline": "Essential IT Concepts at Your Fingertips",
+        "problem": "IT concepts scattered. Can't quickly reference. Information scattered.",
+        "problemPoints": [
+            "Can't quickly reference",
+            "Scattered information",
+            "Need visual aids",
+            "Want at-a-glance understanding"
+        ],
+        "agitate": "Hours wasted searching. Information scattered. Can't find overview.",
+        "agitatePoints": ["Hours wasted", "Scattered info", "Can't find overview"],
+        "solution": "IT Concepts Wall: Visual reference of essential IT concepts.",
+        "solutionPoints": ["Quick reference", "Visual aid", "Reduce search", "Desk reference"],
+        "description": "Visual reference resource presenting essential IT and programming concepts in organized, easy-to-reference format. Perfect for developers, students, and IT learners.",
+        "features": [
+            "Comprehensive Coverage",
+            "Visual Format",
+            "Quick Reference",
+            "Digital Format",
+            "Lifetime Access"
+        ],
+        "benefits": {
+            "immediate": ["Quick reference", "Visual aid", "Reduce search"],
+            "systematic": ["Organized", "Easy visuals", "Scalable"],
+            "longTerm": ["Build IT knowledge"]
+        },
+        "targetAudience": ["Developers", "Students", "Visual learners", "IT learners"],
+        "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
+        "notForYou": ["Not interested in IT", "Prefer text-only"],
+        "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
+        "guarantees": ["Comprehensive", "Printable", "Lifetime access"],
+        "metaTitle": "IT Concepts Wall - Essential IT Reference | Visual Learning",
+        "metaDescription": "€9.99 digital IT concepts wall. Quick reference for programming fundamentals. Printable visual learning.",
+        "keywords": [
+            "it concepts",
+            "programming reference",
+            "coding cheat sheet",
+            "it fundamentals",
+            "visual learning"
+        ]
+    }
+}

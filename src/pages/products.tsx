@@ -38,8 +38,8 @@ const ProductsPage: React.FC = () => {
                 const query = searchQuery.toLowerCase()
                 const matchesSearch =
                     product.name.toLowerCase().includes(query) ||
-                    product.tagline.toLowerCase().includes(query) ||
-                    product.description.toLowerCase().includes(query) ||
+                    (product.tagline && product.tagline.toLowerCase().includes(query)) ||
+                    (product.description && product.description.toLowerCase().includes(query)) ||
                     product.tags.some((tag) => tag.toLowerCase().includes(query))
                 if (!matchesSearch) return false
             }

@@ -249,16 +249,16 @@ describe('Product Schema Validation', () => {
             expect(result.success).toBe(false)
         })
 
-        it('should reject product without problem points', () => {
-            const invalid = { ...validProduct, problemPoints: [] }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without problem points (moved to sales copy)', () => {
+            const valid = { ...validProduct, problemPoints: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
-        it('should reject product without features', () => {
-            const invalid = { ...validProduct, features: [] }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without features (moved to sales copy)', () => {
+            const valid = { ...validProduct, features: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
         it('should reject product without included items', () => {
@@ -318,41 +318,41 @@ describe('Product Schema Validation', () => {
         })
     })
 
-    describe('ProductSchema - Marketing Copy (PAS Framework)', () => {
-        it('should require problem statement', () => {
-            const invalid = { ...validProduct, problem: '' }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+    describe('ProductSchema - Marketing Copy (PAS Framework - now optional, moved to sales copy)', () => {
+        it('should accept product without problem statement (moved to sales copy)', () => {
+            const valid = { ...validProduct, problem: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
-        it('should require at least one problem point', () => {
-            const invalid = { ...validProduct, problemPoints: [] }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without problem points (moved to sales copy)', () => {
+            const valid = { ...validProduct, problemPoints: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
-        it('should require agitate statement', () => {
-            const invalid = { ...validProduct, agitate: '' }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without agitate statement (moved to sales copy)', () => {
+            const valid = { ...validProduct, agitate: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
-        it('should require at least one agitate point', () => {
-            const invalid = { ...validProduct, agitatePoints: [] }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without agitate points (moved to sales copy)', () => {
+            const valid = { ...validProduct, agitatePoints: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
-        it('should require solution statement', () => {
-            const invalid = { ...validProduct, solution: '' }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without solution statement (moved to sales copy)', () => {
+            const valid = { ...validProduct, solution: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
-        it('should require at least one solution point', () => {
-            const invalid = { ...validProduct, solutionPoints: [] }
-            const result = ProductSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
+        it('should accept product without solution points (moved to sales copy)', () => {
+            const valid = { ...validProduct, solutionPoints: undefined }
+            const result = ProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
     })
 

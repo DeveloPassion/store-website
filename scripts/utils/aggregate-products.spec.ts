@@ -17,7 +17,13 @@
 import { describe, it, expect, beforeEach, afterEach, spyOn } from 'bun:test'
 import { mkdirSync, rmSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { loadFAQs, loadTestimonials, loadMedia } from './aggregate-products.js'
+import {
+    loadFAQs,
+    loadTestimonials,
+    loadMedia,
+    discoverSalesCopyFiles,
+    loadActiveSalesCopy
+} from './aggregate-products.js'
 
 // Test fixtures
 const createValidFAQ = (id: string = 'faq-1') => ({
@@ -52,6 +58,37 @@ const createValidMediaItem = (id: string = 'media-1') => ({
     group: 'main' as const,
     width: 1920,
     height: 1080
+})
+
+const createValidSalesCopyData = () => ({
+    tagline: 'Transform your workflow',
+    secondaryTagline: 'The ultimate solution',
+    problem: 'People struggle with productivity',
+    problemPoints: ['Scattered information', 'No centralized system'],
+    agitate: 'This costs time and money',
+    agitatePoints: ['Wasted hours', 'Missed opportunities'],
+    solution: 'Our product solves this',
+    solutionPoints: ['Unified workspace', 'AI-powered organization'],
+    description: 'A comprehensive solution for productivity.',
+    features: ['Feature 1', 'Feature 2'],
+    benefits: {
+        immediate: ['Quick win 1'],
+        systematic: ['Process improvement 1'],
+        longTerm: ['Long-term benefit 1']
+    },
+    targetAudience: ['Knowledge workers'],
+    perfectFor: ['Professionals'],
+    notForYou: ['If you prefer paper'],
+    trustBadges: ['30-day guarantee'],
+    guarantees: ['Full refund'],
+    metaTitle: 'Product - Transform Your Workflow',
+    metaDescription: 'Transform your workflow with our solution',
+    keywords: ['productivity', 'workflow']
+})
+
+const createValidSalesCopyFile = (id: string = 'default') => ({
+    id,
+    salesCopy: createValidSalesCopyData()
 })
 
 // Helper to create temp directory for each test
@@ -541,6 +578,309 @@ describe('loadMedia', () => {
     })
 })
 
+describe('discoverSalesCopyFiles', () => {
+    it('should discover all sales copy variant files for a product', () => {
+        const productId = 'test-product'
+
+        writeFileSync(join(tempDir, `${productId}-sales-copy-default.json`), '{}')
+        writeFileSync(join(tempDir, `${productId}-sales-copy-holiday-2026.json`), '{}')
+        writeFileSync(join(tempDir, `${productId}-sales-copy-black-friday.json`), '{}')
+
+        const result = discoverSalesCopyFiles(productId)
+
+        expect(result).toHaveLength(3)
+        expect(result).toContain('default')
+        expect(result).toContain('holiday-2026')
+        expect(result).toContain('black-friday')
+    })
+
+    it('should return empty array when no sales copy files exist', () => {
+        const productId = 'no-sales-copy'
+
+        const result = discoverSalesCopyFiles(productId)
+
+        expect(result).toEqual([])
+        expect(result).toHaveLength(0)
+    })
+
+    it('should only match sales copy files for the specific product', () => {
+        writeFileSync(join(tempDir, 'product-a-sales-copy-default.json'), '{}')
+        writeFileSync(join(tempDir, 'product-b-sales-copy-default.json'), '{}')
+        writeFileSync(join(tempDir, 'product-a-sales-copy-v2.json'), '{}')
+
+        const resultA = discoverSalesCopyFiles('product-a')
+        const resultB = discoverSalesCopyFiles('product-b')
+
+        expect(resultA).toHaveLength(2)
+        expect(resultA).toContain('default')
+        expect(resultA).toContain('v2')
+        expect(resultB).toHaveLength(1)
+        expect(resultB).toContain('default')
+    })
+
+    it('should not match other file types', () => {
+        const productId = 'test-product'
+
+        writeFileSync(join(tempDir, `${productId}.json`), '{}')
+        writeFileSync(join(tempDir, `${productId}-faq.json`), '{}')
+        writeFileSync(join(tempDir, `${productId}-testimonials.json`), '{}')
+        writeFileSync(join(tempDir, `${productId}-media.json`), '{}')
+        writeFileSync(join(tempDir, `${productId}-sales-copy-default.json`), '{}')
+
+        const result = discoverSalesCopyFiles(productId)
+
+        expect(result).toHaveLength(1)
+        expect(result).toContain('default')
+    })
+
+    it('should return empty array and log error in non-strict mode on read failure', () => {
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+
+        // Set invalid directory to trigger error
+        process.env.TEST_PRODUCTS_DIR = '/nonexistent/path'
+
+        const result = discoverSalesCopyFiles('any-product')
+
+        expect(result).toEqual([])
+        expect(consoleSpy).toHaveBeenCalled()
+        expect(consoleSpy.mock.calls[0][0]).toContain('❌')
+
+        consoleSpy.mockRestore()
+        // Restore valid temp dir
+        process.env.TEST_PRODUCTS_DIR = tempDir
+    })
+})
+
+describe('loadActiveSalesCopy', () => {
+    it('should load valid sales copy file', () => {
+        const productId = 'test-product'
+        const salesCopyFile = createValidSalesCopyFile('default')
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-default.json`),
+            JSON.stringify(salesCopyFile)
+        )
+
+        const result = loadActiveSalesCopy(productId, 'default')
+
+        expect(result).not.toBeNull()
+        expect(result?.tagline).toBe('Transform your workflow')
+        expect(result?.problem).toBe('People struggle with productivity')
+        expect(result?.features).toHaveLength(2)
+    })
+
+    it('should return null when activeSalesCopyId is not provided', () => {
+        const productId = 'test-product'
+
+        const result = loadActiveSalesCopy(productId)
+
+        expect(result).toBeNull()
+    })
+
+    it('should return null when activeSalesCopyId is empty string', () => {
+        const productId = 'test-product'
+
+        const result = loadActiveSalesCopy(productId, '')
+
+        expect(result).toBeNull()
+    })
+
+    it('should return null and log error for non-existent file in non-strict mode', () => {
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+        const productId = 'test-product'
+
+        const result = loadActiveSalesCopy(productId, 'non-existent')
+
+        expect(result).toBeNull()
+        expect(consoleSpy).toHaveBeenCalled()
+        expect(consoleSpy.mock.calls[0][0]).toContain('❌')
+        expect(consoleSpy.mock.calls[0][0]).toContain('Sales copy file not found')
+
+        consoleSpy.mockRestore()
+    })
+
+    it('should throw error for non-existent file in STRICT_MODE', () => {
+        process.env.STRICT_VALIDATION = 'true'
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+        const productId = 'test-product'
+
+        expect(() => loadActiveSalesCopy(productId, 'missing')).toThrow()
+        expect(consoleSpy).toHaveBeenCalled()
+
+        consoleSpy.mockRestore()
+        process.env.STRICT_VALIDATION = 'false'
+    })
+
+    it('should return null and log error for invalid JSON in non-strict mode', () => {
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+        const productId = 'test-product'
+
+        writeFileSync(join(tempDir, `${productId}-sales-copy-default.json`), '{invalid json')
+
+        const result = loadActiveSalesCopy(productId, 'default')
+
+        expect(result).toBeNull()
+        expect(consoleSpy).toHaveBeenCalled()
+        expect(consoleSpy.mock.calls[0][0]).toContain('❌')
+        expect(consoleSpy.mock.calls[0][0]).toContain('invalid JSON')
+
+        consoleSpy.mockRestore()
+    })
+
+    it('should throw error for invalid JSON in STRICT_MODE', () => {
+        process.env.STRICT_VALIDATION = 'true'
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+        const productId = 'test-product'
+
+        writeFileSync(join(tempDir, `${productId}-sales-copy-default.json`), '{invalid json')
+
+        expect(() => loadActiveSalesCopy(productId, 'default')).toThrow()
+        expect(consoleSpy).toHaveBeenCalled()
+
+        consoleSpy.mockRestore()
+        process.env.STRICT_VALIDATION = 'false'
+    })
+
+    it('should return null and log error for invalid schema in non-strict mode', () => {
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+        const productId = 'test-product'
+
+        // Invalid: missing required fields
+        const invalidFile = {
+            id: 'default',
+            salesCopy: {
+                tagline: 'Valid' // missing many required fields
+            }
+        }
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-default.json`),
+            JSON.stringify(invalidFile)
+        )
+
+        const result = loadActiveSalesCopy(productId, 'default')
+
+        expect(result).toBeNull()
+        expect(consoleSpy).toHaveBeenCalled()
+        expect(consoleSpy.mock.calls[0][0]).toContain('❌')
+        expect(consoleSpy.mock.calls[0][0]).toContain('Invalid sales copy file')
+
+        consoleSpy.mockRestore()
+    })
+
+    it('should throw error for invalid schema in STRICT_MODE', () => {
+        process.env.STRICT_VALIDATION = 'true'
+        const consoleSpy = spyOn(console, 'error').mockImplementation(() => {})
+        const productId = 'test-product'
+
+        const invalidFile = {
+            id: 'default',
+            salesCopy: {
+                tagline: 'Valid' // missing required fields
+            }
+        }
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-default.json`),
+            JSON.stringify(invalidFile)
+        )
+
+        expect(() => loadActiveSalesCopy(productId, 'default')).toThrow()
+        expect(consoleSpy).toHaveBeenCalled()
+
+        consoleSpy.mockRestore()
+        process.env.STRICT_VALIDATION = 'false'
+    })
+
+    it('should preserve all sales copy fields including optional ones', () => {
+        const productId = 'full-sales-copy'
+        const salesCopyData = createValidSalesCopyData()
+        const salesCopyFile = createValidSalesCopyFile('complete')
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-complete.json`),
+            JSON.stringify(salesCopyFile)
+        )
+
+        const result = loadActiveSalesCopy(productId, 'complete')
+
+        expect(result).not.toBeNull()
+        expect(result?.tagline).toBe(salesCopyData.tagline)
+        expect(result?.secondaryTagline).toBe(salesCopyData.secondaryTagline)
+        expect(result?.problem).toBe(salesCopyData.problem)
+        expect(result?.problemPoints).toEqual(salesCopyData.problemPoints)
+        expect(result?.agitate).toBe(salesCopyData.agitate)
+        expect(result?.agitatePoints).toEqual(salesCopyData.agitatePoints)
+        expect(result?.solution).toBe(salesCopyData.solution)
+        expect(result?.solutionPoints).toEqual(salesCopyData.solutionPoints)
+        expect(result?.description).toBe(salesCopyData.description)
+        expect(result?.features).toEqual(salesCopyData.features)
+        expect(result?.benefits).toEqual(salesCopyData.benefits)
+        expect(result?.targetAudience).toEqual(salesCopyData.targetAudience)
+        expect(result?.perfectFor).toEqual(salesCopyData.perfectFor)
+        expect(result?.notForYou).toEqual(salesCopyData.notForYou)
+        expect(result?.trustBadges).toEqual(salesCopyData.trustBadges)
+        expect(result?.guarantees).toEqual(salesCopyData.guarantees)
+        expect(result?.metaTitle).toBe(salesCopyData.metaTitle)
+        expect(result?.metaDescription).toBe(salesCopyData.metaDescription)
+        expect(result?.keywords).toEqual(salesCopyData.keywords)
+    })
+
+    it('should load sales copy with storytelling section', () => {
+        const productId = 'storytelling-product'
+        const salesCopyFile = {
+            id: 'default',
+            salesCopy: {
+                ...createValidSalesCopyData(),
+                storytelling: {
+                    originStory: {
+                        title: 'Our Origin',
+                        story: 'How we started this amazing journey.'
+                    }
+                }
+            }
+        }
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-default.json`),
+            JSON.stringify(salesCopyFile)
+        )
+
+        const result = loadActiveSalesCopy(productId, 'default')
+
+        expect(result).not.toBeNull()
+        expect(result?.storytelling).toBeDefined()
+        expect(result?.storytelling?.originStory).toBeDefined()
+        expect(result?.storytelling?.originStory?.title).toBe('Our Origin')
+    })
+
+    it('should load multiple variants for the same product', () => {
+        const productId = 'multi-variant'
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-default.json`),
+            JSON.stringify({
+                id: 'default',
+                salesCopy: { ...createValidSalesCopyData(), tagline: 'Default tagline' }
+            })
+        )
+
+        writeFileSync(
+            join(tempDir, `${productId}-sales-copy-holiday.json`),
+            JSON.stringify({
+                id: 'holiday',
+                salesCopy: { ...createValidSalesCopyData(), tagline: 'Holiday special tagline' }
+            })
+        )
+
+        const defaultResult = loadActiveSalesCopy(productId, 'default')
+        const holidayResult = loadActiveSalesCopy(productId, 'holiday')
+
+        expect(defaultResult?.tagline).toBe('Default tagline')
+        expect(holidayResult?.tagline).toBe('Holiday special tagline')
+    })
+})
+
 // Cross-cutting concerns
 describe('Error handling consistency', () => {
     it('should log errors with consistent format across all load functions', () => {
@@ -550,21 +890,25 @@ describe('Error handling consistency', () => {
         writeFileSync(join(tempDir, `${productId}-faq.json`), '{invalid')
         writeFileSync(join(tempDir, `${productId}-testimonials.json`), '{invalid')
         writeFileSync(join(tempDir, `${productId}-media.json`), '{invalid')
+        writeFileSync(join(tempDir, `${productId}-sales-copy-default.json`), '{invalid')
 
         loadFAQs(productId)
         loadTestimonials(productId)
         loadMedia(productId)
+        loadActiveSalesCopy(productId, 'default')
 
         // All should log errors with ❌ prefix
-        expect(consoleSpy).toHaveBeenCalledTimes(3)
+        expect(consoleSpy).toHaveBeenCalledTimes(4)
         expect(consoleSpy.mock.calls[0][0]).toContain('❌')
         expect(consoleSpy.mock.calls[1][0]).toContain('❌')
         expect(consoleSpy.mock.calls[2][0]).toContain('❌')
+        expect(consoleSpy.mock.calls[3][0]).toContain('❌')
 
         // All should mention invalid JSON
         expect(consoleSpy.mock.calls[0][0]).toContain('invalid JSON')
         expect(consoleSpy.mock.calls[1][0]).toContain('invalid JSON')
         expect(consoleSpy.mock.calls[2][0]).toContain('invalid JSON')
+        expect(consoleSpy.mock.calls[3][0]).toContain('invalid JSON')
 
         consoleSpy.mockRestore()
     })
@@ -577,10 +921,12 @@ describe('Error handling consistency', () => {
         writeFileSync(join(tempDir, `${productId}-faq.json`), '{invalid')
         writeFileSync(join(tempDir, `${productId}-testimonials.json`), '{invalid')
         writeFileSync(join(tempDir, `${productId}-media.json`), '{invalid')
+        writeFileSync(join(tempDir, `${productId}-sales-copy-default.json`), '{invalid')
 
         expect(() => loadFAQs(productId)).toThrow()
         expect(() => loadTestimonials(productId)).toThrow()
         expect(() => loadMedia(productId)).toThrow()
+        expect(() => loadActiveSalesCopy(productId, 'default')).toThrow()
 
         consoleSpy.mockRestore()
         process.env.STRICT_VALIDATION = 'false'

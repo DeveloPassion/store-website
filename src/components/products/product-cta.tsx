@@ -56,9 +56,9 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     </Button>
 
                     {/* Guarantees */}
-                    {product.guarantees.length > 0 && (
+                    {product.guarantees && product.guarantees.length > 0 && (
                         <div className='mb-8 flex flex-wrap justify-center gap-4'>
-                            {product.guarantees.map((guarantee, idx) => (
+                            {product.guarantees?.map((guarantee, idx) => (
                                 <div
                                     key={idx}
                                     className='bg-secondary/10 text-secondary flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium'
@@ -99,10 +99,10 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     </div>
 
                     {/* Additional Trust Badges from Product */}
-                    {product.trustBadges.length > 0 && (
+                    {product.trustBadges && product.trustBadges.length > 0 && (
                         <div className='border-primary/10 mt-8 border-t pt-8'>
                             <div className='flex flex-wrap justify-center gap-3'>
-                                {product.trustBadges.map((badge, idx) => (
+                                {product.trustBadges?.map((badge, idx) => (
                                     <div
                                         key={idx}
                                         className='bg-primary/5 text-primary/70 rounded-full px-3 py-1.5 text-sm'

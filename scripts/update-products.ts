@@ -33,7 +33,15 @@
  *     bun run update:products -- --operation testimonial:list --id product-id
  *     bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "..." --testimonial-quote "..." --testimonial-rating 5 [--testimonial-featured true] [--testimonial-role "..."] [--testimonial-company "..."] [--testimonial-id "custom-id"]
  *     bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" [--testimonial-author "..."] [--testimonial-quote "..."] [--testimonial-rating 4] [--testimonial-featured false]
- *     bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"
+ *     bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"]
+ *
+ *   Sales Copy operations:
+ *     bun run update:products -- --operation sales-copy:list --id product-id
+ *     bun run update:products -- --operation sales-copy:add --id product-id --sales-copy-id "variant-name"
+ *     bun run update:products -- --operation sales-copy:enable --id product-id --sales-copy-id "variant-name"
+ *     bun run update:products -- --operation sales-copy:duplicate --id product-id --sales-copy-id "source-id" --new-sales-copy-id "target-id"
+ *     bun run update:products -- --operation sales-copy:remove --id product-id --sales-copy-id "variant-name"
+ *     bun run update:products -- --operation sales-copy:edit --id product-id --sales-copy-id "variant-name" [--sales-copy-tagline "..."] [--sales-copy-description "..."]
  *
  * Arguments:
  *   Product:
@@ -79,6 +87,14 @@
  *     --testimonial-featured <true|false> Featured status
  *     --testimonial-role <string>         Author role
  *     --testimonial-company <string>      Author company
+ *
+ *   Sales Copy:
+ *     --sales-copy-id <string>            Sales copy variant ID
+ *     --new-sales-copy-id <string>        New variant ID (for duplicate operation)
+ *     --sales-copy-tagline <string>       Product tagline
+ *     --sales-copy-description <string>   Product description
+ *     --sales-copy-problem <string>       Problem statement (PAS)
+ *     --sales-copy-solution <string>      Solution statement (PAS)
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, unlinkSync } from 'fs'
@@ -98,8 +114,11 @@ import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
 import { FAQFileSchema } from '../src/schemas/faq.schema.js'
 import { TestimonialFileSchema } from '../src/schemas/testimonial.schema.js'
+import { SalesCopyFileSchema } from '../src/schemas/sales-copy.schema.js'
+import { discoverSalesCopyFiles } from './utils/aggregate-products.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
 import type { MediaGroup, MediaType, MediaItem } from '../src/schemas/media.schema.js'
+import type { SalesCopyData, SalesCopyFile } from '../src/types/sales-copy.js'
 import type { TagsMap, TagId } from '../src/types/tag'
 import type { Category } from '../src/types/category'
 import type { FAQ } from '../src/types/faq'
@@ -182,6 +201,14 @@ interface CliArgs {
     'testimonial-twitterHandle'?: string
     'testimonial-twitterUrl'?: string
     'testimonial-avatarUrl'?: string
+
+    // Sales Copy arguments
+    'sales-copy-id'?: string
+    'new-sales-copy-id'?: string
+    'sales-copy-tagline'?: string
+    'sales-copy-description'?: string
+    'sales-copy-problem'?: string
+    'sales-copy-solution'?: string
 }
 
 interface ProductReference {
@@ -1093,7 +1120,12 @@ function parseArgs(): CliArgs {
 function loadAllProducts(): Product[] {
     const products: Product[] = []
     const files = readdirSync(PRODUCTS_DIR).filter(
-        (f) => f.endsWith('.json') && !f.endsWith('-faq.json') && !f.endsWith('-testimonials.json')
+        (f) =>
+            f.endsWith('.json') &&
+            !f.endsWith('-faq.json') &&
+            !f.endsWith('-testimonials.json') &&
+            !f.endsWith('-media.json') &&
+            !f.includes('-sales-copy-')
     )
 
     for (const file of files) {
@@ -1854,12 +1886,13 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     { name: '⚙️ Edit Meta/Status', value: 'meta' },
                     { name: '🖼️ Manage Media', value: 'media' },
                     { name: '📝 Manage Content (FAQs & Testimonials)', value: 'content' },
+                    { name: '💬 Manage Sales Copy', value: 'sales-copy' },
                     { name: '🔍 View Current Details', value: 'view' },
                     { name: '📊 View Changes Summary', value: 'changes' },
                     { name: '💾 Save and Exit', value: 'save' },
                     { name: '❌ Cancel (Discard Changes)', value: 'cancel' }
                 ],
-                pageSize: 13
+                pageSize: 14
             })
 
             switch (action) {
@@ -1880,6 +1913,9 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     break
                 case 'content':
                     await manageProductContent(product)
+                    break
+                case 'sales-copy':
+                    await manageProductSalesCopy(product)
                     break
                 case 'view':
                     showProductDetails(product)
@@ -2952,6 +2988,445 @@ async function manageTestimonials(product: Product): Promise<void> {
     }
 }
 
+// ============================================================================
+// Sales Copy Management
+// ============================================================================
+
+/**
+ * Get sales copy file path
+ */
+function getSalesCopyPath(productId: string, variantId: string): string {
+    return join(PRODUCTS_DIR, `${productId}-sales-copy-${variantId}.json`)
+}
+
+/**
+ * Load sales copy file
+ */
+function loadSalesCopyFile(productId: string, variantId: string): SalesCopyFile | null {
+    const path = getSalesCopyPath(productId, variantId)
+    if (!existsSync(path)) return null
+
+    const content = readFileSync(path, 'utf-8')
+    const data = JSON.parse(content)
+    const result = SalesCopyFileSchema.safeParse(data)
+
+    if (!result.success) {
+        throw new Error(`Invalid sales copy file: ${result.error.message}`)
+    }
+
+    return result.data
+}
+
+/**
+ * Save sales copy file
+ */
+function saveSalesCopyFile(productId: string, variantId: string, salesCopy: SalesCopyData): void {
+    const path = getSalesCopyPath(productId, variantId)
+    const file: SalesCopyFile = {
+        id: variantId,
+        salesCopy
+    }
+
+    const result = SalesCopyFileSchema.safeParse(file)
+    if (!result.success) {
+        throw new Error(`Invalid sales copy data: ${result.error.message}`)
+    }
+
+    writeFileSync(path, JSON.stringify(file, null, 2) + '\n', 'utf-8')
+}
+
+/**
+ * List all sales copy variants for a product
+ */
+function listSalesCopyVariants(productId: string): string[] {
+    return discoverSalesCopyFiles(productId)
+}
+
+/**
+ * Delete sales copy file
+ */
+function deleteSalesCopyFile(productId: string, variantId: string): void {
+    const path = getSalesCopyPath(productId, variantId)
+    if (existsSync(path)) {
+        unlinkSync(path)
+    }
+}
+
+/**
+ * Manage product sales copy (interactive submenu)
+ */
+async function manageProductSalesCopy(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        const variants = listSalesCopyVariants(product.id)
+        const activeVariant = product.activeSalesCopyId || 'default'
+
+        const action = await select({
+            message: `Sales Copy Management (${variants.length} variants, active: ${activeVariant}):`,
+            choices: [
+                { name: '📋 List All Variants', value: 'list' },
+                { name: '➕ Add New Variant', value: 'add' },
+                { name: '✏️ Edit Variant', value: 'edit' },
+                { name: '✅ Enable Variant (Set as Active)', value: 'enable' },
+                { name: '📋 Duplicate Variant', value: 'duplicate' },
+                { name: '🗑️ Remove Variant', value: 'remove' },
+                { name: '👁️ View Variant Details', value: 'view' },
+                { name: '🔙 Back to Product Menu', value: 'back' }
+            ]
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'list':
+                    await showSalesCopyVariantsList(product.id, variants, activeVariant)
+                    break
+                case 'add':
+                    await addSalesCopyVariant(product)
+                    variants.push(
+                        ...listSalesCopyVariants(product.id).filter((v) => !variants.includes(v))
+                    )
+                    break
+                case 'edit':
+                    await editSalesCopyVariant(product.id, variants)
+                    break
+                case 'enable':
+                    await enableSalesCopyVariant(product, variants)
+                    break
+                case 'duplicate':
+                    await duplicateSalesCopyVariant(product.id, variants)
+                    variants.push(
+                        ...listSalesCopyVariants(product.id).filter((v) => !variants.includes(v))
+                    )
+                    break
+                case 'remove':
+                    await removeSalesCopyVariant(product.id, variants, activeVariant)
+                    break
+                case 'view':
+                    await viewSalesCopyVariant(product.id, variants)
+                    break
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Show list of sales copy variants
+ */
+async function showSalesCopyVariantsList(
+    productId: string,
+    variants: string[],
+    activeVariant: string
+): Promise<void> {
+    console.log(`\n${colors.bright}Sales Copy Variants for ${productId}:${colors.reset}\n`)
+
+    if (variants.length === 0) {
+        console.log(`${colors.yellow}No sales copy variants found${colors.reset}`)
+    } else {
+        variants.forEach((variantId) => {
+            const isActive = variantId === activeVariant
+            const marker = isActive ? '✅' : '  '
+            const status = isActive ? `${colors.green}(active)${colors.reset}` : ''
+            console.log(`${marker} ${variantId} ${status}`)
+        })
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Add new sales copy variant
+ */
+async function addSalesCopyVariant(product: Product): Promise<void> {
+    const variantId = await prompt('Enter new variant ID (e.g., holiday-2026, black-friday): ')
+
+    if (!variantId || variantId.trim().length === 0) {
+        showError('Variant ID cannot be empty')
+        return
+    }
+
+    const path = getSalesCopyPath(product.id, variantId)
+    if (existsSync(path)) {
+        showError(`Variant "${variantId}" already exists`)
+        return
+    }
+
+    // Ask if they want to copy from existing variant or start fresh
+    const sourceOption = await select({
+        message: 'Create variant from:',
+        choices: [
+            { name: '📋 Copy from active variant', value: 'copy-active' },
+            { name: '📋 Copy from another variant', value: 'copy-other' },
+            { name: '📝 Start with template', value: 'template' }
+        ]
+    })
+
+    let salesCopyData: SalesCopyData
+
+    if (sourceOption === 'copy-active') {
+        const activeVariant = product.activeSalesCopyId || 'default'
+        const sourceFile = loadSalesCopyFile(product.id, activeVariant)
+        if (!sourceFile) {
+            showError(`Active variant "${activeVariant}" not found`)
+            return
+        }
+        salesCopyData = sourceFile.salesCopy
+    } else if (sourceOption === 'copy-other') {
+        const variants = listSalesCopyVariants(product.id)
+        if (variants.length === 0) {
+            showError('No variants available to copy from')
+            return
+        }
+        const sourceVariant = await select({
+            message: 'Select source variant:',
+            choices: variants.map((v) => ({ name: v, value: v }))
+        })
+        const sourceFile = loadSalesCopyFile(product.id, sourceVariant)
+        if (!sourceFile) {
+            showError(`Variant "${sourceVariant}" not found`)
+            return
+        }
+        salesCopyData = sourceFile.salesCopy
+    } else {
+        // Create minimal template
+        salesCopyData = {
+            tagline: product.name || 'Product Tagline',
+            problem: 'Problem statement',
+            problemPoints: ['Problem point 1'],
+            agitate: 'Agitation statement',
+            agitatePoints: ['Pain point 1'],
+            solution: 'Solution statement',
+            solutionPoints: ['Benefit 1'],
+            description: 'Product description',
+            features: ['Feature 1'],
+            benefits: {
+                immediate: [],
+                systematic: [],
+                longTerm: []
+            },
+            targetAudience: [],
+            perfectFor: [],
+            notForYou: [],
+            trustBadges: [],
+            guarantees: []
+        }
+    }
+
+    saveSalesCopyFile(product.id, variantId, salesCopyData)
+    showSuccess(`Sales copy variant "${variantId}" created`)
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Edit sales copy variant (basic fields only for now)
+ */
+async function editSalesCopyVariant(productId: string, variants: string[]): Promise<void> {
+    if (variants.length === 0) {
+        showError('No variants found')
+        return
+    }
+
+    const variantId = await select({
+        message: 'Select variant to edit:',
+        choices: variants.map((v) => ({ name: v, value: v }))
+    })
+
+    const file = loadSalesCopyFile(productId, variantId)
+    if (!file) {
+        showError(`Variant "${variantId}" not found`)
+        return
+    }
+
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'tagline',
+            message: 'Tagline:',
+            default: file.salesCopy.tagline
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Description:',
+            default: file.salesCopy.description
+        },
+        {
+            type: 'input',
+            name: 'problem',
+            message: 'Problem Statement:',
+            default: file.salesCopy.problem
+        },
+        {
+            type: 'input',
+            name: 'solution',
+            message: 'Solution Statement:',
+            default: file.salesCopy.solution
+        }
+    ])
+
+    file.salesCopy.tagline = answers.tagline
+    file.salesCopy.description = answers.description
+    file.salesCopy.problem = answers.problem
+    file.salesCopy.solution = answers.solution
+
+    saveSalesCopyFile(productId, variantId, file.salesCopy)
+    showSuccess(`Variant "${variantId}" updated`)
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Enable (activate) sales copy variant
+ */
+async function enableSalesCopyVariant(product: Product, variants: string[]): Promise<void> {
+    if (variants.length === 0) {
+        showError('No variants found')
+        return
+    }
+
+    const variantId = await select({
+        message: 'Select variant to activate:',
+        choices: variants.map((v) => ({ name: v, value: v }))
+    })
+
+    product.activeSalesCopyId = variantId
+    showSuccess(`Variant "${variantId}" is now active. Remember to save your changes!`)
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Duplicate sales copy variant
+ */
+async function duplicateSalesCopyVariant(productId: string, variants: string[]): Promise<void> {
+    if (variants.length === 0) {
+        showError('No variants found')
+        return
+    }
+
+    const sourceVariant = await select({
+        message: 'Select variant to duplicate:',
+        choices: variants.map((v) => ({ name: v, value: v }))
+    })
+
+    const newVariantId = await prompt('Enter new variant ID: ')
+
+    if (!newVariantId || newVariantId.trim().length === 0) {
+        showError('Variant ID cannot be empty')
+        return
+    }
+
+    const targetPath = getSalesCopyPath(productId, newVariantId)
+    if (existsSync(targetPath)) {
+        showError(`Variant "${newVariantId}" already exists`)
+        return
+    }
+
+    const sourceFile = loadSalesCopyFile(productId, sourceVariant)
+    if (!sourceFile) {
+        showError(`Source variant "${sourceVariant}" not found`)
+        return
+    }
+
+    saveSalesCopyFile(productId, newVariantId, sourceFile.salesCopy)
+    showSuccess(`Variant "${sourceVariant}" duplicated to "${newVariantId}"`)
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * Remove sales copy variant
+ */
+async function removeSalesCopyVariant(
+    productId: string,
+    variants: string[],
+    activeVariant: string
+): Promise<void> {
+    if (variants.length === 0) {
+        showError('No variants found')
+        return
+    }
+
+    const variantId = await select({
+        message: 'Select variant to remove:',
+        choices: variants.map((v) => ({ name: v, value: v }))
+    })
+
+    if (variantId === activeVariant) {
+        showError('Cannot remove active variant. Switch to another variant first.')
+        return
+    }
+
+    const confirmed = await inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'confirm',
+            message: `Are you sure you want to remove variant "${variantId}"?`,
+            default: false
+        }
+    ])
+
+    if (!confirmed.confirm) {
+        showInfo('Removal cancelled')
+        return
+    }
+
+    deleteSalesCopyFile(productId, variantId)
+    showSuccess(`Variant "${variantId}" removed`)
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
+/**
+ * View sales copy variant details
+ */
+async function viewSalesCopyVariant(productId: string, variants: string[]): Promise<void> {
+    if (variants.length === 0) {
+        showError('No variants found')
+        return
+    }
+
+    const variantId = await select({
+        message: 'Select variant to view:',
+        choices: variants.map((v) => ({ name: v, value: v }))
+    })
+
+    const file = loadSalesCopyFile(productId, variantId)
+    if (!file) {
+        showError(`Variant "${variantId}" not found`)
+        return
+    }
+
+    console.log(`\n${colors.bright}${colors.cyan}Sales Copy Variant: ${variantId}${colors.reset}\n`)
+    console.log(`${colors.bright}Tagline:${colors.reset} ${file.salesCopy.tagline}`)
+    console.log(`${colors.bright}Description:${colors.reset} ${file.salesCopy.description}`)
+    console.log(`${colors.bright}Problem:${colors.reset} ${file.salesCopy.problem}`)
+    console.log(`${colors.bright}Solution:${colors.reset} ${file.salesCopy.solution}`)
+    console.log(`${colors.bright}Features:${colors.reset} ${file.salesCopy.features.length} items`)
+    console.log(
+        `${colors.bright}Problem Points:${colors.reset} ${file.salesCopy.problemPoints.length} items`
+    )
+    console.log(
+        `${colors.bright}Solution Points:${colors.reset} ${file.salesCopy.solutionPoints.length} items`
+    )
+
+    if (file.salesCopy.storytelling) {
+        console.log(`\n${colors.bright}Storytelling Sections:${colors.reset}`)
+        if (file.salesCopy.storytelling.originStory) console.log('  ✓ Origin Story')
+        if (file.salesCopy.storytelling.creatorJourney) console.log('  ✓ Creator Journey')
+        if (file.salesCopy.storytelling.transformationArc) console.log('  ✓ Transformation Arc')
+        if (file.salesCopy.storytelling.successStories) console.log('  ✓ Success Stories')
+        if (file.salesCopy.storytelling.methodology) console.log('  ✓ Methodology')
+        if (file.salesCopy.storytelling.vision) console.log('  ✓ Vision')
+    }
+
+    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+}
+
 /**
  * Check if any edit arguments are provided
  */
@@ -3032,6 +3507,194 @@ async function operationRemove(args: CliArgs): Promise<void> {
     showSuccess(`Product removed: src/data/products/${product.id}.json`)
     showWarning('IMPORTANT: Run validation to check for broken references:')
     console.log(`   ${colors.green}npm run validate:products${colors.reset}`)
+}
+
+// ============================================================================
+// Sales Copy CLI Operations
+// ============================================================================
+
+/**
+ * Handle sales-copy:* CLI operations
+ */
+async function handleSalesCopyOperation(args: CliArgs): Promise<void> {
+    if (!args.id) {
+        showError('--id is required for sales-copy operations')
+        process.exit(1)
+    }
+
+    const product = loadProduct(args.id)
+    if (!product) {
+        showError(`Product not found: ${args.id}`)
+        process.exit(1)
+    }
+
+    const subOp = args.operation!.split(':')[1]
+
+    switch (subOp) {
+        case 'list':
+            await operationSalesCopyList(args, product)
+            break
+        case 'add':
+            await operationSalesCopyAdd(args, product)
+            break
+        case 'edit':
+            await operationSalesCopyEdit(args, product)
+            break
+        case 'enable':
+            await operationSalesCopyEnable(args, product)
+            break
+        case 'duplicate':
+            await operationSalesCopyDuplicate(args, product)
+            break
+        case 'remove':
+            await operationSalesCopyRemove(args, product)
+            break
+        default:
+            showError(`Invalid sales-copy operation: ${subOp}`)
+            process.exit(1)
+    }
+}
+
+async function operationSalesCopyList(args: CliArgs, product: Product): Promise<void> {
+    const variants = listSalesCopyVariants(product.id)
+    const activeVariant = product.activeSalesCopyId || 'default'
+
+    console.log(`\nSales Copy Variants for ${product.id}:`)
+    console.log(`Active: ${activeVariant}\n`)
+
+    if (variants.length === 0) {
+        console.log('No variants found')
+    } else {
+        variants.forEach((v) => {
+            const marker = v === activeVariant ? '✅' : '  '
+            console.log(`${marker} ${v}`)
+        })
+    }
+}
+
+async function operationSalesCopyAdd(args: CliArgs, product: Product): Promise<void> {
+    const salesCopyId = args['sales-copy-id']
+    if (!salesCopyId) {
+        showError('--sales-copy-id is required')
+        process.exit(1)
+    }
+
+    const path = getSalesCopyPath(product.id, salesCopyId)
+    if (existsSync(path)) {
+        showError(`Variant "${salesCopyId}" already exists`)
+        process.exit(1)
+    }
+
+    // Create minimal template with CLI args if provided
+    const salesCopyData: SalesCopyData = {
+        tagline: args['sales-copy-tagline'] || product.name || 'Product Tagline',
+        problem: args['sales-copy-problem'] || 'Problem statement',
+        problemPoints: ['Problem point 1'],
+        agitate: 'Agitation statement',
+        agitatePoints: ['Pain point 1'],
+        solution: args['sales-copy-solution'] || 'Solution statement',
+        solutionPoints: ['Benefit 1'],
+        description: args['sales-copy-description'] || 'Product description',
+        features: ['Feature 1'],
+        benefits: { immediate: [], systematic: [], longTerm: [] },
+        targetAudience: [],
+        perfectFor: [],
+        notForYou: [],
+        trustBadges: [],
+        guarantees: []
+    }
+
+    saveSalesCopyFile(product.id, salesCopyId, salesCopyData)
+    showSuccess(`Sales copy variant "${salesCopyId}" created`)
+}
+
+async function operationSalesCopyEdit(args: CliArgs, product: Product): Promise<void> {
+    const salesCopyId = args['sales-copy-id']
+    if (!salesCopyId) {
+        showError('--sales-copy-id is required')
+        process.exit(1)
+    }
+
+    const file = loadSalesCopyFile(product.id, salesCopyId)
+    if (!file) {
+        showError(`Variant "${salesCopyId}" not found`)
+        process.exit(1)
+    }
+
+    // Update fields if provided
+    if (args['sales-copy-tagline']) file.salesCopy.tagline = args['sales-copy-tagline']
+    if (args['sales-copy-description']) file.salesCopy.description = args['sales-copy-description']
+    if (args['sales-copy-problem']) file.salesCopy.problem = args['sales-copy-problem']
+    if (args['sales-copy-solution']) file.salesCopy.solution = args['sales-copy-solution']
+
+    saveSalesCopyFile(product.id, salesCopyId, file.salesCopy)
+    showSuccess(`Variant "${salesCopyId}" updated`)
+}
+
+async function operationSalesCopyEnable(args: CliArgs, product: Product): Promise<void> {
+    const salesCopyId = args['sales-copy-id']
+    if (!salesCopyId) {
+        showError('--sales-copy-id is required')
+        process.exit(1)
+    }
+
+    const variants = listSalesCopyVariants(product.id)
+    if (!variants.includes(salesCopyId)) {
+        showError(`Variant "${salesCopyId}" not found`)
+        process.exit(1)
+    }
+
+    product.activeSalesCopyId = salesCopyId
+    saveProduct(product)
+    showSuccess(`Variant "${salesCopyId}" is now active`)
+}
+
+async function operationSalesCopyDuplicate(args: CliArgs, product: Product): Promise<void> {
+    const salesCopyId = args['sales-copy-id']
+    const newSalesCopyId = args['new-sales-copy-id']
+
+    if (!salesCopyId || !newSalesCopyId) {
+        showError('--sales-copy-id and --new-sales-copy-id are required')
+        process.exit(1)
+    }
+
+    const sourceFile = loadSalesCopyFile(product.id, salesCopyId)
+    if (!sourceFile) {
+        showError(`Source variant "${salesCopyId}" not found`)
+        process.exit(1)
+    }
+
+    const targetPath = getSalesCopyPath(product.id, newSalesCopyId)
+    if (existsSync(targetPath)) {
+        showError(`Target variant "${newSalesCopyId}" already exists`)
+        process.exit(1)
+    }
+
+    saveSalesCopyFile(product.id, newSalesCopyId, sourceFile.salesCopy)
+    showSuccess(`Variant "${salesCopyId}" duplicated to "${newSalesCopyId}"`)
+}
+
+async function operationSalesCopyRemove(args: CliArgs, product: Product): Promise<void> {
+    const salesCopyId = args['sales-copy-id']
+    if (!salesCopyId) {
+        showError('--sales-copy-id is required')
+        process.exit(1)
+    }
+
+    const activeVariant = product.activeSalesCopyId || 'default'
+    if (salesCopyId === activeVariant) {
+        showError('Cannot remove active variant')
+        process.exit(1)
+    }
+
+    const path = getSalesCopyPath(product.id, salesCopyId)
+    if (!existsSync(path)) {
+        showError(`Variant "${salesCopyId}" not found`)
+        process.exit(1)
+    }
+
+    deleteSalesCopyFile(product.id, salesCopyId)
+    showSuccess(`Variant "${salesCopyId}" removed`)
 }
 
 // ============================================================================
@@ -3130,22 +3793,29 @@ async function main() {
     // If CLI arguments provided, run in CLI mode (no menu loop)
     if (args.operation) {
         try {
-            switch (args.operation) {
-                case 'list':
-                    await operationList(args)
-                    break
-                case 'add':
-                    await operationAdd(args)
-                    break
-                case 'edit':
-                    await operationEdit(args)
-                    break
-                case 'remove':
-                    await operationRemove(args)
-                    break
-                default:
-                    showError('Invalid operation. Use: list, add, edit, or remove')
-                    process.exit(1)
+            // Handle sub-operations (media:*, faq:*, testimonial:*, sales-copy:*)
+            if (args.operation.startsWith('sales-copy:')) {
+                await handleSalesCopyOperation(args)
+            } else {
+                switch (args.operation) {
+                    case 'list':
+                        await operationList(args)
+                        break
+                    case 'add':
+                        await operationAdd(args)
+                        break
+                    case 'edit':
+                        await operationEdit(args)
+                        break
+                    case 'remove':
+                        await operationRemove(args)
+                        break
+                    default:
+                        showError(
+                            'Invalid operation. Use: list, add, edit, remove, or sales-copy:*'
+                        )
+                        process.exit(1)
+                }
             }
         } catch (error) {
             showError(error instanceof Error ? error.message : String(error))

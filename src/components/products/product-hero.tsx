@@ -277,9 +277,9 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         </div>
 
                         {/* Trust Badges */}
-                        {product.guarantees.length > 0 && (
+                        {product.guarantees && product.guarantees.length > 0 && (
                             <div className='mt-6 flex flex-wrap gap-3'>
-                                {product.guarantees.slice(0, 2).map((guarantee, idx) => (
+                                {product.guarantees?.slice(0, 2).map((guarantee, idx) => (
                                     <div
                                         key={idx}
                                         className='bg-primary/5 text-primary/70 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm'
