@@ -87,12 +87,12 @@ export async function subscribeToNewsletter(
 
         // Add optional fields
         if (name) {
-            payload.name = name
+            payload['name'] = name
         }
 
         if (newsletters.length > 0) {
             // Newsletters should be an array of objects with 'id' property
-            payload.newsletters = newsletters.map((id) => ({ id }))
+            payload['newsletters'] = newsletters.map((id) => ({ id }))
         }
 
         console.log('[Ghost API] Subscribing to newsletter:', {

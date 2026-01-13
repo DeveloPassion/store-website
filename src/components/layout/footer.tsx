@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router'
 import {
     FaHeart,
@@ -23,7 +23,7 @@ import { subscribeToNewsletter } from '@/lib/ghost-api'
 
 // Ghost site configuration
 const GHOST_SITE_URL = 'https://www.dsebastien.net'
-const NEWSLETTER_STORAGE_KEY = 'newsletter_subscribed'
+const NEWSLETTER_SESSION_KEY = 'newsletter_subscribed'
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear()
@@ -32,16 +32,15 @@ const Footer: React.FC = () => {
         'idle' | 'loading' | 'success' | 'error'
     >('idle')
     const [errorMessage, setErrorMessage] = useState<string>('')
-    const [hasSubscribed, setHasSubscribed] = useState<boolean>(false)
-
-    // Check localStorage for previous subscription on mount
-    useEffect(() => {
-        const subscribed = localStorage.getItem(NEWSLETTER_STORAGE_KEY)
+    // Initialize hasSubscribed from sessionStorage using lazy initializer
+    const [hasSubscribed, setHasSubscribed] = useState<boolean>(() => {
+        const subscribed = sessionStorage.getItem(NEWSLETTER_SESSION_KEY)
         if (subscribed === 'true') {
-            setHasSubscribed(true)
-            console.log('[Newsletter] User has already subscribed (from localStorage)')
+            console.log('[Newsletter] User has already subscribed (from sessionStorage)')
+            return true
         }
-    }, [])
+        return false
+    })
 
     // Get featured categories
     const featuredCategories = useMemo(() => {
@@ -67,10 +66,10 @@ const Footer: React.FC = () => {
         if (result.success) {
             setSubscribeStatus('success')
             setEmail('')
-            // Store subscription in localStorage
-            localStorage.setItem(NEWSLETTER_STORAGE_KEY, 'true')
+            // Store subscription in sessionStorage
+            sessionStorage.setItem(NEWSLETTER_SESSION_KEY, 'true')
             setHasSubscribed(true)
-            console.log('[Newsletter] Subscription stored in localStorage')
+            console.log('[Newsletter] Subscription stored in sessionStorage')
         } else {
             setSubscribeStatus('error')
             setErrorMessage(result.error || 'Subscription failed. Please try again.')
