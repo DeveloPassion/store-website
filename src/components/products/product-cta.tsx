@@ -13,13 +13,13 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
     const isFree = product.price === 0 || product.priceTier === 'free'
 
     return (
-        <Section className='border-primary/10 from-background to-secondary/10 border-t bg-gradient-to-b'>
+        <Section className='border-primary/10 from-background to-solution/10 border-t bg-gradient-to-b'>
             <div className='mx-auto max-w-5xl'>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className='border-secondary/30 bg-background/50 rounded-2xl border p-8 text-center shadow-2xl md:p-12'
+                    className='border-solution/30 bg-background/50 rounded-2xl border p-8 text-center shadow-2xl md:p-12'
                 >
                     {/* Headline */}
                     <h2 className='mb-4 text-3xl font-bold sm:text-4xl md:text-5xl'>
@@ -61,7 +61,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                             {product.salesCopy.guarantees?.map((guarantee, idx) => (
                                 <div
                                     key={idx}
-                                    className='bg-secondary/10 text-secondary flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium'
+                                    className='bg-solution/10 text-solution flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium'
                                 >
                                     <FaCheckCircle className='h-4 w-4' />
                                     {guarantee}
@@ -73,26 +73,26 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     {/* Trust Badges */}
                     <div className='border-primary/10 grid gap-4 border-t pt-8 sm:grid-cols-2 md:grid-cols-4'>
                         <div className='flex flex-col items-center gap-2'>
-                            <div className='bg-secondary/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaShieldAlt className='text-secondary h-6 w-6' />
+                            <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
+                                <FaShieldAlt className='text-solution h-6 w-6' />
                             </div>
                             <div className='text-sm font-medium'>Secure Checkout</div>
                         </div>
                         <div className='flex flex-col items-center gap-2'>
-                            <div className='bg-secondary/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaLock className='text-secondary h-6 w-6' />
+                            <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
+                                <FaLock className='text-solution h-6 w-6' />
                             </div>
                             <div className='text-sm font-medium'>Safe Payment</div>
                         </div>
                         <div className='flex flex-col items-center gap-2'>
-                            <div className='bg-secondary/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaCreditCard className='text-secondary h-6 w-6' />
+                            <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
+                                <FaCreditCard className='text-solution h-6 w-6' />
                             </div>
                             <div className='text-sm font-medium'>All Cards Accepted</div>
                         </div>
                         <div className='flex flex-col items-center gap-2'>
-                            <div className='bg-secondary/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaUndo className='text-secondary h-6 w-6' />
+                            <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
+                                <FaUndo className='text-solution h-6 w-6' />
                             </div>
                             <div className='text-sm font-medium'>Money-Back Guarantee</div>
                         </div>
@@ -119,7 +119,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                         <div className='mt-8 flex flex-wrap justify-center gap-8'>
                             {product.stats?.userCount && (
                                 <div>
-                                    <div className='text-secondary mb-1 text-2xl font-bold'>
+                                    <div className='text-solution mb-1 text-2xl font-bold'>
                                         {product.stats.userCount}
                                     </div>
                                     <div className='text-primary/60 text-sm'>Happy Users</div>

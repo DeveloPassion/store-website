@@ -17,7 +17,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
     return (
         <>
             {/* Problem Section */}
-            <Section className='border-primary/10 bg-background border-t'>
+            <Section className='border-primary/10 bg-problem/[0.03] border-t'>
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
@@ -29,7 +29,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         <SectionHeader
                             title='The Problem'
                             subtitle={product.salesCopy?.problem}
-                            icon={<FaTimesCircle className='h-12 w-12 text-red-500' />}
+                            icon={<FaTimesCircle className='text-problem h-12 w-12' />}
                         />
                     </motion.div>
 
@@ -37,9 +37,9 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         {product.salesCopy?.problemPoints?.map((point, idx) => (
                             <div
                                 key={idx}
-                                className='border-primary/10 bg-background/50 flex gap-4 rounded-lg border p-4'
+                                className='border-problem/20 bg-problem/5 flex gap-4 rounded-lg border p-4'
                             >
-                                <FaTimesCircle className='mt-1 h-5 w-5 shrink-0 text-red-500' />
+                                <FaTimesCircle className='text-problem mt-1 h-5 w-5 shrink-0' />
                                 <p className='text-primary/70'>{point}</p>
                             </div>
                         ))}
@@ -48,7 +48,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
             </Section>
 
             {/* Agitate Section */}
-            <Section className='bg-primary/5'>
+            <Section className='bg-agitate/[0.03]'>
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
@@ -60,7 +60,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         <SectionHeader
                             title='Why This Matters'
                             subtitle={product.salesCopy?.agitate}
-                            icon={<FaExclamationTriangle className='h-12 w-12 text-orange-500' />}
+                            icon={<FaExclamationTriangle className='text-agitate h-12 w-12' />}
                         />
                     </motion.div>
 
@@ -68,9 +68,9 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         {product.salesCopy?.agitatePoints?.map((point, idx) => (
                             <div
                                 key={idx}
-                                className='border-primary/10 bg-background/50 flex gap-4 rounded-lg border p-4'
+                                className='border-agitate/20 bg-agitate/5 flex gap-4 rounded-lg border p-4'
                             >
-                                <FaExclamationTriangle className='mt-1 h-5 w-5 shrink-0 text-orange-500' />
+                                <FaExclamationTriangle className='text-agitate mt-1 h-5 w-5 shrink-0' />
                                 <p className='text-primary/70'>{point}</p>
                             </div>
                         ))}
@@ -79,7 +79,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
             </Section>
 
             {/* Solution Section */}
-            <Section className='border-primary/10 from-background to-secondary/5 border-t bg-gradient-to-b'>
+            <Section className='border-primary/10 from-background to-solution/10 border-t bg-gradient-to-b'>
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
@@ -91,7 +91,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         <SectionHeader
                             title='The Solution'
                             subtitle={product.salesCopy?.solution}
-                            icon={<FaCheckCircle className='text-secondary h-12 w-12' />}
+                            icon={<FaCheckCircle className='text-solution h-12 w-12' />}
                         />
                     </motion.div>
 
@@ -99,9 +99,9 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         {product.salesCopy?.solutionPoints?.map((point, idx) => (
                             <div
                                 key={idx}
-                                className='border-secondary/20 bg-secondary/5 flex gap-4 rounded-lg border p-4'
+                                className='border-solution/20 bg-solution/5 flex gap-4 rounded-lg border p-4'
                             >
-                                <FaCheckCircle className='text-secondary mt-1 h-5 w-5 shrink-0' />
+                                <FaCheckCircle className='text-solution mt-1 h-5 w-5 shrink-0' />
                                 <p className='text-primary/80 font-medium'>{point}</p>
                             </div>
                         ))}

@@ -40,7 +40,7 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
     }
 
     return (
-        <Section className='bg-primary/5'>
+        <Section className='bg-solution/[0.03]'>
             <div className='mx-auto max-w-6xl'>
                 {/* Header */}
                 <SectionHeader
@@ -60,21 +60,21 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                             className={cn(
                                                 'flex items-center gap-3 rounded-lg border-2 px-6 py-4 transition-all',
                                                 selected
-                                                    ? 'border-secondary bg-secondary/10'
+                                                    ? 'border-solution bg-solution/10'
                                                     : 'border-primary/20 hover:border-primary/40'
                                             )}
                                         >
                                             <Icon
                                                 className={cn(
                                                     'h-5 w-5',
-                                                    selected ? 'text-secondary' : 'text-primary/60'
+                                                    selected ? 'text-solution' : 'text-primary/60'
                                                 )}
                                             />
                                             <div className='text-left'>
                                                 <div
                                                     className={cn(
                                                         'font-semibold',
-                                                        selected ? 'text-secondary' : ''
+                                                        selected ? 'text-solution' : ''
                                                     )}
                                                 >
                                                     {tab.name}
@@ -105,9 +105,9 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: benefitIdx * 0.05 }}
-                                            className='border-secondary/20 bg-background/50 flex items-center gap-3 rounded-lg border p-4'
+                                            className='border-solution/20 bg-solution/5 flex items-center gap-3 rounded-lg border p-4'
                                         >
-                                            <FaCheckCircle className='text-secondary h-5 w-5 shrink-0' />
+                                            <FaCheckCircle className='text-solution h-5 w-5 shrink-0' />
                                             <p className='text-primary/80'>{benefit}</p>
                                         </motion.div>
                                     ))}
