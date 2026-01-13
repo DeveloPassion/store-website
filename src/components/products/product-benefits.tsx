@@ -58,7 +58,7 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                     return (
                                         <div
                                             className={cn(
-                                                'flex items-center gap-3 rounded-lg border-2 px-6 py-4 transition-all',
+                                                'flex cursor-pointer items-center gap-3 rounded-lg border-2 px-6 py-4 transition-all',
                                                 selected
                                                     ? 'border-solution bg-solution/10'
                                                     : 'border-primary/20 hover:border-primary/40'
