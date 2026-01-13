@@ -85,7 +85,7 @@
             }
         }
     ],
-    "priority": 35,
+    "priority": 100,
     "id": "knowii-community",
     "mainCategory": "community",
     "secondaryCategories": [

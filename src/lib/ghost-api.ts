@@ -25,8 +25,6 @@ export interface NewsletterSubscriptionResult {
 async function getIntegrityToken(ghostSiteUrl: string): Promise<string> {
     const endpoint = `${ghostSiteUrl}/members/api/integrity-token/`
 
-    console.log('[Ghost API] Fetching integrity token:', endpoint)
-
     const response = await fetch(endpoint, {
         method: 'GET',
         headers: {
@@ -40,7 +38,6 @@ async function getIntegrityToken(ghostSiteUrl: string): Promise<string> {
     }
 
     const token = await response.text()
-    console.log('[Ghost API] Integrity token received:', token.substring(0, 20) + '...')
 
     return token
 }
@@ -95,13 +92,6 @@ export async function subscribeToNewsletter(
             payload['newsletters'] = newsletters.map((id) => ({ id }))
         }
 
-        console.log('[Ghost API] Subscribing to newsletter:', {
-            endpoint,
-            email,
-            name,
-            newsletters
-        })
-
         const response = await fetch(endpoint, {
             method: 'POST',
             headers: {
@@ -110,12 +100,8 @@ export async function subscribeToNewsletter(
             body: JSON.stringify(payload)
         })
 
-        console.log('[Ghost API] Response status:', response.status)
-
         // Ghost returns 201 for successful subscription
         if (response.status === 201) {
-            console.log('[Ghost API] Success - magic link sent')
-
             return {
                 success: true,
                 message: 'Success! Please check your email to confirm your subscription.'
@@ -124,7 +110,6 @@ export async function subscribeToNewsletter(
 
         // Handle error responses
         const errorData = await response.json().catch(() => ({}))
-        console.error('[Ghost API] Error response:', errorData)
 
         // Check for specific error messages from Ghost
         if (errorData.errors && errorData.errors.length > 0) {
@@ -139,8 +124,7 @@ export async function subscribeToNewsletter(
             success: false,
             error: 'Failed to subscribe. Please try again later.'
         }
-    } catch (error) {
-        console.error('[Ghost API] Error:', error)
+    } catch {
         return {
             success: false,
             error: 'Network error. Please check your connection and try again.'

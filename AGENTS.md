@@ -4,7 +4,7 @@ This document provides instructions for AI agents and developers on how to maint
 
 ## Project Overview
 
-Static website built with React 19+, TypeScript, Bun, Tailwind CSS v4, React Router (HashRouter), and React Icons. Features include product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), and fully responsive design.
+Static website built with React 19+, TypeScript, Bun, Tailwind CSS v4, React Router, and React Icons. Features include product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), and fully responsive design.
 
 ## Product Display
 
@@ -111,7 +111,7 @@ Products are ~50 field JSON files in `/src/data/products/{product-id}.json`. Aut
 
 **Product Structure** (53+ fields):
 
-- Identity (5): id, permalink, name, tagline, secondaryTagline
+- Identity (5): id, permalink, name
 - Pricing (6): price, priceDisplay, priceTier, gumroadUrl, variants
 - Subscription (3): isSubscription, paymentFrequencies, defaultPaymentFrequency
 - Taxonomy (3): mainCategory, secondaryCategories, tags
@@ -143,7 +143,6 @@ Products are ~50 field JSON files in `/src/data/products/{product-id}.json`. Aut
 - 60-69: Workshops/tools
 - 50-59: Coaching/standard
 - 40-49: Free resources
-- 30-39: Community
 - 20-29: Archived
 
 **Subscription Products:**
@@ -453,49 +452,6 @@ Configuration in `src/data/promotion.json` (not gitignored).
 
 **Fields**: bannerBehavior, promotionStart/End (ISO 8601 UTC), promoText, promoLinkText, promoLink, discountCode
 
-## Managing Redirects
-
-Configuration in `src/data/redirects.json` (not gitignored). Enables automated client-side redirects for GitHub Pages.
-
-**CLI**: Use `bun run update:redirects` for interactive management or `bun run validate:redirects` to validate after changes.
-
-**Structure** (5 fields):
-
-- `from`: Source path (must start with `/`)
-- `to`: Destination URL or path (internal or external)
-- `type`: `PERMANENT` (301) or `TEMPORARY` (302, default)
-- `description`: Optional documentation string
-- `includeInSitemap`: Boolean (default: false)
-
-**Redirect Types:**
-
-- **PERMANENT (301)**: For moved content, search engines transfer ranking
-- **TEMPORARY (302)**: More flexible, no aggressive caching (default)
-
-**Build-Time Integration:**
-
-Redirects generate static HTML pages at build time via `generate-redirect-pages.ts`:
-
-- Triple-layer strategy: static HTML + meta refresh + JavaScript
-- Works without JavaScript (meta refresh fallback)
-- SEO-friendly (`noindex`, canonical links)
-- GitHub Pages compatible (client-side only)
-
-**React Router Integration:**
-
-Redirects also integrate with React Router for client-side navigation via `RedirectPage` component.
-
-**Validation:**
-
-- Prevents duplicate source paths
-- Detects redirect loops (A → B → A)
-- Validates path format (must start with `/`)
-- Runs automatically in `validate:all` and CI
-
-**GitHub Pages Compatibility:**
-
-All redirects are client-side (no server config needed). Static HTML pages are generated in `dist/[path]/index.html` during build.
-
 ## Managing Tags
 
 96 tags in `src/data/tags.json` (object/map structure). Used for detailed product metadata.
@@ -571,12 +527,12 @@ bun run lint / format / tsc           # Code quality
 bun test / test:run / test:coverage   # Testing
 bun run validate:all                  # Validate all data
 bun run ci:local                      # Full CI checks locally
-bun run release                       # Deploy to GitHub Pages
+bun run release                       # Deploy to Cloudflare Pages
 ```
 
 ## Deployment
 
-Auto-deploy to GitHub Pages on tag push. Run `bun run release` and follow prompts. CHANGELOG.md is auto-generated from conventional commits.
+Ignore!
 
 ## Accessibility
 
