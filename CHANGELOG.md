@@ -1,3 +1,10 @@
+## [0.5.4](https://github.com/DeveloPassion/store-website/compare/0.5.3...0.5.4) (2026-01-13)
+
+### Features
+
+* **all:** added lighthouse ([1236185](https://github.com/DeveloPassion/store-website/commit/12361852691b0d2058f535940a7c032ec58ea8ae))
+* **all:** fixed newsletter subscription ([f2e0920](https://github.com/DeveloPassion/store-website/commit/f2e09207610c641762a0e79dc7c01cc085d203aa))
+* **all:** improved newsletter subscription handling and fixed lint issues ([c6d6659](https://github.com/DeveloPassion/store-website/commit/c6d66597d209bb47873ad1adf41585ad0a90b829))
 ## [0.5.3](https://github.com/DeveloPassion/store-website/compare/0.5.2...0.5.3) (2026-01-12)
 
 ### Features
