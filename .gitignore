@@ -31,3 +31,8 @@ lighthouse-reports
 
 # Bun dev server
 src/.dev
+
+# Environment files (contain secrets)
+.env
+.env.local
+.env.*.local

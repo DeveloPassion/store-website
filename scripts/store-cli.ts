@@ -98,6 +98,11 @@ function buildChoices(): Choice[] {
             description: 'Configure promotion banner settings'
         },
         {
+            name: '📊 Sync Gumroad Data',
+            value: 'sync-gumroad.ts',
+            description: 'Fetch ratings, sales, and prices from Gumroad'
+        },
+        {
             name: '✅ Validate All',
             value: 'validate-all.sh',
             description: 'Run all validation checks'
