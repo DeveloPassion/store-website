@@ -163,7 +163,7 @@ All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) fo
 
 **Schema Organization:**
 
-Each schema file contains ONE primary schema with optional tightly-coupled helper schemas. Independent schemas must be in separate files (e.g., `ProductBenefitsSchema` in `product-benefits.schema.ts`, `StatsProofSchema` in `stats-proof.schema.ts`).
+Each schema file contains ONE primary schema with optional tightly-coupled helper schemas. Independent schemas must be in separate files (e.g., `ProductBenefitsSchema` in `product-benefits.schema.ts`, `ProductStatsSchema` in `product-stats.schema.ts`).
 
 **Product Data Architecture:**
 
@@ -173,15 +173,17 @@ Individual product files (`{product-id}.json`) contain ONLY core product data. E
 - **Sales copy files**: `{product-id}-sales-copy-{variant}.json` (marketing copy, PAS framework, storytelling)
 - **FAQ files**: `{product-id}-faq.json` (product-specific questions/answers)
 - **Media files**: `{product-id}-media.json` (images, videos, screenshots)
-- **Testimonials files**: `{product-id}-testimonials.json` (customer reviews)
+- **Testimonials files**: `{product-id}-testimonials.json` (customer reviews, all assumed 5-star)
+- **Stats files**: `{product-id}-stats.json` (optional: userCount, timeSaved, ratings by source)
 
 During build-time aggregation:
 
 1. Individual product files are validated against `IndividualProductSchema`
-2. External files (sales copy, FAQs, media, testimonials) are loaded
+2. External files (sales copy, FAQs, media, testimonials, stats) are loaded
 3. Active sales copy variant is merged into product as `salesCopy` object
-4. Result is validated against `AggregatedProductSchema`
-5. Aggregated products are written to `products.json` (gitignored, runtime use)
+4. Computed fields `ratingsCount` and `averageRating` are calculated from stats + testimonials (testimonials count as 5-star)
+5. Result is validated against `AggregatedProductSchema`
+6. Aggregated products are written to `products.json` (gitignored, runtime use)
 
 **Common Workflow:**
 
@@ -627,6 +629,29 @@ Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.j
 **CLI**: Use `bun run update:products` (select "Edit existing product" → "📝💬 Manage Content") for interactive FAQ and testimonial management with list, add, edit, and remove operations.
 
 **Schemas**: See `/src/schemas/faq.schema.ts` and `/src/schemas/testimonial.schema.ts` for complete field definitions.
+
+**Note**: Testimonials no longer have a `rating` field. All testimonials are assumed to be 5-star and contribute to the computed `averageRating` during aggregation.
+
+## Managing Product Stats
+
+Optional stats files: `{product-id}-stats.json`. Contains social proof metrics and ratings by source. Auto-loaded during product aggregation into `AggregatedProductSchema.stats`.
+
+**CLI**: Use `bun run update:products` (select "Edit existing product" → "📝 Manage Content" → "📊 Manage Stats") for interactive stats management:
+
+- Edit userCount and timeSaved display strings
+- Add, view, and remove ratings grouped by source
+
+**Schema**: See `/src/schemas/stats.schema.ts` for complete field definitions (`StatsSchema`, `RatingSchema`, `RatingsSchema`).
+
+**Fields**:
+
+- `userCount`: Display string (e.g., "2,000+ users")
+- `timeSaved`: Display string (e.g., "10+ hours/week")
+- `ratings`: Record of source → array of `{ id, rating (0-5, nullable), date (nullable) }`
+
+**Computed Fields**: During aggregation, `ratingsCount` and `averageRating` are computed from stats ratings combined with testimonials (each testimonial counts as a 5-star rating).
+
+**Note**: Stats are stored in separate files, NOT in individual product JSON files. The stats property only exists in `AggregatedProductSchema` (loaded during aggregation), not in `IndividualProductSchema`.
 
 ## Testing Requirements
 

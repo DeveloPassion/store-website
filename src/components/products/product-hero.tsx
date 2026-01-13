@@ -165,32 +165,44 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         )}
 
                         {/* Stats Proof */}
-                        {product.statsProof && (
+                        {(product.stats || product.averageRating !== undefined) && (
                             <div className='mb-8 flex flex-wrap gap-6'>
-                                {product.statsProof.userCount && (
+                                {product.stats?.userCount && (
                                     <div>
                                         <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                            {product.statsProof.userCount}
+                                            {product.stats.userCount}
                                         </div>
                                         <div className='text-primary/60 text-sm'>Users</div>
                                     </div>
                                 )}
-                                {product.statsProof.timeSaved && (
+                                {product.stats?.timeSaved && (
                                     <div>
                                         <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                            {product.statsProof.timeSaved}
+                                            {product.stats.timeSaved}
                                         </div>
                                         <div className='text-primary/60 text-sm'>Time Saved</div>
                                     </div>
                                 )}
-                                {product.statsProof.rating && (
-                                    <div>
-                                        <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                            {product.statsProof.rating}
+                                {product.averageRating !== undefined &&
+                                    product.ratingsCount !== undefined &&
+                                    product.ratingsCount > 0 && (
+                                        <div>
+                                            <div className='flex items-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl'>
+                                                {product.averageRating.toFixed(1)}
+                                                <FaStar className='h-5 w-5 sm:h-6 sm:w-6' />
+                                            </div>
+                                            <div className='text-primary/60 text-sm'>
+                                                Rating (
+                                                <a
+                                                    href='#testimonials'
+                                                    className='hover:text-secondary underline transition-colors'
+                                                >
+                                                    {product.ratingsCount}
+                                                </a>
+                                                )
+                                            </div>
                                         </div>
-                                        <div className='text-primary/60 text-sm'>Rating</div>
-                                    </div>
-                                )}
+                                    )}
                             </div>
                         )}
 

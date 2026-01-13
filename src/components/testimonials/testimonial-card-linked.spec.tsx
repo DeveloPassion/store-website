@@ -11,7 +11,6 @@ const renderWithRouter = (component: React.ReactElement) => {
 const createMockTestimonial = (overrides: Partial<Testimonial> = {}): Testimonial => ({
     id: 'testimonial-1',
     author: 'John Doe',
-    rating: 5,
     quote: 'This is an amazing product! It changed my life.',
     featured: true,
     ...overrides
@@ -60,8 +59,8 @@ describe('TestimonialCardLinked Component', () => {
         expect(getByText('Test Product')).toBeInTheDocument()
     })
 
-    it('should render all 5 stars when rating is 5', () => {
-        const testimonial = createMockTestimonial({ rating: 5 })
+    it('should render all 5 stars (all testimonials are 5-star)', () => {
+        const testimonial = createMockTestimonial()
         const { container } = renderWithRouter(
             <TestimonialCardLinked
                 testimonial={testimonial}
@@ -74,22 +73,6 @@ describe('TestimonialCardLinked Component', () => {
         const stars = container.querySelectorAll('.text-secondary')
         // 5 stars + 1 product badge with same class
         expect(stars.length).toBeGreaterThanOrEqual(5)
-    })
-
-    it('should render correct number of filled stars based on rating', () => {
-        const testimonial = createMockTestimonial({ rating: 3 })
-        const { container } = renderWithRouter(
-            <TestimonialCardLinked
-                testimonial={testimonial}
-                productName='Test Product'
-                productId='test-product'
-                animated={false}
-            />
-        )
-
-        const filledStars = container.querySelectorAll('.text-secondary')
-        // At least 3 stars should be filled (might include other elements with same class)
-        expect(filledStars.length).toBeGreaterThanOrEqual(3)
     })
 
     it('should render role when provided', () => {

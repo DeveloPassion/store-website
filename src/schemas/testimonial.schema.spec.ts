@@ -15,7 +15,6 @@ describe('Testimonial Schema Validation', () => {
         avatarUrl: 'https://example.com/avatar.jpg',
         twitterHandle: '@johndoe',
         twitterUrl: 'https://twitter.com/johndoe',
-        rating: 5,
         quote: 'This product changed my workflow completely!',
         featured: true
     }
@@ -50,14 +49,6 @@ describe('Testimonial Schema Validation', () => {
 
         it('should reject testimonial with empty author', () => {
             const invalid = { ...validTestimonial, author: '' }
-            const result = TestimonialSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject testimonial without rating', () => {
-            const invalid = Object.fromEntries(
-                Object.entries(validTestimonial).filter(([key]) => key !== 'rating')
-            )
             const result = TestimonialSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
@@ -142,62 +133,11 @@ describe('Testimonial Schema Validation', () => {
             const minimal = {
                 id: 'test-1',
                 author: 'Jane Smith',
-                rating: 4,
                 quote: 'Great product!',
                 featured: false
             }
             const result = TestimonialSchema.safeParse(minimal)
             expect(result.success).toBe(true)
-        })
-    })
-
-    describe('TestimonialSchema - Rating Validation', () => {
-        it('should accept rating of 1', () => {
-            const valid = { ...validTestimonial, rating: 1 }
-            const result = TestimonialSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept rating of 5', () => {
-            const valid = { ...validTestimonial, rating: 5 }
-            const result = TestimonialSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept rating of 3', () => {
-            const valid = { ...validTestimonial, rating: 3 }
-            const result = TestimonialSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should reject rating of 0', () => {
-            const invalid = { ...validTestimonial, rating: 0 }
-            const result = TestimonialSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject rating of 6', () => {
-            const invalid = { ...validTestimonial, rating: 6 }
-            const result = TestimonialSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject negative rating', () => {
-            const invalid = { ...validTestimonial, rating: -1 }
-            const result = TestimonialSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject decimal rating', () => {
-            const invalid = { ...validTestimonial, rating: 4.5 }
-            const result = TestimonialSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject string rating', () => {
-            const invalid = { ...validTestimonial, rating: '5' }
-            const result = TestimonialSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
         })
     })
 
@@ -290,14 +230,12 @@ describe('Testimonial Schema Validation', () => {
                 {
                     ...validTestimonial,
                     id: 'testimonial-2',
-                    author: 'Jane Smith',
-                    rating: 4
+                    author: 'Jane Smith'
                 },
                 {
                     ...validTestimonial,
                     id: 'testimonial-3',
-                    author: 'Bob Johnson',
-                    rating: 5
+                    author: 'Bob Johnson'
                 }
             ]
             const result = TestimonialsArraySchema.safeParse(testimonials)
@@ -309,8 +247,8 @@ describe('Testimonial Schema Validation', () => {
             expect(result.success).toBe(true)
         })
 
-        it('should reject array with invalid testimonial', () => {
-            const testimonials = [validTestimonial, { ...validTestimonial, rating: 10 }]
+        it('should reject array with invalid testimonial (missing quote)', () => {
+            const testimonials = [validTestimonial, { ...validTestimonial, quote: '' }]
             const result = TestimonialsArraySchema.safeParse(testimonials)
             expect(result.success).toBe(false)
         })
@@ -452,7 +390,7 @@ describe('Testimonial Schema Validation', () => {
 
         it('should reject file with invalid testimonial in data array', () => {
             const invalid = {
-                data: [validTestimonial, { ...validTestimonial, rating: 10 }]
+                data: [validTestimonial, { ...validTestimonial, quote: '' }]
             }
             const result = TestimonialFileSchema.safeParse(invalid)
             expect(result.success).toBe(false)

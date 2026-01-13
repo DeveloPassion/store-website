@@ -54,5 +54,5 @@
     "isSubscription": false,
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
-    "statsProof": null
+    "stats": null
 }

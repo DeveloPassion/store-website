@@ -230,7 +230,7 @@ describe('buildGumroadUrlFromProduct', () => {
         faqs: [],
         landingPageUrl: null,
         dsebastienUrl: null,
-        statsProof: null,
+        stats: null,
         variants: null,
         isSubscription: false,
         paymentFrequencies: null,

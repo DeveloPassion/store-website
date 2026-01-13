@@ -37,7 +37,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     media: [],
     landingPageUrl: null,
     dsebastienUrl: null,
-    statsProof: null,
+    stats: null,
     variants: null,
     isSubscription: false,
     paymentFrequencies: null,
@@ -213,22 +213,24 @@ describe('ProductCTA Component', () => {
 
     it('should display stats proof when provided', () => {
         const product = createMockProduct({
-            statsProof: {
+            stats: {
                 userCount: '10,000+',
-                rating: '4.9/5',
-                timeSaved: '20 hours/month'
-            }
+                ratings: {}
+            },
+            averageRating: 4.9,
+            ratingsCount: 100
         })
         const { getByText } = renderWithRouter(<ProductCTA product={product} />)
 
         expect(getByText('10,000+')).toBeInTheDocument()
         expect(getByText('Happy Users')).toBeInTheDocument()
-        expect(getByText('4.9/5')).toBeInTheDocument()
-        expect(getByText('Average Rating')).toBeInTheDocument()
+        expect(getByText('4.9')).toBeInTheDocument()
+        expect(getByText(/Average Rating/)).toBeInTheDocument()
+        expect(getByText('100 reviews')).toBeInTheDocument()
     })
 
     it('should not render stats proof section when not provided', () => {
-        const product = createMockProduct({ statsProof: undefined })
+        const product = createMockProduct({ stats: undefined })
         const { queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
         expect(queryByText('Happy Users')).not.toBeInTheDocument()
@@ -237,8 +239,9 @@ describe('ProductCTA Component', () => {
 
     it('should display stats proof partially when only some fields provided', () => {
         const product = createMockProduct({
-            statsProof: {
-                userCount: '5,000+'
+            stats: {
+                userCount: '5,000+',
+                ratings: {}
             }
         })
         const { getByText, queryByText } = renderWithRouter(<ProductCTA product={product} />)

@@ -31,8 +31,8 @@
  *
  *   Testimonial operations:
  *     bun run update:products -- --operation testimonial:list --id product-id
- *     bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "..." --testimonial-quote "..." --testimonial-rating 5 [--testimonial-featured true] [--testimonial-role "..."] [--testimonial-company "..."] [--testimonial-id "custom-id"]
- *     bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" [--testimonial-author "..."] [--testimonial-quote "..."] [--testimonial-rating 4] [--testimonial-featured false]
+ *     bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "..." --testimonial-quote "..."  [--testimonial-featured true] [--testimonial-role "..."] [--testimonial-company "..."] [--testimonial-id "custom-id"]
+ *     bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" [--testimonial-author "..."] [--testimonial-quote "..."] [] [--testimonial-featured false]
  *     bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"]
  *
  *   Sales Copy operations:
@@ -82,7 +82,7 @@
  *     --testimonial-id <string>           Testimonial ID
  *     --testimonial-author <string>       Author name
  *     --testimonial-quote <string>        Quote text
- *     --testimonial-rating <1-5>          Rating
+ *
  *     --testimonial-featured <true|false> Featured status
  *     --testimonial-role <string>         Author role
  *     --testimonial-company <string>      Author company
@@ -130,6 +130,7 @@ import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
 import { FAQFileSchema } from '../src/schemas/faq.schema.js'
 import { TestimonialFileSchema } from '../src/schemas/testimonial.schema.js'
+import { StatsFileSchema, type Stats, type Rating } from '../src/schemas/stats.schema.js'
 import { SalesCopyFileSchema } from '../src/schemas/sales-copy.schema.js'
 import { discoverSalesCopyFiles } from './utils/aggregate-products.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
@@ -209,7 +210,6 @@ interface CliArgs {
     'testimonial-id'?: string
     'testimonial-author'?: string
     'testimonial-quote'?: string
-    'testimonial-rating'?: string
     'testimonial-featured'?: string
     'testimonial-role'?: string
     'testimonial-company'?: string
@@ -789,10 +789,10 @@ export function saveTestimonials(
 ): void {
     const testimonialPath = getTestimonialPath(productsDir, productId)
 
-    // Sort by featured (featured first), then by rating
+    // Sort by featured (featured first), then by author name
     const sorted = [...testimonials].sort((a, b) => {
         if (a.featured !== b.featured) return a.featured ? -1 : 1
-        return b.rating - a.rating
+        return a.author.localeCompare(b.author)
     })
 
     // Wrap in file format and validate
@@ -823,7 +823,6 @@ function addTestimonialToProduct(
     const newTestimonial: Testimonial = {
         id,
         author: testimonialData.author,
-        rating: testimonialData.rating,
         quote: testimonialData.quote,
         featured: testimonialData.featured,
         role: testimonialData.role,
@@ -881,11 +880,121 @@ function removeTestimonialFromProduct(
 
 function listTestimonialsInProduct(productsDir: string, productId: string): Testimonial[] {
     const testimonials = loadTestimonials(productsDir, productId)
-    // Sort by featured (featured first), then by rating
+    // Sort by featured (featured first), then by author name
     return testimonials.sort((a, b) => {
         if (a.featured !== b.featured) return a.featured ? -1 : 1
-        return b.rating - a.rating
+        return a.author.localeCompare(b.author)
     })
+}
+
+// ============================================================================
+// Stats Helper Functions
+// ============================================================================
+
+function getStatsPath(productsDir: string, productId: string): string {
+    return join(productsDir, `${productId}-stats.json`)
+}
+
+export function loadStats(productsDir: string, productId: string): Stats | null {
+    const statsPath = getStatsPath(productsDir, productId)
+    if (!existsSync(statsPath)) {
+        return null
+    }
+
+    try {
+        const content = readFileSync(statsPath, 'utf-8')
+        const fileData = JSON.parse(content)
+        const result = StatsFileSchema.safeParse(fileData)
+
+        if (!result.success) {
+            throw new Error(`Invalid stats data: ${result.error.message}`)
+        }
+
+        return result.data.data
+    } catch (error) {
+        if (error instanceof SyntaxError) {
+            throw new Error(
+                `Failed to parse stats file for ${productId} (invalid JSON): ${error.message}`
+            )
+        }
+        throw error
+    }
+}
+
+export function saveStats(productsDir: string, productId: string, stats: Stats): void {
+    const statsPath = getStatsPath(productsDir, productId)
+
+    // Wrap in file format and validate
+    const fileData = { data: stats }
+    const result = StatsFileSchema.safeParse(fileData)
+    if (!result.success) {
+        throw new Error(`Validation failed: ${result.error.message}`)
+    }
+
+    const json = JSON.stringify(fileData, null, 2)
+    writeFileSync(statsPath, json + '\n', 'utf-8')
+}
+
+function generateRatingId(source: string): string {
+    return `${source}-${Date.now()}`
+}
+
+function countTotalRatings(stats: Stats | null): number {
+    if (!stats?.ratings) return 0
+    return Object.values(stats.ratings).reduce((total, ratings) => total + ratings.length, 0)
+}
+
+function formatStatsDisplay(stats: Stats | null): string {
+    if (!stats) {
+        return `${colors.dim}No stats configured${colors.reset}`
+    }
+
+    const lines: string[] = []
+
+    if (stats.userCount) {
+        lines.push(`   User Count: ${colors.cyan}${stats.userCount}${colors.reset}`)
+    }
+
+    if (stats.timeSaved) {
+        lines.push(`   Time Saved: ${colors.cyan}${stats.timeSaved}${colors.reset}`)
+    }
+
+    if (stats.ratings && Object.keys(stats.ratings).length > 0) {
+        const totalRatings = countTotalRatings(stats)
+        lines.push(`   Ratings: ${colors.cyan}${totalRatings} total${colors.reset}`)
+
+        for (const [source, ratings] of Object.entries(stats.ratings)) {
+            if (ratings.length > 0) {
+                const avgRating =
+                    ratings.reduce((sum, r) => sum + (r.rating || 0), 0) / ratings.length
+                lines.push(
+                    `     • ${source}: ${ratings.length} ratings (avg: ${avgRating.toFixed(1)})`
+                )
+            }
+        }
+    }
+
+    return lines.length > 0 ? lines.join('\n') : `${colors.dim}No stats data${colors.reset}`
+}
+
+function formatRatingsList(stats: Stats | null): string {
+    if (!stats?.ratings || Object.keys(stats.ratings).length === 0) {
+        return 'No ratings found.'
+    }
+
+    const lines: string[] = []
+
+    for (const [source, ratings] of Object.entries(stats.ratings)) {
+        lines.push(`\n${colors.bright}${source}${colors.reset} (${ratings.length} ratings):`)
+
+        for (const rating of ratings) {
+            const ratingValue = rating.rating !== null ? `${rating.rating}/5` : 'N/A'
+            const dateStr = rating.date || 'No date'
+            lines.push(`  • ${rating.id}: ${colors.cyan}${ratingValue}${colors.reset} (${dateStr})`)
+        }
+    }
+
+    return lines.join('\n')
 }
 
 function formatFaqList(faqs: FAQ[]): string {
@@ -931,17 +1040,10 @@ function formatTestimonialList(testimonials: Testimonial[]): string {
                 ? `${testimonial.role || ''}${testimonial.role && testimonial.company ? ' at ' : ''}${testimonial.company || ''}`
                 : ''
 
-        return [
-            featuredMark,
-            testimonial.id,
-            testimonial.author,
-            `${testimonial.rating}/5`,
-            truncatedQuote,
-            authorInfo
-        ]
+        return [featuredMark, testimonial.id, testimonial.author, truncatedQuote, authorInfo]
     })
 
-    const headers = ['★', 'ID', 'Author', 'Rating', 'Quote', 'Info']
+    const headers = ['★', 'ID', 'Author', 'Quote', 'Info']
     const columnWidths = headers.map((header, i) =>
         Math.max(header.length, ...rows.map((row) => row[i]?.length || 0))
     )
@@ -1156,6 +1258,7 @@ function loadAllProducts(): Product[] {
             !f.endsWith('-faq.json') &&
             !f.endsWith('-testimonials.json') &&
             !f.endsWith('-media.json') &&
+            !f.endsWith('-stats.json') &&
             !f.includes('-sales-copy-')
     )
 
@@ -2548,7 +2651,7 @@ async function manageProductMedia(product: Product): Promise<void> {
 }
 
 /**
- * Manage product content (FAQs and testimonials) - interactive submenu
+ * Manage product content (FAQs, testimonials, and stats) - interactive submenu
  */
 async function manageProductContent(product: Product): Promise<void> {
     let managing = true
@@ -2556,14 +2659,20 @@ async function manageProductContent(product: Product): Promise<void> {
     while (managing) {
         const faqCount = listFaqsInProduct(PRODUCTS_DIR, product.id).length
         const testimonialCount = listTestimonialsInProduct(PRODUCTS_DIR, product.id).length
+        const stats = loadStats(PRODUCTS_DIR, product.id)
+        const ratingsCount = countTotalRatings(stats)
 
         const contentType = await select({
-            message: `Content Management (${faqCount} FAQs, ${testimonialCount} Testimonials):`,
+            message: `Content Management (${faqCount} FAQs, ${testimonialCount} Testimonials, ${ratingsCount} Ratings):`,
             choices: [
                 { name: `📝 Manage FAQs (${faqCount} items)`, value: 'faqs' },
                 {
                     name: `💬 Manage Testimonials (${testimonialCount} items)`,
                     value: 'testimonials'
+                },
+                {
+                    name: `📊 Manage Stats (${ratingsCount} ratings)`,
+                    value: 'stats'
                 },
                 { name: '← Back to edit menu', value: 'back' }
             ],
@@ -2580,6 +2689,8 @@ async function manageProductContent(product: Product): Promise<void> {
                 await manageFaqs(product)
             } else if (contentType === 'testimonials') {
                 await manageTestimonials(product)
+            } else if (contentType === 'stats') {
+                await manageStats(product)
             }
         } catch (error) {
             showError(error instanceof Error ? error.message : String(error))
@@ -2833,17 +2944,6 @@ async function manageTestimonials(product: Product): Promise<void> {
                             message: 'Twitter URL (optional):'
                         },
                         {
-                            type: 'number',
-                            name: 'rating',
-                            message: 'Rating (1-5):',
-                            default: 5,
-                            validate: (input) => {
-                                const num = Number(input)
-                                if (num < 1 || num > 5) return 'Rating must be between 1 and 5'
-                                return true
-                            }
-                        },
-                        {
                             type: 'input',
                             name: 'quote',
                             message: 'Quote:',
@@ -2860,7 +2960,6 @@ async function manageTestimonials(product: Product): Promise<void> {
                     const newTestimonial = addTestimonialToProduct(PRODUCTS_DIR, product.id, {
                         id: answers.id,
                         author: answers.author,
-                        rating: answers.rating,
                         quote: answers.quote,
                         featured: answers.featured,
                         role: answers.role || undefined,
@@ -2883,7 +2982,7 @@ async function manageTestimonials(product: Product): Promise<void> {
                     const testimonialId = await select({
                         message: 'Select testimonial to edit:',
                         choices: testimonials.map((t) => ({
-                            name: `${t.author} (${t.rating}/5) - "${t.quote.substring(0, 50)}..."`,
+                            name: `${t.author} - "${t.quote.substring(0, 50)}..."`,
                             value: t.id
                         }))
                     })
@@ -2922,12 +3021,6 @@ async function manageTestimonials(product: Product): Promise<void> {
                             default: currentTestimonial.twitterUrl || ''
                         },
                         {
-                            type: 'number',
-                            name: 'rating',
-                            message: 'Rating (1-5):',
-                            default: currentTestimonial.rating
-                        },
-                        {
                             type: 'input',
                             name: 'quote',
                             message: 'Quote:',
@@ -2943,7 +3036,6 @@ async function manageTestimonials(product: Product): Promise<void> {
 
                     editTestimonialInProduct(PRODUCTS_DIR, product.id, testimonialId, {
                         author: answers.author,
-                        rating: answers.rating,
                         quote: answers.quote,
                         featured: answers.featured,
                         role: answers.role || undefined,
@@ -2976,6 +3068,252 @@ async function manageTestimonials(product: Product): Promise<void> {
                     if (confirmed) {
                         removeTestimonialFromProduct(PRODUCTS_DIR, product.id, testimonialId)
                         showSuccess(`Testimonial removed: ${testimonialId}`)
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+// ============================================================================
+// Stats Management
+// ============================================================================
+
+/**
+ * Manage stats for a product (userCount, timeSaved, ratings)
+ */
+async function manageStats(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        const stats = loadStats(PRODUCTS_DIR, product.id)
+        const totalRatings = countTotalRatings(stats)
+
+        const action = await select({
+            message: `Stats Management (${totalRatings} ratings):`,
+            choices: [
+                { name: '📊 View current stats', value: 'view' },
+                { name: '👥 Edit user count', value: 'userCount' },
+                { name: '⏱️ Edit time saved', value: 'timeSaved' },
+                { name: '⭐ Manage ratings', value: 'ratings' },
+                { name: '← Back', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'view': {
+                    console.log(
+                        `\n📊 Stats for product: ${product.name} ${colors.dim}(${product.id})${colors.reset}\n`
+                    )
+                    console.log(formatStatsDisplay(stats))
+                    if (stats?.ratings) {
+                        console.log(formatRatingsList(stats))
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'userCount': {
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'userCount',
+                            message: 'User count (e.g., "2,000+ users", leave empty to clear):',
+                            default: stats?.userCount || ''
+                        }
+                    ])
+
+                    const updatedStats: Stats = {
+                        ...stats,
+                        userCount: answers.userCount || undefined
+                    }
+                    saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                    showSuccess('User count updated')
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'timeSaved': {
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'timeSaved',
+                            message: 'Time saved (e.g., "10+ hours/week", leave empty to clear):',
+                            default: stats?.timeSaved || ''
+                        }
+                    ])
+
+                    const updatedStats: Stats = {
+                        ...stats,
+                        timeSaved: answers.timeSaved || undefined
+                    }
+                    saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                    showSuccess('Time saved updated')
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'ratings': {
+                    await manageRatings(product, stats)
+                    break
+                }
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Manage ratings for a product (add, remove ratings grouped by source)
+ */
+async function manageRatings(product: Product, initialStats: Stats | null): Promise<void> {
+    let managing = true
+    let stats = initialStats
+
+    while (managing) {
+        const totalRatings = countTotalRatings(stats)
+
+        const action = await select({
+            message: `Ratings Management (${totalRatings} total):`,
+            choices: [
+                { name: `📋 List all ratings (${totalRatings} items)`, value: 'list' },
+                { name: '➕ Add new rating', value: 'add' },
+                { name: '🗑️ Remove rating', value: 'remove' },
+                { name: '← Back', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'list': {
+                    console.log(
+                        `\n⭐ Ratings for product: ${product.name} ${colors.dim}(${product.id})${colors.reset}\n`
+                    )
+                    console.log(formatRatingsList(stats))
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'add': {
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'source',
+                            message: 'Rating source (e.g., "gumroad", "twitter", "email"):',
+                            default: 'gumroad',
+                            validate: (input) => (input ? true : 'Source is required')
+                        },
+                        {
+                            type: 'number',
+                            name: 'rating',
+                            message: 'Rating (1-5, or leave empty for no rating):',
+                            default: 5,
+                            validate: (input) => {
+                                if (input === '' || input === null) return true
+                                const num = Number(input)
+                                if (isNaN(num) || num < 1 || num > 5)
+                                    return 'Rating must be between 1 and 5'
+                                return true
+                            }
+                        },
+                        {
+                            type: 'input',
+                            name: 'date',
+                            message: 'Date (YYYY-MM-DD, or leave empty):',
+                            default: new Date().toISOString().split('T')[0]
+                        }
+                    ])
+
+                    const newRating: Rating = {
+                        id: generateRatingId(answers.source),
+                        rating: answers.rating !== '' ? Number(answers.rating) : null,
+                        date: answers.date || null
+                    }
+
+                    const updatedStats: Stats = {
+                        ...stats,
+                        ratings: {
+                            ...(stats?.ratings || {}),
+                            [answers.source]: [
+                                ...(stats?.ratings?.[answers.source] || []),
+                                newRating
+                            ]
+                        }
+                    }
+
+                    saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                    stats = updatedStats
+                    showSuccess(`Rating added: ${newRating.id}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'remove': {
+                    if (totalRatings === 0) {
+                        showError('No ratings found for this product')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    // Build choices from all ratings
+                    const choices: { name: string; value: { source: string; id: string } }[] = []
+                    if (stats?.ratings) {
+                        for (const [source, ratings] of Object.entries(stats.ratings)) {
+                            for (const rating of ratings) {
+                                const ratingValue =
+                                    rating.rating !== null ? `${rating.rating}/5` : 'N/A'
+                                choices.push({
+                                    name: `[${source}] ${rating.id}: ${ratingValue}`,
+                                    value: { source, id: rating.id }
+                                })
+                            }
+                        }
+                    }
+
+                    const selected = await select({
+                        message: 'Select rating to remove:',
+                        choices
+                    })
+
+                    const confirmed = await confirm(
+                        `${colors.red}Confirm removal of rating ${selected.id}?${colors.reset}`
+                    )
+
+                    if (confirmed) {
+                        const updatedRatings = { ...(stats?.ratings || {}) }
+                        updatedRatings[selected.source] = updatedRatings[selected.source].filter(
+                            (r) => r.id !== selected.id
+                        )
+
+                        // Remove empty source arrays
+                        if (updatedRatings[selected.source].length === 0) {
+                            delete updatedRatings[selected.source]
+                        }
+
+                        const updatedStats: Stats = {
+                            ...stats,
+                            ratings:
+                                Object.keys(updatedRatings).length > 0 ? updatedRatings : undefined
+                        }
+
+                        saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                        stats = updatedStats
+                        showSuccess(`Rating removed: ${selected.id}`)
                     }
                     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
                     break

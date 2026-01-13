@@ -7,10 +7,10 @@ import {
 import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
-const createMockTestimonial = (id: string, rating: number): Testimonial => ({
+// All testimonials are assumed to be 5-star
+const createMockTestimonial = (id: string): Testimonial => ({
     id,
     author: `Author ${id}`,
-    rating,
     quote: `Quote ${id}`,
     featured: false
 })
@@ -36,7 +36,7 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     crossSellIds: [],
     landingPageUrl: null,
     dsebastienUrl: null,
-    statsProof: null,
+    stats: null,
     variants: null,
     isSubscription: false,
     paymentFrequencies: null,
@@ -68,11 +68,8 @@ describe('calculateTestimonialStats', () => {
     describe('with Product[] input', () => {
         it('should calculate stats correctly for products with testimonials', () => {
             const products: Product[] = [
-                createMockProduct('1', [
-                    createMockTestimonial('t1', 5),
-                    createMockTestimonial('t2', 4)
-                ]),
-                createMockProduct('2', [createMockTestimonial('t3', 5)]),
+                createMockProduct('1', [createMockTestimonial('t1'), createMockTestimonial('t2')]),
+                createMockProduct('2', [createMockTestimonial('t3')]),
                 createMockProduct('3', []) // No testimonials
             ]
 
@@ -80,7 +77,7 @@ describe('calculateTestimonialStats', () => {
 
             expect(stats.totalTestimonials).toBe(3)
             expect(stats.productsWithTestimonials).toBe(2)
-            expect(stats.averageRating).toBeCloseTo(4.666666667, 2) // (5+4+5) / 3
+            expect(stats.averageRating).toBe(5) // All testimonials are 5-star
         })
 
         it('should handle products with no testimonials', () => {
@@ -113,12 +110,12 @@ describe('calculateTestimonialStats', () => {
             expect(stats.averageRating).toBe(0)
         })
 
-        it('should calculate correct average for single product with multiple ratings', () => {
+        it('should calculate correct stats for single product with multiple testimonials', () => {
             const products: Product[] = [
                 createMockProduct('1', [
-                    createMockTestimonial('t1', 5),
-                    createMockTestimonial('t2', 3),
-                    createMockTestimonial('t3', 4)
+                    createMockTestimonial('t1'),
+                    createMockTestimonial('t2'),
+                    createMockTestimonial('t3')
                 ])
             ]
 
@@ -126,44 +123,34 @@ describe('calculateTestimonialStats', () => {
 
             expect(stats.totalTestimonials).toBe(3)
             expect(stats.productsWithTestimonials).toBe(1)
-            expect(stats.averageRating).toBeCloseTo(4, 2) // (5+3+4) / 3 = 4
+            expect(stats.averageRating).toBe(5) // All testimonials are 5-star
         })
 
-        it('should handle all perfect ratings', () => {
+        it('should handle all testimonials as 5-star', () => {
             const products: Product[] = [
-                createMockProduct('1', [
-                    createMockTestimonial('t1', 5),
-                    createMockTestimonial('t2', 5)
-                ]),
-                createMockProduct('2', [createMockTestimonial('t3', 5)])
+                createMockProduct('1', [createMockTestimonial('t1'), createMockTestimonial('t2')]),
+                createMockProduct('2', [createMockTestimonial('t3')])
             ]
 
             const stats = calculateTestimonialStats(products)
 
             expect(stats.totalTestimonials).toBe(3)
             expect(stats.productsWithTestimonials).toBe(2)
-            expect(stats.averageRating).toBe(5)
+            expect(stats.averageRating).toBe(5) // All testimonials are 5-star
         })
 
-        it('should handle mixed ratings across multiple products', () => {
+        it('should count testimonials across multiple products', () => {
             const products: Product[] = [
-                createMockProduct('1', [
-                    createMockTestimonial('t1', 5),
-                    createMockTestimonial('t2', 5)
-                ]), // Average: 5
-                createMockProduct('2', [createMockTestimonial('t3', 4)]), // Average: 4
-                createMockProduct('3', [
-                    createMockTestimonial('t4', 3),
-                    createMockTestimonial('t5', 3)
-                ]) // Average: 3
+                createMockProduct('1', [createMockTestimonial('t1'), createMockTestimonial('t2')]),
+                createMockProduct('2', [createMockTestimonial('t3')]),
+                createMockProduct('3', [createMockTestimonial('t4'), createMockTestimonial('t5')])
             ]
 
             const stats = calculateTestimonialStats(products)
 
             expect(stats.totalTestimonials).toBe(5)
             expect(stats.productsWithTestimonials).toBe(3)
-            // Average of all testimonials: (5+5+4+3+3) / 5 = 4
-            expect(stats.averageRating).toBe(4)
+            expect(stats.averageRating).toBe(5) // All testimonials are 5-star
         })
     })
 
@@ -172,11 +159,11 @@ describe('calculateTestimonialStats', () => {
             const productsWithTestimonials: ProductWithTestimonials[] = [
                 {
                     product: createMockProduct('1', []),
-                    testimonials: [createMockTestimonial('t1', 5), createMockTestimonial('t2', 4)]
+                    testimonials: [createMockTestimonial('t1'), createMockTestimonial('t2')]
                 },
                 {
                     product: createMockProduct('2', []),
-                    testimonials: [createMockTestimonial('t3', 5)]
+                    testimonials: [createMockTestimonial('t3')]
                 }
             ]
 
@@ -184,7 +171,7 @@ describe('calculateTestimonialStats', () => {
 
             expect(stats.totalTestimonials).toBe(3)
             expect(stats.productsWithTestimonials).toBe(2)
-            expect(stats.averageRating).toBeCloseTo(4.666666667, 2) // (5+4+5) / 3
+            expect(stats.averageRating).toBe(5) // All testimonials are 5-star
         })
 
         it('should handle ProductWithTestimonials with no testimonials', () => {
@@ -212,14 +199,14 @@ describe('calculateTestimonialStats', () => {
             expect(stats.averageRating).toBe(0)
         })
 
-        it('should calculate correct average for single product with multiple ratings', () => {
+        it('should calculate correct stats for single product with multiple testimonials', () => {
             const productsWithTestimonials: ProductWithTestimonials[] = [
                 {
                     product: createMockProduct('1', []),
                     testimonials: [
-                        createMockTestimonial('t1', 5),
-                        createMockTestimonial('t2', 3),
-                        createMockTestimonial('t3', 4)
+                        createMockTestimonial('t1'),
+                        createMockTestimonial('t2'),
+                        createMockTestimonial('t3')
                     ]
                 }
             ]
@@ -228,7 +215,7 @@ describe('calculateTestimonialStats', () => {
 
             expect(stats.totalTestimonials).toBe(3)
             expect(stats.productsWithTestimonials).toBe(1)
-            expect(stats.averageRating).toBeCloseTo(4, 2) // (5+3+4) / 3 = 4
+            expect(stats.averageRating).toBe(5) // All testimonials are 5-star
         })
     })
 })

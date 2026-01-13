@@ -5,12 +5,12 @@ import { FAQSchema } from './faq.schema.js'
 import { TestimonialSchema } from './testimonial.schema.js'
 import { MediaItemSchema } from './media.schema.js'
 import { SalesCopyDataSchema } from './sales-copy.schema.js'
-import { StatsProofSchema } from './stats-proof.schema.js'
+import { StatsSchema } from './stats.schema.js'
 
 /**
  * Product Schemas - Separated for Individual and Aggregated Products
  * SINGLE SOURCE OF TRUTH for product types and validation
- * Last updated: 2026-01-13
+ * Last updated: 2026-01-13 (ProductStats refactor)
  *
  * Architecture:
  * - BaseProductSchema: Common fields shared by both individual and aggregated schemas
@@ -91,9 +91,6 @@ const BaseProductSchema = z.object({
     // Content - Strictly required
     included: z.array(z.string()).min(1, 'At least one included item is required'),
 
-    // Social Proof - Required but nullable
-    statsProof: StatsProofSchema.nullable(),
-
     // Links - Required but nullable (or empty string)
     landingPageUrl: z.string().url().nullable().or(z.literal('')),
     dsebastienUrl: z.string().url().nullable().or(z.literal('')),
@@ -134,9 +131,16 @@ export const AggregatedProductSchema = BaseProductSchema.extend({
     testimonials: z.array(TestimonialSchema), // Required (empty array if no testimonials)
     media: z.array(MediaItemSchema), // Required (empty array if no media)
 
+    // Stats - Loaded from {product-id}-stats.json during aggregation
+    stats: StatsSchema.nullable(), // Nullable if no stats file exists
+
     // Sales Copy Data - Loaded from sales copy file during aggregation
     // Strictly required (non-nullable) - aggregation fails if sales copy file is missing
-    salesCopy: SalesCopyDataSchema
+    salesCopy: SalesCopyDataSchema,
+
+    // Computed rating fields (calculated from stats.ratings + testimonials during aggregation)
+    ratingsCount: z.number().int().nonnegative().optional(),
+    averageRating: z.number().min(0).max(5).optional()
 })
 
 // Array schemas

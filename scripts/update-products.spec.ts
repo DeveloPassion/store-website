@@ -45,7 +45,6 @@ const createValidTestimonial = (overrides: Partial<Testimonial> = {}): Testimoni
     id: 'testimonial-test-1',
     author: 'John Doe',
     quote: 'This is an amazing product!',
-    rating: 5,
     featured: false,
     ...overrides
 })
@@ -457,8 +456,8 @@ describe('loadTestimonials', () => {
         const productId = 'test-product'
         const testimonialPath = join(tempDir, `${productId}-testimonials.json`)
         const testimonialData = [
-            createValidTestimonial({ id: 'test-1', rating: 5 }),
-            createValidTestimonial({ id: 'test-2', rating: 4 })
+            createValidTestimonial({ id: 'test-1' }),
+            createValidTestimonial({ id: 'test-2' })
         ]
         const fileContent = { data: testimonialData }
 
@@ -501,7 +500,7 @@ describe('loadTestimonials', () => {
                     id: 'test-1',
                     author: 'John Doe',
                     quote: 'Great product!'
-                    // Missing required fields: rating, featured
+                    // Missing required field: featured
                 }
             ]
         }
@@ -555,8 +554,8 @@ describe('saveTestimonials', () => {
     it('should save valid testimonial data to file with correct format', () => {
         const productId = 'save-test'
         const testimonialData = [
-            createValidTestimonial({ id: 'test-1', rating: 5 }),
-            createValidTestimonial({ id: 'test-2', rating: 4 })
+            createValidTestimonial({ id: 'test-1' }),
+            createValidTestimonial({ id: 'test-2' })
         ]
 
         saveTestimonials(tempDir, productId, testimonialData)
@@ -582,13 +581,13 @@ describe('saveTestimonials', () => {
         expect(savedContent.data).toEqual([])
     })
 
-    it('should sort testimonials by featured (featured first), then by rating (highest first)', () => {
+    it('should sort testimonials by featured (featured first), then by author name alphabetically', () => {
         const productId = 'sort-test'
         const testimonialData = [
-            createValidTestimonial({ id: 'test-3', featured: false, rating: 5 }),
-            createValidTestimonial({ id: 'test-1', featured: true, rating: 4 }),
-            createValidTestimonial({ id: 'test-2', featured: true, rating: 5 }),
-            createValidTestimonial({ id: 'test-4', featured: false, rating: 3 })
+            createValidTestimonial({ id: 'test-3', author: 'Zara Smith', featured: false }),
+            createValidTestimonial({ id: 'test-1', author: 'Bob Jones', featured: true }),
+            createValidTestimonial({ id: 'test-2', author: 'Alice Brown', featured: true }),
+            createValidTestimonial({ id: 'test-4', author: 'Charlie Davis', featured: false })
         ]
 
         saveTestimonials(tempDir, productId, testimonialData)
@@ -597,11 +596,11 @@ describe('saveTestimonials', () => {
         const savedContent = JSON.parse(readFileSync(testimonialPath, 'utf-8'))
         const sorted = savedContent.data
 
-        // Featured first (sorted by rating descending), then non-featured (sorted by rating descending)
-        expect(sorted[0].id).toBe('test-2') // featured, rating 5
-        expect(sorted[1].id).toBe('test-1') // featured, rating 4
-        expect(sorted[2].id).toBe('test-3') // not featured, rating 5
-        expect(sorted[3].id).toBe('test-4') // not featured, rating 3
+        // Featured first (sorted by author name ascending), then non-featured (sorted by author name ascending)
+        expect(sorted[0].id).toBe('test-2') // featured, Alice Brown
+        expect(sorted[1].id).toBe('test-1') // featured, Bob Jones
+        expect(sorted[2].id).toBe('test-4') // not featured, Charlie Davis
+        expect(sorted[3].id).toBe('test-3') // not featured, Zara Smith
     })
 
     it('should throw validation error for invalid testimonial data', () => {
@@ -622,8 +621,8 @@ describe('saveTestimonials', () => {
     it('should not mutate original testimonial array', () => {
         const productId = 'immutable-test'
         const testimonialData = [
-            createValidTestimonial({ id: 'test-2', featured: false, rating: 5 }),
-            createValidTestimonial({ id: 'test-1', featured: true, rating: 4 })
+            createValidTestimonial({ id: 'test-2', author: 'Zara Smith', featured: false }),
+            createValidTestimonial({ id: 'test-1', author: 'Alice Brown', featured: true })
         ]
         const originalOrder = testimonialData.map((t) => t.id)
 

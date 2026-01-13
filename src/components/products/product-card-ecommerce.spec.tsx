@@ -27,7 +27,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     media: [],
     landingPageUrl: null,
     dsebastienUrl: null,
-    statsProof: null,
+    stats: null,
     variants: null,
     isSubscription: false,
     paymentFrequencies: null,
@@ -213,8 +213,8 @@ describe('ProductCardEcommerce Component', () => {
         expect(wishlistButton).toBeInTheDocument()
     })
 
-    it('should display 5-star rating', () => {
-        const product = createMockProduct()
+    it('should display 5-star rating when averageRating is 5', () => {
+        const product = createMockProduct({ averageRating: 5, ratingsCount: 10 })
         const { container } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         const stars = container.querySelectorAll('.text-secondary')

@@ -34,7 +34,7 @@ const mockProduct: Product = {
     landingPageUrl: null,
     dsebastienUrl: null,
     crossSellIds: [],
-    statsProof: null,
+    stats: null,
     variants: null,
     isSubscription: false,
     paymentFrequencies: null,

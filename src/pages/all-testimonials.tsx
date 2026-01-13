@@ -72,7 +72,7 @@ const ProductTestimonialsCarousel: React.FC<{
     }
 
     return (
-        <div className='mb-8'>
+        <div id={`testimonials-${product.id}`} className='mb-8 scroll-mt-24'>
             {/* Product Name Header */}
             <h3 className='mb-4 text-xl font-bold md:text-2xl'>{product.name}</h3>
 
@@ -161,7 +161,7 @@ const ProductTestimonialsGrid: React.FC<{
     const { product, testimonials } = productWithTestimonials
 
     return (
-        <div className='mb-12'>
+        <div id={`testimonials-${product.id}`} className='mb-12 scroll-mt-24'>
             {/* Product Name Header */}
             <h3 className='mb-6 text-2xl font-bold lg:text-3xl'>{product.name}</h3>
 

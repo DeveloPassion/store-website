@@ -34,8 +34,8 @@ export function calculateTestimonialStats(
             if (testimonials.length > 0) {
                 productsWithTestimonials++
                 totalTestimonials += testimonials.length
-                const ratingSum = testimonials.reduce((sum, t) => sum + t.rating, 0)
-                totalRatingSum += ratingSum
+                // All testimonials are assumed to be 5-star
+                totalRatingSum += testimonials.length * 5
             }
         })
     } else {
@@ -45,8 +45,8 @@ export function calculateTestimonialStats(
             if (pwt.testimonials.length > 0) {
                 productsWithTestimonials++
                 totalTestimonials += pwt.testimonials.length
-                const ratingSum = pwt.testimonials.reduce((sum, t) => sum + t.rating, 0)
-                totalRatingSum += ratingSum
+                // All testimonials are assumed to be 5-star
+                totalRatingSum += pwt.testimonials.length * 5
             }
         })
     }

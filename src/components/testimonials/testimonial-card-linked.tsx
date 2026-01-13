@@ -66,14 +66,12 @@ const TestimonialCardLinked: React.FC<TestimonialCardLinkedProps> = ({
             {/* Quote Icon */}
             <FaQuoteLeft className='text-secondary/20 mb-2 h-5 w-5 md:mb-2.5 md:h-5 md:w-5 xl:mb-3 xl:h-6 xl:w-6' />
 
-            {/* Rating */}
+            {/* Rating - Always 5 stars (all testimonials are 5-star) */}
             <div className='mb-2 flex gap-1 md:mb-2 xl:mb-3'>
                 {Array.from({ length: 5 }).map((_, i) => (
                     <FaStar
                         key={i}
-                        className={`h-3 w-3 md:h-3 md:w-3 xl:h-3.5 xl:w-3.5 ${
-                            i < testimonial.rating ? 'text-secondary' : 'text-primary/20'
-                        }`}
+                        className='text-secondary h-3 w-3 md:h-3 md:w-3 xl:h-3.5 xl:w-3.5'
                     />
                 ))}
             </div>

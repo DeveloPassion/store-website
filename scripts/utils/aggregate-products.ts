@@ -12,6 +12,7 @@
  * - {product-id}-testimonials.json -> product.testimonials[] (required array, empty if file missing)
  * - {product-id}-media.json -> product.media[] (required array, empty if file missing)
  * - {product-id}-sales-copy-{variant}.json -> product.salesCopy.* (nested object: tagline, problem, features, etc.)
+ * - {product-id}-stats.json -> product.stats, product.ratingsCount, product.averageRating (computed)
  *
  * Sales copy is strictly required and loaded based on product.activeSalesCopyId (e.g., "default", "holiday-2026").
  * If sales copy is missing or invalid, the product will be skipped during aggregation.
@@ -38,6 +39,7 @@ import { SalesCopyFileSchema, type SalesCopyData } from '../../src/schemas/sales
 import type { FAQ } from '../../src/schemas/faq.schema.js'
 import type { Testimonial } from '../../src/schemas/testimonial.schema.js'
 import type { MediaItem } from '../../src/schemas/media.schema.js'
+import { StatsFileSchema, type Stats } from '../../src/schemas/stats.schema.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -151,6 +153,93 @@ export function loadMedia(productId: string): MediaItem[] {
 }
 
 /**
+ * Load stats for a product from {product-id}-stats.json
+ * Returns null if file doesn't exist
+ * @internal - Exported for testing purposes only
+ */
+export function loadStats(productId: string): Stats | null {
+    const statsPath = join(getProductsDir(), `${productId}-stats.json`)
+    if (!existsSync(statsPath)) {
+        return null
+    }
+
+    try {
+        const content = readFileSync(statsPath, 'utf-8')
+        const file = JSON.parse(content)
+
+        // Validate stats file structure
+        const validationResult = StatsFileSchema.safeParse(file)
+        if (!validationResult.success) {
+            const message = `Invalid stats file for ${productId}`
+            console.error(`❌ ${message}`)
+            validationResult.error.issues.forEach((err) => {
+                console.error(`     - ${err.path.join('.')}: ${err.message}`)
+            })
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return null
+        }
+
+        return validationResult.data.data
+    } catch (error) {
+        if (error instanceof SyntaxError) {
+            const message = `Failed to parse stats file for ${productId} (invalid JSON): ${error.message}`
+            console.error(`❌ ${message}`)
+            if (isStrictMode()) {
+                throw new Error(message)
+            }
+            return null
+        }
+        const message = `Failed to load stats for ${productId}: ${error instanceof Error ? error.message : String(error)}`
+        console.error(`❌ ${message}`)
+        if (isStrictMode()) {
+            throw new Error(message)
+        }
+        return null
+    }
+}
+
+/**
+ * Compute ratingsCount and averageRating from Stats and testimonials
+ * Testimonials count as 5-star ratings
+ * Returns undefined values if no valid ratings found
+ * @internal - Exported for testing purposes only
+ */
+export function computeRatings(
+    stats: Stats | null,
+    testimonialCount: number = 0
+): { ratingsCount?: number; averageRating?: number } {
+    const allRatings: number[] = []
+
+    // Add ratings from stats.ratings (from -stats.json file)
+    if (stats?.ratings) {
+        for (const source of Object.values(stats.ratings)) {
+            for (const ratingEntry of source) {
+                if (ratingEntry.rating !== null && ratingEntry.rating !== undefined) {
+                    allRatings.push(ratingEntry.rating)
+                }
+            }
+        }
+    }
+
+    // Add testimonials as 5-star ratings
+    for (let i = 0; i < testimonialCount; i++) {
+        allRatings.push(5)
+    }
+
+    if (allRatings.length === 0) {
+        return {}
+    }
+
+    const sum = allRatings.reduce((acc, val) => acc + val, 0)
+    return {
+        ratingsCount: allRatings.length,
+        averageRating: Math.round((sum / allRatings.length) * 100) / 100 // Round to 2 decimal places
+    }
+}
+
+/**
  * Discover all sales copy variant files for a product
  * Returns array of variant IDs (e.g., ['default', 'holiday-2026'])
  * @internal - Exported for testing purposes only
@@ -258,7 +347,7 @@ function main() {
     }
 
     // Read all JSON files from products directory
-    // Exclude FAQ, testimonial, media, and sales-copy files (they'll be loaded separately)
+    // Exclude FAQ, testimonial, media, stats, and sales-copy files (they'll be loaded separately)
     let files: string[]
     try {
         files = readdirSync(PRODUCTS_DIR).filter(
@@ -267,6 +356,7 @@ function main() {
                 !file.endsWith('-faq.json') &&
                 !file.endsWith('-testimonials.json') &&
                 !file.endsWith('-media.json') &&
+                !file.endsWith('-stats.json') &&
                 !file.includes('-sales-copy-')
         )
     } catch (error) {
@@ -311,11 +401,15 @@ function main() {
                 continue
             }
 
-            // Load FAQs, testimonials, media, and sales copy for this product
+            // Load FAQs, testimonials, media, stats, and sales copy for this product
             const faqs = loadFAQs(product.id)
             const testimonials = loadTestimonials(product.id)
             const media = loadMedia(product.id)
             const salesCopy = loadActiveSalesCopy(product.id, product.activeSalesCopyId)
+
+            // Load stats and compute ratings (testimonials count as 5-star ratings)
+            const stats = loadStats(product.id)
+            const { ratingsCount, averageRating } = computeRatings(stats, testimonials.length)
 
             // Sales copy is strictly required in aggregated schema
             if (!salesCopy) {
@@ -327,12 +421,17 @@ function main() {
 
             // Create aggregated product with proper structure
             // salesCopy is a nested object (not spread into product)
+            // stats is loaded from -stats.json file (null if missing)
+            // ratingsCount and averageRating are computed from stats + testimonials
             const aggregatedProduct: AggregatedProduct = {
                 ...product,
                 faqs,
                 testimonials,
                 media,
-                salesCopy
+                stats,
+                salesCopy,
+                ...(ratingsCount !== undefined && { ratingsCount }),
+                ...(averageRating !== undefined && { averageRating })
             }
 
             // Validate the aggregated product
@@ -352,8 +451,10 @@ function main() {
             const salesCopyInfo = product.activeSalesCopyId
                 ? `sales-copy: ${product.activeSalesCopyId}`
                 : 'no sales-copy'
+            const ratingsInfo =
+                ratingsCount !== undefined ? `${ratingsCount} ratings (avg: ${averageRating})` : ''
             console.log(
-                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media, ${salesCopyInfo})`
+                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media, ${salesCopyInfo}${ratingsInfo ? ', ' + ratingsInfo : ''})`
             )
         } catch (error) {
             const errorMsg = error instanceof Error ? error.message : String(error)

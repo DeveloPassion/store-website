@@ -7,7 +7,7 @@ import {
     ProductVariantSchema
 } from './product.schema'
 import { ProductBenefitsSchema } from './product-benefits.schema'
-import { StatsProofSchema } from './stats-proof.schema'
+import { StatsSchema, RatingSchema, RatingsSchema } from './stats.schema'
 import type { TagId } from '@/schemas/tag.schema'
 
 describe('Product Schema Validation', () => {
@@ -26,7 +26,7 @@ describe('Product Schema Validation', () => {
         secondaryCategories: [],
         tags: ['ai' as TagId],
         included: ['Item 1', 'Item 2'],
-        statsProof: null,
+        stats: null,
         landingPageUrl: null,
         dsebastienUrl: null,
         faqs: [],
@@ -219,19 +219,90 @@ describe('Product Schema Validation', () => {
         })
     })
 
-    describe('StatsProofSchema', () => {
-        it('should accept valid stats', () => {
+    describe('RatingSchema', () => {
+        it('should accept valid rating entry', () => {
+            const valid = {
+                id: 'rating-1',
+                rating: 5,
+                date: '2026-01-13'
+            }
+            expect(() => RatingSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should accept rating with null values', () => {
+            const valid = {
+                id: 'rating-1',
+                rating: null,
+                date: null
+            }
+            expect(() => RatingSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should reject rating outside 0-5 range', () => {
+            const invalid = {
+                id: 'rating-1',
+                rating: 6,
+                date: null
+            }
+            expect(() => RatingSchema.parse(invalid)).toThrow()
+        })
+
+        it('should reject rating without id', () => {
+            const invalid = {
+                id: '',
+                rating: 5,
+                date: null
+            }
+            expect(() => RatingSchema.parse(invalid)).toThrow()
+        })
+    })
+
+    describe('RatingsSchema', () => {
+        it('should accept valid ratings grouped by source', () => {
+            const valid = {
+                gumroad: [
+                    { id: 'gum-1', rating: 5, date: '2026-01-10' },
+                    { id: 'gum-2', rating: 4, date: '2026-01-11' }
+                ],
+                trustpilot: [{ id: 'tp-1', rating: 5, date: '2026-01-12' }]
+            }
+            expect(() => RatingsSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should accept empty sources', () => {
+            const valid = {
+                gumroad: []
+            }
+            expect(() => RatingsSchema.parse(valid)).not.toThrow()
+        })
+    })
+
+    describe('StatsSchema', () => {
+        it('should accept valid stats with ratings', () => {
             const valid = {
                 userCount: '10,000+',
                 timeSaved: '20 hours/month',
-                rating: '4.9/5'
+                ratings: {
+                    gumroad: [{ id: 'gum-1', rating: 5, date: '2026-01-10' }]
+                }
             }
-            expect(() => StatsProofSchema.parse(valid)).not.toThrow()
+            expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
 
-        it('should accept partial stats', () => {
-            const valid = { userCount: '5,000+' }
-            expect(() => StatsProofSchema.parse(valid)).not.toThrow()
+        it('should accept stats with only ratings', () => {
+            const valid = {
+                ratings: {
+                    gumroad: [{ id: 'gum-1', rating: 5, date: null }]
+                }
+            }
+            expect(() => StatsSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should accept stats without ratings field (ratings is optional)', () => {
+            const valid = {
+                userCount: '5,000+'
+            }
+            expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
     })
 
@@ -289,7 +360,7 @@ describe('Product Schema Validation', () => {
             const minimal = {
                 ...validProduct,
                 variants: null,
-                statsProof: null,
+                stats: null,
                 landingPageUrl: null,
                 dsebastienUrl: null
             }
@@ -409,6 +480,62 @@ describe('Product Schema Validation', () => {
 
         it('should accept valid priority', () => {
             const valid = { ...validProduct, priority: 100 }
+            const result = AggregatedProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+    })
+
+    describe('AggregatedProductSchema - Computed Rating Fields', () => {
+        it('should accept product with ratingsCount and averageRating', () => {
+            const valid = {
+                ...validProduct,
+                ratingsCount: 100,
+                averageRating: 4.8
+            }
+            const result = AggregatedProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept product without computed rating fields', () => {
+            const valid = { ...validProduct }
+            const result = AggregatedProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject negative ratingsCount', () => {
+            const invalid = {
+                ...validProduct,
+                ratingsCount: -1
+            }
+            const result = AggregatedProductSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject averageRating outside 0-5 range', () => {
+            const invalid = {
+                ...validProduct,
+                averageRating: 5.5
+            }
+            const result = AggregatedProductSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept averageRating of 0', () => {
+            const valid = {
+                ...validProduct,
+                ratingsCount: 1,
+                averageRating: 0
+            }
+            const result = AggregatedProductSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept averageRating of 5', () => {
+            const valid = {
+                ...validProduct,
+                ratingsCount: 50,
+                averageRating: 5
+            }
             const result = AggregatedProductSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })

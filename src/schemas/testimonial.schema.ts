@@ -3,7 +3,9 @@ import { z } from 'zod'
 /**
  * Zod schema for Testimonial validation
  * SINGLE SOURCE OF TRUTH for Testimonial types and validation
- * Last updated: 2026-01-09
+ * Last updated: 2026-01-13
+ *
+ * All testimonials are assumed to be 5-star ratings.
  *
  * Testimonials are stored in product-specific files:
  * src/data/products/{product-id}-testimonials.json
@@ -22,7 +24,6 @@ export const TestimonialSchema = z.object({
     avatarUrl: z.string().min(1).optional(),
     twitterHandle: z.string().optional(),
     twitterUrl: z.string().min(1).optional(),
-    rating: z.number().int().min(1).max(5, 'Rating must be between 1 and 5'),
     quote: z
         .string()
         .min(1, 'Quote is required')

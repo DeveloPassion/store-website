@@ -15,9 +15,6 @@
         "systems"
     ],
     "included": ["Complete checklist", "Components guide", "Gap analysis framework"],
-    "statsProof": {
-        "timeSaved": "Saves planning time"
-    },
     "featured": false,
     "bestValue": false,
     "bestseller": false,

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo } from 'react-icons/fa'
+import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
@@ -115,24 +115,36 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     )}
 
                     {/* Stats Proof */}
-                    {product.statsProof && (
+                    {(product.stats || product.averageRating !== undefined) && (
                         <div className='mt-8 flex flex-wrap justify-center gap-8'>
-                            {product.statsProof.userCount && (
+                            {product.stats?.userCount && (
                                 <div>
                                     <div className='text-secondary mb-1 text-2xl font-bold'>
-                                        {product.statsProof.userCount}
+                                        {product.stats.userCount}
                                     </div>
                                     <div className='text-primary/60 text-sm'>Happy Users</div>
                                 </div>
                             )}
-                            {product.statsProof.rating && (
-                                <div>
-                                    <div className='text-secondary mb-1 text-2xl font-bold'>
-                                        {product.statsProof.rating}
+                            {product.averageRating !== undefined &&
+                                product.ratingsCount !== undefined &&
+                                product.ratingsCount > 0 && (
+                                    <div>
+                                        <div className='mb-1 flex items-center gap-2 text-2xl font-bold text-yellow-400'>
+                                            {product.averageRating.toFixed(1)}
+                                            <FaStar className='h-5 w-5' />
+                                        </div>
+                                        <div className='text-primary/60 text-sm'>
+                                            Average Rating (
+                                            <a
+                                                href='#testimonials'
+                                                className='hover:text-secondary underline transition-colors'
+                                            >
+                                                {product.ratingsCount} reviews
+                                            </a>
+                                            )
+                                        </div>
                                     </div>
-                                    <div className='text-primary/60 text-sm'>Average Rating</div>
-                                </div>
-                            )}
+                                )}
                         </div>
                     )}
                 </motion.div>

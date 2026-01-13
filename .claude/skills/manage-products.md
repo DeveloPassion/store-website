@@ -114,7 +114,7 @@ bun run update:products -- --operation remove --id product-id --force
 
 ### Use Direct Editing for:
 - ✅ Cross-references (crossSellIds)
-- ✅ Advanced fields (variants, statsProof)
+- ✅ Advanced fields (variants, stats)
 - ✅ Complex included items (multi-line editing)
 
 **IMPORTANT**: Sales copy fields (tagline, description, features, benefits, PAS framework, audience, trust, SEO) are NOT in individual product files. They are in separate `{product-id}-sales-copy-{variant}.json` files. Use the CLI's Sales Copy Management operations or edit the sales copy files directly.
@@ -137,7 +137,7 @@ Individual product files (`{product-id}.json`) contain core product data WITHOUT
 - **Subscription**: isSubscription, paymentFrequencies, defaultPaymentFrequency
 - **Taxonomy**: mainCategory, secondaryCategories, tags
 - **Content**: included
-- **Social Proof**: testimonials (nullable), statsProof (nullable)
+- **Social Proof**: testimonials (nullable), stats (nullable), ratingsCount/averageRating (computed at build time)
 - **Links**: landingPageUrl, dsebastienUrl
 - **Meta**: featured, bestValue, bestseller, priority (0-100) - all strictly required
 - **Cross-sell**: crossSellIds
@@ -225,7 +225,7 @@ product.testimonials
   - Meta: `priority`
 - **Nullable**: Can be `null` or omitted
   - `variants`, `paymentFrequencies`, `defaultPaymentFrequency`
-  - `testimonials`, `statsProof`
+  - `testimonials`, `stats`
   - `landingPageUrl`, `dsebastienUrl` (can also be empty string `""`)
 - **Empty arrays allowed**: `secondaryCategories`, `crossSellIds`, `targetAudience`, `perfectFor`, `notForYou`, `trustBadges`, `guarantees`
 
@@ -495,11 +495,10 @@ bun run update:products
 # List testimonials
 bun run update:products -- --operation testimonial:list --id product-id
 
-# Add testimonial
+# Add testimonial (all testimonials are assumed 5-star)
 bun run update:products -- --operation testimonial:add --id product-id \
     --testimonial-author "John Doe" \
     --testimonial-quote "Amazing product!" \
-    --testimonial-rating 5 \
     --testimonial-featured true
 
 # Edit testimonial
@@ -687,5 +686,13 @@ All changes are validated against Zod schemas before saving:
 
 Content is automatically sorted when saved:
 - **FAQs**: By `order` field (ascending)
-- **Testimonials**: By `featured` (featured first), then by `rating` (highest first)
+- **Testimonials**: By `featured` (featured first), then by `author` name alphabetically
 - **Media**: By `group` priority, then by `order` within group
+
+### Ratings Calculation
+
+Product ratings are computed at build time during aggregation:
+- **ratingsCount**: Total count of ratings from stats file + testimonials
+- **averageRating**: Weighted average (stats ratings + testimonials as 5-star)
+- All testimonials are assumed to be 5-star ratings
+- Ratings from stats files support individual ratings with nullable values and dates

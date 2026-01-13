@@ -220,8 +220,8 @@ describe('AllTestimonialsPage Component', () => {
 
     it('should display average rating', () => {
         const { getByText } = renderWithRouter(<AllTestimonialsPage />)
-        // All testimonials: (5+5+4)/3 = 4.666... rounded to 4.7
-        expect(getByText('4.7')).toBeInTheDocument()
+        // All testimonials are 5-star: (5+5+5)/3 = 5.0
+        expect(getByText('5.0')).toBeInTheDocument()
         expect(getByText('Average Rating')).toBeInTheDocument()
     })
 

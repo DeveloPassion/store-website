@@ -200,11 +200,24 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                     {product.salesCopy?.tagline}
                 </p>
 
-                {/* Rating (placeholder) */}
+                {/* Rating */}
                 <div className='mb-3 flex items-center gap-1'>
                     {[1, 2, 3, 4, 5].map((star) => (
-                        <FaStar key={star} className='text-secondary h-3 w-3' />
+                        <FaStar
+                            key={star}
+                            className={`h-3 w-3 ${
+                                product.averageRating !== undefined &&
+                                star <= Math.round(product.averageRating)
+                                    ? 'text-secondary'
+                                    : 'text-primary/20'
+                            }`}
+                        />
                     ))}
+                    {product.ratingsCount !== undefined && product.ratingsCount > 0 && (
+                        <span className='text-primary/60 ml-1 text-xs'>
+                            ({product.ratingsCount})
+                        </span>
+                    )}
                 </div>
 
                 {/* Price and CTA */}
