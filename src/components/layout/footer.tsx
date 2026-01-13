@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router'
 import {
     FaHeart,
@@ -10,7 +10,8 @@ import {
     FaUsers,
     FaHandshake,
     FaGithub,
-    FaWrench
+    FaWrench,
+    FaSpinner
 } from 'react-icons/fa'
 import { SiBuymeacoffee } from 'react-icons/si'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
@@ -18,79 +19,137 @@ import socialsData from '@/data/socials.json'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/types/category'
 import { getFeaturedSorted } from '@/lib/collection-utils'
+import { subscribeToNewsletter } from '@/lib/ghost-api'
+
+// Ghost site configuration
+const GHOST_SITE_URL = 'https://www.dsebastien.net'
+const NEWSLETTER_STORAGE_KEY = 'newsletter_subscribed'
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear()
     const [email, setEmail] = useState('')
-    const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success'>('idle')
+    const [subscribeStatus, setSubscribeStatus] = useState<
+        'idle' | 'loading' | 'success' | 'error'
+    >('idle')
+    const [errorMessage, setErrorMessage] = useState<string>('')
+    const [hasSubscribed, setHasSubscribed] = useState<boolean>(false)
+
+    // Check localStorage for previous subscription on mount
+    useEffect(() => {
+        const subscribed = localStorage.getItem(NEWSLETTER_STORAGE_KEY)
+        if (subscribed === 'true') {
+            setHasSubscribed(true)
+            console.log('[Newsletter] User has already subscribed (from localStorage)')
+        }
+    }, [])
 
     // Get featured categories
     const featuredCategories = useMemo(() => {
         return getFeaturedSorted(categoriesData as Category[])
     }, [])
 
-    const handleNewsletterSubmit = (e: React.FormEvent) => {
+    const handleNewsletterSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        if (email.trim()) {
-            // Redirect to Ghost newsletter page
-            window.open('https://www.dsebastien.net/newsletter/', '_blank')
+        if (!email.trim()) return
+
+        setSubscribeStatus('loading')
+        setErrorMessage('')
+
+        console.log('[Newsletter] Submitting subscription for:', email)
+
+        const result = await subscribeToNewsletter(GHOST_SITE_URL, {
+            email: email.trim(),
+            newsletters: [] // Subscribe to all newsletters (empty = default)
+        })
+
+        console.log('[Newsletter] Subscription result:', result)
+
+        if (result.success) {
             setSubscribeStatus('success')
             setEmail('')
+            // Store subscription in localStorage
+            localStorage.setItem(NEWSLETTER_STORAGE_KEY, 'true')
+            setHasSubscribed(true)
+            console.log('[Newsletter] Subscription stored in localStorage')
+        } else {
+            setSubscribeStatus('error')
+            setErrorMessage(result.error || 'Subscription failed. Please try again.')
         }
     }
 
     return (
         <footer id='footer' role='contentinfo' className='border-primary/10 bg-background border-t'>
-            {/* Newsletter Section */}
-            <div className='bg-secondary/5 border-primary/10 border-b py-12 sm:py-16'>
-                <div className='mx-auto max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20'>
-                    <div className='mx-auto max-w-2xl text-center'>
-                        <h3 className='mb-2 text-2xl font-bold sm:text-3xl'>
-                            Stay Updated with Knowledge Tips
-                        </h3>
-                        <p className='text-primary/70 mb-6 text-sm sm:text-base'>
-                            Join 2,300+ knowledge workers getting weekly insights on PKM,
-                            productivity, and lifelong learning.
-                        </p>
-                        {subscribeStatus === 'success' ? (
-                            <div className='bg-secondary/10 border-secondary/30 rounded-lg border px-6 py-4'>
-                                <p className='text-secondary font-semibold'>
-                                    ✓ Thank you! Please check the new tab to complete your
-                                    subscription.
-                                </p>
-                            </div>
-                        ) : (
-                            <form
-                                onSubmit={handleNewsletterSubmit}
-                                className='mx-auto flex max-w-md flex-col gap-3 sm:flex-row'
-                            >
-                                <label htmlFor='newsletter-email' className='sr-only'>
-                                    Email address for newsletter subscription
-                                </label>
-                                <input
-                                    id='newsletter-email'
-                                    type='email'
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder='Enter your email'
-                                    required
-                                    className='bg-primary/5 border-primary/10 text-primary placeholder:text-primary/40 focus:border-secondary/50 flex-1 rounded-lg border px-4 py-3 text-sm transition-colors outline-none'
-                                    aria-describedby='newsletter-description'
-                                />
-                                <span id='newsletter-description' className='sr-only'>
-                                    Subscribe to receive updates about new products and resources
-                                </span>
-                                <button
-                                    type='submit'
-                                    className='bg-secondary hover:bg-secondary/90 rounded-lg px-6 py-3 font-semibold whitespace-nowrap text-white transition-colors'
-                                >
-                                    Subscribe
-                                </button>
-                            </form>
-                        )}
+            {/* Newsletter Section - Hidden if user already subscribed */}
+            {!hasSubscribed && (
+                <div className='bg-secondary/5 border-primary/10 border-b py-12 sm:py-16'>
+                    <div className='mx-auto max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20'>
+                        <div className='mx-auto max-w-2xl text-center'>
+                            <h3 className='mb-2 text-2xl font-bold sm:text-3xl'>
+                                Stay Updated with Knowledge Tips
+                            </h3>
+                            <p className='text-primary/70 mb-6 text-sm sm:text-base'>
+                                Join 2,300+ knowledge workers getting weekly insights on PKM,
+                                productivity, and lifelong learning.
+                            </p>
+                            {subscribeStatus === 'success' ? (
+                                <div className='bg-secondary/10 border-secondary/30 rounded-lg border px-6 py-4'>
+                                    <p className='text-secondary font-semibold'>
+                                        ✓ Success! Please check your email to confirm your
+                                        subscription.
+                                    </p>
+                                </div>
+                            ) : (
+                                <>
+                                    <form
+                                        onSubmit={handleNewsletterSubmit}
+                                        className='mx-auto flex max-w-md flex-col gap-3 sm:flex-row'
+                                    >
+                                        <label htmlFor='newsletter-email' className='sr-only'>
+                                            Email address for newsletter subscription
+                                        </label>
+                                        <input
+                                            id='newsletter-email'
+                                            type='email'
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder='Enter your email'
+                                            required
+                                            disabled={subscribeStatus === 'loading'}
+                                            className='bg-primary/5 border-primary/10 text-primary placeholder:text-primary/40 focus:border-secondary/50 flex-1 rounded-lg border px-4 py-3 text-sm transition-colors outline-none disabled:opacity-50'
+                                            aria-describedby='newsletter-description'
+                                        />
+                                        <span id='newsletter-description' className='sr-only'>
+                                            Subscribe to receive updates about new products and
+                                            resources
+                                        </span>
+                                        <button
+                                            type='submit'
+                                            disabled={subscribeStatus === 'loading'}
+                                            className='bg-secondary hover:bg-secondary/90 flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-semibold whitespace-nowrap text-white transition-colors disabled:cursor-not-allowed disabled:opacity-50'
+                                        >
+                                            {subscribeStatus === 'loading' ? (
+                                                <>
+                                                    <FaSpinner className='h-4 w-4 animate-spin' />
+                                                    Subscribing...
+                                                </>
+                                            ) : (
+                                                'Subscribe'
+                                            )}
+                                        </button>
+                                    </form>
+                                    {subscribeStatus === 'error' && errorMessage && (
+                                        <div className='mt-3 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3'>
+                                            <p className='text-sm font-semibold text-red-500'>
+                                                ⚠️ {errorMessage}
+                                            </p>
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {/* Main Footer Content */}
             <div className='py-12 sm:py-16'>
