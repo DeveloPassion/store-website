@@ -1,3 +1,48 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-video-001",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=DOy4dTLBHBQ",
+            "title": "Free Obsidian Workshop",
+            "altText": "Master Obsidian in 2.5 Hours: Complete Beginner to Advanced - Free Workshop",
+            "description": "A comprehensive free workshop covering Obsidian from beginner to advanced level in 2.5 hours",
+            "order": 0,
+            "group": "cover",
+            "youtubeId": "DOy4dTLBHBQ"
+        },
+        {
+            "id": "cover-video-002",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=BhTA_taqjyg",
+            "title": "Automatically Move Notes in Obsidian",
+            "altText": "Automatically Move Notes in Obsidian - Automate your note organization",
+            "description": "Learn how to automatically move and organize notes in Obsidian",
+            "order": 1,
+            "group": "cover",
+            "youtubeId": "BhTA_taqjyg"
+        },
+        {
+            "id": "cover-video-003",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=1bqBwFJgiUc",
+            "title": "How to Tag Notes Like a Pro",
+            "altText": "How to Tag Notes Like a Pro - Master note tagging techniques",
+            "description": "Learn professional techniques for tagging and organizing your notes effectively",
+            "order": 2,
+            "group": "cover",
+            "youtubeId": "1bqBwFJgiUc"
+        },
+        {
+            "id": "cover-video-004",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=j2q6OF5XFUc",
+            "title": "Query your notes like a pro with the Dataview and Dataview Serializer plugins",
+            "altText": "Query your notes like a pro with Dataview and Dataview Serializer plugins",
+            "description": "Learn how to query and analyze your notes using the powerful Dataview and Dataview Serializer plugins",
+            "order": 3,
+            "group": "cover",
+            "youtubeId": "j2q6OF5XFUc"
+        }
+    ]
 }

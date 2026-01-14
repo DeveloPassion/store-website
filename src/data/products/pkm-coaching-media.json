@@ -1,3 +1,15 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-video-001",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=DOy4dTLBHBQ",
+            "title": "Free Obsidian Workshop",
+            "altText": "Master Obsidian in 2.5 Hours: Complete Beginner to Advanced - Free Workshop",
+            "description": "A comprehensive free workshop covering Obsidian from beginner to advanced level in 2.5 hours",
+            "order": 0,
+            "group": "cover",
+            "youtubeId": "DOy4dTLBHBQ"
+        }
+    ]
 }

@@ -33,13 +33,90 @@
             "youtubeId": "DOy4dTLBHBQ"
         },
         {
+            "id": "cover-video-003",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=c34H1zqxSE8",
+            "title": "Obsidian Starter Kit Overview (Outdated)",
+            "altText": "Obsidian Starter Kit Overview - Introduction to the OSK (Outdated version)",
+            "description": "An overview of the Obsidian Starter Kit. Note: This video covers an older version and some features may have changed.",
+            "order": 3,
+            "group": "cover",
+            "youtubeId": "c34H1zqxSE8"
+        },
+        {
+            "id": "cover-video-004",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=_KE6WXI5Dw4",
+            "title": "Why Take and Make Notes",
+            "altText": "Why Take and Make Notes - The importance of note-taking",
+            "description": "Explore why taking and making notes is essential for learning and knowledge management",
+            "order": 4,
+            "group": "cover",
+            "youtubeId": "_KE6WXI5Dw4"
+        },
+        {
+            "id": "cover-video-005",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=BhTA_taqjyg",
+            "title": "Automatically Move Notes in Obsidian",
+            "altText": "Automatically Move Notes in Obsidian - Automate your note organization",
+            "description": "Learn how to automatically move and organize notes in Obsidian",
+            "order": 5,
+            "group": "cover",
+            "youtubeId": "BhTA_taqjyg"
+        },
+        {
+            "id": "cover-video-006",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=1bqBwFJgiUc",
+            "title": "How to Tag Notes Like a Pro",
+            "altText": "How to Tag Notes Like a Pro - Master note tagging techniques",
+            "description": "Learn professional techniques for tagging and organizing your notes effectively",
+            "order": 6,
+            "group": "cover",
+            "youtubeId": "1bqBwFJgiUc"
+        },
+        {
+            "id": "cover-video-007",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=j2q6OF5XFUc",
+            "title": "Query your notes like a pro with the Dataview and Dataview Serializer plugins",
+            "altText": "Query your notes like a pro with Dataview and Dataview Serializer plugins",
+            "description": "Learn how to query and analyze your notes using the powerful Dataview and Dataview Serializer plugins",
+            "order": 7,
+            "group": "cover",
+            "youtubeId": "j2q6OF5XFUc"
+        },
+        {
+            "id": "cover-video-008",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=IrHwD1QWako",
+            "title": "Life Tracking with Obsidian - Track Your Health, Sleep, Energy & More",
+            "altText": "Life Tracking with Obsidian - Track Your Health, Sleep, Energy & More",
+            "description": "Learn how to track your health, sleep, energy and more using Obsidian",
+            "order": 8,
+            "group": "cover",
+            "youtubeId": "IrHwD1QWako"
+        },
+        {
+            "id": "cover-video-009",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=VHdccDohK10",
+            "title": "Periodic Reviews and Journaling with Obsidian",
+            "altText": "Periodic Reviews and Journaling with Obsidian",
+            "description": "Master periodic reviews and journaling practices using Obsidian",
+            "order": 9,
+            "group": "cover",
+            "youtubeId": "VHdccDohK10"
+        },
+        {
             "id": "cover-002",
             "type": "image",
             "url": "/assets/images/products/osk/osk-books-base-cards.webp",
             "title": "Book Library",
             "altText": "Visual card layout displaying book covers in a gallery view",
             "description": "Browse your book collection in a beautiful card view",
-            "order": 3,
+            "order": 10,
             "group": "cover"
         },
         {

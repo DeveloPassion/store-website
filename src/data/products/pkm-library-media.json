@@ -1,3 +1,15 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-video-001",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=M6HNRN6SkE4",
+            "title": "PKM Library Overview",
+            "altText": "PKM Library Overview - Explore the PKM Library resources",
+            "description": "An overview of the PKM Library and its resources for personal knowledge management",
+            "order": 0,
+            "group": "cover",
+            "youtubeId": "M6HNRN6SkE4"
+        }
+    ]
 }

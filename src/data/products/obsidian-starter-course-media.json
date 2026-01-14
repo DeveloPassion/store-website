@@ -1,3 +1,37 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-video-001",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=_KE6WXI5Dw4",
+            "title": "Why Take and Make Notes",
+            "altText": "Why Take and Make Notes - The importance of note-taking",
+            "description": "Explore why taking and making notes is essential for learning and knowledge management",
+            "order": 0,
+            "group": "cover",
+            "youtubeId": "_KE6WXI5Dw4"
+        },
+        {
+            "id": "cover-video-002",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=BhTA_taqjyg",
+            "title": "Automatically Move Notes in Obsidian",
+            "altText": "Automatically Move Notes in Obsidian - Automate your note organization",
+            "description": "Learn how to automatically move and organize notes in Obsidian",
+            "order": 1,
+            "group": "cover",
+            "youtubeId": "BhTA_taqjyg"
+        },
+        {
+            "id": "cover-video-003",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=1bqBwFJgiUc",
+            "title": "How to Tag Notes Like a Pro",
+            "altText": "How to Tag Notes Like a Pro - Master note tagging techniques",
+            "description": "Learn professional techniques for tagging and organizing your notes effectively",
+            "order": 2,
+            "group": "cover",
+            "youtubeId": "1bqBwFJgiUc"
+        }
+    ]
 }
