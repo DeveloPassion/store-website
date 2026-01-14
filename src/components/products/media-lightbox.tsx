@@ -1,9 +1,12 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, type PanInfo } from 'framer-motion'
 import { FaTimes, FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa'
 import type { MediaItem } from '@/schemas/media.schema'
 import { extractYouTubeId } from './media-item'
+
+// Swipe threshold in pixels - distance needed to trigger navigation
+const SWIPE_THRESHOLD = 50
 
 export interface MediaLightboxProps {
     mediaItems: MediaItem[]
@@ -37,6 +40,24 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
     const goToNext = useCallback(() => {
         setCurrentIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1))
     }, [mediaItems.length])
+
+    // Handle swipe gestures for touch navigation
+    const handleDragEnd = useCallback(
+        (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+            const { offset, velocity } = info
+            // Use both offset and velocity for better responsiveness
+            const swipe = Math.abs(offset.x) * velocity.x
+
+            if (offset.x > SWIPE_THRESHOLD || swipe > 1000) {
+                // Swiped right - go to previous
+                goToPrevious()
+            } else if (offset.x < -SWIPE_THRESHOLD || swipe < -1000) {
+                // Swiped left - go to next
+                goToNext()
+            }
+        },
+        [goToPrevious, goToNext]
+    )
 
     // Global keyboard navigation - works regardless of focus
     useEffect(() => {
@@ -86,40 +107,44 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                     <div className='fixed inset-0 bg-black' onClick={onClose} />
                 </Transition.Child>
 
-                {/* Full-screen Dialog.Panel so all buttons are "inside" */}
-                <Dialog.Panel className='fixed inset-0'>
-                    {/* Close Button - Fixed top-right */}
-                    <button
-                        onClick={onClose}
-                        className='focus:ring-secondary hover:bg-secondary absolute top-4 right-4 z-20 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
-                        aria-label='Close lightbox'
-                    >
-                        <FaTimes className='h-6 w-6' aria-hidden='true' />
-                    </button>
-
-                    {/* Previous Button - Fixed left center */}
-                    {mediaItems.length > 1 && (
+                {/* Full-screen Dialog.Panel with opaque background */}
+                <Dialog.Panel className='fixed inset-0 bg-black'>
+                    {/* Top-right controls: Previous, Next, Close */}
+                    <div className='absolute top-4 right-4 z-20 flex items-center gap-2'>
+                        {mediaItems.length > 1 && (
+                            <>
+                                <button
+                                    onClick={goToPrevious}
+                                    className='focus:ring-secondary hover:bg-secondary cursor-pointer rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none sm:p-3'
+                                    aria-label='Previous media'
+                                >
+                                    <FaChevronLeft
+                                        className='h-5 w-5 sm:h-6 sm:w-6'
+                                        aria-hidden='true'
+                                    />
+                                </button>
+                                <button
+                                    onClick={goToNext}
+                                    className='focus:ring-secondary hover:bg-secondary cursor-pointer rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none sm:p-3'
+                                    aria-label='Next media'
+                                >
+                                    <FaChevronRight
+                                        className='h-5 w-5 sm:h-6 sm:w-6'
+                                        aria-hidden='true'
+                                    />
+                                </button>
+                            </>
+                        )}
                         <button
-                            onClick={goToPrevious}
-                            className='focus:ring-secondary hover:bg-secondary absolute top-1/2 left-4 z-20 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
-                            aria-label='Previous media'
+                            onClick={onClose}
+                            className='focus:ring-secondary hover:bg-secondary cursor-pointer rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none sm:p-3'
+                            aria-label='Close lightbox'
                         >
-                            <FaChevronLeft className='h-6 w-6' aria-hidden='true' />
+                            <FaTimes className='h-5 w-5 sm:h-6 sm:w-6' aria-hidden='true' />
                         </button>
-                    )}
+                    </div>
 
-                    {/* Next Button - Fixed right center */}
-                    {mediaItems.length > 1 && (
-                        <button
-                            onClick={goToNext}
-                            className='focus:ring-secondary hover:bg-secondary absolute top-1/2 right-4 z-20 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
-                            aria-label='Next media'
-                        >
-                            <FaChevronRight className='h-6 w-6' aria-hidden='true' />
-                        </button>
-                    )}
-
-                    <div className='flex min-h-full items-center justify-center p-4'>
+                    <div className='flex min-h-full items-center justify-center p-2 sm:p-4'>
                         <Transition.Child
                             as={Fragment}
                             enter='ease-out duration-300'
@@ -129,9 +154,15 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                             leaveFrom='opacity-100 scale-100'
                             leaveTo='opacity-0 scale-95'
                         >
-                            <div className='relative w-full max-w-7xl px-16'>
-                                {/* Media Container */}
-                                <div className='flex items-center justify-center'>
+                            <div className='relative w-full max-w-7xl px-0 sm:px-16'>
+                                {/* Swipeable Media Container */}
+                                <motion.div
+                                    className='flex touch-pan-y items-center justify-center'
+                                    drag={mediaItems.length > 1 ? 'x' : false}
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={0.2}
+                                    onDragEnd={handleDragEnd}
+                                >
                                     {/* Media with Animation - max-h accounts for title, counter, and thumbnails below */}
                                     <AnimatePresence mode='wait'>
                                         {currentMedia?.type === 'image' ? (
@@ -139,16 +170,17 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                                 key={currentIndex}
                                                 src={currentMedia.url}
                                                 alt={currentMedia.altText}
-                                                className='max-h-[50vh] w-auto rounded-lg shadow-2xl sm:max-h-[55vh]'
+                                                className='max-h-[60vh] w-auto rounded-lg shadow-2xl sm:max-h-[55vh]'
                                                 initial={{ opacity: 0, x: 100 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -100 }}
                                                 transition={{ duration: 0.3 }}
+                                                draggable={false}
                                             />
                                         ) : currentMedia?.type === 'video' && youtubeId ? (
                                             <motion.div
                                                 key={currentIndex}
-                                                className='aspect-video max-h-[50vh] w-full max-w-5xl rounded-lg shadow-2xl sm:max-h-[55vh]'
+                                                className='aspect-video max-h-[60vh] w-full max-w-5xl rounded-lg shadow-2xl sm:max-h-[55vh]'
                                                 initial={{ opacity: 0, x: 100 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -100 }}
@@ -175,7 +207,7 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
-                                </div>
+                                </motion.div>
 
                                 {/* Title and Counter */}
                                 {currentMedia && (
@@ -184,9 +216,15 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                             {currentMedia.title}
                                         </h3>
                                         {mediaItems.length > 1 && (
-                                            <p className='mt-1 text-sm text-white/80'>
-                                                {currentIndex + 1} / {mediaItems.length}
-                                            </p>
+                                            <>
+                                                <p className='mt-1 text-sm text-white/80'>
+                                                    {currentIndex + 1} / {mediaItems.length}
+                                                </p>
+                                                {/* Swipe hint - mobile only */}
+                                                <p className='mt-2 text-xs text-white/50 sm:hidden'>
+                                                    Swipe left or right to navigate
+                                                </p>
+                                            </>
                                         )}
                                     </div>
                                 )}
