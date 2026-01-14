@@ -19,7 +19,7 @@
         "Free bonuses",
         "All future additions"
     ],
-    "featured": true,
+    "featured": false,
     "bestValue": true,
     "bestseller": true,
     "crossSellIds": ["knowledge-worker-kit", "obsidian-starter-kit"],
