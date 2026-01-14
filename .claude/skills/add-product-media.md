@@ -1,7 +1,7 @@
 ---
-skill: manage-product-media
-description: Manage product media (screenshots, videos, cover images) with automatic optimization, metadata collection, and CLI integration
-keywords: [product, media, screenshot, video, image, cover, optimize, youtube, photo, picture, visual]
+skill: add-product-media
+description: Add product media (screenshots, videos, cover images) with automatic optimization, conversion-focused metadata, and CLI integration
+keywords: [product, media, screenshot, video, image, cover, optimize, youtube, photo, picture, visual, add]
 dependencies: [update-products CLI, image optimization tools]
 examples:
   - "Add screenshots to the knowii product"
@@ -9,9 +9,10 @@ examples:
   - "Optimize and add cover images for personal-knowledge-base-kit"
   - "Find all media in /assets/images/knowii and add them to the product"
   - "Add media from this product page URL"
+  - "Add the images in ~/tmp to [product]"
 ---
 
-# Manage Product Media Skill
+# Add Product Media Skill
 
 This skill helps you manage product media (screenshots, videos, cover images) with automatic optimization, intelligent metadata collection, and seamless CLI integration.
 
@@ -298,14 +299,48 @@ Smart detection of media properties:
 - **Screenshots**: Detect UI elements, suggest as main/secondary
 - **YouTube thumbnails**: If URL looks like a thumbnail, find the actual video
 
-### Metadata Inference
+### Metadata Writing Rules
 
-Generate intelligent defaults:
+**CRITICAL: Always read the product's sales copy first. Titles and alt text must be conversion-focused, not literal image descriptions.**
 
-- **Title**: Use filename without extension, convert kebab-case to Title Case
-- **Alt Text**: Generate from title + product name
-- **Description**: Leave empty unless user provides
+Before adding any media, read `{product-id}-sales-copy-default.json` to understand:
+- The problem/solution framework
+- Key benefits and features
+- Target audience and transformation promise
+
+#### Title Rules
+
+**BAD (Never write these):**
+- "Screenshot of dashboard showing menu options"
+- "Topics covered in the workshop including AI, LLMs"
+- "Guide content showing how to create a Writing Style document"
+
+**GOOD (Always write these):**
+- "Step-by-Step System with Ready-to-Use Prompts"
+- "Your Voice, Amplified by AI"
+- "Capture Your Unique Voice and Writing Quirks"
+
+**Title by Image Type:**
+- **Cover**: Product name or short tagline
+- **Hero/Illustration**: Transformation promise from sales copy
+- **Screenshots**: The VALUE being demonstrated, not what's visible
+
+#### Alt Text Rules
+
+Alt text must reinforce the purchase decision:
+
+**BAD:**
+- "Image showing bullet points of workshop topics"
+
+**GOOD:**
+- "Transform generic AI output into content that sounds like you"
+- "Ready-to-use prompts to set up any AI as your ghostwriter"
+
+### Metadata Defaults
+
+When user doesn't provide specific titles:
 - **Order**: Auto-increment within group (find highest existing order + 1)
+- **Description**: Leave empty unless user provides
 
 ### Media Group Guidance
 

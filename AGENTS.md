@@ -747,8 +747,8 @@ Dedicated skills available in `.claude/skills/` for comprehensive store manageme
     - Keywords: tag, tags, taxonomy
 - **manage-promotion** - Configure promotion banner (behavior, dates, text, links)
     - Keywords: promotion, banner, promo, discount
-- **manage-product-media** - Add, optimize, and organize product images/videos (screenshots, covers)
-    - Keywords: media, screenshot, video, image, cover, visual
+- **add-product-media** - Add product images/videos with optimization and conversion-focused metadata
+    - Keywords: media, screenshot, video, image, cover, visual, add
 
 ### Content Enhancement Skills
 

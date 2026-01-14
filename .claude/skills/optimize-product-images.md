@@ -251,18 +251,66 @@ Suggest specific elements to test:
 - With/without human elements
 - Different emotional appeals
 
-### 9. Technical Specifications Reminder
+### 9. Writing Conversion-Focused Metadata
+
+**CRITICAL: Never write literal descriptions of what's in an image. Always write for conversion.**
+
+Image titles and alt text are marketing copy, not accessibility descriptions. They appear in the product gallery and should reinforce the value proposition.
+
+#### Title Rules
+
+**BAD (Literal/Descriptive):**
+- "Screenshot of dashboard showing menu options"
+- "Topics covered in the workshop including AI, LLMs, Prompt Engineering"
+- "Guide content showing how to create a Writing Style document"
+
+**GOOD (Conversion-Focused):**
+- "Step-by-Step System with Ready-to-Use Prompts"
+- "Your Voice, Amplified by AI"
+- "Capture Your Unique Voice and Writing Quirks"
+- "Configure Any AI as Your Personal Ghostwriter"
+
+**Title Writing Formula:**
+1. Read the sales copy (problem, solution, benefits)
+2. Ask: "What value does this image demonstrate?"
+3. Write a benefit-driven title that reinforces the purchase decision
+
+**Examples by Image Type:**
+- **Cover**: Product name or tagline
+- **Hero/Illustration**: Transformation promise or emotional hook from sales copy
+- **Screenshots**: The specific value/feature being demonstrated (not what's visible)
+- **Process images**: The outcome or benefit of that step
+
+#### Alt Text Rules
+
+Alt text should be concise (under 125 chars) and conversion-focused:
+
+**BAD:**
+- "Image showing bullet points of workshop topics"
+- "Screenshot of writing style document creation process"
+
+**GOOD:**
+- "Transform generic AI output into content that sounds like you"
+- "Clear instructions showing exactly how to train AI on your writing style"
+- "Ready-to-use prompts to set up ChatGPT, Claude, or any AI as your ghostwriter"
+
+**Alt Text Formula:**
+- For covers: "[Product Name] - [Core Benefit]"
+- For screenshots: "[Specific benefit] - [What this enables]"
+- For illustrations: "[Transformation or outcome shown]"
+
+### 10. Technical Specifications Reminder
 
 Include a checklist:
 - [ ] Cover images: 800x450px (16:9), WebP, ~150KB
 - [ ] Banner images: 1920x1080px (16:9), WebP, ~300KB
 - [ ] Main screenshots: 1600x900px, WebP, ~200KB
-- [ ] All images have descriptive titles
-- [ ] All images have SEO-optimized alt text
+- [ ] All images have conversion-focused titles (NOT literal descriptions)
+- [ ] All images have benefit-driven alt text
 - [ ] Text overlays are readable on mobile
 - [ ] Brand colors and fonts are consistent
 
-### 10. Deliverable Format
+### 11. Deliverable Format
 
 Present your recommendations in this structure:
 

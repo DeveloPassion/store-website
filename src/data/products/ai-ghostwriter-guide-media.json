@@ -1,3 +1,59 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-1736856000000",
+            "type": "image",
+            "url": "/assets/images/products/ai-ghostwriter-guide/ai-ghostwriter-guide-cover.webp",
+            "title": "AI Ghostwriter Guide",
+            "altText": "AI Ghostwriter Guide - Train AI to write in your voice",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450
+        },
+        {
+            "id": "main-1736856000001",
+            "type": "image",
+            "url": "/assets/images/products/ai-ghostwriter-guide/ai-ghostwriter-guide-hero.webp",
+            "title": "Your Voice, Amplified by AI",
+            "altText": "Transform generic AI output into content that sounds like you",
+            "order": 0,
+            "group": "main",
+            "width": 800,
+            "height": 1200
+        },
+        {
+            "id": "main-1736856000002",
+            "type": "image",
+            "url": "/assets/images/products/ai-ghostwriter-guide/ai-ghostwriter-guide-writing-style.webp",
+            "title": "Step-by-Step System with Ready-to-Use Prompts",
+            "altText": "Clear instructions showing exactly how to train AI on your writing style",
+            "order": 1,
+            "group": "main",
+            "width": 936,
+            "height": 661
+        },
+        {
+            "id": "main-1736856000003",
+            "type": "image",
+            "url": "/assets/images/products/ai-ghostwriter-guide/ai-ghostwriter-guide-writing-quirks.webp",
+            "title": "Capture Your Unique Voice and Writing Quirks",
+            "altText": "Prompts to identify your signature style and what makes your writing unique",
+            "order": 2,
+            "group": "main",
+            "width": 888,
+            "height": 648
+        },
+        {
+            "id": "main-1736856000004",
+            "type": "image",
+            "url": "/assets/images/products/ai-ghostwriter-guide/ai-ghostwriter-guide-prompts.webp",
+            "title": "Configure Any AI as Your Personal Ghostwriter",
+            "altText": "Ready-to-use prompts to set up ChatGPT, Claude, or any AI as your ghostwriter",
+            "order": 3,
+            "group": "main",
+            "width": 904,
+            "height": 400
+        }
+    ]
 }
