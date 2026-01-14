@@ -244,9 +244,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 
                                                 {/* Right Column: Checkmark and Price */}
                                                 <div className='flex flex-col items-end gap-1'>
-                                                    {selectedVariant.name === variant.name && (
-                                                        <FaCheckCircle className='text-secondary h-5 w-5' />
-                                                    )}
+                                                    <FaCheckCircle
+                                                        className={`h-5 w-5 ${
+                                                            selectedVariant.name === variant.name
+                                                                ? 'text-secondary'
+                                                                : 'invisible'
+                                                        }`}
+                                                    />
                                                     <div className='text-secondary text-xl font-bold'>
                                                         {variant.priceDisplay}
                                                     </div>
