@@ -188,14 +188,14 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                         <>
                             <button
                                 onClick={goToPrevious}
-                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-1 -translate-y-1/2 rounded-full border-2 p-1.5 transition-all hover:scale-110 hover:text-white sm:left-2 sm:p-2'
+                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer rounded-full border-2 p-1.5 transition-all hover:scale-110 hover:text-white sm:left-2 sm:p-2'
                                 aria-label='Previous testimonial'
                             >
                                 <FaChevronLeft className='h-3.5 w-3.5 sm:h-4 sm:w-4' />
                             </button>
                             <button
                                 onClick={goToNext}
-                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-1 -translate-y-1/2 rounded-full border-2 p-1.5 transition-all hover:scale-110 hover:text-white sm:right-2 sm:p-2'
+                                className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer rounded-full border-2 p-1.5 transition-all hover:scale-110 hover:text-white sm:right-2 sm:p-2'
                                 aria-label='Next testimonial'
                             >
                                 <FaChevronRight className='h-3.5 w-3.5 sm:h-4 sm:w-4' />
@@ -219,7 +219,7 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                                             setDirection(idx > currentIndex ? 1 : -1)
                                             setCurrentIndex(idx)
                                         }}
-                                        className={`h-2 shrink-0 rounded-full transition-all ${
+                                        className={`h-2 shrink-0 cursor-pointer rounded-full transition-all ${
                                             idx === currentIndex
                                                 ? 'bg-secondary w-8'
                                                 : 'bg-primary/20 hover:bg-primary/40 w-2'

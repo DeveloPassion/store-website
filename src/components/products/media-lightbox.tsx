@@ -68,8 +68,9 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
 
     return (
         <Transition appear show={isOpen} as={Fragment}>
-            <Dialog as='div' className='relative z-50' onClose={onClose}>
-                {/* Backdrop */}
+            {/* Dialog with static prop to prevent auto-close on outside click */}
+            <Dialog as='div' className='relative z-50' onClose={() => {}} static>
+                {/* Backdrop - clicks here close the lightbox */}
                 <Transition.Child
                     as={Fragment}
                     enter='ease-out duration-300'
@@ -79,15 +80,15 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                     leaveFrom='opacity-100'
                     leaveTo='opacity-0'
                 >
-                    <div className='fixed inset-0 bg-black/95' />
+                    <div className='fixed inset-0 bg-black/95' onClick={onClose} />
                 </Transition.Child>
 
-                {/* Full-screen container */}
-                <div className='fixed inset-0'>
+                {/* Full-screen Dialog.Panel so all buttons are "inside" */}
+                <Dialog.Panel className='fixed inset-0'>
                     {/* Close Button - Fixed top-right */}
                     <button
                         onClick={onClose}
-                        className='focus:ring-secondary hover:bg-secondary fixed top-4 right-4 z-20 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
+                        className='focus:ring-secondary hover:bg-secondary absolute top-4 right-4 z-20 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
                         aria-label='Close lightbox'
                     >
                         <FaTimes className='h-6 w-6' aria-hidden='true' />
@@ -97,7 +98,7 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                     {mediaItems.length > 1 && (
                         <button
                             onClick={goToPrevious}
-                            className='focus:ring-secondary hover:bg-secondary fixed top-1/2 left-4 z-20 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
+                            className='focus:ring-secondary hover:bg-secondary absolute top-1/2 left-4 z-20 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
                             aria-label='Previous media'
                         >
                             <FaChevronLeft className='h-6 w-6' aria-hidden='true' />
@@ -108,7 +109,7 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                     {mediaItems.length > 1 && (
                         <button
                             onClick={goToNext}
-                            className='focus:ring-secondary hover:bg-secondary fixed top-1/2 right-4 z-20 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
+                            className='focus:ring-secondary hover:bg-secondary absolute top-1/2 right-4 z-20 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-all hover:scale-110 focus:ring-2 focus:outline-none'
                             aria-label='Next media'
                         >
                             <FaChevronRight className='h-6 w-6' aria-hidden='true' />
@@ -125,7 +126,7 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                             leaveFrom='opacity-100 scale-100'
                             leaveTo='opacity-0 scale-95'
                         >
-                            <Dialog.Panel className='relative w-full max-w-7xl px-16'>
+                            <div className='relative w-full max-w-7xl px-16'>
                                 {/* Media Container */}
                                 <div className='flex items-center justify-center'>
                                     {/* Media with Animation - max-h accounts for title, counter, and thumbnails below */}
@@ -231,10 +232,10 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                         })}
                                     </div>
                                 )}
-                            </Dialog.Panel>
+                            </div>
                         </Transition.Child>
                     </div>
-                </div>
+                </Dialog.Panel>
             </Dialog>
         </Transition>
     )
