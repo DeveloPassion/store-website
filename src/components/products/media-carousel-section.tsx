@@ -10,27 +10,37 @@ interface MediaCarouselSectionProps {
     group: MediaGroup
     heading: string
     description?: string
+    /** When true, includes all videos from the product regardless of their group */
+    includeAllVideos?: boolean
 }
 
 const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
     product,
     group,
     heading,
-    description
+    description,
+    includeAllVideos = false
 }) => {
     const [lightboxOpen, setLightboxOpen] = useState(false)
     const [selectedMediaIndex, setSelectedMediaIndex] = useState(0)
 
     // Filter media by group and sort by order
+    // When includeAllVideos is true, include all videos regardless of their group
     const groupMedia = useMemo(() => {
         if (!product.media || product.media.length === 0) {
             return []
         }
 
         return product.media
-            .filter((item) => item.group === group)
+            .filter((item) => {
+                // Include items from this group
+                if (item.group === group) return true
+                // When includeAllVideos is enabled, include all videos
+                if (includeAllVideos && item.type === 'video') return true
+                return false
+            })
             .sort((a, b) => a.order - b.order)
-    }, [product.media, group])
+    }, [product.media, group, includeAllVideos])
 
     // Filter only images for lightbox
     const imageMedia = useMemo(() => {

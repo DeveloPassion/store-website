@@ -10,6 +10,7 @@ import ProductTestimonials from '@/components/products/product-testimonials'
 import ProductFAQ from '@/components/products/product-faq'
 import ProductCTA from '@/components/products/product-cta'
 import StickyBuyButton from '@/components/products/sticky-buy-button'
+import CoverVideoSpot from '@/components/products/cover-video-spot'
 import productsData from '@/data/products.json'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
@@ -108,14 +109,17 @@ const ProductPage: React.FC = () => {
                 setSelectedFrequency={setSelectedFrequency}
             />
             <ProductPAS product={product} />
+            <CoverVideoSpot product={product} position={1} />
             <ProductFeatures product={product} />
             <MediaCarouselSection
                 product={product}
                 group='main'
                 heading='See It In Action'
                 description={`Explore screenshots and videos to see exactly what you'll get with ${product.name}`}
+                includeAllVideos={true}
             />
             <ProductBenefits product={product} />
+            <CoverVideoSpot product={product} position={2} />
             <MediaCarouselSection
                 product={product}
                 group='secondary'
@@ -124,6 +128,7 @@ const ProductPage: React.FC = () => {
             />
             <ProductTestimonials product={product} />
             <ProductFAQ product={product} />
+            <CoverVideoSpot product={product} position={3} />
             <ProductCTA product={product} />
             <MediaCarouselSection
                 product={product}
