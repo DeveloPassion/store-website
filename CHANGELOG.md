@@ -1,3 +1,20 @@
+## [0.6.0](https://github.com/DeveloPassion/store-website/compare/0.5.9...0.6.0) (2026-01-14)
+
+### Features
+
+* **all:** added ai master prompt media ([b978046](https://github.com/DeveloPassion/store-website/commit/b97804627bccc7bec8ffa8b153643fd1c7d06c85))
+* **all:** added EKB media ([ec6dc34](https://github.com/DeveloPassion/store-website/commit/ec6dc346e04270e510ee1df36e15dc54ad6d40a1))
+* **all:** added mcp assets ([a92fa6e](https://github.com/DeveloPassion/store-website/commit/a92fa6e8d37e6cf2a8395258cb36c2f475156561))
+* **all:** added media and updated skill ([36e4ef3](https://github.com/DeveloPassion/store-website/commit/36e4ef336f90c7686cc4c872fb81c7a8e09bb68e))
+* **all:** added missing media for all products ([e2c9362](https://github.com/DeveloPassion/store-website/commit/e2c93627a044828bb133d81982f570c567336af6))
+* **all:** added more media ([8c761a3](https://github.com/DeveloPassion/store-website/commit/8c761a30f1f3748df63f715580a28a998272a15e))
+* **all:** added more media ([79a5f3c](https://github.com/DeveloPassion/store-website/commit/79a5f3c1b3fea320e8e78048274bb57e0bf3e7cd))
+* **all:** added more resources ([ffe1d1c](https://github.com/DeveloPassion/store-website/commit/ffe1d1cb5b1683ede8af372ea07e1cc20136b6d4))
+* **all:** added pkm lib images ([c9d7502](https://github.com/DeveloPassion/store-website/commit/c9d75029922350db152b66f3fd55b9d0eea5eec7))
+* **all:** added plan for timeline support ([f88a88b](https://github.com/DeveloPassion/store-website/commit/f88a88be1959d47fec3b2fb470aef6f4b2dc23f1))
+* **all:** fixed visual inconsistency with product tiers/variants ([ccb8fbb](https://github.com/DeveloPassion/store-website/commit/ccb8fbbd192d5e7c8ffa43c04cd243eaa3a3ee0b))
+* **all:** improved media galleries and removed code duplication ([24d01de](https://github.com/DeveloPassion/store-website/commit/24d01de05b245a935b5c1bfe7f8da012d9cdd0d2))
+* **all:** reviewed all media metadata ([ddefdda](https://github.com/DeveloPassion/store-website/commit/ddefddabd9379f4bcacd8218fb223283a10bb6e1))
 ## [0.5.9](https://github.com/DeveloPassion/store-website/compare/0.5.8...0.5.9) (2026-01-14)
 
 ### Features
