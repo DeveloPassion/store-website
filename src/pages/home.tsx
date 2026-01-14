@@ -361,7 +361,7 @@ const HomeEcommerce: React.FC = () => {
                             View All →
                         </Link>
                     </div>
-                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
+                    <div className='grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {featuredProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}
@@ -389,7 +389,7 @@ const HomeEcommerce: React.FC = () => {
                     <p className='text-primary/60 mb-8 text-lg'>
                         Get the most bang for your buck with our carefully curated value picks
                     </p>
-                    <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
+                    <div className='grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {bestValueProducts.map((product) => (
                             <ProductCardEcommerce key={product.id} product={product} />
                         ))}
