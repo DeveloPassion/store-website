@@ -3588,6 +3588,7 @@ async function editSalesCopyVariant(productId: string, variants: string[]): Prom
                 { name: '🎯 Target Audience', value: 'audience' },
                 { name: '🛡️ Trust & Guarantees', value: 'trust' },
                 { name: '🔍 SEO Metadata', value: 'seo' },
+                { name: '⏱️ Edit Timeline', value: 'timeline' },
                 { name: '💾 Save & Exit', value: 'save' },
                 { name: '🔙 Cancel', value: 'cancel' }
             ]
@@ -3611,6 +3612,9 @@ async function editSalesCopyVariant(productId: string, variants: string[]): Prom
                 break
             case 'seo':
                 await editSEOMetadata(file.salesCopy)
+                break
+            case 'timeline':
+                await editTimeline(file.salesCopy)
                 break
             case 'save':
                 saveSalesCopyFile(productId, variantId, file.salesCopy)
@@ -3847,6 +3851,322 @@ async function editSEOMetadata(salesCopy: SalesCopyData): Promise<void> {
               .filter((s: string) => s)
         : undefined
     showSuccess('SEO metadata updated')
+}
+
+/**
+ * Edit timeline (transformation journey milestones)
+ */
+async function editTimeline(salesCopy: SalesCopyData): Promise<void> {
+    let editing = true
+    while (editing) {
+        const milestoneCount = salesCopy.timeline?.milestones?.length || 0
+        const action = await select({
+            message: `Edit Timeline (${milestoneCount} milestones)`,
+            choices: [
+                { name: '📋 List Milestones', value: 'list' },
+                { name: '➕ Add Milestone', value: 'add' },
+                { name: '✏️ Edit Milestone', value: 'edit' },
+                { name: '🗑️ Remove Milestone', value: 'remove' },
+                { name: '🔄 Reorder Milestones', value: 'reorder' },
+                { name: '📝 Edit Title & Subtitle', value: 'header' },
+                { name: '🔙 Back', value: 'back' }
+            ]
+        })
+
+        switch (action) {
+            case 'list':
+                listTimelineMilestones(salesCopy)
+                break
+            case 'add':
+                await addTimelineMilestone(salesCopy)
+                break
+            case 'edit':
+                await editTimelineMilestone(salesCopy)
+                break
+            case 'remove':
+                await removeTimelineMilestone(salesCopy)
+                break
+            case 'reorder':
+                await reorderTimelineMilestones(salesCopy)
+                break
+            case 'header':
+                await editTimelineHeader(salesCopy)
+                break
+            case 'back':
+                editing = false
+                break
+        }
+    }
+}
+
+function listTimelineMilestones(salesCopy: SalesCopyData): void {
+    if (!salesCopy.timeline?.milestones?.length) {
+        console.log(`\n${colors.dim}No milestones defined${colors.reset}\n`)
+        return
+    }
+
+    console.log(
+        `\n${colors.cyan}=== Timeline: ${salesCopy.timeline.title || 'Your Transformation Journey'} ===${colors.reset}`
+    )
+    if (salesCopy.timeline.subtitle) {
+        console.log(`${colors.dim}${salesCopy.timeline.subtitle}${colors.reset}\n`)
+    }
+
+    salesCopy.timeline.milestones.forEach((milestone, idx) => {
+        console.log(
+            `${colors.cyan}${idx + 1}.${colors.reset} [${milestone.timeframe}] ${colors.bold}${milestone.title}${colors.reset}`
+        )
+        console.log(`   ${colors.dim}${milestone.description}${colors.reset}`)
+        if (milestone.highlights?.length) {
+            milestone.highlights.forEach((h) =>
+                console.log(`   ${colors.green}• ${h}${colors.reset}`)
+            )
+        }
+        if (milestone.icon) {
+            console.log(`   ${colors.dim}Icon: ${milestone.icon}${colors.reset}`)
+        }
+        console.log()
+    })
+}
+
+async function addTimelineMilestone(salesCopy: SalesCopyData): Promise<void> {
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'timeframe',
+            message: 'Timeframe (e.g., "Week 1", "Month 1", "Day 1"):',
+            validate: (input: string) => input.trim().length > 0 || 'Timeframe is required'
+        },
+        {
+            type: 'input',
+            name: 'title',
+            message: 'Title:',
+            validate: (input: string) => input.trim().length > 0 || 'Title is required'
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Description:',
+            validate: (input: string) =>
+                input.trim().length >= 10 || 'Description must be at least 10 characters'
+        },
+        {
+            type: 'input',
+            name: 'highlights',
+            message: 'Highlights (comma-separated, optional):'
+        },
+        {
+            type: 'input',
+            name: 'icon',
+            message: 'Icon name (optional, e.g., "FaRocket"):'
+        }
+    ])
+
+    // Generate milestone ID from timeframe
+    const id =
+        answers.timeframe
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[^a-z0-9-]/g, '') +
+        '-' +
+        Date.now()
+
+    const milestone = {
+        id,
+        timeframe: answers.timeframe.trim(),
+        title: answers.title.trim(),
+        description: answers.description.trim(),
+        highlights: answers.highlights
+            ? answers.highlights
+                  .split(',')
+                  .map((s: string) => s.trim())
+                  .filter((s: string) => s)
+            : undefined,
+        icon: answers.icon.trim() || undefined
+    }
+
+    // Initialize timeline if needed
+    if (!salesCopy.timeline) {
+        salesCopy.timeline = {
+            milestones: []
+        }
+    }
+    if (!salesCopy.timeline.milestones) {
+        salesCopy.timeline.milestones = []
+    }
+
+    salesCopy.timeline.milestones.push(milestone)
+    showSuccess(`Milestone "${milestone.title}" added`)
+}
+
+async function editTimelineMilestone(salesCopy: SalesCopyData): Promise<void> {
+    if (!salesCopy.timeline?.milestones?.length) {
+        showError('No milestones to edit')
+        return
+    }
+
+    const milestoneId = await select({
+        message: 'Select milestone to edit:',
+        choices: salesCopy.timeline.milestones.map((m, idx) => ({
+            name: `${idx + 1}. [${m.timeframe}] ${m.title}`,
+            value: m.id
+        }))
+    })
+
+    const milestone = salesCopy.timeline.milestones.find((m) => m.id === milestoneId)
+    if (!milestone) {
+        showError('Milestone not found')
+        return
+    }
+
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'timeframe',
+            message: 'Timeframe:',
+            default: milestone.timeframe
+        },
+        {
+            type: 'input',
+            name: 'title',
+            message: 'Title:',
+            default: milestone.title
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Description:',
+            default: milestone.description
+        },
+        {
+            type: 'input',
+            name: 'highlights',
+            message: 'Highlights (comma-separated):',
+            default: milestone.highlights?.join(', ') || ''
+        },
+        {
+            type: 'input',
+            name: 'icon',
+            message: 'Icon name:',
+            default: milestone.icon || ''
+        }
+    ])
+
+    milestone.timeframe = answers.timeframe.trim()
+    milestone.title = answers.title.trim()
+    milestone.description = answers.description.trim()
+    milestone.highlights = answers.highlights
+        ? answers.highlights
+              .split(',')
+              .map((s: string) => s.trim())
+              .filter((s: string) => s)
+        : undefined
+    milestone.icon = answers.icon.trim() || undefined
+
+    showSuccess(`Milestone "${milestone.title}" updated`)
+}
+
+async function removeTimelineMilestone(salesCopy: SalesCopyData): Promise<void> {
+    if (!salesCopy.timeline?.milestones?.length) {
+        showError('No milestones to remove')
+        return
+    }
+
+    const milestoneId = await select({
+        message: 'Select milestone to remove:',
+        choices: salesCopy.timeline.milestones.map((m, idx) => ({
+            name: `${idx + 1}. [${m.timeframe}] ${m.title}`,
+            value: m.id
+        }))
+    })
+
+    const idx = salesCopy.timeline.milestones.findIndex((m) => m.id === milestoneId)
+    if (idx === -1) {
+        showError('Milestone not found')
+        return
+    }
+
+    const milestone = salesCopy.timeline.milestones[idx]
+    const confirm = await select({
+        message: `Remove milestone "${milestone.title}"?`,
+        choices: [
+            { name: 'Yes', value: true },
+            { name: 'No', value: false }
+        ]
+    })
+
+    if (confirm) {
+        salesCopy.timeline.milestones.splice(idx, 1)
+        showSuccess(`Milestone "${milestone.title}" removed`)
+
+        // Clean up timeline if no milestones left
+        if (salesCopy.timeline.milestones.length === 0) {
+            salesCopy.timeline = undefined
+        }
+    }
+}
+
+async function reorderTimelineMilestones(salesCopy: SalesCopyData): Promise<void> {
+    if (!salesCopy.timeline?.milestones || salesCopy.timeline.milestones.length < 2) {
+        showError('Need at least 2 milestones to reorder')
+        return
+    }
+
+    console.log(`\n${colors.cyan}Current order:${colors.reset}`)
+    salesCopy.timeline.milestones.forEach((m, idx) => {
+        console.log(`  ${idx + 1}. [${m.timeframe}] ${m.title}`)
+    })
+
+    const newOrder = await prompt('\nEnter new order as comma-separated numbers (e.g., "2,1,3"): ')
+    const indices = newOrder.split(',').map((s) => parseInt(s.trim()) - 1)
+
+    // Validate indices
+    if (indices.length !== salesCopy.timeline.milestones.length) {
+        showError(`Please provide exactly ${salesCopy.timeline.milestones.length} numbers`)
+        return
+    }
+
+    const seen = new Set<number>()
+    for (const idx of indices) {
+        if (isNaN(idx) || idx < 0 || idx >= salesCopy.timeline.milestones.length || seen.has(idx)) {
+            showError('Invalid order - each milestone number must appear exactly once')
+            return
+        }
+        seen.add(idx)
+    }
+
+    // Reorder milestones
+    const reordered = indices.map((idx) => salesCopy.timeline!.milestones[idx])
+    salesCopy.timeline.milestones = reordered
+    showSuccess('Milestones reordered')
+}
+
+async function editTimelineHeader(salesCopy: SalesCopyData): Promise<void> {
+    // Initialize timeline if needed
+    if (!salesCopy.timeline) {
+        salesCopy.timeline = {
+            milestones: []
+        }
+    }
+
+    const answers = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'Timeline Title (leave empty for default "Your Transformation Journey"):',
+            default: salesCopy.timeline.title || ''
+        },
+        {
+            type: 'input',
+            name: 'subtitle',
+            message: 'Timeline Subtitle (leave empty for default):',
+            default: salesCopy.timeline.subtitle || ''
+        }
+    ])
+
+    salesCopy.timeline.title = answers.title.trim() || undefined
+    salesCopy.timeline.subtitle = answers.subtitle.trim() || undefined
+    showSuccess('Timeline header updated')
 }
 
 /**

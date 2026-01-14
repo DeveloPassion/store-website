@@ -158,6 +158,7 @@ Aggregated products include auto-loaded content:
   - All trust: trustBadges, guarantees
   - All SEO: metaTitle, metaDescription, keywords
   - Optional storytelling sections
+  - Optional timeline (transformation journey with time-based milestones)
 
 **Important Notes:**
 - Individual product files do NOT contain tagline, description, features, benefits, PAS framework, or other sales copy
@@ -626,6 +627,7 @@ bun run update:products -- --operation sales-copy:edit --id knowii-voice-ai --sa
   - **Target Audience**: Target audience, perfect for, not for you
   - **Trust & Guarantees**: Trust badges, guarantees
   - **SEO Metadata**: Meta title, description, keywords
+  - **Timeline**: Transformation journey milestones (timeframe, title, description, highlights)
 - View detailed variant information including storytelling sections
 - Cannot remove active variant (safety check)
 
@@ -681,6 +683,7 @@ All changes are validated against Zod schemas before saving:
 - `src/schemas/testimonial.schema.ts` - Testimonial validation
 - `src/schemas/media.schema.ts` - Media validation (MediaItemSchema, MediaArraySchema)
 - **`src/schemas/sales-copy.schema.ts` - Sales copy validation (SalesCopyFileSchema, SalesCopyDataSchema)**
+- **`src/schemas/timeline.schema.ts` - Timeline validation (TimelineMilestoneSchema, TimelineSchema)**
 
 ### Auto-Sorting
 

@@ -455,7 +455,7 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 
 **CLI**: Use `bun run update:products` for managing sales copy variants with operations: list, add, edit, enable, duplicate, and remove.
 
-**Schema**: See `/src/schemas/sales-copy.schema.ts` and `/src/schemas/storytelling.schema.ts` for complete field definitions.
+**Schema**: See `/src/schemas/sales-copy.schema.ts`, `/src/schemas/storytelling.schema.ts`, and `/src/schemas/timeline.schema.ts` for complete field definitions.
 
 **Required Fields in `SalesCopyDataSchema`:**
 
@@ -465,6 +465,7 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 - **Trust**: `trustBadges` (required), `guarantees` (required)
 - **SEO**: `metaTitle` (required), `metaDescription` (required), `keywords` (required)
 - **Storytelling**: `storytelling` (required but nullable - can be null or contain storytelling sections)
+- **Timeline**: `timeline` (required but nullable - can be null or contain transformation journey milestones)
 
 **Benefits Object Requirements:**
 All three categories are strictly required (can be empty arrays):
@@ -481,6 +482,30 @@ All three categories are strictly required (can be empty arrays):
 4. **Success Stories** - Detailed case studies with metrics, customer results
 5. **Methodology** - Step-by-step process, philosophy, differentiation
 6. **Vision** - Mission statement, bigger picture, values, future goals
+
+**Timeline Structure** (transformation journey with time-based milestones):
+
+The timeline shows the progression of benefits over time, distinct from the transformation arc (before/during/after). Use it for granular, time-based milestones.
+
+- `title` (optional): Header title, defaults to "Your Transformation Journey"
+- `subtitle` (optional): Header subtitle, defaults to "See what you'll achieve over time"
+- `milestones` (required): Array of milestone objects (at least 1 required):
+    - `id` (required): Unique identifier
+    - `timeframe` (required): Display text like "Week 1", "Month 1", "Day 1"
+    - `title` (required): Milestone title
+    - `description` (required): Detailed description (min 10 chars)
+    - `highlights` (optional): Array of bullet points
+    - `icon` (optional): Icon name (e.g., "FaRocket")
+
+**ProductTimeline Component:**
+
+Displays the timeline on product pages after ProductBenefits. Features:
+
+- Vertical timeline with connecting line
+- Milestone cards with timeframe badges
+- Optional icon or numbered indicators
+- Alternating layout on desktop (left/right)
+- Staggered scroll animations
 
 ## Accessing Product Data in Code
 

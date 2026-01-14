@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { StorytellingSchema } from './storytelling.schema.js'
 import { ProductBenefitsSchema } from './product-benefits.schema.js'
+import { TimelineSchema } from './timeline.schema.js'
 
 /**
  * Sales Copy Data Schema
@@ -14,6 +15,7 @@ import { ProductBenefitsSchema } from './product-benefits.schema.js'
  * - secondaryTagline: optional (can be undefined, null, or string)
  * - SEO fields: required (keywords can be empty array)
  * - storytelling: optional (can be undefined, null, or StorytellingSchema object)
+ * - timeline: optional (can be undefined, null, or TimelineSchema object)
  *
  * Fields include:
  * - Identity: tagline, secondaryTagline
@@ -23,6 +25,7 @@ import { ProductBenefitsSchema } from './product-benefits.schema.js'
  * - Trust: trustBadges, guarantees
  * - SEO: metaTitle, metaDescription, keywords
  * - Storytelling: all 6 sections (required but nullable)
+ * - Timeline: transformation journey with time-based milestones
  */
 export const SalesCopyDataSchema = z.object({
     // Identity
@@ -57,7 +60,10 @@ export const SalesCopyDataSchema = z.object({
     keywords: z.array(z.string()),
 
     // Storytelling - Optional (all 6 sections optional within)
-    storytelling: StorytellingSchema.nullish()
+    storytelling: StorytellingSchema.nullish(),
+
+    // Timeline - Optional transformation journey showing time-based milestones
+    timeline: TimelineSchema.nullish()
 })
 
 /**

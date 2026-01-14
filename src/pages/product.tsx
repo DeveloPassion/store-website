@@ -6,6 +6,7 @@ import ProductPAS from '@/components/products/product-pas'
 import ProductFeatures from '@/components/products/product-features'
 import MediaCarouselSection from '@/components/products/media-carousel-section'
 import ProductBenefits from '@/components/products/product-benefits'
+import ProductTimeline from '@/components/products/product-timeline'
 import ProductTestimonials from '@/components/products/product-testimonials'
 import ProductFAQ from '@/components/products/product-faq'
 import ProductCTA from '@/components/products/product-cta'
@@ -119,6 +120,7 @@ const ProductPage: React.FC = () => {
                 includeAllVideos={true}
             />
             <ProductBenefits product={product} />
+            <ProductTimeline product={product} />
             <CoverVideoSpot product={product} position={2} />
             <MediaCarouselSection
                 product={product}
