@@ -209,6 +209,8 @@ For each image file:
 
 ### Step 4: Video Processing (for videos only)
 
+**IMPORTANT: Videos should NEVER be added to the "banner" group. Default to "cover" group for all videos.**
+
 For YouTube videos:
 
 1. **Extract video ID**:
@@ -312,11 +314,17 @@ Help users choose the right group:
 
 | Group | Purpose | Best For | Aspect Ratio | Max Size |
 |-------|---------|----------|--------------|----------|
-| Cover | Product cards | Thumbnails, social cards | 16:9 | 800x450 |
-| Banner | Hero section | High-impact visuals | Any | 1920x1080 |
+| Cover | Product cards | Thumbnails, social cards, videos | 16:9 | 800x450 |
+| Banner | Hero section | High-impact images ONLY (no videos) | Any | 1920x1080 |
 | Main | Primary showcase | Key features, demos | Any | 1920x1080 |
 | Secondary | Deep dive | Detailed screenshots | Any | 1920x1080 |
 | Bonus | Extra resources | Tutorials, social proof | Any | 1920x1080 |
+
+**IMPORTANT: Video placement rules:**
+- **NEVER add videos to the "banner" group** - banner is for static images only
+- **Videos should default to "cover" group** for product card display
+- Videos can also be placed in "main", "secondary", or "bonus" groups
+- If user requests a video in banner, redirect to cover or main and explain the rule
 
 ## Error Handling
 
@@ -353,10 +361,10 @@ User: "Add this YouTube video to knowii: https://youtube.com/watch?v=abc123"
 Skill Actions:
 1. Extract video ID: "abc123"
 2. Confirm product: "knowii"
-3. Ask for media group (suggest "main" or "banner")
+3. Default to "cover" group for videos (never use "banner" for videos)
 4. Ask for title, description, alt text
 5. Generate thumbnail URL
-6. Add via CLI: bun run update:products -- --operation media:add --id knowii --media-type video --media-url "https://youtube.com/watch?v=abc123" --media-title "Product Demo" --media-altText "Knowii product demonstration video" --media-group main --media-order 0 --media-youtubeId "abc123"
+6. Add via CLI: bun run update:products -- --operation media:add --id knowii --media-type video --media-url "https://youtube.com/watch?v=abc123" --media-title "Product Demo" --media-altText "Knowii product demonstration video" --media-group cover --media-order 0 --media-youtubeId "abc123"
 7. Validate
 8. Show summary
 ```
