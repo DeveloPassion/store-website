@@ -19,13 +19,16 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
     onClose
 }) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex)
+    const [prevIsOpen, setPrevIsOpen] = useState(isOpen)
 
-    // Sync currentIndex when initialIndex changes (when opening for different images)
-    useEffect(() => {
-        if (isOpen) {
-            setCurrentIndex(initialIndex)
-        }
-    }, [isOpen, initialIndex])
+    // Sync currentIndex when lightbox opens - using React's recommended
+    // "adjusting state during rendering" pattern instead of useEffect
+    if (isOpen && !prevIsOpen) {
+        setPrevIsOpen(true)
+        setCurrentIndex(initialIndex)
+    } else if (!isOpen && prevIsOpen) {
+        setPrevIsOpen(false)
+    }
 
     const goToPrevious = useCallback(() => {
         setCurrentIndex((prev) => (prev === 0 ? mediaItems.length - 1 : prev - 1))
