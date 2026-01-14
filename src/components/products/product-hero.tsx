@@ -9,6 +9,7 @@ import { PaymentFrequencySelector } from './payment-frequency-selector'
 import { Button } from '@/components/ui/button'
 import HeroBackground from './hero-background'
 import MediaCarousel from './media-carousel'
+import MediaLightbox from './media-lightbox'
 
 interface ProductHeroProps {
     product: Product
@@ -105,6 +106,24 @@ const ProductHero: React.FC<ProductHeroProps> = ({
             .filter((item) => item.group === 'cover')
             .sort((a, b) => a.order - b.order)
     }, [product.media])
+
+    // Filter only images for lightbox
+    const coverImageMedia = useMemo(() => {
+        return coverImages.filter((item) => item.type === 'image')
+    }, [coverImages])
+
+    // Lightbox state for cover images
+    const [lightboxOpen, setLightboxOpen] = useState(false)
+    const [selectedMediaIndex, setSelectedMediaIndex] = useState(0)
+
+    const openLightbox = (_item: unknown, carouselIndex: number) => {
+        const currentMedia = coverImages[carouselIndex]
+        if (currentMedia?.type === 'image') {
+            const imageIndex = coverImageMedia.findIndex((img) => img.id === currentMedia.id)
+            setSelectedMediaIndex(imageIndex >= 0 ? imageIndex : 0)
+            setLightboxOpen(true)
+        }
+    }
 
     return (
         <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'>
@@ -323,6 +342,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                 showIndicators={coverImages.length > 1}
                                 showCaptions={false}
                                 className='w-full'
+                                onMediaClick={openLightbox}
                             />
                         ) : (
                             // Fallback placeholder if no cover images
@@ -336,6 +356,16 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                     </motion.div>
                 </div>
             </div>
+
+            {/* Lightbox for cover images */}
+            {coverImageMedia.length > 0 && (
+                <MediaLightbox
+                    mediaItems={coverImageMedia}
+                    initialIndex={selectedMediaIndex}
+                    isOpen={lightboxOpen}
+                    onClose={() => setLightboxOpen(false)}
+                />
+            )}
         </section>
     )
 }
