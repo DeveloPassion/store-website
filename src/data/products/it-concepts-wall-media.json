@@ -1,3 +1,28 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-image-001",
+            "type": "image",
+            "url": "/assets/images/products/it-concepts-wall/it-concepts-wall-cover.webp",
+            "title": "IT Concepts Wall",
+            "altText": "IT Concepts Wall - A curated collection of IT and software development concepts",
+            "description": "Your comprehensive reference for essential IT and programming concepts",
+            "order": 0,
+            "group": "cover",
+            "width": 1005,
+            "height": 423
+        },
+        {
+            "id": "main-image-001",
+            "type": "image",
+            "url": "/assets/images/products/it-concepts-wall/it-concepts-wall-trello-preview.webp",
+            "title": "IT Concepts Board Overview",
+            "altText": "IT Concepts Wall Trello board showing organized categories of programming and IT concepts",
+            "description": "Visual overview of all the curated IT concepts organized by category",
+            "order": 0,
+            "group": "main",
+            "width": 2377,
+            "height": 936
+        }
+    ]
 }
