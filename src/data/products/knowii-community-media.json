@@ -114,6 +114,18 @@
             "height": 487
         },
         {
+            "id": "cover-complete-system",
+            "type": "image",
+            "url": "/assets/images/products/knowii-community/knowii-complete-system.webp",
+            "title": "The Complete Knowledge System",
+            "altText": "The Complete Knowledge System - Community, Courses, and Tools",
+            "description": "Overview of the complete knowledge system including Community features, Courses, and Tools",
+            "order": 10,
+            "group": "cover",
+            "width": 1135,
+            "height": 474
+        },
+        {
             "id": "main-community-interface",
             "type": "image",
             "url": "/assets/images/products/knowii-community/knowii-community-interface.webp",
