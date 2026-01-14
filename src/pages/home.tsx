@@ -22,6 +22,7 @@ import {
 } from '@/lib/product-sort'
 import { getFeaturedSorted } from '@/lib/collection-utils'
 import { CategoryCard } from '@/components/categories/category-card'
+import CompactNewsletter from '@/components/ui/compact-newsletter'
 import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
 import { getWeightedRandomTagline } from '@/lib/tagline-utils'
 import { getWeightedRandomAnimatedHeroText } from '@/lib/animated-hero-text-utils'
@@ -297,6 +298,11 @@ const HomeEcommerce: React.FC = () => {
                             >
                                 Browse Free Resources
                             </Link>
+                        </div>
+
+                        {/* Newsletter subscription */}
+                        <div className='mt-6'>
+                            <CompactNewsletter />
                         </div>
                     </div>
 
