@@ -105,13 +105,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     return (
         <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'>
             <div className='relative z-10 container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
-                <div className='grid gap-12 overflow-hidden lg:grid-cols-2 lg:gap-16'>
+                <div className='grid gap-8 overflow-hidden lg:grid-cols-2 lg:items-start lg:gap-12'>
                     {/* Left Column: Content */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className='flex flex-col justify-center'
+                        className='flex flex-col justify-center lg:justify-start'
                     >
                         {/* Featured Badge */}
                         {product.featured && (
@@ -310,7 +310,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className='relative flex items-center justify-center'
+                        className='relative flex items-start justify-center lg:sticky lg:top-24'
                     >
                         {coverImages.length > 0 ? (
                             <MediaCarousel
