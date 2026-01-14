@@ -1,3 +1,37 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-1736857000000",
+            "type": "image",
+            "url": "/assets/images/products/model-context-protocol/model-context-protocol-cover.webp",
+            "title": "Model Context Protocol",
+            "altText": "MCP Masterclass - Give AI superpowers to access any data source",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450
+        },
+        {
+            "id": "main-1736857000001",
+            "type": "image",
+            "url": "/assets/images/products/model-context-protocol/model-context-protocol-capabilities.webp",
+            "title": "Connect AI to Tools, Resources, and Prompts",
+            "altText": "MCP bridges the gap between LLMs and your data sources automatically",
+            "order": 0,
+            "group": "main",
+            "width": 786,
+            "height": 283
+        },
+        {
+            "id": "main-1736857000002",
+            "type": "image",
+            "url": "/assets/images/products/model-context-protocol/model-context-protocol-architecture.webp",
+            "title": "One Protocol, Unlimited Integrations",
+            "altText": "Connect to local files, databases, and web APIs through a single standard",
+            "order": 1,
+            "group": "main",
+            "width": 962,
+            "height": 762
+        }
+    ]
 }
