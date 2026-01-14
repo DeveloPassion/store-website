@@ -1,3 +1,11 @@
+## [0.6.3](https://github.com/DeveloPassion/store-website/compare/0.6.2...0.6.3) (2026-01-14)
+
+### Features
+
+* **all:** added more storytelling components to product pages ([75f9179](https://github.com/DeveloPassion/store-website/commit/75f91799573d572da07e8cbf00c15b401b6dc2d6))
+* **all:** further improved Knowii copy ([3993d23](https://github.com/DeveloPassion/store-website/commit/3993d23360d0b9d73d398c2881f0895d693607e4))
+* **all:** updated KWK sales copy ([e63dc03](https://github.com/DeveloPassion/store-website/commit/e63dc032ceaa04128372c252192fb65398e03525))
+* **all:** updated OSK copy ([4dbf1de](https://github.com/DeveloPassion/store-website/commit/4dbf1de30807c73cf54d0bc87f861b365209b041))
 ## [0.6.2](https://github.com/DeveloPassion/store-website/compare/0.6.1...0.6.2) (2026-01-14)
 
 ### Features
