@@ -11,13 +11,35 @@
             "group": "cover"
         },
         {
+            "id": "cover-video-001",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=d1otSlcHUhE",
+            "title": "OSK v3 Deep Dive Workshop",
+            "altText": "Obsidian Starter Kit v3 Deep Dive - 3 Hour Complete Technical Workshop",
+            "description": "A comprehensive 3-hour technical workshop covering all features of the Obsidian Starter Kit v3",
+            "order": 1,
+            "group": "cover",
+            "youtubeId": "d1otSlcHUhE"
+        },
+        {
+            "id": "cover-video-002",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=DOy4dTLBHBQ",
+            "title": "Free Obsidian Workshop",
+            "altText": "Master Obsidian in 2.5 Hours: Complete Beginner to Advanced - Free Workshop",
+            "description": "A comprehensive free workshop covering Obsidian from beginner to advanced level in 2.5 hours",
+            "order": 2,
+            "group": "cover",
+            "youtubeId": "DOy4dTLBHBQ"
+        },
+        {
             "id": "cover-002",
             "type": "image",
             "url": "/assets/images/products/osk/osk-books-base-cards.webp",
             "title": "Book Library",
             "altText": "Visual card layout displaying book covers in a gallery view",
             "description": "Browse your book collection in a beautiful card view",
-            "order": 1,
+            "order": 3,
             "group": "cover"
         },
         {
@@ -27,7 +49,7 @@
             "title": "Daily Notes",
             "altText": "Daily note template with structured sections for journaling",
             "description": "Start each day with a structured daily note template",
-            "order": 0,
+            "order": 1,
             "group": "main"
         },
         {
@@ -37,7 +59,7 @@
             "title": "Periodic Reviews",
             "altText": "Weekly review template with goals, achievements, and gratitude sections",
             "description": "Reflect and plan with weekly, monthly, and yearly reviews",
-            "order": 1,
+            "order": 2,
             "group": "main"
         },
         {
@@ -47,7 +69,7 @@
             "title": "Kanban Board",
             "altText": "Kanban board with columns for this week, month, quarter, and backburner",
             "description": "Manage projects visually with built-in kanban boards",
-            "order": 2,
+            "order": 3,
             "group": "main"
         },
         {
@@ -57,7 +79,7 @@
             "title": "Task Management",
             "altText": "Task list view showing organized tasks and due dates",
             "description": "Keep track of all your tasks in one organized view",
-            "order": 3,
+            "order": 4,
             "group": "main"
         },
         {
@@ -67,7 +89,7 @@
             "title": "Maps of Content",
             "altText": "Map of Content page showing organized note-taking resources",
             "description": "Navigate your knowledge with Maps of Content",
-            "order": 4,
+            "order": 5,
             "group": "main"
         },
         {
@@ -77,7 +99,7 @@
             "title": "Book Tracking",
             "altText": "Library of books with covers, reading status and metadata",
             "description": "Track your reading list with notes and highlights",
-            "order": 5,
+            "order": 6,
             "group": "main"
         },
         {
@@ -87,7 +109,7 @@
             "title": "Meeting Notes",
             "altText": "Meeting notes dashboard showing scheduled and past meetings",
             "description": "Capture and organize meeting notes effectively",
-            "order": 6,
+            "order": 7,
             "group": "main"
         },
         {
@@ -97,7 +119,7 @@
             "title": "Health Dashboard",
             "altText": "Health tracking dashboard with mood, energy, and wellness metrics",
             "description": "Monitor your health and wellness holistically",
-            "order": 7,
+            "order": 8,
             "group": "main"
         },
         {
@@ -107,7 +129,7 @@
             "title": "Contact Management",
             "altText": "Public figures database with names, ages, and dates",
             "description": "Keep track of people in your network",
-            "order": 8,
+            "order": 9,
             "group": "main"
         },
         {
@@ -117,7 +139,7 @@
             "title": "Vault Structure",
             "altText": "Obsidian vault folder structure with Meta, Actions, Areas, Journal, Resources, Archives",
             "description": "Clean, organized vault structure ready to use",
-            "order": 9,
+            "order": 10,
             "group": "main"
         },
         {
