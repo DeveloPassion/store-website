@@ -6,7 +6,8 @@ import {
     FaCreditCard,
     FaLock,
     FaGlobe,
-    FaExternalLinkAlt
+    FaExternalLinkAlt,
+    FaStar
 } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
@@ -287,6 +288,51 @@ const FAQPage: React.FC = () => {
                                         <li>• Purchase history and invoices</li>
                                         <li>• Faster checkout for future purchases</li>
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Ratings & Testimonials */}
+                        <div className='border-primary/10 rounded-lg border p-6 sm:p-8'>
+                            <div className='mb-4 flex items-start gap-3'>
+                                <div className='bg-secondary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg'>
+                                    <FaStar className='text-secondary h-5 w-5' />
+                                </div>
+                                <div className='flex-1'>
+                                    <h2 className='mb-2 text-xl font-semibold'>
+                                        Why do ratings and testimonials differ from Gumroad?
+                                    </h2>
+                                    <p className='text-primary/70 mb-3'>
+                                        You might notice that the number of ratings, stars, or
+                                        testimonials shown on this website doesn't always match what
+                                        appears on Gumroad. This is completely normal and here's
+                                        why:
+                                    </p>
+                                    <ul className='text-primary/70 space-y-2 text-sm'>
+                                        <li>
+                                            • <strong>Multiple sales channels:</strong> Products are
+                                            sold and feedback is collected through different
+                                            platforms, not just Gumroad
+                                        </li>
+                                        <li>
+                                            • <strong>Manual data collection:</strong> Customer
+                                            feedback and ratings are captured manually and through
+                                            scripts that run periodically, so the data may not
+                                            always be up to date
+                                        </li>
+                                        <li>
+                                            • <strong>Incomplete picture on Gumroad:</strong> The
+                                            information displayed on Gumroad doesn't reflect the
+                                            full scope of customer feedback received across all
+                                            channels
+                                        </li>
+                                    </ul>
+                                    <p className='text-primary/70 mt-3 text-sm'>
+                                        Rest assured that all ratings and testimonials are genuine -
+                                        nothing is made up. The differences simply reflect the
+                                        multi-channel nature of how these products are sold and how
+                                        feedback is collected.
+                                    </p>
                                 </div>
                             </div>
                         </div>
