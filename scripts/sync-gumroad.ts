@@ -10,16 +10,18 @@
  * - Sync ratings from Gumroad sales to {product-id}-stats.json files
  * - Update userCount based on sales (only if higher than existing)
  * - Verify prices match between local and Gumroad
+ * - Check for missing products (Gumroad products not in local store)
  * - Uses _redirects file for Gumroad slug → local product mapping
  *
  * Usage:
- *   bun run sync:gumroad
- *   bun scripts/sync-gumroad.ts
+ *   bun run sync:gumroad                    # Interactive mode
+ *   bun scripts/sync-gumroad.ts --all       # Sync all (ratings + sales + prices)
+ *   bun scripts/sync-gumroad.ts --check-missing  # Find missing products
  *
  * Requires GUMROAD_ACCESS_TOKEN environment variable (from .env file)
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { select } from '@inquirer/prompts'
@@ -407,6 +409,109 @@ function displayMappings(mappings: GumroadMapping[], gumroadProducts: GumroadPro
 }
 
 /**
+ * Get all local product IDs from product JSON files
+ */
+function getLocalProductIds(): string[] {
+    const files = readdirSync(PRODUCTS_DIR)
+    // Match only main product files (exclude -faq, -media, -sales-copy, -stats, -testimonials)
+    const productFiles = files.filter((f) => {
+        if (!f.endsWith('.json')) return false
+        // Exclude auxiliary files
+        if (
+            f.includes('-faq.json') ||
+            f.includes('-media.json') ||
+            f.includes('-sales-copy-') ||
+            f.includes('-stats.json') ||
+            f.includes('-testimonials.json')
+        ) {
+            return false
+        }
+        return true
+    })
+    return productFiles.map((f) => f.replace('.json', ''))
+}
+
+/**
+ * Check for missing products (Gumroad products not in local store)
+ */
+function checkMissingProducts(gumroadProducts: GumroadProduct[], mappings: GumroadMapping[]): void {
+    showOperationHeader('MISSING PRODUCTS CHECK')
+
+    const localProductIds = getLocalProductIds()
+    const mappedGumroadSlugs = new Set(mappings.map((m) => m.gumroadSlug.toLowerCase()))
+
+    // Find Gumroad products that don't have a mapping in _redirects
+    const unmappedProducts: GumroadProduct[] = []
+    const mappedProducts: GumroadProduct[] = []
+
+    for (const gp of gumroadProducts) {
+        const slug = (gp.permalink || gp.custom_permalink || '').toLowerCase()
+        if (slug && mappedGumroadSlugs.has(slug)) {
+            mappedProducts.push(gp)
+        } else {
+            unmappedProducts.push(gp)
+        }
+    }
+
+    // Check mapped products to see if local file exists
+    const missingLocalFiles: Array<{ gumroadProduct: GumroadProduct; mappedTo: string }> = []
+    for (const gp of mappedProducts) {
+        const slug = (gp.permalink || gp.custom_permalink || '').toLowerCase()
+        const mapping = mappings.find((m) => m.gumroadSlug.toLowerCase() === slug)
+        if (mapping && !localProductIds.includes(mapping.localProductId)) {
+            missingLocalFiles.push({ gumroadProduct: gp, mappedTo: mapping.localProductId })
+        }
+    }
+
+    // Display unmapped Gumroad products
+    if (unmappedProducts.length > 0) {
+        showSectionHeader('Gumroad products without _redirects mapping')
+        for (const gp of unmappedProducts) {
+            const slug = gp.permalink || gp.custom_permalink || 'no-slug'
+            const priceDisplay = gp.price === 0 ? 'Free' : `€${(gp.price / 100).toFixed(2)}`
+            console.log(
+                `  ${colors.yellow}⚠️${colors.reset} ${colors.bright}${gp.name}${colors.reset}`
+            )
+            console.log(
+                `     ${colors.dim}Slug: ${slug} | Price: ${priceDisplay} | Sales: ${gp.sales_count}${colors.reset}`
+            )
+        }
+    } else {
+        console.log(
+            `  ${colors.green}✓${colors.reset} All Gumroad products have _redirects mappings`
+        )
+    }
+
+    // Display products with mappings but missing local files
+    if (missingLocalFiles.length > 0) {
+        showSectionHeader('Mapped products missing local JSON files')
+        for (const { gumroadProduct, mappedTo } of missingLocalFiles) {
+            const slug = gumroadProduct.permalink || gumroadProduct.custom_permalink || 'no-slug'
+            console.log(
+                `  ${colors.red}✗${colors.reset} ${colors.bright}${gumroadProduct.name}${colors.reset}`
+            )
+            console.log(
+                `     ${colors.dim}Slug: ${slug} → ${mappedTo}.json (missing)${colors.reset}`
+            )
+        }
+    } else if (mappedProducts.length > 0) {
+        console.log(`  ${colors.green}✓${colors.reset} All mapped products have local JSON files`)
+    }
+
+    // Summary
+    showSectionHeader('SUMMARY')
+    console.log(`  Total Gumroad products: ${gumroadProducts.length}`)
+    console.log(`  Mapped to local store: ${mappedProducts.length}`)
+    console.log(
+        `  ${colors.yellow}Missing _redirects mapping: ${unmappedProducts.length}${colors.reset}`
+    )
+    console.log(
+        `  ${colors.red}Missing local JSON files: ${missingLocalFiles.length}${colors.reset}`
+    )
+    console.log(`  Local product files: ${localProductIds.length}`)
+}
+
+/**
  * Main sync function
  */
 async function runSync(options: {
@@ -551,6 +656,11 @@ async function interactiveMenu(): Promise<void> {
                     description: 'Show Gumroad → local product mappings'
                 },
                 {
+                    name: '🔍 Check for Missing Products',
+                    value: 'check-missing',
+                    description: 'Find Gumroad products not in local store'
+                },
+                {
                     name: '👋 Exit',
                     value: 'exit',
                     description: 'Exit the CLI'
@@ -577,6 +687,26 @@ async function interactiveMenu(): Promise<void> {
             try {
                 const gumroadProducts = await client.getProducts()
                 displayMappings(mappings, gumroadProducts)
+            } catch (error) {
+                showError(`Failed to fetch Gumroad products: ${error}`)
+            }
+            continue
+        }
+
+        if (choice === 'check-missing') {
+            const accessToken = process.env.GUMROAD_ACCESS_TOKEN
+            if (!accessToken) {
+                showError('GUMROAD_ACCESS_TOKEN not found in environment')
+                continue
+            }
+
+            const client = new GumroadApiClient({ accessToken })
+            const mappings = loadRedirectsMappings()
+
+            showInfo('Fetching products from Gumroad API...')
+            try {
+                const gumroadProducts = await client.getProducts()
+                checkMissingProducts(gumroadProducts, mappings)
             } catch (error) {
                 showError(`Failed to fetch Gumroad products: ${error}`)
             }
@@ -618,6 +748,7 @@ function parseArgs(): {
     verifyPrices?: boolean
     product?: string
     listMappings?: boolean
+    checkMissing?: boolean
     debug?: boolean
 } {
     const args: Record<string, string | boolean> = {}
@@ -635,6 +766,8 @@ function parseArgs(): {
             args.verifyPrices = true
         } else if (arg === '--list') {
             args.listMappings = true
+        } else if (arg === '--check-missing') {
+            args.checkMissing = true
         } else if (arg === '--debug') {
             args.debug = true
         } else if (arg === '--product' && processArgs[i + 1]) {
@@ -658,7 +791,8 @@ async function main(): Promise<void> {
         args.syncRatings ||
         args.syncSales ||
         args.verifyPrices ||
-        args.listMappings
+        args.listMappings ||
+        args.checkMissing
     ) {
         if (args.listMappings) {
             const accessToken = process.env.GUMROAD_ACCESS_TOKEN
@@ -671,6 +805,20 @@ async function main(): Promise<void> {
             const mappings = loadRedirectsMappings()
             const gumroadProducts = await client.getProducts()
             displayMappings(mappings, gumroadProducts)
+            return
+        }
+
+        if (args.checkMissing) {
+            const accessToken = process.env.GUMROAD_ACCESS_TOKEN
+            if (!accessToken) {
+                showError('GUMROAD_ACCESS_TOKEN not found in environment')
+                process.exit(1)
+            }
+
+            const client = new GumroadApiClient({ accessToken })
+            const mappings = loadRedirectsMappings()
+            const gumroadProducts = await client.getProducts()
+            checkMissingProducts(gumroadProducts, mappings)
             return
         }
 
