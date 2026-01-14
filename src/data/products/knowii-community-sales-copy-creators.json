@@ -1,0 +1,347 @@
+{
+    "id": "creators",
+    "salesCopy": {
+        "tagline": "From Chaotic Hustler to Systematic Creator",
+        "secondaryTagline": "Build Knowledge Systems That Turn Your Expertise Into Consistent Content, Sustainable Revenue, and Creative Freedom—Without Burnout",
+        "problem": "You're trapped in the content creation grind. Endless ideas but inconsistent output. Brilliant insights that never make it to publication. The exhausting cycle of inspiration-dependent creation that leaves you burned out and wondering if sustainable success is even possible.",
+        "problemPoints": [
+            "Inconsistent content output—feast or famine publishing that frustrates your audience and algorithm alike",
+            "The knowledge-to-content gap—expertise trapped in your head, never packaged into valuable content",
+            "Perfectionism-shipping gap—drafts that never see the light of day because they're never 'ready'",
+            "Tool proliferation fatigue—Notion, Obsidian, Roam, Google Docs, scattered everywhere with no system",
+            "Feast-famine revenue cycles—unpredictable income that makes planning impossible",
+            "Burnout cycles—heroic effort followed by creative exhaustion, rinse and repeat"
+        ],
+        "agitate": "The creator economy promises freedom, but most creators are trapped in unsustainable systems—or no systems at all. You're working harder than ever, yet your output is unpredictable, your revenue unstable, and your creative energy depleted.",
+        "agitatePoints": [
+            "Ideas pile up but never become content—that course outline from 6 months ago? Still sitting in a folder",
+            "Reinventing workflows for every project—no reusable systems, just constant improvisation",
+            "Creative blocks from mental clutter—too much noise to hear your own original thoughts",
+            "Platform dependency anxiety—building on rented land while algorithms change overnight",
+            "Revenue that doesn't match your effort—working 60-hour weeks for inconsistent results",
+            "The guilt spiral—not creating feels like failing, but creating feels like drowning"
+        ],
+        "solution": "Knowii helps creators build knowledge and content systems that turn chaotic content creation into consistent output, sustainable revenue, and creative freedom—without the chaos and burnout. Community + Premium courses + Professional tools designed specifically for the creator journey.",
+        "solutionPoints": [
+            "Reliable content systems—produce consistently through proven workflows, not inspiration-dependent chaos",
+            "Bridge the knowledge-to-content gap—turn accumulated expertise into published work systematically",
+            "Scale beyond personal capacity—systems that grow your output without growing your hours",
+            "AI as a thinking partner—leverage AI to amplify creativity without losing your unique voice",
+            "Sustainable creation practices—build without burning out, create without constant heroic effort",
+            "Multiple revenue streams—turn knowledge assets into products, courses, and recurring income"
+        ],
+        "description": "Knowii is where creators who are serious about sustainable success come to build their operating systems. Unlike productivity tools that add complexity or communities that share theory without implementation, Knowii delivers integrated systems: learn the frameworks through courses, implement with professional templates, and get unstuck with community support. Whether you're a newsletter writer, course creator, YouTuber, or multi-format creator—Knowii helps you become a Systematic Creator.",
+        "features": [
+            "Creator-focused community—connect with newsletter writers, course creators, YouTubers, and content entrepreneurs",
+            "Content pipeline systems—ideation to publication workflows that actually ship",
+            "Knowledge-to-content frameworks—turn your expertise into articles, courses, and products",
+            "Obsidian Starter Kit (€129.99 value)—creator-optimized vault structure included",
+            "AI integration strategies—prompts and workflows for AI-assisted creation",
+            "Knowledge base of 1,800+ concepts, frameworks, and mental models to fuel your content",
+            "Knowledge Master tools—Knowledge Worker Kit, PKM Library, AI Ghostwriter Guide, AI Master Prompt",
+            "Live creator events—masterclasses on content systems, audience building, and sustainable creation",
+            "Monthly creator challenges—Ship 4 pieces in 4 weeks, Build your content pipeline, Launch your first product",
+            "Build-in-public channel—share progress, get feedback, stay accountable",
+            "Content teardown reviews—get constructive feedback on your systems and workflows",
+            "System showcase sessions—learn from other creators' actual implementations",
+            "DeveloPassion's Newsletter Archives—200+ editions on creator systems and knowledge work",
+            "All workshops included—AI Master Prompt, Content Systems, Journaling Deep Dive, and more"
+        ],
+        "benefits": {
+            "immediate": [
+                "Content pipeline templates—stop reinventing workflows for every project",
+                "Connect with creators solving the same problems—you're not alone in this grind",
+                "AI prompts and workflows—leverage AI for research, drafting, and editing immediately",
+                "Accountability through community challenges—momentum to finally ship that backlog"
+            ],
+            "systematic": [
+                "Reliable content engine—predictable output through proven systems, not heroic effort",
+                "Knowledge-to-content bridge—frameworks that turn accumulated expertise into published work",
+                "Repurposing systems—one piece of content becomes many across formats and platforms",
+                "Sustainable creation practices—energy management over time management",
+                "Build-in-public accountability—transparency that creates connection and keeps you shipping",
+                "Creator operating system—integrated approach to content, business, and knowledge"
+            ],
+            "longTerm": [
+                "Creative freedom—systems that run smoothly so you can focus on what matters",
+                "Consistent output without burnout—sustainable pace that compounds over years",
+                "Multiple revenue streams—knowledge assets that generate income beyond hourly work",
+                "Platform independence—own your systems, own your audience, own your future",
+                "Compound growth—each piece of content builds on your knowledge system exponentially"
+            ]
+        },
+        "targetAudience": [
+            "Newsletter Writers—building audience through consistent written publishing",
+            "Course Creators—building and selling educational products at scale",
+            "YouTubers & Podcasters—creating video and audio content systematically",
+            "Multi-Format Creators—producing across written, video, audio, and products",
+            "Creator-Entrepreneurs—building multiple revenue streams through systematic creation",
+            "Solopreneurs & Consultants—turning expertise into scalable content and products",
+            "Authors & Bloggers—writing consistently without the feast-famine cycle",
+            "Coaches & Instructors—packaging knowledge into courses, programs, and content"
+        ],
+        "perfectFor": [
+            "You create content but struggle with consistency—feast or famine is your normal",
+            "You have expertise trapped in your head that never becomes published content",
+            "You're tired of the heroic hustle and want systems that make creation sustainable",
+            "You want to scale your output without scaling your burnout",
+            "You believe in building real value through knowledge, not chasing trends or algorithms"
+        ],
+        "notForYou": [
+            "You're looking for get-rich-quick content shortcuts or viral hacks",
+            "You don't want to invest time in building systems—you prefer winging it",
+            "You're not interested in community learning or accountability"
+        ],
+        "trustBadges": [
+            "Creator-Focused—systems designed specifically for content creators and knowledge entrepreneurs",
+            "Proven by Creators—340+ members including newsletter writers, course creators, and content entrepreneurs",
+            "20+ Years Expertise—from someone who's published 400+ articles, 3 books, and video courses",
+            "Real Implementation—Community + Courses + Tools that work together, not theory alone",
+            "Sustainable Approach—build without burnout, create without chaos",
+            "Active Community—monthly challenges, build-in-public, content teardowns, and live events"
+        ],
+        "guarantees": [
+            "Immediate access to all creator-focused courses and templates",
+            "Monthly challenges to build momentum and accountability",
+            "Flexible membership—upgrade, downgrade, or cancel anytime",
+            "All future creator workshops and tools included automatically"
+        ],
+        "metaTitle": "Knowii for Creators - From Chaotic Hustler to Systematic Creator | Content Systems That Scale",
+        "metaDescription": "Build knowledge systems that turn your expertise into consistent content, sustainable revenue, and creative freedom. Join 340+ creators building without burnout.",
+        "keywords": [
+            "creator knowledge system",
+            "content creation systems",
+            "systematic creator",
+            "creator operating system",
+            "sustainable content creation",
+            "knowledge to content",
+            "creator burnout solution",
+            "content pipeline",
+            "creator community",
+            "course creator systems",
+            "newsletter writer systems"
+        ],
+        "storytelling": {
+            "originStory": {
+                "title": "Built By a Creator, For Creators",
+                "subtitle": "I know the grind because I've lived it",
+                "story": "I've published 400+ articles, written 3 books, created video courses, and sent 200+ newsletter editions. I know what it's like to have a head full of ideas and a backlog of half-finished drafts. I've experienced the feast-famine cycle, the burnout, the guilt of not creating, and the exhaustion of creating without systems. The turning point came when I realized that the problem wasn't lack of ideas or effort—it was lack of systems. I was working harder, not smarter. So I built systems that turned my scattered knowledge into a reliable content engine. Systems that let me create consistently without burning out. Knowii exists to share these systems with creators who are ready to stop hustling and start building sustainably.",
+                "inspirationPoint": "The moment I realized sustainable creation isn't about working harder—it's about building systems that compound your effort over time.",
+                "icon": "FaPencilAlt"
+            },
+            "creatorJourney": {
+                "title": "From Burned-Out Creator to Systematic Producer",
+                "subtitle": "The journey that shaped these systems",
+                "story": "My creator journey started with passion and ended with burnout—multiple times. I'd have bursts of creative energy followed by weeks of exhaustion. My content was inconsistent, my revenue unpredictable, and my ideas were scattered across too many tools to count. Over 20+ years, I obsessively refined systems for capturing, organizing, and leveraging knowledge into content. I learned what works through trial, error, and a lot of wasted effort. Now I've helped 2,000+ customers and 340+ community members build their own creator systems. Every framework in Knowii has been battle-tested—not just by me, but by creators across newsletters, courses, YouTube, podcasting, and more.",
+                "struggles": [
+                    "Burned out multiple times from unsustainable creation practices",
+                    "Lost count of half-finished drafts that never shipped",
+                    "Watched revenue fluctuate wildly despite consistent effort",
+                    "Scattered notes across dozens of tools with no system to connect them"
+                ],
+                "achievements": [
+                    "400+ articles published with consistent systems",
+                    "3 books written and shipped",
+                    "200+ newsletter editions to 2,300+ subscribers",
+                    "Video courses created and sold",
+                    "2,000+ products sold to creators and knowledge workers",
+                    "340+ community members building sustainable systems",
+                    "Finally achieved consistent creation without burnout"
+                ],
+                "credentials": "Creator, Author, Course Builder, and founder of Knowii—dedicated to helping fellow creators build systems that turn chaotic content creation into consistent output without the burnout.",
+                "icon": "FaRoad"
+            },
+            "transformationArc": {
+                "title": "The Creator Transformation",
+                "subtitle": "From chaotic hustler to systematic creator",
+                "before": {
+                    "title": "The Chaotic Hustler",
+                    "description": "Inspiration-dependent creation. Feast-famine publishing. Ideas scattered everywhere. Working harder but not seeing results. The constant guilt of not creating enough, not shipping enough, not growing enough.",
+                    "points": [
+                        "Inconsistent publishing—weeks of output followed by weeks of silence",
+                        "Knowledge trapped in your head—expertise that never becomes content",
+                        "Reinventing workflows for every single project",
+                        "Revenue as unpredictable as your output",
+                        "Burnout cycles that feel inevitable"
+                    ],
+                    "icon": "FaExclamationTriangle"
+                },
+                "during": {
+                    "title": "Building Your Creator Operating System",
+                    "description": "Learning proven content systems. Implementing templates that actually ship. Getting unstuck with community support. Building your knowledge-to-content pipeline step by step.",
+                    "points": [
+                        "Courses teach you content creation frameworks",
+                        "Templates give you ready-to-use pipelines",
+                        "Community provides accountability and feedback",
+                        "Challenges build momentum and shipping habits",
+                        "Expert guidance when you hit creative walls"
+                    ],
+                    "icon": "FaCogs"
+                },
+                "after": {
+                    "title": "The Systematic Creator",
+                    "description": "Reliable content output through proven systems. Knowledge flowing into content automatically. Creating prolifically without heroic effort. Sustainable revenue from compounding knowledge assets.",
+                    "points": [
+                        "Consistent publishing through reliable systems",
+                        "Knowledge-to-content pipeline running smoothly",
+                        "Multiple revenue streams from knowledge assets",
+                        "Creative freedom from systems that maintain themselves",
+                        "Sustainable pace that compounds over years"
+                    ],
+                    "icon": "FaCheckCircle"
+                },
+                "timeline": "First content shipped in Week 1, reliable systems by Month 1, sustainable creation rhythm by Month 3"
+            },
+            "methodology": {
+                "title": "The Systematic Creator Framework",
+                "subtitle": "From scattered ideas to consistent content engine",
+                "steps": [
+                    {
+                        "title": "Capture Everything That Matters",
+                        "description": "Build reliable systems to capture ideas, research, and inspiration before they slip away. Stop losing brilliant thoughts to poor capture habits.",
+                        "icon": "FaLightbulb",
+                        "order": 0
+                    },
+                    {
+                        "title": "Build Your Knowledge Command Center",
+                        "description": "Create a centralized system where all your expertise, research, and ideas live. One place to find everything, connected and searchable.",
+                        "icon": "FaDatabase",
+                        "order": 1
+                    },
+                    {
+                        "title": "Bridge Knowledge to Content",
+                        "description": "Master the frameworks that turn accumulated knowledge into publishable content. Close the gap between what you know and what you ship.",
+                        "icon": "FaBridge",
+                        "order": 2
+                    },
+                    {
+                        "title": "Build Your Content Pipeline",
+                        "description": "Create end-to-end workflows from ideation through creation, editing, publishing, and promotion. Systems that ship, not just systems that organize.",
+                        "icon": "FaStream",
+                        "order": 3
+                    },
+                    {
+                        "title": "Scale Without Burnout",
+                        "description": "Learn sustainable creation practices that prioritize energy management over time management. Build systems that compound, not systems that deplete.",
+                        "icon": "FaBalanceScale",
+                        "order": 4
+                    },
+                    {
+                        "title": "Turn Knowledge Into Revenue",
+                        "description": "Transform your content and knowledge assets into multiple revenue streams. Courses, products, memberships, and services built on your systematic foundation.",
+                        "icon": "FaMoneyBillWave",
+                        "order": 5
+                    }
+                ],
+                "philosophy": "Create prolifically through reliable systems, not heroic effort. The best content system is one you'll actually use consistently. Small improvements compound into massive output over time.",
+                "differentiation": "Unlike generic productivity advice that ignores creator-specific challenges, tool-focused communities that forget the business side, or courses that leave you stuck implementing—Knowii delivers integrated creator systems: Community + Courses + Tools designed specifically for the creator journey."
+            },
+            "vision": {
+                "title": "The Systematic Creator Movement",
+                "subtitle": "Proving sustainable success is possible",
+                "mission": "We're building a movement of Systematic Creators who prove you can create prolifically without burning out. Who demonstrate that sustainable success comes from better systems, not harder hustle. Our goal is creative freedom, consistent output, sustainable revenue, and mental clarity—achieved through systems that compound, not effort that depletes.",
+                "values": [
+                    {
+                        "title": "Systems Over Hustle",
+                        "description": "Reliable systems beat heroic effort every time. We build for sustainability, not sprints.",
+                        "icon": "FaCogs"
+                    },
+                    {
+                        "title": "Ship Over Perfect",
+                        "description": "Done is better than perfect. We prioritize consistent shipping over endless refinement.",
+                        "icon": "FaRocket"
+                    },
+                    {
+                        "title": "Build in Public",
+                        "description": "Transparency creates accountability and connection. We share our journeys openly.",
+                        "icon": "FaEye"
+                    },
+                    {
+                        "title": "Knowledge First",
+                        "description": "Lead with ideas and expertise, not personality or entertainment. Create real value.",
+                        "icon": "FaBrain"
+                    }
+                ],
+                "futureGoals": [
+                    "Launch BuilderOS—the complete creator operating system for knowledge-first creators",
+                    "Build the largest community of systematic creators who ship consistently",
+                    "Develop deeper AI integration for creator workflows and content production",
+                    "Create the definitive playbook for sustainable creator success"
+                ],
+                "biggerPicture": "The creator economy is broken because it rewards unsustainable hustle. We believe there's a better way—building knowledge systems that compound over time, creating value through expertise rather than entertainment, and achieving success through sustainability rather than burnout. Every systematic creator who succeeds proves this is possible.",
+                "icon": "FaRocket"
+            }
+        },
+        "timeline": {
+            "title": "Your Creator Transformation",
+            "subtitle": "From chaotic hustler to systematic creator",
+            "milestones": [
+                {
+                    "id": "week-1",
+                    "timeframe": "Week 1",
+                    "title": "First Content Shipped",
+                    "description": "Set up your creator knowledge system and ship your first piece of content using the new workflows. Experience what it feels like to have a system backing your creation.",
+                    "highlights": [
+                        "Install and configure your creator-optimized vault",
+                        "Import content pipeline templates",
+                        "Capture your existing ideas into the system",
+                        "Ship at least one piece of content using new workflows"
+                    ],
+                    "icon": "FaRocket"
+                },
+                {
+                    "id": "month-1",
+                    "timeframe": "Month 1",
+                    "title": "Pipeline Running",
+                    "description": "Your content pipeline is operational. Ideas flow into capture, through development, into publication. The feast-famine cycle starts breaking as systems take over from willpower.",
+                    "highlights": [
+                        "End-to-end content pipeline established",
+                        "Consistent capture habits formed",
+                        "First monthly challenge completed",
+                        "Noticeable reduction in creative friction"
+                    ],
+                    "icon": "FaStream"
+                },
+                {
+                    "id": "month-3",
+                    "timeframe": "Month 3",
+                    "title": "Sustainable Rhythm",
+                    "description": "You've found your sustainable creation rhythm. Output is consistent without burnout. Ideas connect across your knowledge system. The old feast-famine cycle feels like a distant memory.",
+                    "highlights": [
+                        "Consistent publishing without heroic effort",
+                        "Knowledge-to-content bridge working smoothly",
+                        "Energy levels stable, not depleted",
+                        "Content quality improving alongside quantity"
+                    ],
+                    "icon": "FaBalanceScale"
+                },
+                {
+                    "id": "month-6",
+                    "timeframe": "Month 6",
+                    "title": "Revenue Growing",
+                    "description": "Your systematic approach is translating into business results. Content drives consistent traffic and conversions. You're exploring additional revenue streams built on your knowledge assets.",
+                    "highlights": [
+                        "Clear content-to-revenue connection",
+                        "Exploring courses, products, or services",
+                        "Audience growth from consistent presence",
+                        "Systems requiring minimal maintenance"
+                    ],
+                    "icon": "FaChartLine"
+                },
+                {
+                    "id": "year-1",
+                    "timeframe": "Year 1",
+                    "title": "Systematic Creator",
+                    "description": "You've transformed from chaotic hustler to systematic creator. Multiple revenue streams from knowledge assets. Creative freedom from systems that run themselves. Sustainable success that compounds.",
+                    "highlights": [
+                        "Multiple revenue streams operational",
+                        "Creative output you never thought possible",
+                        "Systems that maintain themselves",
+                        "True creative freedom and sustainable pace"
+                    ],
+                    "icon": "FaTrophy"
+                }
+            ]
+        }
+    }
+}
