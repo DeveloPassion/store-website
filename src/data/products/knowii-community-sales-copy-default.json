@@ -126,31 +126,33 @@
         "storytelling": {
             "originStory": {
                 "title": "Why Knowii Exists",
-                "subtitle": "Born from personal frustration with information chaos",
-                "story": "I had 2,000+ bookmarks scattered across 3 browsers. Notes in Evernote, Apple Notes, and dozens of paper notebooks. I'd read great books but couldn't remember or apply their key insights when I needed them most. I was drowning in emails, tabs, notes, and endless must-read content—overwhelmed by information, frustrated by scattered systems, burning hours searching for things I knew I'd saved somewhere. So I spent years teaching myself project management, team management, agile approaches, and leadership while organizing tons of knowledge and writing articles and books. Eventually, I built systems that actually worked—systems that turned chaos into clarity. Knowii exists because I realized these systems shouldn't stay locked in my head. They should help others break free from information overload and thrive in the age of AI.",
-                "inspirationPoint": "The moment I realized my personal systems could help others transform their relationship with knowledge—not just survive information overload, but turn it into a competitive advantage.",
+                "subtitle": "More than knowledge management—a complete system for thriving",
+                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost 200k€ and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. Burnout from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising three kids while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed—what we all need—is a complete system for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a community of practice where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
+                "inspirationPoint": "The moment I realized that knowledge management is the foundation—but clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
                 "icon": "FaLightbulb"
             },
             "creatorJourney": {
-                "title": "20+ Years of Building Systems That Actually Work",
-                "subtitle": "From overwhelmed professional to knowledge management specialist",
-                "story": "My journey started like yours—drowning in information with no system to make sense of it all. Over 20+ years of professional experience, I've obsessively refined approaches to capturing, organizing, and leveraging knowledge. Along the way, I've published 400+ articles, written 3 books, created video courses, and built products used by thousands. I've sent 200+ editions of my newsletter to 2,300+ subscribers. But the real insight came from helping others: every system, every framework, every tool I share has been battle-tested in real professional situations—not just my own, but those of the 340+ community members and 2,000+ product customers who've trusted me to help them transform their knowledge work.",
+                "title": "20+ Years Building Systems for Everything",
+                "subtitle": "Not just PKM—the complete knowledge worker toolkit",
+                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization—while running DeveloPassion, raising 3 kids, and maintaining nearly 10,000 notes in my personal knowledge system. I've published 3 books, written 400+ articles and newsletters, created courses, and built products used by thousands. But here's what matters: I didn't just build systems for managing information. I built systems for everything—clarity on values and priorities, habits that make productivity automatic, career management, effective learning, project organization, task management, focus and attention, and personal development. The Knowii Community is where I share ALL of it—not just PKM, but the complete framework for becoming a top-tier knowledge worker.",
                 "struggles": [
-                    "Spent years overwhelmed by scattered information across too many tools",
-                    "Lost countless valuable ideas before developing reliable capture systems",
-                    "Burned out from trying to remember everything instead of building systems",
-                    "Wasted hours searching for information I knew I had saved somewhere"
+                    "Crushing shyness and introversion that made communication terrifying",
+                    "A failed startup that cost 200k€ and 2 years",
+                    "Burnout from trying to succeed through willpower alone",
+                    "Losing loved ones and rebuilding meaning",
+                    "Managing chaos with 3 kids and a demanding corporate career"
                 ],
                 "achievements": [
-                    "20+ years of professional knowledge management expertise",
-                    "400+ articles published sharing practical frameworks",
-                    "3 books written on productivity and knowledge work",
-                    "2,300+ newsletter subscribers across 200+ editions",
-                    "2,000+ products sold helping others build better systems",
-                    "340+ active community members learning and growing together",
-                    "10,000+ hours saved by customers using these systems"
+                    "IT Solution Architect at a major financial organization",
+                    "Nearly 10,000 notes in personal knowledge vault",
+                    "Published 3 books including Learn TypeScript",
+                    "Written 400+ articles and newsletters",
+                    "Created the Knowledge Worker Kit covering 13 comprehensive topics",
+                    "Built the Knowii community from scratch",
+                    "Transitioned from shy introvert to leader and entrepreneur",
+                    "2,000+ products sold, 340+ community members"
                 ],
-                "credentials": "Knowledge Management Expert, Author, Course Creator, and founder of the Knowii Community—dedicated to helping creators, leaders, and knowledge workers build systems that turn chaotic information into consistent output.",
+                "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3—dedicated to helping knowledge workers build complete systems for clarity, learning, organization, and execution.",
                 "icon": "FaRoad"
             },
             "transformationArc": {
@@ -239,9 +241,9 @@
                 "differentiation": "Unlike generic productivity forums that offer only theory, tool-specific communities that focus on software instead of your actual problems, or courses alone that leave you stuck implementing—Knowii delivers Community + Courses + Tools integrated to work together as one cohesive transformation system."
             },
             "vision": {
-                "title": "Building Systematic Creators",
+                "title": "Building Top 1% Knowledge Workers",
                 "subtitle": "Our mission and where we're headed",
-                "mission": "We help creators, leaders, and knowledge workers transform from chaotic hustlers to systematic creators—producing prolifically through reliable systems, not heroic effort. Our goal is to help you achieve creative freedom, consistent output, sustainable revenue, and mental clarity without the chaos and burnout that most accept as inevitable.",
+                "mission": "I want people to grow and thrive. Knowii exists to help knowledge workers build complete systems—not just for managing information, but for everything: clarity on what matters, habits that make success automatic, career management, effective learning, project organization, task management, focus, and personal development. The goal is Zen Productivity: staying calm and organized no matter how much you're juggling, achieving consistent output without burnout, and becoming the kind of knowledge worker others look up to.",
                 "values": [
                     {
                         "title": "Curiosity",

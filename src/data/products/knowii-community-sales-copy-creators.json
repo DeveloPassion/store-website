@@ -93,12 +93,12 @@
             "You're not interested in community learning or accountability"
         ],
         "trustBadges": [
+            "Proven Output—3 books, 400+ articles, 20+ products, 2,000+ sales from these exact systems",
             "Creator-Focused—systems designed specifically for content creators and knowledge entrepreneurs",
-            "Proven by Creators—340+ members including newsletter writers, course creators, and content entrepreneurs",
-            "20+ Years Expertise—from someone who's published 400+ articles, 3 books, and video courses",
-            "Real Implementation—Community + Courses + Tools that work together, not theory alone",
-            "Sustainable Approach—build without burnout, create without chaos",
-            "Active Community—monthly challenges, build-in-public, content teardowns, and live events"
+            "Active Community—340+ members including newsletter writers, course creators, and content entrepreneurs",
+            "20+ Years of Practice—battle-tested systems, not theory",
+            "Real Implementation—Community + Courses + Tools that work together",
+            "Sustainable Approach—build without burnout, create without chaos"
         ],
         "guarantees": [
             "Immediate access to all creator-focused courses and templates",
@@ -123,32 +123,35 @@
         ],
         "storytelling": {
             "originStory": {
-                "title": "Built By a Creator, For Creators",
-                "subtitle": "I know the grind because I've lived it",
-                "story": "I've published 400+ articles, written 3 books, created video courses, and sent 200+ newsletter editions. I know what it's like to have a head full of ideas and a backlog of half-finished drafts. I've experienced the feast-famine cycle, the burnout, the guilt of not creating, and the exhaustion of creating without systems. The turning point came when I realized that the problem wasn't lack of ideas or effort—it was lack of systems. I was working harder, not smarter. So I built systems that turned my scattered knowledge into a reliable content engine. Systems that let me create consistently without burning out. Knowii exists to share these systems with creators who are ready to stop hustling and start building sustainably.",
-                "inspirationPoint": "The moment I realized sustainable creation isn't about working harder—it's about building systems that compound your effort over time.",
+                "title": "Built By a Prolific Creator, For Creators",
+                "subtitle": "These systems produced everything you see here",
+                "story": "Look at what these systems have produced: 3 published books. 400+ articles and newsletters. 20+ digital products including courses, workshops, templates, and tools. 2,000+ sales. The Knowii Community with 340+ members. A voice AI app. Obsidian plugins. A knowledge base of 1,800+ concepts. Nearly 10,000 personal notes. All of this while working half-time at a major financial organization and raising 3 kids. I'm not sharing theory about how to create—I'm sharing the exact systems that produced this output. The systems that took me from scattered ideas and burnout cycles to consistent, sustainable creation that actually generates revenue. If you want to create prolifically without burning out, you need systems that actually work. These are the systems.",
+                "inspirationPoint": "The moment I realized I could share not just what I created, but HOW I created it—the systems that made prolific output possible without sacrificing everything else.",
                 "icon": "FaPencilAlt"
             },
             "creatorJourney": {
-                "title": "From Burned-Out Creator to Systematic Producer",
-                "subtitle": "The journey that shaped these systems",
-                "story": "My creator journey started with passion and ended with burnout—multiple times. I'd have bursts of creative energy followed by weeks of exhaustion. My content was inconsistent, my revenue unpredictable, and my ideas were scattered across too many tools to count. Over 20+ years, I obsessively refined systems for capturing, organizing, and leveraging knowledge into content. I learned what works through trial, error, and a lot of wasted effort. Now I've helped 2,000+ customers and 340+ community members build their own creator systems. Every framework in Knowii has been battle-tested—not just by me, but by creators across newsletters, courses, YouTube, podcasting, and more.",
+                "title": "From Scattered Ideas to 20+ Products",
+                "subtitle": "The systems behind prolific creation",
+                "story": "I've been coding since age 8 and writing almost as long. But for years, I struggled with the same problems every creator faces: scattered ideas, inconsistent output, burnout cycles. The turning point came when I stopped trying to create through willpower and started building systems. Today, those systems have produced: 3 books (Learn TypeScript, Dev Concepts series). 400+ articles and newsletters across 200+ editions. 20+ digital products—the Obsidian Starter Kit, Knowledge Worker Kit, courses, workshops, masterclasses. The Knowii Community itself. A voice AI app (Knowii Voice). Open-source Obsidian plugins. A PKM Library with 290+ tools and 2,000+ influencers catalogued. Nearly 10,000 notes in my personal vault. All while working half-time as an IT Solution Architect and being a father of 3. The systems work. Now I want to help you build yours.",
                 "struggles": [
-                    "Burned out multiple times from unsustainable creation practices",
-                    "Lost count of half-finished drafts that never shipped",
-                    "Watched revenue fluctuate wildly despite consistent effort",
-                    "Scattered notes across dozens of tools with no system to connect them"
+                    "Years of scattered ideas across too many tools",
+                    "Multiple burnout cycles from unsustainable creation",
+                    "A failed startup that cost 200k€ and taught me what NOT to do",
+                    "The painful transition from shy introvert to public creator"
                 ],
                 "achievements": [
-                    "400+ articles published with consistent systems",
-                    "3 books written and shipped",
-                    "200+ newsletter editions to 2,300+ subscribers",
-                    "Video courses created and sold",
-                    "2,000+ products sold to creators and knowledge workers",
-                    "340+ community members building sustainable systems",
-                    "Finally achieved consistent creation without burnout"
+                    "3 books published (Learn TypeScript, Dev Concepts series)",
+                    "400+ articles and 200+ newsletter editions",
+                    "20+ digital products created and sold",
+                    "2,000+ product sales across my catalog",
+                    "Built the Knowii Community from scratch",
+                    "Created Knowii Voice AI app",
+                    "Developed multiple Obsidian plugins",
+                    "Curated PKM Library with 290+ tools, 350+ articles, 2,000+ influencers",
+                    "Nearly 10,000 notes in personal knowledge vault",
+                    "All while working half-time and raising 3 kids"
                 ],
-                "credentials": "Creator, Author, Course Builder, and founder of Knowii—dedicated to helping fellow creators build systems that turn chaotic content creation into consistent output without the burnout.",
+                "credentials": "Author (3 books), Course Creator, Product Builder (20+ products), Community Founder, IT Solution Architect, Father of 3—proof that prolific creation is possible with the right systems.",
                 "icon": "FaRoad"
             },
             "transformationArc": {
@@ -239,7 +242,7 @@
             "vision": {
                 "title": "The Systematic Creator Movement",
                 "subtitle": "Proving sustainable success is possible",
-                "mission": "We're building a movement of Systematic Creators who prove you can create prolifically without burning out. Who demonstrate that sustainable success comes from better systems, not harder hustle. Our goal is creative freedom, consistent output, sustainable revenue, and mental clarity—achieved through systems that compound, not effort that depletes.",
+                "mission": "I've proven that prolific creation is possible without burning out—3 books, 400+ articles, 20+ products, 2,000+ sales, all while working half-time and raising 3 kids. Now I'm building a movement of Systematic Creators who prove the same. We demonstrate that sustainable success comes from better systems, not harder hustle. Our goal is creative freedom, consistent output, sustainable revenue, and mental clarity—achieved through systems that compound, not effort that depletes.",
                 "values": [
                     {
                         "title": "Systems Over Hustle",
