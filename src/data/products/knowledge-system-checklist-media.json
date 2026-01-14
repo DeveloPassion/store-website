@@ -1,3 +1,15 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-1736859500000",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-system-checklist/knowledge-system-checklist-cover.webp",
+            "title": "Knowledge System Checklist",
+            "altText": "Free checklist to build your knowledge system with confidence",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450
+        }
+    ]
 }

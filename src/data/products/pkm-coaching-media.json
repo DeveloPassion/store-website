@@ -10,6 +10,17 @@
             "order": 0,
             "group": "cover",
             "youtubeId": "DOy4dTLBHBQ"
+        },
+        {
+            "id": "cover-1736859000000",
+            "type": "image",
+            "url": "/assets/images/products/pkm-coaching/pkm-coaching-cover.webp",
+            "title": "PKM Coaching",
+            "altText": "1-on-1 expert guidance to transform your knowledge system",
+            "order": 1,
+            "group": "cover",
+            "width": 800,
+            "height": 400
         }
     ]
 }
