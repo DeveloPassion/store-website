@@ -106,7 +106,7 @@ export const PaymentFrequencySelector = ({
                     <div
                         className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm ${
                             selected === 'yearly' || selected === 'biennial'
-                                ? 'bg-secondary/20 text-secondary animate-pulse'
+                                ? 'bg-solution/20 text-solution animate-pulse'
                                 : 'bg-primary/10 text-primary/70'
                         } `}
                     >
@@ -138,13 +138,13 @@ export const PaymentFrequencySelector = ({
 
             {/* Additional Savings Message */}
             {selected === 'yearly' && showYearlySavings && (
-                <div className='text-secondary mt-2 text-sm'>
+                <div className='text-solution mt-2 text-sm'>
                     <span className='font-medium'>Smart choice!</span> You're saving {yearlySavings}
                     % compared to paying monthly.
                 </div>
             )}
             {selected === 'biennial' && showBiennialSavings && (
-                <div className='text-secondary mt-2 text-sm'>
+                <div className='text-solution mt-2 text-sm'>
                     <span className='font-medium'>Excellent choice!</span> You're saving{' '}
                     {biennialSavings}% compared to paying monthly —{' '}
                     <span className='font-semibold'>maximum value!</span>

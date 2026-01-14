@@ -115,60 +115,65 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
 
     return (
         <div
-            className={cn('relative px-12', className)}
+            className={cn('relative', className)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             role='region'
             aria-roledescription='carousel'
             aria-label={`${group} media carousel`}
         >
-            {/* Carousel container */}
-            <div className='relative overflow-hidden'>
-                <AnimatePresence initial={false} custom={direction} mode='wait'>
-                    <motion.div
-                        key={currentIndex}
-                        custom={direction}
-                        variants={slideVariants}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{
-                            x: { type: 'spring', stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 }
-                        }}
-                        className='flex justify-center'
-                    >
-                        <div className='w-full max-w-4xl'>
-                            <MediaItem
-                                item={currentMedia}
-                                showCaption={showCaptions}
-                                onImageClick={handleMediaClick}
-                                priority={currentIndex === 0} // First item eager loads
-                            />
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-
-            {/* Navigation buttons */}
-            {showNavigation && sortedMedia.length > 1 && (
-                <>
+            {/* Carousel container with navigation */}
+            <div className='flex items-center gap-2 sm:gap-4'>
+                {/* Previous button */}
+                {showNavigation && sortedMedia.length > 1 && (
                     <button
                         onClick={goToPrevious}
-                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary focus:ring-secondary absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white focus:ring-2 focus:outline-none'
+                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary focus:ring-secondary z-10 shrink-0 cursor-pointer rounded-full border-2 p-2 transition-all hover:scale-110 hover:text-white focus:ring-2 focus:outline-none sm:p-3'
                         aria-label='Previous media'
                     >
-                        <FaChevronLeft className='h-5 w-5' aria-hidden='true' />
+                        <FaChevronLeft className='h-4 w-4 sm:h-5 sm:w-5' aria-hidden='true' />
                     </button>
+                )}
+
+                {/* Carousel content */}
+                <div className='relative min-w-0 flex-1 overflow-hidden'>
+                    <AnimatePresence initial={false} custom={direction} mode='wait'>
+                        <motion.div
+                            key={currentIndex}
+                            custom={direction}
+                            variants={slideVariants}
+                            initial='enter'
+                            animate='center'
+                            exit='exit'
+                            transition={{
+                                x: { type: 'spring', stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.2 }
+                            }}
+                            className='flex justify-center'
+                        >
+                            <div className='w-full max-w-3xl'>
+                                <MediaItem
+                                    item={currentMedia}
+                                    showCaption={showCaptions}
+                                    onImageClick={handleMediaClick}
+                                    priority={currentIndex === 0} // First item eager loads
+                                />
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                {/* Next button */}
+                {showNavigation && sortedMedia.length > 1 && (
                     <button
                         onClick={goToNext}
-                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary focus:ring-secondary absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white focus:ring-2 focus:outline-none'
+                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary focus:ring-secondary z-10 shrink-0 cursor-pointer rounded-full border-2 p-2 transition-all hover:scale-110 hover:text-white focus:ring-2 focus:outline-none sm:p-3'
                         aria-label='Next media'
                     >
-                        <FaChevronRight className='h-5 w-5' aria-hidden='true' />
+                        <FaChevronRight className='h-4 w-4 sm:h-5 sm:w-5' aria-hidden='true' />
                     </button>
-                </>
-            )}
+                )}
+            </div>
 
             {/* Dot indicators */}
             {showIndicators && sortedMedia.length > 1 && (

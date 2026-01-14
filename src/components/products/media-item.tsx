@@ -57,7 +57,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
     return (
         <div className='flex flex-col gap-2'>
             {/* Media Container */}
-            <div className='group relative aspect-video overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-2xl'>
+            <div className='group relative aspect-video max-h-[500px] overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-2xl'>
                 {item.type === 'image' ? (
                     <>
                         {/* Image */}
@@ -72,7 +72,10 @@ const MediaItem: React.FC<MediaItemProps> = ({
                         />
 
                         {/* Overlay on Hover */}
-                        <div className='absolute inset-0 flex cursor-pointer items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
+                        <div
+                            className='absolute inset-0 flex cursor-pointer items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
+                            onClick={handleImageClick}
+                        >
                             <div className='flex flex-col items-center gap-2 text-white'>
                                 <FaExpand className='h-8 w-8' aria-hidden='true' />
                                 <span className='text-sm font-medium'>Click to expand</span>

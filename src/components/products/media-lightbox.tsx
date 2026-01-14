@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaTimes, FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa'
@@ -19,6 +19,13 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
     onClose
 }) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex)
+
+    // Sync currentIndex when initialIndex changes (when opening for different images)
+    useEffect(() => {
+        if (isOpen) {
+            setCurrentIndex(initialIndex)
+        }
+    }, [isOpen, initialIndex])
 
     const goToPrevious = () => {
         setCurrentIndex((prev) => (prev === 0 ? mediaItems.length - 1 : prev - 1))
