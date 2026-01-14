@@ -155,9 +155,9 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                                 transition={{ duration: 0.3 }}
                                             >
                                                 <iframe
-                                                    src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                                                    src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`}
                                                     title={currentMedia.title}
-                                                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                                                    allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                                                     allowFullScreen
                                                     className='h-full w-full rounded-lg'
                                                 />

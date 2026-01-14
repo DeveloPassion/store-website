@@ -1,7 +1,8 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import MediaCarousel from '@/components/products/media-carousel'
 import MediaLightbox from '@/components/products/media-lightbox'
+import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 import type { Product } from '@/schemas/product.schema'
 import type { MediaGroup } from '@/schemas/media.schema'
 
@@ -21,8 +22,7 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
     description,
     includeAllVideos = false
 }) => {
-    const [lightboxOpen, setLightboxOpen] = useState(false)
-    const [selectedMediaIndex, setSelectedMediaIndex] = useState(0)
+    const { isOpen, selectedIndex, open, close } = useMediaLightbox()
 
     // Filter media by group and sort by order
     // When includeAllVideos is true, include all videos regardless of their group
@@ -41,21 +41,6 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
             })
             .sort((a, b) => a.order - b.order)
     }, [product.media, group, includeAllVideos])
-
-    // Filter only images for lightbox
-    const imageMedia = useMemo(() => {
-        return groupMedia.filter((item) => item.type === 'image')
-    }, [groupMedia])
-
-    const openLightbox = (_item: unknown, carouselIndex: number) => {
-        // Find the actual image index in the imageMedia array
-        const currentMedia = groupMedia[carouselIndex]
-        if (currentMedia?.type === 'image') {
-            const imageIndex = imageMedia.findIndex((img) => img.id === currentMedia.id)
-            setSelectedMediaIndex(imageIndex >= 0 ? imageIndex : 0)
-            setLightboxOpen(true)
-        }
-    }
 
     // Don't render if no media in this group
     if (groupMedia.length === 0) {
@@ -85,19 +70,19 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
                             media={groupMedia}
                             group={group}
                             showCaptions={true}
-                            onMediaClick={openLightbox}
+                            onMediaClick={open}
                         />
                     </motion.div>
                 </div>
             </section>
 
-            {/* Lightbox for images */}
-            {imageMedia.length > 0 && (
+            {/* Lightbox for media (images and videos) */}
+            {groupMedia.length > 0 && (
                 <MediaLightbox
-                    mediaItems={imageMedia}
-                    initialIndex={selectedMediaIndex}
-                    isOpen={lightboxOpen}
-                    onClose={() => setLightboxOpen(false)}
+                    mediaItems={groupMedia}
+                    initialIndex={selectedIndex}
+                    isOpen={isOpen}
+                    onClose={close}
                 />
             )}
         </>

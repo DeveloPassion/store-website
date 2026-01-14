@@ -108,7 +108,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
     }
 
     const handleMediaClick = () => {
-        if (onMediaClick && currentMedia.type === 'image') {
+        if (onMediaClick) {
             onMediaClick(currentMedia, currentIndex)
         }
     }
@@ -155,7 +155,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
                                 <MediaItem
                                     item={currentMedia}
                                     showCaption={showCaptions}
-                                    onImageClick={handleMediaClick}
+                                    onMediaClick={handleMediaClick}
                                     priority={currentIndex === 0} // First item eager loads
                                 />
                             </div>

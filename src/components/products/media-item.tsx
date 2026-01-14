@@ -5,7 +5,7 @@ import type { MediaItem } from '@/schemas/media.schema'
 interface MediaItemProps {
     item: MediaItem
     showCaption?: boolean
-    onImageClick?: () => void
+    onMediaClick?: () => void
     priority?: boolean // For eager loading (above-the-fold)
 }
 
@@ -30,7 +30,7 @@ export function extractYouTubeId(url: string): string | null {
 const MediaItem: React.FC<MediaItemProps> = ({
     item,
     showCaption = false,
-    onImageClick,
+    onMediaClick,
     priority = false
 }) => {
     const [videoPlaying, setVideoPlaying] = useState(false)
@@ -42,15 +42,15 @@ const MediaItem: React.FC<MediaItemProps> = ({
             ? item.thumbnailUrl || `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
             : null
 
-    const handleVideoClick = () => {
+    const handleVideoPlay = () => {
         if (item.type === 'video' && youtubeId) {
             setVideoPlaying(true)
         }
     }
 
-    const handleImageClick = () => {
-        if (item.type === 'image' && onImageClick) {
-            onImageClick()
+    const handleMediaClick = () => {
+        if (onMediaClick) {
+            onMediaClick()
         }
     }
 
@@ -66,7 +66,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
                             alt={item.altText}
                             className='h-full w-full cursor-pointer object-cover transition-transform duration-300 group-hover:scale-105'
                             loading={priority ? 'eager' : 'lazy'}
-                            onClick={handleImageClick}
+                            onClick={handleMediaClick}
                             width={item.width}
                             height={item.height}
                         />
@@ -74,7 +74,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
                         {/* Overlay on Hover */}
                         <div
                             className='absolute inset-0 flex cursor-pointer items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100'
-                            onClick={handleImageClick}
+                            onClick={handleMediaClick}
                         >
                             <div className='flex flex-col items-center gap-2 text-white'>
                                 <FaExpand className='h-8 w-8' aria-hidden='true' />
@@ -87,9 +87,9 @@ const MediaItem: React.FC<MediaItemProps> = ({
                         {videoPlaying ? (
                             /* YouTube Iframe */
                             <iframe
-                                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0`}
                                 title={item.title}
-                                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                                allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                                 allowFullScreen
                                 className='absolute inset-0 h-full w-full'
                             />
@@ -101,13 +101,13 @@ const MediaItem: React.FC<MediaItemProps> = ({
                                     alt={item.altText}
                                     className='h-full w-full cursor-pointer object-cover transition-transform duration-300 group-hover:scale-105'
                                     loading={priority ? 'eager' : 'lazy'}
-                                    onClick={handleVideoClick}
+                                    onClick={handleVideoPlay}
                                 />
 
                                 {/* Play Button Overlay */}
                                 <div
                                     className='absolute inset-0 flex cursor-pointer items-center justify-center bg-black/30 transition-all duration-300 group-hover:bg-black/50'
-                                    onClick={handleVideoClick}
+                                    onClick={handleVideoPlay}
                                 >
                                     <div className='bg-secondary flex h-16 w-16 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110 sm:h-20 sm:w-20'>
                                         <FaPlay
@@ -116,6 +116,20 @@ const MediaItem: React.FC<MediaItemProps> = ({
                                         />
                                     </div>
                                 </div>
+
+                                {/* Expand Button - Top Right */}
+                                {onMediaClick && (
+                                    <button
+                                        className='absolute top-2 right-2 z-10 cursor-pointer rounded-full bg-black/50 p-2 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:bg-black/70'
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            handleMediaClick()
+                                        }}
+                                        aria-label={`Expand ${item.title}`}
+                                    >
+                                        <FaExpand className='h-4 w-4' aria-hidden='true' />
+                                    </button>
+                                )}
                             </>
                         )}
                     </>
