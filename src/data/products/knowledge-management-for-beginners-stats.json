@@ -1,6 +1,30 @@
 {
     "data": {
-        "userCount": "Hundreds of professionals",
-        "timeSaved": "Dozen Hours monthly"
+        "userCount": "200+ Students",
+        "timeSaved": "Dozen Hours monthly",
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "j1ry1ZzLpR4chHsCZLAA4A==",
+                    "rating": 5,
+                    "date": "2025-11-18"
+                },
+                {
+                    "id": "hgW-TUdNtCriqM71LoQsXw==",
+                    "rating": 5,
+                    "date": "2025-11-06"
+                },
+                {
+                    "id": "lFLuqDS8U90p3i5B4FM0bg==",
+                    "rating": 4,
+                    "date": "2025-04-30"
+                },
+                {
+                    "id": "rJvu8P5_KLi_bhvzODvDjg==",
+                    "rating": 5,
+                    "date": "2025-03-01"
+                }
+            ]
+        }
     }
 }

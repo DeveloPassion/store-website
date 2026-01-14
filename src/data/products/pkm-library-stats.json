@@ -1,6 +1,95 @@
 {
     "data": {
         "userCount": "300+",
-        "timeSaved": "Hundreds of hours of research"
+        "timeSaved": "Hundreds of hours of research",
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "G-t8JpNvLnH75cNEEftFJQ==",
+                    "rating": 5,
+                    "date": "2025-03-01"
+                },
+                {
+                    "id": "Ngyiz0VvZssBMfRIlHa0rA==",
+                    "rating": 5,
+                    "date": "2024-05-29"
+                },
+                {
+                    "id": "fFvrsvV8SX_wM6_0DrrmKA==",
+                    "rating": 5,
+                    "date": "2023-11-02"
+                },
+                {
+                    "id": "-vTUr97LEXWkA8jrEE0C-w==",
+                    "rating": 4,
+                    "date": "2023-08-19"
+                },
+                {
+                    "id": "WK1edH64xyFvs3iLwjjoyw==",
+                    "rating": 5,
+                    "date": "2022-11-25"
+                },
+                {
+                    "id": "DQeJJsDmsOsgUMoP-266ig==",
+                    "rating": 5,
+                    "date": "2022-09-27"
+                },
+                {
+                    "id": "P6qyk6d-Ae6QKvPQ3whYtg==",
+                    "rating": 5,
+                    "date": "2022-05-25"
+                },
+                {
+                    "id": "S43qANVJLsUVzFczX0fyKQ==",
+                    "rating": 5,
+                    "date": "2022-04-13"
+                },
+                {
+                    "id": "-8iVB_K9nHNI-COZvF68hw==",
+                    "rating": 5,
+                    "date": "2022-03-15"
+                },
+                {
+                    "id": "EvR19CWfXkV4at7u3J1uMg==",
+                    "rating": 5,
+                    "date": "2022-02-10"
+                },
+                {
+                    "id": "siLpbXOqmSCQExzaEEQAiQ==",
+                    "rating": 5,
+                    "date": "2022-02-08"
+                },
+                {
+                    "id": "0sCMGrx_uiALc7QbJuDCew==",
+                    "rating": 5,
+                    "date": "2022-01-10"
+                },
+                {
+                    "id": "UMChR3br4kmPUY2AWHHE0g==",
+                    "rating": 5,
+                    "date": "2022-01-07"
+                },
+                {
+                    "id": "GD1QCcXlebXTz8UeP-Ng4A==",
+                    "rating": 5,
+                    "date": "2021-12-23"
+                },
+                {
+                    "id": "MQyQ70CboxsSgAZNrzemYg==",
+                    "rating": 5,
+                    "date": "2021-12-20"
+                },
+                {
+                    "id": "brrsryJl0iq-Urx2FHwuuQ==",
+                    "rating": 5,
+                    "date": "2021-12-16"
+                },
+                {
+                    "id": "3X76tuJB7vggL_hDUA5QmQ==",
+                    "rating": 5,
+                    "date": "2021-12-15"
+                }
+            ]
+        }
     }
 }

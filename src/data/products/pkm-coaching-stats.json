@@ -1,5 +1,19 @@
 {
     "data": {
-        "userCount": "100+ coached"
+        "userCount": "100+",
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "nMKkgkAEaAd2SWnh9LbkAQ==",
+                    "rating": 5,
+                    "date": "2024-07-14"
+                },
+                {
+                    "id": "WBcvCrnEWiuOzdgeM6pRJA==",
+                    "rating": 5,
+                    "date": "2024-03-16"
+                }
+            ]
+        }
     }
 }

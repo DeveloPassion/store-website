@@ -1,3 +1,14 @@
 {
-    "data": {}
+    "data": {
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "3VAdWguxs1wUNN0Cn3rKKA==",
+                    "rating": 5,
+                    "date": "2023-11-19"
+                }
+            ]
+        },
+        "userCount": "3+"
+    }
 }

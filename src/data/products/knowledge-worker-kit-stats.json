@@ -1,5 +1,49 @@
 {
     "data": {
-        "userCount": "400+ Knowledge Workers"
+        "userCount": "400+ Knowledge Workers",
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "480na3-4Bp6Swgks8tNTEA==",
+                    "rating": 5,
+                    "date": "2025-08-07"
+                },
+                {
+                    "id": "D_t8IrCeKcxmpIXqUkcfyg==",
+                    "rating": 5,
+                    "date": "2025-03-01"
+                },
+                {
+                    "id": "5gzZwa0hssD-KrQyxMAI4w==",
+                    "rating": 1,
+                    "date": "2025-01-23"
+                },
+                {
+                    "id": "TIDwyBGq12R6iXiZ1658fQ==",
+                    "rating": 5,
+                    "date": "2024-02-05"
+                },
+                {
+                    "id": "7DHOFyWZWoFkW20Wo1Iw0A==",
+                    "rating": 5,
+                    "date": "2023-11-17"
+                },
+                {
+                    "id": "UYxzdquKxsAYT0t07yk5sg==",
+                    "rating": 5,
+                    "date": "2023-11-13"
+                },
+                {
+                    "id": "9RuZ5wxkSPg4w7Di7qn1VA==",
+                    "rating": 5,
+                    "date": "2023-11-03"
+                },
+                {
+                    "id": "GTeCaJpDvDR_fk7Ciiifbg==",
+                    "rating": 5,
+                    "date": "2023-11-03"
+                }
+            ]
+        }
     }
 }
