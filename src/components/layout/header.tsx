@@ -222,7 +222,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             {/* Search Bar - Desktop */}
                             <button
                                 onClick={onOpenCommandPalette}
-                                className='hidden max-w-lg flex-1 md:block lg:max-w-xl xl:max-w-2xl'
+                                className='hidden max-w-lg flex-1 cursor-pointer md:block lg:max-w-xl xl:max-w-2xl'
                                 title='Search products'
                                 aria-label='Open command palette to search products'
                                 aria-haspopup='dialog'
@@ -241,7 +241,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             {/* Search icon for mobile */}
                             <button
                                 onClick={onOpenCommandPalette}
-                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden lg:h-11 lg:w-11 xl:h-12 xl:w-12'
+                                className='bg-primary/10 hover:bg-primary/20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-colors md:hidden lg:h-11 lg:w-11 xl:h-12 xl:w-12'
                                 title='Search products'
                             >
                                 <FaSearch className='h-5 w-5' />
