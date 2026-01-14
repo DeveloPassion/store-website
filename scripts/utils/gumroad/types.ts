@@ -55,6 +55,7 @@ export interface GumroadVariantOption {
 
 /**
  * Gumroad sale from the /sales endpoint
+ * Note: Field names match the actual Gumroad API response
  */
 export interface GumroadSale {
     id: string
@@ -67,9 +68,7 @@ export interface GumroadSale {
     product_id: string
     product_permalink: string
     price: number
-    price_formatted: string
     gumroad_fee: number
-    currency: string
     quantity: number
     discover_fee_charged: boolean
     can_contact: boolean
@@ -78,13 +77,11 @@ export interface GumroadSale {
         visual: string | null
         type: string | null
     }
-    order_number: number
-    sale_id: string
-    sale_timestamp: string
-    is_preorder_authorization: boolean
-    subscription_id: string | null
-    // Rating field - 1-5 or null if customer didn't rate
-    rating?: number | null
+    order_id: number
+    // Product rating fields - actual Gumroad API field names
+    product_rating?: number | null // Individual sale's rating (1-5, null if customer didn't rate)
+    reviews_count?: number // Total number of reviews for the product
+    average_rating?: number // Product's average rating
 }
 
 /**

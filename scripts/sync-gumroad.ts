@@ -161,16 +161,17 @@ function shouldUpdateUserCount(
 
 /**
  * Extract ratings from Gumroad sales
+ * Note: Uses product_rating field (the actual Gumroad API field name)
  */
 function extractRatingsFromSales(sales: GumroadSale[]): Rating[] {
     const ratings: Rating[] = []
     for (const sale of sales) {
-        // Only include sales that have a rating (rating can be null or undefined)
-        if (sale.rating !== undefined && sale.rating !== null) {
+        // Only include sales that have a product_rating (most are null - only customers who rated have a value)
+        if (sale.product_rating !== undefined && sale.product_rating !== null) {
             ratings.push({
                 id: sale.id,
-                rating: sale.rating,
-                date: sale.daystamp || sale.created_at?.split('T')[0] || null
+                rating: sale.product_rating,
+                date: sale.created_at?.split('T')[0] || null
             })
         }
     }
