@@ -1,9 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useSearchParams } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import TestimonialCardLinked from '@/components/testimonials/testimonial-card-linked'
+import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import QuickNavigation from '@/components/navigation/quick-navigation'
 import productsData from '@/data/products.json'
 import type { Product } from '@/schemas/product.schema'
@@ -23,6 +25,17 @@ function shuffleArray<T>(array: T[]): T[] {
         shuffled[j] = temp!
     }
     return shuffled
+}
+
+/**
+ * Sort testimonials with featured ones first
+ */
+function sortFeaturedFirst<T extends { featured: boolean }>(array: T[]): T[] {
+    return [...array].sort((a, b) => {
+        if (a.featured && !b.featured) return -1
+        if (!a.featured && b.featured) return 1
+        return 0
+    })
 }
 
 const ProductTestimonialsCarousel: React.FC<{
@@ -191,36 +204,134 @@ const ProductTestimonialsGrid: React.FC<{
 
 const AllTestimonialsPage: React.FC = () => {
     const products = productsData as Product[]
+    const [searchParams] = useSearchParams()
+    const productIdParam = searchParams.get('product')
 
-    // Set breadcrumbs
-    useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'All Testimonials' }])
+    // Find the filtered product if a product ID is provided
+    const filteredProduct = useMemo(() => {
+        if (!productIdParam) return null
+        return products.find((p) => p.id === productIdParam)
+    }, [products, productIdParam])
 
-    // Filter products with testimonials and randomize
-    const randomizedProductsWithTestimonials = useMemo(() => {
-        const productsWithTestimonials = products
+    // Determine the display mode
+    const isProductMode = productIdParam !== null
+    const isValidProduct = filteredProduct !== undefined && filteredProduct !== null
+    const hasProductTestimonials =
+        isValidProduct && filteredProduct.testimonials && filteredProduct.testimonials.length > 0
+
+    // Set breadcrumbs based on mode
+    useSetBreadcrumbs(
+        isProductMode && isValidProduct
+            ? [
+                  { label: 'Home', href: '/' },
+                  { label: 'Testimonials', href: '/testimonials' },
+                  { label: filteredProduct.name }
+              ]
+            : [{ label: 'Home', href: '/' }, { label: 'All Testimonials' }]
+    )
+
+    // Filter products with testimonials and sort (featured first within each product, randomize product order)
+    const productsWithTestimonials = useMemo(() => {
+        const productsWithTestimonialsData = products
             .filter((product) => product.testimonials && product.testimonials.length > 0)
             .map((product) => ({
                 product,
-                testimonials: shuffleArray(product.testimonials || [])
+                testimonials: sortFeaturedFirst(product.testimonials || [])
             }))
 
-        return shuffleArray(productsWithTestimonials)
+        return shuffleArray(productsWithTestimonialsData)
     }, [products])
 
-    // Calculate stats using utility
-    const stats = calculateTestimonialStats(randomizedProductsWithTestimonials)
+    // Get testimonials for a specific product (sorted with featured first)
+    const singleProductTestimonials = useMemo(() => {
+        if (!filteredProduct || !filteredProduct.testimonials) return []
+        return sortFeaturedFirst(filteredProduct.testimonials)
+    }, [filteredProduct])
+
+    // Calculate stats based on mode
+    const stats = useMemo(() => {
+        if (isProductMode && isValidProduct && hasProductTestimonials) {
+            return {
+                totalTestimonials: singleProductTestimonials.length,
+                averageRating: 5.0 // All testimonials are 5-star
+            }
+        }
+        return calculateTestimonialStats(productsWithTestimonials)
+    }, [
+        isProductMode,
+        isValidProduct,
+        hasProductTestimonials,
+        singleProductTestimonials,
+        productsWithTestimonials
+    ])
     const { totalTestimonials, averageRating } = stats
 
-    // Update meta tags
+    // Update meta tags based on mode
     useEffect(() => {
-        updateAllMetaTags({
-            title: 'All Testimonials - Knowledge Forge',
-            description: `Read ${totalTestimonials} authentic testimonials from satisfied customers across all our products. See what people are saying about their experience.`,
-            url: 'https://store.dsebastien.net/testimonials'
-        })
-    }, [totalTestimonials])
+        if (isProductMode && isValidProduct) {
+            updateAllMetaTags({
+                title: `${filteredProduct.name} Testimonials - Knowledge Forge`,
+                description: `Read ${singleProductTestimonials.length} testimonials for ${filteredProduct.name}. See what customers are saying about their experience.`,
+                url: `https://store.dsebastien.net/testimonials?product=${filteredProduct.id}`
+            })
+        } else {
+            updateAllMetaTags({
+                title: 'All Testimonials - Knowledge Forge',
+                description: `Read ${totalTestimonials} authentic testimonials from satisfied customers across all our products. See what people are saying about their experience.`,
+                url: 'https://store.dsebastien.net/testimonials'
+            })
+        }
+    }, [
+        isProductMode,
+        isValidProduct,
+        filteredProduct,
+        singleProductTestimonials.length,
+        totalTestimonials
+    ])
 
-    if (randomizedProductsWithTestimonials.length === 0) {
+    // Invalid product ID
+    if (isProductMode && !isValidProduct) {
+        return (
+            <Section className='pt-16 pb-24 sm:pt-24'>
+                <div className='w-full text-center'>
+                    <Breadcrumb className='mb-6 flex justify-center' />
+                    <div className='mb-4 text-6xl'>🔍</div>
+                    <h1 className='mb-4 text-3xl font-bold'>Product Not Found</h1>
+                    <p className='text-primary/60 mb-8'>
+                        The product you're looking for doesn't exist or has been removed.
+                    </p>
+                    <QuickNavigation
+                        title='Explore Our Products'
+                        description='Discover our amazing products and their testimonials'
+                    />
+                </div>
+            </Section>
+        )
+    }
+
+    // Valid product but no testimonials
+    if (isProductMode && isValidProduct && !hasProductTestimonials) {
+        return (
+            <Section className='pt-16 pb-24 sm:pt-24'>
+                <div className='w-full text-center'>
+                    <Breadcrumb className='mb-6 flex justify-center' />
+                    <div className='mb-4 text-6xl'>💬</div>
+                    <h1 className='mb-4 text-3xl font-bold'>No Testimonials Yet</h1>
+                    <p className='text-primary/60 mb-8'>
+                        There are no testimonials for {filteredProduct.name} yet. Be the first to
+                        share your experience!
+                    </p>
+                    <QuickNavigation
+                        title='Explore Our Products'
+                        description='Discover our other products with customer testimonials'
+                    />
+                </div>
+            </Section>
+        )
+    }
+
+    // No testimonials at all (across all products)
+    if (productsWithTestimonials.length === 0) {
         return (
             <Section className='py-16'>
                 <div className='text-center'>
@@ -233,6 +344,97 @@ const AllTestimonialsPage: React.FC = () => {
         )
     }
 
+    // Single product mode with testimonials
+    if (isProductMode && isValidProduct && hasProductTestimonials) {
+        return (
+            <>
+                {/* Header Section */}
+                <Section className='pt-16 pb-6 sm:pt-24 sm:pb-8'>
+                    <div className='mx-auto max-w-7xl space-y-4 text-center'>
+                        <Breadcrumb className='mb-6 flex justify-center' />
+
+                        {/* Icon */}
+                        <div className='mb-6 flex justify-center'>
+                            <div className='from-secondary to-secondary/80 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br shadow-lg'>
+                                <FaStar className='h-10 w-10 text-white' />
+                            </div>
+                        </div>
+
+                        <h1 className='mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl'>
+                            {filteredProduct.name} Testimonials
+                        </h1>
+                        <p className='text-primary/70 mx-auto mb-6 max-w-2xl text-lg sm:text-xl'>
+                            See what customers are saying about {filteredProduct.name}.
+                        </p>
+
+                        {/* Stats */}
+                        <div className='mx-auto grid max-w-2xl gap-4 sm:grid-cols-2'>
+                            <div className='bg-primary/5 rounded-lg p-4 text-center'>
+                                <div className='text-secondary text-3xl font-bold'>
+                                    {totalTestimonials}
+                                </div>
+                                <div className='text-primary/60 text-sm'>Total Testimonials</div>
+                            </div>
+                            <div className='bg-primary/5 rounded-lg p-4 text-center'>
+                                <div className='flex items-center justify-center gap-2 text-3xl font-bold text-yellow-400'>
+                                    {averageRating.toFixed(1)}
+                                    <FaStar className='h-6 w-6' />
+                                </div>
+                                <div className='text-primary/60 text-sm'>Average Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </Section>
+
+                {/* Product Card */}
+                <Section className='border-primary/10 border-t border-b py-8'>
+                    <div className='mx-auto max-w-md'>
+                        <ProductCardEcommerce product={filteredProduct} />
+                    </div>
+                </Section>
+
+                {/* Testimonials Section */}
+                <Section className='py-8 sm:py-12'>
+                    <div className='w-full'>
+                        <h2 className='mb-8 text-center text-2xl font-bold lg:text-3xl'>
+                            All Customer Reviews
+                        </h2>
+
+                        {/* Grid */}
+                        <div
+                            className={`grid gap-4 md:gap-4 xl:gap-6 ${
+                                singleProductTestimonials.length === 1
+                                    ? 'mx-auto max-w-3xl'
+                                    : singleProductTestimonials.length === 2
+                                      ? 'md:grid-cols-2'
+                                      : 'md:grid-cols-2 lg:grid-cols-3'
+                            }`}
+                        >
+                            {singleProductTestimonials.map((testimonial, index) => (
+                                <TestimonialCardLinked
+                                    key={testimonial.id}
+                                    testimonial={testimonial}
+                                    productName={filteredProduct.name}
+                                    productId={filteredProduct.id}
+                                    index={index}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </Section>
+
+                {/* Quick Navigation */}
+                <Section className='border-primary/10 border-t py-0'>
+                    <QuickNavigation
+                        title='Explore More Products'
+                        description='Discover other products with amazing testimonials'
+                    />
+                </Section>
+            </>
+        )
+    }
+
+    // Default: All testimonials from all products
     return (
         <>
             {/* Header Section */}
@@ -287,7 +489,7 @@ const AllTestimonialsPage: React.FC = () => {
                 <div className='w-full'>
                     {/* Mobile View (Carousels) */}
                     <div className='md:hidden'>
-                        {randomizedProductsWithTestimonials.map((pwt) => (
+                        {productsWithTestimonials.map((pwt) => (
                             <ProductTestimonialsCarousel
                                 key={pwt.product.id}
                                 productWithTestimonials={pwt}
@@ -297,7 +499,7 @@ const AllTestimonialsPage: React.FC = () => {
 
                     {/* Desktop View (Grids) */}
                     <div className='hidden md:block'>
-                        {randomizedProductsWithTestimonials.map((pwt) => (
+                        {productsWithTestimonials.map((pwt) => (
                             <ProductTestimonialsGrid
                                 key={pwt.product.id}
                                 productWithTestimonials={pwt}

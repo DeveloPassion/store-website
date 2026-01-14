@@ -1,9 +1,20 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaStar, FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa'
+import {
+    FaStar,
+    FaChevronLeft,
+    FaChevronRight,
+    FaQuoteLeft,
+    FaExternalLinkAlt
+} from 'react-icons/fa'
 import Section from '@/components/ui/section'
+import { Button } from '@/components/ui/button'
 import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
+
+// Number of testimonials to show initially and per "Show More" click
+const TESTIMONIALS_PER_PAGE = 20
 
 interface ProductTestimonialsProps {
     product: Product
@@ -67,6 +78,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
 const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [direction, setDirection] = useState(0)
+    const [displayCount, setDisplayCount] = useState(TESTIMONIALS_PER_PAGE)
 
     // Testimonials are now included in the product object (loaded from {product-id}-testimonials.json)
     const testimonials = product.testimonials || []
@@ -78,33 +90,43 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
         return 0
     })
 
+    // Limit displayed testimonials for pagination
+    const visibleTestimonials = sortedTestimonials.slice(0, displayCount)
+    const hasMoreTestimonials = displayCount < sortedTestimonials.length
+    const totalCount = sortedTestimonials.length
+
+    // Handler for "Show More" button
+    const handleShowMore = () => {
+        setDisplayCount((prev) => Math.min(prev + TESTIMONIALS_PER_PAGE, sortedTestimonials.length))
+    }
+
     // Generate marketing copy based on testimonial count
     const getSubtitle = () => {
         const count = sortedTestimonials.length
         if (count === 1) {
-            return 'Hear what our customer has to say'
+            return 'Hear what one customer has to say'
         } else if (count === 2) {
-            return 'Join 2 satisfied customers who transformed their workflow'
+            return 'Join 2 satisfied customers who have shared their experiences'
         } else if (count <= 5) {
-            return `${count} customers already loving this product`
+            return `${count} customers already loving this product shared their reviews`
         } else if (count <= 10) {
             return `${count} success stories from satisfied customers`
         } else {
-            return `Over ${count} customers have transformed their workflow`
+            return `Over ${count} customers have shared reviews of their experience`
         }
     }
 
-    // Auto-rotate carousel on mobile
+    // Auto-rotate carousel on mobile (only for visible testimonials)
     useEffect(() => {
-        if (sortedTestimonials.length <= 1) return
+        if (visibleTestimonials.length <= 1) return
 
         const interval = setInterval(() => {
             setDirection(1)
-            setCurrentIndex((prev) => (prev + 1) % sortedTestimonials.length)
+            setCurrentIndex((prev) => (prev + 1) % visibleTestimonials.length)
         }, 7000)
 
         return () => clearInterval(interval)
-    }, [sortedTestimonials.length])
+    }, [visibleTestimonials.length])
 
     if (sortedTestimonials.length === 0) {
         return null
@@ -112,17 +134,17 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
 
     const goToNext = () => {
         setDirection(1)
-        setCurrentIndex((prev) => (prev + 1) % sortedTestimonials.length)
+        setCurrentIndex((prev) => (prev + 1) % visibleTestimonials.length)
     }
 
     const goToPrevious = () => {
         setDirection(-1)
         setCurrentIndex(
-            (prev) => (prev - 1 + sortedTestimonials.length) % sortedTestimonials.length
+            (prev) => (prev - 1 + visibleTestimonials.length) % visibleTestimonials.length
         )
     }
 
-    const currentTestimonial = sortedTestimonials[currentIndex]
+    const currentTestimonial = visibleTestimonials[currentIndex]
 
     const slideVariants = {
         enter: (direction: number) => ({
@@ -184,7 +206,7 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                     </div>
 
                     {/* Navigation */}
-                    {sortedTestimonials.length > 1 && (
+                    {visibleTestimonials.length > 1 && (
                         <>
                             <button
                                 onClick={goToPrevious}
@@ -204,15 +226,15 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                     )}
 
                     {/* Indicators - Counter only on mobile, dots on larger screens */}
-                    {sortedTestimonials.length > 1 && (
+                    {visibleTestimonials.length > 1 && (
                         <div className='mt-5 sm:mt-6'>
                             {/* Counter for mobile (always shown) */}
                             <div className='text-primary/60 text-center text-sm sm:hidden'>
-                                {currentIndex + 1} / {sortedTestimonials.length}
+                                {currentIndex + 1} / {visibleTestimonials.length}
                             </div>
                             {/* Dot indicators for larger screens */}
                             <div className='scrollbar-hide mx-auto hidden max-w-full justify-center gap-2 overflow-x-auto px-4 sm:flex'>
-                                {sortedTestimonials.map((_, idx) => (
+                                {visibleTestimonials.map((_, idx) => (
                                     <button
                                         key={idx}
                                         onClick={() => {
@@ -235,20 +257,43 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                 {/* Desktop Grid (>= md) */}
                 <div
                     className={`hidden gap-4 md:grid md:gap-4 xl:gap-6 ${
-                        sortedTestimonials.length === 1
+                        visibleTestimonials.length === 1
                             ? 'mx-auto max-w-3xl'
-                            : sortedTestimonials.length === 2
+                            : visibleTestimonials.length === 2
                               ? 'md:grid-cols-2'
                               : 'md:grid-cols-2 lg:grid-cols-3'
                     }`}
                 >
-                    {sortedTestimonials.map((testimonial, index) => (
+                    {visibleTestimonials.map((testimonial, index) => (
                         <TestimonialCard
                             key={testimonial.id}
                             testimonial={testimonial}
                             index={index}
                         />
                     ))}
+                </div>
+
+                {/* Show More / See All Reviews */}
+                <div className='mt-8 text-center'>
+                    {hasMoreTestimonials && (
+                        <p className='text-primary/60 mb-4 text-sm'>
+                            Showing {visibleTestimonials.length} of {totalCount} testimonials
+                        </p>
+                    )}
+                    <div className='flex flex-wrap items-center justify-center gap-4'>
+                        {hasMoreTestimonials && (
+                            <Button onClick={handleShowMore} variant='secondary' size='lg'>
+                                Show More Testimonials
+                            </Button>
+                        )}
+                        <Link
+                            to={`/testimonials?product=${product.id}`}
+                            className='border-primary/20 hover:border-primary/40 hover:bg-primary/5 inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 bg-transparent px-8 py-4 text-lg font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
+                        >
+                            <span>See All Reviews</span>
+                            <FaExternalLinkAlt className='h-3 w-3' />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </Section>

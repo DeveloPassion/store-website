@@ -193,10 +193,10 @@
                     ],
                     "icon": "✅"
                 },
-                "timeline": "From chaos to 1,000+ organized notes in your first month"
+                "timeline": "From chaos to cleanly organized notes in your first days"
             },
             "successStories": {
-                "title": "What Users Say",
+                "title": "Success Stories",
                 "subtitle": "Real Transformations from Real Knowledge Workers",
                 "stories": [
                     {
@@ -250,7 +250,7 @@
                 ]
             },
             "methodology": {
-                "title": "The OSK Philosophy",
+                "title": "The Obsidian Starter Kit Philosophy",
                 "subtitle": "Four Principles That Make Knowledge Work",
                 "steps": [
                     {
