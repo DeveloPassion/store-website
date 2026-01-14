@@ -1,3 +1,124 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-kwk-logo",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-cover.webp",
+            "title": "Knowledge Worker Kit Logo",
+            "description": "Main cover image featuring the Knowledge Worker Kit branding with lightbulb and knowledge tree illustration",
+            "altText": "Knowledge Worker Kit logo with pink lightbulb containing a colorful knowledge tree",
+            "order": 0,
+            "group": "cover",
+            "width": 1280,
+            "height": 720
+        },
+        {
+            "id": "main-knowledge-graph",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-knowledge-graph.webp",
+            "title": "Interactive Knowledge Graph",
+            "description": "Visual representation of the Knowledge Worker Kit's interconnected content structure",
+            "altText": "Knowledge graph visualization showing interconnected topics and concepts in the Knowledge Worker Kit",
+            "order": 0,
+            "group": "main",
+            "width": 372,
+            "height": 387
+        },
+        {
+            "id": "main-modules-overview",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-modules.webp",
+            "title": "Content Modules Overview",
+            "description": "Overview of all modules included in the Knowledge Worker Kit covering topics from clarity to personal development",
+            "altText": "Grid showing Knowledge Worker Kit modules: Habits, Career Management, Learning, PKM, Projects, Planning, Task Management, Focus, and Personal Development",
+            "order": 1,
+            "group": "main",
+            "width": 894,
+            "height": 953
+        },
+        {
+            "id": "main-table-of-contents",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-table-of-contents.webp",
+            "title": "Detailed Table of Contents",
+            "description": "Comprehensive table of contents showing the structure and depth of the Knowledge Worker Kit guide",
+            "altText": "Table of contents listing chapters on Introduction, Clarity, Values, Principles, Goals, and more",
+            "order": 2,
+            "group": "main",
+            "width": 871,
+            "height": 618
+        },
+        {
+            "id": "secondary-full-page-view",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-full-page-view.webp",
+            "title": "Guide Interface Overview",
+            "description": "Full view of the Knowledge Worker Kit interface showing navigation sidebar and interactive knowledge graph",
+            "altText": "Knowledge Worker Kit interface with sidebar navigation and interactive knowledge graph visualization",
+            "order": 0,
+            "group": "secondary",
+            "width": 1386,
+            "height": 678
+        },
+        {
+            "id": "secondary-values-content",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-values-content.webp",
+            "title": "Personal Value System Guide",
+            "description": "Sample content showing how the guide helps you determine your personal value system",
+            "altText": "Guide section explaining how to determine your Personal Value System with actionable steps",
+            "order": 1,
+            "group": "secondary",
+            "width": 1021,
+            "height": 447
+        },
+        {
+            "id": "secondary-journaling-content",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-journaling-content.webp",
+            "title": "Journaling Section",
+            "description": "Content from the journaling module discussing its benefits for focus and ADHD management",
+            "altText": "Journaling section content discussing how journaling helps with ADHD and maintaining focus",
+            "order": 2,
+            "group": "secondary",
+            "width": 748,
+            "height": 438
+        },
+        {
+            "id": "bonus-community-interface",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-community-interface.webp",
+            "title": "Private Community Access",
+            "description": "Preview of the Knowii private community interface included with the Knowledge Worker Kit",
+            "altText": "Knowii community platform interface showing channels like Feed, Public, Announcements, and General",
+            "order": 0,
+            "group": "bonus",
+            "width": 1600,
+            "height": 579
+        },
+        {
+            "id": "bonus-ai-discussions",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-ai-discussions.webp",
+            "title": "AI Discussions Channel",
+            "description": "Community discussions about AI tools and approaches for knowledge workers",
+            "altText": "AI Discussions channel showing community conversations about AI tools and approaches",
+            "order": 1,
+            "group": "bonus",
+            "width": 754,
+            "height": 474
+        },
+        {
+            "id": "bonus-tools-discussion",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-tools-discussion.webp",
+            "title": "Tools Discussion Channel",
+            "description": "Community discussions about productivity tools and avoiding the tool gardening trap",
+            "altText": "Tools channel showing discussion about tool gardening and productivity",
+            "order": 2,
+            "group": "bonus",
+            "width": 751,
+            "height": 448
+        }
+    ]
 }
