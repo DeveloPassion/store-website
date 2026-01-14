@@ -1,3 +1,16 @@
+## [0.5.8](https://github.com/DeveloPassion/store-website/compare/0.5.7...0.5.8) (2026-01-14)
+
+### Features
+
+* **all:** added FAQ entry about ratings, and testimonials ([3780443](https://github.com/DeveloPassion/store-website/commit/3780443be3f3965127cc8a2145a48c85458619ca))
+* **all:** added knowii voice ai video ([c05c1c7](https://github.com/DeveloPassion/store-website/commit/c05c1c7bd490616b8a1630fad980805206a43aea))
+* **all:** added KVA video and images ([6b5058f](https://github.com/DeveloPassion/store-website/commit/6b5058ffda935c14268a499d4500b24b5ec23c35))
+* **all:** added osk videos ([1b1d96d](https://github.com/DeveloPassion/store-website/commit/1b1d96d3762e049ab3307cc5dc7126db32cd1289))
+* **all:** added scroll to top on page refresh ([be6b564](https://github.com/DeveloPassion/store-website/commit/be6b5646272613c4dbd28feb3f09fffcf8ef40ba))
+* **all:** always include all videos in the see it in action section ([b0be910](https://github.com/DeveloPassion/store-website/commit/b0be9103aeaefe751c937cf38f556fc554d976f8))
+* **all:** removed \"banner\" media category and added link to landingPageUrl on product pages ([eb1f65b](https://github.com/DeveloPassion/store-website/commit/eb1f65bc81910b4fd84b3f3152e3eb641f71bbfc))
+* **all:** updated claude code skill for media management (category to use for videos) ([a2e6d0f](https://github.com/DeveloPassion/store-website/commit/a2e6d0fa80dab4103cadeba5733554d44478d25b))
+* **all:** updated KVA media ([eabfd31](https://github.com/DeveloPassion/store-website/commit/eabfd317a126a39e5b3d160aeb64be077cf00089))
 ## [0.5.7](https://github.com/DeveloPassion/store-website/compare/0.5.6...0.5.7) (2026-01-14)
 
 ### Features
