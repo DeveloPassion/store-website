@@ -4,7 +4,7 @@
             "id": "testimonial-7",
             "author": "Sofia",
             "quote": "Fantastic program that rings true on so many levels bringing out the true power offloading your memory in a frictionless way",
-            "featured": true
+            "featured": false
         },
         {
             "id": "testimonial-8",
@@ -22,7 +22,7 @@
             "id": "testimonial-10",
             "author": "Anonymous",
             "quote": "Currently primarily focused on getting started properly with Obsidian… did start to go through your Knowledge Management for Beginners course this weekend. It's been really valuable, and has helped me to understand the setup you present in the Starter Kit/Course on a much deeper level. As I'm exploring more of your content and what you share I can really say that I'm very happy that I came across your work, and grateful to you for sharing your knowledge. I'm excited to integrate several of the things that you've shared moving forward. It aligns very well with my personal and professional needs at the moment, and gives me clarity on how to actually execute several of the 'loose ideas' that I've had.",
-            "featured": false
+            "featured": true
         },
         {
             "id": "testimonial-11",

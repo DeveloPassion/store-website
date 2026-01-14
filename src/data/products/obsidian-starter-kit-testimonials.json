@@ -12,7 +12,7 @@
             "twitterHandle": "CalSocialHermit",
             "twitterUrl": "https://x.com/CalSocialHermit/status/1527755690894409728",
             "quote": "Finally clicked how awesome Obsidian is! Thanks to your excellent Obsidian Starter Kit!",
-            "featured": true
+            "featured": false
         },
         {
             "id": "testimonial-3",
@@ -24,7 +24,7 @@
             "id": "testimonial-4",
             "author": "Blake Holder",
             "quote": "Starting as an absolute beginner, this kit allowed me to jump to what I feel is an intermediate level of Obsidian understanding and effective note taking in the span of 1-2 days, and I am grateful that I found it.",
-            "featured": false
+            "featured": true
         },
         {
             "id": "testimonial-5",
@@ -68,7 +68,7 @@
             "id": "testimonial-11",
             "author": "Ghada",
             "quote": "This is a practical and well thought out tool for organising Obsidian. It's not flashy, but it doesn't need to be—it's all about function! The kit provided me with a solid framework, some helpful templates, and automations that made it easier to manage my vault without feeling overwhelmed. I tweaked many things to fit my workflow. I just really loved having this quick, straightway that offered me so much value from the app without me needing to spend hours setting things up. Thank you, Sebastian, and best of luck!",
-            "featured": false
+            "featured": true
         },
         {
             "id": "testimonial-12",
@@ -86,7 +86,7 @@
             "id": "testimonial-14",
             "author": "Lubos Kolouch",
             "quote": "Sebastien's Obsidian Starter Kit is a powerful tool for those looking to dive into the world of Obsidian without being overwhelmed. It's a comprehensive solution that significantly shortens the learning curve, providing an impressively structured way to start capturing notes and facilitating daily journaling. The kit's integration of automated tasks and pre-designed templates are a boon to beginners, alleviating the initial intimidation of starting from scratch. If you're new to Obsidian and need a solid starting point, this starter kit comes highly recommended. It doesn't just help you navigate Obsidian, but also empowers you to harness its full potential right from the get-go.",
-            "featured": false
+            "featured": true
         },
         {
             "id": "testimonial-15",
@@ -164,7 +164,7 @@
             "id": "testimonial-27",
             "author": "Julien Dambron",
             "quote": "The Obsidian Starter Kit is the perfect entry point for anyone looking to harness the full potential of Obsidian from day one. It comes with thoughtfully designed default configurations that work seamlessly out of the box, while still offering the flexibility to tailor settings to your personal workflow. Whether you're a beginner or an experienced user, this kit provides a solid foundation, saving you time and effort in setting up your vault. It's an excellent resource for those who want to jump straight into organizing their thoughts, projects, and knowledge without getting bogged down in the initial setup process. Highly recommended for anyone serious about maximizing their productivity with Obsidian.",
-            "featured": false
+            "featured": true
         },
         {
             "id": "testimonial-28",
