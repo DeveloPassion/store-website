@@ -124,7 +124,24 @@ const ProductPage: React.FC = () => {
                 product={product}
                 group='secondary'
                 heading='Dive Deeper'
-                description='Take a closer look at the details and features'
+                description={
+                    product.landingPageUrl ? (
+                        <>
+                            Take a closer look at the details and features.{' '}
+                            <a
+                                href={product.landingPageUrl}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-secondary hover:text-secondary-text underline'
+                            >
+                                Learn more on the product page
+                            </a>
+                            .
+                        </>
+                    ) : (
+                        'Take a closer look at the details and features'
+                    )
+                }
             />
             <ProductTestimonials product={product} />
             <ProductFAQ product={product} />

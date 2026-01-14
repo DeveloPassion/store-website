@@ -419,7 +419,7 @@ Media, FAQs, and testimonials are now integrated into the main products CLI.
 
 ### Media Management
 
-Products support rich media organized into five groups: cover, banner, main, secondary, and bonus.
+Products support rich media organized into four groups: cover, main, secondary, and bonus.
 
 **Interactive Mode:**
 ```bash

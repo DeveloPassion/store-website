@@ -30,7 +30,7 @@ describe('Media Schema Validation', () => {
         title: 'Product Demo',
         altText: 'Product demonstration video',
         order: 0,
-        group: 'banner',
+        group: 'cover',
         youtubeId: 'abc123',
         thumbnailUrl: 'https://img.youtube.com/vi/abc123/maxresdefault.jpg'
     }
@@ -65,11 +65,6 @@ describe('Media Schema Validation', () => {
     describe('MediaGroupSchema', () => {
         it('should accept "cover" group', () => {
             const result = MediaGroupSchema.safeParse('cover')
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept "banner" group', () => {
-            const result = MediaGroupSchema.safeParse('banner')
             expect(result.success).toBe(true)
         })
 
@@ -436,8 +431,8 @@ describe('Media Schema Validation', () => {
         it('should accept array with mixed groups', () => {
             const media = [
                 { ...validImageMedia, id: 'media-1', group: 'cover' as const },
-                { ...validImageMedia, id: 'media-2', group: 'banner' as const },
-                { ...validImageMedia, id: 'media-3', group: 'main' as const }
+                { ...validImageMedia, id: 'media-2', group: 'main' as const },
+                { ...validImageMedia, id: 'media-3', group: 'secondary' as const }
             ]
             const result = MediaArraySchema.safeParse(media)
             expect(result.success).toBe(true)

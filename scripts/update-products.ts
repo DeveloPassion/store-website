@@ -18,7 +18,7 @@
  *
  *   Media operations:
  *     bun run update:products -- --operation media:list --id product-id [--media-group cover]
- *     bun run update:products -- --operation media:add --id product-id --media-type image|video --media-url "..." --media-title "..." --media-altText "..." --media-group cover|banner|main|secondary|bonus [--media-description "..."] [--media-caption "..."] [--media-order 0]
+ *     bun run update:products -- --operation media:add --id product-id --media-type image|video --media-url "..." --media-title "..." --media-altText "..." --media-group cover|main|secondary|bonus [--media-description "..."] [--media-caption "..."] [--media-order 0]
  *     bun run update:products -- --operation media:edit --id product-id --media-id "media-123" [--media-title "..."] [--media-url "..."] [--media-altText "..."]
  *     bun run update:products -- --operation media:remove --id product-id --media-id "media-123"
  *     bun run update:products -- --operation media:reorder --id product-id --media-id "media-123" --media-order 5
@@ -69,7 +69,7 @@
  *     --media-description <string>        Media description
  *     --media-altText <string>            Alt text for accessibility
  *     --media-caption <string>            Display caption
- *     --media-group <cover|banner|main|secondary|bonus>  Media group
+ *     --media-group <cover|main|secondary|bonus>  Media group
  *     --media-order <number>              Display order
  *
  *   FAQ:
@@ -305,10 +305,9 @@ export function saveMedia(productsDir: string, productId: string, media: MediaIt
     const sorted = [...media].sort((a, b) => {
         const groupPriority: Record<MediaGroup, number> = {
             cover: 0,
-            banner: 1,
-            main: 2,
-            secondary: 3,
-            bonus: 4
+            main: 1,
+            secondary: 2,
+            bonus: 3
         }
         const groupDiff = groupPriority[a.group] - groupPriority[b.group]
         if (groupDiff !== 0) return groupDiff
@@ -521,10 +520,9 @@ function listMediaInProduct(
     return media.sort((a, b) => {
         const groupPriority: Record<MediaGroup, number> = {
             cover: 0,
-            banner: 1,
-            main: 2,
-            secondary: 3,
-            bonus: 4
+            main: 1,
+            secondary: 2,
+            bonus: 3
         }
         return groupPriority[a.group] - groupPriority[b.group] || a.order - b.order
     })
@@ -573,7 +571,6 @@ function formatMediaList(mediaItems: MediaItem[]): string {
         const typeIcon = item.type === 'video' ? '🎥' : '🖼️'
         const groupBadge = {
             cover: '🖼️',
-            banner: '🎨',
             main: '⭐',
             secondary: '📌',
             bonus: '🎁'
@@ -1862,9 +1859,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
     console.log(
         `  ${colors.dim}3.${colors.reset} Add marketing copy details by editing the file directly`
     )
-    console.log(
-        `  ${colors.dim}4.${colors.reset} Add media (coverImage, banners, screenshots, ...)`
-    )
+    console.log(`  ${colors.dim}4.${colors.reset} Add media (cover images, screenshots, ...)`)
     console.log(
         `  ${colors.dim}5.${colors.reset} Test locally: ${colors.green}npm run dev${colors.reset}`
     )
@@ -2459,7 +2454,6 @@ async function manageProductMedia(product: Product): Promise<void> {
                         message: 'Media group:',
                         choices: [
                             { name: '🖼️  Cover (product card thumbnails)', value: 'cover' },
-                            { name: '🎨 Banner (hero section)', value: 'banner' },
                             { name: "⭐ Main (above What's Included)", value: 'main' },
                             { name: '📌 Secondary (below Benefits)', value: 'secondary' },
                             { name: '🎁 Bonus (below Ready to Get Started)', value: 'bonus' }

@@ -518,7 +518,7 @@ describe('loadMedia', () => {
             altText: 'Product demo video',
             caption: 'Watch our demo',
             order: 0,
-            group: 'banner',
+            group: 'cover',
             youtubeId: 'abc123',
             thumbnailUrl: 'https://img.youtube.com/vi/abc123/maxresdefault.jpg'
         }
@@ -537,22 +537,20 @@ describe('loadMedia', () => {
         const productId = 'various-groups'
         const mediaData = [
             { ...createValidMediaItem('m1'), group: 'cover' },
-            { ...createValidMediaItem('m2'), group: 'banner' },
-            { ...createValidMediaItem('m3'), group: 'main' },
-            { ...createValidMediaItem('m4'), group: 'secondary' },
-            { ...createValidMediaItem('m5'), group: 'bonus' }
+            { ...createValidMediaItem('m2'), group: 'main' },
+            { ...createValidMediaItem('m3'), group: 'secondary' },
+            { ...createValidMediaItem('m4'), group: 'bonus' }
         ]
 
         writeFileSync(join(tempDir, `${productId}-media.json`), JSON.stringify({ data: mediaData }))
 
         const result = loadMedia(productId)
 
-        expect(result).toHaveLength(5)
+        expect(result).toHaveLength(4)
         expect(result[0].group).toBe('cover')
-        expect(result[1].group).toBe('banner')
-        expect(result[2].group).toBe('main')
-        expect(result[3].group).toBe('secondary')
-        expect(result[4].group).toBe('bonus')
+        expect(result[1].group).toBe('main')
+        expect(result[2].group).toBe('secondary')
+        expect(result[3].group).toBe('bonus')
     })
 
     it('should handle media with minimal required fields', () => {

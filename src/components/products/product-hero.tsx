@@ -7,7 +7,6 @@ import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
 import { Button } from '@/components/ui/button'
-import HeroBackground from './hero-background'
 import MediaCarousel from './media-carousel'
 import MediaLightbox from './media-lightbox'
 
@@ -91,14 +90,6 @@ const ProductHero: React.FC<ProductHeroProps> = ({
         setIsWishlisted(newState)
     }
 
-    // Extract banner images for background
-    const bannerImages = useMemo(() => {
-        if (!product.media) return []
-        return product.media
-            .filter((item) => item.group === 'banner' && item.type === 'image')
-            .sort((a, b) => a.order - b.order)
-    }, [product.media])
-
     // Extract cover images for carousel
     const coverImages = useMemo(() => {
         if (!product.media) return []
@@ -127,8 +118,6 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 
     return (
         <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'>
-            {/* Rotating banner background */}
-            {bannerImages.length > 0 && <HeroBackground bannerImages={bannerImages} />}
             <div className='relative z-10 container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                 <div className='grid gap-12 overflow-hidden lg:grid-cols-2 lg:gap-16'>
                     {/* Left Column: Content */}

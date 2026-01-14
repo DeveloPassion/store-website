@@ -202,7 +202,6 @@ describe('saveMedia', () => {
             createValidMediaItem({ id: 'bonus-2', group: 'bonus', order: 1 }),
             createValidMediaItem({ id: 'cover-1', group: 'cover', order: 0 }),
             createValidMediaItem({ id: 'main-1', group: 'main', order: 2 }),
-            createValidMediaItem({ id: 'banner-1', group: 'banner', order: 0 }),
             createValidMediaItem({ id: 'cover-2', group: 'cover', order: 1 }),
             createValidMediaItem({ id: 'secondary-1', group: 'secondary', order: 0 })
         ]
@@ -213,14 +212,13 @@ describe('saveMedia', () => {
         const savedContent = JSON.parse(readFileSync(mediaPath, 'utf-8'))
         const sorted = savedContent.data
 
-        // Expected order: cover (priority 0), banner (1), main (2), secondary (3), bonus (4)
+        // Expected order: cover (priority 0), main (1), secondary (2), bonus (3)
         // Within each group, sorted by order field
         expect(sorted[0].id).toBe('cover-1') // cover, order 0
         expect(sorted[1].id).toBe('cover-2') // cover, order 1
-        expect(sorted[2].id).toBe('banner-1') // banner, order 0
-        expect(sorted[3].id).toBe('main-1') // main, order 2
-        expect(sorted[4].id).toBe('secondary-1') // secondary, order 0
-        expect(sorted[5].id).toBe('bonus-2') // bonus, order 1
+        expect(sorted[2].id).toBe('main-1') // main, order 2
+        expect(sorted[3].id).toBe('secondary-1') // secondary, order 0
+        expect(sorted[4].id).toBe('bonus-2') // bonus, order 1
     })
 
     it('should throw validation error for invalid media data', () => {

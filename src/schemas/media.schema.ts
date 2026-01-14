@@ -8,7 +8,7 @@ export const MediaTypeSchema = z.enum(['image', 'video'])
 /**
  * Media group - determines placement in the product page
  */
-export const MediaGroupSchema = z.enum(['cover', 'banner', 'main', 'secondary', 'bonus'])
+export const MediaGroupSchema = z.enum(['cover', 'main', 'secondary', 'bonus'])
 
 /**
  * Individual media item schema

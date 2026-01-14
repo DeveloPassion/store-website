@@ -1,7 +1,7 @@
 ---
 skill: manage-product-media
-description: Manage product media (screenshots, videos, cover images, banners) with automatic optimization, metadata collection, and CLI integration
-keywords: [product, media, screenshot, video, image, cover, banner, optimize, youtube, photo, picture, visual]
+description: Manage product media (screenshots, videos, cover images) with automatic optimization, metadata collection, and CLI integration
+keywords: [product, media, screenshot, video, image, cover, optimize, youtube, photo, picture, visual]
 dependencies: [update-products CLI, image optimization tools]
 examples:
   - "Add screenshots to the knowii product"
@@ -13,7 +13,7 @@ examples:
 
 # Manage Product Media Skill
 
-This skill helps you manage product media (screenshots, videos, cover images, banners) with automatic optimization, intelligent metadata collection, and seamless CLI integration.
+This skill helps you manage product media (screenshots, videos, cover images) with automatic optimization, intelligent metadata collection, and seamless CLI integration.
 
 ## What This Skill Does
 
@@ -26,7 +26,7 @@ This skill helps you manage product media (screenshots, videos, cover images, ba
 2. **Interactive Metadata Collection**: Uses AskUserQuestion to gather:
    - Product ID (which product this media belongs to)
    - Media type (image or video)
-   - Media group (cover, banner, main, secondary, bonus)
+   - Media group (cover, main, secondary, bonus)
    - Order/priority within the group
    - Title, description, alt text, caption
    - Special attributes (featured, etc.)
@@ -54,7 +54,7 @@ Invoke this skill when the user mentions:
 - Adding videos or YouTube links to products
 - Managing product media, visuals, or galleries
 - Optimizing product images
-- Setting up cover images or banners
+- Setting up cover images
 - Organizing product media into groups
 
 ## How This Skill Works
@@ -118,7 +118,6 @@ Use AskUserQuestion to gather required information:
   header: "Media Group",
   options: [
     { label: "Cover", description: "Product card thumbnails (16:9, optimized for cards)" },
-    { label: "Banner", description: "Hero section images/videos (high visual impact)" },
     { label: "Main", description: "Primary showcase (above 'What's Included')" },
     { label: "Secondary", description: "Deep dive content (below 'Benefits')" },
     { label: "Bonus", description: "Additional resources (below 'Ready to Get Started')" }
@@ -209,7 +208,7 @@ For each image file:
 
 ### Step 4: Video Processing (for videos only)
 
-**IMPORTANT: Videos should NEVER be added to the "banner" group. Default to "cover" group for all videos.**
+**IMPORTANT: Default to "cover" group for all videos.**
 
 For YouTube videos:
 
@@ -242,7 +241,7 @@ bun run update:products -- \
   --media-url "{url}" \
   --media-title "{title}" \
   --media-altText "{altText}" \
-  --media-group "{cover|banner|main|secondary|bonus}" \
+  --media-group "{cover|main|secondary|bonus}" \
   --media-order {order} \
   --media-description "{description}" \
   --media-caption "{caption}" \
@@ -295,7 +294,7 @@ When adding multiple images from a folder:
 Smart detection of media properties:
 
 - **Cover images**: Detect 16:9 aspect ratio, suggest as cover group
-- **Banner images**: Detect large high-res images (>1200px wide), suggest as banner
+- **Large images**: Detect large high-res images (>1200px wide), suggest as main
 - **Screenshots**: Detect UI elements, suggest as main/secondary
 - **YouTube thumbnails**: If URL looks like a thumbnail, find the actual video
 
@@ -315,16 +314,13 @@ Help users choose the right group:
 | Group | Purpose | Best For | Aspect Ratio | Max Size |
 |-------|---------|----------|--------------|----------|
 | Cover | Product cards | Thumbnails, social cards, videos | 16:9 | 800x450 |
-| Banner | Hero section | High-impact images ONLY (no videos) | Any | 1920x1080 |
 | Main | Primary showcase | Key features, demos | Any | 1920x1080 |
 | Secondary | Deep dive | Detailed screenshots | Any | 1920x1080 |
 | Bonus | Extra resources | Tutorials, social proof | Any | 1920x1080 |
 
-**IMPORTANT: Video placement rules:**
-- **NEVER add videos to the "banner" group** - banner is for static images only
+**Video placement rules:**
 - **Videos should default to "cover" group** for product card display
 - Videos can also be placed in "main", "secondary", or "bonus" groups
-- If user requests a video in banner, redirect to cover or main and explain the rule
 
 ## Error Handling
 
@@ -361,7 +357,7 @@ User: "Add this YouTube video to knowii: https://youtube.com/watch?v=abc123"
 Skill Actions:
 1. Extract video ID: "abc123"
 2. Confirm product: "knowii"
-3. Default to "cover" group for videos (never use "banner" for videos)
+3. Default to "cover" group for videos
 4. Ask for title, description, alt text
 5. Generate thumbnail URL
 6. Add via CLI: bun run update:products -- --operation media:add --id knowii --media-type video --media-url "https://youtube.com/watch?v=abc123" --media-title "Product Demo" --media-altText "Knowii product demonstration video" --media-group cover --media-order 0 --media-youtubeId "abc123"
@@ -506,7 +502,7 @@ function buildMediaAddCommand(params: {
   url: string;
   title: string;
   altText: string;
-  group: 'cover' | 'banner' | 'main' | 'secondary' | 'bonus';
+  group: 'cover' | 'main' | 'secondary' | 'bonus';
   order: number;
   description?: string;
   caption?: string;

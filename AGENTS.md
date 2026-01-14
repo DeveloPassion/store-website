@@ -310,7 +310,7 @@ Example subscription product structure:
 
 ## Managing Product Media
 
-Products support rich media (images and videos) organized into five groups: **cover**, **banner**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
+Products support rich media (images and videos) organized into four groups: **cover**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
 
 **CLI**: Use `bun run update:products` (select "Edit existing product" → "🖼️ Manage Media") for interactive media management with list, add, edit, remove, and reorder operations.
 
@@ -324,7 +324,6 @@ Products support rich media (images and videos) organized into five groups: **co
 **Media Groups & Placement:**
 
 - `cover`: Product card thumbnails - optimized for card display (16:9 aspect ratio recommended)
-- `banner`: Hero section images/videos - top of product page, high visual impact
 - `main`: Above "What's Included" section - primary product showcase
 - `secondary`: Below "Benefits You'll Experience" - deeper dive content
 - `bonus`: Below "Ready to Get Started" - additional resources/social proof
@@ -375,7 +374,7 @@ Each group displays in a mixed-media carousel with:
 - **Main/secondary/bonus**: Screenshots, demos, tutorials
 - Compress images before upload (WebP preferred)
 - Use high-quality YouTube thumbnails (auto-generated)
-- Add 1-2 cover images, 1-2 banner images for best UX
+- Add 1-2 cover images for best UX
 
 **Product Card Display:**
 
@@ -383,7 +382,7 @@ Product cards automatically display the first image from the media array with pr
 
 **Open Graph Images:**
 
-The first image from the media array (prioritized by group: cover → banner → main → secondary → bonus) is automatically used for og:image meta tags for social sharing. Cover images are recommended for social cards.
+The first image from the media array (prioritized by group: cover → main → secondary → bonus) is automatically used for og:image meta tags for social sharing. Cover images are recommended for social cards.
 
 **Storage:**
 
@@ -410,7 +409,7 @@ All FAQ, Testimonial, and Media files use a consistent JSON structure with a `da
 
 **Media File Format:**
 
-Media items are sorted by group priority (cover → banner → main → secondary → bonus), then by order within each group.
+Media items are sorted by group priority (cover → main → secondary → bonus), then by order within each group.
 
 Example `knowii-voice-ai-media.json`:
 
@@ -748,8 +747,8 @@ Dedicated skills available in `.claude/skills/` for comprehensive store manageme
     - Keywords: tag, tags, taxonomy
 - **manage-promotion** - Configure promotion banner (behavior, dates, text, links)
     - Keywords: promotion, banner, promo, discount
-- **manage-product-media** - Add, optimize, and organize product images/videos (screenshots, covers, banners)
-    - Keywords: media, screenshot, video, image, cover, banner, visual
+- **manage-product-media** - Add, optimize, and organize product images/videos (screenshots, covers)
+    - Keywords: media, screenshot, video, image, cover, visual
 
 ### Content Enhancement Skills
 

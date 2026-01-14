@@ -9,7 +9,7 @@ interface MediaCarouselSectionProps {
     product: Product
     group: MediaGroup
     heading: string
-    description?: string
+    description?: React.ReactNode
     /** When true, includes all videos from the product regardless of their group */
     includeAllVideos?: boolean
 }
