@@ -1,3 +1,22 @@
+## [0.5.7](https://github.com/DeveloPassion/store-website/compare/0.5.6...0.5.7) (2026-01-14)
+
+### Features
+
+* **all:** added osk images and update skills/scripts ([6fdf92f](https://github.com/DeveloPassion/store-website/commit/6fdf92f36f4a455a221174fb298a92cbcbdaaaa8))
+* **all:** extracted to stats files ([7b91b05](https://github.com/DeveloPassion/store-website/commit/7b91b05964fbac74d56023704ae4b539c540cacf))
+* **all:** further improved image carousel (icons, buttons position, hover color, etc) ([9970ec5](https://github.com/DeveloPassion/store-website/commit/9970ec5fa70cfc501c0800d8413d7fd990abe7a1))
+* **all:** further improved image rendering when maximized on mobile (lightbox); removed preview images ([47aab5a](https://github.com/DeveloPassion/store-website/commit/47aab5a6596a656d74ff09de2bef1befdd2564a0))
+* **all:** hand cursor for benefits you'll experience ([0fe60e7](https://github.com/DeveloPassion/store-website/commit/0fe60e7d08f0a8bc5c45302b4d711f0d37ce7bdb))
+* **all:** improved Gumroad scraping script ([d73cd68](https://github.com/DeveloPassion/store-website/commit/d73cd68d565d9c580fca11e93ca195a981803320))
+* **all:** improved image carousel rendering on mobile ([67588e3](https://github.com/DeveloPassion/store-website/commit/67588e3f923c5e8597e40cbb25f83fb418eada53))
+* **all:** improved image rendering on product pages ([e7ac683](https://github.com/DeveloPassion/store-website/commit/e7ac683535811baa3900f1597ea8b671cff43f14))
+* **all:** improved image rendering on product pages when maximized ([d8d89e2](https://github.com/DeveloPassion/store-website/commit/d8d89e20fe9cabc1ac0329ce2c9fb0d2bf876dc5))
+* **all:** improved lightbox on desktop ([07d5a02](https://github.com/DeveloPassion/store-website/commit/07d5a028e56d96ea73500fa47ed1160c516ab3a1))
+* **all:** improved maximized image carousel behavior ([d4ffbdf](https://github.com/DeveloPassion/store-website/commit/d4ffbdfc26e37360dc952240d36e863bb629f337))
+* **all:** improved product page colors ([105c134](https://github.com/DeveloPassion/store-website/commit/105c1347c7ebd40c4282da622f0b66c2381aec11))
+* **all:** updated stats ([88f41ff](https://github.com/DeveloPassion/store-website/commit/88f41ffd3128e8e8d7a29c231b9aed6c90d92d24))
+* **all:** updated stats and added gumroad util (mostly broken for now) ([5b7d8b5](https://github.com/DeveloPassion/store-website/commit/5b7d8b5c8c770144f77f1244a37a3c9fb749b2a6))
+* **all:** validate products script now ensures that a sales copy is available ([078d495](https://github.com/DeveloPassion/store-website/commit/078d4956a8b618ab6e785900b0faec96149c112f))
 ## [0.5.6](https://github.com/DeveloPassion/store-website/compare/0.5.5...0.5.6) (2026-01-13)
 
 ### Features
