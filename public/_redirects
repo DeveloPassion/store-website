@@ -1,7 +1,7 @@
 
 # Redirects: From Gumroad /l/:product-slug to /product/:id
 
-## PKM Library
+## PKM Library (PKMLib)
 /l/PersonalKnowledgeManagementLibrary /product/pkm-library 301
 /l/PersonalKnowledgeManagementLibrary /product/pkm-library 301
 
@@ -9,7 +9,7 @@
 /l/beginners-guide-to-obsidian /product/beginners-guide-obsidian 301
 /l/imkjic /product/beginners-guide-obsidian 301
 
-## AI Ghostwriter Guide
+## AI Ghostwriter Guide (AGG)
 /l/ai-ghostwriter-guide /product/ai-ghostwriter-guide 301
 /l/vsrnk /product/ai-ghostwriter-guide 301
 
@@ -48,7 +48,7 @@
 /l/knowii-personal-organization-101 /product/personal-organization-101 301
 /l/zyuwjd /product/personal-organization-101 301
 
-## Knowii Voice AI
+## Knowii Voice AI (KVA)
 /l/knowii-voice-ai /product/knowii-voice-ai 301
 /l/tbdlrt /product/knowii-voice-ai 301
 
