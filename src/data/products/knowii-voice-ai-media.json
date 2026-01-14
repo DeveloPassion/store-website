@@ -1,3 +1,15 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "banner-video-001",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
+            "title": "Knowii Voice AI Demo",
+            "altText": "Knowii Voice AI - Voice-to-Text in Every App",
+            "description": "See how Knowii Voice AI enables voice-to-text transcription in any application",
+            "order": 0,
+            "group": "banner",
+            "youtubeId": "Z3nnUCJRWhI"
+        }
+    ]
 }
