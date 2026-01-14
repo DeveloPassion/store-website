@@ -34,7 +34,7 @@
             "1,200 words deep in 15 minutes",
             "Detailed commit messages in 30 seconds"
         ],
-        "description": "Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models (Whisper, Parakeet) process everything locally. No cloud. No subscription. No usage limits. Just €49 once, yours forever. Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.",
+        "description": "Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models process everything locally. No cloud. No subscription. No usage limits. Just €49 once, yours forever. Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.",
         "features": ["Voice capture", "AI organization", "Smart categorization"],
         "benefits": {
             "immediate": ["Start today", "Quick setup"],

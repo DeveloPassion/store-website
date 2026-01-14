@@ -21,7 +21,7 @@
         {
             "id": "faq-11",
             "question": "How accurate is it?",
-            "answer": "Very. Whisper and Parakeet are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections.",
+            "answer": "Very. The AI models we use (e.g., Whisper, Parakeet, Moonshine) are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections.",
             "order": 4
         },
         {

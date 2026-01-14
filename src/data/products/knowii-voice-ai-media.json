@@ -1,15 +1,111 @@
 {
     "data": [
         {
-            "id": "main-video-001",
+            "id": "cover-image-001",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-cover.webp",
+            "title": "Knowii Voice AI",
+            "altText": "Knowii Voice AI logo and branding",
+            "description": "Voice-to-text that respects your privacy, works everywhere, and is owned forever",
+            "order": 0,
+            "group": "cover",
+            "width": 1600,
+            "height": 840
+        },
+        {
+            "id": "cover-video-001",
             "type": "video",
             "url": "https://www.youtube.com/watch?v=Z3nnUCJRWhI",
             "title": "Knowii Voice AI Demo",
             "altText": "Knowii Voice AI - Voice-to-Text in Every App",
             "description": "See how Knowii Voice AI enables voice-to-text transcription in any application",
-            "order": 0,
+            "order": 1,
             "group": "cover",
             "youtubeId": "Z3nnUCJRWhI"
+        },
+        {
+            "id": "main-image-001",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-settings-general.webp",
+            "title": "General Settings",
+            "altText": "Knowii Voice AI general settings panel with shortcut configuration and audio options",
+            "description": "Configure your keyboard shortcut, recording device, and audio feedback settings",
+            "order": 0,
+            "group": "main",
+            "width": 1248,
+            "height": 900
+        },
+        {
+            "id": "main-image-002",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-model-selection.webp",
+            "title": "AI Model Selection",
+            "altText": "Knowii Voice AI transcription settings with multiple AI models including Parakeet and Whisper",
+            "description": "Choose from multiple AI models including NVIDIA Parakeet V3 and OpenAI Whisper variants",
+            "order": 1,
+            "group": "main",
+            "width": 1245,
+            "height": 900
+        },
+        {
+            "id": "main-image-003",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-history.webp",
+            "title": "Transcription History",
+            "altText": "Knowii Voice AI transcription history with searchable audio playback",
+            "description": "Review and search all your past transcriptions with audio playback",
+            "order": 2,
+            "group": "main",
+            "width": 1247,
+            "height": 931
+        },
+        {
+            "id": "main-image-004",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-onboarding.webp",
+            "title": "Quick Setup Wizard",
+            "altText": "Knowii Voice AI onboarding screen with model selection and quick settings",
+            "description": "Get started in minutes with the easy setup wizard - choose your model and configure settings",
+            "order": 3,
+            "group": "main",
+            "width": 1249,
+            "height": 894
+        },
+        {
+            "id": "secondary-image-001",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-recording-overlay.webp",
+            "title": "Recording Indicator",
+            "altText": "Knowii Voice AI recording overlay showing active voice capture",
+            "description": "Visual indicator appears when recording - press and hold to capture, release to transcribe",
+            "order": 0,
+            "group": "secondary",
+            "width": 264,
+            "height": 46
+        },
+        {
+            "id": "secondary-image-002",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-model-download.webp",
+            "title": "AI Model Download",
+            "altText": "Knowii Voice AI showing Parakeet V3 model download progress",
+            "description": "Download AI models once and use them offline - no internet required after setup",
+            "order": 1,
+            "group": "secondary",
+            "width": 764,
+            "height": 161
+        },
+        {
+            "id": "secondary-image-003",
+            "type": "image",
+            "url": "/assets/images/products/knowii-voice-ai/knowii-voice-ai-system-tray.webp",
+            "title": "System Tray Access",
+            "altText": "Knowii Voice AI system tray menu showing quick access to settings",
+            "description": "Access settings quickly from the system tray - runs quietly in the background",
+            "order": 2,
+            "group": "secondary",
+            "width": 245,
+            "height": 87
         }
     ]
 }

@@ -101,7 +101,7 @@
 
 ## Description
 
-Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models (Whisper, Parakeet) process everything locally. No cloud. No subscription. No usage limits. Just $49 once, yours forever.
+Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models (Whisper, Parakeet, Moonshine, ...) process everything locally. No cloud. No subscription. No usage limits. Just $49 once, yours forever.
 
 Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.
 
@@ -110,7 +110,7 @@ Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegra
 ### Core Functionality
 
 - **Universal Voice Input**: Works in every single application where you can type
-- **Local AI Processing**: Whisper and Parakeet models run on your computer
+- **Local AI Processing**: AI models run on your computer
 - **Offline Capable**: No internet required after one-time model download
 - **Customizable Shortcut**: Default Ctrl+Space, change to whatever you want
 - **Searchable History**: Every transcription saved and searchable
@@ -360,7 +360,7 @@ A: Yes. After one-time AI model download (2-10 GB), everything runs on your comp
 A: Depends on computer, model choice, and speech length. Decent laptop with small model: 1-3 seconds for few sentences. With GPU acceleration: near-instant. Larger models take few seconds longer but more accurate.
 
 **Q: How accurate is it?**
-A: Very. Whisper and Parakeet are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections.
+A: Very. The AI models we use (Whisper, Parakeet, ...) are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections.
 
 **Q: What languages are supported?**
 A: All major languages: English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Chinese, Japanese, Korean, and more. Select language in settings. Different models support different languages. Some have specific language variants.
