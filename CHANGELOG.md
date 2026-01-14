@@ -1,3 +1,11 @@
+## [0.6.2](https://github.com/DeveloPassion/store-website/compare/0.6.1...0.6.2) (2026-01-14)
+
+### Features
+
+* **all:** added support for emojis in timelines ([bc62713](https://github.com/DeveloPassion/store-website/commit/bc627138fe62eb1edab88d8c9b974f123af8c39c))
+* **all:** added support for timelines ([14412c8](https://github.com/DeveloPassion/store-website/commit/14412c86407fca09cc6b12c36d292ad0ede2371f))
+* **all:** improved sales copy knowii community ([fdb7757](https://github.com/DeveloPassion/store-website/commit/fdb7757e505a2db436b0c0842f667a230379ac7f))
+* **all:** removed EKB from featured products list ([1212280](https://github.com/DeveloPassion/store-website/commit/12122801f6a860c317df91774c712eacce8e86b8))
 ## [0.6.1](https://github.com/DeveloPassion/store-website/compare/0.6.0...0.6.1) (2026-01-14)
 
 ### Features
