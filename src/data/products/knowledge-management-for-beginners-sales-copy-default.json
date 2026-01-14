@@ -3,123 +3,116 @@
     "salesCopy": {
         "tagline": "Stop Drowning in Information. Start Building Knowledge.",
         "secondaryTagline": "Stop losing great ideas in a sea of tabs, notes, and documents. Start building a knowledge system that works for you – forever.",
-        "problem": "Information overload is drowning knowledge workers. Traditional methods fail.",
+        "problem": "You know the feeling. 'Where did I see this? Where did I put that? What app did I use for that?' The constant frustration of scattered information, lack of consistency, and the inherent complexity of managing everything you know.",
         "problemPoints": [
             "Drowning in browser tabs and scattered documents",
             "Taking notes you can never find when you need them",
-            "Forgetting important ideas and insights",
-            "Feeling overwhelmed by sheer volume of information",
-            "Knowing you read something useful but can't remember where",
-            "Constantly forgetting important things",
-            "Wasting time searching for information"
+            "Forgetting important ideas and insights that could have changed everything",
+            "Feeling overwhelmed by the sheer volume of information",
+            "Constantly asking yourself: 'Where did I see this? What app was that in?'",
+            "Fiddling endlessly with tools and clunky systems that never quite work",
+            "Starting from scratch on every new project because you can't find your past work"
         ],
-        "agitate": "Hours wasted searching for that one note. Brilliant ideas lost forever. Feeling overwhelmed every single day. Can't make valuable connections between concepts. Starting from scratch on every new project. AI features lack context and connections.",
+        "agitate": "Every day, brilliant ideas slip through your fingers. Hours vanish searching for that one note you know exists somewhere. The mental load of trying to remember everything crushes your creativity. And worst of all? You've tried to fix this before. You've downloaded apps, watched tutorials, started fresh systems... only to end up right back where you started. The chaos compounds. The overwhelm deepens. And the gap between what you know and what you can actually use keeps growing.",
         "agitatePoints": [
-            "Hours wasted searching for notes",
-            "Brilliant ideas lost forever",
-            "Feeling overwhelmed every day",
-            "Can't make connections between concepts",
-            "Starting from scratch on every project",
-            "Notes become isolated islands",
-            "Search only finds exact matches",
-            "Notes get buried and forgotten",
-            "Knowledge doesn't compound over time",
-            "AI features lack context"
+            "Hours wasted every week searching for information you know you saved",
+            "Brilliant ideas lost forever because you couldn't find them when they mattered",
+            "The crushing mental load of trying to remember everything",
+            "That sinking feeling when you realize you've read something useful but can't remember where",
+            "Starting from scratch on every project instead of building on past work",
+            "Notes becoming isolated islands that never connect to create insight",
+            "AI tools that could help you - if only you had organized knowledge to feed them",
+            "The frustration of trying system after system, only to abandon them all"
         ],
-        "solution": "Build a Personal Knowledge Management system where all your knowledge becomes connected, findable, and useful.",
+        "solution": "Build a Personal Knowledge Management system where all your knowledge becomes connected, findable, and actually useful. A system designed from years of real-world practice - not theory. One that starts simple, scales infinitely, and makes AI dramatically more effective.",
         "solutionPoints": [
-            "All your knowledge becomes connected",
-            "Find anything, even if you forgot the exact words",
-            "Discover unexpected connections between ideas",
-            "Knowledge stays relevant and accessible",
-            "Quick access to exactly what you need",
-            "Your knowledge grows and compounds",
-            "Build on previous work effortlessly",
-            "AI becomes dramatically more effective"
+            "All your knowledge becomes connected and findable in seconds",
+            "Find anything, even if you forgot the exact words you used",
+            "Discover unexpected connections between ideas that spark creativity",
+            "Your knowledge compounds over time - every note increases in value",
+            "Build on previous work instead of starting from scratch",
+            "AI becomes dramatically more effective when you have organized knowledge",
+            "Stop fiddling with tools - focus on what matters",
+            "One system that grows with you for the rest of your life"
         ],
-        "description": "Knowledge Management for Beginners is a comprehensive video course (10+ hours) that transforms how you think, learn, and leverage information. Based on years of Information and Knowledge Management practice, this course provides a complete blueprint for building your Personal Knowledge Management system. At its core, this course is about turning chaos into order, complexity into simplicity, and information into actionable knowledge. You'll learn a clear, proven process that takes you from information overload to systematic knowledge building. Join 1,000+ professionals who have transformed their workflows with this system.",
+        "description": "Knowledge Management for Beginners is a comprehensive video course (10+ hours) built from years of real-world Information and Knowledge Management practice. This isn't another note-taking tutorial or productivity hack. It's a complete blueprint for building a Personal Knowledge Management system using systems-first thinking and tool-agnostic principles that work anywhere.\n\nAt its core, this course is about turning chaos into order, complexity into simplicity, and information into actionable knowledge. You'll learn a clear, proven process that takes you from information overload to systematic knowledge building - with native AI integration that others simply don't cover.\n\nJoin 200+ professionals who have transformed their workflows with this system.",
         "features": [
             "10+ hours of video content across 9 comprehensive modules",
-            "Engaging video lectures making complex concepts clear",
-            "Practical demonstrations of real-world applications",
-            "From theory to practice - understanding to implementation",
+            "Systems-first approach - build sustainable systems, not quick hacks",
+            "Tool-agnostic principles that work with any software you choose",
+            "Built from 20+ years of real-world practice, not just theory",
+            "Native AI integration (ChatGPT, Claude, DeepSeek, Gemini, NotebookLM, MCP) that others don't cover",
             "Complete PKM Process: Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share",
-            "Start simple, build up - no need to change everything at once",
-            "Universal principles - tool-agnostic approach",
-            "Real-world examples - detailed walkthrough of creator's PKM system",
-            "Progressive curriculum: Foundation → Growth → Mastery",
-            "Lifetime access - return to material as needs evolve",
-            "Evergreen content - regular updates keep content fresh",
-            "Community support - connect with fellow learners",
-            "No special software required - start with tools you already have"
+            "Start simple, build gradually - no need to change everything at once",
+            "Deep dive into methods: PARA, Johnny Decimal, Zettelkasten, and more",
+            "Real-world examples with detailed walkthrough of creator's own system",
+            "Practical Obsidian demonstrations and automation workflows",
+            "Lifetime access with all future updates included",
+            "Community support to connect with fellow learners"
         ],
         "benefits": {
             "immediate": [
-                "Have a reliable capture system for important ideas",
-                "Know exactly where to put new information",
-                "Find anything you need in seconds",
-                "Feel more organized and clear-headed",
-                "Start making valuable connections between ideas"
+                "Have a reliable capture system for important ideas - no more losing insights",
+                "Know exactly where to put new information without second-guessing",
+                "Find anything you need in seconds, not hours",
+                "Feel the relief of a clear, organized mind",
+                "Start making valuable connections between ideas immediately"
             ],
             "systematic": [
-                "Find anything in seconds - never lose another idea",
-                "Make smarter decisions - access right knowledge when needed",
-                "Learn faster and retain more - build system that helps absorb ideas",
-                "Reduce stress and overwhelm - free mind from clutter",
-                "Leverage AI effectively - integrate AI tools to supercharge knowledge",
-                "Knowledge compounds over time - every note increases in value",
-                "Build on previous work - stop starting from scratch"
+                "Never lose another important idea or piece of information",
+                "Make smarter decisions with the right knowledge at your fingertips",
+                "Learn faster and retain more through connected thinking",
+                "Reduce stress and overwhelm by freeing your mind from clutter",
+                "Leverage AI effectively - your organized knowledge becomes AI's superpower",
+                "Stop fiddling with tools and focus on what actually matters",
+                "Build on previous work instead of starting from scratch every time"
             ],
             "longTerm": [
-                "Transform chaos into order",
-                "Build valuable intellectual assets",
-                "Create your personal Life OS",
-                "Connect ideas to foster creativity and innovation",
-                "Systematic approach to lifelong learning"
+                "Watch your knowledge compound over time - every note becomes more valuable",
+                "Build intellectual assets that serve you for decades",
+                "Create your own Life OS - a system that grows with your career and life",
+                "Foster creativity and innovation through unexpected idea connections",
+                "Experience the peace of mind that comes from a trusted system"
             ]
         },
         "targetAudience": [
-            "Knowledge-intensive professionals (leaders, managers, consultants)",
-            "Overwhelmed learners buried under information avalanche",
+            "Knowledge-intensive professionals (leaders, managers, consultants) dealing with complex information daily",
+            "Overwhelmed learners buried under an avalanche of information",
             "Innovative thinkers wanting to connect ideas and foster creativity",
             "Lifelong learners committed to continuous growth",
-            "Busy professionals dealing with lots of information daily",
-            "Anyone who needs to make quick, informed decisions",
-            "Those who want to learn faster and work smarter",
-            "People feeling overwhelmed by digital clutter",
-            "Anyone tired of losing valuable insights",
-            "Those wanting to leverage AI effectively"
+            "Busy professionals who need to make quick, informed decisions",
+            "Anyone tired of losing valuable insights and starting from scratch",
+            "Those who want to leverage AI but lack the organized knowledge to make it effective"
         ],
         "perfectFor": [
             "Knowledge-intensive professionals",
-            "Overwhelmed learners",
-            "Innovative thinkers",
-            "Lifelong learners",
-            "Busy professionals"
+            "Overwhelmed learners seeking clarity",
+            "Innovative thinkers and idea connectors",
+            "Lifelong learners building intellectual assets",
+            "Anyone ready to stop the chaos and build a system that works"
         ],
         "notForYou": [
-            "Looking for a quick productivity hack (this is a complete system)",
-            "Not willing to invest 15-30 minutes/day initially",
-            "Prefer ad-hoc note-taking without structure"
+            "Looking for a quick productivity hack (this is a complete system built for the long term)",
+            "Not willing to invest 15-30 minutes per day initially to build new habits",
+            "Prefer ad-hoc note-taking without any structure or system"
         ],
         "trustBadges": [
             "Full Refund Policy - Not satisfied? No questions asked",
-            "Lifetime Access - All future updates included",
-            "10+ Hours of Content - Comprehensive curriculum",
-            "1,000+ Professionals - Transformed workflows",
-            "1,700+ Concepts - Bonus knowledge base",
-            "Evergreen Content - Regular updates",
-            "Community Support - Connect with fellow learners",
-            "Tool-Agnostic - Works with what you have"
+            "Lifetime Access - All future updates included free",
+            "10+ Hours of Content - Comprehensive video curriculum",
+            "200+ Professionals - Have transformed their workflows",
+            "1,800+ Concepts - Bonus knowledge base included",
+            "Tool-Agnostic - Works with whatever you already use",
+            "AI-Ready - Native integration with ChatGPT, Claude, DeepSeek, Gemini, NotebookLM, MCP"
         ],
         "guarantees": [
             "Full refund if not completely satisfied - no questions asked",
-            "Lifetime access - all future updates included",
-            "Tool-agnostic approach - works with any tools",
+            "Lifetime access to all content and future updates",
+            "Tool-agnostic approach - works with any software",
             "Community support included"
         ],
         "metaTitle": "Knowledge Management for Beginners - Stop Drowning in Information | Transform How You Learn",
-        "metaDescription": "10+ hour video course teaching Personal Knowledge Management. Build a second brain that helps you think better, learn faster, and actually use what you know. 1,000+ students. Lifetime access.",
+        "metaDescription": "10+ hour video course teaching Personal Knowledge Management. Build a second brain that helps you think better, learn faster, and actually use what you know. 200+ students. Lifetime access.",
         "keywords": [
             "knowledge management course",
             "personal knowledge management",
@@ -131,7 +124,125 @@
             "para method",
             "knowledge graph",
             "information management",
-            "lifelong learning"
-        ]
+            "lifelong learning",
+            "ai knowledge management"
+        ],
+        "storytelling": {
+            "originStory": {
+                "title": "The Breaking Point",
+                "subtitle": "Why I Built This Course",
+                "story": "For years, I lived with constant frustration. 'Where did I see this? Where did I put that? What app did I use for that?' I had information scattered across dozens of tools, documents, and browser tabs. No consistency. No system. Just chaos.\n\nI'd read something brilliant, take a note... and never find it again when I actually needed it. Important ideas slipped through my fingers daily. The mental load of trying to remember everything was crushing my ability to think clearly and create.\n\nAfter years of trial and error, learning from experts, and gradual refinement, I finally cracked the code. I built a system that actually works - one that's been battle-tested through years of real-world use, not just theory from a book.\n\nThis course contains everything I wish I had known from the start. The principles that took me years to discover, synthesized into a clear, actionable blueprint.",
+                "icon": "💡"
+            },
+            "creatorJourney": {
+                "title": "20+ Years in the Making",
+                "subtitle": "From Information Chaos to Systems Mastery",
+                "story": "My journey with knowledge management spans over two decades of working in IT and software development. I've worn many hats - Software Developer, Technical Lead, Software Architect, Solution Architect, Infrastructure Architect - and through it all, I've been obsessed with one question: how do we organize and leverage what we know?\n\nI've explored countless systems, learned from the best minds in the field, and gradually refined my approach through daily practice. This isn't theory from a book - it's my actual system, the one I use every single day to manage a complex business, create content, coach clients, and maintain a knowledge base of over 10,000 notes.\n\nNow, as a Knowledge Management coach who has helped hundreds of professionals, I've distilled everything I've learned into this course. The principles that took me years to discover are now available to you in a clear, actionable format.",
+                "struggles": [
+                    "Information scattered across dozens of apps and documents",
+                    "Brilliant ideas lost because I couldn't find them when I needed them",
+                    "The mental exhaustion of trying to remember everything",
+                    "Abandoned system after system that just didn't stick"
+                ],
+                "achievements": [
+                    "Built a 10,000+ note knowledge base that I actually use daily",
+                    "Created the Obsidian Starter Kit - used by over a thousand professionals",
+                    "Coached many professionals on knowledge management",
+                    "Authored multiple courses and books on PKM and productivity"
+                ],
+                "credentials": "20+ years in IT and software development. Knowledge Management coach. Author of multiple courses on PKM and Obsidian. Creator of the Obsidian Starter Kit. Daily practitioner with a 10,000+ note knowledge base.",
+                "icon": "🧠"
+            },
+            "methodology": {
+                "title": "Systems-First Thinking",
+                "subtitle": "What Makes This Approach Different",
+                "steps": [
+                    {
+                        "title": "Systems Over Hacks",
+                        "description": "Quick tips fade. Systems compound. You'll build something sustainable, not another abandoned experiment. This course teaches you to design systems that grow with you for the rest of your life.",
+                        "icon": "⚙️",
+                        "order": 0
+                    },
+                    {
+                        "title": "Tool-Agnostic Depth",
+                        "description": "Deep principles that work with any tool you choose. You're not locked into anything - the system transfers everywhere. Whether you use Obsidian, Notion, or plain text files, these principles apply.",
+                        "icon": "🔧",
+                        "order": 1
+                    },
+                    {
+                        "title": "Real Practitioner",
+                        "description": "Everything I teach comes from actual daily use. This is my real system, battle-tested across 20+ years of knowledge work. You'll see my actual vault, my actual workflows, my actual results.",
+                        "icon": "✅",
+                        "order": 2
+                    },
+                    {
+                        "title": "AI-Native Integration",
+                        "description": "AI becomes 10x more effective when you have organized knowledge. This course covers ChatGPT, Claude, DeepSeek, Gemini, NotebookLM, and MCP integration that other courses simply don't address. Your PKM system becomes AI's superpower.",
+                        "icon": "🤖",
+                        "order": 3
+                    }
+                ],
+                "philosophy": "I don't believe in quick hacks or productivity theater. I believe in building systems that work - simple enough to start today, powerful enough to last a lifetime. Systems that grow with you, not systems you outgrow.",
+                "differentiation": "Unlike other PKM courses that focus on a single method or tool, this course gives you the complete picture: the principles, the process, the practice, and the AI integration. It's the difference between learning a trick and understanding the game."
+            }
+        },
+        "timeline": {
+            "title": "Your Knowledge Transformation",
+            "subtitle": "Benefits that compound over time",
+            "milestones": [
+                {
+                    "id": "week-1",
+                    "timeframe": "Week 1",
+                    "title": "Foundation & Relief",
+                    "description": "Set up your capture system and feel the immediate relief of having one trusted place for everything. No more 'where did I put that?' anxiety.",
+                    "highlights": [
+                        "Reliable capture system in place",
+                        "Know exactly where to put new information",
+                        "Find things in seconds instead of hours",
+                        "First taste of mental clarity"
+                    ],
+                    "icon": "🌱"
+                },
+                {
+                    "id": "week-2-3",
+                    "timeframe": "Weeks 2-3",
+                    "title": "Connections & Insights",
+                    "description": "Start connecting ideas and experiencing those 'aha!' moments when unrelated concepts click together. Your knowledge becomes more than the sum of its parts.",
+                    "highlights": [
+                        "Making valuable connections between ideas",
+                        "Building sustainable daily habits",
+                        "Organizing knowledge that actually sticks",
+                        "Seeing patterns you never noticed before"
+                    ],
+                    "icon": "🔗"
+                },
+                {
+                    "id": "month-1",
+                    "timeframe": "Month 1",
+                    "title": "System & Confidence",
+                    "description": "Your system is now running smoothly. You trust it. You stop fiddling with tools and start focusing on what matters - actually using your knowledge.",
+                    "highlights": [
+                        "Complete PKM system operational",
+                        "No more tool-fiddling or system-hopping",
+                        "Confident in your approach",
+                        "Ready to integrate AI effectively"
+                    ],
+                    "icon": "⚡"
+                },
+                {
+                    "id": "month-3-plus",
+                    "timeframe": "Month 3+",
+                    "title": "Compound Growth",
+                    "description": "This is where the magic happens. Your knowledge compounds. Every new note connects to existing ones. Ideas surface when you need them. Your second brain becomes an unfair advantage.",
+                    "highlights": [
+                        "Knowledge compounds exponentially",
+                        "AI becomes dramatically more effective",
+                        "Building on past work instead of starting fresh",
+                        "Peace of mind from a trusted Life OS"
+                    ],
+                    "icon": "🚀"
+                }
+            ]
+        }
     }
 }

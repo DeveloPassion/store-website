@@ -38,9 +38,9 @@
     "landingPageUrl": "https://dev-concepts.dev",
     "dsebastienUrl": "",
     "featured": false,
-    "bestValue": true,
+    "bestValue": false,
     "bestseller": false,
-    "priority": 60,
+    "priority": 30,
     "crossSellIds": ["dev-concepts-volume-01", "dev-concepts-volume-02"],
     "variants": [
         {

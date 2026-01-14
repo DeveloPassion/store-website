@@ -1,0 +1,247 @@
+{
+    "id": "creators",
+    "salesCopy": {
+        "tagline": "Never Face a Blank Page Again.",
+        "secondaryTagline": "Turn your scattered notes into an endless well of content ideas. Build a system that makes creating content effortless – forever.",
+        "problem": "You know the feeling. Staring at a blank page, knowing you have ideas somewhere but unable to find them. Scrambling for content when you should be creating. Watching other creators publish consistently while you struggle to stay on schedule.",
+        "problemPoints": [
+            "Staring at blank pages with no idea what to write next",
+            "Great content ideas lost in scattered notes you can't find",
+            "Inconsistent publishing because you're always starting from scratch",
+            "Hours wasted searching for that research you did last month",
+            "AI tools that could help but you have nothing organized to feed them",
+            "Repurposing old content feels impossible when you can't find it",
+            "Watching competitors publish daily while you struggle with weekly"
+        ],
+        "agitate": "Every creator knows this pain. You have ideas – brilliant ones – but they're scattered across apps, notebooks, and browser tabs. When it's time to create, you start from zero. Again. The blank page mocks you. Deadlines loom. And that AI tool everyone raves about? Useless without organized knowledge to feed it.\n\nMeanwhile, some creators seem to have an endless well of ideas. They publish consistently, repurpose effortlessly, and never seem to struggle with content drought. What do they know that you don't?",
+        "agitatePoints": [
+            "Content drought when you know you have ideas somewhere",
+            "Starting every piece from scratch instead of building on past work",
+            "AI ghostwriters that produce generic content because you have no context to give them",
+            "Brilliant insights from books and articles – lost and forgotten",
+            "The anxiety of an empty content calendar",
+            "Spending more time searching than creating",
+            "Watching your best ideas fade from memory before you can use them",
+            "Repurposing feels like reinventing the wheel every time"
+        ],
+        "solution": "Build a Personal Knowledge Management system designed for creators. A second brain that captures every idea, connects your thinking, and serves up content gold whenever you need it. Never start from scratch again.",
+        "solutionPoints": [
+            "Ideas on demand – find exactly what you need when you need it",
+            "Never start from scratch – every new piece builds on previous work",
+            "AI becomes your superpower – organized knowledge makes AI 10x more effective",
+            "Repurpose effortlessly – one idea becomes articles, threads, newsletters, videos",
+            "Consistent publishing – your system feeds you content ideas daily",
+            "Connect ideas – unexpected combinations create original insights",
+            "Capture everything – no more lost brilliance",
+            "Build intellectual assets – your content compounds over time"
+        ],
+        "description": "Knowledge Management for Beginners is a comprehensive video course (10+ hours) that transforms how creators capture, organize, and leverage their ideas. This isn't about taking better notes – it's about building a content creation machine.\n\nYou'll learn to build a Personal Knowledge Management system that captures every insight, connects your thinking, and makes AI tools dramatically more effective. The result? Endless content ideas, effortless repurposing, and the ability to publish consistently without burning out.\n\nJoin 200+ professionals who have transformed their workflows with this system.",
+        "features": [
+            "10+ hours of video content across 9 comprehensive modules",
+            "Content creator workflow – from capture to published piece",
+            "AI integration for content creation (ChatGPT, Claude, DeepSeek, Gemini, NotebookLM, MCP)",
+            "Repurposing strategies – one idea becomes multiple content pieces",
+            "Complete PKM Process: Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share",
+            "Capture systems that never let good ideas escape",
+            "Connection techniques that spark original insights",
+            "Real-world examples with detailed walkthrough of creator's own system",
+            "Practical Obsidian demonstrations and automation workflows",
+            "Content calendar integration strategies",
+            "Lifetime access with all future updates included",
+            "Community of fellow creators and knowledge workers"
+        ],
+        "benefits": {
+            "immediate": [
+                "Capture every content idea before it escapes",
+                "Find your past research in seconds, not hours",
+                "Know exactly what to create next",
+                "Feel the relief of an organized creative mind",
+                "Start connecting ideas into original insights"
+            ],
+            "systematic": [
+                "Never face the blank page again – ideas on demand",
+                "Build on previous work instead of starting from scratch",
+                "Make AI ghostwriting 10x more effective with organized context",
+                "Repurpose content effortlessly across platforms",
+                "Publish consistently without burning out",
+                "Turn consumed content into created content systematically",
+                "Develop a unique voice through connected thinking"
+            ],
+            "longTerm": [
+                "Build intellectual assets that compound over time",
+                "Become known for original insights and connections",
+                "Create a content engine that runs on autopilot",
+                "Develop thought leadership through systematic knowledge building",
+                "Experience creative freedom with a trusted system behind you"
+            ]
+        },
+        "targetAudience": [
+            "Content creators struggling with consistency",
+            "Writers facing blank page syndrome",
+            "Newsletter authors needing fresh ideas weekly",
+            "YouTubers and podcasters building content pipelines",
+            "Course creators organizing their expertise",
+            "Solopreneurs who need to create and market constantly",
+            "Anyone who creates content and wants to do it more effortlessly"
+        ],
+        "perfectFor": [
+            "Content creators who want to publish consistently",
+            "Writers tired of staring at blank pages",
+            "Creators ready to leverage AI effectively",
+            "Anyone who wants to repurpose content effortlessly",
+            "Thought leaders building intellectual assets"
+        ],
+        "notForYou": [
+            "Looking for a quick content hack (this is a complete system)",
+            "Not willing to invest in building a long-term content creation system",
+            "Prefer to start from scratch every time you create"
+        ],
+        "trustBadges": [
+            "Full Refund Policy - Not satisfied? No questions asked",
+            "Lifetime Access - All future updates included free",
+            "10+ Hours of Content - Comprehensive video curriculum",
+            "200+ Professionals - Have transformed their workflows",
+            "1,800+ Concepts - Bonus knowledge base for content ideas",
+            "AI-Ready - Native integration with ChatGPT, Claude, DeepSeek, Gemini, NotebookLM, MCP",
+            "Creator-Tested - Built by a daily content creator"
+        ],
+        "guarantees": [
+            "Full refund if not completely satisfied - no questions asked",
+            "Lifetime access to all content and future updates",
+            "Works with any tools you already use",
+            "Community support included"
+        ],
+        "metaTitle": "Knowledge Management for Beginners - Never Face a Blank Page Again | For Content Creators",
+        "metaDescription": "10+ hour video course for content creators. Build a second brain that generates endless content ideas, makes AI 10x more effective, and lets you publish consistently. Never start from scratch again.",
+        "keywords": [
+            "knowledge management for creators",
+            "content creation system",
+            "pkm for writers",
+            "second brain for creators",
+            "content repurposing",
+            "ai content creation",
+            "never face blank page",
+            "content ideas system",
+            "obsidian for creators",
+            "thought leadership",
+            "consistent publishing"
+        ],
+        "storytelling": {
+            "originStory": {
+                "title": "The Content Creator's Nightmare",
+                "subtitle": "Why I Built This System",
+                "story": "For years, I lived the content creator's nightmare. Great ideas would strike at random moments – in the shower, during walks, while reading. I'd jot them down somewhere. Anywhere.\n\nThen when it came time to create? Gone. Lost in a maze of apps, notebooks, and forgotten bookmarks. I'd stare at the blank page, knowing I had something brilliant somewhere, but unable to find it.\n\nThe worst part? Starting from scratch every single time. No building on previous work. No connecting ideas. Just the blank page and me, fighting the same battle over and over.\n\nAfter years of trial and error, I cracked the code. I built a system that captures everything, connects my thinking, and serves up content ideas on demand. Now I never face the blank page – I face an abundance of connected ideas waiting to become content.\n\nThis course teaches you exactly how to build that system for yourself.",
+                "icon": "✍️"
+            },
+            "creatorJourney": {
+                "title": "From Content Struggle to Content Machine",
+                "subtitle": "A Creator Who Understands Creators",
+                "story": "I create content every single day. Newsletter editions, articles, social posts, courses, videos. My system isn't theoretical – it's the engine behind everything I publish.\n\nWith over 10,000 notes in my knowledge base, I never run out of ideas. Every book I read, every insight I capture, every connection I make – it all feeds into a content creation machine that generates ideas faster than I can publish them.\n\nI've coached hundreds of professionals on knowledge management, and I've seen the transformation when creators finally build a system that works. The anxiety disappears. The consistency appears. And the quality? It compounds.",
+                "struggles": [
+                    "Staring at blank pages with deadline pressure",
+                    "Brilliant ideas lost in scattered notes",
+                    "Starting from scratch on every piece of content",
+                    "AI tools that produced generic output without context"
+                ],
+                "achievements": [
+                    "Built a 10,000+ note knowledge base that generates endless content",
+                    "Publish newsletter, articles, and social content consistently",
+                    "Created multiple courses from systematically organized knowledge",
+                    "Use AI as a true creative partner with organized context"
+                ],
+                "credentials": "Daily content creator. 10,000+ note knowledge base. Newsletter author. Course creator. Knowledge Management coach who practices what he preaches.",
+                "icon": "🚀"
+            },
+            "methodology": {
+                "title": "The Creator's PKM System",
+                "subtitle": "Four Pillars of Content Creation Freedom",
+                "steps": [
+                    {
+                        "title": "Capture Everything",
+                        "description": "Never let a good idea escape. Build capture systems that grab insights from anywhere – conversations, reading, random thoughts – and funnel them into your creative well.",
+                        "icon": "🎣",
+                        "order": 0
+                    },
+                    {
+                        "title": "Connect for Originality",
+                        "description": "Original content comes from unexpected connections. Learn to link ideas across domains, finding the unique combinations that make your content stand out.",
+                        "icon": "🔗",
+                        "order": 1
+                    },
+                    {
+                        "title": "Create on Demand",
+                        "description": "When it's time to create, your system serves up exactly what you need. No more blank pages – just connected ideas waiting to become content.",
+                        "icon": "✨",
+                        "order": 2
+                    },
+                    {
+                        "title": "Supercharge with AI",
+                        "description": "AI becomes 10x more effective when you feed it organized knowledge. Turn ChatGPT, Claude, and other tools into true creative partners, not generic content machines.",
+                        "icon": "🤖",
+                        "order": 3
+                    }
+                ],
+                "philosophy": "Content creation shouldn't be a struggle. With the right system, every piece you create builds on everything before it. Your knowledge compounds. Your ideas connect. And creating becomes effortless.",
+                "differentiation": "Most PKM courses focus on knowledge for knowledge's sake. This system is built for output – for turning what you know into content that matters."
+            }
+        },
+        "timeline": {
+            "title": "Your Content Creation Transformation",
+            "subtitle": "From blank pages to endless ideas",
+            "milestones": [
+                {
+                    "id": "week-1",
+                    "timeframe": "Week 1",
+                    "title": "Capture & Relief",
+                    "description": "Set up capture systems that grab ideas from anywhere. Feel the immediate relief of knowing nothing will slip through the cracks again.",
+                    "highlights": [
+                        "Capture system catches every idea",
+                        "Past research becomes findable",
+                        "No more lost brilliance",
+                        "First taste of creative freedom"
+                    ],
+                    "icon": "🎣"
+                },
+                {
+                    "id": "week-2-3",
+                    "timeframe": "Weeks 2-3",
+                    "title": "Connections & Insights",
+                    "description": "Start connecting ideas and experiencing those 'aha!' moments when unrelated concepts click together into original content angles.",
+                    "highlights": [
+                        "Ideas start connecting unexpectedly",
+                        "Original angles emerge naturally",
+                        "Content ideas multiply",
+                        "Seeing patterns across your knowledge"
+                    ],
+                    "icon": "🔗"
+                },
+                {
+                    "id": "month-1",
+                    "timeframe": "Month 1",
+                    "title": "Flow & Consistency",
+                    "description": "Your content creation workflow clicks into place. Publishing becomes consistent because you always have ideas ready to develop.",
+                    "highlights": [
+                        "Content calendar fills itself",
+                        "Publishing becomes consistent",
+                        "AI tools produce quality output",
+                        "No more blank page anxiety"
+                    ],
+                    "icon": "⚡"
+                },
+                {
+                    "id": "month-3-plus",
+                    "timeframe": "Month 3+",
+                    "title": "Content Machine",
+                    "description": "Your system becomes a true content creation engine. Ideas compound. Repurposing is effortless. You create more with less effort than ever before.",
+                    "highlights": [
+                        "Endless well of content ideas",
+                        "Effortless repurposing across platforms",
+                        "AI as a true creative partner",
+                        "Thought leadership through connected thinking"
+                    ],
+                    "icon": "🚀"
+                }
+            ]
+        }
+    }
+}
