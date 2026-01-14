@@ -1,9 +1,9 @@
 {
     "bannerBehavior": "PROMOTIONS",
-    "promoText": "🎉 New Year Sale! Get 20% off all courses and bundles",
+    "promoText": "🎉 Store Launch Promo: -20% discount on everything!",
     "promoLink": "https://store.dsebastien.net/",
     "promoLinkText": "Shop Now →",
-    "discountCode": "NY2026",
-    "promotionStart": "2026-01-01T00:00:00Z",
-    "promotionEnd": "2026-01-31T23:59:59Z"
+    "discountCode": "MAY-THE-KNOWLEDGE-FORGE-BE-WITH-YOU",
+    "promotionStart": "2026-01-14T00:00:00Z",
+    "promotionEnd": "2026-01-20T23:59:59Z"
 }
