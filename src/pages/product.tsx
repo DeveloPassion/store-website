@@ -3,12 +3,18 @@ import { useParams, useNavigate } from 'react-router'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductHero from '@/components/products/product-hero'
 import ProductPAS from '@/components/products/product-pas'
+import ProductOriginStory from '@/components/products/product-origin-story'
+import ProductCreatorJourney from '@/components/products/product-creator-journey'
 import ProductFeatures from '@/components/products/product-features'
+import ProductMethodology from '@/components/products/product-methodology'
 import MediaCarouselSection from '@/components/products/media-carousel-section'
 import ProductBenefits from '@/components/products/product-benefits'
+import ProductTransformationArc from '@/components/products/product-transformation-arc'
 import ProductTimeline from '@/components/products/product-timeline'
+import ProductSuccessStories from '@/components/products/product-success-stories'
 import ProductTestimonials from '@/components/products/product-testimonials'
 import ProductFAQ from '@/components/products/product-faq'
+import ProductVision from '@/components/products/product-vision'
 import ProductCTA from '@/components/products/product-cta'
 import StickyBuyButton from '@/components/products/sticky-buy-button'
 import CoverVideoSpot from '@/components/products/cover-video-spot'
@@ -110,8 +116,13 @@ const ProductPage: React.FC = () => {
                 setSelectedFrequency={setSelectedFrequency}
             />
             <ProductPAS product={product} />
+            {/* Origin Story & Creator Journey: Build emotional connection and credibility after PAS */}
+            <ProductOriginStory product={product} />
+            <ProductCreatorJourney product={product} />
             <CoverVideoSpot product={product} position={1} />
             <ProductFeatures product={product} />
+            {/* Methodology: Explain HOW it works after showing WHAT's included */}
+            <ProductMethodology product={product} />
             <MediaCarouselSection
                 product={product}
                 group='main'
@@ -120,6 +131,8 @@ const ProductPage: React.FC = () => {
                 includeAllVideos={true}
             />
             <ProductBenefits product={product} />
+            {/* Transformation Arc & Timeline: Visualize the journey after benefits */}
+            <ProductTransformationArc product={product} />
             <ProductTimeline product={product} />
             <CoverVideoSpot product={product} position={2} />
             <MediaCarouselSection
@@ -145,8 +158,12 @@ const ProductPage: React.FC = () => {
                     )
                 }
             />
+            {/* Success Stories & Testimonials: Social proof cluster */}
+            <ProductSuccessStories product={product} />
             <ProductTestimonials product={product} />
             <ProductFAQ product={product} />
+            {/* Vision: Reinforce mission alignment before final CTA */}
+            <ProductVision product={product} />
             <CoverVideoSpot product={product} position={3} />
             <ProductCTA product={product} />
             <MediaCarouselSection

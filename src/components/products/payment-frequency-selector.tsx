@@ -1,4 +1,5 @@
 import type { PaymentFrequency } from '@/schemas/product.schema'
+import { FaCheckCircle, FaTag } from 'react-icons/fa'
 
 export interface PaymentFrequencySelectorProps {
     frequencies: PaymentFrequency[]
@@ -48,24 +49,32 @@ export const PaymentFrequencySelector = ({
     const showYearlySavings = hasYearly && yearlySavings && yearlySavings > 0
     const showBiennialSavings = hasBiennial && biennialSavings && biennialSavings > 0
 
+    // Get the best available savings for the badge
+    const bestSavings = showBiennialSavings ? biennialSavings : yearlySavings
+    const bestSavingsLabel = showBiennialSavings ? '2 Years' : 'Yearly'
+
+    // Check if user has selected a savings option
+    const hasSavingsSelected = selected === 'yearly' || selected === 'biennial'
+    const currentSavings = selected === 'biennial' ? biennialSavings : yearlySavings
+
     return (
         <div className={`mb-6 ${className}`}>
-            <label className='text-primary/80 mb-3 block text-sm font-medium'>
+            <label className='text-primary/80 mb-2 block text-sm font-medium'>
                 Billing Frequency:
             </label>
 
-            <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                {/* Frequency Toggle Buttons */}
-                <div className='bg-primary/5 inline-flex flex-wrap rounded-lg p-1'>
+            {/* Toggle Buttons with integrated savings badge */}
+            <div className='flex flex-col gap-3'>
+                <div className='border-primary/20 bg-primary/5 inline-flex flex-wrap gap-1 rounded-xl border p-1.5'>
                     {hasMonthly && (
                         <button
                             type='button'
                             onClick={() => onChange('monthly')}
-                            className={`cursor-pointer rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                            className={`relative cursor-pointer rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
                                 selected === 'monthly'
-                                    ? 'bg-primary text-background shadow-sm'
-                                    : 'text-primary/70 hover:text-primary'
-                            } `}
+                                    ? 'bg-primary text-background shadow-md'
+                                    : 'text-primary/70 hover:bg-primary/10 hover:text-primary'
+                            }`}
                             aria-pressed={selected === 'monthly'}
                         >
                             Monthly
@@ -75,81 +84,77 @@ export const PaymentFrequencySelector = ({
                         <button
                             type='button'
                             onClick={() => onChange('yearly')}
-                            className={`cursor-pointer rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                            className={`relative cursor-pointer rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
                                 selected === 'yearly'
-                                    ? 'bg-primary text-background shadow-sm'
-                                    : 'text-primary/70 hover:text-primary'
-                            } `}
+                                    ? 'bg-solution text-white shadow-md'
+                                    : 'text-primary/70 hover:bg-primary/10 hover:text-primary'
+                            }`}
                             aria-pressed={selected === 'yearly'}
                         >
-                            Yearly
+                            <span className='flex items-center gap-2'>
+                                Yearly
+                                {showYearlySavings && selected !== 'yearly' && (
+                                    <span className='bg-solution/20 text-solution rounded-full px-2 py-0.5 text-xs font-semibold'>
+                                        -{yearlySavings}%
+                                    </span>
+                                )}
+                            </span>
                         </button>
                     )}
                     {hasBiennial && (
                         <button
                             type='button'
                             onClick={() => onChange('biennial')}
-                            className={`cursor-pointer rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                            className={`relative cursor-pointer rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
                                 selected === 'biennial'
-                                    ? 'bg-primary text-background shadow-sm'
-                                    : 'text-primary/70 hover:text-primary'
-                            } `}
+                                    ? 'bg-solution text-white shadow-md'
+                                    : 'text-primary/70 hover:bg-primary/10 hover:text-primary'
+                            }`}
                             aria-pressed={selected === 'biennial'}
                         >
-                            2 Years
+                            <span className='flex items-center gap-2'>
+                                2 Years
+                                {showBiennialSavings && selected !== 'biennial' && (
+                                    <span className='bg-solution/20 text-solution rounded-full px-2 py-0.5 text-xs font-semibold'>
+                                        -{biennialSavings}%
+                                    </span>
+                                )}
+                            </span>
                         </button>
                     )}
                 </div>
 
-                {/* Savings Badge - Show best savings available or current selection */}
-                {(showYearlySavings || showBiennialSavings) && (
-                    <div
-                        className={`flex items-center gap-2 rounded-md px-3 py-1.5 text-sm ${
-                            selected === 'yearly' || selected === 'biennial'
-                                ? 'bg-solution/20 text-solution animate-pulse'
-                                : 'bg-primary/10 text-primary/70'
-                        } `}
-                    >
-                        <svg
-                            className='h-4 w-4'
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            stroke='currentColor'
-                        >
-                            <path
-                                strokeLinecap='round'
-                                strokeLinejoin='round'
-                                strokeWidth={2}
-                                d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-                            />
-                        </svg>
-                        <span className='font-semibold'>
-                            {showBiennialSavings && showYearlySavings ? (
-                                <>Save up to {biennialSavings}% with 2 Years</>
-                            ) : showBiennialSavings ? (
-                                <>Save {biennialSavings}% with 2 Years</>
-                            ) : (
-                                <>Save {yearlySavings}% with Yearly</>
-                            )}
+                {/* Savings Confirmation - shown when a savings option is selected */}
+                {hasSavingsSelected && currentSavings && currentSavings > 0 && (
+                    <div className='bg-solution/10 border-solution/30 flex items-center gap-3 rounded-lg border px-4 py-3'>
+                        <FaCheckCircle className='text-solution h-5 w-5 shrink-0' />
+                        <div className='flex flex-col gap-0.5 sm:flex-row sm:items-center sm:gap-2'>
+                            <span className='text-solution text-sm font-semibold'>
+                                {selected === 'biennial' ? 'Best value!' : 'Great choice!'}
+                            </span>
+                            <span className='text-primary/80 text-sm'>
+                                You're saving{' '}
+                                <span className='text-solution font-semibold'>
+                                    {currentSavings}%
+                                </span>{' '}
+                                compared to monthly billing
+                            </span>
+                        </div>
+                    </div>
+                )}
+
+                {/* Savings Hint - shown when monthly is selected and savings are available */}
+                {selected === 'monthly' && (showYearlySavings || showBiennialSavings) && (
+                    <div className='bg-primary/5 border-primary/10 flex items-center gap-3 rounded-lg border px-4 py-3'>
+                        <FaTag className='text-primary/50 h-4 w-4 shrink-0' />
+                        <span className='text-primary/60 text-sm'>
+                            Save up to{' '}
+                            <span className='text-solution font-semibold'>{bestSavings}%</span> with{' '}
+                            {bestSavingsLabel} billing
                         </span>
                     </div>
                 )}
             </div>
-
-            {/* Additional Savings Message */}
-            {selected === 'yearly' && showYearlySavings && (
-                <div className='text-solution mt-2 text-sm'>
-                    <span className='font-medium'>Smart choice!</span> You're saving {yearlySavings}
-                    % compared to paying monthly.
-                </div>
-            )}
-            {selected === 'biennial' && showBiennialSavings && (
-                <div className='text-solution mt-2 text-sm'>
-                    <span className='font-medium'>Excellent choice!</span> You're saving{' '}
-                    {biennialSavings}% compared to paying monthly —{' '}
-                    <span className='font-semibold'>maximum value!</span>
-                </div>
-            )}
         </div>
     )
 }

@@ -100,7 +100,7 @@ describe('PaymentFrequencySelector', () => {
 
             const yearlyButton = getByRole('button', { name: /yearly/i })
             expect(yearlyButton).toHaveAttribute('aria-pressed', 'true')
-            expect(yearlyButton).toHaveClass('bg-primary')
+            expect(yearlyButton).toHaveClass('bg-solution')
         })
 
         it('should not highlight monthly when yearly selected', () => {
@@ -155,8 +155,8 @@ describe('PaymentFrequencySelector', () => {
     })
 
     describe('Savings Display', () => {
-        it('should display savings badge when prices provided', () => {
-            const { getByText } = render(
+        it('should display savings hint when monthly selected and savings available', () => {
+            const { getByText, getAllByText } = render(
                 <PaymentFrequencySelector
                     frequencies={['monthly', 'yearly']}
                     selected='monthly'
@@ -166,13 +166,15 @@ describe('PaymentFrequencySelector', () => {
                 />
             )
 
-            expect(getByText(/save \d+% with yearly/i)).toBeDefined()
+            expect(getByText(/save up to/i)).toBeDefined()
+            // Savings percentage appears in both button badge and hint
+            expect(getAllByText(/17%/).length).toBeGreaterThanOrEqual(1)
         })
 
         it('should calculate savings percentage correctly', () => {
             // Monthly: €10, Yearly: €100 (instead of €120)
             // Savings: (1 - 100/(10*12)) * 100 = 16.67% ≈ 17%
-            const { getByText } = render(
+            const { getAllByText } = render(
                 <PaymentFrequencySelector
                     frequencies={['monthly', 'yearly']}
                     selected='monthly'
@@ -182,10 +184,11 @@ describe('PaymentFrequencySelector', () => {
                 />
             )
 
-            expect(getByText(/save 17% with yearly/i)).toBeDefined()
+            // Should show savings badge inside yearly button (with minus sign)
+            expect(getAllByText(/-17%/).length).toBe(1)
         })
 
-        it('should not display savings badge when no prices provided', () => {
+        it('should not display savings when no prices provided', () => {
             const { queryByText } = render(
                 <PaymentFrequencySelector
                     frequencies={['monthly', 'yearly']}
@@ -197,7 +200,7 @@ describe('PaymentFrequencySelector', () => {
             expect(queryByText(/save/i)).toBeNull()
         })
 
-        it('should not display savings badge when yearly has no savings', () => {
+        it('should not display savings when yearly has no savings', () => {
             // Monthly: €10, Yearly: €120 (no savings)
             const { queryByText } = render(
                 <PaymentFrequencySelector
@@ -212,7 +215,7 @@ describe('PaymentFrequencySelector', () => {
             expect(queryByText(/save/i)).toBeNull()
         })
 
-        it('should show additional savings message when yearly selected', () => {
+        it('should show savings confirmation when yearly selected', () => {
             const { getByText } = render(
                 <PaymentFrequencySelector
                     frequencies={['monthly', 'yearly']}
@@ -223,11 +226,11 @@ describe('PaymentFrequencySelector', () => {
                 />
             )
 
-            expect(getByText(/smart choice!/i)).toBeDefined()
-            expect(getByText(/you're saving 17%/i)).toBeDefined()
+            expect(getByText(/great choice!/i)).toBeDefined()
+            expect(getByText(/you're saving/i)).toBeDefined()
         })
 
-        it('should not show additional savings message when monthly selected', () => {
+        it('should not show savings confirmation when monthly selected', () => {
             const { queryByText } = render(
                 <PaymentFrequencySelector
                     frequencies={['monthly', 'yearly']}
@@ -238,7 +241,7 @@ describe('PaymentFrequencySelector', () => {
                 />
             )
 
-            expect(queryByText(/smart choice!/i)).toBeNull()
+            expect(queryByText(/great choice!/i)).toBeNull()
         })
     })
 
@@ -288,7 +291,7 @@ describe('PaymentFrequencySelector', () => {
                 />
             )
 
-            expect(getByText(/save 92% with yearly/i)).toBeDefined()
+            expect(getByText(/-92%/)).toBeDefined()
         })
 
         it('should handle fractional savings percentages', () => {
@@ -304,7 +307,7 @@ describe('PaymentFrequencySelector', () => {
                 />
             )
 
-            expect(getByText(/save 11% with yearly/i)).toBeDefined()
+            expect(getByText(/-11%/)).toBeDefined()
         })
 
         it('should handle only yearly frequency', () => {
