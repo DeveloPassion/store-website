@@ -80,7 +80,7 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                     leaveFrom='opacity-100'
                     leaveTo='opacity-0'
                 >
-                    <div className='fixed inset-0 bg-black/95' onClick={onClose} />
+                    <div className='fixed inset-0 bg-black' onClick={onClose} />
                 </Transition.Child>
 
                 {/* Full-screen Dialog.Panel so all buttons are "inside" */}
@@ -188,9 +188,9 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                     </div>
                                 )}
 
-                                {/* Thumbnail Navigation */}
+                                {/* Thumbnail Navigation - hidden on mobile */}
                                 {mediaItems.length > 1 && mediaItems.length <= 10 && (
-                                    <div className='mt-6 flex justify-center gap-2'>
+                                    <div className='mt-6 hidden justify-center gap-2 sm:flex'>
                                         {mediaItems.map((item, idx) => {
                                             const itemYoutubeId =
                                                 item.type === 'video'
