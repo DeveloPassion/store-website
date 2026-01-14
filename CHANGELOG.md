@@ -1,3 +1,8 @@
+## [0.6.1](https://github.com/DeveloPassion/store-website/compare/0.6.0...0.6.1) (2026-01-14)
+
+### Features
+
+* **all:** improve display of cover media on product pages ([faa5f8e](https://github.com/DeveloPassion/store-website/commit/faa5f8e05b86bd2120107fbe30a83f3539de0c81))
 ## [0.6.0](https://github.com/DeveloPassion/store-website/compare/0.5.9...0.6.0) (2026-01-14)
 
 ### Features
