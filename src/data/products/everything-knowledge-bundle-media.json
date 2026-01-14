@@ -1,3 +1,16 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-001",
+            "type": "image",
+            "url": "/assets/images/products/everything-knowledge-bundle/ekb-cover.webp",
+            "title": "Everything Knowledge Bundle",
+            "altText": "Everything Knowledge Bundle - Pink lightbulb with knowledge tree illustration",
+            "description": "The complete Everything Knowledge bundle cover featuring a lightbulb with a colorful knowledge tree",
+            "order": 0,
+            "group": "cover",
+            "width": 1280,
+            "height": 720
+        }
+    ]
 }
