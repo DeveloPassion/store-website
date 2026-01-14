@@ -1,3 +1,40 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-001",
+            "type": "image",
+            "url": "/assets/images/products/clarity-101/clarity-cover.webp",
+            "title": "Clarity 101",
+            "altText": "Clarity 101 - Workshop cover with circular logo",
+            "description": "Clarity 101 workshop cover featuring the distinctive circular logo",
+            "order": 0,
+            "group": "cover",
+            "width": 1280,
+            "height": 720
+        },
+        {
+            "id": "cover-knowledge-graph",
+            "type": "image",
+            "url": "/assets/images/products/clarity-101/clarity-knowledge-graph.webp",
+            "title": "Clarity Knowledge Graph",
+            "altText": "Knowledge graph visualization showing clarity concepts and connections",
+            "description": "Interactive knowledge graph showing how clarity connects to values, principles, goals, and personal development",
+            "order": 1,
+            "group": "cover",
+            "width": 361,
+            "height": 354
+        },
+        {
+            "id": "main-agenda",
+            "type": "image",
+            "url": "/assets/images/products/clarity-101/clarity-agenda.webp",
+            "title": "Workshop Agenda",
+            "altText": "Clarity 101 agenda covering values, principles, needs, and personal manifesto",
+            "description": "Workshop agenda covering gravity problems, values, principles, needs, and how to define your personal manifesto",
+            "order": 0,
+            "group": "main",
+            "width": 903,
+            "height": 661
+        }
+    ]
 }

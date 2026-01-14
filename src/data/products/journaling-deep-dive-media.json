@@ -1,3 +1,40 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-001",
+            "type": "image",
+            "url": "/assets/images/products/journaling-deep-dive/jdd-cover.webp",
+            "title": "Journaling Deep Dive",
+            "altText": "Journaling Deep Dive - Workshop cover with circular logo",
+            "description": "Journaling Deep Dive workshop cover featuring the distinctive circular logo",
+            "order": 0,
+            "group": "cover",
+            "width": 1280,
+            "height": 720
+        },
+        {
+            "id": "cover-knowledge-graph",
+            "type": "image",
+            "url": "/assets/images/products/journaling-deep-dive/jdd-knowledge-graph.webp",
+            "title": "Journaling Knowledge Graph",
+            "altText": "Knowledge graph visualization showing journaling concepts and connections",
+            "description": "Interactive knowledge graph showing how journaling connects to PKM, productivity, and personal growth",
+            "order": 1,
+            "group": "cover",
+            "width": 1185,
+            "height": 973
+        },
+        {
+            "id": "main-canvas-overview",
+            "type": "image",
+            "url": "/assets/images/products/journaling-deep-dive/jdd-canvas-overview.webp",
+            "title": "Journaling Canvas Overview",
+            "altText": "Comprehensive canvas showing journaling approach, benefits, and techniques",
+            "description": "Complete visual overview of the journaling deep dive content including recommended approaches, periodic reviews, and knowledge ingestion",
+            "order": 0,
+            "group": "main",
+            "width": 1294,
+            "height": 1224
+        }
+    ]
 }

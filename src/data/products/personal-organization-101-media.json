@@ -1,3 +1,28 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-001",
+            "type": "image",
+            "url": "/assets/images/products/personal-organization-101/po101-cover.webp",
+            "title": "Personal Organization 101",
+            "altText": "Personal Organization 101 - Workshop cover with circular logo",
+            "description": "Personal Organization 101 workshop cover featuring the distinctive circular logo",
+            "order": 0,
+            "group": "cover",
+            "width": 1280,
+            "height": 720
+        },
+        {
+            "id": "cover-knowledge-graph",
+            "type": "image",
+            "url": "/assets/images/products/personal-organization-101/po101-knowledge-graph.webp",
+            "title": "Personal Organization Knowledge Graph",
+            "altText": "Knowledge graph visualization showing personal organization concepts and connections",
+            "description": "Interactive knowledge graph showing how personal organization connects to productivity, time management, and life planning",
+            "order": 1,
+            "group": "cover",
+            "width": 1233,
+            "height": 1012
+        }
+    ]
 }
