@@ -10,6 +10,105 @@
             "order": 0,
             "group": "cover",
             "youtubeId": "M6HNRN6SkE4"
+        },
+        {
+            "id": "cover-1736858000000",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-cover.webp",
+            "title": "PKM Library",
+            "altText": "2,000+ curated PKM resources - skip years of research",
+            "order": 1,
+            "group": "cover",
+            "width": 800,
+            "height": 450
+        },
+        {
+            "id": "main-1736858000001",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-categories.webp",
+            "title": "14 Resource Categories at Your Fingertips",
+            "altText": "Organized database covering tools, articles, books, courses, communities, and more",
+            "order": 0,
+            "group": "main",
+            "width": 387,
+            "height": 759
+        },
+        {
+            "id": "main-1736858000002",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-tools.webp",
+            "title": "290+ PKM Tools Compared",
+            "altText": "Find the perfect tool for your workflow - Obsidian, Notion, Roam, and 290 more",
+            "order": 1,
+            "group": "main",
+            "width": 1600,
+            "height": 628
+        },
+        {
+            "id": "main-1736858000003",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-articles.webp",
+            "title": "350+ Curated Articles",
+            "altText": "Best PKM articles handpicked from across the internet",
+            "order": 2,
+            "group": "main",
+            "width": 1600,
+            "height": 681
+        },
+        {
+            "id": "main-1736858000004",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-books.webp",
+            "title": "90+ Essential Books",
+            "altText": "From How to Take Smart Notes to Building a Second Brain",
+            "order": 3,
+            "group": "main",
+            "width": 1170,
+            "height": 721
+        },
+        {
+            "id": "secondary-1736858000005",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-courses.webp",
+            "title": "95+ Courses from Beginner to Advanced",
+            "altText": "Structured learning paths for every skill level",
+            "order": 0,
+            "group": "secondary",
+            "width": 1600,
+            "height": 684
+        },
+        {
+            "id": "secondary-1736858000006",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-blogs.webp",
+            "title": "225+ Top PKM Blogs and Sites",
+            "altText": "Never miss quality content from the PKM community",
+            "order": 1,
+            "group": "secondary",
+            "width": 1519,
+            "height": 726
+        },
+        {
+            "id": "secondary-1736858000007",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-communities.webp",
+            "title": "70+ Communities to Connect With",
+            "altText": "Join forums and groups where PKM enthusiasts gather",
+            "order": 2,
+            "group": "secondary",
+            "width": 1329,
+            "height": 721
+        },
+        {
+            "id": "secondary-1736858000008",
+            "type": "image",
+            "url": "/assets/images/products/pkm-library/pkm-library-people.webp",
+            "title": "2,000+ PKM Leaders to Follow",
+            "altText": "Discover influencers, makers, and experts in the PKM space",
+            "order": 3,
+            "group": "secondary",
+            "width": 1600,
+            "height": 654
         }
     ]
 }
