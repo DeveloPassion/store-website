@@ -68,6 +68,18 @@
             "youtubeId": "af6DrWJ4Ek0"
         },
         {
+            "id": "cover-concepts-overview",
+            "type": "image",
+            "url": "/assets/images/products/knowledge-worker-kit/kwk-concepts-overview.webp",
+            "title": "Concepts Collection",
+            "altText": "Concepts overview showing 1,804 curated concepts, methods, and principles",
+            "description": "A curated collection of concepts, methods, and principles to enhance your knowledge",
+            "order": 6,
+            "group": "cover",
+            "width": 1108,
+            "height": 487
+        },
+        {
             "id": "main-knowledge-graph",
             "type": "image",
             "url": "/assets/images/products/knowledge-worker-kit/kwk-knowledge-graph.webp",

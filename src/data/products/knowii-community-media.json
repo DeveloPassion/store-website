@@ -102,6 +102,18 @@
             "youtubeId": "VHdccDohK10"
         },
         {
+            "id": "cover-concepts-overview",
+            "type": "image",
+            "url": "/assets/images/products/knowii-community/knowii-concepts-overview.webp",
+            "title": "Concepts Collection",
+            "altText": "Concepts overview showing 1,804 curated concepts, methods, and principles",
+            "description": "A curated collection of concepts, methods, and principles to enhance your knowledge",
+            "order": 9,
+            "group": "cover",
+            "width": 1108,
+            "height": 487
+        },
+        {
             "id": "main-community-interface",
             "type": "image",
             "url": "/assets/images/products/knowii-community/knowii-community-interface.webp",
