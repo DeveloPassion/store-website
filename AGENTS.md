@@ -483,6 +483,8 @@ All three categories are strictly required (can be empty arrays):
 5. **Methodology** - Step-by-step process, philosophy, differentiation
 6. **Vision** - Mission statement, bigger picture, values, future goals
 
+All `icon` fields in storytelling sections support emojis (e.g., "🚀") or React icon names (e.g., "FaRocket").
+
 **Timeline Structure** (transformation journey with time-based milestones):
 
 The timeline shows the progression of benefits over time, distinct from the transformation arc (before/during/after). Use it for granular, time-based milestones.
