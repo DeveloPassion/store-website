@@ -175,22 +175,32 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
                 )}
             </div>
 
-            {/* Dot indicators */}
+            {/* Indicators - Counter for many items, dots for few */}
             {showIndicators && sortedMedia.length > 1 && (
-                <div className='mt-8 flex justify-center gap-2'>
-                    {sortedMedia.map((item, idx) => (
-                        <button
-                            key={item.id}
-                            onClick={() => goToSlide(idx)}
-                            className={`focus:ring-secondary h-2 cursor-pointer rounded-full transition-all focus:ring-2 focus:outline-none ${
-                                idx === currentIndex
-                                    ? 'bg-secondary w-8'
-                                    : 'bg-primary/20 hover:bg-primary/40 w-2'
-                            }`}
-                            aria-label={`Go to ${item.title}`}
-                            aria-current={idx === currentIndex ? 'true' : 'false'}
-                        />
-                    ))}
+                <div className='mt-6 flex justify-center'>
+                    {sortedMedia.length > 5 ? (
+                        /* Counter for many items */
+                        <div className='text-primary/60 text-sm'>
+                            {currentIndex + 1} / {sortedMedia.length}
+                        </div>
+                    ) : (
+                        /* Dot indicators for few items */
+                        <div className='flex gap-2'>
+                            {sortedMedia.map((item, idx) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => goToSlide(idx)}
+                                    className={`focus:ring-secondary h-2 cursor-pointer rounded-full transition-all focus:ring-2 focus:outline-none ${
+                                        idx === currentIndex
+                                            ? 'bg-secondary w-8'
+                                            : 'bg-primary/20 hover:bg-primary/40 w-2'
+                                    }`}
+                                    aria-label={`Go to ${item.title}`}
+                                    aria-current={idx === currentIndex ? 'true' : 'false'}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
 

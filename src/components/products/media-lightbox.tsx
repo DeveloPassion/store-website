@@ -102,14 +102,14 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                         </button>
                                     )}
 
-                                    {/* Media with Animation */}
+                                    {/* Media with Animation - max-h accounts for title, counter, and thumbnails below */}
                                     <AnimatePresence mode='wait'>
                                         {currentMedia?.type === 'image' ? (
                                             <motion.img
                                                 key={currentIndex}
                                                 src={currentMedia.url}
                                                 alt={currentMedia.altText}
-                                                className='max-h-[90vh] w-auto rounded-lg shadow-2xl'
+                                                className='max-h-[60vh] w-auto rounded-lg shadow-2xl sm:max-h-[65vh]'
                                                 initial={{ opacity: 0, x: 100 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -100 }}
@@ -118,7 +118,7 @@ const MediaLightbox: React.FC<MediaLightboxProps> = ({
                                         ) : currentMedia?.type === 'video' && youtubeId ? (
                                             <motion.div
                                                 key={currentIndex}
-                                                className='aspect-video w-full max-w-5xl rounded-lg shadow-2xl'
+                                                className='aspect-video max-h-[60vh] w-full max-w-5xl rounded-lg shadow-2xl sm:max-h-[65vh]'
                                                 initial={{ opacity: 0, x: 100 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 exit={{ opacity: 0, x: -100 }}
