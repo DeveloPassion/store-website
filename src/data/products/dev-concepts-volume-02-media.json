@@ -1,3 +1,48 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-1736863000000",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-volume-02/dev-concepts-volume-02-cover.webp",
+            "title": "Dev Concepts Volume 02: What Clients Need",
+            "altText": "Build products your clients will love",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450
+        },
+        {
+            "id": "main-1736863000001",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-volume-02/dev-concepts-volume-02-intro.webp",
+            "title": "Stop Building Features Nobody Uses",
+            "altText": "Understand what clients truly need vs what they say they want",
+            "order": 0,
+            "group": "main",
+            "width": 778,
+            "height": 553
+        },
+        {
+            "id": "main-1736863000002",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-volume-02/dev-concepts-volume-02-benefits.webp",
+            "title": "Save Time by Building the Right Things",
+            "altText": "Avoid costly rework and delight users with proper requirements discovery",
+            "order": 1,
+            "group": "main",
+            "width": 1339,
+            "height": 466
+        },
+        {
+            "id": "main-1736863000003",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-volume-02/dev-concepts-volume-02-toc.webp",
+            "title": "Requirements, UX Design, and Design Sprints",
+            "altText": "From user research to specifications - everything to understand client needs",
+            "order": 2,
+            "group": "main",
+            "width": 390,
+            "height": 706
+        }
+    ]
 }

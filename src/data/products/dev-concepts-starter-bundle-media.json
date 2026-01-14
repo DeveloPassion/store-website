@@ -1,3 +1,81 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-1736861000000",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-cover.webp",
+            "title": "Dev Concepts Starter Bundle",
+            "altText": "Master software fundamentals with 2 volumes and lifetime community access",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450
+        },
+        {
+            "id": "main-1736861000001",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-overview.webp",
+            "title": "Two E-Books + Lifetime Slack Community",
+            "altText": "Software Craft, Client Needs, and mentorship from senior developers",
+            "order": 0,
+            "group": "main",
+            "width": 660,
+            "height": 718
+        },
+        {
+            "id": "main-1736861000002",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-benefits.webp",
+            "title": "Accelerate Your Career With Proper Foundations",
+            "altText": "Choose the right solutions, understand client needs, and advance faster",
+            "order": 1,
+            "group": "main",
+            "width": 1339,
+            "height": 466
+        },
+        {
+            "id": "secondary-1736861000003",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-vol1-intro.webp",
+            "title": "Volume 1: Software Craft",
+            "altText": "Develop the craftsmanship attitude for solving real-world problems",
+            "order": 0,
+            "group": "secondary",
+            "width": 772,
+            "height": 529
+        },
+        {
+            "id": "secondary-1736861000004",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-vol1-toc.webp",
+            "title": "25 Essential Skills Covered in Volume 1",
+            "altText": "From problem-solving to career management - everything you need to grow",
+            "order": 1,
+            "group": "secondary",
+            "width": 522,
+            "height": 807
+        },
+        {
+            "id": "secondary-1736861000005",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-vol2-intro.webp",
+            "title": "Volume 2: What Clients Need",
+            "altText": "Build software that solves the right problems",
+            "order": 2,
+            "group": "secondary",
+            "width": 778,
+            "height": 553
+        },
+        {
+            "id": "secondary-1736861000006",
+            "type": "image",
+            "url": "/assets/images/products/dev-concepts-starter-bundle/dev-concepts-starter-bundle-vol2-toc.webp",
+            "title": "Requirements, UX Design, and Design Sprints",
+            "altText": "Master client needs from requirements discovery to user experience",
+            "order": 3,
+            "group": "secondary",
+            "width": 390,
+            "height": 706
+        }
+    ]
 }
