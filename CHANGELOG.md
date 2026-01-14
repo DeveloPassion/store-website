@@ -1,3 +1,14 @@
+## [0.5.9](https://github.com/DeveloPassion/store-website/compare/0.5.8...0.5.9) (2026-01-14)
+
+### Features
+
+* **all:** added compact newsletter subscription form to homepage ([68345c0](https://github.com/DeveloPassion/store-website/commit/68345c0d6ecb307e576f10370bcdd6339f68d506))
+* **all:** added ITCW images ([26ae376](https://github.com/DeveloPassion/store-website/commit/26ae37634883d89588d5e6fee6c8104752fa3e3c))
+* **all:** added KMB media ([d57dc17](https://github.com/DeveloPassion/store-website/commit/d57dc178808712d0a0b3279b6f8be39ad04dd31d))
+* **all:** added kwk media ([b741750](https://github.com/DeveloPassion/store-website/commit/b741750c524152dbb51ea0fba8068696a46546c6))
+* **all:** added media ([bc7d279](https://github.com/DeveloPassion/store-website/commit/bc7d279f3d907cb08fa5c46d20f269c0ce4c326b))
+* **all:** added media for multiple products ([d97717e](https://github.com/DeveloPassion/store-website/commit/d97717e210213c7f1b76f631ca8136573bc5222e))
+* **all:** added more media ([81f3ef4](https://github.com/DeveloPassion/store-website/commit/81f3ef434a1ffb6625ac71026b343b0d105b1a3a))
 ## [0.5.8](https://github.com/DeveloPassion/store-website/compare/0.5.7...0.5.8) (2026-01-14)
 
 ### Features
