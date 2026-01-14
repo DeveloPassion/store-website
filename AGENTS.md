@@ -495,7 +495,7 @@ The timeline shows the progression of benefits over time, distinct from the tran
     - `title` (required): Milestone title
     - `description` (required): Detailed description (min 10 chars)
     - `highlights` (optional): Array of bullet points
-    - `icon` (optional): Icon name (e.g., "FaRocket")
+    - `icon` (optional): Emoji (e.g., "🚀") or React icon name (e.g., "FaRocket")
 
 **ProductTimeline Component:**
 

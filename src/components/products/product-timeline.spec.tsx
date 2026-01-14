@@ -289,6 +289,44 @@ describe('ProductTimeline Component', () => {
             expect(getByText('1')).toBeInTheDocument()
             expect(getByText('2')).toBeInTheDocument()
         })
+
+        it('should render emoji icons directly as text', () => {
+            const product = createMockProduct({
+                salesCopy: {
+                    ...createMockProduct().salesCopy!,
+                    timeline: {
+                        milestones: [
+                            {
+                                id: 'week-1',
+                                timeframe: 'Week 1',
+                                title: 'Launch',
+                                description: 'Begin your journey today.',
+                                icon: '🚀'
+                            },
+                            {
+                                id: 'month-1',
+                                timeframe: 'Month 1',
+                                title: 'Build',
+                                description: 'Keep building momentum.',
+                                icon: '⚙️'
+                            },
+                            {
+                                id: 'year-1',
+                                timeframe: 'Year 1',
+                                title: 'Win',
+                                description: 'Celebrate your success.',
+                                icon: '🏆'
+                            }
+                        ]
+                    }
+                }
+            })
+            const { getByText } = render(<ProductTimeline product={product} />)
+
+            expect(getByText('🚀')).toBeInTheDocument()
+            expect(getByText('⚙️')).toBeInTheDocument()
+            expect(getByText('🏆')).toBeInTheDocument()
+        })
     })
 
     describe('highlights rendering', () => {

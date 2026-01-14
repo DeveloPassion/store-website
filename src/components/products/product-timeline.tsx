@@ -4,6 +4,7 @@ import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { cn } from '@/lib/utils'
+import { isEmoji } from '@/lib/is-emoji'
 import type { Product } from '@/schemas/product.schema'
 
 interface ProductTimelineProps {
@@ -51,12 +52,16 @@ const ProductTimeline: React.FC<ProductTimelineProps> = ({ product }) => {
                                     {/* Timeline dot - centered on the line for lg+ */}
                                     <div className='bg-solution relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full shadow-lg lg:absolute lg:left-1/2 lg:-translate-x-1/2'>
                                         {milestone.icon ? (
-                                            <DynamicIcon
-                                                iconName={milestone.icon}
-                                                size='lg'
-                                                className='text-white'
-                                                useBrandColors={false}
-                                            />
+                                            isEmoji(milestone.icon) ? (
+                                                <span className='text-3xl'>{milestone.icon}</span>
+                                            ) : (
+                                                <DynamicIcon
+                                                    iconName={milestone.icon}
+                                                    size='lg'
+                                                    className='text-white'
+                                                    useBrandColors={false}
+                                                />
+                                            )
                                         ) : (
                                             <span className='text-lg font-bold text-white'>
                                                 {index + 1}

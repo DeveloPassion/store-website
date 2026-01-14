@@ -287,7 +287,7 @@
                         "Capture your existing ideas into the system",
                         "Ship at least one piece of content using new workflows"
                     ],
-                    "icon": "FaRocket"
+                    "icon": "🚀"
                 },
                 {
                     "id": "month-1",
@@ -300,7 +300,7 @@
                         "First monthly challenge completed",
                         "Noticeable reduction in creative friction"
                     ],
-                    "icon": "FaStream"
+                    "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
@@ -313,7 +313,7 @@
                         "Energy levels stable, not depleted",
                         "Content quality improving alongside quantity"
                     ],
-                    "icon": "FaBalanceScale"
+                    "icon": "⚖️"
                 },
                 {
                     "id": "month-6",
@@ -326,7 +326,7 @@
                         "Audience growth from consistent presence",
                         "Systems requiring minimal maintenance"
                     ],
-                    "icon": "FaChartLine"
+                    "icon": "📈"
                 },
                 {
                     "id": "year-1",
@@ -339,7 +339,7 @@
                         "Systems that maintain themselves",
                         "True creative freedom and sustainable pace"
                     ],
-                    "icon": "FaTrophy"
+                    "icon": "🏆"
                 }
             ]
         }

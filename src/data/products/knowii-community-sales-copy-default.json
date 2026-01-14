@@ -289,7 +289,7 @@
                         "Capture your first ideas using the system",
                         "Join the community and connect with peers"
                     ],
-                    "icon": "FaRocket"
+                    "icon": "🚀"
                 },
                 {
                     "id": "month-1",
@@ -302,7 +302,7 @@
                         "First connections between ideas emerging",
                         "Significant reduction in 'where did I save that?' moments"
                     ],
-                    "icon": "FaCogs"
+                    "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
@@ -315,7 +315,7 @@
                         "Noticeable reduction in mental clutter and overwhelm",
                         "Starting to create content from your knowledge base"
                     ],
-                    "icon": "FaBrain"
+                    "icon": "🧠"
                 },
                 {
                     "id": "month-6",
@@ -328,7 +328,7 @@
                         "Recognition as someone who 'has their act together'",
                         "System running smoothly with minimal maintenance"
                     ],
-                    "icon": "FaBriefcase"
+                    "icon": "💼"
                 },
                 {
                     "id": "year-1",
@@ -341,7 +341,7 @@
                         "Creative output you never thought possible",
                         "Mental clarity and peace that comes from mastery"
                     ],
-                    "icon": "FaTrophy"
+                    "icon": "🏆"
                 }
             ]
         }
