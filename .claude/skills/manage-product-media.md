@@ -153,6 +153,8 @@ For titles and alt text, you can either:
 
 ### Step 3: Image Processing (for images only)
 
+**IMPORTANT**: Use the built-in image optimization utility at `scripts/utils/optimize-images.ts`.
+
 For each image file:
 
 1. **Download** (if URL):
@@ -160,42 +162,48 @@ For each image file:
    curl -o /tmp/temp-image.png "https://example.com/image.png"
    ```
 
-2. **Optimize**:
-   Use `sharp` (if available) or `imagemagick`:
+2. **Optimize using the utility script**:
    ```bash
-   # Check if sharp is available (via bun)
-   bun run -e "import sharp from 'sharp'; console.log('available')" 2>/dev/null
+   # Optimize single image (converts to WebP, resizes if >1600px wide)
+   bun run optimize:images image.png --output /path/to/output.webp
 
-   # If sharp available:
-   # Create an optimization script or use existing tools
+   # Optimize with custom max width (e.g., for cover images)
+   bun run optimize:images image.png --max-width 800 --output cover.webp
 
-   # Fallback to imagemagick:
-   convert input.png -strip -quality 85 -resize '1920x1080>' output.webp
+   # Optimize all images in a folder
+   bun run optimize:images ./input-folder/ --output ./output-folder/
+
+   # Optimize in place (replaces originals)
+   bun run optimize:images ./images/ --in-place
+
+   # Keep original format instead of converting to WebP
+   bun run optimize:images image.png --keep-format
+
+   # Custom quality (default is 85)
+   bun run optimize:images image.png --quality 90
    ```
 
-   Optimization goals:
-   - Convert to WebP format (better compression)
-   - Strip metadata
-   - Resize if too large (max 1920x1080 for main/secondary/bonus)
-   - Resize for cover images (max 800x450 for 16:9 aspect ratio)
-   - Compress with quality 85
+   The utility automatically:
+   - Converts to WebP format (better compression, ~60-70% smaller)
+   - Strips metadata
+   - Resizes if too large (default max 1600x1200)
+   - Reports size savings for each file
+   - Prints a summary with total savings
 
 3. **Generate filename**:
-   ```
-   {product-id}-media-{group}-{order}.{ext}
-   ```
-   Example: `knowii-media-cover-0.webp`
+   Use kebab-case naming: `{product-id}-{descriptive-name}.webp`
+   Example: `osk-graph-view.webp`, `knowii-dashboard.webp`
 
 4. **Move to product folder**:
    ```bash
-   mkdir -p /assets/images/{product-id}
-   mv optimized-image.webp /assets/images/{product-id}/{generated-filename}
+   mkdir -p public/assets/images/products/{product-id}
+   mv optimized-image.webp public/assets/images/products/{product-id}/
    ```
 
-5. **Extract dimensions**:
+5. **Extract dimensions** (if needed):
    ```bash
    # Using imagemagick
-   identify -format "%wx%h" image.webp
+   magick identify -format "%wx%h" image.webp
    # Returns: "1920x1080"
    ```
 
@@ -425,66 +433,58 @@ Skill Actions:
 
 ### Image Optimization Script
 
-Consider creating a reusable optimization script at `/scripts/optimize-image.ts`:
+A reusable image optimization utility exists at `scripts/utils/optimize-images.ts`.
 
+**CLI Usage:**
+```bash
+# Show help
+bun run optimize:images --help
+
+# Optimize single image
+bun run optimize:images image.png
+
+# Optimize with custom output path
+bun run optimize:images image.png --output optimized/image.webp
+
+# Optimize entire folder
+bun run optimize:images ./images/ --output ./optimized/
+
+# Optimize in place (replaces originals)
+bun run optimize:images ./images/ --in-place
+
+# Custom settings
+bun run optimize:images image.png --max-width 800 --quality 90 --keep-format
+```
+
+**Programmatic Usage (import as module):**
 ```typescript
-import sharp from 'sharp';
-import { readFile, writeFile } from 'fs/promises';
+import {
+  optimizeImage,
+  optimizeDirectory,
+  optimizeInPlace,
+  getImageDimensions,
+  formatFileSize
+} from './scripts/utils/optimize-images';
 
-interface OptimizeOptions {
-  maxWidth?: number;
-  maxHeight?: number;
-  quality?: number;
-  format?: 'webp' | 'png' | 'jpeg';
-}
+// Optimize single image
+const result = await optimizeImage('input.png', 'output.webp', {
+  maxWidth: 1600,
+  maxHeight: 1200,
+  quality: 85,
+  format: 'webp'
+});
 
-export async function optimizeImage(
-  inputPath: string,
-  outputPath: string,
-  options: OptimizeOptions = {}
-): Promise<{ width: number; height: number; size: number }> {
-  const {
-    maxWidth = 1920,
-    maxHeight = 1080,
-    quality = 85,
-    format = 'webp'
-  } = options;
+console.log(`Saved ${result.savingsPercent}%`);
+console.log(`Dimensions: ${result.width}x${result.height}`);
 
-  const image = sharp(inputPath);
-  const metadata = await image.metadata();
+// Optimize entire directory
+const results = await optimizeDirectory('./input/', './output/', {
+  maxWidth: 1600,
+  quality: 85
+});
 
-  // Resize if needed
-  let pipeline = image;
-  if (metadata.width > maxWidth || metadata.height > maxHeight) {
-    pipeline = pipeline.resize(maxWidth, maxHeight, {
-      fit: 'inside',
-      withoutEnlargement: true
-    });
-  }
-
-  // Convert and optimize
-  if (format === 'webp') {
-    pipeline = pipeline.webp({ quality });
-  } else if (format === 'jpeg') {
-    pipeline = pipeline.jpeg({ quality });
-  } else if (format === 'png') {
-    pipeline = pipeline.png({ quality });
-  }
-
-  // Save
-  await pipeline.toFile(outputPath);
-
-  // Get final metadata
-  const optimized = sharp(outputPath);
-  const optimizedMetadata = await optimized.metadata();
-  const stats = await stat(outputPath);
-
-  return {
-    width: optimizedMetadata.width!,
-    height: optimizedMetadata.height!,
-    size: stats.size
-  };
-}
+// Get dimensions only
+const { width, height } = await getImageDimensions('image.webp');
 ```
 
 ### CLI Parameter Building
@@ -584,38 +584,28 @@ function toTitleCase(str: string): string {
 
 This skill requires:
 - `bun` runtime (for CLI and scripts)
-- `sharp` package (for image optimization) or `imagemagick` (fallback)
+- `imagemagick` (for image optimization via `scripts/utils/optimize-images.ts`)
 - `update-products` CLI tool (project-specific)
-- Access to `/assets/images/` directory
-- Access to `/src/data/products/` directory
+- Access to `public/assets/images/products/` directory
+- Access to `src/data/products/` directory
 
 ## Testing
 
 Before using this skill, verify:
 
 ```bash
-# Check CLI works
-bun run update:products -- --operation media:list --id knowii
+# Check optimization script works
+bun run optimize:images --help
 
-# Check sharp availability
-bun run -e "import sharp from 'sharp'; console.log('Sharp available')"
-
-# Check imagemagick fallback
-which convert
+# Check ImageMagick is available
+which magick
 
 # Check folder permissions
-ls -la /assets/images/
-ls -la /src/data/products/
+ls -la public/assets/images/products/
+ls -la src/data/products/
 ```
 
 ## Troubleshooting
-
-### Sharp Not Available
-
-If sharp is not installed:
-```bash
-bun add sharp
-```
 
 ### ImageMagick Not Available
 
@@ -629,6 +619,9 @@ sudo apt-get install imagemagick
 
 # Fedora
 sudo dnf install imagemagick
+
+# Arch Linux
+sudo pacman -S imagemagick
 ```
 
 ### Permission Denied
@@ -636,12 +629,12 @@ sudo dnf install imagemagick
 If file operations fail:
 ```bash
 # Check permissions
-ls -la /assets/images/
-ls -la /src/data/products/
+ls -la public/assets/images/products/
+ls -la src/data/products/
 
 # Fix if needed
-chmod -R u+w /assets/images/
-chmod -R u+w /src/data/products/
+chmod -R u+w public/assets/images/products/
+chmod -R u+w src/data/products/
 ```
 
 ---

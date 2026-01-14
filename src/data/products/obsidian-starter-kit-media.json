@@ -1,3 +1,484 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "cover-001",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-graph-view.webp",
+            "title": "Knowledge Graph",
+            "altText": "Colorful interactive graph view showing connected notes and ideas in Obsidian",
+            "description": "Visual representation of your interconnected knowledge base",
+            "order": 0,
+            "group": "cover"
+        },
+        {
+            "id": "cover-002",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-books-base-cards.webp",
+            "title": "Book Library",
+            "altText": "Visual card layout displaying book covers in a gallery view",
+            "description": "Browse your book collection in a beautiful card view",
+            "order": 1,
+            "group": "cover"
+        },
+        {
+            "id": "main-001",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-daily-note.webp",
+            "title": "Daily Notes",
+            "altText": "Daily note template with structured sections for journaling",
+            "description": "Start each day with a structured daily note template",
+            "order": 0,
+            "group": "main"
+        },
+        {
+            "id": "main-002",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-periodic-notes.webp",
+            "title": "Periodic Reviews",
+            "altText": "Weekly review template with goals, achievements, and gratitude sections",
+            "description": "Reflect and plan with weekly, monthly, and yearly reviews",
+            "order": 1,
+            "group": "main"
+        },
+        {
+            "id": "main-003",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-kanban.webp",
+            "title": "Kanban Board",
+            "altText": "Kanban board with columns for this week, month, quarter, and backburner",
+            "description": "Manage projects visually with built-in kanban boards",
+            "order": 2,
+            "group": "main"
+        },
+        {
+            "id": "main-004",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-tasks-list.webp",
+            "title": "Task Management",
+            "altText": "Task list view showing organized tasks and due dates",
+            "description": "Keep track of all your tasks in one organized view",
+            "order": 3,
+            "group": "main"
+        },
+        {
+            "id": "main-005",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-mocs.webp",
+            "title": "Maps of Content",
+            "altText": "Map of Content page showing organized note-taking resources",
+            "description": "Navigate your knowledge with Maps of Content",
+            "order": 4,
+            "group": "main"
+        },
+        {
+            "id": "main-006",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-books-all.webp",
+            "title": "Book Tracking",
+            "altText": "Library of books with covers, reading status and metadata",
+            "description": "Track your reading list with notes and highlights",
+            "order": 5,
+            "group": "main"
+        },
+        {
+            "id": "main-007",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-meetings.webp",
+            "title": "Meeting Notes",
+            "altText": "Meeting notes dashboard showing scheduled and past meetings",
+            "description": "Capture and organize meeting notes effectively",
+            "order": 6,
+            "group": "main"
+        },
+        {
+            "id": "main-008",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-health-overview.webp",
+            "title": "Health Dashboard",
+            "altText": "Health tracking dashboard with mood, energy, and wellness metrics",
+            "description": "Monitor your health and wellness holistically",
+            "order": 7,
+            "group": "main"
+        },
+        {
+            "id": "main-009",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-people-at-a-glance.webp",
+            "title": "Contact Management",
+            "altText": "Public figures database with names, ages, and dates",
+            "description": "Keep track of people in your network",
+            "order": 8,
+            "group": "main"
+        },
+        {
+            "id": "main-010",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-structure.webp",
+            "title": "Vault Structure",
+            "altText": "Obsidian vault folder structure with Meta, Actions, Areas, Journal, Resources, Archives",
+            "description": "Clean, organized vault structure ready to use",
+            "order": 9,
+            "group": "main"
+        },
+        {
+            "id": "secondary-001",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-book-note-props.webp",
+            "title": "Book Note Properties",
+            "altText": "Detailed book note with metadata and properties",
+            "description": "Rich metadata for organizing book notes",
+            "order": 0,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-002",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-books-reading.webp",
+            "title": "Currently Reading",
+            "altText": "Books currently being read with progress tracking",
+            "description": "Track your current reading progress",
+            "order": 1,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-003",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-health-sleep.webp",
+            "title": "Sleep Tracking",
+            "altText": "Sleep tracking interface with quality metrics",
+            "description": "Track and improve your sleep quality",
+            "order": 2,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-004",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-health-patterns.webp",
+            "title": "Health Patterns",
+            "altText": "Health pattern analysis showing trends over time",
+            "description": "Discover patterns in your health data",
+            "order": 3,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-005",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-health-mental-health-and-balance.webp",
+            "title": "Mental Health & Balance",
+            "altText": "Mental health tracking with mood and balance indicators",
+            "description": "Monitor your mental health and life balance",
+            "order": 4,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-006",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-exercise.webp",
+            "title": "Exercise Tracking",
+            "altText": "Exercise and fitness tracking interface",
+            "description": "Track your workouts and fitness progress",
+            "order": 5,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-007",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-symptoms-and-medication.webp",
+            "title": "Symptoms & Medication",
+            "altText": "Health symptoms and medication tracking",
+            "description": "Track symptoms and medications",
+            "order": 6,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-008",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-wisdom.webp",
+            "title": "Wisdom Collection",
+            "altText": "Table view of wisdom notes with ratings and sources",
+            "description": "Capture and revisit valuable wisdom and insights",
+            "order": 7,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-009",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-wisdom-dots.webp",
+            "title": "Wisdom Connections",
+            "altText": "Visual connections between wisdom notes",
+            "description": "See how your wisdom notes interconnect",
+            "order": 8,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-010",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-frequently-referenced-wisdom.webp",
+            "title": "Top Wisdom",
+            "altText": "Most referenced wisdom and insights",
+            "description": "Your most valuable wisdom at a glance",
+            "order": 9,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-011",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-quote.webp",
+            "title": "Quote Capture",
+            "altText": "Quote note with attribution and context",
+            "description": "Save and organize meaningful quotes",
+            "order": 10,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-012",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-remember.webp",
+            "title": "Remember System",
+            "altText": "Spaced repetition for remembering important information",
+            "description": "Never forget important information again",
+            "order": 11,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-013",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-people-social.webp",
+            "title": "Social Connections",
+            "altText": "Social relationship tracking and management",
+            "description": "Manage your social relationships effectively",
+            "order": 12,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-014",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-person-links.webp",
+            "title": "Person Profile",
+            "altText": "Individual person profile with connected notes",
+            "description": "See all connections to a specific person",
+            "order": 13,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-015",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-inspiring-people.webp",
+            "title": "Inspiring People",
+            "altText": "Collection of inspiring people and their wisdom",
+            "description": "Keep track of people who inspire you",
+            "order": 14,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-016",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-contact-follow-ups.webp",
+            "title": "Contact Follow-ups",
+            "altText": "CRM-style contact management with follow-up reminders",
+            "description": "Never forget to follow up with contacts",
+            "order": 15,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-017",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-meetings-example.webp",
+            "title": "Meeting Note Example",
+            "altText": "Example meeting note with attendees and action items",
+            "description": "See how meeting notes are structured",
+            "order": 16,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-018",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-tasknotes-kanban.webp",
+            "title": "Task Notes Kanban",
+            "altText": "Task notes organized in kanban columns",
+            "description": "Manage task notes with kanban workflow",
+            "order": 17,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-019",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-tasknotes-calendar.webp",
+            "title": "Task Calendar",
+            "altText": "Calendar view of tasks and deadlines",
+            "description": "View your tasks on a calendar timeline",
+            "order": 18,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-020",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-related.webp",
+            "title": "Related Notes",
+            "altText": "Related notes section showing connections",
+            "description": "Discover related notes automatically",
+            "order": 19,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-021",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-related-mentioned.webp",
+            "title": "Mentioned In",
+            "altText": "Notes that mention the current note",
+            "description": "See where each note is referenced",
+            "order": 20,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-022",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-related-tags.webp",
+            "title": "Related Tags",
+            "altText": "Tag-based relationship view",
+            "description": "Explore connections through shared tags",
+            "order": 21,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-023",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-dates.webp",
+            "title": "Date Navigation",
+            "altText": "Calendar-based date navigation for notes",
+            "description": "Navigate your notes by date",
+            "order": 22,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-024",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-dots-breadcrumbs.webp",
+            "title": "Breadcrumb Navigation",
+            "altText": "Visual breadcrumb navigation showing note hierarchy",
+            "description": "Track your location in the vault",
+            "order": 23,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-025",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-metadata-update.webp",
+            "title": "Metadata Management",
+            "altText": "Metadata update and management interface",
+            "description": "Keep your note metadata organized",
+            "order": 24,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-026",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-template-selection.webp",
+            "title": "Template Selection",
+            "altText": "Template picker with available templates",
+            "description": "Choose from many pre-built templates",
+            "order": 25,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-027",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-action-system.webp",
+            "title": "Action System",
+            "altText": "Goals tracking with dates, time horizons, and status",
+            "description": "Track goals and actions systematically",
+            "order": 26,
+            "group": "secondary"
+        },
+        {
+            "id": "secondary-028",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-bases.webp",
+            "title": "Knowledge Bases",
+            "altText": "List of database bases for different content types",
+            "description": "Structured databases for various content",
+            "order": 27,
+            "group": "secondary"
+        },
+        {
+            "id": "bonus-001",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-user-guide.webp",
+            "title": "User Guide",
+            "altText": "Comprehensive user guide with Foundation and Systems documentation",
+            "description": "Complete documentation to get you started",
+            "order": 0,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-002",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-tutorials.webp",
+            "title": "Tutorials",
+            "altText": "Built-in tutorials and learning resources",
+            "description": "Step-by-step tutorials included",
+            "order": 1,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-003",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-theory.webp",
+            "title": "Knowledge Theory",
+            "altText": "Theory and methodology documentation",
+            "description": "Learn the theory behind effective PKM",
+            "order": 2,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-004",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-everything-osk-theory.webp",
+            "title": "OSK Theory Overview",
+            "altText": "Complete theory and methodology of the Obsidian Starter Kit",
+            "description": "Understand the philosophy behind OSK",
+            "order": 3,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-005",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-plugins-config.webp",
+            "title": "Plugin Configuration",
+            "altText": "Pre-configured plugins and settings",
+            "description": "Ready-to-use plugin configurations",
+            "order": 4,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-006",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-templates-structure.webp",
+            "title": "Templates Structure",
+            "altText": "Organization of template files and folders",
+            "description": "Well-organized template library",
+            "order": 5,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-007",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-ai-enabled.webp",
+            "title": "AI Integration",
+            "altText": "Claude Code AI integration for knowledge management",
+            "description": "AI-powered features for enhanced productivity",
+            "order": 6,
+            "group": "bonus"
+        },
+        {
+            "id": "bonus-008",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-connect-ideas-icons.webp",
+            "title": "Connecting Ideas",
+            "altText": "Documentation about connecting ideas and knowledge",
+            "description": "Learn how to connect your ideas effectively",
+            "order": 7,
+            "group": "bonus"
+        }
+    ]
 }

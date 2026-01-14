@@ -55,7 +55,8 @@
         "test:coverage": "bun test --coverage",
         "ci:local": "bun run aggregate:products && bun run lint && bun run tsc && bun run test:run && bun run validate:all && bun run build",
         "audit:local": "lighthouse http://localhost:5173 --output=json --output=html --output-path=./lighthouse-reports/local --chrome-flags=\"--headless --no-sandbox\"",
-        "audit:production": "lighthouse https://store.dsebastien.net --output=json --output=html --output-path=./lighthouse-reports/production --chrome-flags=\"--headless --no-sandbox\""
+        "audit:production": "lighthouse https://store.dsebastien.net --output=json --output=html --output-path=./lighthouse-reports/production --chrome-flags=\"--headless --no-sandbox\"",
+        "optimize:images": "bun scripts/utils/optimize-images.ts"
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
