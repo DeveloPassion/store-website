@@ -128,8 +128,8 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                             {product.averageRating !== undefined &&
                                 product.ratingsCount !== undefined &&
                                 product.ratingsCount > 0 && (
-                                    <div>
-                                        <div className='mb-1 flex items-center gap-2 text-2xl font-bold text-yellow-400'>
+                                    <div className='text-center'>
+                                        <div className='mb-1 flex items-center justify-center gap-2 text-2xl font-bold text-yellow-400'>
                                             {product.averageRating.toFixed(1)}
                                             <FaStar className='h-5 w-5' />
                                         </div>
