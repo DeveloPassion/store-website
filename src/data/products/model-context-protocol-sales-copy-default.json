@@ -156,23 +156,28 @@
                 "steps": [
                     {
                         "title": "Understand the Foundation",
-                        "description": "Learn what LLMs are missing and why MCP changes everything"
+                        "description": "Learn what LLMs are missing and why MCP changes everything",
+                        "order": 0
                     },
                     {
                         "title": "See It in Action",
-                        "description": "Watch 5 live demonstrations with real use cases"
+                        "description": "Watch 5 live demonstrations with real use cases",
+                        "order": 1
                     },
                     {
                         "title": "Know Where to Look",
-                        "description": "Discover curated directories of reliable MCP servers"
+                        "description": "Discover curated directories of reliable MCP servers",
+                        "order": 2
                     },
                     {
                         "title": "Install Without Code",
-                        "description": "Use GUI tools to set up servers in minutes"
+                        "description": "Use GUI tools to set up servers in minutes",
+                        "order": 3
                     },
                     {
                         "title": "Stay Secure",
-                        "description": "Understand the risks and how to protect yourself"
+                        "description": "Understand the risks and how to protect yourself",
+                        "order": 4
                     }
                 ],
                 "differentiation": "I've done the hard work of testing servers, identifying what's reliable, and mapping out the knowledge-worker use cases. You get a curated path, not a scavenger hunt through documentation."

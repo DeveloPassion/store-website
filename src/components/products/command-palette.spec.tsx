@@ -51,7 +51,7 @@ describe('CommandPalette - Keyboard Navigation', () => {
 
         // Wait for component to be ready
         await waitFor(() => {
-            const input = container.querySelector('input[placeholder*="Search products"]')
+            const input = container.querySelector('input[placeholder*="Search..."]')
             expect(input).toBeTruthy()
         })
 
@@ -94,7 +94,7 @@ describe('CommandPalette - Keyboard Navigation', () => {
         // Wait for component to be ready and get input
         const input = await waitFor(() => {
             const inp = container.querySelector(
-                'input[placeholder*="Search products"]'
+                'input[placeholder*="Search..."]'
             ) as HTMLInputElement
             expect(inp).toBeTruthy()
             return inp
@@ -132,7 +132,7 @@ describe('CommandPalette - Keyboard Navigation', () => {
         )
 
         await waitFor(() => {
-            const input = container.querySelector('input[placeholder*="Search products"]')
+            const input = container.querySelector('input[placeholder*="Search..."]')
             expect(input).toBeTruthy()
         })
 
@@ -165,7 +165,7 @@ describe('CommandPalette - Keyboard Navigation', () => {
         )
 
         await waitFor(() => {
-            const input = container.querySelector('input[placeholder*="Search products"]')
+            const input = container.querySelector('input[placeholder*="Search..."]')
             expect(input).toBeTruthy()
         })
 
@@ -193,7 +193,7 @@ describe('CommandPalette - Keyboard Navigation', () => {
         )
 
         await waitFor(() => {
-            const input = container.querySelector('input[placeholder*="Search products"]')
+            const input = container.querySelector('input[placeholder*="Search..."]')
             expect(input).toBeTruthy()
         })
 
@@ -229,7 +229,7 @@ describe('CommandPalette - Keyboard Navigation', () => {
         )
 
         await waitFor(() => {
-            const input = container.querySelector('input[placeholder*="Search products"]')
+            const input = container.querySelector('input[placeholder*="Search..."]')
             expect(input).toBeTruthy()
         })
 

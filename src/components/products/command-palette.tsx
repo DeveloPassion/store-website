@@ -319,7 +319,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                         type='text'
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search products, categories, tags... or press 'Esc' to close"
+                        placeholder="Search... or press 'Esc' to close"
                         className='placeholder:text-primary/40 flex-1 bg-transparent text-lg outline-none'
                         aria-label='Search products, categories, and tags'
                         aria-autocomplete='list'
