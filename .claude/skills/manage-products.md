@@ -471,8 +471,7 @@ bun run update:products -- --operation faq:list --id product-id
 # Add FAQ
 bun run update:products -- --operation faq:add --id product-id \
     --faq-question "How does it work?" \
-    --faq-answer "It works great!" \
-    --faq-order 0
+    --faq-answer "It works great!"
 
 # Edit FAQ
 bun run update:products -- --operation faq:edit --id product-id \
@@ -688,7 +687,7 @@ All changes are validated against Zod schemas before saving:
 ### Auto-Sorting
 
 Content is automatically sorted when saved:
-- **FAQs**: By `order` field (ascending)
+- **FAQs**: Preserved in array order (no automatic sorting)
 - **Testimonials**: By `featured` (featured first), then by `author` name alphabetically
 - **Media**: By `group` priority, then by `order` within group
 

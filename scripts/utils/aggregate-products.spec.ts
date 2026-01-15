@@ -235,8 +235,7 @@ describe('loadFAQs', () => {
         const faq = {
             id: 'faq-detailed',
             question: 'How does this work?',
-            answer: 'It works by doing XYZ.',
-            order: 5
+            answer: 'It works by doing XYZ.'
         }
 
         writeFileSync(join(tempDir, `${productId}-faq.json`), JSON.stringify({ data: [faq] }))
@@ -246,7 +245,6 @@ describe('loadFAQs', () => {
         expect(result[0]).toEqual(faq)
         expect(result[0].question).toBe('How does this work?')
         expect(result[0].answer).toBe('It works by doing XYZ.')
-        expect(result[0].order).toBe(5)
     })
 })
 

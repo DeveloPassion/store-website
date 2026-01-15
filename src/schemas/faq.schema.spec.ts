@@ -5,8 +5,7 @@ describe('FAQ Schema Validation', () => {
     const validFAQ: FAQ = {
         id: 'faq-1',
         question: 'What is this product?',
-        answer: 'This is a comprehensive guide to help you get started.',
-        order: 0
+        answer: 'This is a comprehensive guide to help you get started.'
     }
 
     describe('FAQSchema - Required Fields', () => {
@@ -68,58 +67,6 @@ describe('FAQ Schema Validation', () => {
             const result = FAQSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
-
-        it('should reject FAQ without order', () => {
-            const invalid = Object.fromEntries(
-                Object.entries(validFAQ).filter(([key]) => key !== 'order')
-            )
-            const result = FAQSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-    })
-
-    describe('FAQSchema - Order Validation', () => {
-        it('should accept order of 0', () => {
-            const valid = { ...validFAQ, order: 0 }
-            const result = FAQSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept positive order', () => {
-            const valid = { ...validFAQ, order: 10 }
-            const result = FAQSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept large order value', () => {
-            const valid = { ...validFAQ, order: 1000 }
-            const result = FAQSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should reject negative order', () => {
-            const invalid = { ...validFAQ, order: -1 }
-            const result = FAQSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject decimal order', () => {
-            const invalid = { ...validFAQ, order: 1.5 }
-            const result = FAQSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject string order', () => {
-            const invalid = { ...validFAQ, order: '10' }
-            const result = FAQSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject null order', () => {
-            const invalid = { ...validFAQ, order: null }
-            const result = FAQSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
     })
 
     describe('FAQSchema - Content Validation', () => {
@@ -170,14 +117,12 @@ describe('FAQ Schema Validation', () => {
                 {
                     ...validFAQ,
                     id: 'faq-2',
-                    question: 'How do I get started?',
-                    order: 1
+                    question: 'How do I get started?'
                 },
                 {
                     ...validFAQ,
                     id: 'faq-3',
-                    question: 'What are the prerequisites?',
-                    order: 2
+                    question: 'What are the prerequisites?'
                 }
             ]
             const result = FAQsArraySchema.safeParse(faqs)
@@ -199,26 +144,6 @@ describe('FAQ Schema Validation', () => {
             const faqs = [validFAQ, { id: 'faq-2', question: 'Q2' }]
             const result = FAQsArraySchema.safeParse(faqs)
             expect(result.success).toBe(false)
-        })
-
-        it('should accept array with FAQs in any order', () => {
-            const faqs = [
-                { ...validFAQ, id: 'faq-1', order: 5 },
-                { ...validFAQ, id: 'faq-2', order: 1 },
-                { ...validFAQ, id: 'faq-3', order: 10 }
-            ]
-            const result = FAQsArraySchema.safeParse(faqs)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept array with duplicate order values', () => {
-            const faqs = [
-                { ...validFAQ, id: 'faq-1', order: 1 },
-                { ...validFAQ, id: 'faq-2', order: 1 },
-                { ...validFAQ, id: 'faq-3', order: 1 }
-            ]
-            const result = FAQsArraySchema.safeParse(faqs)
-            expect(result.success).toBe(true)
         })
 
         it('should reject non-array value', () => {
@@ -288,11 +213,7 @@ describe('FAQ Schema Validation', () => {
 
         it('should accept file with multiple FAQs', () => {
             const validFile = {
-                data: [
-                    validFAQ,
-                    { ...validFAQ, id: 'faq-2', order: 1 },
-                    { ...validFAQ, id: 'faq-3', order: 2 }
-                ]
+                data: [validFAQ, { ...validFAQ, id: 'faq-2' }, { ...validFAQ, id: 'faq-3' }]
             }
             const result = FAQFileSchema.safeParse(validFile)
             expect(result.success).toBe(true)

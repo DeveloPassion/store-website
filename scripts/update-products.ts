@@ -25,8 +25,8 @@
  *
  *   FAQ operations:
  *     bun run update:products -- --operation faq:list --id product-id
- *     bun run update:products -- --operation faq:add --id product-id --faq-question "..." --faq-answer "..." [--faq-order 0] [--faq-id "custom-id"]
- *     bun run update:products -- --operation faq:edit --id product-id --faq-id "faq-123" [--faq-question "..."] [--faq-answer "..."] [--faq-order 1]
+ *     bun run update:products -- --operation faq:add --id product-id --faq-question "..." --faq-answer "..." [--faq-id "custom-id"]
+ *     bun run update:products -- --operation faq:edit --id product-id --faq-id "faq-123" [--faq-question "..."] [--faq-answer "..."]
  *     bun run update:products -- --operation faq:remove --id product-id --faq-id "faq-123"
  *
  *   Testimonial operations:
@@ -76,7 +76,6 @@
  *     --faq-id <string>                   FAQ ID
  *     --faq-question <string>             Question text
  *     --faq-answer <string>               Answer text
- *     --faq-order <number>                Display order
  *
  *   Testimonial:
  *     --testimonial-id <string>           Testimonial ID
@@ -204,7 +203,6 @@ interface CliArgs {
     'faq-id'?: string
     'faq-question'?: string
     'faq-answer'?: string
-    'faq-order'?: string
 
     // Testimonial arguments
     'testimonial-id'?: string
@@ -666,11 +664,8 @@ export function loadFaqs(productsDir: string, productId: string): FAQ[] {
 export function saveFaqs(productsDir: string, productId: string, faqs: FAQ[]): void {
     const faqPath = getFaqPath(productsDir, productId)
 
-    // Sort by order
-    const sorted = [...faqs].sort((a, b) => a.order - b.order)
-
     // Wrap in file format and validate
-    const fileData = { data: sorted }
+    const fileData = { data: faqs }
     const result = FAQFileSchema.safeParse(fileData)
     if (!result.success) {
         throw new Error(`Validation failed: ${result.error.message}`)
@@ -697,8 +692,7 @@ function addFaqToProduct(
     const newFaq: FAQ = {
         id,
         question: faqData.question,
-        answer: faqData.answer,
-        order: faqData.order
+        answer: faqData.answer
     }
 
     faqs.push(newFaq)
@@ -744,7 +738,7 @@ function removeFaqFromProduct(productsDir: string, productId: string, faqId: str
 }
 
 function listFaqsInProduct(productsDir: string, productId: string): FAQ[] {
-    return loadFaqs(productsDir, productId).sort((a, b) => a.order - b.order)
+    return loadFaqs(productsDir, productId)
 }
 
 function getTestimonialPath(productsDir: string, productId: string): string {
@@ -999,14 +993,14 @@ function formatFaqList(faqs: FAQ[]): string {
         return 'No FAQs found.'
     }
 
-    const rows = faqs.map((faq) => {
+    const rows = faqs.map((faq, index) => {
         const truncatedAnswer =
             faq.answer.length > 60 ? faq.answer.substring(0, 57) + '...' : faq.answer
 
-        return [faq.order.toString(), faq.id, faq.question, truncatedAnswer]
+        return [(index + 1).toString(), faq.id, faq.question, truncatedAnswer]
     })
 
-    const headers = ['Order', 'ID', 'Question', 'Answer']
+    const headers = ['#', 'ID', 'Question', 'Answer']
     const columnWidths = headers.map((header, i) =>
         Math.max(header.length, ...rows.map((row) => row[i]?.length || 0))
     )
@@ -2759,20 +2753,13 @@ async function manageFaqs(product: Product): Promise<void> {
                             name: 'answer',
                             message: 'Answer:',
                             validate: (input) => (input ? true : 'Answer is required')
-                        },
-                        {
-                            type: 'number',
-                            name: 'order',
-                            message: 'Display order:',
-                            default: faqs.length
                         }
                     ])
 
                     const newFaq = addFaqToProduct(PRODUCTS_DIR, product.id, {
                         id: answers.id,
                         question: answers.question,
-                        answer: answers.answer,
-                        order: answers.order
+                        answer: answers.answer
                     })
 
                     showSuccess(`FAQ added: ${newFaq.id}`)
@@ -2788,8 +2775,8 @@ async function manageFaqs(product: Product): Promise<void> {
 
                     const faqId = await select({
                         message: 'Select FAQ to edit:',
-                        choices: faqs.map((faq) => ({
-                            name: `[${faq.order}] ${faq.question}`,
+                        choices: faqs.map((faq, index) => ({
+                            name: `[${index + 1}] ${faq.question}`,
                             value: faq.id
                         }))
                     })
@@ -2808,12 +2795,6 @@ async function manageFaqs(product: Product): Promise<void> {
                             name: 'answer',
                             message: 'Answer:',
                             default: currentFaq.answer
-                        },
-                        {
-                            type: 'number',
-                            name: 'order',
-                            message: 'Display order:',
-                            default: currentFaq.order
                         }
                     ])
 
@@ -2831,8 +2812,8 @@ async function manageFaqs(product: Product): Promise<void> {
 
                     const faqId = await select({
                         message: 'Select FAQ to remove:',
-                        choices: faqs.map((faq) => ({
-                            name: `[${faq.order}] ${faq.question}`,
+                        choices: faqs.map((faq, index) => ({
+                            name: `[${index + 1}] ${faq.question}`,
                             value: faq.id
                         }))
                     })

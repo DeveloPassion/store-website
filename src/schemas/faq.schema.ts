@@ -20,8 +20,7 @@ export const FAQSchema = z.object({
     answer: z
         .string()
         .min(1, 'Answer is required')
-        .refine((val) => val.trim().length > 0, 'Answer cannot be only whitespace'),
-    order: z.number().int().nonnegative('Order must be non-negative')
+        .refine((val) => val.trim().length > 0, 'Answer cannot be only whitespace')
 })
 
 export const FAQsArraySchema = z.array(FAQSchema)

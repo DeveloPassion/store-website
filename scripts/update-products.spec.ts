@@ -37,7 +37,6 @@ const createValidFAQ = (overrides: Partial<FAQ> = {}): FAQ => ({
     id: 'faq-test-1',
     question: 'What is this?',
     answer: 'This is a test FAQ.',
-    order: 0,
     ...overrides
 })
 
@@ -265,10 +264,7 @@ describe('loadFaqs', () => {
     it('should load existing valid FAQ file and return data array', () => {
         const productId = 'test-product'
         const faqPath = join(tempDir, `${productId}-faq.json`)
-        const faqData = [
-            createValidFAQ({ id: 'faq-1', order: 0 }),
-            createValidFAQ({ id: 'faq-2', order: 1 })
-        ]
+        const faqData = [createValidFAQ({ id: 'faq-1' }), createValidFAQ({ id: 'faq-2' })]
         const fileContent = { data: faqData }
 
         writeFileSync(faqPath, JSON.stringify(fileContent, null, 4), 'utf-8')
@@ -309,7 +305,7 @@ describe('loadFaqs', () => {
                 {
                     id: 'faq-1',
                     question: 'What is this?'
-                    // Missing required fields: answer, order
+                    // Missing required field: answer
                 }
             ]
         }
@@ -362,10 +358,7 @@ describe('loadFaqs', () => {
 describe('saveFaqs', () => {
     it('should save valid FAQ data to file with correct format', () => {
         const productId = 'save-test'
-        const faqData = [
-            createValidFAQ({ id: 'faq-1', order: 0 }),
-            createValidFAQ({ id: 'faq-2', order: 1 })
-        ]
+        const faqData = [createValidFAQ({ id: 'faq-1' }), createValidFAQ({ id: 'faq-2' })]
 
         saveFaqs(tempDir, productId, faqData)
 
@@ -390,23 +383,24 @@ describe('saveFaqs', () => {
         expect(savedContent.data).toEqual([])
     })
 
-    it('should sort FAQs by order', () => {
-        const productId = 'sort-test'
+    it('should preserve array order when saving', () => {
+        const productId = 'order-test'
         const faqData = [
-            createValidFAQ({ id: 'faq-3', order: 5 }),
-            createValidFAQ({ id: 'faq-1', order: 0 }),
-            createValidFAQ({ id: 'faq-2', order: 2 })
+            createValidFAQ({ id: 'faq-3' }),
+            createValidFAQ({ id: 'faq-1' }),
+            createValidFAQ({ id: 'faq-2' })
         ]
 
         saveFaqs(tempDir, productId, faqData)
 
         const faqPath = join(tempDir, `${productId}-faq.json`)
         const savedContent = JSON.parse(readFileSync(faqPath, 'utf-8'))
-        const sorted = savedContent.data
+        const saved = savedContent.data
 
-        expect(sorted[0].id).toBe('faq-1') // order 0
-        expect(sorted[1].id).toBe('faq-2') // order 2
-        expect(sorted[2].id).toBe('faq-3') // order 5
+        // Order should be preserved as provided
+        expect(saved[0].id).toBe('faq-3')
+        expect(saved[1].id).toBe('faq-1')
+        expect(saved[2].id).toBe('faq-2')
     })
 
     it('should throw validation error for invalid FAQ data', () => {
@@ -422,20 +416,6 @@ describe('saveFaqs', () => {
         expect(() => {
             saveFaqs(tempDir, productId, invalidData)
         }).toThrow(/Validation failed/)
-    })
-
-    it('should not mutate original FAQ array', () => {
-        const productId = 'immutable-test'
-        const faqData = [
-            createValidFAQ({ id: 'faq-2', order: 5 }),
-            createValidFAQ({ id: 'faq-1', order: 0 })
-        ]
-        const originalOrder = faqData.map((f) => f.id)
-
-        saveFaqs(tempDir, productId, faqData)
-
-        // Original array should be unchanged
-        expect(faqData.map((f) => f.id)).toEqual(originalOrder)
     })
 
     it('should construct correct file path', () => {
