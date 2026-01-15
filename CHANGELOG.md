@@ -1,3 +1,22 @@
+## [0.6.4](https://github.com/DeveloPassion/store-website/compare/0.6.3...0.6.4) (2026-01-15)
+
+### Features
+
+* **all:** added plan for testimonials ([358e170](https://github.com/DeveloPassion/store-website/commit/358e170a8e87479b66098fc57fa9e99d673b67a3))
+* **all:** added sales copy of KMB ([12a90f1](https://github.com/DeveloPassion/store-website/commit/12a90f1cf9f3a79edc3d3cc1fb01a44bbde2430a))
+* **all:** added support for defining course content ([ad8f54c](https://github.com/DeveloPassion/store-website/commit/ad8f54c5197d0990880387d0333aab5bb20462db))
+* **all:** added support for defining courses content ([fc6f26a](https://github.com/DeveloPassion/store-website/commit/fc6f26a3bd72092b41aea73107e9699813744ffd))
+* **all:** configured promo bar for launch ([35be6a4](https://github.com/DeveloPassion/store-website/commit/35be6a40eee885df6f6134356c2d082db2f5635c))
+* **all:** improve alignment of cards on homepage ([908fa9a](https://github.com/DeveloPassion/store-website/commit/908fa9aedc10134d46feec6dfc42075637564b99))
+* **all:** improved carousel on mobile and put controls in a consistent location ([7d2395a](https://github.com/DeveloPassion/store-website/commit/7d2395a628332a59d5acb0944dc064167e72e235))
+* **all:** improved Gumroad script ([2a98ff9](https://github.com/DeveloPassion/store-website/commit/2a98ff939a2a21ef6c05040e16ee54901c43cd3a))
+* **all:** limited number of testimonials and added load more pattern \& see all on testimonials page ([230bae7](https://github.com/DeveloPassion/store-website/commit/230bae76c66f5363aff575c1aee032fa0c4169dd))
+* **all:** reviewed featured testimonials for impact ([89355d4](https://github.com/DeveloPassion/store-website/commit/89355d483eab6a1f1ca5ff3ce3de35191cfc90bc))
+* **all:** updated sales copy for KMB and others ([ebad885](https://github.com/DeveloPassion/store-website/commit/ebad885ac0e64e5394b85acfb1b365174c270c89))
+
+### Bug Fixes
+
+* **all:** fixed product timeline component on mobile and desktop ([3d1f4e4](https://github.com/DeveloPassion/store-website/commit/3d1f4e41e64e8e8a2008f6f40d70613d131c5ddd))
 ## [0.6.3](https://github.com/DeveloPassion/store-website/compare/0.6.2...0.6.3) (2026-01-14)
 
 ### Features
