@@ -25,7 +25,12 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "crossSellIds": ["personal-organization-101", "journaling-deep-dive", "knowledge-worker-kit"],
+    "crossSellIds": [
+        "knowii-community",
+        "knowledge-worker-kit",
+        "personal-organization-101",
+        "journaling-deep-dive"
+    ],
     "priority": 65,
     "mainCategory": "workshops",
     "secondaryCategories": [
