@@ -63,7 +63,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 id: `product-${product.id}`,
                 type: 'product',
                 title: product.name,
-                subtitle: `${product.priceDisplay} · ${product.salesCopy?.tagline}`,
+                subtitle: product.salesCopy?.tagline,
                 icon: product.featured ? (
                     <FaStar className='text-secondary h-5 w-5' />
                 ) : isFree ? (
@@ -525,23 +525,61 @@ const CommandItem: React.FC<CommandItemProps> = ({
             id={`command-option-${itemIndex}`}
             aria-selected={isSelected}
         >
+            {/* Icon column - centered */}
             <div className='bg-primary/5 group-hover:bg-secondary/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors'>
                 {command.icon}
             </div>
+
+            {/* Content column */}
             <div className='min-w-0 flex-1'>
-                <div className='truncate font-medium'>{command.title}</div>
-                {command.subtitle && (
-                    <div className='text-primary/50 truncate text-sm'>{command.subtitle}</div>
+                {/* Row 1: Title - no truncate on mobile for full display */}
+                <div className='font-medium sm:truncate'>{command.title}</div>
+
+                {/* Row 2: Price (left) + Pill (right) on mobile | Description on desktop */}
+                {command.product ? (
+                    <>
+                        {/* Mobile: Price + Pill row */}
+                        <div className='flex items-center gap-2 sm:hidden'>
+                            <span className='text-primary/50 text-sm'>
+                                {command.product.priceDisplay}
+                            </span>
+                            {command.product.bestValue && (
+                                <span className='flex items-center gap-1 rounded-full bg-blue-500/10 px-2 py-0.5 text-xs font-medium text-blue-500'>
+                                    <FaTrophy className='h-2.5 w-2.5' />
+                                    Best Value
+                                </span>
+                            )}
+                            {command.product.featured && !command.product.bestValue && (
+                                <span className='bg-secondary/10 text-secondary flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium'>
+                                    <FaStar className='h-2.5 w-2.5' />
+                                    Featured
+                                </span>
+                            )}
+                        </div>
+                        {/* Desktop: Full subtitle with tagline */}
+                        {command.subtitle && (
+                            <div className='text-primary/50 hidden truncate text-sm sm:block'>
+                                {command.product.priceDisplay} · {command.subtitle}
+                            </div>
+                        )}
+                    </>
+                ) : (
+                    /* Non-product items: show subtitle normally */
+                    command.subtitle && (
+                        <div className='text-primary/50 truncate text-sm'>{command.subtitle}</div>
+                    )
                 )}
             </div>
+
+            {/* Desktop pills - hidden on mobile (shown inline above) */}
             {command.product?.bestValue && (
-                <div className='flex shrink-0 items-center gap-1 rounded-full bg-blue-500/10 px-2 py-1 text-xs font-medium text-blue-500'>
+                <div className='hidden shrink-0 items-center gap-1 rounded-full bg-blue-500/10 px-2 py-1 text-xs font-medium text-blue-500 sm:flex'>
                     <FaTrophy className='h-2.5 w-2.5' />
                     Best Value
                 </div>
             )}
             {command.product?.featured && !command.product?.bestValue && (
-                <div className='bg-secondary/10 text-secondary flex shrink-0 items-center gap-1 rounded-full px-2 py-1 text-xs font-medium'>
+                <div className='bg-secondary/10 text-secondary hidden shrink-0 items-center gap-1 rounded-full px-2 py-1 text-xs font-medium sm:flex'>
                     <FaStar className='h-2.5 w-2.5' />
                     Featured
                 </div>
