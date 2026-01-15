@@ -13,7 +13,8 @@ export const CourseSectionSchema = z.object({
     name: z.string().min(1, 'Section name is required'),
     description: z.string().nullish(), // Required but nullable
     duration: z.string().nullish(), // Required but nullable (e.g., "15 min")
-    icon: z.string().nullish() // Required but nullable (emoji or React icon name)
+    icon: z.string().nullish(), // Required but nullable (emoji or React icon name)
+    url: z.string().url().nullable() // Required but nullable - URL to free lesson (if publicly accessible)
 })
 
 /**

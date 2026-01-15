@@ -119,7 +119,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -138,7 +138,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -157,7 +157,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -180,7 +180,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -199,7 +199,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -218,7 +218,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -237,7 +237,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -255,11 +255,14 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }, { name: 'Section 2' }]
+                                sections: [
+                                    { name: 'Section 1', url: null },
+                                    { name: 'Section 2', url: null }
+                                ]
                             },
                             {
                                 name: 'Module 2',
-                                sections: [{ name: 'Section 3' }]
+                                sections: [{ name: 'Section 3', url: null }]
                             }
                         ]
                     }
@@ -279,7 +282,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -301,7 +304,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -322,7 +325,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -340,7 +343,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -360,11 +363,11 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Getting Started',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             },
                             {
                                 name: 'Advanced Topics',
-                                sections: [{ name: 'Section 2' }]
+                                sections: [{ name: 'Section 2', url: null }]
                             }
                         ]
                     }
@@ -384,7 +387,7 @@ describe('ProductCourseContent Component', () => {
                             {
                                 name: 'Module 1',
                                 duration: '45 min',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -402,7 +405,11 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'S1' }, { name: 'S2' }, { name: 'S3' }]
+                                sections: [
+                                    { name: 'S1', url: null },
+                                    { name: 'S2', url: null },
+                                    { name: 'S3', url: null }
+                                ]
                             }
                         ]
                     }
@@ -420,11 +427,11 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             },
                             {
                                 name: 'Module 2',
-                                sections: [{ name: 'Section 2' }]
+                                sections: [{ name: 'Section 2', url: null }]
                             }
                         ]
                     }
@@ -445,7 +452,7 @@ describe('ProductCourseContent Component', () => {
                             {
                                 name: 'Getting Started',
                                 icon: '🚀',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -465,6 +472,94 @@ describe('ProductCourseContent Component', () => {
     // HTMLFieldSetElement which is not available in the test environment.
     // Test section rendering manually in browser by expanding modules.
 
+    describe('free lesson links', () => {
+        // Note: Full section link tests require expanding the accordion.
+        // These tests verify the component renders without errors when
+        // sections have URLs. Manual testing recommended for link behavior.
+
+        it('should render without errors when sections have URLs', () => {
+            const product = createMockProduct({
+                salesCopy: {
+                    ...createMockProduct().salesCopy!,
+                    courseContent: {
+                        modules: [
+                            {
+                                name: 'Module 1',
+                                sections: [
+                                    {
+                                        name: 'Free Introduction',
+                                        url: 'https://youtube.com/watch?v=abc123'
+                                    },
+                                    { name: 'Paid Lesson', url: null }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            })
+            const { container } = render(<ProductCourseContent product={product} />)
+            expect(container.innerHTML).not.toBe('')
+        })
+
+        it('should render without errors when all sections have URLs', () => {
+            const product = createMockProduct({
+                salesCopy: {
+                    ...createMockProduct().salesCopy!,
+                    courseContent: {
+                        modules: [
+                            {
+                                name: 'Free Module',
+                                sections: [
+                                    {
+                                        name: 'Lesson 1',
+                                        url: 'https://example.com/lesson1'
+                                    },
+                                    {
+                                        name: 'Lesson 2',
+                                        url: 'https://example.com/lesson2'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            })
+            const { container } = render(<ProductCourseContent product={product} />)
+            expect(container.querySelector('section')).toBeInTheDocument()
+        })
+
+        it('should render without errors with mixed URL and non-URL sections', () => {
+            const product = createMockProduct({
+                salesCopy: {
+                    ...createMockProduct().salesCopy!,
+                    courseContent: {
+                        modules: [
+                            {
+                                name: 'Module 1',
+                                sections: [
+                                    {
+                                        name: 'Free Preview',
+                                        description: 'Watch this free lesson',
+                                        duration: '10 min',
+                                        url: 'https://youtube.com/watch?v=xyz'
+                                    },
+                                    {
+                                        name: 'Premium Content',
+                                        description: 'Exclusive paid content',
+                                        url: null
+                                    },
+                                    { name: 'Basic Lesson', url: null }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            })
+            const { container } = render(<ProductCourseContent product={product} />)
+            expect(container.querySelector('section')).toBeInTheDocument()
+        })
+    })
+
     describe('accessibility', () => {
         it('should render section element', () => {
             const product = createMockProduct({
@@ -474,7 +569,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }
@@ -492,7 +587,7 @@ describe('ProductCourseContent Component', () => {
                         modules: [
                             {
                                 name: 'Module 1',
-                                sections: [{ name: 'Section 1' }]
+                                sections: [{ name: 'Section 1', url: null }]
                             }
                         ]
                     }

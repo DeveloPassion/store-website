@@ -32,21 +32,24 @@ describe('CourseSectionSchema', () => {
             name: 'Installing Obsidian',
             description: 'Learn how to download and install Obsidian on your computer',
             duration: '5 min',
-            icon: 'FaDownload'
+            icon: 'FaDownload',
+            url: null
         }
         expect(() => CourseSectionSchema.parse(validData)).not.toThrow()
     })
 
     it('should validate section with minimal required fields', () => {
         const minimalData = {
-            name: 'Introduction'
+            name: 'Introduction',
+            url: null
         }
         expect(() => CourseSectionSchema.parse(minimalData)).not.toThrow()
     })
 
     it('should reject empty name', () => {
         const invalidData = {
-            name: ''
+            name: '',
+            url: null
         }
         expect(() => CourseSectionSchema.parse(invalidData)).toThrow()
     })
@@ -54,7 +57,8 @@ describe('CourseSectionSchema', () => {
     it('should accept null description', () => {
         const validData = {
             name: 'Section Name',
-            description: null
+            description: null,
+            url: null
         }
         const result = CourseSectionSchema.parse(validData)
         expect(result.description).toBeNull()
@@ -63,7 +67,8 @@ describe('CourseSectionSchema', () => {
     it('should accept undefined description', () => {
         const validData = {
             name: 'Section Name',
-            description: undefined
+            description: undefined,
+            url: null
         }
         const result = CourseSectionSchema.parse(validData)
         expect(result.description).toBeUndefined()
@@ -72,7 +77,8 @@ describe('CourseSectionSchema', () => {
     it('should accept null duration', () => {
         const validData = {
             name: 'Section Name',
-            duration: null
+            duration: null,
+            url: null
         }
         const result = CourseSectionSchema.parse(validData)
         expect(result.duration).toBeNull()
@@ -81,7 +87,8 @@ describe('CourseSectionSchema', () => {
     it('should accept null icon', () => {
         const validData = {
             name: 'Section Name',
-            icon: null
+            icon: null,
+            url: null
         }
         const result = CourseSectionSchema.parse(validData)
         expect(result.icon).toBeNull()
@@ -90,7 +97,8 @@ describe('CourseSectionSchema', () => {
     it('should accept emoji icon', () => {
         const validData = {
             name: 'Section Name',
-            icon: '🚀'
+            icon: '🚀',
+            url: null
         }
         expect(() => CourseSectionSchema.parse(validData)).not.toThrow()
     })
@@ -98,9 +106,57 @@ describe('CourseSectionSchema', () => {
     it('should accept React icon name', () => {
         const validData = {
             name: 'Section Name',
-            icon: 'FaRocket'
+            icon: 'FaRocket',
+            url: null
         }
         expect(() => CourseSectionSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should accept valid URL for free lesson', () => {
+        const validData = {
+            name: 'Free Introduction',
+            url: 'https://youtube.com/watch?v=abc123'
+        }
+        const result = CourseSectionSchema.parse(validData)
+        expect(result.url).toBe('https://youtube.com/watch?v=abc123')
+    })
+
+    it('should accept null URL', () => {
+        const validData = {
+            name: 'Section Name',
+            url: null
+        }
+        const result = CourseSectionSchema.parse(validData)
+        expect(result.url).toBeNull()
+    })
+
+    it('should require url field to be present', () => {
+        const invalidData = {
+            name: 'Section Name'
+            // url is missing - should fail since it's required (but nullable)
+        }
+        expect(() => CourseSectionSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should reject invalid URL format', () => {
+        const invalidData = {
+            name: 'Section Name',
+            url: 'not-a-valid-url'
+        }
+        expect(() => CourseSectionSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should accept section with all fields including URL', () => {
+        const validData = {
+            name: 'Introduction to PKM',
+            description: 'Learn the fundamentals of Personal Knowledge Management',
+            duration: '15 min',
+            icon: '🚀',
+            url: 'https://example.com/free-lesson'
+        }
+        const result = CourseSectionSchema.parse(validData)
+        expect(result.name).toBe('Introduction to PKM')
+        expect(result.url).toBe('https://example.com/free-lesson')
     })
 })
 
@@ -115,12 +171,14 @@ describe('CourseModuleSchema', () => {
                 {
                     name: 'Installing Obsidian',
                     description: 'Download and install the app',
-                    duration: '5 min'
+                    duration: '5 min',
+                    url: null
                 },
                 {
                     name: 'Understanding the Interface',
                     description: 'Learn the key components',
-                    duration: '10 min'
+                    duration: '10 min',
+                    url: null
                 }
             ]
         }
@@ -130,7 +188,7 @@ describe('CourseModuleSchema', () => {
     it('should validate module with minimal required fields', () => {
         const minimalData = {
             name: 'Module 1',
-            sections: [{ name: 'Section 1' }]
+            sections: [{ name: 'Section 1', url: null }]
         }
         expect(() => CourseModuleSchema.parse(minimalData)).not.toThrow()
     })
@@ -138,7 +196,7 @@ describe('CourseModuleSchema', () => {
     it('should reject empty module name', () => {
         const invalidData = {
             name: '',
-            sections: [{ name: 'Section 1' }]
+            sections: [{ name: 'Section 1', url: null }]
         }
         expect(() => CourseModuleSchema.parse(invalidData)).toThrow()
     })
@@ -162,7 +220,7 @@ describe('CourseModuleSchema', () => {
         const validData = {
             name: 'Module Name',
             description: null,
-            sections: [{ name: 'Section 1' }]
+            sections: [{ name: 'Section 1', url: null }]
         }
         const result = CourseModuleSchema.parse(validData)
         expect(result.description).toBeNull()
@@ -172,7 +230,7 @@ describe('CourseModuleSchema', () => {
         const validData = {
             name: 'Module Name',
             icon: null,
-            sections: [{ name: 'Section 1' }]
+            sections: [{ name: 'Section 1', url: null }]
         }
         const result = CourseModuleSchema.parse(validData)
         expect(result.icon).toBeNull()
@@ -182,7 +240,7 @@ describe('CourseModuleSchema', () => {
         const validData = {
             name: 'Module Name',
             duration: null,
-            sections: [{ name: 'Section 1' }]
+            sections: [{ name: 'Section 1', url: null }]
         }
         const result = CourseModuleSchema.parse(validData)
         expect(result.duration).toBeNull()
@@ -191,7 +249,8 @@ describe('CourseModuleSchema', () => {
     it('should validate module with many sections', () => {
         const sections = Array.from({ length: 10 }, (_, i) => ({
             name: `Section ${i + 1}`,
-            duration: `${5 + i} min`
+            duration: `${5 + i} min`,
+            url: null
         }))
         const validData = {
             name: 'Large Module',
@@ -204,9 +263,9 @@ describe('CourseModuleSchema', () => {
         const validData = {
             name: 'Module',
             sections: [
-                { name: 'First Section' },
-                { name: 'Second Section' },
-                { name: 'Third Section' }
+                { name: 'First Section', url: null },
+                { name: 'Second Section', url: null },
+                { name: 'Third Section', url: null }
             ]
         }
         const result = CourseModuleSchema.parse(validData)
@@ -218,7 +277,7 @@ describe('CourseModuleSchema', () => {
     it('should reject invalid section within module', () => {
         const invalidData = {
             name: 'Module',
-            sections: [{ name: '' }] // Empty section name
+            sections: [{ name: '', url: null }] // Empty section name
         }
         expect(() => CourseModuleSchema.parse(invalidData)).toThrow()
     })
@@ -240,8 +299,8 @@ describe('CourseContentSchema', () => {
                     icon: '🚀',
                     duration: '1 hour',
                     sections: [
-                        { name: 'Welcome', duration: '5 min' },
-                        { name: 'Course Overview', duration: '15 min' }
+                        { name: 'Welcome', duration: '5 min', url: null },
+                        { name: 'Course Overview', duration: '15 min', url: null }
                     ]
                 },
                 {
@@ -250,9 +309,9 @@ describe('CourseContentSchema', () => {
                     icon: '📚',
                     duration: '3 hours',
                     sections: [
-                        { name: 'Concept 1', duration: '45 min' },
-                        { name: 'Concept 2', duration: '45 min' },
-                        { name: 'Practice Exercises', duration: '1.5 hours' }
+                        { name: 'Concept 1', duration: '45 min', url: null },
+                        { name: 'Concept 2', duration: '45 min', url: null },
+                        { name: 'Practice Exercises', duration: '1.5 hours', url: null }
                     ]
                 }
             ]
@@ -265,7 +324,7 @@ describe('CourseContentSchema', () => {
             modules: [
                 {
                     name: 'Module 1',
-                    sections: [{ name: 'Section 1' }]
+                    sections: [{ name: 'Section 1', url: null }]
                 }
             ]
         }
@@ -289,7 +348,7 @@ describe('CourseContentSchema', () => {
 
     it('should accept optional sectionTitle', () => {
         const validData = {
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.sectionTitle).toBeUndefined()
@@ -298,7 +357,7 @@ describe('CourseContentSchema', () => {
     it('should accept optional sectionDescription', () => {
         const validData = {
             sectionTitle: 'Title',
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.sectionDescription).toBeUndefined()
@@ -306,7 +365,7 @@ describe('CourseContentSchema', () => {
 
     it('should accept optional sectionIcon', () => {
         const validData = {
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.sectionIcon).toBeUndefined()
@@ -314,7 +373,7 @@ describe('CourseContentSchema', () => {
 
     it('should accept optional totalDuration', () => {
         const validData = {
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.totalDuration).toBeUndefined()
@@ -322,7 +381,7 @@ describe('CourseContentSchema', () => {
 
     it('should accept optional prerequisites', () => {
         const validData = {
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.prerequisites).toBeUndefined()
@@ -331,7 +390,7 @@ describe('CourseContentSchema', () => {
     it('should accept empty prerequisites array', () => {
         const validData = {
             prerequisites: [],
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.prerequisites).toEqual([])
@@ -339,7 +398,7 @@ describe('CourseContentSchema', () => {
 
     it('should accept optional difficulty', () => {
         const validData = {
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         const result = CourseContentSchema.parse(validData)
         expect(result.difficulty).toBeUndefined()
@@ -350,7 +409,7 @@ describe('CourseContentSchema', () => {
         for (const difficulty of levels) {
             const validData = {
                 difficulty,
-                modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+                modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
             }
             expect(() => CourseContentSchema.parse(validData)).not.toThrow()
         }
@@ -359,7 +418,7 @@ describe('CourseContentSchema', () => {
     it('should reject invalid difficulty level', () => {
         const invalidData = {
             difficulty: 'expert',
-            modules: [{ name: 'Module', sections: [{ name: 'Section' }] }]
+            modules: [{ name: 'Module', sections: [{ name: 'Section', url: null }] }]
         }
         expect(() => CourseContentSchema.parse(invalidData)).toThrow()
     })
@@ -368,7 +427,10 @@ describe('CourseContentSchema', () => {
         const modules = Array.from({ length: 20 }, (_, i) => ({
             name: `Module ${i + 1}`,
             duration: `${i + 1} hour${i > 0 ? 's' : ''}`,
-            sections: [{ name: `Section ${i + 1}.1` }, { name: `Section ${i + 1}.2` }]
+            sections: [
+                { name: `Section ${i + 1}.1`, url: null },
+                { name: `Section ${i + 1}.2`, url: null }
+            ]
         }))
         const validData = { modules }
         expect(() => CourseContentSchema.parse(validData)).not.toThrow()
@@ -377,9 +439,9 @@ describe('CourseContentSchema', () => {
     it('should preserve module order', () => {
         const validData = {
             modules: [
-                { name: 'First Module', sections: [{ name: 'S1' }] },
-                { name: 'Second Module', sections: [{ name: 'S2' }] },
-                { name: 'Third Module', sections: [{ name: 'S3' }] }
+                { name: 'First Module', sections: [{ name: 'S1', url: null }] },
+                { name: 'Second Module', sections: [{ name: 'S2', url: null }] },
+                { name: 'Third Module', sections: [{ name: 'S3', url: null }] }
             ]
         }
         const result = CourseContentSchema.parse(validData)
@@ -391,7 +453,7 @@ describe('CourseContentSchema', () => {
     it('should reject invalid module within course', () => {
         const invalidData = {
             modules: [
-                { name: '', sections: [{ name: 'Section' }] } // Empty module name
+                { name: '', sections: [{ name: 'Section', url: null }] } // Empty module name
             ]
         }
         expect(() => CourseContentSchema.parse(invalidData)).toThrow()
@@ -400,7 +462,7 @@ describe('CourseContentSchema', () => {
     it('should reject module with invalid section', () => {
         const invalidData = {
             modules: [
-                { name: 'Module', sections: [{ name: '' }] } // Empty section name
+                { name: 'Module', sections: [{ name: '', url: null }] } // Empty section name
             ]
         }
         expect(() => CourseContentSchema.parse(invalidData)).toThrow()
@@ -414,8 +476,8 @@ describe('CourseContentSchema', () => {
                     name: 'Module 1',
                     duration: '45 minutes',
                     sections: [
-                        { name: 'Section 1', duration: '15 min' },
-                        { name: 'Section 2', duration: '30m' }
+                        { name: 'Section 1', duration: '15 min', url: null },
+                        { name: 'Section 2', duration: '30m', url: null }
                     ]
                 }
             ]

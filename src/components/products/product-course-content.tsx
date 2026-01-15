@@ -5,7 +5,8 @@ import {
     FaClock,
     FaGraduationCap,
     FaCheckCircle,
-    FaLayerGroup
+    FaLayerGroup,
+    FaPlayCircle
 } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
@@ -240,9 +241,26 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
                                                         {/* Section info */}
                                                         <div className='min-w-0 flex-1'>
                                                             <div className='flex items-center justify-between gap-2'>
-                                                                <span className='text-primary/90 text-sm font-medium'>
-                                                                    {section.name}
-                                                                </span>
+                                                                {section.url ? (
+                                                                    <a
+                                                                        href={section.url}
+                                                                        target='_blank'
+                                                                        rel='noopener noreferrer'
+                                                                        className='text-secondary hover:text-secondary-text group inline-flex items-center gap-1.5 text-sm font-medium transition-colors'
+                                                                    >
+                                                                        <FaPlayCircle className='h-3.5 w-3.5 shrink-0' />
+                                                                        <span className='group-hover:underline'>
+                                                                            {section.name}
+                                                                        </span>
+                                                                        <span className='bg-secondary/20 text-secondary rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase'>
+                                                                            Free
+                                                                        </span>
+                                                                    </a>
+                                                                ) : (
+                                                                    <span className='text-primary/90 text-sm font-medium'>
+                                                                        {section.name}
+                                                                    </span>
+                                                                )}
                                                                 {section.duration && (
                                                                     <span className='text-primary/50 shrink-0 text-xs'>
                                                                         {section.duration}
