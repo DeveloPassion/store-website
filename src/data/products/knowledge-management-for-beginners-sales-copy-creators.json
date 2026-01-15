@@ -126,6 +126,449 @@
             "thought leadership",
             "consistent publishing"
         ],
+        "courseContent": {
+            "sectionTitle": "What's Inside the Course",
+            "sectionDescription": "A complete curriculum that transforms how you capture, organize, and leverage ideas for content creation. 10+ hours of practical instruction built from years of daily content creation practice.",
+            "sectionIcon": "FaGraduationCap",
+            "totalDuration": "10+ hours",
+            "difficulty": "beginner",
+            "prerequisites": [
+                "Basic computer skills",
+                "Active content creation practice (writing, videos, podcasts, etc.)"
+            ],
+            "modules": [
+                {
+                    "name": "Module 1: Introduction",
+                    "description": "Welcome to your content creation transformation. Understand why content creation feels so hard, why your best ideas slip away, and how a knowledge system changes everything.",
+                    "icon": "🎯",
+                    "sections": [
+                        {
+                            "name": "The Problems We Face",
+                            "description": "Information overload, scattered ideas, and why you can't find inspiration when you need it",
+                            "url": null
+                        },
+                        {
+                            "name": "The Solution",
+                            "description": "How a PKM system ends blank page syndrome and powers consistent content creation",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 2: Knowledge Management Overview",
+                    "description": "Master the foundational concepts that turn scattered ideas into a content goldmine.",
+                    "icon": "📚",
+                    "sections": [
+                        {
+                            "name": "Information Management vs Knowledge Management",
+                            "description": "The shift from hoarding to leveraging - crucial for content creators",
+                            "url": null
+                        },
+                        {
+                            "name": "Introduction to Personal Knowledge Management",
+                            "description": "Your second brain for endless content ideas",
+                            "url": "https://www.youtube.com/watch?v=KBiIp8vwnbM"
+                        },
+                        {
+                            "name": "Elements of a PKM System",
+                            "description": "The building blocks of a content creation engine",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 3: Getting Started",
+                    "description": "Set up your content creation engine - from choosing tools to establishing workflows that survive publishing deadlines.",
+                    "icon": "🚀",
+                    "sections": [
+                        {
+                            "name": "KISS & Keeping It Real",
+                            "description": "Start creating faster, not building the perfect system",
+                            "url": null
+                        },
+                        {
+                            "name": "Must-Have & Nice-to-Have Features",
+                            "description": "What creators actually need vs what can wait",
+                            "url": null
+                        },
+                        {
+                            "name": "First Steps & Exploration",
+                            "description": "Your first exploration of content organization principles",
+                            "url": null
+                        },
+                        {
+                            "name": "Minimal Organization Structure",
+                            "description": "Structure that makes content creation effortless",
+                            "url": null
+                        },
+                        {
+                            "name": "Tags, Metadata & Note Naming",
+                            "description": "Organizing for instant content retrieval",
+                            "url": null
+                        },
+                        {
+                            "name": "Complete System Walkthrough",
+                            "description": "Tour of a real creator's content system",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 4: The PKM Process",
+                    "description": "Master the complete workflow from consuming content to publishing your own.",
+                    "icon": "🔄",
+                    "sections": [
+                        {
+                            "name": "Process Overview & Recap",
+                            "description": "How everything flows into publishable content",
+                            "url": null
+                        },
+                        {
+                            "name": "Your Idea Capture System",
+                            "description": "Building a reliable system to never lose content ideas",
+                            "url": null
+                        },
+                        {
+                            "name": "The PKM Process in Detail",
+                            "description": "Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share",
+                            "url": null
+                        },
+                        {
+                            "name": "Overview of a Real System",
+                            "description": "Inside a daily content creator's PKM system",
+                            "url": null
+                        },
+                        {
+                            "name": "Real-World Creator Examples",
+                            "description": "See the content creation workflow in action",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 5: PKM Concepts",
+                    "description": "Deep dive into 23 techniques that transform scattered notes into endless content ideas.",
+                    "icon": "💡",
+                    "sections": [
+                        {
+                            "name": "Mindset Foundations",
+                            "description": "Clarify your goals, avoid perfectionism, and stop hoarding without creating",
+                            "url": null
+                        },
+                        {
+                            "name": "Note-Taking vs Note-Making",
+                            "description": "From passive reading to active content development",
+                            "url": null
+                        },
+                        {
+                            "name": "Dumb Notes vs Smart Notes",
+                            "description": "Creating notes that spark content ideas on demand",
+                            "url": null
+                        },
+                        {
+                            "name": "Externalization & Centralization",
+                            "description": "Getting all your content ideas in one place",
+                            "url": null
+                        },
+                        {
+                            "name": "Atomic Notes & Connecting Ideas",
+                            "description": "The building blocks of infinitely remixable content",
+                            "url": null
+                        },
+                        {
+                            "name": "Characteristics of Great Notes",
+                            "description": "Notes that translate directly into publishable content",
+                            "url": null
+                        },
+                        {
+                            "name": "Methods Overview: LIFT & FILE",
+                            "description": "Frameworks for organizing your content system",
+                            "url": null
+                        },
+                        {
+                            "name": "The PARA Method",
+                            "description": "Projects, Areas, Resources, Archives - organize for output",
+                            "url": null
+                        },
+                        {
+                            "name": "The Johnny Decimal System",
+                            "description": "Systematic organization for prolific creators",
+                            "url": null
+                        },
+                        {
+                            "name": "Zettelkasten Method Deep Dive",
+                            "description": "The slip-box system that powered prolific authors - theory, method, and process",
+                            "url": null
+                        },
+                        {
+                            "name": "Evergreen & Top of Mind Notes",
+                            "description": "Content ideas that stay fresh forever and never get forgotten",
+                            "url": null
+                        },
+                        {
+                            "name": "The Me Note & Collector's Fallacy",
+                            "description": "Personal knowledge anchors and avoiding consumption without creation",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 6: PKM Recommendations",
+                    "description": "37 practical lessons on capture systems, journaling, templates, and habits that keep your content pipeline full.",
+                    "icon": "✅",
+                    "sections": [
+                        {
+                            "name": "Building Creator Habits",
+                            "description": "Routines that fill your content calendar automatically",
+                            "url": null
+                        },
+                        {
+                            "name": "Complete Capture System",
+                            "description": "Your personal content idea funnel - why, what, and how",
+                            "url": null
+                        },
+                        {
+                            "name": "Capture Scenarios & The Capture Habit",
+                            "description": "Capturing ideas anywhere - making it automatic",
+                            "url": "https://www.youtube.com/watch?v=_sigcgludUE"
+                        },
+                        {
+                            "name": "Sources & Input Selection",
+                            "description": "Curating inputs that spark output",
+                            "url": null
+                        },
+                        {
+                            "name": "Analog & Digital Capture",
+                            "description": "Working with ideas however they come and transitioning between formats",
+                            "url": null
+                        },
+                        {
+                            "name": "Journaling & Daily Notes for Creators",
+                            "description": "Templates and examples that generate content ideas daily",
+                            "url": null
+                        },
+                        {
+                            "name": "Periodic Reviews",
+                            "description": "Weekly content planning from your knowledge",
+                            "url": null
+                        },
+                        {
+                            "name": "Knowledge Ingestion Process",
+                            "description": "Turning captured material into content fuel - with live demos",
+                            "url": null
+                        },
+                        {
+                            "name": "Finding & Organizing Notes",
+                            "description": "Search strategies and folder structure for fast content retrieval",
+                            "url": null
+                        },
+                        {
+                            "name": "Tags, Links & Note Names",
+                            "description": "Finding the right idea at the right time",
+                            "url": null
+                        },
+                        {
+                            "name": "Chronological & Special Notes",
+                            "description": "Time-based organization and special note types for creators",
+                            "url": null
+                        },
+                        {
+                            "name": "Templates & Templating",
+                            "description": "Templates for content planning and production - examples and best practices",
+                            "url": null
+                        },
+                        {
+                            "name": "Brain Dumps & Conclusion",
+                            "description": "Getting all your content ideas out and wrapping up recommendations",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 7: Building Your Content System",
+                    "description": "Assemble your personalized content creation engine with 19 lessons on tools, workflows, and automation.",
+                    "icon": "🏗️",
+                    "sections": [
+                        {
+                            "name": "System Foundations",
+                            "description": "What makes a content system sustainable and consistent",
+                            "url": null
+                        },
+                        {
+                            "name": "Core Parts & Tools",
+                            "description": "The non-negotiables for consistent content output",
+                            "url": null
+                        },
+                        {
+                            "name": "Tool Selection & What I Use",
+                            "description": "Configuring your content creation stack - with real examples",
+                            "url": null
+                        },
+                        {
+                            "name": "System Design & Documentation",
+                            "description": "Planning your content workflow with system overview",
+                            "url": null
+                        },
+                        {
+                            "name": "Tool Setup & Configuration",
+                            "description": "Setting up your chosen tools for maximum output",
+                            "url": null
+                        },
+                        {
+                            "name": "Readwise Demo",
+                            "description": "Seamless highlight capture for content research",
+                            "url": null
+                        },
+                        {
+                            "name": "Obsidian Web Clipper Deep Dive",
+                            "description": "Capturing web content directly into your content system",
+                            "url": "https://www.youtube.com/watch?v=_sigcgludUE"
+                        },
+                        {
+                            "name": "Backups & Data Protection",
+                            "description": "Protecting your content assets",
+                            "url": null
+                        },
+                        {
+                            "name": "Content Workflow Development",
+                            "description": "From idea to published piece - efficient, repeatable processes",
+                            "url": null
+                        },
+                        {
+                            "name": "Advanced Topics",
+                            "description": "Vendor lock-in avoidance, removing busywork, data synchronization",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Module 8: Going Further",
+                    "description": "23 advanced lessons on AI-powered content creation, repurposing strategies, and building your creator Life OS.",
+                    "icon": "🤖",
+                    "sections": [
+                        {
+                            "name": "Advanced Knowledge Base Usage",
+                            "description": "Power-user techniques for prolific creators",
+                            "url": null
+                        },
+                        {
+                            "name": "Live Queries",
+                            "description": "Auto-generating content ideas from your notes",
+                            "url": "https://www.youtube.com/watch?v=j2q6OF5XFUc"
+                        },
+                        {
+                            "name": "Leveraging GenAI & LLMs",
+                            "description": "Overview of using AI to supercharge content creation",
+                            "url": null
+                        },
+                        {
+                            "name": "AI for Content: ChatGPT & Claude",
+                            "description": "Making AI ghostwriting actually work with organized knowledge",
+                            "url": null
+                        },
+                        {
+                            "name": "AI: NotebookLM, Gemini & Google AI Studio",
+                            "description": "Research and content development with Google's AI tools",
+                            "url": null
+                        },
+                        {
+                            "name": "AI: DeepSeek & Perplexity",
+                            "description": "Alternative AI tools for research and content creation",
+                            "url": null
+                        },
+                        {
+                            "name": "AI: Local with LM Studio & Ollama",
+                            "description": "Private AI for sensitive content work",
+                            "url": "https://www.youtube.com/watch?v=af6DrWJ4Ek0"
+                        },
+                        {
+                            "name": "AI: Mega Prompts & MCP",
+                            "description": "Creating powerful prompts and connecting AI to your content system",
+                            "url": null
+                        },
+                        {
+                            "name": "AI: Writing with AI & Obsidian Copilot",
+                            "description": "Integrating AI directly into your writing workflow",
+                            "url": null
+                        },
+                        {
+                            "name": "Visual Knowledge for Content",
+                            "description": "Mind maps and visual content planning",
+                            "url": null
+                        },
+                        {
+                            "name": "Serendipitous Content Discovery",
+                            "description": "Finding unexpected content angles in your knowledge",
+                            "url": null
+                        },
+                        {
+                            "name": "Content Project Management & Habit Tracking",
+                            "description": "Managing your publishing pipeline and building consistent habits",
+                            "url": null
+                        },
+                        {
+                            "name": "Your Creator Life OS",
+                            "description": "A complete system for content creators",
+                            "url": null
+                        },
+                        {
+                            "name": "Knowledge Sharing & Publishing",
+                            "description": "From notes to published content - sharing your work",
+                            "url": null
+                        },
+                        {
+                            "name": "The Future of AI-Powered Creation",
+                            "description": "Where content creation is headed - to infinity and beyond",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Conclusion",
+                    "description": "Wrap up your transformation with key takeaways and your path to consistent content creation.",
+                    "icon": "🎓",
+                    "sections": [
+                        {
+                            "name": "Course Conclusion",
+                            "description": "Key takeaways for creators, your content creation roadmap, and next steps",
+                            "url": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Bonus: Creator Resources",
+                    "description": "Resources specifically curated to accelerate your content creation workflow.",
+                    "icon": "🎁",
+                    "sections": [
+                        {
+                            "name": "Complete Course Slides",
+                            "description": "Reference materials for quick review",
+                            "url": null
+                        },
+                        {
+                            "name": "Example Obsidian Vault",
+                            "description": "A working creator's content system",
+                            "url": null
+                        },
+                        {
+                            "name": "Creator Templates Pack",
+                            "description": "Templates for content planning and production",
+                            "url": null
+                        },
+                        {
+                            "name": "Content System Checklist",
+                            "description": "Verify your content engine is complete",
+                            "url": null
+                        },
+                        {
+                            "name": "1,800+ Concept Knowledge Base",
+                            "description": "Endless content inspiration in one place",
+                            "url": null
+                        }
+                    ]
+                }
+            ]
+        },
         "storytelling": {
             "originStory": {
                 "title": "The Content Creator's Nightmare",
