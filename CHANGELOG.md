@@ -1,3 +1,14 @@
+## [0.6.5](https://github.com/DeveloPassion/store-website/compare/0.6.4...0.6.5) (2026-01-15)
+
+### Features
+
+* **all:** added Clarity 101 sales copy ([ecdb5ce](https://github.com/DeveloPassion/store-website/commit/ecdb5ce8dd303b1e5afee353148d6af3df162859))
+* **all:** added OSC sales copy ([c67609c](https://github.com/DeveloPassion/store-website/commit/c67609c9be10bef5ab26b5c7c208734391ecada7))
+* **all:** added support for easily copying the discount code from promo banner ([3fdac7e](https://github.com/DeveloPassion/store-website/commit/3fdac7e185e700503eb17bb6530321ce6a4eb1f4))
+* **all:** improved command palette on mobile ([289db66](https://github.com/DeveloPassion/store-website/commit/289db66a5fa2aa62946cb6355fab517185f0d054))
+* **all:** improved KMB copy ([7d10f46](https://github.com/DeveloPassion/store-website/commit/7d10f46d1b8c60274ca3e10e51a7c34b901becdd))
+* **all:** improved KMB course content description ([5600cf2](https://github.com/DeveloPassion/store-website/commit/5600cf216f7d49090407af091935294b8b6d48e0))
+* **all:** improved visual separation of FAQ ([f62b3c9](https://github.com/DeveloPassion/store-website/commit/f62b3c9d609971fc1989525e1f6ae7d9d437bbdb))
 ## [0.6.4](https://github.com/DeveloPassion/store-website/compare/0.6.3...0.6.4) (2026-01-15)
 
 ### Features
