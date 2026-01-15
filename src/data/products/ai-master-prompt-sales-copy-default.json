@@ -1,93 +1,100 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Transform AI From Generic Assistant to Your Personal Expert",
-        "secondaryTagline": "Stop Getting Generic AI Responses. Start Getting AI That Knows You.",
-        "problem": "AI gives generic responses that don't fit YOUR situation. AI doesn't understand your context.",
+        "tagline": "Stop Re-Explaining Yourself to AI. Start Getting Responses That Actually Understand You.",
+        "secondaryTagline": "The Essential Foundation for Transforming Generic AI Into Your Personal Expert",
+        "problem": "Every time you open ChatGPT or Claude, you start from zero. AI gives you generic, cookie-cutter responses because it doesn't know who you are, what you do, or what you actually need. You waste precious minutes (sometimes 10+ per session!) re-explaining your context, your preferences, your style. The output still feels... off. Not quite you.",
         "problemPoints": [
-            "AI doesn't understand context",
-            "Re-explain yourself every time",
-            "Generic responses",
-            "Waste time on background",
-            "Can't get your style"
+            "Generic AI responses that don't fit YOUR situation",
+            "Wasting 10+ minutes re-explaining yourself every single session",
+            "AI-generated content that sounds robotic, not like you",
+            "Re-typing the same context over and over and over",
+            "Knowing AI could do more, but unable to unlock its potential"
         ],
-        "agitate": "Generic responses. Treats you like everyone else. Wasted time explaining. Missed opportunities. No personalization. Frustration.",
+        "agitate": "Think about it: you're using the most powerful thinking tools ever created, but treating them like a stranger every time you interact. No wonder the outputs feel generic. No wonder you spend more time explaining than actually getting work done. Meanwhile, others are 10x-ing their productivity with AI while you're stuck copy-pasting the same backstory into every conversation. The gap between AI's potential and your actual results keeps growing.",
         "agitatePoints": [
-            "Generic",
-            "Re-explaining",
-            "Missed opportunities",
-            "No personalization",
-            "Frustration"
+            "Treating AI like a stranger every single time",
+            "More time explaining than actually working",
+            "Others are 10x-ing their output while you struggle",
+            "The potential-reality gap keeps widening",
+            "Frustration with tools that should be helping you"
         ],
-        "solution": "AI Master Prompt System: Crafted prompt that provides AI right context and rules.",
+        "solution": "AI Master Prompts are carefully crafted prompts that provide enough relevant context and rules to AI BEFORE you start asking questions. Instead of starting from zero, AI already knows who you are, what you do, your preferences, your goals, and your style. The result? Dramatically better responses from day one. This workshop reveals the complete framework I use daily to transform generic AI into a personalized assistant that actually understands me.",
         "solutionPoints": [
-            "AI knows you",
-            "Consistent quality",
-            "Save time",
-            "Personalized",
-            "Better results",
-            "Powerful"
+            "AI that knows you from the first message",
+            "Your context loaded automatically every time",
+            "Responses that match YOUR voice and style",
+            "Foundation for all advanced AI techniques",
+            "Works with ChatGPT, Claude, and any LLM",
+            "Integrates with your existing knowledge base"
         ],
-        "description": "Workshop revealing the complete approach to building an AI Master Prompt that transforms LLM work. Learn to provide context and rules that dramatically improve AI responses. Includes live demo.",
+        "description": "This workshop reveals the complete framework for building AI Master Prompts that transform how you work with LLMs. You'll learn the fundamentals of how large language models actually work, why context is everything, and exactly how to structure prompts that make AI understand YOU. Includes a live demo showing my actual AI writing assistant in action, creating content that matches my voice. Plus, you'll discover how to integrate your prompts with your knowledge base using Model Context Protocol (MCP) for truly dynamic, context-aware AI interactions.",
         "features": [
-            "Complete Framework",
-            "LLMs - How they work",
-            "AI Prompts - Fundamentals",
-            "Prompt Engineering",
-            "AI Master Prompts",
-            "Create Personal Master Prompt",
-            "PKM integration",
-            "Use your Master Prompt",
-            "Model Context Protocol"
+            "Complete AI Master Prompt Framework",
+            "LLM Fundamentals - How AI Actually Works",
+            "AI Prompts & Prompt Engineering Basics",
+            "Creating Personal Master Prompts",
+            "Creating Business Master Prompts",
+            "PKM System Integration Strategies",
+            "Model Context Protocol (MCP) Introduction",
+            "Multi-Role AI Assistant Configuration",
+            "Live Demo: AI Writing Assistant in Action"
         ],
         "benefits": {
-            "immediate": ["Stop re-explaining", "Get personalized", "Save time", "Better outputs"],
+            "immediate": [
+                "Experience AI responses that finally 'get' you",
+                "Stop re-explaining your context every session",
+                "Get noticeably better output quality immediately",
+                "Complete your initial prompt framework structure"
+            ],
             "systematic": [
-                "Consistent Quality",
-                "Time Savings",
-                "Better Results",
-                "Personalization",
-                "Scalability",
-                "Integration"
+                "Full personal AND business master prompts",
+                "AI that adapts to different roles (writer, coach, analyst)",
+                "Dynamic context loading from your knowledge base",
+                "Consistent quality across all AI interactions",
+                "Foundation for all advanced AI techniques"
             ],
             "longTerm": [
-                "Transform AI to assistant",
-                "Sustainable workflows",
-                "Compound improvements",
-                "Foundation"
+                "Compounding improvements as your prompt evolves",
+                "Seamless integration with your PKM system",
+                "Future-proof skills that work with any LLM",
+                "Transform AI from tool to true thinking partner"
             ]
         },
         "targetAudience": [
-            "AI Power Users",
-            "Content Creators",
+            "Content Creators & Writers",
             "Knowledge Workers",
-            "Productivity Seekers",
-            "Entrepreneurs"
+            "Entrepreneurs & Solopreneurs",
+            "PKM Enthusiasts",
+            "AI Power Users"
         ],
         "perfectFor": [
-            "Use LLMs regularly",
-            "Write content",
-            "Need AI help",
-            "Tired of re-explaining",
-            "Juggle projects"
+            "You use ChatGPT, Claude, or other LLMs regularly",
+            "You're tired of re-explaining yourself to AI every time",
+            "You want AI-generated content that sounds like YOU",
+            "You have a knowledge base and want AI to leverage it",
+            "You know AI can do more but can't unlock its potential"
         ],
-        "notForYou": ["Don't use AI", "Prefer generic", "Won't invest"],
+        "notForYou": [
+            "You rarely use AI tools",
+            "You prefer generic, one-size-fits-all responses",
+            "You're not willing to invest 30-60 minutes building your prompt"
+        ],
         "trustBadges": [
             "Complete Framework",
-            "Video with demo",
-            "Real Examples",
-            "Practical",
-            "Knowledge Base",
+            "Live Demo Included",
+            "Works With Any LLM",
+            "PKM Integration Covered",
             "Lifetime Access"
         ],
         "guarantees": [
-            "Complete framework",
-            "Video with demo",
-            "Implementation strategies",
-            "Lifetime access"
+            "Complete step-by-step framework",
+            "Real working demo, not theory",
+            "Practical implementation strategies",
+            "Lifetime access to workshop recording"
         ],
-        "metaTitle": "AI Master Prompt Workshop - Transform AI Into Your Personal Expert",
-        "metaDescription": "€19.99 workshop teaching how to create AI Master Prompts. Personalized, context-aware responses. ChatGPT, Claude, all LLMs.",
+        "metaTitle": "AI Master Prompt Workshop - Stop Re-Explaining Yourself to AI",
+        "metaDescription": "€19.99 workshop teaching how to create AI Master Prompts. Transform generic AI into your personal expert. Works with ChatGPT, Claude, all LLMs. Includes live demo.",
         "keywords": [
             "ai master prompt",
             "prompt engineering",
@@ -95,7 +102,66 @@
             "llm optimization",
             "chatgpt prompts",
             "claude prompts",
-            "personal ai"
-        ]
+            "personal ai",
+            "ai context",
+            "mcp model context protocol",
+            "pkm ai integration"
+        ],
+        "storytelling": null,
+        "timeline": {
+            "title": "Your AI Transformation Journey",
+            "subtitle": "See what you'll achieve as you implement your AI Master Prompt",
+            "milestones": [
+                {
+                    "id": "day-1",
+                    "timeframe": "Day 1",
+                    "title": "Your First 'It Gets Me' Moment",
+                    "description": "Experience an AI conversation where it actually understands your context from the start. Complete your initial prompt framework structure. Stop re-explaining who you are.",
+                    "highlights": [
+                        "AI responses that finally fit YOUR situation",
+                        "Initial personal prompt structure complete",
+                        "No more context re-typing"
+                    ],
+                    "icon": "🌱"
+                },
+                {
+                    "id": "week-1",
+                    "timeframe": "Week 1",
+                    "title": "Full System Operational",
+                    "description": "Complete both your personal AND business AI Master Prompts. Configure multiple AI roles for different tasks. Start integrating with your knowledge base.",
+                    "highlights": [
+                        "Personal + Business prompts ready",
+                        "Multi-role configuration (writer, coach, analyst)",
+                        "PKM integration started"
+                    ],
+                    "icon": "🌿"
+                },
+                {
+                    "id": "month-1",
+                    "timeframe": "Month 1",
+                    "title": "Transformed Workflow",
+                    "description": "AI has become a true extension of your thinking. Your prompts have evolved through daily use. Content creation is faster with consistent quality.",
+                    "highlights": [
+                        "AI as thinking partner, not just tool",
+                        "Refined prompts based on real usage",
+                        "Measurable productivity gains"
+                    ],
+                    "icon": "🌳"
+                },
+                {
+                    "id": "beyond",
+                    "timeframe": "Beyond",
+                    "title": "Compounding Returns",
+                    "description": "Your AI Master Prompt becomes a living document that grows with you. Advanced integrations via MCP. Foundation for AI agents and automation.",
+                    "highlights": [
+                        "Living system that evolves",
+                        "Advanced MCP integrations",
+                        "Ready for AI agents and automation"
+                    ],
+                    "icon": "🏆"
+                }
+            ]
+        },
+        "courseContent": null
     }
 }

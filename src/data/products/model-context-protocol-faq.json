@@ -8,47 +8,47 @@
         {
             "id": "faq-90",
             "question": "Do I need to be technical to use MCP?",
-            "answer": "No. The masterclass covers GUI tools (Dockmaster, Toolbase) that make installation easy. No coding required."
+            "answer": "No. This masterclass is specifically designed for knowledge workers, not developers. It covers GUI tools (Dockmaster, Toolbase, OneMCP) that make installation point-and-click easy. No command line or coding required."
         },
         {
             "id": "faq-91",
             "question": "Which AI tools support MCP?",
-            "answer": "Claude Desktop, Claude Web (with extension), Claude Code, Cline, Cursor, VSCode with Copilot, Windsurf, and growing. OpenAI announced ChatGPT support in March 2025."
+            "answer": "Claude Desktop, Claude Web (with extension), Claude Code, Cline, Cursor, VSCode with Copilot, Windsurf, Glama Chat, and growing. OpenAI announced ChatGPT support in March 2025."
         },
         {
             "id": "faq-92",
             "question": "Can I use MCP with my Obsidian notes?",
-            "answer": "Yes! Demo 1 shows exactly this. AI reads your Obsidian vault directly."
+            "answer": "Yes! Demo 1 shows exactly this. Claude reads and summarizes notes from your Obsidian vault directly—no copy-paste required."
         },
         {
             "id": "faq-93",
-            "question": "Is MCP secure?",
-            "answer": "MCP servers run locally on your machine. Claude Desktop requires user confirmation for sensitive operations. Masterclass covers security considerations in depth."
+            "question": "Is MCP secure? I'm worried about AI accessing my data.",
+            "answer": "Security is covered in depth in this masterclass. MCP servers run locally on your machine. Claude Desktop requires user confirmation for sensitive operations. You learn about the risks of untrusted servers, how to verify what you're installing, and best practices for protecting your data."
         },
         {
             "id": "faq-94",
             "question": "Where do I find MCP servers?",
-            "answer": "Multiple directories covered: Smithery, official repos, community directories. Masterclass provides complete resource list."
+            "answer": "Multiple directories covered: Smithery, OneMCP, official GitHub repos, community directories. The masterclass provides a curated list of reliable servers tested by the instructor."
         },
         {
             "id": "faq-95",
             "question": "How do I install MCP servers?",
-            "answer": "Multiple methods: GUI tools (easiest), command line, npm. Masterclass demonstrates all approaches."
+            "answer": "Multiple methods demonstrated: GUI tools like Dockmaster and Toolbase (easiest—just point and click), Smithery CLI, and manual configuration. You pick what's comfortable for you."
         },
         {
             "id": "faq-96",
             "question": "Can MCP search the web?",
-            "answer": "Yes! Demo 3 shows Brave Search integration. Many search providers available."
+            "answer": "Yes! Demo 3 shows Brave Search integration. AI searches the web and returns results without you switching tabs."
         },
         {
             "id": "faq-97",
             "question": "Can AI control my browser?",
-            "answer": "Yes! Demo 4 shows browser control. Navigate sites, extract data, fill forms."
+            "answer": "Yes! Demo 4 shows browser control using Browser MCP. Navigate sites, extract data, fill forms—perfect for automating tasks on websites without APIs."
         },
         {
             "id": "faq-98",
             "question": "Will MCP work with future AI tools?",
-            "answer": "Yes. MCP is an open standard. OpenAI announced support for ChatGPT and their AI Agents SDK."
+            "answer": "Yes. MCP is an open standard created by Anthropic. OpenAI adopted it for ChatGPT and their AI Agents SDK in 2025. It's becoming THE integration standard for AI."
         },
         {
             "id": "faq-99",
@@ -58,7 +58,22 @@
         {
             "id": "faq-100",
             "question": "Is this still relevant? MCP is from November 2024.",
-            "answer": "Very relevant! MCP is growing rapidly. OpenAI just added support (March 2025). Official registry coming. This is the BEGINNING of MCP adoption."
+            "answer": "Very relevant! MCP is the BEGINNING of a major shift. OpenAI's adoption in 2025 validated it as the industry standard. The ecosystem grows monthly with new servers and clients. Early adopters are building compound advantages."
+        },
+        {
+            "id": "faq-101",
+            "question": "Why pay €19.99 when there are free YouTube tutorials?",
+            "answer": "Most free tutorials are written by developers, for developers. This masterclass is designed for knowledge workers who want results without technical overhead. You get a curated path (I tested dozens of servers), GUI-focused installation, security guidance most tutorials skip, and PKM-specific use cases like Obsidian and Notion integration."
+        },
+        {
+            "id": "faq-102",
+            "question": "I'm overwhelmed—there are hundreds of MCP servers. Where do I start?",
+            "answer": "That's exactly why this masterclass exists. Instead of a scavenger hunt through documentation, you get a curated path: which servers are reliable, which clients work best, which tools make installation painless. I've done the testing so you don't have to."
+        },
+        {
+            "id": "faq-103",
+            "question": "What's the main use case for knowledge workers?",
+            "answer": "Breaking down knowledge silos. AI can read your Obsidian notes, query your Notion databases, search the web, and control your browser—all from a single prompt. No more being the middleman copy-pasting context between tools."
         }
     ]
 }

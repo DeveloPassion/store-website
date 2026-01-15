@@ -103,6 +103,11 @@ function buildChoices(): Choice[] {
             description: 'Fetch ratings, sales, and prices from Gumroad'
         },
         {
+            name: '👻 Ghost Stats',
+            value: 'ghost-stats.ts',
+            description: 'Fetch and display stats from Ghost and Plausible'
+        },
+        {
             name: '✅ Validate All',
             value: 'validate-all.sh',
             description: 'Run all validation checks'
@@ -155,7 +160,7 @@ async function launchTool(scriptName: string): Promise<void> {
 
     return new Promise<void>((resolve, reject) => {
         const isShellScript = scriptName.endsWith('.sh')
-        const command = isShellScript ? 'bash' : 'tsx'
+        const command = isShellScript ? 'bash' : 'bun'
         const args = [scriptPath]
 
         const child = spawn(command, args, {
