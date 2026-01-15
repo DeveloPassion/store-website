@@ -26,6 +26,9 @@ dist-ssr
 # Generated data files
 src/data/products.json
 
+# Exports directory (generated reports)
+exports/
+
 # Lighthouse reports
 lighthouse-reports
 

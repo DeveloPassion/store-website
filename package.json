@@ -37,6 +37,7 @@
         "update:animated-hero-texts": "bun scripts/update-animated-hero-texts.ts",
         "migrate:sales-copy": "bun scripts/migrate-to-sales-copy.ts",
         "sync:gumroad": "bun scripts/sync-gumroad.ts",
+        "ghost:stats": "bun scripts/ghost-stats.ts",
         "validate:relationships": "bun scripts/validate-relationships.ts",
         "validate:categories": "bun scripts/validate-categories.ts",
         "validate:tags": "bun scripts/validate-tags.ts",
