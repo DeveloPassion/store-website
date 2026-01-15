@@ -27,24 +27,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
 
     return (
         <Section className='bg-primary/[0.03]'>
-            <style>{`
-                @media (min-width: 690px) {
-                    .faq-container-fixed {
-                        width: 656px !important;
-                    }
-                }
-                @media (min-width: 960px) {
-                    .faq-container-fixed {
-                        width: 768px !important;
-                    }
-                }
-                @media (min-width: 1280px) {
-                    .faq-container-fixed {
-                        width: 896px !important;
-                    }
-                }
-            `}</style>
-            <div className='faq-container-fixed mx-auto w-full max-w-4xl'>
+            <div className='mx-auto w-full max-w-2xl sm:max-w-3xl lg:max-w-4xl'>
                 {/* Header */}
                 <SectionHeader
                     title='Frequently Asked Questions'
