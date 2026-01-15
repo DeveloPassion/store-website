@@ -1,6 +1,6 @@
 {
     "id": "journaling-deep-dive",
-    "name": "Knowii Journaling Deep Dive",
+    "name": "Journaling Deep Dive Workshop",
     "price": 29.99,
     "priceDisplay": "€29.99",
     "priceTier": "budget",
@@ -14,14 +14,19 @@
         "personal-organization",
         "habits",
         "routines",
-        "mindfulness"
+        "mindfulness",
+        "life-operating-system",
+        "knowledge-management",
+        "focus",
+        "adhd",
+        "clarity"
     ],
     "included": [
-        "80-Minute Video",
-        "System Diagram",
-        "Show Notes",
-        "40+ knowledge base notes",
-        "Real Examples"
+        "80-Minute Video Recording",
+        "System Visualization Diagram",
+        "Show Notes & Agenda",
+        "40+ Knowledge Base Notes",
+        "Real Journal Examples"
     ],
     "featured": false,
     "bestValue": false,
@@ -40,6 +45,10 @@
         },
         {
             "id": "journaling",
+            "distant": false
+        },
+        {
+            "id": "knowledge-management",
             "distant": false
         }
     ],

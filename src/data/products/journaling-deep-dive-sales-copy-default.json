@@ -1,111 +1,173 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Transform Your Journal From Diary to Personal Operating System",
-        "secondaryTagline": "Stop Forgetting Your Life. Start Building Intentionally.",
-        "problem": "You're losing your life, one forgotten moment at a time.",
+        "tagline": "Transform Your Journal From Empty Diary to Life Operating System",
+        "secondaryTagline": "Stop Blanking When Someone Asks \"What Did You Do This Month?\"",
+        "problem": "Your life is slipping away, one forgotten moment at a time.",
         "problemPoints": [
-            "Feel busy but unproductive",
-            "Beautiful moments disappear",
-            "End of months feel empty",
-            "Can't remember accomplishments",
-            "Life happens to you"
+            "End of months feel empty—busy but nothing to show",
+            "Beautiful moments with loved ones fade into nothing",
+            "Brilliant ideas vanish before you can act on them",
+            "You blank when someone asks what you accomplished",
+            "Life feels like it's happening TO you, not BY you"
         ],
-        "agitate": "Brain can't retain it. Ideas vanish. Insights disappear. Wins are lost. Moments fade. Clarity vanishes.",
+        "agitate": "Your brain wasn't designed to remember. That golden sunset walk with your partner? Gone in days. That breakthrough insight in the shower? Forgotten by lunch. That heartfelt conversation with your kids? A blur by next week. The brain is functional, not faithful—it forgets what you don't actively reinforce.",
         "agitatePoints": [
-            "Ideas vanish",
-            "Insights disappear",
-            "Wins lost",
-            "Moments fade",
-            "Clarity vanishes",
-            "Everything disappears"
+            "Ideas vanish within hours",
+            "Insights disappear forever",
+            "Small wins go unnoticed",
+            "Precious moments fade",
+            "Years pass in a blur",
+            "Growth feels invisible"
         ],
-        "solution": "Journaling as Personal Operating System: Foundation of life organization.",
+        "solution": "A journaling system that becomes the foundation of your entire life. Not a diary. Not \"Dear Diary\" feelings. A personal operating system that captures what matters, tracks what you achieve, and keeps you focused on what's next.",
         "solutionPoints": [
-            "Capture ideas",
-            "Track progress",
-            "Hold yourself accountable",
-            "Process experiences",
-            "Build knowledge",
-            "Find balance",
-            "Remember what matters"
+            "Capture moments before they vanish forever",
+            "Track progress so you can actually SEE your growth",
+            "Hold yourself accountable without guilt",
+            "Process experiences into lasting wisdom",
+            "Build a compounding knowledge base",
+            "Stay focused on what truly matters",
+            "Remember the beautiful mundane"
         ],
-        "description": "80-minute deep dive masterclass into journaling as complete life operating system. Systematic approach to capturing and building on valuable moments.",
+        "credibilityStory": "I manage 3 kids, run my own company half-time while working as an IT Solution Architect for a large financial organization, write books, articles, newsletters, build communities, and develop software. My life is BUSY. Yet I'm almost always calm, \"zen\", free from the frenzy many face with far fewer responsibilities. The difference? The journaling system I've refined for over a decade. I've accumulated 10,000+ interconnected notes. This isn't theory—it's the exact system that makes my complex life sustainable and intentional.",
+        "description": "An 80-minute deep dive masterclass revealing how journaling becomes your complete life operating system. Learn the \"interstitial journaling\" approach—capturing insights throughout your day without breaking flow—plus periodic reviews that compound your growth across weeks, months, and years.",
         "features": [
-            "80-Minute Video",
-            "System Visualization",
-            "Show Notes",
-            "40+ knowledge base notes",
-            "Real Examples",
-            "Brain science",
-            "Real workflows"
+            "80-minute video recording of the complete system",
+            "Comprehensive system visualization diagram (days to create)",
+            "Complete show notes with agenda and key takeaways",
+            "40+ interconnected knowledge base notes",
+            "Real examples from my actual daily/weekly notes",
+            "Brain science behind why this works",
+            "Practical workflows you can implement today"
         ],
         "benefits": {
             "immediate": [
-                "Stop blanking",
-                "Capture insights",
-                "See progress",
-                "Remember moments",
-                "Gain clarity"
+                "Stop blanking when someone asks about your week",
+                "Capture insights before they disappear",
+                "Actually see the progress you're making",
+                "Remember moments with people you love",
+                "Gain clarity about what matters today"
             ],
             "systematic": [
-                "Memory Enhancement",
-                "Progress Tracking",
-                "Accountability",
-                "Experience Processing",
-                "Knowledge Compounding",
-                "Work-Life Balance",
-                "Intentional Living"
+                "Build lasting memory enhancement systems",
+                "Create compounding progress tracking",
+                "Develop guilt-free accountability",
+                "Transform experiences into wisdom",
+                "Construct knowledge that grows over time",
+                "Achieve sustainable work-life balance",
+                "Live with genuine intentionality"
             ],
             "longTerm": [
-                "Better productivity",
-                "Clearer thinking",
-                "Intentional life",
-                "Sustainable system",
-                "Peace and focus"
+                "Look back on years with richness, not blankness",
+                "Think clearer through writing practice",
+                "Live an intentional life you designed",
+                "Maintain a sustainable system that scales",
+                "Experience peace, focus, and clarity"
             ]
         },
+        "misconceptionBusters": [
+            {
+                "myth": "Journaling is writing \"Dear Diary\" feelings",
+                "truth": "This is a life operating system—capturing ideas, tracking goals, processing experiences, and building compounding knowledge. Feelings optional."
+            },
+            {
+                "myth": "Journaling takes 30+ minutes every day",
+                "truth": "Interstitial journaling happens in moments throughout the day—a few seconds here, a minute there. No dedicated \"journaling time\" required."
+            },
+            {
+                "myth": "You need to be a \"writer\" to journal",
+                "truth": "You're capturing, not composing. Quick notes, bullet points, screenshots, links—whatever captures the moment fastest."
+            }
+        ],
         "targetAudience": [
-            "Overwhelmed professionals",
-            "Intentionality seekers",
-            "Idea losers",
-            "Experience builders",
-            "Journaling beginners"
+            "Overwhelmed professionals who feel busy but unproductive",
+            "System seekers wanting a complete life operating system",
+            "PKM enthusiasts ready to add journaling to their practice",
+            "Anyone craving clarity and focus in their lives",
+            "People with ADHD seeking an anchor point for attention"
         ],
         "perfectFor": [
-            "Feel busy but unproductive",
-            "Want intentionality",
-            "Forget ideas",
-            "Want to remember experiences",
-            "Never journaled"
+            "You feel busy all the time but struggle to see progress",
+            "Beautiful moments slip away before you can hold them",
+            "Great ideas vanish before you act on them",
+            "You want to be more intentional, not reactive",
+            "You've tried journaling but couldn't make it stick",
+            "You want one system that connects everything"
         ],
-        "notForYou": ["Happy with memory loss", "Prefer reactive", "Won't spend minutes daily"],
+        "adhdBenefit": "If you have ADHD or love someone who does: this journaling approach creates a powerful anchor point. One place to always return to. One place that knows your priorities. One place that brings you back when your attention drifts. Many find it transformative for channeling scattered attention into focused action.",
+        "notForYou": [
+            "You're happy forgetting most of your life",
+            "You prefer reacting to life instead of designing it",
+            "You won't invest a few minutes throughout your day"
+        ],
         "trustBadges": [
-            "10+ Years Refined",
-            "80-Minute Video",
-            "40+ Resources",
-            "Real Examples",
-            "Practical",
-            "Works with busy life",
+            "10+ Years Refined System",
+            "10K+ Personal Notes",
+            "80-Minute Deep Dive",
+            "40+ Knowledge Base Resources",
+            "Real System Examples",
+            "Works With Busy Lives",
             "Lifetime Access"
         ],
         "guarantees": [
-            "80-minute training",
-            "40+ knowledge notes",
-            "Real examples",
-            "Lifetime access"
+            "Complete 80-minute video training",
+            "40+ interconnected knowledge notes",
+            "Real examples from my actual journal",
+            "Lifetime access to all materials",
+            "System that scales with your life"
         ],
-        "metaTitle": "Journaling Deep Dive - Transform Your Journal | 80-Min Workshop",
-        "metaDescription": "€29.99 for 80-minute workshop + 40+ resources. Learn journaling system for ideas, progress, knowledge.",
+        "whatYouGet": [
+            {
+                "item": "80-Minute Video Recording",
+                "description": "Complete system walkthrough—theory, practice, demonstrations"
+            },
+            {
+                "item": "System Visualization Diagram",
+                "description": "Comprehensive visual map showing how everything connects (took days to create)"
+            },
+            {
+                "item": "Show Notes & Agenda",
+                "description": "Key takeaways and session structure for quick reference"
+            },
+            {
+                "item": "40+ Knowledge Base Notes",
+                "description": "Every concept, method, and technique I reference—interconnected and explorable"
+            },
+            {
+                "item": "Real Journal Examples",
+                "description": "Anonymized but authentic examples from my actual daily, weekly, and periodic notes"
+            }
+        ],
+        "transformation": {
+            "before": [
+                "Months end and you can't recall what happened",
+                "Ideas come and go without capture",
+                "Life feels scattered and reactive",
+                "Precious moments fade into blur",
+                "Progress feels invisible"
+            ],
+            "after": [
+                "Look back on rich, documented years",
+                "Ideas captured become future action",
+                "Life feels intentional and designed",
+                "Moments preserved forever",
+                "Growth visible and compounding"
+            ]
+        },
+        "metaTitle": "Journaling Deep Dive Workshop - Life Operating System | 80 Minutes",
+        "metaDescription": "80-minute workshop + 40+ resources. Learn the journaling system refined over 10+ years. Stop forgetting your life. Start living intentionally. €29.99.",
         "keywords": [
             "journaling system",
-            "daily notes",
             "interstitial journaling",
+            "daily notes",
             "periodic reviews",
+            "life operating system",
             "personal organization",
-            "productivity",
             "knowledge management",
-            "intentional living"
+            "intentional living",
+            "productivity system",
+            "ADHD journaling"
         ]
     }
 }

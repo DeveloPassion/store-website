@@ -3,92 +3,77 @@
         {
             "id": "faq-8",
             "question": "Is this actually private?",
-            "answer": "Yes. Everything runs on your computer. Voice recordings stored locally. AI model runs locally. Nothing sent to any server. Run with internet disabled - works perfectly. (Optional cloud models coming, but default is always local-first)",
-            "order": 1
+            "answer": "Yes. Everything runs on your computer. Voice recordings stored locally. AI model runs locally. Nothing sent to any server. Run with internet disabled - works perfectly. (Optional cloud models coming, but default is always local-first)"
         },
         {
             "id": "faq-9",
             "question": "Does it work offline?",
-            "answer": "Yes. After one-time AI model download (2-10 GB), everything runs on your computer. Laptop in airplane mode? Still works perfectly.",
-            "order": 2
+            "answer": "Yes. After one-time AI model download (2-10 GB), everything runs on your computer. Laptop in airplane mode? Still works perfectly."
         },
         {
             "id": "faq-10",
             "question": "How fast is it?",
-            "answer": "Depends on computer, model choice, and speech length. Decent laptop with small model: 1-3 seconds for few sentences. With GPU acceleration: near-instant. Larger models take few seconds longer but more accurate.",
-            "order": 3
+            "answer": "Depends on computer, model choice, and speech length. Decent laptop with small model: 1-3 seconds for few sentences. With GPU acceleration: near-instant. Larger models take few seconds longer but more accurate."
         },
         {
             "id": "faq-11",
             "question": "How accurate is it?",
-            "answer": "Very. The AI models we use (e.g., Whisper, Parakeet, Moonshine) are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections.",
-            "order": 4
+            "answer": "Very. The AI models we use (e.g., Whisper, Parakeet, Moonshine) are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections."
         },
         {
             "id": "faq-12",
             "question": "What languages are supported?",
-            "answer": "All major languages: English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Chinese, Japanese, Korean, and more. Select language in settings. Different models support different languages. Some have specific language variants.",
-            "order": 5
+            "answer": "All major languages: English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Chinese, Japanese, Korean, and more. Select language in settings. Different models support different languages. Some have specific language variants."
         },
         {
             "id": "faq-13",
             "question": "Will this work on my computer?",
-            "answer": "Windows 10/11: yes. macOS and Linux: coming soon. Don't need powerful computer, but GPU acceleration helps (NVIDIA CUDA). Works fine on CPU-only, just bit slower.",
-            "order": 6
+            "answer": "Windows 10/11: yes. macOS and Linux: coming soon. Don't need powerful computer, but GPU acceleration helps (NVIDIA CUDA). Works fine on CPU-only, just bit slower."
         },
         {
             "id": "faq-14",
             "question": "What microphone do I need?",
-            "answer": "Whatever you already have. Built-in laptop mics work. USB mics work. Headset mics work. Better microphones = better results, but don't need anything special.",
-            "order": 7
+            "answer": "Whatever you already have. Built-in laptop mics work. USB mics work. Headset mics work. Better microphones = better results, but don't need anything special."
         },
         {
             "id": "faq-15",
             "question": "Can I customize the keyboard shortcut?",
-            "answer": "Yes. Default is Ctrl+Space, change to whatever you want in settings.",
-            "order": 8
+            "answer": "Yes. Default is Ctrl+Space, change to whatever you want in settings."
         },
         {
             "id": "faq-16",
             "question": "What about my clipboard?",
-            "answer": "App saves clipboard before pasting, restores after. Your copied content isn't lost.",
-            "order": 9
+            "answer": "App saves clipboard before pasting, restores after. Your copied content isn't lost."
         },
         {
             "id": "faq-17",
             "question": "Can I use this at work?",
-            "answer": "Yes. Commercial license included. Use for personal projects, professional work, client communications, whatever you need.",
-            "order": 10
+            "answer": "Yes. Commercial license included. Use for personal projects, professional work, client communications, whatever you need."
         },
         {
             "id": "faq-18",
             "question": "What if I have problems?",
-            "answer": "Email creator directly. Personal help. If broken, will fix. If confusing, will explain. You're not alone.",
-            "order": 11
+            "answer": "Email creator directly. Personal help. If broken, will fix. If confusing, will explain. You're not alone."
         },
         {
             "id": "faq-19",
             "question": "What's the catch with Early Access?",
-            "answer": "No catch. Product works now. Called Early Access because actively building new features based on user feedback. You help shape what gets built next, and get lowest price ever.",
-            "order": 12
+            "answer": "No catch. Product works now. Called Early Access because actively building new features based on user feedback. You help shape what gets built next, and get lowest price ever."
         },
         {
             "id": "faq-20",
             "question": "Will the price increase?",
-            "answer": "Yes. This is Early Access pricing. When product leaves beta, price goes up. Buy now to lock in lifetime access at this price. No future charges, ever.",
-            "order": 13
+            "answer": "Yes. This is Early Access pricing. When product leaves beta, price goes up. Buy now to lock in lifetime access at this price. No future charges, ever."
         },
         {
             "id": "faq-21",
             "question": "What's your refund policy?",
-            "answer": "30-day money-back guarantee. Don't like it? Email for refund. No argument, no hassle.",
-            "order": 14
+            "answer": "30-day money-back guarantee. Don't like it? Email for refund. No argument, no hassle."
         },
         {
             "id": "faq-22",
             "question": "How does this relate to your other products?",
-            "answer": "Part of growing Knowii ecosystem. Voice AI helps capture thoughts faster. Knowii Community helps organize/leverage that knowledge. Knowledge Worker Kit gives frameworks to use it all effectively. Interconnected systems that amplify how you think and work.",
-            "order": 15
+            "answer": "Part of growing Knowii ecosystem. Voice AI helps capture thoughts faster. Knowii Community helps organize/leverage that knowledge. Knowledge Worker Kit gives frameworks to use it all effectively. Interconnected systems that amplify how you think and work."
         }
     ]
 }

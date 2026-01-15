@@ -3,56 +3,47 @@
         {
             "id": "building-wrong-features",
             "question": "I keep building features nobody uses. Will this help me understand what clients actually need?",
-            "answer": "Absolutely. This volume focuses specifically on understanding client needs, requirements discovery, and User-Centered Design principles. You'll learn to decode what users truly need versus what they say they want.",
-            "order": 1
+            "answer": "Absolutely. This volume focuses specifically on understanding client needs, requirements discovery, and User-Centered Design principles. You'll learn to decode what users truly need versus what they say they want."
         },
         {
             "id": "no-time-to-read",
             "question": "I don't have time to read an entire 50-page book. Can I still learn something here?",
-            "answer": "Yes. The chapters are designed as standalone resources, allowing quick searches when facing specific problems, plus external links for deeper exploration. You can jump to exactly what you need right now.",
-            "order": 2
+            "answer": "Yes. The chapters are designed as standalone resources, allowing quick searches when facing specific problems, plus external links for deeper exploration. You can jump to exactly what you need right now."
         },
         {
             "id": "technical-teaching",
             "question": "Will this volume teach me UX design tools and technical implementation?",
-            "answer": "This volume focuses on foundational UX principles, requirements discovery techniques, and user-centered thinking rather than specific design tools. It's about understanding the 'why' and 'what' before the 'how' of implementation.",
-            "order": 3
+            "answer": "This volume focuses on foundational UX principles, requirements discovery techniques, and user-centered thinking rather than specific design tools. It's about understanding the 'why' and 'what' before the 'how' of implementation."
         },
         {
             "id": "money-back-guarantee",
             "question": "What if I don't like it? How does the money-back guarantee work?",
-            "answer": "Contact within 14 days for a full refund. The creator only requests feedback on unmet expectations. No hassle, no questions asked beyond understanding how to improve.",
-            "order": 4
+            "answer": "Contact within 14 days for a full refund. The creator only requests feedback on unmet expectations. No hassle, no questions asked beyond understanding how to improve."
         },
         {
             "id": "volume-contents",
             "question": "What exactly is covered in this volume?",
-            "answer": "Volume 2 covers requirements discovery and documentation, User-Centered Design principles, Jobs-To-Be-Done theory, UX design fundamentals (research, personas, design patterns), Minimum Lovable Products, Design Sprints, and effective specifications development. Full chapter breakdowns and free samples are available on dev-concepts.dev.",
-            "order": 5
+            "answer": "Volume 2 covers requirements discovery and documentation, User-Centered Design principles, Jobs-To-Be-Done theory, UX design fundamentals (research, personas, design patterns), Minimum Lovable Products, Design Sprints, and effective specifications development. Full chapter breakdowns and free samples are available on dev-concepts.dev."
         },
         {
             "id": "bundle-option",
             "question": "Should I get the bundle instead?",
-            "answer": "If you also want to learn about software craftsmanship and professional mindset (Volume 1), plus get lifetime Slack community access with senior developer mentorship, the Starter Bundle offers better value.",
-            "order": 6
+            "answer": "If you also want to learn about software craftsmanship and professional mindset (Volume 1), plus get lifetime Slack community access with senior developer mentorship, the Starter Bundle offers better value."
         },
         {
             "id": "future-volumes",
             "question": "Will there be more volumes?",
-            "answer": "Yes, this is part of a planned 12-volume series covering comprehensive software development topics. New volumes release every few months. Consider the Lifetime Bundle on dev-concepts.dev to get all volumes as they're released.",
-            "order": 7
+            "answer": "Yes, this is part of a planned 12-volume series covering comprehensive software development topics. New volumes release every few months. Consider the Lifetime Bundle on dev-concepts.dev to get all volumes as they're released."
         },
         {
             "id": "cant-afford",
             "question": "I can't afford to buy this...",
-            "answer": "Contact the author via Twitter or email to discuss options. Sébastien wants to help developers grow regardless of their financial situation.",
-            "order": 8
+            "answer": "Contact the author via Twitter or email to discuss options. Sébastien wants to help developers grow regardless of their financial situation."
         },
         {
             "id": "group-purchase",
             "question": "I want to buy this for my team at work",
-            "answer": "Group licenses are available; contact the author for pricing details. This is perfect for helping your team better understand client needs and build the right features.",
-            "order": 9
+            "answer": "Group licenses are available; contact the author for pricing details. This is perfect for helping your team better understand client needs and build the right features."
         }
     ]
 }

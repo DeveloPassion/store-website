@@ -3,56 +3,67 @@
         {
             "id": "faq-58",
             "question": "I've never journaled before. Is this too advanced?",
-            "answer": "No. This workshop is perfect for beginners. It doesn't matter if you've never journaled or tried and given up. This approach is different—practical and systematic.",
-            "order": 1
+            "answer": "Perfect for beginners. The workshop includes a step-by-step getting started guide specifically designed for people who have never journaled or tried and gave up. This approach is different—practical and systematic, not fluffy or overwhelming."
         },
         {
             "id": "faq-59",
             "question": "How much time does this journaling system take daily?",
-            "answer": "Daily notes take a few minutes here and there. The system is designed to not break your flow (interstitial journaling). Weekly/monthly reviews take more time but compound your growth.",
-            "order": 2
+            "answer": "This uses 'interstitial journaling'—capturing insights in moments throughout your day. A few seconds here, a minute there. No dedicated 30-minute 'journaling time' required. It flows with your work, not against it. The system is designed to never break your focus."
         },
         {
             "id": "faq-60",
             "question": "What tools do I need?",
-            "answer": "You can start with any tool. The workshop shows my Obsidian system, but principles work with any journaling medium (digital or analog).",
-            "order": 3
+            "answer": "You can start with any digital tool. The workshop demonstrates the system in Obsidian, but the principles work with any note-taking app. Sébastien strongly recommends digital over paper for the ability to search, link, and roll up information—but you'll understand why when you see the system."
         },
         {
             "id": "faq-61",
-            "question": "Is this just \"Dear Diary\" journaling?",
-            "answer": "No. This is journaling as a complete life operating system. It's about capturing ideas, tracking progress, accountability, learning from experiences, and building compounding knowledge.",
-            "order": 4
+            "question": "Is this just \"Dear Diary\" journaling about feelings?",
+            "answer": "No. This is journaling as a complete life operating system. You'll capture ideas, track goals, hold yourself accountable, process experiences, and build compounding knowledge. Feelings are optional—the system works whether you want to explore emotions or just stay focused on productivity and progress."
         },
         {
             "id": "faq-62",
             "question": "How long is the workshop?",
-            "answer": "80 minutes of comprehensive video training, plus extensive resources library with 40+ interconnected notes.",
-            "order": 5
+            "answer": "80 minutes of comprehensive video training covering theory, practice, and live demonstrations. Plus a complete resources library with 40+ interconnected notes you can explore at your own pace."
         },
         {
             "id": "faq-63",
             "question": "Do I get lifetime access?",
-            "answer": "Yes. One-time purchase, lifetime access to video, visualizations, show notes, and resources library.",
-            "order": 6
+            "answer": "Yes. One-time purchase, lifetime access to the video, system visualization diagram, show notes, and the entire resources library."
         },
         {
             "id": "faq-64",
             "question": "Is this included in any bundles?",
-            "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
-            "order": 7
+            "answer": "Yes—included free with: Knowii Community 'Knowledge Builder' tier (€19.99/month), Knowii Community 'Knowledge Master' tier (€39.99/month), and Knowledge Worker Kit (€149.99 one-time). If you're considering any of those, you'll get this workshop included."
         },
         {
             "id": "faq-65",
-            "question": "Will this work with my existing systems?",
-            "answer": "Yes. The workshop shows how journaling integrates with Knowledge Management, Knowledge Work, Learning, Personal Organization, and Productivity. It becomes the foundation.",
-            "order": 8
+            "question": "Will this work with my existing PKM or productivity system?",
+            "answer": "Absolutely. The workshop shows how journaling becomes the foundation that integrates with Knowledge Management, Knowledge Work, Learning, Personal Organization, and Productivity. Your journal becomes the connecting tissue for everything else."
         },
         {
             "id": "faq-66",
-            "question": "What if I'm skeptical about journaling?",
-            "answer": "Fair. Most journaling advice is fluff. This is a systematic approach from someone who manages complex responsibilities and needs systems that actually work. See the proof in the results.",
-            "order": 9
+            "question": "I'm skeptical. Most journaling advice is fluffy.",
+            "answer": "Fair. This is different. Sébastien manages 3 kids, runs his own company, works as an IT Solution Architect, writes books and newsletters, builds communities, and develops software—all while staying calm and 'zen'. This isn't theory from someone who journals casually. It's the exact system that makes a genuinely complex life sustainable. 10+ years refined, 10,000+ notes accumulated."
+        },
+        {
+            "id": "faq-67",
+            "question": "Can this help with ADHD?",
+            "answer": "Many find it transformative. The journaling system creates a powerful anchor point—one place to always return to, one place that knows your priorities, one place that brings you back when attention drifts. For people who struggle to stay focused, having this reliable center point channels scattered attention into focused action."
+        },
+        {
+            "id": "faq-68",
+            "question": "What's the difference between this and morning pages?",
+            "answer": "Morning pages is one specific technique (writing stream-of-consciousness first thing in the morning). This workshop covers interstitial journaling—capturing insights throughout your day, not just in one morning session. Morning pages can be a part of a journaling practice, but this is a complete system that goes far beyond."
+        },
+        {
+            "id": "faq-69",
+            "question": "I've tried journaling before and gave up. Why would this be different?",
+            "answer": "Most journaling approaches fail because they require dedicated time blocks you can't sustain. Interstitial journaling fits into your existing day—a few seconds here, a minute there. Plus, when your journal becomes your operating system (not just a diary), you naturally return to it because it's where your priorities, tasks, and insights live."
+        },
+        {
+            "id": "faq-70",
+            "question": "Do I need to be a good writer?",
+            "answer": "Not at all. You're capturing, not composing. Quick notes, bullet points, screenshots, links—whatever captures the moment fastest. Over time, the practice naturally improves your writing skills, but that's a bonus, not a requirement."
         }
     ]
 }

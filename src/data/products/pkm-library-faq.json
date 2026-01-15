@@ -3,50 +3,42 @@
         {
             "id": "faq-50",
             "question": "Is this just a list of links?",
-            "answer": "No. It's an organized Notion database with context, categorization, and curation. Each resource is vetted and organized for discoverability.",
-            "order": 1
+            "answer": "No. It's an organized Notion database with context, categorization, and curation. Each resource is vetted and organized for discoverability."
         },
         {
             "id": "faq-51",
             "question": "How often is it updated?",
-            "answer": "Weekly. New resources are added every week based on latest discoveries and developments in PKM space.",
-            "order": 2
+            "answer": "Weekly. New resources are added every week based on latest discoveries and developments in PKM space."
         },
         {
             "id": "faq-52",
             "question": "What format is it in?",
-            "answer": "Notion database with lifetime access. You can view it directly in Notion or duplicate it to your own workspace.",
-            "order": 3
+            "answer": "Notion database with lifetime access. You can view it directly in Notion or duplicate it to your own workspace."
         },
         {
             "id": "faq-53",
             "question": "Do I need to know anything about PKM to use this?",
-            "answer": "No. Whether you're a complete beginner or advanced practitioner, the library has resources for your level.",
-            "order": 4
+            "answer": "No. Whether you're a complete beginner or advanced practitioner, the library has resources for your level."
         },
         {
             "id": "faq-54",
             "question": "Can I suggest resources to add?",
-            "answer": "Yes, through the PKM community. The library benefits from community contributions.",
-            "order": 5
+            "answer": "Yes, through the PKM community. The library benefits from community contributions."
         },
         {
             "id": "faq-55",
             "question": "Is this included in any bundles?",
-            "answer": "Yes - included in: Knowii Community paid subscriptions, Knowledge Worker Kit (€149.99), Everything Knowledge Bundle (€299.99)",
-            "order": 6
+            "answer": "Yes - included in: Knowii Community paid subscriptions, Knowledge Worker Kit (€149.99), Everything Knowledge Bundle (€299.99)"
         },
         {
             "id": "faq-56",
             "question": "Will I get overwhelmed by so many resources?",
-            "answer": "No. Resources are organized by category and topic. Start with what's relevant to you right now.",
-            "order": 7
+            "answer": "No. Resources are organized by category and topic. Start with what's relevant to you right now."
         },
         {
             "id": "faq-57",
             "question": "Do you promote your own products in the library?",
-            "answer": "The library includes my own content alongside 2,000+ other resources. It's about comprehensive coverage, not self-promotion.",
-            "order": 8
+            "answer": "The library includes my own content alongside 2,000+ other resources. It's about comprehensive coverage, not self-promotion."
         }
     ]
 }

@@ -3,38 +3,32 @@
         {
             "id": "faq-130",
             "question": "Is this really free?",
-            "answer": "Yes! Completely free, no credit card required.",
-            "order": 1
+            "answer": "Yes! Completely free, no credit card required."
         },
         {
             "id": "faq-131",
             "question": "What format is it?",
-            "answer": "Digital format (PDF or similar) for easy reference.",
-            "order": 2
+            "answer": "Digital format (PDF or similar) for easy reference."
         },
         {
             "id": "faq-132",
             "question": "Can I share this with others?",
-            "answer": "Personal use. If others want it, direct them to download their own copy.",
-            "order": 3
+            "answer": "Personal use. If others want it, direct them to download their own copy."
         },
         {
             "id": "faq-133",
             "question": "Do I need a knowledge management system already?",
-            "answer": "No. Use this whether you're starting from scratch or improving an existing system.",
-            "order": 4
+            "answer": "No. Use this whether you're starting from scratch or improving an existing system."
         },
         {
             "id": "faq-134",
             "question": "Will this tell me how to build each component?",
-            "answer": "It's a checklist of what components you need. For how-to guidance, see courses like Knowledge Management for Beginners.",
-            "order": 5
+            "answer": "It's a checklist of what components you need. For how-to guidance, see courses like Knowledge Management for Beginners."
         },
         {
             "id": "faq-135",
             "question": "Is there follow-up content?",
-            "answer": "This is part of Knowii Community free resources. Explore other free resources and paid options for deeper learning.",
-            "order": 6
+            "answer": "This is part of Knowii Community free resources. Explore other free resources and paid options for deeper learning."
         }
     ]
 }
