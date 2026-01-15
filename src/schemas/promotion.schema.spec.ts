@@ -17,6 +17,17 @@ describe('Promotion Schema Validation', () => {
         discountCode: 'NEWYEAR2026'
     }
 
+    // Config with all nullable fields set to null
+    const minimalPromotion: PromotionConfig = {
+        bannerBehavior: 'ALWAYS',
+        promotionStart: null,
+        promotionEnd: null,
+        promoText: 'Always visible banner',
+        promoLinkText: null,
+        promoLink: null,
+        discountCode: null
+    }
+
     describe('BannerBehaviorSchema', () => {
         it('should accept ALWAYS behavior', () => {
             const result = BannerBehaviorSchema.safeParse('ALWAYS')
@@ -61,12 +72,18 @@ describe('Promotion Schema Validation', () => {
             expect(result.success).toBe(false)
         })
 
-        it('should reject promotion without promoLink', () => {
+        it('should reject promotion without promoLink field', () => {
             const invalid = Object.fromEntries(
                 Object.entries(validPromotion).filter(([key]) => key !== 'promoLink')
             )
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)
+        })
+
+        it('should accept promotion with null promoLink', () => {
+            const valid = { ...validPromotion, promoLink: null }
+            const result = PromotionConfigSchema.safeParse(valid)
+            expect(result.success).toBe(true)
         })
 
         it('should reject promotion with invalid promoLink', () => {
@@ -76,30 +93,78 @@ describe('Promotion Schema Validation', () => {
         })
     })
 
-    describe('PromotionConfigSchema - Optional Fields', () => {
-        it('should accept promotion without promoLinkText', () => {
-            const minimal = Object.fromEntries(
-                Object.entries(validPromotion).filter(([key]) => key !== 'promoLinkText')
-            )
-            const result = PromotionConfigSchema.safeParse(minimal)
+    describe('PromotionConfigSchema - Nullable Fields', () => {
+        it('should accept promotion with null promoLinkText', () => {
+            const valid = { ...validPromotion, promoLinkText: null }
+            const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept promotion without discountCode', () => {
-            const minimal = Object.fromEntries(
+        it('should accept promotion with null discountCode', () => {
+            const valid = { ...validPromotion, discountCode: null }
+            const result = PromotionConfigSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept promotion with null promotionStart and promotionEnd (when not PROMOTIONS mode)', () => {
+            const valid = {
+                ...validPromotion,
+                bannerBehavior: 'ALWAYS' as BannerBehavior,
+                promotionStart: null,
+                promotionEnd: null
+            }
+            const result = PromotionConfigSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept minimal promotion with all nullable fields set to null', () => {
+            const result = PromotionConfigSchema.safeParse(minimalPromotion)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject promotion without promoLinkText field entirely', () => {
+            const invalid = Object.fromEntries(
+                Object.entries(validPromotion).filter(([key]) => key !== 'promoLinkText')
+            )
+            const result = PromotionConfigSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject promotion without discountCode field entirely', () => {
+            const invalid = Object.fromEntries(
                 Object.entries(validPromotion).filter(([key]) => key !== 'discountCode')
             )
-            const result = PromotionConfigSchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = PromotionConfigSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject promotion without promotionStart field entirely', () => {
+            const invalid = Object.fromEntries(
+                Object.entries(validPromotion).filter(([key]) => key !== 'promotionStart')
+            )
+            const result = PromotionConfigSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject promotion without promotionEnd field entirely', () => {
+            const invalid = Object.fromEntries(
+                Object.entries(validPromotion).filter(([key]) => key !== 'promotionEnd')
+            )
+            const result = PromotionConfigSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
         })
     })
 
     describe('PromotionConfigSchema - ALWAYS Behavior', () => {
-        it('should accept ALWAYS behavior without dates', () => {
+        it('should accept ALWAYS behavior with null dates', () => {
             const valid = {
                 bannerBehavior: 'ALWAYS' as BannerBehavior,
+                promotionStart: null,
+                promotionEnd: null,
                 promoText: 'Always visible banner',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -111,7 +176,9 @@ describe('Promotion Schema Validation', () => {
                 promotionStart: '2026-01-01T00:00:00Z',
                 promotionEnd: '2026-12-31T23:59:59Z',
                 promoText: 'Always visible banner',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -119,11 +186,15 @@ describe('Promotion Schema Validation', () => {
     })
 
     describe('PromotionConfigSchema - NEVER Behavior', () => {
-        it('should accept NEVER behavior without dates', () => {
+        it('should accept NEVER behavior with null dates', () => {
             const valid = {
                 bannerBehavior: 'NEVER' as BannerBehavior,
+                promotionStart: null,
+                promotionEnd: null,
                 promoText: 'Hidden banner',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -135,7 +206,9 @@ describe('Promotion Schema Validation', () => {
                 promotionStart: '2026-01-01T00:00:00Z',
                 promotionEnd: '2026-12-31T23:59:59Z',
                 promoText: 'Hidden banner',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -148,33 +221,43 @@ describe('Promotion Schema Validation', () => {
             expect(result.success).toBe(true)
         })
 
-        it('should reject PROMOTIONS behavior without promotionStart', () => {
+        it('should reject PROMOTIONS behavior with null promotionStart', () => {
             const invalid = {
                 bannerBehavior: 'PROMOTIONS' as BannerBehavior,
+                promotionStart: null,
                 promotionEnd: '2026-01-31T23:59:59Z',
                 promoText: 'Sale',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
-        it('should reject PROMOTIONS behavior without promotionEnd', () => {
+        it('should reject PROMOTIONS behavior with null promotionEnd', () => {
             const invalid = {
                 bannerBehavior: 'PROMOTIONS' as BannerBehavior,
                 promotionStart: '2026-01-01T00:00:00Z',
+                promotionEnd: null,
                 promoText: 'Sale',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
-        it('should reject PROMOTIONS behavior without both dates', () => {
+        it('should reject PROMOTIONS behavior with both dates null', () => {
             const invalid = {
                 bannerBehavior: 'PROMOTIONS' as BannerBehavior,
+                promotionStart: null,
+                promotionEnd: null,
                 promoText: 'Sale',
-                promoLink: 'https://example.com'
+                promoLink: 'https://example.com',
+                promoLinkText: null,
+                discountCode: null
             }
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)

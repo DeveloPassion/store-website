@@ -17,14 +17,14 @@ export const PromotionConfigSchema = z
         bannerBehavior: BannerBehaviorSchema,
 
         // Promotion timing (required when bannerBehavior is PROMOTIONS)
-        promotionStart: z.string().datetime({ message: 'Must be ISO 8601 timestamp' }).optional(),
-        promotionEnd: z.string().datetime({ message: 'Must be ISO 8601 timestamp' }).optional(),
+        promotionStart: z.string().datetime({ message: 'Must be ISO 8601 timestamp' }).nullable(),
+        promotionEnd: z.string().datetime({ message: 'Must be ISO 8601 timestamp' }).nullable(),
 
         // Content
         promoText: z.string().min(1, 'Promotion text is required'),
-        promoLinkText: z.string().optional(),
-        promoLink: z.string().url('Promotion link must be a valid URL'),
-        discountCode: z.string().optional()
+        promoLinkText: z.string().nullable(),
+        promoLink: z.string().url('Promotion link must be a valid URL').nullable(),
+        discountCode: z.string().nullable()
     })
     .refine(
         (data) => {

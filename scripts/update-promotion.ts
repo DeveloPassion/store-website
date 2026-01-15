@@ -18,7 +18,7 @@
  * Arguments:
  *   --behavior <ALWAYS|NEVER|PROMOTIONS>  Banner behavior mode (required)
  *   --text <string>                       Promotion text (required)
- *   --link <url>                          Promotion link URL (required)
+ *   --link <url>                          Promotion link URL (optional)
  *   --linkText <string>                   Link text (optional)
  *   --code <string>                       Discount code (optional)
  *   --start <date>                        Start date for PROMOTIONS (YYYY-MM-DD or ISO 8601)
@@ -206,18 +206,12 @@ async function interactiveMode() {
         process.exit(1)
     }
 
-    // Promotion link
+    // Promotion link (nullable)
     const promoLinkInput = await prompt(
         rl,
-        'Promotion link URL [current: ' + (currentConfig?.promoLink || 'required') + ']: '
+        'Promotion link URL [current: ' + (currentConfig?.promoLink || 'none') + ']: '
     )
-    const promoLink = promoLinkInput || currentConfig?.promoLink || ''
-
-    if (!promoLink) {
-        console.error('❌ Promotion link is required')
-        rl.close()
-        process.exit(1)
-    }
+    const promoLink = promoLinkInput || currentConfig?.promoLink || undefined
 
     // Optional fields
     const promoLinkTextInput = await prompt(
@@ -287,15 +281,15 @@ async function interactiveMode() {
 
     rl.close()
 
-    // Build configuration object
+    // Build configuration object (all nullable fields must be present)
     const config: PromotionConfig = {
         bannerBehavior,
         promoText,
-        promoLink,
-        ...(promoLinkText && { promoLinkText }),
-        ...(discountCode && { discountCode }),
-        ...(promotionStart && { promotionStart }),
-        ...(promotionEnd && { promotionEnd })
+        promoLink: promoLink || null,
+        promoLinkText: promoLinkText || null,
+        discountCode: discountCode || null,
+        promotionStart: promotionStart || null,
+        promotionEnd: promotionEnd || null
     }
 
     return config
@@ -303,8 +297,8 @@ async function interactiveMode() {
 
 // CLI arguments mode
 function cliMode(args: CliArgs): PromotionConfig | null {
-    if (!args.behavior || !args.text || !args.link) {
-        console.error('❌ CLI mode requires --behavior, --text, and --link arguments')
+    if (!args.behavior || !args.text) {
+        console.error('❌ CLI mode requires --behavior and --text arguments')
         console.error('   Run without arguments for interactive mode')
         return null
     }
@@ -355,14 +349,15 @@ function cliMode(args: CliArgs): PromotionConfig | null {
         console.log(`   Duration: ${duration} days\n`)
     }
 
+    // Build configuration object (all nullable fields must be present)
     const config: PromotionConfig = {
         bannerBehavior,
         promoText: args.text,
-        promoLink: args.link,
-        ...(args.linkText && { promoLinkText: args.linkText }),
-        ...(args.code && { discountCode: args.code }),
-        ...(promotionStart && { promotionStart }),
-        ...(promotionEnd && { promotionEnd })
+        promoLink: args.link || null,
+        promoLinkText: args.linkText || null,
+        discountCode: args.code || null,
+        promotionStart: promotionStart || null,
+        promotionEnd: promotionEnd || null
     }
 
     return config

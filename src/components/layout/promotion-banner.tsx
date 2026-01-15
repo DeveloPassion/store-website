@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Link } from 'react-router'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaCopy, FaCheck } from 'react-icons/fa'
 import promotionConfig from '@/data/promotion.json'
 import type { PromotionConfig } from '@/schemas/promotion.schema'
 
@@ -12,12 +12,26 @@ const PromotionBanner: React.FC = () => {
     const [isDismissed, setIsDismissed] = useState(() => {
         return sessionStorage.getItem(STORAGE_KEY) === 'true'
     })
+    const [isCopied, setIsCopied] = useState(false)
 
     // Handle dismiss
     const handleDismiss = () => {
         setIsDismissed(true)
         sessionStorage.setItem(STORAGE_KEY, 'true')
     }
+
+    // Handle copy discount code to clipboard
+    const handleCopyDiscountCode = useCallback(async () => {
+        if (!config.discountCode) return
+
+        try {
+            await navigator.clipboard.writeText(config.discountCode)
+            setIsCopied(true)
+            setTimeout(() => setIsCopied(false), 2000)
+        } catch (err) {
+            console.error('Failed to copy discount code:', err)
+        }
+    }, [config.discountCode])
 
     // Determine if banner should be visible
     const isVisible = useMemo(() => {
@@ -67,7 +81,7 @@ const PromotionBanner: React.FC = () => {
             <div className='flex items-center justify-between gap-4'>
                 <p className='text-primary/80 flex-1 text-center'>
                     {config.promoText}{' '}
-                    {config.promoLinkText && (
+                    {config.promoLinkText && config.promoLink && (
                         <>
                             {config.promoLink.startsWith('http://') ||
                             config.promoLink.startsWith('https://') ? (
@@ -89,7 +103,21 @@ const PromotionBanner: React.FC = () => {
                             )}
                         </>
                     )}
-                    {config.discountCode && <span className='ml-1'>({config.discountCode})</span>}
+                    {config.discountCode && (
+                        <button
+                            onClick={handleCopyDiscountCode}
+                            className='ml-1 inline-flex cursor-pointer items-center gap-1 rounded px-1 transition-colors hover:bg-amber-600/20'
+                            aria-label={`Copy discount code ${config.discountCode}`}
+                            title={isCopied ? 'Copied!' : 'Click to copy'}
+                        >
+                            <span className='text-amber-600'>({config.discountCode})</span>
+                            {isCopied ? (
+                                <FaCheck className='h-3 w-3 text-green-500' />
+                            ) : (
+                                <FaCopy className='h-3 w-3 text-amber-600/70 hover:text-amber-600' />
+                            )}
+                        </button>
+                    )}
                 </p>
                 <button
                     onClick={handleDismiss}
