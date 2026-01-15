@@ -455,7 +455,7 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 
 **CLI**: Use `bun run update:products` for managing sales copy variants with operations: list, add, edit, enable, duplicate, and remove.
 
-**Schema**: See `/src/schemas/sales-copy.schema.ts`, `/src/schemas/storytelling.schema.ts`, and `/src/schemas/timeline.schema.ts` for complete field definitions.
+**Schema**: See `/src/schemas/sales-copy.schema.ts`, `/src/schemas/storytelling.schema.ts`, `/src/schemas/timeline.schema.ts`, and `/src/schemas/course-content.schema.ts` for complete field definitions.
 
 **Required Fields in `SalesCopyDataSchema`:**
 
@@ -466,6 +466,7 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 - **SEO**: `metaTitle` (required), `metaDescription` (required), `keywords` (required)
 - **Storytelling**: `storytelling` (required but nullable - can be null or contain storytelling sections)
 - **Timeline**: `timeline` (required but nullable - can be null or contain transformation journey milestones)
+- **Course Content**: `courseContent` (required but nullable - can be null or contain course modules and sections)
 
 **Benefits Object Requirements:**
 All three categories are strictly required (can be empty arrays):
@@ -508,6 +509,81 @@ Displays the timeline on product pages after ProductBenefits. Features:
 - Optional icon or numbered indicators
 - Alternating layout on desktop (left/right)
 - Staggered scroll animations
+
+## Managing Course Content
+
+Course products can have structured course content displayed on product pages. This is stored in the sales copy file as `courseContent`.
+
+**Schema**: See `/src/schemas/course-content.schema.ts` for complete field definitions.
+
+**Course Content Structure** (required but nullable):
+
+The `courseContent` field in sales copy defines the course structure with modules and sections:
+
+```json
+{
+    "courseContent": {
+        "sectionTitle": "What's Inside the Course",
+        "sectionDescription": "A comprehensive curriculum from beginner to expert",
+        "sectionIcon": "FaGraduationCap",
+        "totalDuration": "12 hours",
+        "difficulty": "beginner",
+        "prerequisites": ["Basic computer skills", "Obsidian installed"],
+        "modules": [
+            {
+                "name": "Getting Started",
+                "description": "Install, configure, and understand the interface",
+                "icon": "🚀",
+                "duration": "25 min",
+                "sections": [
+                    { "name": "Installing Obsidian", "duration": "5 min", "icon": "💻" },
+                    { "name": "Understanding the Interface", "duration": "10 min" }
+                ]
+            }
+        ]
+    }
+}
+```
+
+**Field Definitions:**
+
+- `sectionTitle` (optional): Header title for the section. Default: "What's Inside the Course"
+- `sectionDescription` (optional): Subtitle text describing the course content
+- `sectionIcon` (optional): Emoji or React icon name for the header
+- `totalDuration` (optional): Total course duration (e.g., "12 hours", "2h 30min")
+- `difficulty` (optional): One of `beginner`, `intermediate`, `advanced`
+- `prerequisites` (optional): Array of prerequisite items
+- `modules` (required): Array of course modules (at least 1 required)
+
+**Module Fields:**
+
+- `name` (required): Module title
+- `description` (required but nullable): Module description
+- `icon` (required but nullable): Emoji or React icon name
+- `duration` (required but nullable): Module duration (e.g., "45 min")
+- `sections` (required): Array of sections within the module (at least 1 required)
+
+**Section Fields:**
+
+- `name` (required): Section/lesson title
+- `description` (required but nullable): Section description
+- `duration` (required but nullable): Section duration (e.g., "15 min")
+- `icon` (required but nullable): Emoji or React icon name
+
+**Validation:**
+
+If a product has `mainCategory === 'courses'` AND `courseContent` is defined, the validation script checks that at least one module is present.
+
+**ProductCourseContent Component:**
+
+Displays course content on product pages after ProductFeatures. Features:
+
+- Header with title, description, and icon
+- Meta badges showing total duration, difficulty, and module/lesson counts
+- Prerequisites list with checkmarks
+- Accordion for modules (all collapsed by default)
+- Sections list within each expanded module
+- Icons for modules and sections (emoji or React icons)
 
 ## Accessing Product Data in Code
 

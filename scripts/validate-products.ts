@@ -159,6 +159,28 @@ function validateAggregated(products: AggregatedProduct[]): ValidationError[] {
         }))
     }
 
+    // Course-specific validation: Course products with courseContent must have at least 1 module
+    const courseErrors: ValidationError[] = []
+    for (const product of products) {
+        if (product.mainCategory === 'courses' && product.salesCopy?.courseContent) {
+            const modules = product.salesCopy.courseContent.modules
+            if (!modules || modules.length === 0) {
+                console.error(
+                    `  ❌ Course product "${product.id}" has courseContent but no modules`
+                )
+                courseErrors.push({
+                    productId: product.id,
+                    productIndex: -1,
+                    errors: ['Course product with courseContent must have at least one module']
+                })
+            }
+        }
+    }
+    if (courseErrors.length > 0) {
+        console.log('')
+        return courseErrors
+    }
+
     // Validate the entire array structure
     const result = AggregatedProductsArraySchema.safeParse(products)
     if (result.success) {

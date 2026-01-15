@@ -6,6 +6,7 @@ import ProductPAS from '@/components/products/product-pas'
 import ProductOriginStory from '@/components/products/product-origin-story'
 import ProductCreatorJourney from '@/components/products/product-creator-journey'
 import ProductFeatures from '@/components/products/product-features'
+import ProductCourseContent from '@/components/products/product-course-content'
 import ProductMethodology from '@/components/products/product-methodology'
 import MediaCarouselSection from '@/components/products/media-carousel-section'
 import ProductBenefits from '@/components/products/product-benefits'
@@ -121,6 +122,8 @@ const ProductPage: React.FC = () => {
             <ProductCreatorJourney product={product} />
             <CoverVideoSpot product={product} position={1} />
             <ProductFeatures product={product} />
+            {/* Course Content: For course products, show module structure after features */}
+            <ProductCourseContent product={product} />
             {/* Methodology: Explain HOW it works after showing WHAT's included */}
             <ProductMethodology product={product} />
             <MediaCarouselSection

@@ -35,9 +35,23 @@
             "Detailed commit messages in 30 seconds"
         ],
         "description": "Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models process everything locally. No cloud. No subscription. No usage limits. Just €49 once, yours forever. Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.",
-        "features": ["Voice capture", "AI organization", "Smart categorization"],
+        "features": [
+            "Press-speak-release in any application - works in Gmail, Notion, Teams, VS Code, terminal, literally everywhere",
+            "Multiple AI models: Whisper, Parakeet, Moonshine, Omnilingual - choose speed vs accuracy",
+            "99+ languages supported with automatic language detection",
+            "Searchable transcription history - find what you said weeks ago",
+            "GPU acceleration for near-instant results (NVIDIA, AMD, Intel)",
+            "Custom keyboard shortcuts - configure to your preference",
+            "Word replacements - auto-correct commonly misrecognized words",
+            "Clipboard preservation - your copied content stays safe",
+            "Model auto-unload - free memory when not in use"
+        ],
         "benefits": {
-            "immediate": ["Start today", "Quick setup"],
+            "immediate": [
+                "Download, install, transcribe in under 5 minutes",
+                "No account creation or registration required",
+                "Works with any microphone you already own"
+            ],
             "systematic": [
                 "Responses faster and more thorough",
                 "Clear inbox in half the time",
@@ -45,67 +59,111 @@
                 "No more tired hands or sore neck",
                 "Keep up with your mind - ideas flow at speed of thought",
                 "First drafts spoken naturally",
-                "No more blank page paralysis"
+                "No more blank page paralysis",
+                "AI finally gets you - rich prompts in seconds instead of minutes"
             ],
             "longTerm": [
-                "Your data stays yours - on your machine",
+                "Your data stays yours - on your machine, under your control",
                 "No voice recordings training someone else's AI",
-                "Work offline, no internet dependency",
+                "Work offline, no internet dependency after model download",
                 "Detailed documentation without the chore",
-                "AI prompts prepared rapidly - harness full power of AI"
+                "AI prompts prepared rapidly - harness full power of AI",
+                "Searchable voice history becomes external memory you can rely on"
             ]
         },
         "targetAudience": [
             "You communicate for work (emails, Slack, Teams, support tickets)",
             "Your keyboard slows you down - ideas come faster than fingers can type",
-            "You want to fully leverage AI",
+            "You want to fully leverage AI but typing prompts takes too long",
             "You create content (blog posts, articles, scripts, social posts)",
-            "You write code for a living",
-            "You care about privacy"
+            "You write code for a living and documentation feels like a chore",
+            "You care about privacy and won't send voice to cloud services"
         ],
         "perfectFor": [
-            "Communicate extensively for work",
-            "Keyboard slows down your thinking",
-            "Want to fully leverage AI",
-            "Create content regularly",
-            "Write code professionally",
-            "Care about privacy"
+            "Knowledge workers who communicate extensively",
+            "Content creators who want to beat blank page paralysis",
+            "Developers who avoid documentation because typing is tedious",
+            "AI power users who need richer, more detailed prompts",
+            "Anyone over 40 feeling the physical toll of all-day typing",
+            "Privacy-conscious professionals who refuse cloud dependency"
         ],
         "notForYou": [
-            "Not on Windows (yet - Linux/Mac coming soon)",
-            "Don't write/communicate frequently",
-            "Prefer typing"
+            "Not on Windows 10/11 (Linux and macOS coming soon)",
+            "Don't write or communicate frequently",
+            "Prefer typing over speaking",
+            "Need real-time live transcription (coming in future update)"
         ],
         "trustBadges": [
             "30-Day Money-Back Guarantee",
-            "Lifetime Updates",
+            "Lifetime Updates - Every new feature included forever",
             "Complete Privacy - Everything runs on your computer",
             "Works Everywhere - Every application where you can type",
             "Early Access - Help shape development, get lowest price ever",
-            "Creator Track Record - Built by Sébastien Dubois (OSK: 1,000+ users)",
+            "Creator Track Record - Built by Sébastien Dubois (OSK: 2,000+ users)",
             "No Subscription - €49 once, own forever",
-            "GPU Accelerated - Near-instant transcription with NVIDIA"
+            "GPU Accelerated - Near-instant transcription with Vulkan support",
+            "Commercial License Included - Use for work without restrictions"
         ],
         "guarantees": [
-            "30-day money-back guarantee - don't like it? Refund, no questions asked",
+            "30-day money-back guarantee - don't like it? Email for refund, no questions asked",
             "All future updates free - no upgrade fees ever",
-            "Complete privacy - everything runs on your computer, no cloud",
-            "Works everywhere - every application where you can type"
+            "Complete privacy - everything runs on your computer, no cloud by default",
+            "Works everywhere - every application where you can type",
+            "Direct support from the creator - email me, I respond personally"
         ],
         "metaTitle": "Knowii Voice AI - Voice-to-Text That Runs on Your Computer | Privacy-First Speech Recognition",
-        "metaDescription": "Speak 3.75x faster than typing. Local AI transcription in every app. No cloud, no subscription. €49 once, yours forever. Windows, Linux, Mac. 30-day guarantee.",
+        "metaDescription": "Speak 3.75x faster than typing. Local AI transcription in every app. No cloud, no subscription. €49 once, yours forever. Windows 10/11. 30-day guarantee.",
         "keywords": [
             "voice to text",
             "speech to text",
             "local ai",
             "offline transcription",
             "whisper ai",
+            "parakeet ai",
             "privacy voice recognition",
             "voice typing",
             "dictation software",
             "speech recognition",
             "knowledge worker tools",
-            "productivity tools"
-        ]
+            "productivity tools",
+            "ai prompting",
+            "voice capture"
+        ],
+        "storytelling": {
+            "originStory": {
+                "title": "Why I Built This",
+                "subtitle": "From typing pain to voice-first productivity",
+                "story": "I type fast. Really fast. But it wasn't enough. Working with AI daily, I realized I was the bottleneck. AI works brilliantly when given the right context - and providing that context by typing was agonizingly slow. I'd have a complete thought, know exactly what I wanted to say, and watch it leak away as my fingers hunted for keys. Worse, after years of heavy keyboard use, my hands started hurting. At 40+, the physical toll of all-day typing became impossible to ignore. I tried every voice-to-text tool out there: cloud services at $20/month that sent my voice to someone else's servers, browser extensions that only worked in Chrome, mobile apps that didn't talk to my computer. They all had the same problems - no privacy, subscription fees, usage limits, limited app support. I wanted something different. Something that respects privacy. Something I could own, not rent. Something that works everywhere. So I decided to build it myself. I learned Rust and Tauri, built an MVP, then discovered an open source project called Handy that was further along. I forked it and made it my own - revamping the UI, the UX, adding features, building Linux support, creating a roadmap focused on Knowledge Management and AI integration. Knowii Voice AI is what I wanted to exist in the world.",
+                "inspirationPoint": "The moment I realized I could speak a detailed AI prompt in 30 seconds that would have taken 5 minutes to type - and get dramatically better results - I knew this tool had to exist.",
+                "icon": "🎤"
+            },
+            "methodology": {
+                "title": "The Three Principles",
+                "subtitle": "What makes Knowii Voice AI different",
+                "philosophy": "Voice-to-text should amplify your thinking, not compromise your privacy or drain your wallet. These three principles guide every decision.",
+                "differentiation": "Unlike cloud services that rent you access to your own productivity, Knowii Voice AI puts you in control. Your voice, your computer, your data, your tool - forever.",
+                "steps": [
+                    {
+                        "title": "Local-First Everything",
+                        "description": "Your voice never leaves your computer by default. The AI models run locally. Your recordings stay on your machine. No internet required after the one-time model download. When I say private, I mean private.",
+                        "icon": "🔒",
+                        "order": 0
+                    },
+                    {
+                        "title": "Own, Don't Rent",
+                        "description": "Pay €49 once. Own it forever. Every update, every new feature, included. No subscription. No usage caps. No 'premium tier.' Compare that to cloud services at €15-30/month - that's €180-360/year, €900-1,800 over five years. You'll save that money and actually own your tool.",
+                        "icon": "🏠",
+                        "order": 1
+                    },
+                    {
+                        "title": "Works Everywhere",
+                        "description": "Not just Google Docs. Not just Chrome. Every. Single. Application. Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, VS Code, your terminal - if you can put your cursor there and type, you can speak there instead.",
+                        "icon": "🌍",
+                        "order": 2
+                    }
+                ]
+            }
+        },
+        "timeline": null
     }
 }

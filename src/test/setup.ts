@@ -1,5 +1,39 @@
-import { afterEach } from 'bun:test'
+import { afterEach, mock } from 'bun:test'
 import { Window } from 'happy-dom'
+
+// Mock @react-aria/interactions BEFORE any components are imported
+// This prevents the library from trying to modify HTMLElement.prototype.focus
+// which fails in Happy DOM because the property is readonly
+mock.module('@react-aria/interactions', () => ({
+    // Hooks
+    useFocus: () => ({ focusProps: {} }),
+    useFocusVisible: () => ({ isFocusVisible: false }),
+    useFocusVisibleListener: () => {},
+    useFocusWithin: () => ({ focusWithinProps: {} }),
+    useFocusable: () => ({ focusableProps: {} }),
+    useHover: () => ({ hoverProps: {}, isHovered: false }),
+    useInteractOutside: () => {},
+    useInteractionModality: () => 'pointer',
+    useKeyboard: () => ({ keyboardProps: {} }),
+    useLongPress: () => ({ longPressProps: {} }),
+    useMove: () => ({ moveProps: {} }),
+    usePress: () => ({ pressProps: {}, isPressed: false }),
+    useScrollWheel: () => ({ scrollWheelProps: {} }),
+    // Functions
+    addWindowFocusTracking: () => () => {},
+    focusSafely: (element: HTMLElement) => element?.focus?.(),
+    getInteractionModality: () => 'pointer',
+    getPointerType: () => 'mouse',
+    isFocusVisible: () => false,
+    setInteractionModality: () => {},
+    // Components
+    ClearPressResponder: ({ children }: { children: React.ReactNode }) => children,
+    Focusable: ({ children }: { children: React.ReactNode }) => children,
+    FocusableContext: { Provider: ({ children }: { children: React.ReactNode }) => children },
+    FocusableProvider: ({ children }: { children: React.ReactNode }) => children,
+    Pressable: ({ children }: { children: React.ReactNode }) => children,
+    PressResponder: ({ children }: { children: React.ReactNode }) => children
+}))
 
 // CRITICAL: Set up Happy DOM BEFORE any other imports
 // This ensures document.body is available when @testing-library/react's screen is imported
@@ -57,6 +91,54 @@ Object.defineProperty(happyWindow, 'scrollX', {
     configurable: true,
     value: 0
 })
+
+// Make HTMLElement.prototype.focus writable for @react-aria/interactions
+// This library tries to modify focus() for focus management and will fail
+// in Happy DOM if the property is not writable/configurable
+// We need to delete and redefine to ensure it's truly writable
+try {
+    const originalFocus = happyWindow.HTMLElement.prototype.focus as (
+        options?: FocusOptions
+    ) => void
+    delete (happyWindow.HTMLElement.prototype as { focus?: typeof originalFocus }).focus
+    Object.defineProperty(happyWindow.HTMLElement.prototype, 'focus', {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: function (this: HTMLElement, options?: FocusOptions) {
+            return originalFocus?.call(this, options)
+        }
+    })
+} catch {
+    // If delete fails, try direct property override
+    Object.defineProperty(happyWindow.HTMLElement.prototype, 'focus', {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: function () {}
+    })
+}
+
+// Also make blur writable for consistency
+try {
+    const originalBlur = happyWindow.HTMLElement.prototype.blur
+    delete (happyWindow.HTMLElement.prototype as { blur?: typeof originalBlur }).blur
+    Object.defineProperty(happyWindow.HTMLElement.prototype, 'blur', {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: function (this: HTMLElement) {
+            return originalBlur?.call(this)
+        }
+    })
+} catch {
+    Object.defineProperty(happyWindow.HTMLElement.prototype, 'blur', {
+        writable: true,
+        configurable: true,
+        enumerable: true,
+        value: function () {}
+    })
+}
 
 // NOW we can import testing library - document.body is available
 import { cleanup } from '@testing-library/react'
