@@ -1,59 +1,58 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Stop Wasting Time Configuring Obsidian. Start Being Productive Today.",
-        "secondaryTagline": "Transform Chaos Into Clarity in 30 Minutes",
-        "problem": "You've heard Obsidian is powerful, but every time you try to set it up, you hit the same wall: where do notes go? Which of 1,000+ plugins should you install? How should you organize things? Days become weeks as you research folder structures, watch YouTube tutorials, and try different approaches. Meanwhile, your ideas stay trapped in your head—or scattered across apps you'll never open again.",
+        "tagline": "Stop Configuring. Start Thinking.",
+        "secondaryTagline": "A Complete Obsidian System, Ready in 30 Minutes",
+        "problem": "You've heard Obsidian is powerful. But every time you try to set it up, you hit the same wall: where should notes go? Which plugins matter? How do you structure this thing so it doesn't become another digital junk drawer? I've watched people spend months on this. Meanwhile, their ideas stay trapped in their heads or scattered across apps they'll never open again.",
         "problemPoints": [
-            "Spend weeks figuring out folder structure only to second-guess it later",
-            "Trial-and-error with dozens of plugins, never sure which ones you actually need",
-            "Manually build templates from scratch that don't auto-file or stay consistent",
-            "Learn PKM methods through scattered articles that contradict each other",
-            "Struggle with inconsistent organization that breaks down as your vault grows"
+            "Weeks spent on folder structure, only to scrap it when things don't fit",
+            "Trying dozens of plugins without knowing which actually matter",
+            "Building templates from scratch that break after 50 notes",
+            "Reading contradictory PKM advice that makes you more confused",
+            "Watching your vault become messier as it grows"
         ],
-        "agitate": "The real cost isn't just the 100+ hours of setup time. It's the constant background anxiety that important ideas are slipping away. It's the creative blocks when you can't find or connect your own notes. It's feeling less competent than you should because your 'second brain' is a disorganized mess. Every day you delay is another day of scattered information, missed connections, and knowledge that never compounds.",
+        "agitate": "The real cost isn't the setup time. It's the constant anxiety that important ideas are slipping through the cracks. It's the creative blocks when you can't find your own notes. It's feeling less capable than you should because your 'second brain' is a disorganized mess. I spent years living with that anxiety before I built something that actually worked.",
         "agitatePoints": [
-            "Anxiety about forgetting insights you know you captured somewhere",
-            "Creative blocks because you can't find or connect your own thinking",
-            "Imposter syndrome when you can't leverage your own knowledge",
-            "Analysis paralysis from too many options and no clear 'right way'",
-            "Starting from scratch feels like reinventing the wheel—because it is",
-            "Information scattered across tools that never talk to each other"
+            "That nagging feeling that you captured something important but can't find it",
+            "Creative blocks because your thinking is disconnected",
+            "Analysis paralysis from too many options and no clear path",
+            "Starting from scratch feels like reinventing the wheel. Because it is.",
+            "Your brain becomes the only connection point between scattered tools"
         ],
-        "solution": "OSK is 20+ years of PKM expertise distilled into a complete, battle-tested system that works from day one. Not a collection of tips—a complete transformation of how you capture, organize, and leverage knowledge. The system does the work, not your willpower. Every decision has been made for you, but everything remains customizable as you grow.",
+        "solution": "OSK is 20+ years of PKM trial and error distilled into a system that works from day one. Not tips and tricks. A complete system of how you capture, organize, and use your knowledge. Every decision has been made, but everything stays customizable as you grow.",
         "solutionPoints": [
-            "Battle-tested system, ready in 30 minutes—not weeks or months",
-            "40+ smart templates that auto-file notes so you never think about organization",
-            "Carefully curated plugins, pre-configured to work together perfectly",
-            "Complete PKM education built-in: Zettelkasten, PARA, Johnny Decimal, GTD",
-            "Scales seamlessly from 10 notes to 10,000+ without breaking down",
-            "AI-ready architecture with Claude and MCP integration for future-proof knowledge work"
+            "Ready in 30 minutes. Not weeks. Not months.",
+            "40+ templates that auto-file notes so you stop thinking about organization",
+            "Pre-configured plugins that actually work together",
+            "Zettelkasten, PARA, Johnny Decimal, GTD built in and explained",
+            "Scales from 10 notes to 10,000+ without breaking down",
+            "AI-ready with Claude and MCP integration for modern knowledge work"
         ],
-        "description": "The Obsidian Starter Kit is the culmination of 20+ years of Knowledge Management expertise, refined through real-world use and trusted by 1,000+ knowledge workers worldwide. It transforms Obsidian from a blank canvas into a complete productivity and learning environment—combining proven methodologies (PARA, Zettelkasten, Johnny Decimal, GTD) with a structure that actually scales. Stop wasting hours searching for notes. Start with a system that lets your knowledge compound.",
+        "description": "I've spent 20+ years obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (PARA, Zettelkasten, Johnny Decimal, GTD) with a structure that scales. 1,000+ people use it. You can be productive on day one.",
         "features": [
             "Clearly defined note types with structured properties and automation",
             "40+ specialized templates for every content type that auto-file themselves",
             "Powerful journaling system with daily/weekly/monthly/quarterly/yearly reviews",
-            "Complete action system connecting goals → plans → projects → tasks",
+            "Complete action system connecting goals to plans to projects to tasks",
             "Mature knowledge workflow from content capture to permanent wisdom",
-            "People & relationship management with interaction tracking",
-            "Health & habit tracking with mood, energy, sleep, exercise, nutrition",
-            "Zero manual filing—everything organizes automatically",
+            "People and relationship management with interaction tracking",
+            "Health and habit tracking with mood, energy, sleep, exercise, nutrition",
+            "Zero manual filing. Everything organizes automatically.",
             "Hierarchical tags system to find any note in 3 seconds",
             "First-class Obsidian Bases support for database-like views",
             "AI-ready architecture with Claude Code and MCP integration",
             "Visual thinking support with drawings and diagrams",
             "Pre-configured settings optimized for productivity",
-            "100+ page comprehensive user guide",
+            "100+ page user guide",
             "2h20m video course (Premium tier)"
         ],
         "benefits": {
             "immediate": [
-                "Start being productive on day one—not after weeks of configuration",
-                "No analysis paralysis—every decision has been made for you",
-                "Battle-tested workflows that actually work in the real world",
+                "Productive on day one. Not after weeks of configuration.",
+                "No analysis paralysis. Every decision has been made for you.",
+                "Workflows that actually work in the real world",
                 "Instant clarity on where everything goes and how to find it",
-                "Confidence that you're building on a solid, proven foundation"
+                "Confidence that you're building on a solid foundation"
             ],
             "systematic": [
                 "Find any note in 3 seconds with hierarchical tags and multiple discovery methods",
@@ -64,7 +63,7 @@
                 "Sustainable habits with built-in journaling and review systems"
             ],
             "longTerm": [
-                "Knowledge that compounds—every note makes you more capable",
+                "Knowledge that compounds. Every note makes you more capable.",
                 "Ideas connecting naturally across different areas of your life",
                 "Writing and creating directly from your connected knowledge",
                 "Hours reclaimed weekly that were lost to searching and organizing",
@@ -81,16 +80,16 @@
             "You want your knowledge to compound, not just be stored"
         ],
         "perfectFor": [
-            "Knowledge workers managing complex information across projects",
-            "Entrepreneurs organizing ideas, projects, and business operations",
-            "Content creators turning knowledge into articles, courses, and products",
-            "Researchers and academics processing literature and creating insights",
-            "Lifelong learners committed to continuous growth and development",
-            "Anyone ready to transform scattered notes into a true second brain"
+            "You're a knowledge worker managing complex information across projects",
+            "You're an entrepreneur organizing ideas, projects, and business operations",
+            "You're a content creator turning knowledge into articles, courses, and products",
+            "You're a researcher processing literature and creating insights",
+            "You're a lifelong learner committed to continuous growth",
+            "You're ready to turn scattered notes into a real second brain"
         ],
         "notForYou": [
             "You enjoy spending months building systems from scratch as a hobby",
-            "You already have a perfect PKM system that scales effortlessly",
+            "You already have a PKM system that scales effortlessly",
             "You prefer simple note-taking without organization or methodology"
         ],
         "trustBadges": [
@@ -102,13 +101,13 @@
             "Beginner Friendly"
         ],
         "guarantees": [
-            "30-day money-back guarantee—full refund, no questions asked",
-            "Free lifetime updates—all future versions included at no cost",
+            "30-day money-back guarantee. Full refund, no questions asked.",
+            "Free lifetime updates. All future versions included at no cost.",
             "Lifetime community access for support and learning",
             "Priority email support with personal responses"
         ],
-        "metaTitle": "Obsidian Starter Kit - Transform Chaos Into Clarity in 30 Minutes | Knowledge Forge",
-        "metaDescription": "Battle-tested Obsidian vault with 40+ auto-filing templates, pre-configured plugins, and complete PKM methodology. Join 1,000+ knowledge workers. 20+ years expertise. 30-day guarantee.",
+        "metaTitle": "Obsidian Starter Kit - Stop Configuring, Start Thinking | Knowledge Forge",
+        "metaDescription": "Complete Obsidian vault with 40+ auto-filing templates, pre-configured plugins, and PKM methodology. 1,000+ users. 20+ years expertise. 30-day guarantee.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -128,34 +127,33 @@
             "originStory": {
                 "title": "Why I Built the Obsidian Starter Kit",
                 "subtitle": "20+ Years of Knowledge Management, Distilled",
-                "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and leverage knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. Eventually, I built something that worked—a system that scaled from my first notes to tens of thousands, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome—spending months recreating mistakes I'd already solved—that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
+                "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and use knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. Eventually, I built something that worked. A system that scaled from my first notes to tens of thousands, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome (spending months recreating mistakes I'd already solved) that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
                 "inspirationPoint": "Watching talented people waste months on problems I had already solved",
                 "genesisDate": "Refined over 20+ years, shared since 2022",
-                "icon": "💡"
+                "icon": null
             },
             "creatorJourney": {
                 "title": "My Journey Through Knowledge Chaos",
                 "subtitle": "From Scattered Notes to Systematic Mastery",
-                "story": "Before I had this system, I lived with constant background anxiety. Important ideas would slip away. I'd capture something brilliant and never find it again. My information was scattered across tools that never talked to each other—and I was the only connection point, relying on my memory to bridge the gaps. The creative blocks were the worst part. I knew I had the pieces, but I couldn't connect them. I felt less competent than I should have been, struggling to leverage my own thinking. Sound familiar? That's exactly why I spent years refining this system—so you don't have to. Today, I use OSK daily with AI tools like Claude, and my knowledge genuinely compounds. Every note I create makes me more capable. That's the transformation I want for you.",
+                "story": "Before I had this system, I lived with constant background anxiety. Important ideas would slip away. I'd capture something brilliant and never find it again. My information was scattered across tools that never talked to each other. And I was the only connection point, relying on my memory to bridge the gaps. The creative blocks were the worst part. I knew I had the pieces, but I couldn't connect them. I felt less competent than I should have been, struggling to use my own thinking. Sound familiar? That's exactly why I spent years refining this system. So you don't have to. Today, I use OSK daily with AI tools like Claude, and my knowledge genuinely compounds. Every note I create makes me more capable. That's what I want for you.",
                 "struggles": [
                     "Anxiety about forgetting insights I knew I had captured somewhere",
                     "Information scattered across multiple tools that never connected",
                     "Creative blocks from not being able to find or link my own thinking",
-                    "Feeling like my brain was the only thing holding everything together",
-                    "Imposter syndrome when I couldn't leverage my own knowledge"
+                    "Feeling like my brain was the only thing holding everything together"
                 ],
                 "achievements": [
                     "20+ years refining Personal Knowledge Management systems",
                     "Built a vault that scales to tens of thousands of notes without chaos",
                     "Author, blogger, and entrepreneur using this system daily",
-                    "Created a system that works seamlessly with AI tools",
-                    "Helped 1,000+ knowledge workers transform their workflows"
+                    "Created a system that works well with AI tools",
+                    "Helped 1,000+ knowledge workers change their workflows"
                 ],
                 "credentials": "20+ years of Knowledge Management expertise as an author, blogger, entrepreneur, and IT professional",
-                "icon": "🛤️"
+                "icon": null
             },
             "transformationArc": {
-                "title": "Your Transformation Journey",
+                "title": "Your Journey",
                 "subtitle": "From Chaos to Clarity",
                 "before": {
                     "title": "Before OSK",
@@ -167,7 +165,7 @@
                         "Information scattered across multiple apps",
                         "Creative blocks from disconnected thinking"
                     ],
-                    "icon": "⚠️"
+                    "icon": null
                 },
                 "during": {
                     "title": "Getting Started",
@@ -179,11 +177,11 @@
                         "Clear methodology explained as you use it",
                         "Immediate productivity from day one"
                     ],
-                    "icon": "🚀"
+                    "icon": null
                 },
                 "after": {
                     "title": "After OSK",
-                    "description": "Your knowledge compounds. Notes connect naturally across projects and years. You find anything in seconds. Writing and creating flows from your connected insights. AI tools like Claude work seamlessly with your organized knowledge. You've reclaimed hours every week and feel confident your system will grow with you forever.",
+                    "description": "Your knowledge compounds. Notes connect naturally across projects and years. You find anything in seconds. Writing and creating flows from your connected insights. AI tools like Claude work well with your organized knowledge. You've reclaimed hours every week and feel confident your system will grow with you.",
                     "points": [
                         "10,000+ notes with zero chaos",
                         "10+ hours saved monthly on organization",
@@ -191,13 +189,13 @@
                         "Creating content directly from your notes",
                         "Confident your system scales with your growth"
                     ],
-                    "icon": "✅"
+                    "icon": null
                 },
-                "timeline": "From chaos to cleanly organized notes in your first days"
+                "timeline": "From chaos to organized notes in your first days"
             },
             "successStories": {
                 "title": "Success Stories",
-                "subtitle": "Real Transformations from Real Knowledge Workers",
+                "subtitle": "Real Feedback from Real Users",
                 "stories": [
                     {
                         "name": "Dwayne Appleby",
@@ -207,7 +205,7 @@
                             {
                                 "label": "Impact",
                                 "value": "Game changing",
-                                "icon": "⭐"
+                                "icon": null
                             }
                         ],
                         "role": null,
@@ -223,7 +221,7 @@
                             {
                                 "label": "Time to Productive",
                                 "value": "1-2 Days",
-                                "icon": "⏱️"
+                                "icon": null
                             }
                         ],
                         "role": null,
@@ -239,7 +237,7 @@
                             {
                                 "label": "Satisfaction",
                                 "value": "100% Worth It",
-                                "icon": "👍"
+                                "icon": null
                             }
                         ],
                         "role": null,
@@ -255,7 +253,7 @@
                             {
                                 "label": "Learning Curve",
                                 "value": "Significantly Shortened",
-                                "icon": "🎓"
+                                "icon": null
                             }
                         ],
                         "role": null,
@@ -266,75 +264,75 @@
                 ]
             },
             "methodology": {
-                "title": "The Obsidian Starter Kit Philosophy",
+                "title": "The OSK Philosophy",
                 "subtitle": "Four Principles That Make Knowledge Work",
                 "steps": [
                     {
                         "title": "Systems Over Willpower",
-                        "description": "The system does the work, not your discipline or memory. Templates auto-file. Tags auto-organize. You focus on thinking, not housekeeping. When organization is automatic, consistency becomes effortless.",
-                        "icon": "⚙️",
+                        "description": "The system does the work, not your discipline or memory. Templates auto-file. Tags auto-organize. You focus on thinking, not housekeeping. When organization is automatic, consistency becomes natural.",
+                        "icon": null,
                         "order": 0
                     },
                     {
-                        "title": "Opinionated Structure",
-                        "description": "Every decision has been made for you—but nothing is locked. You get a complete, working system from day one with no analysis paralysis. As you learn, customize anything. But you don't have to customize anything to be productive.",
-                        "icon": "🗂️",
+                        "title": "Opinionated But Flexible",
+                        "description": "Every decision has been made for you. But nothing is locked. You get a complete, working system from day one with no analysis paralysis. As you learn, customize anything. But you don't have to customize anything to be productive.",
+                        "icon": null,
                         "order": 1
                     },
                     {
-                        "title": "Built for Evolution",
-                        "description": "OSK isn't static. It's designed to grow and adapt as your needs change, as new tools emerge, and as AI capabilities expand. Free lifetime updates ensure your system evolves with you and with the future of knowledge work.",
-                        "icon": "🌱",
+                        "title": "Built to Evolve",
+                        "description": "OSK isn't static. It grows and adapts as your needs change, as new tools emerge, as AI gets better. Free lifetime updates mean your system evolves with you.",
+                        "icon": null,
                         "order": 2
                     },
                     {
                         "title": "Knowledge Compounds",
-                        "description": "Every note you create should make you more capable, not just more organized. OSK is built around connecting ideas across time, projects, and domains—so your second brain genuinely makes your first brain smarter.",
-                        "icon": "🔗",
+                        "description": "Every note should make you more capable, not just more organized. OSK is built around connecting ideas across time, projects, and domains. Your second brain should make your first brain smarter.",
+                        "icon": null,
                         "order": 3
                     }
                 ],
-                "philosophy": "Most PKM systems fail because they require constant effort to maintain. OSK succeeds because the system works for you, freeing your energy for what actually matters: thinking, creating, and growing.",
-                "differentiation": "Unlike templates that give you empty structures or tutorials that leave you to figure out implementation, OSK is a complete, working system refined over 20+ years of real-world use. It's not theory—it's what I actually use every single day."
+                "philosophy": "Most PKM systems fail because they require constant effort to maintain. OSK works because the system works for you, freeing your energy for what actually matters: thinking, creating, growing.",
+                "differentiation": "Unlike templates that give you empty structures or tutorials that leave you to figure out implementation, OSK is a complete, working system refined over 20+ years of real-world use. It's not theory. It's what I actually use every single day."
             },
             "vision": {
-                "title": "The Future of Your Knowledge",
-                "subtitle": "Where This Journey Takes You",
-                "mission": "I believe your knowledge should compound like interest—every insight building on the last, every note making you more capable. OSK is designed to give you that compounding advantage, whether you have 10 notes or 10,000. My mission is to help you become a systematic creator: someone who produces consistently, connects ideas effortlessly, and grows through their knowledge rather than drowning in it.",
+                "title": "Where This Takes You",
+                "subtitle": "The Future of Your Knowledge",
+                "mission": "Your knowledge should compound like interest. Every insight builds on the last, every note makes you more capable. OSK gives you that compounding advantage, whether you have 10 notes or 10,000. My goal is to help you become a systematic creator: someone who produces consistently, connects ideas naturally, and grows through their knowledge rather than drowning in it.",
                 "values": [
                     {
                         "title": "Clarity Over Complexity",
                         "description": "A system should bring clarity, not add another layer of complexity. OSK simplifies knowledge work by making organization invisible.",
-                        "icon": "👁️"
+                        "icon": null
                     },
                     {
                         "title": "Growth Over Perfection",
-                        "description": "Your system doesn't need to be perfect to work. OSK is designed for iteration—start simple, evolve naturally.",
-                        "icon": "📈"
+                        "description": "Your system doesn't need to be perfect to work. OSK is designed for iteration. Start simple, evolve naturally.",
+                        "icon": null
                     },
                     {
                         "title": "Action Over Accumulation",
-                        "description": "Collecting notes is worthless if you never use them. OSK prioritizes retrieval, connection, and creation—not just capture.",
-                        "icon": "⚡"
+                        "description": "Collecting notes is worthless if you never use them. OSK prioritizes retrieval, connection, and creation. Not just capture.",
+                        "icon": null
                     },
                     {
                         "title": "Future-Ready",
-                        "description": "AI is changing knowledge work. OSK is built to leverage AI tools today and adapt to whatever comes tomorrow.",
-                        "icon": "🤖"
+                        "description": "AI is changing knowledge work. OSK is built to use AI tools today and adapt to whatever comes tomorrow.",
+                        "icon": null
                     }
                 ],
                 "futureGoals": [
                     "Help you reach 10,000+ notes with zero chaos",
-                    "Enable you to write and create directly from your knowledge",
+                    "Let you write and create directly from your knowledge",
                     "Make AI tools like Claude genuinely useful for your workflow",
                     "Give you confidence that your system will serve you for life"
                 ],
-                "biggerPicture": "In a world of information overload, the people who thrive are those who can capture, connect, and leverage knowledge systematically. OSK is your foundation for becoming one of them.",
-                "icon": "🧭"
+                "biggerPicture": "In a world of information overload, the people who thrive are those who can capture, connect, and use knowledge systematically. OSK is your foundation for becoming one of them.",
+                "icon": null
             }
         },
         "timeline": {
-            "title": "Your Knowledge Transformation",
+            "title": "Your Progress",
             "subtitle": "What You'll Achieve at Each Stage",
             "milestones": [
                 {
@@ -348,7 +346,7 @@
                         "Daily note routine established",
                         "Core PKM concepts understood through hands-on use"
                     ],
-                    "icon": "🏗️"
+                    "icon": null
                 },
                 {
                     "id": "month-1",
@@ -358,36 +356,36 @@
                     "highlights": [
                         "100+ notes captured and automatically organized",
                         "First permanent notes created from literature notes",
-                        "Goals → Projects → Tasks workflow established",
+                        "Goals, projects, tasks workflow established",
                         "Personal customizations added to match your style"
                     ],
-                    "icon": "⚙️"
+                    "icon": null
                 },
                 {
                     "id": "month-3",
                     "timeframe": "Month 3",
                     "title": "Knowledge Flowing",
-                    "description": "Your vault is thriving with 500+ notes you can find in seconds. You're saving 10+ hours monthly on organization. Ideas are starting to connect across different areas. Your weekly and monthly reviews are surfacing insights.",
+                    "description": "Your vault is thriving with 500+ notes you can find in seconds. You're saving 10+ hours monthly on organization. Ideas are starting to connect across different areas. Your reviews are surfacing insights.",
                     "highlights": [
-                        "500+ notes, findable in 3 seconds or less",
+                        "500+ notes, findable in seconds",
                         "10+ hours saved monthly on searching and organizing",
                         "Ideas connecting naturally across domains",
                         "Review rhythms keeping you clear and focused"
                     ],
-                    "icon": "🌊"
+                    "icon": null
                 },
                 {
                     "id": "year-1",
                     "timeframe": "Year 1+",
                     "title": "Knowledge Compounding",
-                    "description": "You've reached 1,000-10,000+ notes with zero chaos. Your knowledge genuinely compounds—ideas from years ago connect to today's thinking. You're writing and creating directly from your vault. AI tools work seamlessly with your organized knowledge.",
+                    "description": "You've reached 1,000-10,000+ notes with zero chaos. Your knowledge genuinely compounds. Ideas from years ago connect to today's thinking. You're writing and creating directly from your vault. AI tools work well with your organized knowledge.",
                     "highlights": [
                         "1,000-10,000+ notes, still perfectly organized",
                         "Writing and creating directly from connected notes",
                         "AI integration amplifying your knowledge work",
                         "Confident your system will serve you for life"
                     ],
-                    "icon": "💎"
+                    "icon": null
                 }
             ]
         },

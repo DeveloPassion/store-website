@@ -119,7 +119,7 @@
             "originStory": {
                 "title": "Why This System Exists",
                 "story": "I didn't wake up one day with a perfect organization system. It evolved over 20+ years, starting with something simple: organizing my files, movies, and comic books as a teenager. Then it grew. I applied the same thinking to code for larger and larger software projects. Then IT infrastructure. Then project management for teams. Each domain taught me something new about structure, tracking, and getting things done. Now I've applied everything I've learned to entrepreneurship, knowledge management, and life itself. This workshop is those 20+ years distilled into 90 minutes.",
-                "icon": "🧠",
+                "icon": null,
                 "subtitle": null,
                 "inspirationPoint": null,
                 "genesisDate": null
@@ -140,7 +140,7 @@
                     "System that's worked for 20+ years and keeps evolving",
                     "Helping thousands organize their knowledge and lives"
                 ],
-                "icon": "🚀",
+                "icon": null,
                 "subtitle": null
             },
             "transformationArc": {
@@ -188,20 +188,20 @@
                 "steps": [
                     {
                         "title": "Pillar 1: Clarity System",
-                        "description": "From life mission to daily tasks. Goals, priorities, time horizons—everything aligned so you always know WHAT to work on and WHY.",
-                        "icon": "🎯",
+                        "description": "From life mission to daily tasks. Goals, priorities, time horizons. Everything aligned so you always know what to work on and why.",
+                        "icon": null,
                         "order": 0
                     },
                     {
                         "title": "Pillar 2: Information Management",
-                        "description": "Every piece of information has its place. Knowledge management, documents, emails, calendars, contacts—organized so you can find anything instantly.",
-                        "icon": "📚",
+                        "description": "Every piece of information has its place. Knowledge management, documents, emails, calendars, contacts. Organized so you can find anything instantly.",
+                        "icon": null,
                         "order": 1
                     },
                     {
                         "title": "Pillar 3: Productivity System",
-                        "description": "Habits, routines, and techniques that work WITHOUT relying on willpower or motivation. Time blocking, focus strategies, periodic reviews—the engine that turns clarity into action.",
-                        "icon": "⚡",
+                        "description": "Habits, routines, and techniques that work without relying on willpower or motivation. Time blocking, focus strategies, periodic reviews. The engine that turns clarity into action.",
+                        "icon": null,
                         "order": 2
                     }
                 ],
@@ -232,8 +232,8 @@
                         "icon": null
                     }
                 ],
-                "biggerPicture": "Imagine: a busy life with multiple responsibilities, but feeling calm and in control. Knowing exactly what matters. Nothing falling through the cracks. That's not a fantasy—it's what happens when all three pillars work together.",
-                "icon": "✨",
+                "biggerPicture": "Imagine a busy life with multiple responsibilities, but feeling calm and in control. Knowing exactly what matters. Nothing falling through the cracks. That's not a fantasy. It's what happens when all three pillars work together.",
+                "icon": null,
                 "subtitle": null,
                 "futureGoals": null
             },
@@ -254,7 +254,7 @@
                         "Self-assessment reveals weak spots",
                         "40+ frameworks to draw from"
                     ],
-                    "icon": "💡"
+                    "icon": null
                 },
                 {
                     "id": "milestone-week1",
@@ -267,7 +267,7 @@
                         "First taste of intentional living",
                         "Quick wins build momentum"
                     ],
-                    "icon": "🎯"
+                    "icon": null
                 },
                 {
                     "id": "milestone-month1",
@@ -280,7 +280,7 @@
                         "Daily-to-goal alignment visible",
                         "Reduced overwhelm"
                     ],
-                    "icon": "🔧"
+                    "icon": null
                 },
                 {
                     "id": "milestone-month3",
@@ -293,7 +293,7 @@
                         "Continuous improvement built-in",
                         "Intentional living, not reactive surviving"
                     ],
-                    "icon": "✨"
+                    "icon": null
                 }
             ]
         },

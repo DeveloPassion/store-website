@@ -1,9 +1,10 @@
 import { z } from 'zod'
+import { ColorKeySchema } from '@/schemas/color-key.schema'
 
 /**
  * Zod schema for category validation
  * SINGLE SOURCE OF TRUTH for category types and validation
- * Last updated: 2026-01-09
+ * Last updated: 2026-01-16
  *
  * This schema validates categories.json entries to ensure data integrity.
  * TypeScript types are exported from this file and re-exported by src/types/category.ts
@@ -40,7 +41,7 @@ export const CategorySchema = z.object({
     name: z.string().min(1, 'Category name is required'),
     description: z.string().min(1, 'Category description is required'),
     icon: z.string().nullable(),
-    color: z.string().nullable(),
+    color: ColorKeySchema.nullable(),
     featured: z.boolean(),
     priority: z.number().int().min(1)
 })

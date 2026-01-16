@@ -2,63 +2,63 @@
     "data": [
         {
             "id": "faq-42",
-            "question": "Do I need deep technical skills?",
-            "answer": "No. Core system works with simple copy-paste/upload on any AI platform. Advanced options exist for power users, but they're optional."
+            "question": "Do I need technical skills?",
+            "answer": "No. The core system works with simple copy-paste or file uploads on any AI platform. There are advanced options for power users, but they're completely optional."
         },
         {
             "id": "faq-43",
             "question": "Which AI platforms does this work with?",
-            "answer": "ChatGPT, Claude, Gemini, DeepSeek, NotebookLM... Basically any AI that accepts custom instructions and/or file uploads."
+            "answer": "ChatGPT, Claude, Gemini, DeepSeek, NotebookLM. Basically any AI that accepts custom instructions or file uploads."
         },
         {
             "id": "faq-44",
             "question": "How long does setup take?",
-            "answer": "Basic setup: 2-3 hours. Advanced MCP implementation: a weekend. Time savings compound quickly—you'll earn it back fast."
+            "answer": "Basic setup: 2-3 hours. Advanced MCP implementation: a weekend. You'll earn that time back quickly."
         },
         {
             "id": "faq-45",
-            "question": "Will this work for my niche/industry?",
-            "answer": "Yes. The system analyzes YOUR writing samples, so it works regardless of topic, industry, or content type."
+            "question": "Will this work for my niche or industry?",
+            "answer": "Yes. The system analyzes YOUR writing samples, so it works regardless of your topic, industry, or content type."
         },
         {
             "id": "faq-46",
-            "question": "What if I don't have enough writing samples?",
-            "answer": "Start with what you have. You can add more later. It's not a showstopper—the system improves as you use it."
+            "question": "What if I don't have many writing samples?",
+            "answer": "Start with what you have. Even a handful of pieces is enough to get started. You can add more over time, and the system improves as you use it."
         },
         {
             "id": "faq-47",
             "question": "Is this just better prompts?",
-            "answer": "No. This is a complete SYSTEM for training AI to understand YOU—your voice, style, strategy, business, and audience. Prompts are included, but they're just one component. Other guides give you prompts. This gives you an ecosystem."
+            "answer": "No. This is a complete SYSTEM for training AI to understand YOU: your voice, style, strategy, business, and audience. Prompts are included, but they're just one piece. Other guides give you prompts. This gives you an ecosystem."
         },
         {
             "id": "faq-48",
             "question": "Do I get updates?",
-            "answer": "Yes, through the private community. As the guide improves, you get access to updates."
+            "answer": "Yes. You get access to the private community where I share updates as the guide evolves."
         },
         {
             "id": "faq-49",
-            "question": "Can I get support?",
-            "answer": "Yes—private community access for questions and knowledge sharing."
+            "question": "Can I get help if I'm stuck?",
+            "answer": "Yes. Private community access is included for questions and knowledge sharing."
         },
         {
             "id": "faq-50",
-            "question": "Can this help with more than just writing?",
-            "answer": "Absolutely. Once AI knows your voice and business, it helps with podcasts scripts, branding and marketing feedback, product development brainstorming, communication, ads, and more. The system is versatile."
+            "question": "Can this help with more than writing?",
+            "answer": "Absolutely. Once AI knows your voice and business, it helps with podcast scripts, branding feedback, product brainstorming, marketing copy, ads, and more. The system is versatile."
         },
         {
             "id": "faq-51",
             "question": "Is this the launch price?",
-            "answer": "Yes. €49.99 is the introductory launch price. It won't stay this low forever as the guide continues to evolve with new content and techniques."
+            "answer": "Yes. The price will increase as I add more content and techniques to the guide."
         },
         {
             "id": "faq-52",
             "question": "How is this different from other AI writing guides?",
-            "answer": "Most guides give you prompts. Prompts work once. This gives you a complete system that evolves and improves over time. It teaches you to capture your voice, document your strategy, add business context, and build an AI that truly understands you—not just follows instructions."
+            "answer": "Most guides give you prompts. Prompts work once. This gives you a complete system that evolves and improves over time. You capture your voice, document your strategy, add business context, and build an AI that truly understands you."
         },
         {
             "id": "faq-53",
             "question": "What results can I expect?",
-            "answer": "Day 1: first draft that sounds like you. Week 1: full system configured and working. Month 1: dramatically faster content creation with minimal editing. Month 3+: AI becomes a true creative partner you can't imagine working without."
+            "answer": "Day 1: first draft that sounds like you. Week 1: full system configured and working. Month 1: dramatically faster content creation with minimal editing. Month 3+: AI becomes a creative partner you can't imagine working without."
         }
     ]
 }

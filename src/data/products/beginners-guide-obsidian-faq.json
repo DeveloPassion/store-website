@@ -2,38 +2,53 @@
     "data": [
         {
             "id": "faq-136",
-            "question": "Is this really free?",
-            "answer": "Yes! Completely free, no credit card required."
+            "question": "Is this really free? What's the catch?",
+            "answer": "Yes, 100% free. No credit card, no hidden upsells during download. I created this guide because I want to help beginners avoid the mistakes I made. If you want to go deeper later, I have paid products. But this guide stands completely on its own."
         },
         {
             "id": "faq-137",
-            "question": "Do I need Obsidian installed first?",
-            "answer": "No. Read the guide first to understand what Obsidian is, then decide if you want to install it."
+            "question": "Do I need Obsidian installed before reading this?",
+            "answer": "No. The guide explains what Obsidian is and why it's different before diving into the how. You can read it first to understand the concepts, then download Obsidian when you're ready to follow along."
         },
         {
             "id": "faq-138",
-            "question": "What format is it?",
-            "answer": "Digital format (PDF or similar) for easy reading and reference."
+            "question": "How is this different from free YouTube tutorials?",
+            "answer": "YouTube tutorials are often scattered. You watch 10 videos and still feel confused because each creator has a different approach. This guide is structured as a complete learning path: from what Obsidian is, to your first notes, to understanding linked thinking. It's designed to build your confidence step by step, not overwhelm you with features."
         },
         {
             "id": "faq-139",
-            "question": "Is this the same as the Obsidian Starter Course?",
-            "answer": "No. This is a FREE beginner's guide. The Obsidian Starter Course (€69.99) is a comprehensive 2h20 video course with much more depth."
+            "question": "Will this teach me everything about Obsidian?",
+            "answer": "It covers the essentials you need to start with confidence. Think of it as your foundation. For comprehensive training with video walkthroughs and advanced techniques, check out the Obsidian Starter Course (2h20+ of video). For a complete vault system with templates and automation, see the Obsidian Starter Kit."
         },
         {
             "id": "faq-140",
-            "question": "Is this the same as Obsidian Starter Kit?",
-            "answer": "No. This is a FREE guide. Obsidian Starter Kit is a complete vault structure with templates, plugins, and automation."
+            "question": "I tried Obsidian before and gave up. Will this help?",
+            "answer": "Probably. Many people abandon Obsidian because they made common beginner mistakes: over-engineering, treating it like other apps, or drowning in plugins. This guide specifically addresses these pitfalls and gives you a cleaner path forward."
         },
         {
             "id": "faq-141",
-            "question": "Can I share this with others?",
-            "answer": "Personal use. If others want it, direct them to download their own copy."
+            "question": "What format is the guide?",
+            "answer": "PDF format. You can read it on your computer, tablet, or phone, and reference it anytime you need a refresher."
         },
         {
             "id": "faq-142",
-            "question": "Will this teach me everything about Obsidian?",
-            "answer": "It covers getting started and fundamentals. For comprehensive training, see the Obsidian Starter Course (€69.99)."
+            "question": "Who wrote this guide?",
+            "answer": "I'm Sébastien Dubois. I created the Obsidian Starter Kit (used by thousands), and I spent years jumping between note-taking tools before discovering Obsidian. I've been using it daily since 2020 and have built a vault with over 10,000 notes. This guide distills everything I wish someone had told me on day one."
+        },
+        {
+            "id": "faq-143",
+            "question": "Is this the same as the Obsidian Starter Kit?",
+            "answer": "No. This is a FREE beginner's guide to help you understand Obsidian. The Obsidian Starter Kit is a complete vault system with templates, plugins, automation, and structure. It's for people who want a ready-to-use system rather than building from scratch."
+        },
+        {
+            "id": "faq-144",
+            "question": "Is this the same as the Obsidian Starter Course?",
+            "answer": "No. This is a FREE written guide covering the basics. The Obsidian Starter Course is a video course (2h20+) that goes much deeper into Obsidian mastery and knowledge management best practices."
+        },
+        {
+            "id": "faq-145",
+            "question": "Can I share this guide with others?",
+            "answer": "The guide is for personal use. If someone else wants it, please send them the link to download their own copy. It's free anyway, and it helps me understand how many people find it valuable."
         }
     ]
 }

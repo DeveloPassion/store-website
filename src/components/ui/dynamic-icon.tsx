@@ -71,7 +71,6 @@ const sizeClasses = {
 interface DynamicIconProps {
     iconName?: string | null
     className?: string
-    style?: React.CSSProperties
     /** Size preset (sm, md, lg, xl). Only applies to SVG icons, not images. */
     size?: 'sm' | 'md' | 'lg' | 'xl'
     /** Whether to apply brand colors. Default: true */
@@ -90,13 +89,12 @@ const emojiSizeClasses = {
 export const DynamicIcon: React.FC<DynamicIconProps> = ({
     iconName,
     className = '',
-    style,
     size = 'md',
     useBrandColors = true
 }) => {
     // If iconName is an emoji, render it as a span
     if (iconName && isEmoji(iconName)) {
-        const emojiSpan = (
+        return (
             <span
                 className={`${emojiSizeClasses[size]} leading-none ${className}`}
                 role='img'
@@ -105,8 +103,6 @@ export const DynamicIcon: React.FC<DynamicIconProps> = ({
                 {iconName}
             </span>
         )
-        // Wrap in span if style provided
-        return style ? <span style={style}>{emojiSpan}</span> : emojiSpan
     }
 
     // If iconName is a URL or path, render an image
@@ -130,15 +126,6 @@ export const DynamicIcon: React.FC<DynamicIconProps> = ({
     // Apply brand color if enabled and available
     const colorClass = useBrandColors && iconName ? iconColors[iconName] || '' : ''
     const combinedClassName = `${sizeClasses[size]} ${colorClass} ${className}`.trim()
-
-    // Wrap in a span to apply style, as react-icons IconType doesn't accept style prop
-    if (style) {
-        return (
-            <span style={style}>
-                <IconComponent className={combinedClassName} />
-            </span>
-        )
-    }
 
     return <IconComponent className={combinedClassName} />
 }

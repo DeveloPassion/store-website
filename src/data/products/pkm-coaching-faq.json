@@ -1,39 +1,59 @@
 {
     "data": [
         {
-            "id": "faq-123",
-            "question": "How long is a coaching session?",
-            "answer": "Session length and format details provided after booking. Tailored to ensure you get value."
+            "id": "faq-100",
+            "question": "How is coaching different from your courses?",
+            "answer": "Courses teach frameworks and principles to many people. Coaching diagnoses YOUR specific situation. Think of it like the difference between a medical textbook and a doctor's visit. Courses give you knowledge; coaching applies that knowledge to YOUR unique challenges, goals, and context. Many clients have taken my courses and then book coaching for personalized implementation guidance."
         },
         {
-            "id": "faq-124",
-            "question": "What should I prepare?",
-            "answer": "Come with specific questions or challenges. Share your current system if you have one. Booking confirmation includes preparation guidance."
-        },
-        {
-            "id": "faq-125",
-            "question": "Can I book multiple sessions?",
-            "answer": "Yes. Many clients book follow-up sessions for ongoing support. Purchase additional sessions as needed."
-        },
-        {
-            "id": "faq-126",
-            "question": "Is this included in any bundles?",
-            "answer": "Knowledge Master tier includes quarterly check-ins. This is for additional 1-on-1 sessions beyond that."
-        },
-        {
-            "id": "faq-127",
+            "id": "faq-101",
             "question": "What if I'm a complete beginner?",
-            "answer": "Coaching works for all levels. However, if you're brand new, consider starting with courses (Knowledge Management for Beginners, Obsidian Starter Course) then coaching for personalized optimization."
+            "answer": "Coaching works at all levels, but you'll get the most value if you've already tried some self-directed learning. If you're brand new to PKM, consider starting with my Knowledge Management for Beginners course or the Obsidian Starter Kit first. Then book coaching for personalized optimization once you have a foundation to build on."
         },
         {
-            "id": "faq-128",
-            "question": "Do you coach on specific tools (Obsidian, Notion, etc.)?",
-            "answer": "Yes. While principles are tool-agnostic, coaching can include specific tool guidance including Obsidian, Notion, and others."
+            "id": "faq-102",
+            "question": "How long is a coaching session?",
+            "answer": "Sessions are tailored to ensure you get real value. After booking, you'll receive details about session format, scheduling options, and preparation guidance. The focus is on depth and clarity, not rushing through a checklist."
         },
         {
-            "id": "faq-129",
+            "id": "faq-103",
+            "question": "What should I prepare before the session?",
+            "answer": "Come with specific challenges, questions, or goals. If you have an existing system (even a messy one), share it beforehand so I can diagnose efficiently. The more context you provide, the more targeted our session can be. Booking confirmation includes detailed preparation guidance."
+        },
+        {
+            "id": "faq-104",
+            "question": "Do you only coach on Obsidian?",
+            "answer": "No. While I'm an Obsidian expert, my coaching is tool-agnostic. The principles of system design, knowledge capture, and organization work regardless of whether you use Obsidian, Notion, Roam, or anything else. We can discuss specific tool guidance, but the real value is in first-principles thinking that transfers across platforms."
+        },
+        {
+            "id": "faq-105",
+            "question": "What happens after the session?",
+            "answer": "You leave with a clear action plan. But the relationship doesn't end there—I remain available for follow-up questions. Many clients reach out weeks later when implementing and need quick clarification. This continued support is included."
+        },
+        {
+            "id": "faq-106",
+            "question": "Can I book multiple sessions?",
+            "answer": "Absolutely. Some clients book a single session and that's enough. Others prefer ongoing support with follow-up sessions every few weeks or months. Purchase additional sessions as needed—there's no commitment required."
+        },
+        {
+            "id": "faq-107",
             "question": "What timezone are you in?",
-            "answer": "Booking process includes scheduling that works for both timezones."
+            "answer": "I'm based in Belgium (CET/CEST). The booking process includes scheduling options that work across different timezones. We'll find a time that works for both of us."
+        },
+        {
+            "id": "faq-108",
+            "question": "Is coaching available in languages other than English?",
+            "answer": "Yes! Coaching is available in both English and French. Choose whichever language you're most comfortable with—clear communication matters more than formality."
+        },
+        {
+            "id": "faq-109",
+            "question": "What makes your coaching different from other PKM coaches?",
+            "answer": "Two things: real practice and first principles. I've practiced PKM for 20+ years as an author, entrepreneur, IT architect, and content creator—not as a theorist. And I don't prescribe my exact system. I help you understand WHY certain approaches work so you can build YOUR system. My background in software architecture and system design means I approach PKM as a design problem, not a tool problem."
+        },
+        {
+            "id": "faq-110",
+            "question": "Is coaching included in any of your other products?",
+            "answer": "The Knowledge Master tier of the Knowii Community includes quarterly check-ins. This PKM Coaching product is for additional 1-on-1 sessions beyond that, or for anyone who wants personalized guidance without joining the community."
         }
     ]
 }

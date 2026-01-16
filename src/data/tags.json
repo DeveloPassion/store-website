@@ -4,7 +4,7 @@
         "name": "AI",
         "description": "Artificial Intelligence tools and resources",
         "icon": "FaRobot",
-        "color": "#FF6B6B",
+        "color": "red-400",
         "featured": true,
         "priority": 6
     },
@@ -13,7 +13,7 @@
         "name": "AI Assistants",
         "description": "Resources and tools for ai assistants",
         "icon": "FaRobot",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 24
     },
@@ -22,7 +22,7 @@
         "name": "AI Prompts",
         "description": "Resources and tools for ai prompts",
         "icon": "FaLightbulb",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 25
     },
@@ -31,7 +31,7 @@
         "name": "Automation",
         "description": "Resources and tools for automation",
         "icon": "FaWrench",
-        "color": "#F59E0B",
+        "color": "amber-500",
         "featured": false,
         "priority": 26
     },
@@ -40,7 +40,7 @@
         "name": "Beginners",
         "description": "Resources and tools for beginners",
         "icon": "FaGraduationCap",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 27
     },
@@ -49,7 +49,7 @@
         "name": "Bundle",
         "description": "Resources and tools for bundle",
         "icon": "FaBoxOpen",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 28
     },
@@ -58,7 +58,7 @@
         "name": "Career Development",
         "description": "Resources and tools for career development",
         "icon": "FaStar",
-        "color": "#EAB308",
+        "color": "yellow-500",
         "featured": false,
         "priority": 29
     },
@@ -67,7 +67,7 @@
         "name": "ChatGPT",
         "description": "Resources and tools for chatgpt",
         "icon": "FaRobot",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 30
     },
@@ -76,7 +76,7 @@
         "name": "Checklist",
         "description": "Resources and tools for checklist",
         "icon": "FaCheckSquare",
-        "color": "#06B6D4",
+        "color": "cyan-500",
         "featured": false,
         "priority": 31
     },
@@ -85,7 +85,7 @@
         "name": "Clarity",
         "description": "Resources and tools for clarity",
         "icon": "FaLightbulb",
-        "color": "#FBBF24",
+        "color": "amber-400",
         "featured": false,
         "priority": 32
     },
@@ -94,7 +94,7 @@
         "name": "Claude",
         "description": "Resources and tools for claude",
         "icon": "FaBrain",
-        "color": "#A855F7",
+        "color": "purple-500",
         "featured": false,
         "priority": 33
     },
@@ -103,7 +103,7 @@
         "name": "Coaching",
         "description": "Resources and tools for coaching",
         "icon": "FaChalkboardTeacher",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 34
     },
@@ -112,7 +112,7 @@
         "name": "Community",
         "description": "Resources and tools for community",
         "icon": "FaUsers",
-        "color": "#14B8A6",
+        "color": "teal-500",
         "featured": true,
         "priority": 4
     },
@@ -121,7 +121,7 @@
         "name": "Concepts",
         "description": "Resources and tools for concepts",
         "icon": "FaLightbulb",
-        "color": "#6366F1",
+        "color": "indigo-500",
         "featured": false,
         "priority": 35
     },
@@ -130,7 +130,7 @@
         "name": "Content Creation",
         "description": "Resources and tools for content creation",
         "icon": "FaNewspaper",
-        "color": "#F97316",
+        "color": "orange-500",
         "featured": false,
         "priority": 36
     },
@@ -139,7 +139,7 @@
         "name": "Courses",
         "description": "Resources and tools for courses",
         "icon": "FaGraduationCap",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 37
     },
@@ -148,7 +148,7 @@
         "name": "Curated",
         "description": "Resources and tools for curated",
         "icon": "FaStar",
-        "color": "#F59E0B",
+        "color": "amber-500",
         "featured": false,
         "priority": 38
     },
@@ -157,7 +157,7 @@
         "name": "Design Thinking",
         "description": "Resources and tools for design thinking",
         "icon": "FaLightbulb",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 39
     },
@@ -166,7 +166,7 @@
         "name": "Directories",
         "description": "Resources and tools directory",
         "icon": "FaDatabase",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 40
     },
@@ -175,7 +175,7 @@
         "name": "Focus",
         "description": "Resources and tools for focus",
         "icon": "FaLightbulb",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 41
     },
@@ -184,7 +184,7 @@
         "name": "Free Guide",
         "description": "Resources and tools for free guide",
         "icon": "FaBook",
-        "color": "#06B6D4",
+        "color": "cyan-500",
         "featured": false,
         "priority": 42
     },
@@ -193,7 +193,7 @@
         "name": "Free Resource",
         "description": "Resources and tools for free resource",
         "icon": "FaGift",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 43
     },
@@ -202,7 +202,7 @@
         "name": "Getting Started",
         "description": "Resources and tools for getting started",
         "icon": "FaRocket",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 44
     },
@@ -211,7 +211,7 @@
         "name": "Ghostwriting",
         "description": "Resources and tools for ghostwriting",
         "icon": "FaPen",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 45
     },
@@ -220,7 +220,7 @@
         "name": "Goals",
         "description": "Resources and tools for goals",
         "icon": "FaStar",
-        "color": "#FBBF24",
+        "color": "amber-400",
         "featured": false,
         "priority": 46
     },
@@ -229,7 +229,7 @@
         "name": "GTD",
         "description": "Resources and tools for gtd",
         "icon": "FaCheckSquare",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 47
     },
@@ -238,7 +238,7 @@
         "name": "Habits",
         "description": "Resources and tools for habits",
         "icon": "FaCalendarAlt",
-        "color": "#06B6D4",
+        "color": "cyan-500",
         "featured": false,
         "priority": 48
     },
@@ -247,7 +247,7 @@
         "name": "Ikigai",
         "description": "Resources and tools for ikigai",
         "icon": "FaStar",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 49
     },
@@ -256,7 +256,7 @@
         "name": "Interstitial Journaling",
         "description": "Resources and tools for interstitial journaling",
         "icon": "FaPen",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 50
     },
@@ -265,7 +265,7 @@
         "name": "IT Fundamentals",
         "description": "Resources and tools for it fundamentals",
         "icon": "FaCode",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 51
     },
@@ -274,7 +274,7 @@
         "name": "Johnny.Decimal",
         "description": "Resources and tools for johnny decimal",
         "icon": "FaDatabase",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 52
     },
@@ -283,7 +283,7 @@
         "name": "Journaling",
         "description": "Journaling practices for reflection and personal growth",
         "icon": "FaPen",
-        "color": "#95E1D3",
+        "color": "teal-200",
         "featured": true,
         "priority": 7
     },
@@ -292,7 +292,7 @@
         "name": "Knowledge Management",
         "description": "Resources and tools for knowledge management",
         "icon": "FaBrain",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": true,
         "priority": 1
     },
@@ -301,7 +301,7 @@
         "name": "Knowledge Work",
         "description": "Resources and tools for knowledge work",
         "icon": "FaLightbulb",
-        "color": "#F59E0B",
+        "color": "amber-500",
         "featured": false,
         "priority": 53
     },
@@ -310,7 +310,7 @@
         "name": "Lead Magnet",
         "description": "Resources and tools for lead magnet",
         "icon": "FaGift",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 54
     },
@@ -319,7 +319,7 @@
         "name": "Learning",
         "description": "Resources and tools for learning",
         "icon": "FaBook",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 55
     },
@@ -328,7 +328,7 @@
         "name": "Life Design",
         "description": "Resources and tools for life design",
         "icon": "FaStar",
-        "color": "#A855F7",
+        "color": "purple-500",
         "featured": false,
         "priority": 56
     },
@@ -337,7 +337,7 @@
         "name": "Lifetime Access",
         "description": "Resources and tools for lifetime access",
         "icon": "FaGift",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 57
     },
@@ -346,7 +346,7 @@
         "name": "LLMs",
         "description": "Resources and tools for llms",
         "icon": "FaBrain",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 58
     },
@@ -355,7 +355,7 @@
         "name": "Markdown",
         "description": "Resources and tools for markdown",
         "icon": "FaFileAlt",
-        "color": "#6366F1",
+        "color": "indigo-500",
         "featured": false,
         "priority": 59
     },
@@ -364,7 +364,7 @@
         "name": "Master Prompts",
         "description": "Resources and tools for master prompts",
         "icon": "FaLightbulb",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 60
     },
@@ -373,7 +373,7 @@
         "name": "MCP",
         "description": "Resources and tools for mcp",
         "icon": "FaCode",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 61
     },
@@ -382,7 +382,7 @@
         "name": "Mindfulness",
         "description": "Resources and tools for mindfulness",
         "icon": "FaLightbulb",
-        "color": "#14B8A6",
+        "color": "teal-500",
         "featured": false,
         "priority": 62
     },
@@ -391,7 +391,7 @@
         "name": "Model Context Protocol",
         "description": "Resources and tools for model context protocol",
         "icon": "FaCode",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 63
     },
@@ -400,7 +400,7 @@
         "name": "Note Taking",
         "description": "Effective note-taking strategies and systems",
         "icon": "FaBookOpen",
-        "color": "#F38181",
+        "color": "red-400",
         "featured": true,
         "priority": 8
     },
@@ -409,7 +409,7 @@
         "name": "Obsidian",
         "description": "Master Obsidian note-taking and knowledge management",
         "icon": "SiObsidian",
-        "color": "#7C3AED",
+        "color": "violet-600",
         "featured": true,
         "priority": 2
     },
@@ -418,7 +418,7 @@
         "name": "Offline",
         "description": "Resources and tools for offline",
         "icon": "FaDatabase",
-        "color": "#6366F1",
+        "color": "indigo-500",
         "featured": false,
         "priority": 64
     },
@@ -427,7 +427,7 @@
         "name": "PARA Method",
         "description": "Resources and tools for para method",
         "icon": "FaDatabase",
-        "color": "#06B6D4",
+        "color": "cyan-500",
         "featured": false,
         "priority": 65
     },
@@ -436,7 +436,7 @@
         "name": "Periodic Reviews",
         "description": "Resources and tools for periodic reviews",
         "icon": "FaCalendarAlt",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 66
     },
@@ -445,7 +445,7 @@
         "name": "Personal Brand",
         "description": "Resources and tools for personal brand",
         "icon": "FaUser",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 67
     },
@@ -454,7 +454,7 @@
         "name": "Personal Knowledge Management",
         "description": "Resources and tools for personal knowledge management",
         "icon": "FaBrain",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 21
     },
@@ -463,7 +463,7 @@
         "name": "Personal Manifesto",
         "description": "Resources and tools for personal manifesto",
         "icon": "FaFileAlt",
-        "color": "#F59E0B",
+        "color": "amber-500",
         "featured": false,
         "priority": 68
     },
@@ -472,7 +472,7 @@
         "name": "Personal Organization",
         "description": "Resources and tools for personal organization",
         "icon": "FaCheckSquare",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 69
     },
@@ -481,7 +481,7 @@
         "name": "PKM",
         "description": "Personal Knowledge Management systems and techniques",
         "icon": "FaBrain",
-        "color": "#6BCB77",
+        "color": "green-400",
         "featured": false,
         "priority": 22
     },
@@ -490,7 +490,7 @@
         "name": "Privacy",
         "description": "Resources and tools for privacy",
         "icon": "FaUser",
-        "color": "#6366F1",
+        "color": "indigo-500",
         "featured": false,
         "priority": 70
     },
@@ -499,7 +499,7 @@
         "name": "Productivity",
         "description": "Tools and techniques to boost your productivity",
         "icon": "FaRocket",
-        "color": "#F7B801",
+        "color": "amber-500",
         "featured": true,
         "priority": 3
     },
@@ -508,7 +508,7 @@
         "name": "Programming",
         "description": "Resources and tools for programming",
         "icon": "FaCode",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 71
     },
@@ -517,7 +517,7 @@
         "name": "Prompt Engineering",
         "description": "Resources and tools for prompt engineering",
         "icon": "FaLightbulb",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 72
     },
@@ -526,7 +526,7 @@
         "name": "Reference",
         "description": "Reference materials",
         "icon": "FaBook",
-        "color": "#06B6D4",
+        "color": "cyan-500",
         "featured": false,
         "priority": 73
     },
@@ -535,7 +535,7 @@
         "name": "Resources",
         "description": "Resources and tools for resources",
         "icon": "FaBoxOpen",
-        "color": "#F59E0B",
+        "color": "amber-500",
         "featured": false,
         "priority": 74
     },
@@ -544,7 +544,7 @@
         "name": "Routines",
         "description": "Resources and tools for routines",
         "icon": "FaCalendarAlt",
-        "color": "#14B8A6",
+        "color": "teal-500",
         "featured": false,
         "priority": 75
     },
@@ -553,7 +553,7 @@
         "name": "Second Brain",
         "description": "Build Your Second Brain methodology and resources",
         "icon": "FaBrain",
-        "color": "#38A3A5",
+        "color": "teal-500",
         "featured": false,
         "priority": 23
     },
@@ -562,7 +562,7 @@
         "name": "SMART Goals",
         "description": "Resources and tools for smart goals",
         "icon": "FaStar",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 76
     },
@@ -571,7 +571,7 @@
         "name": "Speech Recognition",
         "description": "Resources and tools for speech recognition",
         "icon": "FaMicrophone",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 77
     },
@@ -580,7 +580,7 @@
         "name": "Systems",
         "description": "Resources and tools for systems",
         "icon": "FaWrench",
-        "color": "#6366F1",
+        "color": "indigo-500",
         "featured": false,
         "priority": 78
     },
@@ -589,7 +589,7 @@
         "name": "Templates",
         "description": "Ready-to-use templates for knowledge management and productivity",
         "icon": "FaFileAlt",
-        "color": "#4ECDC4",
+        "color": "teal-400",
         "featured": true,
         "priority": 5
     },
@@ -598,7 +598,7 @@
         "name": "Time Management",
         "description": "Resources and tools for time management",
         "icon": "FaCalendarAlt",
-        "color": "#F59E0B",
+        "color": "amber-500",
         "featured": false,
         "priority": 79
     },
@@ -607,7 +607,7 @@
         "name": "Tools",
         "description": "Resources and tools for tools",
         "icon": "FaTools",
-        "color": "#3B82F6",
+        "color": "blue-500",
         "featured": false,
         "priority": 80
     },
@@ -616,7 +616,7 @@
         "name": "Values",
         "description": "Resources and tools for values",
         "icon": "FaStar",
-        "color": "#06B6D4",
+        "color": "cyan-500",
         "featured": false,
         "priority": 81
     },
@@ -625,7 +625,7 @@
         "name": "Voice To Text",
         "description": "Resources and tools for voice to text",
         "icon": "FaMicrophone",
-        "color": "#10B981",
+        "color": "emerald-500",
         "featured": false,
         "priority": 82
     },
@@ -634,7 +634,7 @@
         "name": "Writing",
         "description": "Resources and tools for writing",
         "icon": "FaPen",
-        "color": "#EC4899",
+        "color": "pink-500",
         "featured": false,
         "priority": 83
     },
@@ -643,7 +643,7 @@
         "name": "Zen Productivity",
         "description": "Resources and tools for zen productivity",
         "icon": "FaLightbulb",
-        "color": "#14B8A6",
+        "color": "teal-500",
         "featured": false,
         "priority": 84
     },
@@ -652,7 +652,7 @@
         "name": "Zettelkasten",
         "description": "Resources and tools for zettelkasten",
         "icon": "FaDatabase",
-        "color": "#8B5CF6",
+        "color": "violet-500",
         "featured": false,
         "priority": 85
     }

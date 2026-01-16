@@ -1,77 +1,76 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "The Complete System to Become a Top 1% Knowledge Worker",
-        "secondaryTagline": "20+ Years of Battle-Tested Systems · 10,000 Notes · One Complete Framework",
-        "problem": "Being a Knowledge Worker is harder than ever. Information overload is drowning you. AI is changing everything. You're juggling more responsibilities than humanly possible. And no matter how hard you work, you can't seem to get ahead. You need a system that actually works—not another productivity hack that fades after a week.",
+        "tagline": "Everything I Know About Being a Knowledge Worker, In One Place",
+        "secondaryTagline": "20+ years of systems. Nearly 10,000 notes. One complete framework.",
+        "problem": "Look, being a knowledge worker is brutal right now. Information is everywhere. AI is changing the rules. You're juggling more than seems humanly possible. And no matter how hard you work, you can't seem to get ahead. You need a system that actually works. Not another productivity hack that fades after a week.",
         "problemPoints": [
             "Information overload drowning your ability to think clearly",
-            "AI revolution making you question your relevance",
+            "AI changing everything and you're not sure where you fit",
             "Scattered knowledge across dozens of tools and apps",
-            "Working hard but not seeing proportional results",
-            "No clear framework for career growth and decision-making",
+            "Working hard but not seeing the results to match",
+            "No clear framework for career decisions",
             "Starting from scratch on every new project",
-            "Feeling overwhelmed despite being 'smart' and 'capable'"
+            "Feeling overwhelmed despite being capable"
         ],
-        "agitate": "Here's the uncomfortable truth: without proper systems, you're bleeding time, energy, and opportunities every single day. While others with less talent get ahead because they have systems that work FOR them instead of against them. Every day without a proper knowledge system is a day of compounding losses—ideas forgotten, connections missed, decisions made in the dark.",
+        "agitate": "Here's the uncomfortable truth: without proper systems, you're losing time and opportunities every single day. I've watched people with less talent get ahead simply because they had systems working for them. Every day without a knowledge system is a day of compounding losses. Ideas forgotten. Connections missed. Decisions made on gut feeling when you could have had clarity.",
         "agitatePoints": [
-            "Hours lost daily searching for information you already captured",
-            "Brilliant ideas that vanish because you have no capture system",
-            "Career decisions made without a clear framework",
-            "AI advancing while your skills feel increasingly outdated",
-            "Burnout cycles from working harder instead of smarter",
-            "Projects failing because of poor organization, not poor skills",
-            "The gap between your potential and your results keeps growing"
+            "Hours lost searching for stuff you already captured somewhere",
+            "Good ideas that disappear because there's no capture system",
+            "Career moves made without a real framework",
+            "Burnout from working harder instead of working smarter",
+            "Projects failing due to poor organization, not poor skills",
+            "The gap between what you're capable of and what you're achieving"
         ],
-        "solution": "The Knowledge Worker Kit is everything I've learned in 20+ years of knowledge work—distilled into one comprehensive system. It's the exact framework I use to manage a half-time business alongside my corporate IT role, maintain nearly 10,000 notes, write 400+ articles, create courses, raise 3 kids, and stay calm and zen through it all. This isn't theory from someone who read about productivity. This is a battle-tested system from someone who built it while facing burnout, a failed startup, career transitions, and life's hardest moments.",
+        "solution": "The Knowledge Worker Kit is everything I've learned in 20+ years of knowledge work. It's the system I use to run a half-time business alongside my corporate IT role, maintain nearly 10,000 notes, write 400+ articles, build courses, raise 3 kids, and stay mostly calm through all of it. This isn't theory from someone who read about productivity. I built this while dealing with burnout, a failed startup that cost me 200k euros, career transitions, and real life.",
         "solutionPoints": [
-            "13 comprehensive topic areas covering EVERYTHING—clarity, habits, career, learning, PKM, projects, planning, tasks, focus, development, control, organization, and work",
-            "Private community of knowledge workers facing the same challenges",
-            "€340+ in bonuses including Obsidian Starter Kit, courses, and workshops",
-            "Lifetime access with continuous updates—buy once, benefit forever",
-            "Modular design—implement what you need now, expand as you grow",
+            "13 topic areas covering clarity, habits, career, learning, PKM, projects, planning, tasks, focus, development, control, organization, and work",
+            "Private community of people facing the same challenges you are",
+            "340+ euros in bonuses including the Obsidian Starter Kit, courses, and workshops",
+            "Lifetime access with ongoing updates",
+            "Modular design so you implement what matters now and expand later",
             "Real systems from real practice, not theoretical frameworks"
         ],
-        "description": "The Knowledge Worker Kit is a private community and deep-dive guide built from 20+ years of real-world experience. Created by Sébastien Dubois—author, IT Solution Architect, coach, entrepreneur, and father of 3—this is the complete system he used to go from shy, introverted teenager to published author, successful creator, and IT leader at a major financial organization, all while managing nearly 10,000 notes and raising a busy family. It covers 13 comprehensive topic areas with systems, templates, and guidance that actually work in real life. The goal: Zen Productivity—staying calm and organized no matter how much you're juggling. Evergreen content that keeps growing, community support from day one, and €340+ in immediate bonuses.",
+        "description": "The Knowledge Worker Kit is a private community and deep-dive guide I built from 20+ years of doing this work. I went from being a shy, introverted teenager to a published author, IT Solution Architect at a major financial organization, entrepreneur, and father of 3. Along the way I built the systems that let me manage nearly 10,000 notes while staying calm. The kit covers 13 topic areas with systems, templates, and guidance that actually work when life gets complicated. The goal is what I call Zen Productivity: staying organized and calm no matter how much you're juggling. You get the community from day one, the content keeps growing, and there's 340+ euros in bonuses included.",
         "features": [
-            "Private Community Access — Join the Knowii community of knowledge workers committed to growth",
-            "Comprehensive Guide — Notion space covering 13 topic areas with actionable systems",
-            "01. Clarity — Define your values, principles, goals, non-goals, and priorities",
-            "02. Habits & Systems — Build routines that make productivity effortless",
-            "03. Career Management — Take control of your career trajectory",
-            "04. Learning — Master how to learn effectively and leverage AI",
-            "05. PKM & Journaling — Build a second brain that grows with you",
-            "06. Projects Organization — Structure projects for focused progress",
-            "07. Planning & Prioritization — Make better decisions about what matters",
-            "08. Task Management — Keep personal and professional tasks under control",
-            "09. Focus & Action — Manage time, attention, and daily execution",
-            "10. Personal Development — Maintain a sane mind in a sane body",
-            "11. Control — Track progress and adjust course when needed",
-            "12. Personal Organization — Stay zen no matter how much you juggle",
-            "13. Work — Excel in collaboration, communication, and results",
-            "All Past & Future Events — Workshops, AMAs, knowledge-sharing sessions included"
+            "Private Community Access: Join the Knowii community of knowledge workers committed to growth",
+            "Comprehensive Guide: Notion space covering 13 topic areas with actionable systems",
+            "01. Clarity: Define your values, principles, goals, non-goals, and priorities",
+            "02. Habits & Systems: Build routines that make productivity automatic",
+            "03. Career Management: Take control of your career trajectory",
+            "04. Learning: Master how to learn and how to leverage AI",
+            "05. PKM & Journaling: Build a second brain that grows with you",
+            "06. Projects Organization: Structure projects for focused progress",
+            "07. Planning & Prioritization: Make better decisions about what matters",
+            "08. Task Management: Keep personal and professional tasks under control",
+            "09. Focus & Action: Manage time, attention, and daily execution",
+            "10. Personal Development: Maintain a sane mind in a sane body",
+            "11. Control: Track progress and adjust when needed",
+            "12. Personal Organization: Stay zen no matter how much you juggle",
+            "13. Work: Excel in collaboration, communication, and results",
+            "All Past & Future Events: Workshops, AMAs, knowledge-sharing sessions included"
         ],
         "benefits": {
             "immediate": [
-                "Clarity on what actually matters to you (values, principles, priorities)",
-                "A proven framework you can start implementing today",
-                "Access to €340+ in bonuses (Obsidian Starter Kit, courses, workshops)",
-                "Connection to a community of people facing the same challenges"
+                "Clarity on what actually matters to you",
+                "A framework you can start implementing today",
+                "340+ euros in bonuses (Obsidian Starter Kit, courses, workshops)",
+                "Connection to people facing the same challenges"
             ],
             "systematic": [
                 "Systems that make productivity automatic, not heroic",
-                "A knowledge base that compounds in value over time",
-                "Career direction based on clear principles, not random opportunities",
-                "Learning methods that help you absorb and retain information",
+                "A knowledge base that compounds in value",
+                "Career direction based on principles, not random opportunities",
+                "Learning methods that help you retain what matters",
                 "Project management that scales with your ambitions",
-                "Time and attention management that actually respects your humanity"
+                "Time management that respects your humanity"
             ],
             "longTerm": [
-                "A 'second brain' that becomes more valuable every year",
-                "Career resilience in an AI-transformed world",
-                "The confidence that comes from knowing you have a system that works",
-                "Freedom from information overwhelm—permanently",
-                "A community of practice that grows with you"
+                "A second brain that becomes more valuable every year",
+                "Career resilience as AI changes everything",
+                "Confidence from knowing you have a system that works",
+                "Freedom from information overwhelm",
+                "A community that grows with you"
             ]
         },
         "targetAudience": [
@@ -94,14 +93,14 @@
             "You're not willing to implement and adapt systems to your life"
         ],
         "trustBadges": [
-            "One-Time Payment — €149.99, own forever",
-            "€340+ in Bonuses — Immediate access",
-            "Lifetime Access — All past, present, and future content",
-            "20+ Years Experience — Battle-tested systems from real practice",
-            "10,000 Notes — Proof these systems scale",
-            "13 Comprehensive Topics — Everything covered in one place",
-            "Evergreen Content — Continuously updated and expanded",
-            "Private Community — Direct access to peers and creator"
+            "One-Time Payment: 149.99 euros, own forever",
+            "340+ euros in Bonuses: Immediate access",
+            "Lifetime Access: All past, present, and future content",
+            "20+ Years Experience: Battle-tested systems",
+            "Nearly 10,000 Notes: Proof these systems scale",
+            "13 Comprehensive Topics: Everything in one place",
+            "Evergreen Content: Continuously updated",
+            "Private Community: Direct access to peers and me"
         ],
         "guarantees": [
             "Lifetime access to all content and updates",
@@ -129,60 +128,60 @@
         "storytelling": {
             "originStory": {
                 "title": "Why I Built This",
-                "subtitle": "From burnout to breakthrough",
-                "story": "I didn't create the Knowledge Worker Kit because I'm naturally organized. I created it because I was drowning. As a shy, introverted teenager, I found refuge in writing and building websites. Decades later, I was still struggling—a failed startup that cost me 200k€ and two years. Burnout from trying to do everything through sheer willpower. The painful transition from introverted engineer to leader and manager. Raising three kids while building a business. Losing loved ones and questioning what really matters. These experiences forced me to build systems that actually work—not theoretical frameworks, but practical systems I use every single day. Today, I manage nearly 10,000 notes in my personal vault and remain almost always calm and zen, despite a demanding life. The Knowledge Worker Kit is everything I wish I had when I started. It's the distillation of 20+ years of building systems, trial, error, and hard-won lessons.",
+                "subtitle": "From burnout to something that actually works",
+                "story": "I didn't create the Knowledge Worker Kit because I'm naturally organized. I created it because I was drowning. As a shy, introverted teenager, I found refuge in writing and building websites. Decades later, I was still struggling. A failed startup cost me 200k euros and two years. I burned out trying to do everything through sheer willpower. The transition from introverted engineer to leader was painful. Three kids while building a business. Losing loved ones and questioning what really matters. These experiences forced me to build systems that actually work. Not theoretical frameworks, but practical systems I use every day. Today, I manage nearly 10,000 notes in my personal vault and I'm almost always calm, despite a demanding life. The Knowledge Worker Kit is everything I wish I had when I started. It's 20+ years of building systems, trial, error, and hard lessons distilled into something you can use.",
                 "inspirationPoint": "The moment I realized I needed systems that worked even when motivation failed",
-                "icon": "🔥",
+                "icon": null,
                 "genesisDate": null
             },
             "creatorJourney": {
                 "title": "20+ Years of Building Systems",
-                "subtitle": "Not theory—practice",
-                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization in Belgium—while running DeveloPassion, raising 3 kids, and maintaining nearly 10,000 notes in my personal knowledge system. I've published 3 books, written 400+ articles and newsletters, created courses, built digital products, and launched the Knowii community. My personal system works—and I want it to work for you too. This isn't content from someone who researched productivity for a blog post. This is a living system from someone who builds his life around these principles every single day.",
+                "subtitle": "Not theory. Practice.",
+                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization in Belgium while running DeveloPassion, raising 3 kids, and maintaining nearly 10,000 notes in my personal knowledge system. I've published 3 books, written 400+ articles and newsletters, created courses, built digital products, and launched the Knowii community. My system works. I want it to work for you too. This isn't content from someone who researched productivity for a blog post. This is a living system from someone who builds his life around these principles.",
                 "struggles": [
-                    "Crushing shyness and introversion that made communication terrifying",
-                    "A failed startup that cost 200k€ and 2 years",
+                    "Crushing shyness that made communication terrifying",
+                    "A failed startup that cost 200k euros and 2 years",
                     "Burnout from trying to succeed through willpower alone",
                     "Losing loved ones and rebuilding meaning",
-                    "Managing chaos with 3 kids and a demanding corporate career"
+                    "Managing chaos with 3 kids and a demanding career"
                 ],
                 "achievements": [
                     "Published 3 books including Learn TypeScript",
                     "Written 400+ articles and newsletters",
-                    "Nearly 10,000 notes in personal knowledge vault",
+                    "Nearly 10,000 notes in my personal vault",
                     "Built the Knowii community from scratch",
-                    "Transitioned from shy introvert to leader and entrepreneur",
+                    "Went from shy introvert to leader and entrepreneur",
                     "IT Solution Architect at a major financial organization"
                 ],
                 "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3",
-                "icon": "🚀"
+                "icon": null
             },
             "transformationArc": {
                 "title": "Your Transformation",
                 "subtitle": "Slowly, then suddenly",
                 "before": {
                     "title": "Before the System",
-                    "description": "You're smart and capable, but somehow it's not enough. Information is scattered across dozens of apps. You start every project from scratch. Decisions feel like guesses. You work hard but the results don't match the effort. AI is advancing and you're not sure where you fit.",
+                    "description": "You're smart and capable, but somehow that's not enough. Information is scattered across dozens of apps. You start every project from scratch. Decisions feel like guesses. You work hard but results don't match the effort. AI is advancing and you're not sure where you fit.",
                     "points": [
                         "Information scattered, ideas lost",
-                        "No clear framework for decisions",
-                        "Working hard without proportional results",
-                        "Starting from zero on every new challenge",
+                        "No framework for decisions",
+                        "Hard work without matching results",
+                        "Starting from zero on every challenge",
                         "Feeling behind despite constant effort"
                     ],
-                    "icon": "😰"
+                    "icon": null
                 },
                 "during": {
                     "title": "Building the Foundation",
-                    "description": "You start with clarity—understanding your values, principles, and priorities. Then you build systems, piece by piece, at your own pace. Each module is actionable on its own, so you see results before tackling the next area. The community supports you through challenges. Slowly, habits form and systems take hold.",
+                    "description": "You start with clarity: your values, principles, and priorities. Then you build systems piece by piece, at your own pace. Each module works on its own, so you see results before tackling the next area. The community supports you when you get stuck. Slowly, habits form and systems take hold.",
                     "points": [
                         "Clarity on what actually matters",
                         "Systems implemented step by step",
-                        "Community support through challenges",
+                        "Community support when you get stuck",
                         "Quick wins that build momentum",
                         "Habits that make progress automatic"
                     ],
-                    "icon": "🔧"
+                    "icon": null
                 },
                 "after": {
                     "title": "The Compounding Effect",
@@ -194,9 +193,9 @@
                         "Results that finally match your capabilities",
                         "Calm confidence in an uncertain world"
                     ],
-                    "icon": "✨"
+                    "icon": null
                 },
-                "timeline": "The transformation happens gradually, then suddenly—small changes compound into life-changing results"
+                "timeline": "The transformation happens gradually, then suddenly. Small changes compound into real results."
             },
             "methodology": {
                 "title": "The Four Pillars",
@@ -204,61 +203,61 @@
                 "steps": [
                     {
                         "title": "Clarity First",
-                        "description": "Before you can be productive, you need to know what matters. Define your values, principles, goals, and priorities. Without this foundation, all the systems in the world won't help you—you'll just be efficiently doing the wrong things.",
-                        "icon": "🎯",
+                        "description": "Before you can be productive, you need to know what matters. Define your values, principles, goals, and priorities. Without this foundation, all the systems in the world won't help. You'll just be efficiently doing the wrong things.",
+                        "icon": null,
                         "order": 0
                     },
                     {
                         "title": "Systems Beat Willpower",
                         "description": "Stop relying on motivation that comes and goes. Build habits, routines, and systems that make progress automatic. The best system is one that works even on your worst days.",
-                        "icon": "⚙️",
+                        "icon": null,
                         "order": 1
                     },
                     {
                         "title": "Knowledge as Leverage",
-                        "description": "Your knowledge system is your competitive advantage. Build a second brain that captures, organizes, and connects everything you learn. Make your knowledge compound over time instead of fading away.",
-                        "icon": "🧠",
+                        "description": "Your knowledge system is your advantage. Build a second brain that captures, organizes, and connects what you learn. Make your knowledge compound instead of fade away.",
+                        "icon": null,
                         "order": 2
                     },
                     {
                         "title": "Connect Everything",
-                        "description": "Ideas in isolation have limited value. Link your knowledge, connect with your community, and build the relationships that create opportunities. Breakthroughs happen at the intersections.",
-                        "icon": "🔗",
+                        "description": "Ideas in isolation have limited value. Link your knowledge, connect with your community, build relationships that create opportunities. Breakthroughs happen at intersections.",
+                        "icon": null,
                         "order": 3
                     }
                 ],
                 "philosophy": "Clarity creates direction. Systems create consistency. Knowledge creates leverage. Connection creates opportunities.",
-                "differentiation": "This isn't another productivity course. It's a comprehensive system built from 20+ years of real practice—every topic covered, every piece connected, continuously updated and supported by a community of practitioners."
+                "differentiation": "This isn't another productivity course. It's a comprehensive system built from 20+ years of practice. Every topic covered, every piece connected, continuously updated, supported by a community of practitioners."
             },
             "vision": {
                 "title": "The Mission",
                 "subtitle": "Why this exists",
-                "mission": "I want people to grow and thrive. I've faced burnout, failure, loss, and chaos—and I've built systems that helped me not just survive, but succeed. My mission is to help you become part of the top 1% of knowledge workers by giving you everything I've learned. Not theory from textbooks—practical systems from someone who uses them every single day.",
+                "mission": "I want people to grow and thrive. I've faced burnout, failure, loss, and chaos. I've built systems that helped me not just survive, but succeed. My mission is to help you become part of the top 1% of knowledge workers by giving you everything I've learned. Not theory from textbooks. Practical systems from someone who uses them every day.",
                 "values": [
                     {
                         "title": "Battle-Tested Over Theoretical",
-                        "description": "Every system in this kit is something I use personally. If it doesn't work in real life—with kids, deadlines, and chaos—it doesn't make the cut.",
-                        "icon": "⚔️"
+                        "description": "Every system here is something I use personally. If it doesn't work in real life with kids, deadlines, and chaos, it doesn't make the cut.",
+                        "icon": null
                     },
                     {
                         "title": "Comprehensive Over Fragmentary",
-                        "description": "You don't need another isolated tip. You need a complete system where every piece connects. That's what the Knowledge Worker Kit delivers.",
-                        "icon": "🔄"
+                        "description": "You don't need another isolated tip. You need a complete system where every piece connects. That's what this delivers.",
+                        "icon": null
                     },
                     {
                         "title": "Evergreen Over Static",
-                        "description": "The kit keeps growing. New content, new workshops, new resources. Buy once, benefit forever as the value compounds over time.",
-                        "icon": "🌱"
+                        "description": "The kit keeps growing. New content, new workshops, new resources. Buy once, benefit forever as the value compounds.",
+                        "icon": null
                     }
                 ],
                 "futureGoals": [
-                    "Continue expanding the guide with new systems and techniques",
-                    "Grow the community into a thriving network of knowledge workers",
+                    "Keep expanding the guide with new systems and techniques",
+                    "Grow the community into a thriving network",
                     "Create more workshops and deep-dive sessions",
                     "Help 10,000+ knowledge workers reach their potential"
                 ],
-                "biggerPicture": "In a world where AI is changing everything, your ability to manage knowledge, think clearly, and connect ideas is more valuable than ever. The Knowledge Worker Kit isn't just about productivity—it's about building the skills that make you irreplaceable.",
-                "icon": "🌟"
+                "biggerPicture": "In a world where AI is changing everything, your ability to manage knowledge, think clearly, and connect ideas is more valuable than ever. The Knowledge Worker Kit isn't just about productivity. It's about building the skills that make you irreplaceable.",
+                "icon": null
             },
             "successStories": null
         },
@@ -270,53 +269,53 @@
                     "id": "week-1",
                     "timeframe": "Week 1",
                     "title": "Clarity Foundations",
-                    "description": "Start with what matters most: your values, principles, and priorities. By the end of week one, you'll have a clear personal manifesto that guides every decision.",
+                    "description": "Start with what matters most: your values, principles, and priorities. By the end of week one, you'll have a clear personal manifesto that guides decisions.",
                     "highlights": [
                         "Define your core values and principles",
                         "Set clear goals and non-goals",
                         "Join the community and introduce yourself",
                         "Access all your bonuses"
                     ],
-                    "icon": "🎯"
+                    "icon": null
                 },
                 {
                     "id": "month-1",
                     "timeframe": "Month 1",
                     "title": "Systems Running",
-                    "description": "Your basic systems are in place and working. You have a capture system, a daily workflow, and habits that are starting to stick. The chaos is beginning to organize itself.",
+                    "description": "Your basic systems are in place and working. You have a capture system, a daily workflow, and habits that are starting to stick. The chaos is beginning to organize.",
                     "highlights": [
                         "Daily workflow established",
                         "Knowledge capture system active",
                         "First habits taking hold",
                         "Initial organization improvements visible"
                     ],
-                    "icon": "⚙️"
+                    "icon": null
                 },
                 {
                     "id": "month-3",
                     "timeframe": "Month 3",
-                    "title": "Visible Productivity Gains",
+                    "title": "Visible Gains",
                     "description": "The compound effect kicks in. You're finding information faster, making decisions with more confidence, and noticing that projects run smoother. Others start asking what changed.",
                     "highlights": [
-                        "Information retrieval becomes effortless",
+                        "Information retrieval becomes fast",
                         "Decision-making improves noticeably",
                         "Projects feel more organized",
                         "Time previously wasted is now recovered"
                     ],
-                    "icon": "📈"
+                    "icon": null
                 },
                 {
                     "id": "month-6",
                     "timeframe": "Month 6+",
                     "title": "Compounding Benefits",
-                    "description": "The system becomes second nature. Your knowledge base is a genuine asset that grows more valuable every day. The gap between your potential and your results has closed. You've become the kind of knowledge worker others look up to.",
+                    "description": "The system becomes second nature. Your knowledge base is a genuine asset that grows more valuable every day. The gap between your potential and your results has closed.",
                     "highlights": [
-                        "Systems work automatically without conscious effort",
+                        "Systems work without conscious effort",
                         "Knowledge compounds into genuine expertise",
                         "Career and life decisions feel clear",
                         "You're helping others implement similar systems"
                     ],
-                    "icon": "🚀"
+                    "icon": null
                 }
             ]
         },

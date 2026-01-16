@@ -1,94 +1,227 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Every Knowledge Tool, Course, and Workshop in One Complete Package",
-        "secondaryTagline": "Save €289 and Get Lifetime Access to the Complete Knowledge System",
-        "problem": "Want complete system but buying separately is €589. Don't want ongoing subscription.",
+        "tagline": "Every Knowledge Product I've Made. One Price. Yours Forever.",
+        "secondaryTagline": "For people who want to own their tools, not rent them",
+        "problem": "You keep eyeing these products, but buying them separately would cost €589. That's a lot of individual decisions. Meanwhile, you don't really want another subscription eating into your budget, and you're definitely not looking for community obligations or live events. You just want the whole system to learn at your own pace.",
         "problemPoints": [
-            "Costs €589 separately",
-            "Don't want subscription",
-            "Want everything at once",
-            "Prefer lifetime access",
-            "Don't want to decide"
+            "Subscription fatigue is real. Another €15-30/month tool you'll 'cancel next month'... and never do",
+            "Decision paralysis: 'Do I need the course? The kit? Both? What about the workshops?'",
+            "You buy one product, realize you need another, then another. Each purchase feels like starting over",
+            "Live events don't fit your schedule. Communities don't match your learning style",
+            "Buying everything separately costs €589 and requires too many decisions",
+            "You want tools that work together, not a pile of disconnected stuff"
         ],
-        "agitate": "Buying separately costs €589. Prices add up. Want everything but don't want subscriptions. Prefer ownership.",
+        "agitate": "Here's what usually happens: You buy one product. It's good, but incomplete. You realize you need something else. Then something else. The pieces don't quite fit because you're missing the connecting parts. And those subscription services keep charging you every month for access you barely use. You end up with gaps in your system, and gaps in your system become gaps in your knowledge work.",
         "agitatePoints": [
-            "€589 separately",
-            "Prices add up",
-            "Don't want subscriptions",
-            "Want ownership"
+            "Partial systems give partial results",
+            "Every new purchase restarts the 'what do I actually need?' question",
+            "Monthly subscriptions add up to thousands over the years",
+            "Scattered tools mean scattered knowledge",
+            "Without the full picture, you're always missing something"
         ],
-        "solution": "Everything Knowledge Bundle: Every product, course, workshop—current and future—for €299.99.",
+        "solution": "The Everything Knowledge Bundle is simple: every knowledge product I've made, in one purchase, yours forever. Every course. Every kit. Every workshop. Every tool. No subscriptions, no community pressure. Just you and the complete system, learning at whatever pace works for your life. I built this from 20+ years of knowledge work, managing nearly 10,000 notes while raising 3 kids and keeping my sanity.",
         "solutionPoints": [
-            "Complete System",
-            "Lifetime Access",
-            "Save €289",
-            "Future-Proof",
-            "No Subscriptions",
-            "Everything Integrated"
+            "One decision: every knowledge product in a single purchase",
+            "Growing system: products designed to work together, with new additions over time",
+            "Own forever: €299.99 once, never think about it again",
+            "Learn privately: no community obligations, no live events to attend",
+            "Take your time: months or years, the content is yours",
+            "From beginner basics to AI-powered workflows, it's all included",
+            "Future products added automatically at no extra cost",
+            "Save €289 compared to buying everything separately"
         ],
-        "description": "The Everything Knowledge Bundle includes every knowledge management product, course, workshop, and tool available—both current releases and all future additions—for one low price. Get complete system without subscriptions and save €289.",
+        "description": "Every knowledge product I've made, in one bundle. The Knowledge Worker Kit (€149.99), Knowledge Management for Beginners course (€69.99), Obsidian Starter Kit Premium (€129.99), Obsidian Starter Course (€69.99), AI Ghostwriter Guide (€49.99), PKM Library (€39.99), Knowii Voice AI (€49), plus all workshops and future additions. These aren't disconnected tools. They're an integrated system built from 20+ years of real knowledge work. Master Obsidian. Build systems that actually work. Train AI to write in your voice. Capture knowledge at the speed of thought. All at your own pace, on your own terms.",
         "features": [
-            "Complete Product Collection",
-            "Knowledge Worker Kit",
-            "Obsidian Starter Kit Premium",
-            "Knowledge Management for Beginners",
-            "Obsidian Starter Course",
-            "All Workshops",
-            "AI Ghostwriter Guide",
-            "PKM Library",
-            "Free Bonuses",
-            "Future Additions"
+            "Knowledge Worker Kit (€149.99 value): 13-topic system covering clarity, habits, career, learning, PKM, projects, planning, tasks, focus, development, control, organization, and work",
+            "Knowledge Management for Beginners (€69.99 value): 10+ hour video course teaching PKM from fundamentals to AI integration",
+            "Obsidian Starter Kit Premium (€129.99 value): Ready-to-use vault with 40+ auto-filing templates, pre-configured plugins, and proven workflows",
+            "Obsidian Starter Course (€69.99 value): 2h20 video training on Obsidian, PARA, Zettelkasten, Johnny Decimal, and how they work together",
+            "AI Ghostwriter Guide (€49.99 value): Step-by-step system to train AI to write with your exact voice and style",
+            "PKM Library (€39.99 value): 2,000+ curated resources from 12+ months of startup research",
+            "Knowii Voice AI (€49 value): Privacy-first voice-to-text that runs entirely on your computer",
+            "All Knowii Workshops: Clarity 101, Personal Organization 101, Journaling Deep Dive, AI Master Prompt, MCP course, and more",
+            "Free Bonuses: Beginner's Guide to Obsidian, Knowledge System Checklist",
+            "All Future Additions: New products automatically added at no extra cost"
         ],
         "benefits": {
-            "immediate": ["Complete system", "Save €289", "No decisions", "Everything works"],
+            "immediate": [
+                "One decision eliminates months of 'should I buy this?' deliberation",
+                "Instant access to €589 worth of knowledge products that actually work together",
+                "Start anywhere: Obsidian basics, knowledge management theory, or AI workflows",
+                "No subscription anxiety. You own everything from day one",
+                "A system that grows over time as new products get added"
+            ],
             "systematic": [
-                "Complete Coverage",
-                "Integrated System",
-                "Lifetime Access",
-                "Future-Proof",
-                "Best Value",
-                "No Subscriptions"
+                "Products designed to work together. The Obsidian Starter Kit implements what the courses teach",
+                "Build foundations with Knowledge Management for Beginners, then advance to Knowledge Worker Kit",
+                "Obsidian training + templates = system that works from day one to 10,000+ notes",
+                "AI Ghostwriter + Voice AI = content creation that scales without losing your voice",
+                "PKM Library provides ongoing discovery as you deepen your practice",
+                "No community pressure. Learn privately at whatever pace suits your life"
             ],
             "longTerm": [
-                "Complete transformation",
-                "Sustainable",
-                "Continuous improvements",
-                "No extra costs"
+                "Own a knowledge system that grows more valuable every year",
+                "Future products added automatically. Your investment compounds over time",
+                "No recurring costs eating into your budget month after month",
+                "Sustainable self-paced mastery instead of community commitments you can't keep",
+                "Knowledge that compounds: every note, every insight builds on the complete foundation"
             ]
         },
         "targetAudience": [
-            "Value Seekers",
-            "Lifetime Access Fans",
-            "Completionists",
-            "Serious Practitioners"
+            "Independent learners who prefer self-study over community engagement",
+            "Budget-conscious professionals who want to invest once, not subscribe forever",
+            "Privacy-focused people who prefer learning without public exposure",
+            "Knowledge workers tired of subscription fatigue and recurring charges",
+            "Anyone who wants the full system without making a dozen separate buying decisions"
         ],
         "perfectFor": [
-            "Want complete system",
-            "Don't want €589",
-            "Prefer lifetime",
-            "Want everything"
+            "You want the complete system, not scattered individual products",
+            "You prefer one-time purchases over monthly subscriptions",
+            "You learn best privately, at your own pace, without community pressure",
+            "You're tired of making multiple purchase decisions. One and done sounds perfect",
+            "You value owning your tools forever, not renting access",
+            "You want products that actually work together"
         ],
-        "notForYou": ["Want community events", "Prefer monthly", "Only need specific"],
+        "notForYou": [
+            "You want live events, AMAs, and real-time access (check out Knowii Community instead)",
+            "You prefer monthly payments over a one-time investment",
+            "You only need one specific product and don't care about the complete system"
+        ],
         "trustBadges": [
-            "€589 Value",
-            "Save €289",
-            "Lifetime Access",
-            "Future Additions",
-            "Complete System",
-            "Instant Access"
+            "€589 Total Value: Save €289 with the bundle",
+            "Lifetime Ownership: Pay once, own forever",
+            "14 Products: Every knowledge management product in one purchase",
+            "20+ Years Experience: Built from real practice, not theory",
+            "10,000+ Notes: Proof these systems actually scale",
+            "Future Additions Included: New products at no extra cost",
+            "Instant Access: Download everything immediately",
+            "Self-Paced Learning: No deadlines, no obligations"
         ],
-        "guarantees": ["€589 value", "Lifetime access", "All future additions", "All updates"],
-        "metaTitle": "Everything Knowledge Bundle - Complete PKM System | €299.99",
-        "metaDescription": "€299.99 for lifetime access to every knowledge product. €589 value. All current + future additions.",
+        "guarantees": [
+            "Lifetime access to all current products and updates",
+            "All future knowledge products added automatically",
+            "No subscriptions, no recurring charges, no surprise fees",
+            "Full refund policy if you're not satisfied"
+        ],
+        "metaTitle": "Everything Knowledge Bundle — Own the Complete Knowledge System | €299.99 (Save €289)",
+        "metaDescription": "€299.99 for lifetime access to every knowledge product (€589 value). Knowledge Worker Kit + Obsidian Starter Kit + courses + AI tools + workshops + future additions. One purchase, complete system, own forever.",
         "keywords": [
             "knowledge management bundle",
             "pkm bundle",
-            "complete knowledge system",
             "obsidian bundle",
-            "lifetime access"
+            "complete knowledge system",
+            "lifetime access",
+            "one-time purchase",
+            "knowledge worker kit",
+            "obsidian starter kit",
+            "knowledge management course",
+            "ai ghostwriter",
+            "no subscription"
         ],
-        "storytelling": null,
+        "storytelling": {
+            "originStory": {
+                "title": "Why I Made This Bundle",
+                "subtitle": "For those who want to own, not rent",
+                "story": "When I launched the Knowii Community subscription, I heard from a different kind of customer. They'd say: 'I love your products, but I don't want live events. I don't need community access. I just want to buy everything and learn at my own pace.' Independent learners. Introverts. Busy people who preferred private study over public engagement. Professionals who hated watching subscriptions drain their accounts month after month. They wanted ownership, not rental. One decision, not ongoing commitments. So I made the Everything Knowledge Bundle. Every course, every kit, every workshop, every tool. One purchase, yours forever. You learn when you want, how you want, with no community pressure and no recurring fees. This isn't a downgrade from the subscription. It's a different philosophy: complete ownership for independent learners who know exactly what they want.",
+                "inspirationPoint": "Customers kept asking: 'Can I just buy everything and skip the community?' This is that answer.",
+                "icon": null,
+                "genesisDate": null
+            },
+            "creatorJourney": {
+                "title": "20+ Years Distilled Into One Bundle",
+                "subtitle": "Every system I use, now yours",
+                "story": "I've spent over two decades building knowledge systems. I've tried every tool, every methodology, every approach. I failed hard. A startup that cost me 200k€ and two years of my life. I burned out trying to succeed through sheer willpower. Eventually, I built systems that actually work. Today, I manage nearly 10,000 notes in my personal vault. I run a half-time business alongside a corporate IT role. I've written 400+ articles, published 3 books, and created courses used by thousands. I raise 3 kids and stay calm through it all. These aren't theoretical frameworks. They're battle-tested systems from real practice. The Everything Knowledge Bundle contains everything I've learned. The Knowledge Worker Kit covers 13 comprehensive topics. The courses teach Obsidian and PKM from foundations to mastery. The AI tools help you scale content creation without losing your voice. The PKM Library gives you 2,000+ resources I curated during 12 months of startup research. It's not a pile of products. It's an integrated system designed to work together.",
+                "struggles": [
+                    "A failed startup that cost 200k€ and two years",
+                    "Burnout from trying to succeed through willpower alone",
+                    "Years of scattered information across dozens of tools",
+                    "Building systems that didn't scale or fell apart under pressure"
+                ],
+                "achievements": [
+                    "Nearly 10,000 notes in my personal knowledge vault",
+                    "400+ articles and newsletters published",
+                    "3 books written, multiple courses created",
+                    "Half-time business + corporate IT role + 3 kids = still calm and zen"
+                ],
+                "credentials": "Knowledge Management Expert • Author • Coach • IT Solution Architect • 20+ Years Experience",
+                "icon": null
+            },
+            "transformationArc": null,
+            "methodology": {
+                "title": "How These Products Work Together",
+                "subtitle": "An integrated system, not scattered tools",
+                "steps": [
+                    {
+                        "title": "Foundation: Understand Knowledge Management",
+                        "description": "Knowledge Management for Beginners (10+ hours) teaches you the principles, methods, and mindset. PARA, Zettelkasten, Johnny Decimal. Not as competing systems but as complementary tools. This is where you learn WHY before HOW.",
+                        "icon": null,
+                        "order": 0
+                    },
+                    {
+                        "title": "Implementation: Build Your System",
+                        "description": "The Obsidian Starter Kit gives you a battle-tested vault that implements what you learned. 40+ auto-filing templates, pre-configured plugins, proven workflows. The Obsidian Starter Course (2.5 hours) shows you how everything works together.",
+                        "icon": null,
+                        "order": 1
+                    },
+                    {
+                        "title": "Expansion: Master Knowledge Work",
+                        "description": "The Knowledge Worker Kit covers 13 comprehensive areas: clarity, habits, career, learning, PKM, projects, planning, tasks, focus, development, control, organization, and work. This is where your system becomes your competitive advantage.",
+                        "icon": null,
+                        "order": 2
+                    },
+                    {
+                        "title": "Acceleration: Leverage AI",
+                        "description": "The AI Ghostwriter Guide teaches you to train AI to write with your exact voice. Knowii Voice AI lets you capture ideas at the speed of thought. Together, they transform how fast you can create quality content.",
+                        "icon": null,
+                        "order": 3
+                    },
+                    {
+                        "title": "Discovery: Keep Growing",
+                        "description": "The PKM Library (2,000+ resources) provides ongoing discovery. The workshops deepen specific skills. Future additions expand your toolkit. Your investment compounds over time.",
+                        "icon": null,
+                        "order": 4
+                    }
+                ],
+                "philosophy": "Scattered products create scattered results. Integrated systems create compounding knowledge. Every product in this bundle is designed to work with the others. The courses teach what the kits implement. The AI tools accelerate what the systems organize.",
+                "differentiation": "Unlike buying products individually and hoping they work together, this bundle is a designed ecosystem. Each piece connects to the others. Your knowledge workflow flows naturally from capture to organization to creation. And it grows stronger over time."
+            },
+            "vision": {
+                "title": "Complete Ownership for Independent Learners",
+                "subtitle": "Your knowledge, your pace, your terms",
+                "mission": "I believe knowledge workers deserve complete tools they own forever. Not subscriptions that drain their budgets, not communities that don't fit their lifestyle. The Everything Knowledge Bundle is for independent learners who want the full system without the overhead.",
+                "values": [
+                    {
+                        "title": "Ownership Over Rental",
+                        "description": "Pay once, own forever. No subscriptions eating into your budget month after month. Your tools belong to you.",
+                        "icon": null
+                    },
+                    {
+                        "title": "Privacy Over Performance",
+                        "description": "Learn at your own pace, in your own space. No community obligations, no public learning, no pressure to show up.",
+                        "icon": null
+                    },
+                    {
+                        "title": "Integration Over Isolation",
+                        "description": "Products designed to work together, not in isolation. The ecosystem grows over time, with each new addition strengthening the whole.",
+                        "icon": null
+                    },
+                    {
+                        "title": "One Decision Over Many",
+                        "description": "Stop deliberating about which products to buy. Get everything, start anywhere, master at your own pace.",
+                        "icon": null
+                    }
+                ],
+                "futureGoals": [
+                    "Keep adding new products to the bundle at no extra cost",
+                    "Make sure all products integrate well as the ecosystem grows",
+                    "Serve independent learners who prefer ownership and privacy"
+                ],
+                "biggerPicture": "In a world of subscription fatigue and endless choices, this bundle is a different path. One purchase. Complete system. Lifetime ownership. Learn what you need, when you need it, at your own pace.",
+                "icon": null
+            },
+            "successStories": null
+        },
         "timeline": null,
         "courseContent": null
     }

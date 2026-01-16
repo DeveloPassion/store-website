@@ -2,18 +2,43 @@
     "data": [
         {
             "id": "faq-120",
-            "question": "Is this a physical poster?",
-            "answer": "No. Digital file you can print yourself or view on screen."
+            "question": "What exactly do I get?",
+            "answer": "A Trello board with 200+ curated links to IT and software development resources. You get access to view and browse the board. Everything is organized by topic."
         },
         {
             "id": "faq-121",
-            "question": "What concepts are covered?",
-            "answer": "Essential IT and programming fundamentals (specific list on product page)."
+            "question": "What topics are covered?",
+            "answer": "Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project/Product Management. Pretty much the full IT spectrum."
         },
         {
             "id": "faq-122",
-            "question": "Can I print this?",
-            "answer": "Yes! Digital format allows printing at any size."
+            "question": "How is this different from those 'awesome lists' on GitHub?",
+            "answer": "I actually vetted these resources during research for my Dev Concepts books. Most things I found didn't make the cut. The awesome lists are useful, but they're quantity-focused. This is what I personally found valuable."
+        },
+        {
+            "id": "faq-123",
+            "question": "How often is it updated?",
+            "answer": "When I find something worth adding. This is a living collection, not a static dump. No fixed schedule, but it grows over time."
+        },
+        {
+            "id": "faq-124",
+            "question": "Is this a course or tutorial?",
+            "answer": "No. It's a curated collection of links. Think of it as a map pointing you to quality content I've found across the IT landscape. You still do the reading."
+        },
+        {
+            "id": "faq-125",
+            "question": "Who is this for?",
+            "answer": "Developers who want to explore beyond their daily stack. Self-learners looking for quality material instead of random Google results. Junior devs wanting to grow. CS students. Basically anyone curious about IT concepts."
+        },
+        {
+            "id": "faq-126",
+            "question": "Do I get lifetime access?",
+            "answer": "Yes. Pay once, get lifetime access including any future additions."
+        },
+        {
+            "id": "faq-127",
+            "question": "What's the connection to Dev Concepts?",
+            "answer": "This is the research collection I built while writing my Dev Concepts book series. Same resources that informed those books, now organized so you can browse them."
         }
     ]
 }

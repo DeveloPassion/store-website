@@ -2,19 +2,19 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Stop Using AI Like a Newbie. Start Training It.",
-        "secondaryTagline": "Transform any AI into your personal ghostwriter that writes with your exact voice, style, and expertise—and helps you with podcasts, branding, product development, and more",
-        "problem": "AI gives you generic slop, not your voice. You spend more time editing than writing from scratch. Every piece needs heavy editing, and you haven't taught AI to write like YOU. Worse: you don't even know HOW to improve—what techniques to learn, what approaches actually work.",
+        "secondaryTagline": "Train any AI to write with your exact voice, style, and expertise. Plus podcasts, branding, product development, and more.",
+        "problem": "AI gives you generic slop, not your voice. You spend more time editing than writing from scratch. Every piece needs heavy editing, and you haven't taught AI to write like YOU. Worse: you don't even know HOW to improve. What techniques actually work?",
         "problemPoints": [
             "This doesn't sound like me at all",
             "Generic text that could apply to anyone",
             "Spend MORE time editing than writing from scratch",
-            "Throwing random prompts, hoping for magic",
+            "Throwing random prompts, hoping something sticks",
             "Every piece needs heavy editing",
             "Don't know how to ACTUALLY improve AI output",
             "Not sure what techniques to learn or what approaches work",
-            "Frustrated with AI—everyone says it's amazing, but it doesn't work for YOU"
+            "Frustrated with AI. Everyone says it's amazing, but it doesn't work for YOU"
         ],
-        "agitate": "You've tried ChatGPT, Claude, Gemini—every time, same feeling: disappointment. Generic prompts lead to generic content. You spend hours editing AI-generated content that doesn't match your voice. You've published pieces that felt... off. Not quite you. Maybe even embarrassing. And the worst part? You keep making the same mistakes because nobody taught you the RIGHT way to use AI for content creation.",
+        "agitate": "You've tried ChatGPT, Claude, Gemini. Same feeling every time: disappointment. Generic prompts lead to generic content. You spend hours editing AI-generated content that doesn't match your voice. You've published pieces that felt... off. Not quite you. Maybe even embarrassing. And the worst part? You keep making the same mistakes because nobody taught you the RIGHT way to use AI for content creation.",
         "agitatePoints": [
             "Hours wasted editing AI-generated content",
             "Published content that didn't feel authentic",
@@ -23,59 +23,59 @@
             "Missing content opportunities",
             "Generic content doesn't connect with audience",
             "Eventually abandoning AI tools",
-            "Back to doing everything manually—slower than before"
+            "Back to doing everything manually. Slower than before"
         ],
-        "solution": "A proven step-by-step system to train AI to write with your exact voice, style, and expertise. This isn't another prompt guide—it's a complete ecosystem. When you open your AI assistant, you get content that sounds like YOU, understands your unique perspective, and knows your business inside out. And it goes far beyond writing: podcasts, branding, marketing, product development, business brainstorming, ads, and more.",
+        "solution": "A proven step-by-step system to train AI to write with your exact voice, style, and expertise. This isn't another prompt guide. It's a complete ecosystem. When you open your AI assistant, you get content that sounds like YOU, understands your unique perspective, and knows your business inside out. And it goes far beyond writing: podcasts, branding, marketing, product development, business brainstorming, ads, and more.",
         "solutionPoints": [
-            "Sounds like YOU—your signature sentences and personality",
+            "Sounds like YOU (your signature sentences and personality)",
             "Understands you and your unique perspective",
             "Knows your content strategy and creates highly relevant content",
             "Knows your business, products, services, audience",
             "Creates content across ALL your formats",
             "Goes beyond writing: podcasts, branding, product development, marketing, ads",
             "Evolves and improves over time with you",
-            "Becomes a true creative partner, not just a tool"
+            "Becomes a real creative partner, not just a tool"
         ],
-        "description": "A comprehensive step-by-step guide showing exactly how to create a personal AI ghostwriter that captures your unique voice, understands your expertise, and produces content that sounds like YOU—not generic AI slop. Built by a Knowledge Management expert who uses this exact system daily to create hundreds of pieces of content. Whether you're a content creator, author, or business owner, learn the proven process to train AI on your writing style, create content templates for every format, and build an intelligent assistant that knows your products, audience, and brand inside out. Goes beyond writing: create podcasts, refine your branding, develop products, brainstorm business ideas, and more.",
+        "description": "A step-by-step guide showing exactly how to create a personal AI ghostwriter that captures your unique voice, understands your expertise, and produces content that sounds like YOU. Not generic AI slop. Built by someone who uses this exact system daily to create hundreds of pieces of content. Learn the proven process to train AI on your writing style, create content templates for every format, and build an intelligent assistant that knows your products, audience, and brand inside out. Goes beyond writing: create podcasts, refine your branding, develop products, brainstorm business ideas, and more.",
         "features": [
-            "Clear Step-by-Step System—Not just prompts, a complete ecosystem",
-            "Personality Description—Comprehensive profile of your unique voice",
-            "Writing Style Analysis—Exact patterns, quirks, and preferences",
-            "Content Strategy Integration—What you create, who for, and why",
-            "Content Types Templates—Templates for every format you use",
-            "Business Context—Products, services, audience understanding",
-            "Evolution System—Improves over time as you use it",
-            "Ready-to-Use Prompts—All included and battle-tested",
-            "Document Templates—Templates for all components",
-            "Multi-Platform Support—ChatGPT, Claude, Gemini, DeepSeek, NotebookLM",
-            "Beyond Writing—Podcasts, branding, product development, marketing, ads",
-            "Advanced MCP Techniques—Power user options for deeper integration",
-            "Private Community Access—Questions, updates, knowledge sharing"
+            "Clear Step-by-Step System (not just prompts, a complete ecosystem)",
+            "Personality Description (profile of your unique voice)",
+            "Writing Style Analysis (exact patterns, quirks, and preferences)",
+            "Content Strategy Integration (what you create, who for, and why)",
+            "Content Types Templates (templates for every format you use)",
+            "Business Context (products, services, audience understanding)",
+            "Evolution System (improves over time as you use it)",
+            "Ready-to-Use Prompts (all included and tested)",
+            "Document Templates (templates for all components)",
+            "Multi-Platform Support (ChatGPT, Claude, Gemini, DeepSeek, NotebookLM)",
+            "Beyond Writing (podcasts, branding, product development, marketing, ads)",
+            "Advanced MCP Techniques (power user options for deeper integration)",
+            "Private Community Access (questions, updates, knowledge sharing)"
         ],
         "benefits": {
             "immediate": [
-                "2-3 hours to basic setup—Start using immediately",
+                "2-3 hours to basic setup. Start using immediately",
                 "First AI-generated draft that sounds like YOU within hours",
                 "Works with any AI platform that accepts custom instructions",
-                "No technical skills required—simple copy-paste implementation",
-                "Proven system used daily by creator for hundreds of pieces"
+                "No technical skills required. Simple copy-paste implementation",
+                "Proven system I use daily for hundreds of pieces"
             ],
             "systematic": [
-                "Scale Content Creation—Without losing your voice",
-                "Stop Editing AI Slop—Get quality output first try",
-                "Consistent Voice—Across all content types and platforms",
-                "Save Hours Weekly—Less editing, more creating",
-                "Better Engagement—Content that sounds like YOU connects better",
-                "Beyond Writing—Podcasts, branding, marketing, product development",
-                "Sustainable System—Improves over time with you"
+                "Scale Content Creation without losing your voice",
+                "Stop Editing AI Slop. Get quality output first try",
+                "Consistent Voice across all content types and platforms",
+                "Save Hours Weekly. Less editing, more creating",
+                "Better Engagement. Content that sounds like YOU connects better",
+                "Beyond Writing: podcasts, branding, marketing, product development",
+                "Sustainable System that improves over time with you"
             ],
             "longTerm": [
                 "Content creation becomes dramatically faster",
                 "Quality stays consistently high",
-                "AI becomes a true creative partner, not just a tool",
+                "AI becomes a real creative partner, not just a tool",
                 "Can't imagine going back to the old way",
                 "Focus on strategy and ideas, not execution",
-                "Time savings compound exponentially"
+                "Time savings compound over time"
             ]
         },
         "targetAudience": [
@@ -88,32 +88,32 @@
             "Anyone wanting to scale without losing their authentic voice"
         ],
         "perfectFor": [
-            "Create regularly: articles, essays, newsletters, social posts, podcasts",
-            "Want to scale content creation without losing your voice",
-            "Have products or services to promote",
-            "Write in a specific style or voice you want to preserve",
-            "Spend too much time editing AI output",
-            "Want AI to help beyond writing: branding, marketing, product ideas",
-            "Ready to invest 2-3 hours to set up a system that saves you hours weekly"
+            "You create regularly: articles, essays, newsletters, social posts, podcasts",
+            "You want to scale content creation without losing your voice",
+            "You have products or services to promote",
+            "You write in a specific style or voice you want to preserve",
+            "You spend too much time editing AI output",
+            "You want AI to help beyond writing: branding, marketing, product ideas",
+            "You're ready to invest 2-3 hours to set up a system that saves you hours weekly"
         ],
         "notForYou": [
-            "Never create content and have no interest in writing",
-            "Prefer writing everything manually",
-            "Don't have ANY existing writing samples to train AI on",
-            "Looking for a magic button that requires zero effort",
-            "Not willing to invest 2-3 hours in initial setup"
+            "You never create content and have no interest in writing",
+            "You prefer writing everything manually",
+            "You don't have ANY existing writing samples to train AI on",
+            "You're looking for a magic button that requires zero effort",
+            "You're not willing to invest 2-3 hours in initial setup"
         ],
         "trustBadges": [
-            "Proven System—Used daily by creator for hundreds of pieces",
-            "Launch Price—Introductory pricing won't last forever",
-            "No Technical Skills Required—Simple copy-paste implementation",
-            "Works with All Major AIs—ChatGPT, Claude, Gemini, DeepSeek, NotebookLM",
-            "Community Access—Private community for questions and updates",
-            "Complete Templates—Everything you need included",
-            "Quick Setup—2-3 hours to working system"
+            "Proven System (I use it daily for hundreds of pieces)",
+            "Launch Price (introductory pricing won't last forever)",
+            "No Technical Skills Required (simple copy-paste implementation)",
+            "Works with All Major AIs (ChatGPT, Claude, Gemini, DeepSeek, NotebookLM)",
+            "Community Access (private community for questions and updates)",
+            "Complete Templates (everything you need included)",
+            "Quick Setup (2-3 hours to working system)"
         ],
         "guarantees": [
-            "Proven system used daily for hundreds of pieces",
+            "Proven system I use daily for hundreds of pieces",
             "Works with all major AI platforms",
             "Private community access included",
             "Regular updates as the guide evolves"
@@ -137,16 +137,16 @@
         "storytelling": {
             "originStory": {
                 "title": "Why I Built This System",
-                "subtitle": "From AI frustration to AI mastery",
-                "story": "Like you, I was frustrated. ChatGPT, Claude, Gemini—I tried them all. Same result every time: generic output that didn't sound like me. I'd spend more time editing than if I'd written from scratch. Worse, I published pieces that felt... off. Not quite authentic. I didn't know what techniques to learn or how to actually improve. Then I realized: the problem wasn't AI—it was that I hadn't taught AI who I am, how I write, or what my content is about. So I built a system. A complete ecosystem for training AI to understand MY voice, MY style, MY business. After hundreds of pieces of content created with this system, I knew it worked. Now I use it daily—and I'm sharing it with you.",
-                "inspirationPoint": "I realized the problem wasn't AI—it was that nobody taught me how to TRAIN it",
+                "subtitle": "From AI frustration to something that actually works",
+                "story": "Like you, I was frustrated. ChatGPT, Claude, Gemini. I tried them all. Same result every time: generic output that didn't sound like me. I'd spend more time editing than if I'd written from scratch. Worse, I published pieces that felt... off. Not quite authentic. I didn't know what techniques to learn or how to actually improve. Then I realized: the problem wasn't AI. It was that I hadn't taught AI who I am, how I write, or what my content is about. So I built a system. A complete ecosystem for training AI to understand MY voice, MY style, MY business. After hundreds of pieces of content created with this system, I knew it worked. Now I use it daily, and I'm sharing it with you.",
+                "inspirationPoint": "I realized the problem wasn't AI. It was that nobody taught me how to TRAIN it",
                 "genesisDate": "2024",
-                "icon": "💡"
+                "icon": null
             },
             "creatorJourney": {
-                "title": "From IT Veteran to AI Content Systems Expert",
+                "title": "From IT Veteran to AI Content Systems",
                 "subtitle": "20+ years of building systems, applied to AI content creation",
-                "story": "I've spent 20+ years in IT—software development, architecture, systems design. When AI exploded, I approached it the same way I approach everything: systematically. I didn't just want better prompts. I wanted a SYSTEM. Something that could evolve, improve, and scale. As a Knowledge Management expert, author, and coach, I create content daily: articles, newsletters, social posts, podcasts, courses. This system is how I do it. It's not theory—it's my actual production workflow. Every piece of content I publish goes through this system first.",
+                "story": "I've spent 20+ years in IT: software development, architecture, systems design. When AI exploded, I approached it the same way I approach everything: systematically. I didn't just want better prompts. I wanted a SYSTEM. Something that could evolve, improve, and scale. As a Knowledge Management practitioner, author, and coach, I create content daily: articles, newsletters, social posts, podcasts, courses. This system is how I do it. It's not theory. It's my actual production workflow. Every piece of content I publish goes through this system first.",
                 "struggles": [
                     "Generic AI output that didn't match my voice",
                     "Hours wasted editing AI-generated content",
@@ -158,14 +158,14 @@
                     "Hundreds of pieces of content created with this system",
                     "Daily usage for all content production",
                     "System that goes beyond writing: podcasts, branding, product development",
-                    "True creative partnership with AI, not just tool usage"
+                    "Real creative partnership with AI, not just tool usage"
                 ],
-                "credentials": "Knowledge Management Expert • Author • Coach • 20+ years in IT • Daily AI user",
-                "icon": "🚀"
+                "credentials": "Knowledge Management practitioner | Author | Coach | 20+ years in IT | Daily AI user",
+                "icon": null
             },
             "transformationArc": {
                 "title": "Your Transformation",
-                "subtitle": "From AI frustration to AI mastery",
+                "subtitle": "From AI frustration to something that actually works",
                 "before": {
                     "title": "Before: The AI Struggle",
                     "description": "You try every AI tool, get generic output, spend hours editing, and eventually give up. Content creation feels harder than before AI existed.",
@@ -176,7 +176,7 @@
                         "Publishing content that doesn't feel authentic",
                         "Giving up on AI and going back to manual work"
                     ],
-                    "icon": "😤"
+                    "icon": null
                 },
                 "during": {
                     "title": "During: Building Your System",
@@ -188,10 +188,10 @@
                         "Train AI with your complete context",
                         "Watch as AI output starts sounding like YOU"
                     ],
-                    "icon": "⚙️"
+                    "icon": null
                 },
                 "after": {
-                    "title": "After: True AI Partnership",
+                    "title": "After: Real AI Partnership",
                     "description": "AI becomes your creative partner. Content creation is faster, quality is consistent, and you can't imagine going back to the old way.",
                     "points": [
                         "Every piece sounds authentically like you",
@@ -200,7 +200,7 @@
                         "Scale without losing your voice",
                         "AI helps with everything: writing, podcasts, branding, product ideas"
                     ],
-                    "icon": "✨"
+                    "icon": null
                 },
                 "timeline": "2-3 hours to basic setup, full transformation within weeks"
             },
@@ -211,62 +211,62 @@
                     {
                         "title": "Capture Your Voice",
                         "description": "Analyze your existing writing to extract what makes you unique: tone, personality, signature phrases, quirks, the rules you break",
-                        "icon": "🎤",
+                        "icon": null,
                         "order": 0
                     },
                     {
                         "title": "Document Your Style",
-                        "description": "Create a comprehensive writing style document that captures everything AI needs to replicate your voice authentically",
-                        "icon": "📝",
+                        "description": "Create a writing style document that captures everything AI needs to replicate your voice authentically",
+                        "icon": null,
                         "order": 1
                     },
                     {
                         "title": "Define Your Strategy",
-                        "description": "Clarify your value proposition, target audience, content pillars, and the types of content you create—so AI knows what you're building",
-                        "icon": "🎯",
+                        "description": "Clarify your value proposition, target audience, content pillars, and the types of content you create. So AI knows what you're building",
+                        "icon": null,
                         "order": 2
                     },
                     {
                         "title": "Add Business Context",
-                        "description": "Give AI deep knowledge of your products, services, audience, and brand—so it can promote and position you correctly",
-                        "icon": "💼",
+                        "description": "Give AI deep knowledge of your products, services, audience, and brand. So it can promote and position you correctly",
+                        "icon": null,
                         "order": 3
                     },
                     {
                         "title": "Train Your AI",
                         "description": "Use the complete system to configure any AI platform (ChatGPT, Claude, Gemini) to be YOUR personal ghostwriter",
-                        "icon": "🤖",
+                        "icon": null,
                         "order": 4
                     },
                     {
                         "title": "Evolve Together",
-                        "description": "The system improves over time as you use it—AI becomes a true creative partner, not just a tool",
-                        "icon": "📈",
+                        "description": "The system improves over time as you use it. AI becomes a real creative partner, not just a tool",
+                        "icon": null,
                         "order": 5
                     }
                 ],
-                "philosophy": "This is NOT another prompt guide. Prompts are just one component. The real power comes from giving AI a complete understanding of WHO you are, HOW you write, WHAT you create, and WHY it matters. When AI knows all this, magic happens.",
-                "differentiation": "Other guides give you prompts. This gives you a system. Prompts work once. Systems work forever—and improve over time."
+                "philosophy": "This is NOT another prompt guide. Prompts are just one component. The real power comes from giving AI a complete understanding of WHO you are, HOW you write, WHAT you create, and WHY it matters. When AI knows all this, it actually works.",
+                "differentiation": "Other guides give you prompts. This gives you a system. Prompts work once. Systems work forever and improve over time."
             },
             "vision": {
                 "title": "The Bigger Picture",
                 "subtitle": "Why this matters beyond content creation",
-                "mission": "I believe everyone deserves an AI assistant that truly understands them. Not generic slop, but content that captures your unique voice, expertise, and perspective. This guide is part of my mission to help creators build sustainable systems—so you can focus on your ideas while AI handles the execution.",
+                "mission": "I believe everyone deserves an AI assistant that truly understands them. Not generic slop, but content that captures your unique voice, expertise, and perspective. This guide is part of my mission to help creators build sustainable systems. So you can focus on your ideas while AI handles the execution.",
                 "values": [
                     {
                         "title": "Authenticity Over Volume",
-                        "description": "The goal isn't more content—it's content that sounds like YOU and connects with your audience authentically",
-                        "icon": "💯"
+                        "description": "The goal isn't more content. It's content that sounds like YOU and connects with your audience authentically",
+                        "icon": null
                     },
                     {
                         "title": "Systems Over Hacks",
                         "description": "Quick prompts fail. Complete systems succeed. This guide teaches you to build something sustainable",
-                        "icon": "⚙️"
+                        "icon": null
                     },
                     {
                         "title": "Partnership Over Tools",
-                        "description": "The end goal is AI as a true creative partner—not just another tool in your stack",
-                        "icon": "🤝"
+                        "description": "The end goal is AI as a real creative partner. Not just another tool in your stack",
+                        "icon": null
                     }
                 ],
                 "futureGoals": [
@@ -274,14 +274,14 @@
                     "Continue evolving the system as AI capabilities improve",
                     "Build a community of creators sharing their AI workflows"
                 ],
-                "biggerPicture": "Content creation shouldn't feel like a grind. With the right system, AI becomes your creative partner—freeing you to focus on what matters: your ideas, your expertise, your unique perspective. That's the transformation this guide delivers.",
-                "icon": "🌟"
+                "biggerPicture": "Content creation shouldn't feel like a grind. With the right system, AI becomes your creative partner. Freeing you to focus on what matters: your ideas, your expertise, your unique perspective. That's the transformation this guide delivers.",
+                "icon": null
             },
             "successStories": null
         },
         "timeline": {
             "title": "Your Transformation Journey",
-            "subtitle": "See what you'll achieve at each milestone",
+            "subtitle": "What you'll achieve at each milestone",
             "milestones": [
                 {
                     "id": "day-1",
@@ -291,10 +291,10 @@
                     "highlights": [
                         "Set up basic voice profile",
                         "Generate first AI draft in your style",
-                        "Experience the 'wow, this sounds like me' moment",
+                        "Experience the 'wait, this sounds like me' moment",
                         "Understand what the full system can do"
                     ],
-                    "icon": "🎯"
+                    "icon": null
                 },
                 {
                     "id": "week-1",
@@ -308,35 +308,35 @@
                         "AI trained with full context",
                         "Start using for real content"
                     ],
-                    "icon": "⚙️"
+                    "icon": null
                 },
                 {
                     "id": "month-1",
                     "timeframe": "Month 1",
                     "title": "Content Creation Transformed",
-                    "description": "Creating content is dramatically faster. Quality is consistent. You're producing more than ever—and spending less time doing it.",
+                    "description": "Creating content is dramatically faster. Quality is consistent. You're producing more than ever and spending less time doing it.",
                     "highlights": [
-                        "10x faster content creation",
+                        "Much faster content creation",
                         "Minimal editing required",
                         "Consistent voice across all content",
                         "Exploring beyond writing: podcasts, branding",
                         "Hours saved every week"
                     ],
-                    "icon": "🚀"
+                    "icon": null
                 },
                 {
                     "id": "month-3",
                     "timeframe": "Month 3+",
-                    "title": "True AI Partnership",
-                    "description": "AI has become your creative partner. You can't imagine going back to the old way. The system has evolved with you, and you're using it for everything—writing, podcasts, branding, product development, business strategy.",
+                    "title": "Real AI Partnership",
+                    "description": "AI has become your creative partner. You can't imagine going back to the old way. The system has evolved with you, and you're using it for everything: writing, podcasts, branding, product development, business strategy.",
                     "highlights": [
-                        "AI feels like a true collaborator",
+                        "AI feels like a real collaborator",
                         "Can't imagine working without it",
                         "Using for writing, podcasts, branding, and more",
                         "System continues improving over time",
                         "Relief, confidence, and excitement about AI"
                     ],
-                    "icon": "✨"
+                    "icon": null
                 }
             ]
         },

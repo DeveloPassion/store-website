@@ -2,48 +2,48 @@
     "data": [
         {
             "id": "building-wrong-features",
-            "question": "I keep building features nobody uses. Will this help me understand what clients actually need?",
-            "answer": "Absolutely. This volume focuses specifically on understanding client needs, requirements discovery, and User-Centered Design principles. You'll learn to decode what users truly need versus what they say they want."
+            "question": "I keep building features nobody uses. Will this actually help?",
+            "answer": "Yes. This volume is specifically about understanding what clients truly need. Requirements discovery, User-Centered Design, Jobs-To-Be-Done. You'll learn to decode what users actually need versus what they say they want."
         },
         {
             "id": "no-time-to-read",
-            "question": "I don't have time to read an entire 50-page book. Can I still learn something here?",
-            "answer": "Yes. The chapters are designed as standalone resources, allowing quick searches when facing specific problems, plus external links for deeper exploration. You can jump to exactly what you need right now."
+            "question": "I don't have time for a 50-page book...",
+            "answer": "The chapters work as standalone resources. Jump to what you need right now. Got a requirements meeting tomorrow? Read that section. Struggling with stakeholder communication? There's a chapter for that. Plus external links if you want to go deeper."
         },
         {
             "id": "technical-teaching",
-            "question": "Will this volume teach me UX design tools and technical implementation?",
-            "answer": "This volume focuses on foundational UX principles, requirements discovery techniques, and user-centered thinking rather than specific design tools. It's about understanding the 'why' and 'what' before the 'how' of implementation."
+            "question": "Does this teach UX design tools?",
+            "answer": "No. This is about the thinking, not the tools. You'll learn foundational UX principles, requirements discovery techniques, and user-centered thinking. The 'why' and 'what' before the 'how'. If you're looking for Figma tutorials, this isn't it."
         },
         {
             "id": "money-back-guarantee",
-            "question": "What if I don't like it? How does the money-back guarantee work?",
-            "answer": "Contact within 14 days for a full refund. The creator only requests feedback on unmet expectations. No hassle, no questions asked beyond understanding how to improve."
+            "question": "What if I don't find it useful?",
+            "answer": "Email me within 14 days for a full refund. No hassle. I just ask for a quick note on what didn't work for you so I can make it better."
         },
         {
             "id": "volume-contents",
-            "question": "What exactly is covered in this volume?",
-            "answer": "Volume 2 covers requirements discovery and documentation, User-Centered Design principles, Jobs-To-Be-Done theory, UX design fundamentals (research, personas, design patterns), Minimum Lovable Products, Design Sprints, and effective specifications development. Full chapter breakdowns and free samples are available on dev-concepts.dev."
+            "question": "What's actually in this volume?",
+            "answer": "Requirements discovery and documentation, User-Centered Design principles, Jobs-To-Be-Done theory, UX fundamentals (research, personas, design patterns), Minimum Lovable Products, Design Sprints, and how to write specs that work. Full chapter list and free samples at dev-concepts.dev."
         },
         {
             "id": "bundle-option",
             "question": "Should I get the bundle instead?",
-            "answer": "If you also want to learn about software craftsmanship and professional mindset (Volume 1), plus get lifetime Slack community access with senior developer mentorship, the Starter Bundle offers better value."
+            "answer": "If you also want Volume 1 (software craftsmanship, professional mindset), the Starter Bundle saves you 25%. Together they cover the two biggest gaps I've seen hold junior developers back."
         },
         {
             "id": "future-volumes",
             "question": "Will there be more volumes?",
-            "answer": "Yes, this is part of a planned 12-volume series covering comprehensive software development topics. New volumes release every few months. Consider the Lifetime Bundle on dev-concepts.dev to get all volumes as they're released."
+            "answer": "Yes, this is part of a 12-volume series. New volumes come out every few months. Check dev-concepts.dev for the Lifetime Bundle if you want all of them as they're released."
         },
         {
             "id": "cant-afford",
-            "question": "I can't afford to buy this...",
-            "answer": "Contact the author via Twitter or email to discuss options. Sébastien wants to help developers grow regardless of their financial situation."
+            "question": "I can't afford this right now...",
+            "answer": "Reach out via Twitter or email. I want to help developers grow, regardless of their financial situation. We'll figure something out."
         },
         {
             "id": "group-purchase",
-            "question": "I want to buy this for my team at work",
-            "answer": "Group licenses are available; contact the author for pricing details. This is perfect for helping your team better understand client needs and build the right features."
+            "question": "Can I buy this for my team?",
+            "answer": "Yes, group licenses are available. Contact me for pricing. Great for teams that want to build the right features and waste less time on rework."
         }
     ]
 }

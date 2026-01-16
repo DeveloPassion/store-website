@@ -3,37 +3,42 @@
         {
             "id": "faq-1",
             "question": "I'm brand new to Obsidian. Is this too advanced?",
-            "answer": "No! OSK is designed for beginners. The user guide explains everything step-by-step. Many users start with OSK on day 1 and reach intermediate level in 1-2 days."
+            "answer": "Not at all. OSK is designed for beginners. The 100+ page user guide explains everything step-by-step. Many users start with OSK on day 1 and reach intermediate level in 1-2 days. You don't need prior Obsidian experience."
         },
         {
             "id": "faq-2",
             "question": "I already have an Obsidian vault. Can I migrate?",
-            "answer": "Yes. We provide detailed migration guides for both v2 users and custom setups. The migration guide walks you through the process step-by-step."
+            "answer": "Yes. I've included detailed migration guides for both v2 users and custom setups. The guide walks you through the process step-by-step, so you don't lose your existing work."
         },
         {
             "id": "faq-3",
             "question": "What if OSK doesn't fit my workflow?",
-            "answer": "OSK is a starting point, not a straitjacket. Everything is customizable—tweak the structure, templates, and plugins to match your needs. Plus, 30-day money-back guarantee if it's not right for you."
+            "answer": "OSK is a starting point, not a straitjacket. Everything is customizable. Tweak the structure, templates, and plugins to match how you think. And if it's really not right for you, there's a 30-day money-back guarantee."
         },
         {
             "id": "faq-4",
             "question": "How do updates work?",
-            "answer": "Free lifetime updates via the store. You'll get all future updates at no additional cost. Updates are announced via email and the community."
+            "answer": "Free lifetime updates. You'll get access to all future versions at no additional cost. I announce updates via email and in the community."
         },
         {
             "id": "faq-5",
             "question": "Do I need to pay for Obsidian?",
-            "answer": "No! Obsidian is free for personal use. OSK is a pre-built vault + comprehensive documentation + community access."
+            "answer": "No. Obsidian is free for personal use. OSK is a pre-built vault plus documentation plus community access. The two are separate products."
         },
         {
             "id": "faq-6",
             "question": "Is support included?",
-            "answer": "Yes! Lifetime community access + priority email support + migration help. I personally respond to questions and help users get started."
+            "answer": "Yes. You get lifetime community access, priority email support, and migration help. I personally respond to questions and help users get started."
         },
         {
             "id": "faq-7",
-            "question": "Can I use OSK for work/commercial purposes?",
-            "answer": "Yes, absolutely. Many consultants, project managers, and knowledge workers use OSK for their professional work. Just follow Obsidian's licensing (free for personal use, paid for commercial use of Obsidian itself)."
+            "question": "Can I use OSK for work or commercial purposes?",
+            "answer": "Absolutely. Many consultants, project managers, and knowledge workers use OSK professionally. Just follow Obsidian's licensing (free for personal use, paid license required for commercial use of Obsidian itself)."
+        },
+        {
+            "id": "faq-8",
+            "question": "What's the difference between Essentials and Premium?",
+            "answer": "Essentials (€129.99) includes the complete vault and the 100+ page user guide. Premium (€198.99) adds a 2h20m video course covering Obsidian and PKM fundamentals. Both include lifetime updates and community access."
         }
     ]
 }

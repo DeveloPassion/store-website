@@ -2,48 +2,48 @@
     "data": [
         {
             "id": "unmotivated-frustrated",
-            "question": "I'm unmotivated and frustrated because of a lack of progress — not laziness. Will this help?",
-            "answer": "A book alone won't magically resolve career challenges, but this volume provides the foundational mindset and professional attitude required for success in software development. It helps you understand the 'why' behind productivity and progress."
+            "question": "I'm frustrated by lack of progress, not laziness. Will this actually help?",
+            "answer": "Look, a book won't magically fix everything. But this volume gives you the foundational mindset and professional attitude that makes real progress possible. It helps you understand the 'why' behind productivity and success in software development."
         },
         {
             "id": "no-time-to-read",
-            "question": "I don't have time to read an entire 100-page book. Can I still learn something here?",
-            "answer": "Yes. The chapters are designed as standalone resources, allowing quick searches when facing specific problems, plus external links for deeper exploration. You can jump to exactly what you need right now."
+            "question": "I don't have time for a 100-page book...",
+            "answer": "Fair enough. The chapters work as standalone resources. You can jump to specific topics when you need them, and there are external links for going deeper. Start with what's relevant to you right now."
         },
         {
             "id": "technical-teaching",
-            "question": "Will this volume teach me the technical side of engineering?",
-            "answer": "This volume includes practical examples but focuses on the mindset, professionalism, and psychological aspects of software craftsmanship rather than technical tutorials. It's about developing the right attitude and approach that makes you effective with any technology."
+            "question": "Will this teach me technical skills?",
+            "answer": "Not really. This volume focuses on mindset, professionalism, and the psychological side of software craftsmanship. There are practical examples, but it's about developing the right attitude and approach that makes you effective with any technology."
         },
         {
             "id": "money-back-guarantee",
-            "question": "What if I don't like it? How does the money-back guarantee work?",
-            "answer": "Contact within 14 days for a full refund. The creator only requests feedback on unmet expectations. No hassle, no questions asked beyond understanding how to improve."
+            "question": "What if I don't like it?",
+            "answer": "Email me within 14 days for a full refund. I just ask for a quick note about what didn't work for you so I can improve. No hassle."
         },
         {
             "id": "volume-contents",
-            "question": "What exactly is covered in this volume?",
-            "answer": "Volume 1 covers software craftsmanship fundamentals including professional mindset, productivity techniques, understanding development roles, career progression pathways, and the psychological aspects of being an effective developer. Full chapter breakdowns and free samples are available on dev-concepts.dev."
+            "question": "What's actually in this volume?",
+            "answer": "Software craftsmanship fundamentals: professional mindset, productivity techniques, understanding development roles, career progression, and the psychological aspects of being an effective developer. Check dev-concepts.dev for the full chapter breakdown and free samples."
         },
         {
             "id": "bundle-option",
             "question": "Should I get the bundle instead?",
-            "answer": "If you also want to learn about client needs, UX design, and requirements discovery (Volume 2), plus get lifetime Slack community access with senior developer mentorship, the Starter Bundle offers better value."
+            "answer": "If you also want Volume 2 (client needs, UX design, requirements discovery), the Starter Bundle saves you 25%. Together they cover the two biggest gaps I've seen hold junior developers back."
         },
         {
             "id": "future-volumes",
             "question": "Will there be more volumes?",
-            "answer": "Yes, this is part of a planned 12-volume series covering comprehensive software development topics. New volumes release every few months. Consider the Lifetime Bundle on dev-concepts.dev to get all volumes as they're released."
+            "answer": "Yes, this is part of a 12-volume series. New volumes come out every few months. Check dev-concepts.dev for the Lifetime Bundle if you want all of them as they're released."
         },
         {
             "id": "cant-afford",
-            "question": "I can't afford to buy this...",
-            "answer": "Contact the author via Twitter or email to discuss options. Sébastien wants to help developers grow regardless of their financial situation."
+            "question": "I can't afford this right now...",
+            "answer": "Reach out to me via Twitter or email. I want to help developers grow regardless of their financial situation. We'll figure something out."
         },
         {
             "id": "group-purchase",
-            "question": "I want to buy this for my team at work",
-            "answer": "Group licenses are available; contact the author for pricing details. This is perfect for onboarding junior developers or establishing a shared professional mindset across your team."
+            "question": "Can I buy this for my team?",
+            "answer": "Absolutely. Contact me for group pricing. It's a great way to onboard junior developers or establish a shared professional mindset across your team."
         }
     ]
 }

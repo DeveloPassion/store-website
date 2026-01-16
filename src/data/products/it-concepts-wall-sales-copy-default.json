@@ -1,46 +1,88 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Essential IT Concepts at Your Fingertips",
-        "problem": "IT concepts scattered. Can't quickly reference. Information scattered.",
+        "tagline": "My Personal IT Research Collection",
+        "secondaryTagline": "Quality IT resources I've already vetted for you.",
+        "problem": "The Internet has no shortage of IT tutorials and articles. Finding the good stuff? That's the hard part. For every well-written explanation, there are dozens of outdated tutorials, shallow blog posts, and content that just gets things wrong.",
         "problemPoints": [
-            "Can't quickly reference",
-            "Scattered information",
-            "Need visual aids",
-            "Want at-a-glance understanding"
+            "Most IT content online is mediocre at best",
+            "Outdated tutorials still rank high in search results",
+            "Hard to know what's actually worth your time",
+            "You end up going down rabbit holes that lead nowhere"
         ],
-        "agitate": "Hours wasted searching. Information scattered. Can't find overview.",
-        "agitatePoints": ["Hours wasted", "Scattered info", "Can't find overview"],
-        "solution": "IT Concepts Wall: Visual reference of essential IT concepts.",
-        "solutionPoints": ["Quick reference", "Visual aid", "Reduce search", "Desk reference"],
-        "description": "Visual reference resource presenting essential IT and programming concepts in organized, easy-to-reference format. Perfect for developers, students, and IT learners.",
+        "agitate": "When I started writing my Dev Concepts book series, I had to do serious research. I read hundreds of articles, tutorials, and documentation pages. For every one I kept, I threw out five. That curation work took months.",
+        "agitatePoints": [
+            "Good resources are scattered everywhere",
+            "Proper curation eats up hours you don't have",
+            "Without a filter, you'll miss the gems buried under the noise"
+        ],
+        "solution": "The IT Concepts Wall is the research I did for my Dev Concepts books, organized into a Trello board you can browse. 200+ resources that passed my quality filters. I rejected most of what I found. What's left is the stuff actually worth reading.",
+        "solutionPoints": [
+            "200+ resources I personally vetted",
+            "Organized by topic so you can find what you need",
+            "Most content I reviewed didn't make it in",
+            "I add new resources when I find good ones"
+        ],
+        "description": "A Trello board with 200+ IT and software development resources I collected while writing the Dev Concepts book series. Covers Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project/Product Management.",
         "features": [
-            "Comprehensive Coverage",
-            "Visual Format",
-            "Quick Reference",
-            "Digital Format",
-            "Lifetime Access"
+            "200+ hand-picked IT resources",
+            "Covers Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project/Product Management",
+            "Trello board format, easy to browse",
+            "I add new resources as I find them",
+            "Lifetime access"
         ],
         "benefits": {
-            "immediate": ["Quick reference", "Visual aid", "Reduce search"],
-            "systematic": ["Organized", "Easy visuals", "Scalable"],
-            "longTerm": ["Build IT knowledge"]
+            "immediate": [
+                "Skip the curation work I already did",
+                "Explore topics across different IT domains",
+                "Get solid starting points for concepts you want to learn"
+            ],
+            "systematic": [
+                "See how different areas of IT connect",
+                "Build broader knowledge piece by piece"
+            ],
+            "longTerm": [
+                "Expand beyond your current specialty",
+                "Have a reference you can come back to"
+            ]
         },
-        "targetAudience": ["Developers", "Students", "Visual learners", "IT learners"],
-        "perfectFor": ["Developers", "Students", "Visual learners", "Building IT knowledge"],
-        "notForYou": ["Not interested in IT", "Prefer text-only"],
-        "trustBadges": ["Comprehensive", "One-Time Purchase", "Printable", "Lifetime Access"],
-        "guarantees": ["Comprehensive", "Printable", "Lifetime access"],
-        "metaTitle": "IT Concepts Wall - Essential IT Reference | Visual Learning",
-        "metaDescription": "€9.99 digital IT concepts wall. Quick reference for programming fundamentals. Printable visual learning.",
-        "keywords": [
-            "it concepts",
-            "programming reference",
-            "coding cheat sheet",
-            "it fundamentals",
-            "visual learning"
+        "targetAudience": [
+            "Developers curious about IT beyond their daily work",
+            "Self-taught devs looking for quality learning material",
+            "Junior developers wanting to level up",
+            "CS students who want practical supplements to theory",
+            "Anyone interested in exploring IT topics"
         ],
-        "secondaryTagline": null,
+        "perfectFor": [
+            "Curious developers who want to explore new areas",
+            "Self-learners tired of wading through mediocre content",
+            "People who appreciate curation over random Google results"
+        ],
+        "notForYou": [
+            "You want step-by-step courses (this is a resource collection)",
+            "You only care about one specific technology",
+            "You're not interested in learning IT concepts"
+        ],
+        "trustBadges": [
+            "20+ Years IT Experience",
+            "200+ Resources",
+            "One-Time Purchase",
+            "Lifetime Access"
+        ],
+        "guarantees": [
+            "Every resource personally vetted by me",
+            "Lifetime access with future updates included",
+            "One-time payment, no subscriptions"
+        ],
+        "metaTitle": "IT Concepts Wall - 200+ Curated IT & Development Resources",
+        "metaDescription": "200+ curated IT resources from 20+ years in the industry. Architecture, Security, Development & more. €9.99 one-time purchase.",
+        "keywords": [
+            "curated it resources",
+            "it concepts reference",
+            "programming resources",
+            "developer learning resources",
+            "software development resources"
+        ],
         "storytelling": null,
         "timeline": null,
         "courseContent": null

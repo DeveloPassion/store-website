@@ -119,16 +119,16 @@
         "storytelling": {
             "originStory": {
                 "title": "Born From a Startup That Never Launched",
-                "icon": "🚀",
-                "story": "In 2021, I set out to build a Knowledge Management platform. To do it right, I needed to understand everything about the PKM ecosystem—every tool, every methodology, every expert, every community. I spent over 12 months mapping the entire landscape, documenting thousands of resources in a Notion database.\n\nThe startup didn't get funded. But the research? That was gold.\n\nI realized I had built something valuable: a comprehensive map of the PKM world that didn't exist anywhere else. The kind of resource I wished I had when I started my own PKM journey 20+ years ago. So I decided to share it.\n\nThe PKM Library isn't a side project or a quick list. It's the result of serious research conducted for a real business venture. And now it's yours.",
+                "icon": null,
+                "story": "In 2021, I set out to build a Knowledge Management platform. To do it right, I needed to understand everything about the PKM ecosystem. Every tool, every methodology, every expert, every community. I spent over 12 months mapping the entire landscape, documenting thousands of resources in a Notion database.\n\nThe startup didn't get funded. But the research? That was gold.\n\nI realized I had built something valuable: a comprehensive map of the PKM world that didn't exist anywhere else. The kind of resource I wished I had when I started my own PKM journey 20+ years ago. So I decided to share it.\n\nThe PKM Library isn't a side project or a quick list. It's the result of serious research conducted for a real business venture. And now it's yours.",
                 "inspirationPoint": "When the startup fell through, I could have let this research gather dust. Instead, I turned months of work into something that helps others skip the same journey I took.",
                 "subtitle": null,
                 "genesisDate": null
             },
             "creatorJourney": {
                 "title": "20+ Years of PKM Exploration",
-                "icon": "🧭",
-                "story": "As a knowledge worker, author, and entrepreneur, I've spent over 20 years searching for better ways to manage information. I've tried dozens of tools—MediaWiki, TiddlyWiki, Evernote, OneNote, and many more—before finding what worked. I wasted years on approaches that didn't scale. I wished someone had mapped the landscape for me. This library represents everything I've learned about where to find quality PKM resources.",
+                "icon": null,
+                "story": "As a knowledge worker, author, and entrepreneur, I've spent over 20 years searching for better ways to manage information. I've tried dozens of tools: MediaWiki, TiddlyWiki, Evernote, OneNote, and many more, before finding what worked. I wasted years on approaches that didn't scale. I wished someone had mapped the landscape for me. This library represents everything I've learned about where to find quality PKM resources.",
                 "struggles": [
                     "Tried dozens of tools before finding what worked (MediaWiki, TiddlyWiki, Evernote, OneNote, and many more)",
                     "Wasted years on approaches that didn't scale",
@@ -145,7 +145,7 @@
             },
             "vision": {
                 "title": "A Map for PKM Explorers",
-                "icon": "🗺️",
+                "icon": null,
                 "mission": "I want everyone curious about PKM to have a proper starting point. Not scattered Google results, but a curated, organized, comprehensive guide to the entire ecosystem.",
                 "biggerPicture": "The PKM Library helps you skip the wandering phase. Instead of spending months discovering what exists, you can focus on what matters: building a system that actually works for you.",
                 "values": [

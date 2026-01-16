@@ -56,85 +56,110 @@ describe('AnimatedKnowledgeSystem', () => {
             expect(decorativeElements.length).toBeGreaterThan(0)
         })
 
-        it('includes prefers-reduced-motion media query in styles', () => {
+        it('uses animate classes that support reduced motion (defined in CSS)', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const styleElement = container.querySelector('style')
-            expect(styleElement?.textContent).toContain('@media (prefers-reduced-motion: reduce)')
-        })
-
-        it('disables animations for reduced motion preference', () => {
-            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const styleElement = container.querySelector('style')
-            const styleContent = styleElement?.textContent || ''
-
-            // Check that reduced motion removes animations
-            expect(styleContent).toContain('animation: none')
-            expect(styleContent).toContain('opacity: 1')
-            expect(styleContent).toContain('transform: none')
+            // Verify animate classes are applied - reduced motion handling is in CSS
+            expect(container.querySelector('.animate-char-reveal')).toBeInTheDocument()
+            expect(container.querySelector('.animate-shimmer')).toBeInTheDocument()
+            expect(container.querySelector('.animate-glow-pulse')).toBeInTheDocument()
+            expect(container.querySelector('.animate-particle')).toBeInTheDocument()
         })
     })
 
     describe('Animation Properties', () => {
-        it('applies staggered animation delays to characters', () => {
+        it('applies staggered animation delays to characters via CSS class', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
 
             chars.forEach((char, index) => {
-                const delay = (char as HTMLElement).style.animationDelay
-                expect(delay).toBe(`${index * 0.05}s`)
+                // Animation delay is set via Tailwind arbitrary property class
+                expect((char as HTMLElement).className).toContain(
+                    `[--animation-delay:${index * 0.05}s]`
+                )
             })
         })
 
-        it('sets animation fill mode to both for characters', () => {
+        it('has animate-char-reveal class for animation fill mode (defined in CSS)', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
 
             chars.forEach((char) => {
-                const fillMode = (char as HTMLElement).style.animationFillMode
-                expect(fillMode).toBe('both')
+                expect(char).toHaveClass('animate-char-reveal')
             })
         })
 
-        it('applies different animation durations to particles', () => {
+        it('applies different animation durations to particles via CSS class', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const particles = container.querySelectorAll('.animate-particle')
 
             particles.forEach((particle, index) => {
-                const duration = (particle as HTMLElement).style.animationDuration
-                expect(duration).toBe(`${2 + index * 0.5}s`)
+                // Animation duration is set via Tailwind arbitrary property class
+                expect((particle as HTMLElement).className).toContain(
+                    `[animation-duration:${2 + index * 0.5}s]`
+                )
             })
         })
 
-        it('applies different animation delays to particles', () => {
+        it('applies different animation delays to particles via CSS class', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const particles = container.querySelectorAll('.animate-particle')
 
             particles.forEach((particle, index) => {
-                const delay = (particle as HTMLElement).style.animationDelay
-                expect(delay).toBe(`${index * 0.7}s`)
+                // Animation delay is set via Tailwind arbitrary property class
+                expect((particle as HTMLElement).className).toContain(
+                    `[--animation-delay:${index * 0.7}s]`
+                )
+            })
+        })
+
+        it('applies particle positions via CSS classes', () => {
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
+            const particles = container.querySelectorAll('.animate-particle')
+
+            particles.forEach((particle, index) => {
+                const className = (particle as HTMLElement).className
+                expect(className).toContain(`[--particle-left:${20 + index * 30}%]`)
+                expect(className).toContain(`[--particle-top:${10 + index * 20}%]`)
+            })
+        })
+
+        it('applies particle movement via CSS classes', () => {
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
+            const particles = container.querySelectorAll('.animate-particle')
+            const expectedPositions = [
+                { x: 42, y: -75 },
+                { x: -18, y: -52 },
+                { x: 8, y: -93 }
+            ]
+
+            particles.forEach((particle, index) => {
+                const className = (particle as HTMLElement).className
+                const expected = expectedPositions[index]
+                expect(className).toContain(`[--particle-x:${expected?.x}px]`)
+                expect(className).toContain(`[--particle-y:${expected?.y}px]`)
             })
         })
     })
 
     describe('Styling', () => {
-        it('includes all required animation keyframes', () => {
+        it('uses CSS classes for animations (keyframes defined in external CSS)', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const styleElement = container.querySelector('style')
-            const styleContent = styleElement?.textContent || ''
-
-            expect(styleContent).toContain('@keyframes char-reveal')
-            expect(styleContent).toContain('@keyframes shimmer')
-            expect(styleContent).toContain('@keyframes glow-pulse')
-            expect(styleContent).toContain('@keyframes particle')
+            // All animation classes should be present
+            expect(container.querySelector('.animate-char-reveal')).toBeInTheDocument()
+            expect(container.querySelector('.animate-shimmer')).toBeInTheDocument()
+            expect(container.querySelector('.animate-glow-pulse')).toBeInTheDocument()
+            expect(container.querySelector('.animate-particle')).toBeInTheDocument()
         })
 
-        it('applies gradient background to shimmer effect', () => {
+        it('applies gradient background class to shimmer effect', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const shimmer = container.querySelector('.animate-shimmer') as HTMLElement
 
             expect(shimmer).toBeInTheDocument()
-            expect(shimmer?.style.backgroundSize).toBe('200% 100%')
-            // Note: webkit prefixed properties may not be accessible in test environment
+            expect(shimmer).toHaveClass('bg-gradient-to-r')
+            expect(shimmer).toHaveClass('from-transparent')
+            expect(shimmer).toHaveClass('via-white/40')
+            expect(shimmer).toHaveClass('to-transparent')
         })
 
         it('uses non-breaking space for space character', () => {
@@ -168,6 +193,12 @@ describe('AnimatedKnowledgeSystem', () => {
 
             // Particle layer
             expect(container.querySelector('.animate-particle')).toBeInTheDocument()
+        })
+
+        it('does not include inline style element (animations are in CSS file)', () => {
+            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
+            const styleElement = container.querySelector('style')
+            expect(styleElement).not.toBeInTheDocument()
         })
     })
 })

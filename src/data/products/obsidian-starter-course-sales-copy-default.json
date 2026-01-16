@@ -1,8 +1,8 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "From Obsidian Newbie to Obsidian Hero in 2h20",
-        "secondaryTagline": "Stop Guessing. Master Obsidian With a Complete Video Course That Shows How Everything Works Together.",
+        "tagline": "From Obsidian Newbie to Confident User in 2.5 Hours",
+        "secondaryTagline": "Stop guessing. A complete video course that shows how everything actually works together.",
         "problem": "You know Obsidian is powerful, but figuring out how to actually use it takes months of trial and error. You've watched random YouTube tutorials, read scattered forum posts, and still feel lost. The features are overwhelming, the plugins confusing, and you're worried you'll create a messy system that falls apart at scale.",
         "problemPoints": [
             "Watched random tutorials but still don't know how to organize notes properly",
@@ -21,33 +21,33 @@
             "Confusion about which methods are compatible and which conflict",
             "Ready to give up before experiencing what Obsidian can really do"
         ],
-        "solution": "The Obsidian Starter Course is 2h20 of hands-on video training that takes you from confused beginner to confident user. No theory dumps. No conflicting advice. Just clear, step-by-step instruction showing exactly how each piece works and how everything connects into one unified system.",
+        "solution": "The Obsidian Starter Course is 2.5 hours of hands-on video training that takes you from confused beginner to confident user. No theory dumps. No conflicting advice. Just clear, step-by-step instruction showing exactly how each piece works and how everything connects into one unified system.",
         "solutionPoints": [
-            "Complete training - 2h20 of practical, step-by-step video instruction",
-            "Integration emphasis - See how PARA + Zettelkasten + Johnny Decimal work TOGETHER",
-            "Real vault demonstrations - Watch actual workflows, not sanitized demos",
-            "Simplicity first - Learn that the best systems are surprisingly simple",
-            "Mindset shifts - Understand the 'why' behind every choice",
-            "Skip months of trial and error - Start with a system that scales"
+            "Complete training: 2.5 hours of practical, step-by-step video instruction",
+            "Integration emphasis: see how PARA + Zettelkasten + Johnny Decimal work together",
+            "Real vault demonstrations: watch actual workflows, not sanitized demos",
+            "Simplicity first: learn that the best systems are surprisingly simple",
+            "Mindset shifts: understand the 'why' behind every choice",
+            "Skip months of trial and error: start with a system that scales"
         ],
-        "description": "This course was born from a simple reality: after selling hundreds of copies of the Obsidian Starter Kit, I kept receiving the same question over and over - 'How do I actually use this?' The Obsidian Starter Course is my answer: 2h20 of comprehensive video training that shows you exactly how to use Obsidian, understand proven PKM methods, and build a system that works. Whether you're brand new to note-taking, recently switched to Obsidian, or bought the Obsidian Starter Kit and want video guidance - this course gives you the complete foundation you need.",
+        "description": "This course was born from a simple reality: after selling hundreds of copies of the Obsidian Starter Kit, I kept receiving the same question over and over. 'How do I actually use this?' The Obsidian Starter Course is my answer: 2.5 hours of video training that shows you exactly how to use Obsidian, understand proven PKM methods, and build a system that works. Whether you're brand new to note-taking, recently switched to Obsidian, or bought the Obsidian Starter Kit and want video guidance, this course gives you the complete foundation you need.",
         "features": [
-            "2h20 of Hands-On Video Content - Comprehensive training you can complete in a weekend",
-            "Obsidian Fundamentals - Installation, interface mastery, key features, essential plugins",
-            "Markdown Complete Guide - All the syntax you need to format notes effectively",
-            "YAML Metadata Mastery - Organize and query notes like a pro",
-            "PARA Method Explained - Projects, Areas, Resources, Archives in practice",
-            "Johnny Decimal System - Number-based organization that scales infinitely",
-            "Zettelkasten Method - Build a network of connected thinking",
-            "LIFT Principle - Make notes findable and accessible",
-            "Atomic Notes - One concept, one note for maximum reuse",
-            "Maps of Content (MoCs) - Navigate your growing knowledge base",
-            "Templating & Automation - Speed up note creation with Templater",
-            "Daily Notes & Journaling - Time-based organization that captures your thinking",
-            "Periodic Reviews - Weekly, monthly, yearly reflection systems",
-            "Task Management - Kanban boards and todo tracking in Obsidian",
-            "Canvas & Excalidraw - Visual thinking and diagramming tools",
-            "Plugin Configuration - Essential plugins explained and configured"
+            "2.5 Hours of Video Content: hands-on training you can complete in a weekend",
+            "Obsidian Fundamentals: installation, interface mastery, key features, essential plugins",
+            "Markdown Complete Guide: all the syntax you need to format notes effectively",
+            "YAML Metadata Mastery: organize and query notes like a pro",
+            "PARA Method Explained: Projects, Areas, Resources, Archives in practice",
+            "Johnny Decimal System: number-based organization that scales",
+            "Zettelkasten Method: build a network of connected thinking",
+            "LIFT Principle: make notes findable and accessible",
+            "Atomic Notes: one concept, one note for maximum reuse",
+            "Maps of Content (MoCs): navigate your growing knowledge base",
+            "Templating and Automation: speed up note creation with Templater",
+            "Daily Notes and Journaling: time-based organization that captures your thinking",
+            "Periodic Reviews: weekly, monthly, yearly reflection systems",
+            "Task Management: Kanban boards and todo tracking in Obsidian",
+            "Canvas and Excalidraw: visual thinking and diagramming tools",
+            "Plugin Configuration: essential plugins explained and configured"
         ],
         "benefits": {
             "immediate": [
@@ -62,7 +62,7 @@
                 "Practical skills from real demonstrations, not abstract theory",
                 "A mindset shift: simplicity beats complexity",
                 "Foundation that scales from 10 notes to 10,000+ notes",
-                "Time savings: 2h20 to learn what takes months alone"
+                "Time savings: 2.5 hours to learn what takes months alone"
             ],
             "longTerm": [
                 "A solid note-taking system that serves you for life",
@@ -102,8 +102,8 @@
             "Training from a Knowledge Management expert who uses this system daily",
             "Multiple proven frameworks explained and integrated"
         ],
-        "metaTitle": "Obsidian Starter Course - Master Obsidian in 2h20 | Complete Video Training",
-        "metaDescription": "2h20 video course teaching Obsidian, PKM methods (Zettelkasten, PARA, Johnny Decimal), templates, and automation. From confused beginner to confident user.",
+        "metaTitle": "Obsidian Starter Course — Master Obsidian in 2.5 Hours | Complete Video Training",
+        "metaDescription": "2.5-hour video course teaching Obsidian, PKM methods (Zettelkasten, PARA, Johnny Decimal), templates, and automation. From confused beginner to confident user.",
         "keywords": [
             "obsidian course",
             "obsidian tutorial",
@@ -122,9 +122,9 @@
             "originStory": {
                 "title": "Born From Real Questions",
                 "subtitle": "Why I created this course",
-                "story": "After selling hundreds of copies of the Obsidian Starter Kit, I noticed a pattern. The same question kept appearing in my inbox, over and over: 'This looks amazing, but how do I actually use it?' People had the templates, the folder structure, the plugins - but they needed to see it in action. They needed someone to walk them through it, step by step, explaining not just WHAT to do but WHY. That's why I created this course. It's the video companion I wish I had when I started - 2h20 of clear, practical instruction that shows exactly how everything works together.",
+                "story": "After selling hundreds of copies of the Obsidian Starter Kit, I noticed a pattern. The same question kept appearing in my inbox, over and over: 'This looks amazing, but how do I actually use it?' People had the templates, the folder structure, the plugins. But they needed to see it in action. They needed someone to walk them through it, step by step, explaining not just what to do but why. That's why I created this course. It's the video companion I wish I had when I started. 2.5 hours of clear, practical instruction that shows exactly how everything works together.",
                 "inspirationPoint": "The question that launched a thousand notes: 'How do I actually use this?'",
-                "icon": "💡",
+                "icon": null,
                 "genesisDate": null
             },
             "methodology": {
@@ -134,31 +134,31 @@
                     {
                         "title": "See the Big Picture First",
                         "description": "Before diving into features, understand how Obsidian fits into your knowledge work. No tool exists in isolation.",
-                        "icon": "🎯",
+                        "icon": null,
                         "order": 0
                     },
                     {
                         "title": "Learn Methods as Partners, Not Competitors",
-                        "description": "PARA for organization. Zettelkasten for thinking. Johnny Decimal for navigation. They're not competing systems - they complement each other.",
-                        "icon": "🤝",
+                        "description": "PARA for organization. Zettelkasten for thinking. Johnny Decimal for navigation. They're not competing systems. They complement each other.",
+                        "icon": null,
                         "order": 1
                     },
                     {
                         "title": "Watch Real Usage, Not Sanitized Demos",
                         "description": "Every demonstration uses actual notes, real workflows, and practical examples from a vault with 10,000+ notes.",
-                        "icon": "👀",
+                        "icon": null,
                         "order": 2
                     },
                     {
                         "title": "Understand Why, Then How",
                         "description": "For every technique, I explain the reasoning behind it. When you understand why, the how becomes obvious.",
-                        "icon": "🧠",
+                        "icon": null,
                         "order": 3
                     },
                     {
                         "title": "Build Simple Systems That Scale",
                         "description": "The best PKM systems are surprisingly simple. Complexity is the enemy of consistency. Start simple, stay simple.",
-                        "icon": "📈",
+                        "icon": null,
                         "order": 4
                     }
                 ],
@@ -177,7 +177,7 @@
                         "Frustrated by conflicting advice",
                         "Uncertain if you're doing it right"
                     ],
-                    "icon": "😰"
+                    "icon": null
                 },
                 "during": {
                     "title": "During the Course",
@@ -188,7 +188,7 @@
                         "Methods explained as integrated system",
                         "Simplicity emerging from apparent complexity"
                     ],
-                    "icon": "🎓"
+                    "icon": null
                 },
                 "after": {
                     "title": "After Completing",
@@ -199,9 +199,9 @@
                         "Foundation that grows with you",
                         "Mindset shift: simplicity over complexity"
                     ],
-                    "icon": "🚀"
+                    "icon": null
                 },
-                "timeline": "2 hours 20 minutes of focused learning"
+                "timeline": "2.5 hours of focused learning"
             },
             "creatorJourney": null,
             "successStories": null,
@@ -222,12 +222,12 @@
                         "Basic navigation confident",
                         "Know where everything lives"
                     ],
-                    "icon": "⚙️"
+                    "icon": null
                 },
                 {
                     "id": "milestone-2",
                     "timeframe": "By minute 40",
-                    "title": "Linking & Graph Views",
+                    "title": "Linking and Graph Views",
                     "description": "Markdown mastered. Links created. Graph views understood. Your notes start connecting into a network.",
                     "highlights": [
                         "Markdown syntax comfortable",
@@ -235,12 +235,12 @@
                         "Local and global graph views understood",
                         "Backlinks make sense"
                     ],
-                    "icon": "🔗"
+                    "icon": null
                 },
                 {
                     "id": "milestone-3",
                     "timeframe": "By hour 1",
-                    "title": "Organization Systems Unlocked",
+                    "title": "Organization Systems Covered",
                     "description": "PARA, Johnny Decimal, and folder structure explained. You understand how to organize anything.",
                     "highlights": [
                         "Johnny Decimal numbering understood",
@@ -248,12 +248,12 @@
                         "Folder structure designed",
                         "Tags working for you"
                     ],
-                    "icon": "📁"
+                    "icon": null
                 },
                 {
                     "id": "milestone-4",
                     "timeframe": "By hour 1:30",
-                    "title": "Zettelkasten & Templates",
+                    "title": "Zettelkasten and Templates",
                     "description": "Zettelkasten method demystified. Templates configured. Automation reducing friction.",
                     "highlights": [
                         "Fleeting, literature, permanent notes clear",
@@ -261,7 +261,7 @@
                         "YAML metadata understood",
                         "Auto Note Mover working"
                     ],
-                    "icon": "🗃️"
+                    "icon": null
                 },
                 {
                     "id": "milestone-5",
@@ -274,7 +274,7 @@
                         "Weekly/monthly reviews understood",
                         "Knowledge extraction flowing"
                     ],
-                    "icon": "📝"
+                    "icon": null
                 },
                 {
                     "id": "milestone-6",
@@ -287,15 +287,15 @@
                         "Complete system understanding",
                         "Ready to scale to 10,000+ notes"
                     ],
-                    "icon": "🏆"
+                    "icon": null
                 }
             ]
         },
         "courseContent": {
             "sectionTitle": "Complete Course Curriculum",
             "sectionDescription": "Hands-on video training organized into clear learning modules",
-            "sectionIcon": "🎓",
-            "totalDuration": "2h 20min",
+            "sectionIcon": null,
+            "totalDuration": "2.5 hours",
             "difficulty": "beginner",
             "prerequisites": [
                 "A computer (Mac, Windows, or Linux)",
@@ -306,7 +306,7 @@
                 {
                     "name": "Getting Started",
                     "description": "Installation, setup, and understanding Obsidian's interface",
-                    "icon": "🚀",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -405,7 +405,7 @@
                 {
                     "name": "Markdown Mastery",
                     "description": "Complete guide to Markdown syntax and the value of plain text",
-                    "icon": "📝",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -446,9 +446,9 @@
                     ]
                 },
                 {
-                    "name": "Links & Graph Views",
+                    "name": "Links and Graph Views",
                     "description": "Building your knowledge network through connections",
-                    "icon": "🔗",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -510,9 +510,9 @@
                     ]
                 },
                 {
-                    "name": "Navigation & Discovery",
+                    "name": "Navigation and Discovery",
                     "description": "Finding, organizing, and exploring your notes efficiently",
-                    "icon": "🔍",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -574,9 +574,9 @@
                     ]
                 },
                 {
-                    "name": "Folder Structure & Organization",
+                    "name": "Folder Structure and Organization",
                     "description": "Johnny Decimal, PARA method, and scalable organization",
-                    "icon": "📁",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -654,7 +654,7 @@
                 {
                     "name": "Working with Notes",
                     "description": "Meeting notes, tasks, people, and contacts",
-                    "icon": "📋",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -690,7 +690,7 @@
                 {
                     "name": "The Zettelkasten Method",
                     "description": "Building a network of connected thinking",
-                    "icon": "🗃️",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -738,9 +738,9 @@
                     ]
                 },
                 {
-                    "name": "Templates & Automation",
+                    "name": "Templates and Automation",
                     "description": "Speed up workflows with Templater, metadata, and automation",
-                    "icon": "⚡",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -818,7 +818,7 @@
                 {
                     "name": "Advanced Features",
                     "description": "Dataview, MoCs, atomic notes, and advanced tagging",
-                    "icon": "🔧",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -880,9 +880,9 @@
                     ]
                 },
                 {
-                    "name": "Daily Practice & Journaling",
+                    "name": "Daily Practice and Journaling",
                     "description": "Building sustainable habits with daily notes and periodic reviews",
-                    "icon": "📅",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {
@@ -958,9 +958,9 @@
                     ]
                 },
                 {
-                    "name": "Task Management & Visual Tools",
+                    "name": "Task Management and Visual Tools",
                     "description": "Kanban boards, Canvas, Excalidraw, and managing your work",
-                    "icon": "✅",
+                    "icon": null,
                     "duration": null,
                     "sections": [
                         {

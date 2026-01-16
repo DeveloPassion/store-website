@@ -2,42 +2,42 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Stop Drifting. Start Designing Your Life.",
-        "secondaryTagline": "The Complete Framework to Find Your Direction, Define Your Values, and Make Decisions You Won't Regret",
-        "problem": "You're feeling lost. Life is happening TO you instead of being designed BY you. Every big decision feels like a coin flip, and you're tired of waking up wondering if you're even on the right path.",
+        "secondaryTagline": "A framework to find your direction, define your values, and make decisions you won't regret",
+        "problem": "You're feeling lost. Life is happening TO you instead of being designed BY you. Every big decision feels like a coin flip, and you wake up wondering if you're even on the right path.",
         "problemPoints": [
-            "You don't know where you're going—or if you're heading anywhere meaningful at all",
-            "Decision paralysis keeps you stuck: too many options, zero clarity on what actually matters",
-            "You've achieved things but still feel empty—success without fulfillment",
+            "You don't know where you're going, or if you're heading anywhere meaningful",
+            "Too many options, zero clarity on what actually matters to you",
+            "You've achieved things but still feel empty. Success without fulfillment.",
             "Your values are vague concepts, not practical guides for daily choices",
-            "You're reactive, not proactive—responding to life instead of shaping it",
-            "You've made decisions you regret because you didn't have a framework to guide you"
+            "You're reactive, responding to life instead of shaping it",
+            "You've made decisions you regret because you didn't have a framework"
         ],
-        "agitate": "Without clarity, every year looks like the last. You stay in jobs that drain you. You say yes to things that pull you away from what matters. You watch others design intentional lives while you're stuck on autopilot. The worst part? Time keeps passing, and the gap between where you are and where you could be keeps growing.",
+        "agitate": "Without clarity, every year looks like the last. You stay in jobs that drain you. You say yes to things that pull you away from what matters. You watch others design intentional lives while you're stuck on autopilot. Time keeps passing, and the gap between where you are and where you could be keeps growing.",
         "agitatePoints": [
-            "Regrettable decisions pile up—careers chosen for the wrong reasons, opportunities missed",
+            "Decisions pile up. Careers chosen for the wrong reasons, opportunities missed.",
             "Time wasted on things that don't align with who you really are",
             "Goals that never get set, or goals that feel hollow when achieved",
             "Priorities that shift with every new distraction",
             "Life happening TO you while you watch from the sidelines",
             "That nagging feeling that you're not living up to your potential"
         ],
-        "solution": "The Clarity 101 Framework gives you a complete, proven approach to gain clarity about your needs, values, principles, and life goals. This isn't theory—it's the exact system I use and teach to help people move from feeling lost to designing intentional lives they're excited about.",
+        "solution": "The Clarity 101 Framework gives you a complete approach to gain clarity about your needs, values, principles, and life goals. This is the exact system I use and teach to help people move from feeling lost to designing intentional lives they're excited about.",
         "solutionPoints": [
-            "Understand exactly where you are right now—no more vague discontent",
+            "Understand exactly where you are right now. No more vague discontent.",
             "Define where you actually want to go based on YOUR values, not society's expectations",
             "Build a Personal Manifesto that guides every major decision",
-            "Find your Ikigai—your reason for getting up in the morning",
+            "Find your Ikigai. Your reason for getting up in the morning.",
             "Learn Design Thinking techniques to prototype different life paths",
             "Set SMART goals across multiple time horizons and take confident action"
         ],
-        "description": "A 1-hour video workshop sharing the complete approach I recommend to gain more clarity about your needs, your values, your principles, life goals, non-goals, and priorities. This won't magically answer all your questions, but it will help you understand where you are, where you want to go, and make decisions you won't regret. Based on Design Thinking principles and real-world experience from someone who has lived multiple lives—from software developer to author to entrepreneur to coach.",
+        "description": "A 1-hour video workshop sharing my complete approach to gain clarity about your needs, values, principles, life goals, non-goals, and priorities. This won't magically answer all your questions, but it will help you understand where you are, where you want to go, and make decisions you won't regret. Based on Design Thinking principles and real experience from someone who has lived multiple lives: software developer, author, entrepreneur, coach.",
         "features": [
             "Complete Clarity Framework covering all dimensions of life design",
             "How to identify and accept your Gravity Problems (the problems you're not willing to have)",
             "Step-by-step process to determine your Personal Value System",
             "How to define your Personal Principles that guide daily decisions",
-            "Creating your Personal Manifesto—your guiding light",
-            "Finding your Ikigai—your life's mission and purpose",
+            "Creating your Personal Manifesto. Your guiding light.",
+            "Finding your Ikigai. Your life's mission and purpose.",
             "Why non-goals are just as important as goals",
             "Design Thinking Process applied to life design",
             "The 12 Favorite Questions technique to lean into curiosity",
@@ -57,7 +57,7 @@
                 "Gain clarity on what's been making you feel stuck or lost"
             ],
             "systematic": [
-                "Find your Ikigai—your unique intersection of passion, mission, profession, and vocation",
+                "Find your Ikigai. Your unique intersection of passion, mission, profession, and vocation.",
                 "Envision multiple possible futures using the Vision Grid framework",
                 "Prototype life changes through conversations and experiences before committing",
                 "Make value-aligned decisions confidently using your Manifesto as a guide",
@@ -69,14 +69,14 @@
                 "Make major decisions without regret because they align with your values",
                 "Have a clear path forward that you can adjust as you grow",
                 "Build a life that balances happiness, freedom, family, and fulfillment",
-                "Review and evolve your goals regularly with a proven system"
+                "Review and evolve your goals regularly with a system that works"
             ]
         },
         "targetAudience": [
-            "The Lost—feeling stuck without knowing which direction to take",
-            "The Decision-Paralyzed—too many options, no clarity on what matters",
-            "The Achiever Who Feels Empty—success without fulfillment",
-            "The Life Designer—ready to stop reacting and start creating intentionally"
+            "The Lost. Feeling stuck without knowing which direction to take.",
+            "The Decision-Paralyzed. Too many options, no clarity on what matters.",
+            "The Achiever Who Feels Empty. Success without fulfillment.",
+            "The Life Designer. Ready to stop reacting and start creating intentionally."
         ],
         "perfectFor": [
             "You feel lost or stuck and want a framework to find direction",
@@ -84,7 +84,7 @@
             "You need a system to prioritize what truly matters",
             "You're ready to design your life intentionally instead of letting it happen",
             "You've made decisions you regret and want a better framework for future choices",
-            "You want to find your Ikigai—your reason for being"
+            "You want to find your Ikigai. Your reason for being."
         ],
         "notForYou": [
             "You already have complete clarity about your values, goals, and direction",
@@ -93,19 +93,18 @@
             "You want someone else to tell you what your values should be"
         ],
         "trustBadges": [
-            "Complete Framework—Not Just Tips",
+            "Complete Framework. Not Just Tips.",
             "1-Hour Video Workshop",
             "Based on Design Thinking Methodology",
             "Actionable Exercises Included",
-            "Lifetime Access",
-            "Created by a Knowledge Management Expert"
+            "Lifetime Access"
         ],
         "guarantees": [
             "Complete clarity framework covering values, principles, goals, and priorities",
             "Full 1-hour video workshop with practical exercises",
             "Actionable techniques you can apply immediately",
-            "Lifetime access—revisit whenever you need a clarity reset",
-            "Based on proven Design Thinking methodology"
+            "Lifetime access. Revisit whenever you need a clarity reset.",
+            "Based on Design Thinking methodology that actually works"
         ],
         "metaTitle": "Clarity 101 Workshop - Stop Drifting, Start Designing Your Life",
         "metaDescription": "1-hour video workshop teaching the complete framework to find your direction, define your values, create your Personal Manifesto, find your Ikigai, and make decisions you won't regret. €19.99",
@@ -129,15 +128,15 @@
             "originStory": {
                 "title": "Why I Created Clarity 101",
                 "subtitle": "From 15 Years on Rails to Designing My Own Path",
-                "story": "For 15 years, I worked as a software developer, then project manager. I found satisfaction in my work—I was learning, growing, building things. But there was this nagging feeling I couldn't shake: I wasn't exploring all my options. I wasn't fully taking advantage of my curiosity. For years, I didn't consider this a problem. The fulfillment from projects kept me going. Until one day, after conversations with colleagues and friends, I realized: staying on those rails was actually the problem I needed to solve. That realization changed everything. It led me to create my own company, start consulting, write books, build products, and eventually coach others. Today, I feel much happier than I was before. This workshop shares the exact framework that helped me—and now helps others—move from feeling stuck to designing intentional lives.",
+                "story": "For 15 years, I worked as a software developer, then project manager. I found satisfaction in my work. I was learning, growing, building things. But there was this nagging feeling I couldn't shake: I wasn't exploring all my options. I wasn't fully taking advantage of my curiosity. For years, I didn't consider this a problem. The fulfillment from projects kept me going. Until one day, after conversations with colleagues and friends, I realized: staying on those rails was actually the problem I needed to solve. That realization changed everything. It led me to create my own company, start consulting, write books, build products, and eventually coach others. Today, I feel much happier than I was before. This workshop shares the exact framework that helped me, and now helps others, move from feeling stuck to designing intentional lives.",
                 "inspirationPoint": "You cannot solve a problem you're not willing to have. Once I accepted that staying comfortable was actually my problem, everything changed.",
-                "icon": "💡",
+                "icon": null,
                 "genesisDate": null
             },
             "creatorJourney": {
                 "title": "From Software Developer to Life Designer",
                 "subtitle": "20+ Years of Learning How to Live Intentionally",
-                "story": "I'm almost 40+yo, and I've lived different lives. Software developer. Author. Entrepreneur. Coach. Father of three. Each evolution taught me something crucial about clarity. I present this with humility—I don't consider myself in a position to tell people how to live their lives. To each their own. I just want to share what has worked for me, what has helped me live a happier life. These ideas are also part of the Knowledge Worker Kit, where clarity is the first and most important section. Because whether you're choosing a career, starting a project, or deciding who to work with—clarity is what you need.",
+                "story": "I'm 40+, and I've lived different lives. Software developer. Author. Entrepreneur. Coach. Father of three. Each evolution taught me something crucial about clarity. I present this with humility. I don't consider myself in a position to tell people how to live their lives. To each their own. I just want to share what has worked for me, what has helped me live a happier life. These ideas are also part of the Knowledge Worker Kit, where clarity is the first and most important section. Because whether you're choosing a career, starting a project, or deciding who to work with, clarity is what you need.",
                 "struggles": [
                     "Spent 15 years on a path that was fine but not fully aligned",
                     "Had to accept that comfort can be a problem to solve",
@@ -149,8 +148,8 @@
                     "Created frameworks that help others gain clarity",
                     "Designed a life where happiness, freedom, and family come first"
                 ],
-                "credentials": "Knowledge Management Expert, Author of multiple books, Creator of the Obsidian Starter Kit and Knowledge Worker Kit, Founder of the Knowii Community",
-                "icon": "🚀"
+                "credentials": "Author of multiple books, Creator of the Obsidian Starter Kit and Knowledge Worker Kit, Founder of the Knowii Community",
+                "icon": null
             },
             "transformationArc": {
                 "title": "Your Transformation",
@@ -165,7 +164,7 @@
                         "Goals that don't align with who you really are",
                         "Reactive living instead of intentional design"
                     ],
-                    "icon": "😔"
+                    "icon": null
                 },
                 "during": {
                     "title": "The Clarity Process",
@@ -173,15 +172,15 @@
                     "points": [
                         "Accept problems you've been avoiding",
                         "Uncover your true values and principles",
-                        "Build your guiding light—your Manifesto",
+                        "Build your guiding light. Your Manifesto.",
                         "Use Design Thinking to explore possibilities",
                         "Set SMART goals across time horizons"
                     ],
-                    "icon": "🔧"
+                    "icon": null
                 },
                 "after": {
                     "title": "After Clarity",
-                    "description": "You design your life intentionally. Decisions align with your values. Goals feel meaningful because they're truly yours. You know where you're going—and why. Life happens BY you, not TO you.",
+                    "description": "You design your life intentionally. Decisions align with your values. Goals feel meaningful because they're truly yours. You know where you're going, and why. Life happens BY you, not TO you.",
                     "points": [
                         "Clear direction based on your values",
                         "Confident decision-making without regret",
@@ -189,9 +188,9 @@
                         "Priorities that reflect what truly matters",
                         "Intentional living instead of drifting"
                     ],
-                    "icon": "✨"
+                    "icon": null
                 },
-                "timeline": "~1 hour to learn the framework. A few weeks to implement the basics. A lifetime of intentional living."
+                "timeline": "About 1 hour to learn the framework. A few weeks to implement the basics. A lifetime of intentional living."
             },
             "methodology": {
                 "title": "The Clarity Framework",
@@ -200,62 +199,62 @@
                     {
                         "title": "Accept Your Gravity Problems",
                         "description": "Identify the problems in your life that you haven't accepted yet. You cannot solve a problem you're not willing to have. This is where change begins.",
-                        "icon": "🎯",
+                        "icon": null,
                         "order": 0
                     },
                     {
                         "title": "Map Values to Needs",
                         "description": "Uncover your core values and connect them to your actual needs. Your values act as guides for decision-making. Your needs must be satisfied for happiness.",
-                        "icon": "🧭",
+                        "icon": null,
                         "order": 1
                     },
                     {
                         "title": "Create Your Personal Manifesto",
                         "description": "Combine your values, principles, and beliefs into a guiding document. This becomes your north star for every major decision.",
-                        "icon": "📜",
+                        "icon": null,
                         "order": 2
                     },
                     {
                         "title": "Find Your Ikigai",
                         "description": "Discover the intersection of what you love, what you're good at, what the world needs, and what you can be paid for. Your reason for being.",
-                        "icon": "🌟",
+                        "icon": null,
                         "order": 3
                     },
                     {
                         "title": "Design and Prototype Futures",
                         "description": "Use Design Thinking to envision multiple possible futures. Create Vision Grids. Prototype through conversations and experiences before committing.",
-                        "icon": "🔮",
+                        "icon": null,
                         "order": 4
                     },
                     {
                         "title": "Set Goals and Priorities",
                         "description": "Use Reverse Goal Setting and SMART Goals across different time horizons. Focus on your top 3 priorities based on impact.",
-                        "icon": "📊",
+                        "icon": null,
                         "order": 5
                     }
                 ],
-                "philosophy": "Clarity isn't about having all the answers. It's about having the right framework to find your own answers, make aligned decisions, and design a life that feels great—not just looks good.",
+                "philosophy": "Clarity isn't about having all the answers. It's about having the right framework to find your own answers, make aligned decisions, and design a life that feels great. Not just looks good.",
                 "differentiation": "Unlike generic goal-setting advice, this framework starts with values and principles FIRST. Goals without clarity are just wishes. Clarity makes your goals meaningful."
             },
             "vision": {
                 "title": "Why Clarity Matters",
                 "subtitle": "The Foundation of Everything",
-                "mission": "To help people move from reactive living to intentional design. Because everyone deserves to design a life that aligns with who they truly are—not who society expects them to be.",
+                "mission": "To help people move from reactive living to intentional design. Because everyone deserves to design a life that aligns with who they truly are. Not who society expects them to be.",
                 "values": [
                     {
                         "title": "Happiness First",
                         "description": "Career is important, but it's secondary to happiness, freedom, and family. Alignment across all of these is what creates a fulfilling life.",
-                        "icon": "❤️"
+                        "icon": null
                     },
                     {
                         "title": "Action Over Perfection",
                         "description": "You don't need perfect clarity to start. Think of your life as an experiment. Set the bar low, try stuff, learn, try again.",
-                        "icon": "🚀"
+                        "icon": null
                     },
                     {
                         "title": "Your Own Path",
                         "description": "I don't tell people how to live their lives. To each their own. I share what has worked for me, and you adapt it to your situation.",
-                        "icon": "🛤️"
+                        "icon": null
                     }
                 ],
                 "futureGoals": [
@@ -263,8 +262,8 @@
                     "Build systems that make clarity accessible to everyone",
                     "Create a community of intentional life designers"
                 ],
-                "biggerPicture": "Clarity is just the first step. Once you have clarity, you need a SYSTEM to turn it into reality. That's what the Knowledge Worker Kit and the Knowii Community are for. But it all starts here—with clarity.",
-                "icon": "🎯"
+                "biggerPicture": "Clarity is just the first step. Once you have clarity, you need a SYSTEM to turn it into reality. That's what the Knowledge Worker Kit and the Knowii Community are for. But it all starts here. With clarity.",
+                "icon": null
             },
             "successStories": null
         },
@@ -276,14 +275,14 @@
                     "id": "week-1",
                     "timeframe": "Week 1",
                     "title": "Foundation: Know Where You Stand",
-                    "description": "Watch the workshop and complete the first exercises. Identify your Gravity Problems—the issues you've been avoiding. Start mapping your values to your needs. Create your first draft Personal Manifesto.",
+                    "description": "Watch the workshop and complete the first exercises. Identify your Gravity Problems. The issues you've been avoiding. Start mapping your values to your needs. Create your first draft Personal Manifesto.",
                     "highlights": [
                         "Accept the problems you've been avoiding",
                         "Rank your top 10 values",
                         "Map values to your actual needs",
                         "Draft your Personal Manifesto v1"
                     ],
-                    "icon": "🏗️"
+                    "icon": null
                 },
                 {
                     "id": "month-1",
@@ -296,7 +295,7 @@
                         "List your 12 Favorite Questions",
                         "Have 3+ prototype conversations"
                     ],
-                    "icon": "🧭"
+                    "icon": null
                 },
                 {
                     "id": "month-3",
@@ -310,20 +309,20 @@
                         "Complete your first quarterly review",
                         "Take your first major aligned action"
                     ],
-                    "icon": "🚀"
+                    "icon": null
                 },
                 {
                     "id": "ongoing",
                     "timeframe": "Ongoing",
                     "title": "Evolution: Live Intentionally",
-                    "description": "Review and evolve your goals regularly. Never be scared to change your plans—we only have 4000 weeks. Use your Manifesto as a decision-making tool. Live intentionally, not reactively.",
+                    "description": "Review and evolve your goals regularly. Never be scared to change your plans. We only have 4000 weeks. Use your Manifesto as a decision-making tool. Live intentionally, not reactively.",
                     "highlights": [
                         "Quarterly reviews become habit",
                         "Decisions align with values automatically",
                         "Life feels designed, not accidental",
                         "You're creating your path, not following someone else's"
                     ],
-                    "icon": "✨"
+                    "icon": null
                 }
             ]
         },

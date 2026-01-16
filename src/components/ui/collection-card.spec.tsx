@@ -2,19 +2,20 @@ import { describe, it, expect } from 'bun:test'
 import { render } from '@testing-library/react'
 import { HashRouter } from 'react-router'
 import { CollectionCard } from './collection-card'
+import type { ColorKey } from '@/schemas/color-key.schema'
 
 // Test helper to wrap components with Router
 const renderWithRouter = (ui: React.ReactElement) => {
     return render(<HashRouter>{ui}</HashRouter>)
 }
 
-// Mock collection item
-const createMockItem = (overrides = {}) => ({
+// Mock collection item with valid ColorKey
+const createMockItem = (overrides: Record<string, unknown> = {}) => ({
     id: 'test-item',
     name: 'Test Item',
     description: 'Test description for the item',
     icon: 'FaTag',
-    color: '#e5007d',
+    color: 'pink-500' as ColorKey,
     featured: true,
     ...overrides
 })
@@ -91,29 +92,30 @@ describe('CollectionCard', () => {
             expect(iconContainer).not.toBeInTheDocument()
         })
 
-        it('should apply color to icon container background', () => {
-            const item = createMockItem({ icon: 'FaStar', color: '#ff0000' })
+        it('should apply color to icon container via Tailwind class', () => {
+            const item = createMockItem({ icon: 'FaStar', color: 'red-500' as ColorKey })
             const { container } = renderWithRouter(<CollectionCard item={item} basePath='/test' />)
             const iconContainer = container.querySelector('.h-12.w-12.flex-shrink-0') as HTMLElement
-            // Color includes opacity suffix (20 = 20% opacity in hex)
-            expect(iconContainer?.style.backgroundColor).toBe('#ff000020')
+            // Color is now set via Tailwind utility class mapping
+            expect(iconContainer).toHaveClass('bg-red-500/15')
         })
     })
 
     describe('color styling', () => {
-        it('should apply gradient background when color is provided', () => {
-            const item = createMockItem({ color: '#e5007d' })
+        it('should apply text color class to icon when color is provided', () => {
+            const item = createMockItem({ color: 'pink-500' as ColorKey })
             const { container } = renderWithRouter(<CollectionCard item={item} basePath='/test' />)
-            const link = container.querySelector('a') as HTMLElement
-            expect(link?.style.background).toContain('linear-gradient')
-            expect(link?.style.background).toContain('#e5007d')
+            const icon = container.querySelector('svg')
+            // Color is now set via Tailwind utility class mapping
+            expect(icon).toHaveClass('text-pink-500')
         })
 
-        it('should not apply background when color is undefined', () => {
+        it('should not apply color classes when color is undefined', () => {
             const item = createMockItem({ color: undefined })
             const { container } = renderWithRouter(<CollectionCard item={item} basePath='/test' />)
-            const link = container.querySelector('a') as HTMLElement
-            expect(link?.style.background).toBeFalsy()
+            const iconContainer = container.querySelector('.h-12.w-12.flex-shrink-0') as HTMLElement
+            // Should fallback to default white/10 background
+            expect(iconContainer).toHaveClass('bg-white/10')
         })
     })
 

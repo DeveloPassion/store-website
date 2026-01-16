@@ -13,6 +13,7 @@ import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-s
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { getColorClasses, defaultColorClasses } from '@/lib/color-classes'
 
 const CategoryPage: React.FC = () => {
     const { categoryId } = useParams<{ categoryId: string }>()
@@ -106,18 +107,21 @@ const CategoryPage: React.FC = () => {
                 <div className='w-full'>
                     <Breadcrumb className='mb-6 flex justify-center' />
                     <div className='flex items-start gap-4'>
-                        {category.icon && (
-                            <div
-                                className='flex h-14 w-14 items-center justify-center rounded-full'
-                                style={{ backgroundColor: `${category.color ?? ''}20` }}
-                            >
-                                <DynamicIcon
-                                    iconName={category.icon}
-                                    className='h-7 w-7'
-                                    style={{ color: category.color ?? undefined }}
-                                />
-                            </div>
-                        )}
+                        {category.icon &&
+                            (() => {
+                                const colorClasses =
+                                    getColorClasses(category.color) ?? defaultColorClasses
+                                return (
+                                    <div
+                                        className={`flex h-14 w-14 items-center justify-center rounded-full ${category.color ? colorClasses.bgTint : ''}`}
+                                    >
+                                        <DynamicIcon
+                                            iconName={category.icon}
+                                            className={`h-7 w-7 ${category.color ? colorClasses.text : ''}`}
+                                        />
+                                    </div>
+                                )
+                            })()}
                         <div className='flex-1'>
                             <h1 className='text-3xl font-bold tracking-tight sm:text-4xl'>
                                 {category.name}

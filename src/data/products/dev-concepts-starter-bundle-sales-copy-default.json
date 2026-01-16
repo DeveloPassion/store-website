@@ -1,111 +1,234 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Master software craftsmanship and client needs with Volumes 1 & 2",
-        "secondaryTagline": "Essential foundation for junior developers with lifetime community access",
-        "problem": "Junior developers lack foundational knowledge and mentorship to build successful careers",
+        "tagline": "The two skills every junior developer needs (but nobody teaches)",
+        "secondaryTagline": "Volumes 1 & 2 at 25% off",
+        "problem": "Most juniors can code, but they lack the mindset AND the ability to understand what clients actually need",
         "problemPoints": [
-            "Feeling overwhelmed by complex development environments without proper guidance",
-            "Building features that miss the mark because of poor client understanding",
-            "Missing access to experienced mentors and supportive developer communities",
-            "Struggling with both technical skills and professional soft skills",
-            "Unable to progress in your career due to incomplete foundational knowledge"
+            "You can write code, but you're not sure how to think like a professional developer",
+            "You build features that technically work, but miss what users actually needed",
+            "You feel like something's missing in your foundation, but can't pinpoint what",
+            "You're buying random courses and tutorials without a clear learning path",
+            "You watch colleagues advance and wonder what they know that you don't"
         ],
-        "agitate": "Without proper foundations and community support, you'll continue struggling alone while others advance",
+        "agitate": "These two gaps will keep holding you back until you address them directly",
         "agitatePoints": [
-            "Watching peers with mentorship access advance faster in their careers",
-            "Making costly mistakes that experienced developers could help you avoid",
-            "Wasting time on ineffective approaches without guidance",
-            "Missing out on higher-paying positions due to knowledge gaps",
-            "Burning out from isolation and lack of professional support network"
+            "Without professional mindset, you'll stay a coder instead of becoming a developer",
+            "Without client understanding, you'll keep building things nobody uses",
+            "You'll waste months (or years) figuring this out the hard way",
+            "You'll miss opportunities because you're strong on one side but weak on the other",
+            "Buying these skills separately costs more and takes longer"
         ],
-        "solution": "Get comprehensive fundamentals with lifetime community access",
+        "solution": "Get both foundations in one bundle: professional mindset + client understanding",
         "solutionPoints": [
-            "Learn software craftsmanship mindset and professionalism (Volume 1)",
-            "Master client needs, UX design, and requirements discovery (Volume 2)",
-            "Join a lifetime Slack community with senior developer mentorship",
-            "Access 15 years of industry experience distilled into practical guides",
-            "Build a strong foundation for career advancement and higher pay",
-            "Connect with like-minded developers for networking and support"
+            "Volume 1 (100 pages): Software craftsmanship, mindset, how to think like a pro",
+            "Volume 2 (50 pages): Understanding clients, UX basics, requirements discovery",
+            "30+ years of real experience packed into 150 pages",
+            "Save 25% compared to buying volumes separately",
+            "The foundation I wish someone had given me when I started"
         ],
-        "description": "The Dev Concepts Starter Bundle combines Volumes 1 and 2 to give you a comprehensive foundation in software development. Volume 1 covers software craftsmanship, professional mindset, and productivity. Volume 2 teaches client needs, UX design, and requirements discovery. Plus, you get lifetime access to an exclusive Slack community with senior developer mentorship. Perfect for junior developers who want to accelerate their careers with proper guidance and support. Save money versus buying individually while building essential skills.",
+        "description": "I've been coding for 30+ years, and I've seen the same pattern countless times: junior developers who can code but struggle to advance. Why? Two gaps. First, they don't think like professionals. Second, they don't understand what clients actually need. This bundle addresses both. Volume 1 (100 pages) covers the software craft mindset. Volume 2 (50 pages) teaches you how to understand client needs before you write a single line of code. Together, they give you the foundation that separates developers who advance from those who stay stuck. And you save 25% compared to buying them separately.",
         "features": [
-            "Dev Concepts Volume 1 - Software Craft (100-page e-book)",
-            "Dev Concepts Volume 2 - What Clients Need (50-page e-book)",
-            "Lifetime access to exclusive Slack community",
-            "Senior developer mentorship and Q&A in community",
-            "Networking with like-minded software crafters",
-            "Career guidance on job seeking and skill development",
+            "Dev Concepts Volume 1: Software Craft (100 pages)",
+            "Dev Concepts Volume 2: What Clients Need (50 pages)",
+            "150 pages total, no fluff",
+            "25% off compared to buying individually",
             "All future updates to both volumes included",
-            "Part of comprehensive 12-volume series",
-            "Digital format for easy reference and portable learning"
+            "Part of a 12-volume series covering the full developer journey",
+            "PDF format, read anywhere",
+            "Lifetime access"
         ],
         "benefits": {
             "immediate": [
-                "Save money versus buying volumes individually",
-                "Access 150 pages of comprehensive content immediately",
-                "Join exclusive Slack community with experienced developers"
+                "Save 25% vs buying volumes separately",
+                "Start reading 150 pages of practical content today",
+                "Get clarity on what's actually holding you back"
             ],
             "systematic": [
-                "Build complete foundation in software craftsmanship and client needs",
-                "Get ongoing mentorship and support from senior developers",
-                "Network with other developers on similar career journeys",
-                "Apply practical techniques from 15 years of industry experience"
+                "Build the complete foundation: mindset + client understanding",
+                "Apply lessons from 30+ years of real projects",
+                "Stop guessing and start progressing systematically"
             ],
             "longTerm": [
-                "Accelerate career progression with proper fundamentals",
-                "Avoid costly mistakes with community guidance",
-                "Access lifetime learning resources that grow with you",
-                "Build sustainable approach to professional development"
+                "Advance your career with the right foundations",
+                "Stop building things nobody uses",
+                "Become the developer who actually delivers value"
             ]
         },
         "targetAudience": [
-            "Junior software developers seeking comprehensive foundations",
-            "Career-changers transitioning into development",
-            "Early-career professionals wanting mentorship",
-            "Developers aspiring to senior positions",
-            "Anyone looking for community support and guidance"
+            "Junior developers who want real foundations, not just tutorials",
+            "Career-changers getting into development",
+            "Self-taught devs who know they have gaps",
+            "Anyone aiming for senior roles and wondering what's missing"
         ],
         "perfectFor": [
-            "Junior developers who want both technical craft and business/UX fundamentals",
-            "Developers seeking ongoing mentorship and community support",
-            "Career-changers who need comprehensive foundational knowledge",
-            "Budget-conscious learners who want to save money with a bundle",
-            "Anyone who wants to build the right skills for career advancement",
-            "Developers who value community learning over isolated study"
+            "You're a junior developer who wants both technical craft and business understanding",
+            "You're a career-changer who needs solid foundations fast",
+            "You're self-taught and filling in the gaps",
+            "You want to save 25% while getting both volumes"
         ],
         "notForYou": [
-            "Senior developers already proficient in these foundational areas",
-            "Those only interested in one specific volume's topic",
-            "Developers who prefer learning completely independently without community",
-            "Anyone looking for advanced specialized topics rather than fundamentals"
+            "Senior developers who already have these foundations",
+            "Anyone looking for advanced specialized topics",
+            "Developers who prefer buying one volume at a time"
         ],
         "trustBadges": [
-            "15+ years industry experience",
-            "150 pages of content",
-            "Lifetime community access",
-            "Part of 12-volume comprehensive series",
-            "Lifetime updates included"
+            "30+ years of hands-on experience",
+            "150 pages of practical content",
+            "25% bundle savings",
+            "Part of 12-volume series",
+            "Lifetime updates"
         ],
         "guarantees": [
-            "14-day money-back guarantee",
-            "Lifetime access to content and community",
+            "14-day money-back guarantee, no hassle",
+            "Lifetime access",
             "Free updates forever"
         ],
-        "metaTitle": "Dev Concepts Starter Bundle | Software Craft + Client Needs with Lifetime Community",
-        "metaDescription": "Master software craftsmanship and client needs with Volumes 1 & 2. Includes lifetime Slack community access with senior developer mentorship. Save money versus buying individually.",
+        "metaTitle": "Dev Concepts Starter Bundle | Software Craft + Client Needs at 25% Off",
+        "metaDescription": "Learn to think like a professional developer AND understand client needs. Volumes 1 & 2 bundled at 25% off. 150 pages from 30+ years of real experience.",
         "keywords": [
             "software development bundle",
             "developer fundamentals",
             "software craftsmanship",
             "client requirements",
             "junior developer guide",
-            "developer community",
             "programming career",
-            "software engineering basics"
+            "software engineering basics",
+            "developer bundle"
         ],
-        "storytelling": null,
-        "timeline": null,
+        "storytelling": {
+            "originStory": {
+                "title": "Why I Bundled These Two",
+                "subtitle": "The two gaps I've seen hold back hundreds of developers",
+                "story": "After 30+ years in software, I've noticed a pattern. Junior developers get stuck for two reasons.\n\nFirst: they code, but they don't think like professionals. They haven't developed the mindset, habits, and approach that turns coding ability into career growth.\n\nSecond: they build things, but they don't understand clients. They create technically solid features that nobody uses because they never learned to figure out what users actually need.\n\nHere's the thing: these two gaps are connected. Professional developers know their job isn't to write code. It's to solve problems for real people. That takes both the right mindset AND the ability to understand what clients truly need.\n\nI created this bundle because fixing one gap without the other leaves you stuck. You need both foundations.",
+                "inspirationPoint": "Fixing one gap without the other leaves you stuck",
+                "genesisDate": null,
+                "icon": null
+            },
+            "creatorJourney": null,
+            "transformationArc": null,
+            "successStories": null,
+            "methodology": {
+                "title": "The Complete Foundation",
+                "subtitle": "Addressing both gaps at once",
+                "steps": [
+                    {
+                        "title": "Mindset First (Volume 1)",
+                        "description": "Develop the professional psychology and habits that drive success",
+                        "icon": null,
+                        "order": 0
+                    },
+                    {
+                        "title": "Client Understanding (Volume 2)",
+                        "description": "Learn to discover what users truly need before you build",
+                        "icon": null,
+                        "order": 1
+                    },
+                    {
+                        "title": "Connect the Dots",
+                        "description": "See how mindset and client focus work together",
+                        "icon": null,
+                        "order": 2
+                    },
+                    {
+                        "title": "Apply It",
+                        "description": "Use these principles in your current work from day one",
+                        "icon": null,
+                        "order": 3
+                    }
+                ],
+                "philosophy": "Most developers are strong in one area but weak in another. This bundle gives you both.",
+                "differentiation": "Professional mindset without client understanding produces technically impressive failures. Client understanding without professional mindset produces good intentions without follow-through. You need both."
+            },
+            "vision": {
+                "title": "Developers, Not Just Coders",
+                "subtitle": "People who think AND understand clients",
+                "mission": "I want you to become a complete developer. Someone who thinks like a professional AND understands what clients need. That combination is rare. And it's exactly what the industry needs more of.",
+                "values": [
+                    {
+                        "title": "Complete foundations",
+                        "description": "Both mindset and client understanding, not just one or the other",
+                        "icon": null
+                    },
+                    {
+                        "title": "Skills that compound",
+                        "description": "The two skills that multiply each other for career success",
+                        "icon": null
+                    },
+                    {
+                        "title": "Coherent learning",
+                        "description": "A clear path, not scattered tutorials",
+                        "icon": null
+                    },
+                    {
+                        "title": "Good value",
+                        "description": "Complete foundation at 25% off",
+                        "icon": null
+                    }
+                ],
+                "futureGoals": [
+                    "Help developers build proper foundations",
+                    "Create more professionals who think AND understand clients",
+                    "Bridge the gap between technical skills and business value"
+                ],
+                "biggerPicture": "The best developers I've worked with share two traits: they approach work with professional discipline, and they genuinely understand the people they're building for. This bundle helps you develop both.",
+                "icon": null
+            }
+        },
+        "timeline": {
+            "title": "What to Expect",
+            "subtitle": "Your path with both volumes",
+            "milestones": [
+                {
+                    "id": "day-1",
+                    "timeframe": "Day 1",
+                    "title": "See the Full Picture",
+                    "description": "Understand what software craftsmanship actually means and why client understanding matters. See the foundation you need to build.",
+                    "highlights": [
+                        "Clarity on the professional developer path",
+                        "Understanding the client-developer gap",
+                        "A roadmap for your growth"
+                    ],
+                    "icon": null
+                },
+                {
+                    "id": "week-1",
+                    "timeframe": "Week 1",
+                    "title": "Mindset Shift",
+                    "description": "Start thinking like a professional. See projects through the lens of user needs. Your perspective on development changes.",
+                    "highlights": [
+                        "Think like a craftsperson",
+                        "View projects from user perspective",
+                        "Approach work differently"
+                    ],
+                    "icon": null
+                },
+                {
+                    "id": "month-1",
+                    "timeframe": "Month 1",
+                    "title": "Foundation Taking Shape",
+                    "description": "Professional habits are forming. You're applying requirements discovery to real projects. The foundation is building.",
+                    "highlights": [
+                        "Professional habits becoming natural",
+                        "Better requirements conversations",
+                        "Integrated approach to work"
+                    ],
+                    "icon": null
+                },
+                {
+                    "id": "month-3",
+                    "timeframe": "Month 3",
+                    "title": "Real Progress",
+                    "description": "You're thinking and working like a professional who understands clients. Both skill sets are working together.",
+                    "highlights": [
+                        "Professional reputation growing",
+                        "Clients trust your understanding",
+                        "Career moving forward"
+                    ],
+                    "icon": null
+                }
+            ]
+        },
         "courseContent": null
     }
 }

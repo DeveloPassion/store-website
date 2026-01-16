@@ -1,79 +1,258 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Expert 1-on-1 Guidance to Transform Your Knowledge System",
-        "secondaryTagline": "Stop Struggling Alone. Get Personalized PKM Coaching From an Expert.",
-        "problem": "Generic advice doesn't fit YOUR situation. Tried courses but stuck.",
+        "tagline": "One Hour That Saves You Months of Trial and Error",
+        "secondaryTagline": "Get Expert PKM Guidance From Someone Who's Lived It for 20+ Years",
+        "problem": "You've bought the courses. Read the articles. Watched the videos. Yet your knowledge system is still a mess. The problem isn't lack of information—it's that generic advice doesn't fit YOUR unique situation, challenges, and goals.",
         "problemPoints": [
-            "Courses didn't help",
-            "Generic advice doesn't apply",
-            "Need personalized guidance",
-            "Want expert feedback",
-            "Struggling to implement",
-            "Need accountability"
+            "Generic courses teach theory but can't diagnose YOUR specific situation",
+            "You've accumulated tools and techniques but can't see how they fit together",
+            "You're paralyzed by options—afraid to commit without expert validation",
+            "You're stuck in trial-and-error loops that waste weeks or months",
+            "A deadline or life change is approaching and you can't afford more experimentation",
+            "You need someone who understands system design, not just tool features"
         ],
-        "agitate": "Generic doesn't work. Courses teach theory. Articles scattered. No guidance. Feeling stuck.",
+        "agitate": "Every week spent struggling alone is a week of lost clarity, missed ideas, and mounting frustration. The courses you've taken? They taught you what worked for someone else. The articles you've read? They're scattered puzzle pieces with no one to help you assemble YOUR picture. Meanwhile, information keeps piling up, important ideas slip through the cracks, and that nagging feeling of being overwhelmed never quite goes away.",
         "agitatePoints": [
-            "Generic doesn't fit",
-            "Courses teach theory",
-            "Articles scattered",
-            "No guidance",
-            "Feeling stuck"
+            "Tools don't solve problems—they just move chaos to a different app",
+            "Copying someone else's system never works because YOUR needs are different",
+            "Complexity worship leads to systems that collapse under their own weight",
+            "Perfectionism keeps you planning instead of making progress",
+            "Self-study takes months to discover what an expert spots in minutes"
         ],
-        "solution": "1-on-1 PKM Coaching: Personalized expert guidance for YOUR challenges.",
+        "solution": "Skip the trial-and-error. In a single focused session, get personalized guidance from someone who's practiced PKM for over two decades—as an author, entrepreneur, IT architect, and content creator with a busy family life. I'll diagnose your specific challenges, help you think from first principles, and give you a clear action plan. Not a copy of my system—YOUR system, designed for YOUR reality.",
         "solutionPoints": [
-            "Expert Guidance",
-            "Personalized",
-            "Specific Solutions",
-            "System Review",
-            "Actionable Plan",
-            "Direct Support"
+            "Expert diagnosis of YOUR specific situation and challenges",
+            "First-principles thinking—understand WHY, not just what to do",
+            "System design guidance that works regardless of which tool you use",
+            "Clear, actionable plan you can implement immediately",
+            "Continued support after the session for follow-up questions",
+            "20+ years of real-world experience distilled into focused guidance"
         ],
-        "description": "Personal 1-on-1 coaching session with Sébastien Dubois, Knowledge Management expert and creator of Obsidian Starter Kit, Knowledge Worker Kit, and Knowii Community. Get personalized guidance for your situation.",
+        "description": "Personal 1-on-1 coaching session with a Knowledge Management expert with 20+ years of hands-on practice, author of multiple books, creator of the Obsidian Starter Kit, Knowledge Worker Kit, and founder of the Knowii Community. Not theory. Real experience from someone who manages an enormous knowledge base while running a business, creating content, and raising three kids. Available in English or French.",
         "features": [
-            "1-on-1 Session",
-            "Personalized Consultation",
-            "Expert Review",
-            "Tailored Solutions",
-            "Implementation Guidance",
-            "Q&A"
+            "1-on-1 video session tailored to your needs",
+            "Deep-dive into your specific PKM challenges",
+            "First-principles system design guidance",
+            "Workflow analysis and optimization",
+            "Tool-agnostic advice that works anywhere",
+            "Post-session follow-up support included"
         ],
         "benefits": {
             "immediate": [
-                "Expert feedback",
-                "Solutions for challenges",
-                "Clear plan",
-                "Direct answers"
+                "Leave with mental clarity and a specific action plan",
+                "Understand WHY certain approaches will work for YOU",
+                "Get expert validation of your ideas and direction",
+                "Immediate answers to questions that have been blocking you"
             ],
             "systematic": [
-                "Optimized system",
-                "Implementation direction",
-                "Confidence",
-                "Continuous improvement"
+                "Build YOUR system based on proven principles, not copy-paste",
+                "Gain confidence to make decisions without second-guessing",
+                "See how scattered pieces fit together into a coherent whole",
+                "Develop a framework for continuous improvement"
             ],
-            "longTerm": ["Professional system", "Career advancement", "Sustainable systems"]
+            "longTerm": [
+                "A sustainable PKM practice that scales with your life",
+                "Compound returns as your system matures over months and years",
+                "Skills and principles that transfer across tools and contexts",
+                "Freedom from information overwhelm—permanently"
+            ]
         },
-        "targetAudience": ["The Stuck", "The Optimizer", "The Beginner", "The Professional"],
-        "perfectFor": [
-            "Courses didn't work",
-            "Want optimization",
-            "Starting fresh",
-            "Need personalized"
+        "targetAudience": [
+            "Creators who need systems that turn knowledge into content",
+            "Knowledge workers drowning in information overload",
+            "Professionals facing career or life transitions",
+            "Self-learners stuck after trying courses and articles"
         ],
-        "notForYou": ["Not ready", "Prefer self-directed", "Haven't tried basics"],
-        "trustBadges": ["Expert Coach", "1-on-1 Personalized", "Specific Solutions", "Proven"],
-        "guarantees": ["Expert coach", "Personalized", "Specific solutions", "Clear plan"],
-        "metaTitle": "PKM Coaching - Expert 1-on-1 Knowledge Management Guidance",
-        "metaDescription": "€99.99 per session. Personalized PKM coaching from expert. Solutions for your knowledge management challenges.",
+        "perfectFor": [
+            "You've tried courses but still feel stuck on YOUR situation",
+            "You need expert validation before committing to an approach",
+            "A deadline or life change makes trial-and-error unacceptable",
+            "You want to understand systems, not just copy someone's setup"
+        ],
+        "notForYou": [
+            "You haven't tried any self-directed learning yet",
+            "You're looking for someone to build your system FOR you",
+            "You believe the 'right tool' will magically solve everything"
+        ],
+        "trustBadges": [
+            "20+ Years Real PKM Practice",
+            "100+ Coaching Clients",
+            "5-Star Average Rating",
+            "Author & Course Creator"
+        ],
+        "guarantees": [
+            "Personalized guidance, not generic advice",
+            "Actionable plan you can implement immediately",
+            "First-principles approach that works with any tool",
+            "Post-session support for follow-up questions"
+        ],
+        "metaTitle": "PKM Coaching - Skip Months of Trial and Error with Expert Guidance",
+        "metaDescription": "1-on-1 PKM coaching with Sébastien Dubois. 20+ years experience, 100+ clients, 5-star rating. Get personalized system design guidance that courses can't provide. €99.99/session.",
         "keywords": [
             "pkm coaching",
-            "knowledge management coaching",
-            "personal coaching",
+            "personal knowledge management coaching",
             "obsidian coaching",
-            "coaching"
+            "knowledge management expert",
+            "1-on-1 pkm help",
+            "knowledge system design",
+            "note-taking coaching"
         ],
-        "storytelling": null,
-        "timeline": null,
+        "storytelling": {
+            "originStory": {
+                "title": "Why I Started Coaching",
+                "subtitle": null,
+                "story": "After years of creating courses, kits, and communities, I kept receiving the same message: 'Your content is great, but I'm still stuck on MY specific situation.' I realized that even the best courses can't diagnose individual challenges. Some people don't need more information—they need someone to look at THEIR mess and help them see the patterns. Someone who's actually lived this for decades, not just theorized about it. That's why I started coaching. Not to replace self-learning, but to accelerate it. One focused hour with an expert can shortcut months of trial-and-error.",
+                "inspirationPoint": null,
+                "genesisDate": null,
+                "icon": null
+            },
+            "creatorJourney": {
+                "title": "20+ Years of Real Practice",
+                "subtitle": "Not Theory. Lived Experience.",
+                "story": "I've been passionate about Knowledge Management since the early 2000s. As a software architect, author, content creator, and entrepreneur, all while raising three kids, I needed systems that actually work under pressure. I've used dozens of tools, tested countless methods, and refined my approach through real-world chaos. I created the Obsidian Starter Kit, the Knowledge Worker Kit, the PKM Library, and the Knowii Community. I've published 10,000+ notes, written books, and helped hundreds of people build their own systems. This isn't academic knowledge. It's battle-tested practice.",
+                "struggles": [
+                    "Started with scattered notes across dozens of tools",
+                    "Spent years in trial-and-error before finding what works",
+                    "Had to build systems that work with a busy family life"
+                ],
+                "achievements": [
+                    "20+ years hands-on PKM experience",
+                    "10,000+ published notes",
+                    "Multiple books and courses published",
+                    "100+ coaching clients with 5-star ratings",
+                    "Created Obsidian Starter Kit, Knowledge Worker Kit, Knowii"
+                ],
+                "credentials": null,
+                "icon": null
+            },
+            "transformationArc": {
+                "title": "The Coaching Transformation",
+                "subtitle": null,
+                "before": {
+                    "title": "Before Coaching",
+                    "description": "Overwhelmed, stuck, and frustrated with your knowledge management.",
+                    "points": [
+                        "Drowning in information with no clear organization",
+                        "Paralyzed by too many options and conflicting advice",
+                        "Wasting time on trial-and-error that leads nowhere",
+                        "Feeling like everyone else 'gets it' except you"
+                    ],
+                    "icon": null
+                },
+                "during": {
+                    "title": "During Our Session",
+                    "description": "Experience diagnosis, clarity, and direction in a focused session.",
+                    "points": [
+                        "Expert analysis of YOUR specific situation",
+                        "First-principles thinking applied to YOUR challenges",
+                        "Clear explanation of WHY certain approaches will work",
+                        "Collaborative design of YOUR personalized system"
+                    ],
+                    "icon": null
+                },
+                "after": {
+                    "title": "After Coaching",
+                    "description": "Leave feeling clear, confident, and energized about your system.",
+                    "points": [
+                        "Mental fog replaced by crystal-clear direction",
+                        "Confidence to implement without second-guessing",
+                        "A system designed for YOUR life, not someone else's",
+                        "Excitement to finally make real progress"
+                    ],
+                    "icon": null
+                },
+                "timeline": null
+            },
+            "successStories": null,
+            "methodology": {
+                "title": "How I Coach",
+                "subtitle": "First Principles, Not Copy-Paste",
+                "steps": [
+                    {
+                        "title": "Listen and Diagnose",
+                        "description": "I start by understanding YOUR situation. Your work, your goals, your challenges, and what you've already tried. No assumptions.",
+                        "icon": null,
+                        "order": 0
+                    },
+                    {
+                        "title": "Apply First Principles",
+                        "description": "Instead of prescribing my system, I help you understand WHY certain approaches work. This lets you build something that fits YOUR reality.",
+                        "icon": null,
+                        "order": 1
+                    },
+                    {
+                        "title": "Design Your System",
+                        "description": "Together, we sketch out YOUR system. Not a copy of mine. Tool-agnostic principles that work whether you use Obsidian, Notion, or anything else.",
+                        "icon": null,
+                        "order": 2
+                    },
+                    {
+                        "title": "Create Action Plan",
+                        "description": "You leave with specific, immediate next steps. Not vague advice. Concrete actions you can take today.",
+                        "icon": null,
+                        "order": 3
+                    }
+                ],
+                "philosophy": "I don't believe in one-size-fits-all solutions. The best PKM system is one designed for YOUR life, built on proven principles, and simple enough that you'll actually use it.",
+                "differentiation": null
+            },
+            "vision": null
+        },
+        "timeline": {
+            "title": "Your Transformation Journey",
+            "subtitle": "What to expect after coaching",
+            "milestones": [
+                {
+                    "id": "day-1",
+                    "timeframe": "Day 1",
+                    "title": "Immediate Clarity",
+                    "description": "You leave the session with mental fog lifted. You understand not just what to do, but why it will work for your specific situation. The overwhelm is replaced by a clear path forward.",
+                    "highlights": [
+                        "Clear understanding of your core PKM challenges",
+                        "Actionable plan with specific next steps",
+                        "Confidence to start implementing immediately"
+                    ],
+                    "icon": null
+                },
+                {
+                    "id": "week-1",
+                    "timeframe": "Week 1",
+                    "title": "First Wins",
+                    "description": "You implement the quick wins from our session and feel momentum building. Things that felt impossible now feel manageable. You're making real progress.",
+                    "highlights": [
+                        "Initial system components in place",
+                        "Early wins building confidence",
+                        "Questions answered via follow-up support"
+                    ],
+                    "icon": null
+                },
+                {
+                    "id": "month-1",
+                    "timeframe": "Month 1",
+                    "title": "System Confidence",
+                    "description": "Your new system is working. You trust it. You're capturing ideas without anxiety, finding things when you need them, and feeling genuinely in control of your knowledge.",
+                    "highlights": [
+                        "System running smoothly day-to-day",
+                        "Trust in your approach replacing doubt",
+                        "Noticeable reduction in information anxiety"
+                    ],
+                    "icon": null
+                },
+                {
+                    "id": "month-3",
+                    "timeframe": "Month 3+",
+                    "title": "Compounding Returns",
+                    "description": "Your system becomes second nature. You're creating more, stressed less, and your knowledge base is becoming a genuine asset. The investment keeps paying dividends.",
+                    "highlights": [
+                        "System feels effortless and automatic",
+                        "Creating and publishing with less friction",
+                        "Knowledge compounds into real advantage"
+                    ],
+                    "icon": null
+                }
+            ]
+        },
         "courseContent": null
     }
 }

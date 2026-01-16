@@ -1,13 +1,15 @@
 import { Link } from 'react-router'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { FaStar } from 'react-icons/fa'
+import { getColorClasses, defaultColorClasses } from '@/lib/color-classes'
+import type { ColorKey } from '@/schemas/color-key.schema'
 
 interface CollectionItem {
     id: string
     name: string
     description: string
     icon?: string | null
-    color?: string | null
+    color?: ColorKey | null
     featured?: boolean
 }
 
@@ -62,29 +64,23 @@ export const CollectionCard = <T extends CollectionItem>({
     variant = 'detailed',
     countLabel = 'product'
 }: CollectionCardProps<T>) => {
+    // Get color classes from the color key
+    const colorClasses = getColorClasses(item.color) ?? defaultColorClasses
+
     if (variant === 'simple') {
         // Simple variant for homepage/compact displays
         return (
             <Link
                 to={`${basePath}/${item.id}`}
                 className='group border-primary/10 hover:border-secondary/30 hover:shadow-secondary/10 flex flex-col items-center justify-center rounded-xl border bg-gradient-to-br p-8 transition-all hover:scale-105 hover:shadow-xl'
-                style={{
-                    background: item.color
-                        ? `linear-gradient(135deg, ${item.color}20, ${item.color}05)`
-                        : undefined
-                }}
             >
                 {item.icon && (
                     <div
-                        className='mb-3 flex h-16 w-16 items-center justify-center rounded-lg'
-                        style={{
-                            backgroundColor: item.color ? `${item.color}20` : undefined
-                        }}
+                        className={`mb-3 flex h-16 w-16 items-center justify-center rounded-lg ${item.color ? colorClasses.bgTint : ''}`}
                     >
                         <DynamicIcon
                             iconName={item.icon}
-                            className='h-8 w-8'
-                            style={{ color: item.color ?? undefined }}
+                            className={`h-8 w-8 ${item.color ? colorClasses.text : ''}`}
                         />
                     </div>
                 )}
@@ -98,11 +94,6 @@ export const CollectionCard = <T extends CollectionItem>({
         <Link
             to={`${basePath}/${item.id}`}
             className='group border-primary/10 hover:border-secondary/30 relative flex cursor-pointer flex-col gap-4 rounded-xl border p-6 text-left transition-all hover:scale-102 hover:shadow-lg'
-            style={{
-                background: item.color
-                    ? `linear-gradient(135deg, ${item.color}15, ${item.color}05)`
-                    : undefined
-            }}
         >
             {/* Featured badge */}
             {showFeaturedBadge && item.featured && (
@@ -116,17 +107,11 @@ export const CollectionCard = <T extends CollectionItem>({
             <div className='flex items-center gap-4'>
                 {item.icon && (
                     <div
-                        className='flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg'
-                        style={{
-                            backgroundColor: item.color
-                                ? `${item.color}20`
-                                : 'rgba(255, 255, 255, 0.1)'
-                        }}
+                        className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg ${item.color ? colorClasses.bgTint : 'bg-white/10'}`}
                     >
                         <DynamicIcon
                             iconName={item.icon}
-                            className='h-6 w-6'
-                            style={{ color: item.color ?? undefined }}
+                            className={`h-6 w-6 ${item.color ? colorClasses.text : ''}`}
                         />
                     </div>
                 )}

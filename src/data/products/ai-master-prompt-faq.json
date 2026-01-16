@@ -3,57 +3,57 @@
         {
             "id": "faq-80",
             "question": "I'm new to AI. Is this too advanced for me?",
-            "answer": "Not at all. The workshop starts with LLM fundamentals and builds up systematically. If you can use ChatGPT or Claude to ask questions, you're ready for this. No coding or technical skills required."
+            "answer": "Not at all. The workshop starts with LLM fundamentals and builds up from there. If you can use ChatGPT or Claude to ask questions, you're ready. No coding or technical skills required."
         },
         {
             "id": "faq-81",
             "question": "How long does it take to create my AI Master Prompt?",
-            "answer": "Your initial version takes 30-60 minutes after watching the workshop. But here's the key insight: it's a living document that you refine over time. The workshop shows you exactly what to include so you start strong, then improve iteratively."
+            "answer": "Your initial version takes 30-60 minutes after watching the workshop. But here's the thing: it's a living document that you refine over time. The workshop shows you exactly what to include so you start strong, then improve as you use it."
         },
         {
             "id": "faq-82",
             "question": "Will this work with ChatGPT, Claude, Gemini, and other AIs?",
-            "answer": "Yes. The principles and framework work with ANY large language model. The workshop uses Claude for demos, but the techniques apply universally. Your AI Master Prompt works everywhere."
+            "answer": "Yes. The principles and framework work with ANY large language model. I use Claude for the demos, but the techniques apply everywhere. Your AI Master Prompt works with all of them."
         },
         {
             "id": "faq-83",
             "question": "Is this just a template I copy-paste?",
-            "answer": "No, and that's a common misconception. Templates give you generic results. An AI Master Prompt is YOUR personalized context - your values, goals, style, projects, and preferences. The workshop teaches you the framework to build something uniquely yours, not a one-size-fits-all template."
+            "answer": "No, and that's a common misconception. Templates give you generic results. An AI Master Prompt is YOUR personalized context: your values, goals, style, projects, and preferences. The workshop teaches you the framework to build something uniquely yours, not a one-size-fits-all template."
         },
         {
             "id": "faq-84",
             "question": "What's the difference between Personal and Business Master Prompts?",
-            "answer": "Personal prompts focus on your life: values, goals, personal projects, health, relationships. Business prompts focus on your company: products, services, strategy, target audience, brand voice. The workshop covers both, and many people create separate prompts for each."
+            "answer": "Personal prompts focus on your life: values, goals, personal projects, health, relationships. Business prompts focus on your company: products, services, strategy, target audience, brand voice. The workshop covers both. Most people end up creating separate prompts for each."
         },
         {
             "id": "faq-85",
             "question": "How do I actually use my Master Prompt once it's created?",
-            "answer": "Multiple ways covered in the workshop: copy/paste into conversations, create AI 'projects' in Claude or ChatGPT, use Model Context Protocol (MCP) for automatic context loading, or build dedicated AI assistants. You'll find the approach that fits your workflow."
+            "answer": "Several ways covered in the workshop: copy/paste into conversations, create AI 'projects' in Claude or ChatGPT, use Model Context Protocol (MCP) for automatic context loading, or build dedicated AI assistants. You'll find the approach that fits your workflow."
         },
         {
             "id": "faq-86",
             "question": "What is Model Context Protocol (MCP)?",
-            "answer": "MCP is a technology that lets AI automatically access your knowledge base and context. Instead of copy-pasting your Master Prompt, AI can read it directly from your notes. The workshop introduces this as an advanced implementation strategy."
+            "answer": "MCP is a technology that lets AI automatically access your knowledge base and context. Instead of copy-pasting your Master Prompt, AI can read it directly from your notes. The workshop introduces this as an advanced implementation option."
         },
         {
             "id": "faq-87",
             "question": "Is this included in any bundles or memberships?",
-            "answer": "Yes - included free with: Knowii Community 'Knowledge Builder' tier (€19.99/month), Knowii Community 'Knowledge Master' tier (€39.99/month), and Knowledge Worker Kit (€149.99 one-time). If you're already a member, you have access!"
+            "answer": "Yes. It's included free with: Knowii Community 'Knowledge Builder' tier (€19.99/month), Knowii Community 'Knowledge Master' tier (€39.99/month), and Knowledge Worker Kit (€149.99 one-time). If you're already a member, you already have access."
         },
         {
             "id": "faq-88",
             "question": "Will this become outdated as AI evolves?",
-            "answer": "The framework is timeless because it's about providing effective context - a principle that becomes MORE valuable as AI improves. Tools change, but 'give AI the right context' will always be fundamental. Your Master Prompt grows with you."
+            "answer": "The framework is timeless because it's about providing effective context. That principle becomes MORE valuable as AI improves. Tools change, but 'give AI the right context' will always be fundamental. Your Master Prompt grows with you."
         },
         {
             "id": "faq-89",
             "question": "Do I need a PKM system like Obsidian to benefit from this?",
-            "answer": "No, but it helps. You can create an AI Master Prompt in any text editor. Having a PKM system like Obsidian enables more advanced integrations (like MCP) covered in the workshop, but it's not required to get started."
+            "answer": "No, but it helps. You can create an AI Master Prompt in any text editor. Having a PKM system like Obsidian opens up more advanced integrations (like MCP) covered in the workshop, but it's not required to get started."
         },
         {
             "id": "faq-90",
             "question": "What's shown in the live demo?",
-            "answer": "You'll see my actual AI writing assistant in action - creating newsletters and content that matches my voice. Plus demonstrations of multi-role AI configurations (writer, coach, analyst) and how I integrate my Master Prompt with my knowledge base via MCP."
+            "answer": "My actual AI writing assistant in action, creating newsletters and content that matches my voice. Plus demonstrations of multi-role AI configurations (writer, coach, analyst) and how I connect my Master Prompt with my knowledge base via MCP."
         }
     ]
 }

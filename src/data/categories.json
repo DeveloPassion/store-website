@@ -4,7 +4,7 @@
         "name": "AI Mastery",
         "description": "Master AI tools and techniques to supercharge your productivity and creativity",
         "icon": "FaRobot",
-        "color": "#FF6B6B",
+        "color": "red-400",
         "featured": true,
         "priority": 8
     },
@@ -13,7 +13,7 @@
         "name": "AI Tools",
         "description": "Practical AI tools and integrations for everyday knowledge work",
         "icon": "FaTools",
-        "color": "#4ECDC4",
+        "color": "teal-400",
         "featured": false,
         "priority": 9
     },
@@ -22,7 +22,7 @@
         "name": "Bundles",
         "description": "Curated bundles combining multiple resources for maximum value",
         "icon": "FaBoxOpen",
-        "color": "#95E1D3",
+        "color": "teal-200",
         "featured": true,
         "priority": 1
     },
@@ -31,7 +31,7 @@
         "name": "Coaching",
         "description": "One-on-one coaching and mentorship services for personalized guidance",
         "icon": "FaChalkboardTeacher",
-        "color": "#F38181",
+        "color": "red-400",
         "featured": true,
         "priority": 2
     },
@@ -40,7 +40,7 @@
         "name": "Community",
         "description": "Join communities of like-minded knowledge workers and learners",
         "icon": "FaUsers",
-        "color": "#AA96DA",
+        "color": "purple-300",
         "featured": true,
         "priority": 3
     },
@@ -49,7 +49,7 @@
         "name": "Content Creation",
         "description": "Tools and resources for creating compelling content that resonates",
         "icon": "FaPen",
-        "color": "#FCBAD3",
+        "color": "pink-300",
         "featured": false,
         "priority": 10
     },
@@ -58,7 +58,7 @@
         "name": "Courses",
         "description": "Comprehensive courses to master new skills and knowledge domains",
         "icon": "FaGraduationCap",
-        "color": "#FFFFD2",
+        "color": "yellow-100",
         "featured": true,
         "priority": 4
     },
@@ -67,7 +67,7 @@
         "name": "Free Resources",
         "description": "High-quality free resources to get started on your learning journey",
         "icon": "FaGift",
-        "color": "#A8D8EA",
+        "color": "sky-200",
         "featured": false,
         "priority": 12
     },
@@ -76,7 +76,7 @@
         "name": "Kits & Templates",
         "description": "Ready-to-use kits and templates for instant productivity gains",
         "icon": "FaTools",
-        "color": "#FFD93D",
+        "color": "yellow-400",
         "featured": false,
         "priority": 13
     },
@@ -85,7 +85,7 @@
         "name": "Knowledge Management",
         "description": "Build and maintain your personal knowledge management system",
         "icon": "FaBrain",
-        "color": "#6BCB77",
+        "color": "green-400",
         "featured": true,
         "priority": 5
     },
@@ -94,7 +94,7 @@
         "name": "Knowledge Work",
         "description": "Excel at knowledge work in the modern digital age",
         "icon": "FaLightbulb",
-        "color": "#4D96FF",
+        "color": "blue-400",
         "featured": true,
         "priority": 18
     },
@@ -103,7 +103,7 @@
         "name": "Journaling",
         "description": "Harness the power of journaling for reflection, growth, creativity and productivity",
         "icon": "FaBookOpen",
-        "color": "#CDB4DB",
+        "color": "purple-200",
         "featured": false,
         "priority": 6
     },
@@ -112,7 +112,7 @@
         "name": "Learning",
         "description": "Learn how to learn more effectively and efficiently",
         "icon": "FaBook",
-        "color": "#FF6B9D",
+        "color": "pink-400",
         "featured": false,
         "priority": 14
     },
@@ -121,7 +121,7 @@
         "name": "Obsidian",
         "description": "Master Obsidian for powerful note-taking and knowledge management",
         "icon": "SiObsidian",
-        "color": "#7C3AED",
+        "color": "violet-600",
         "featured": true,
         "priority": 7
     },
@@ -130,7 +130,7 @@
         "name": "Personal Development",
         "description": "Grow personally and professionally with intentional development",
         "icon": "FaStar",
-        "color": "#FFB6C1",
+        "color": "pink-200",
         "featured": false,
         "priority": 15
     },
@@ -139,7 +139,7 @@
         "name": "Personal Organization",
         "description": "Organize your life and work effectively with proven systems",
         "icon": "FaCheckSquare",
-        "color": "#98D8C8",
+        "color": "teal-300",
         "featured": false,
         "priority": 16
     },
@@ -148,7 +148,7 @@
         "name": "Productivity",
         "description": "Get more done with less stress using battle-tested productivity systems",
         "icon": "FaRocket",
-        "color": "#F7B801",
+        "color": "amber-500",
         "featured": false,
         "priority": 17
     },
@@ -157,7 +157,7 @@
         "name": "Software Development & IT",
         "description": "Resources for developers and IT professionals to level up their skills",
         "icon": "FaCode",
-        "color": "#5F27CD",
+        "color": "violet-700",
         "featured": false,
         "priority": 11
     },
@@ -166,7 +166,7 @@
         "name": "Tools",
         "description": "Software tools and applications to enhance your productivity and workflows",
         "icon": "FaTools",
-        "color": "#FF9F43",
+        "color": "orange-400",
         "featured": false,
         "priority": 8
     },
@@ -175,7 +175,7 @@
         "name": "Guides",
         "description": "Comprehensive guides to master specific topics and techniques",
         "icon": "FaBookOpen",
-        "color": "#54A0FF",
+        "color": "blue-400",
         "featured": false,
         "priority": 19
     },
@@ -184,7 +184,7 @@
         "name": "Knowledge Bases",
         "description": "Curated knowledge bases and resource collections for reference and learning",
         "icon": "FaDatabase",
-        "color": "#00D2D3",
+        "color": "cyan-400",
         "featured": false,
         "priority": 20
     },
@@ -193,7 +193,7 @@
         "name": "Services",
         "description": "Professional services including consulting, coaching, and custom solutions",
         "icon": "FaHandshake",
-        "color": "#5F27CD",
+        "color": "violet-700",
         "featured": false,
         "priority": 21
     },
@@ -202,7 +202,7 @@
         "name": "Workshops",
         "description": "Interactive workshops for hands-on learning and skill development",
         "icon": "FaChalkboardTeacher",
-        "color": "#48DBFB",
+        "color": "sky-400",
         "featured": false,
         "priority": 18
     }

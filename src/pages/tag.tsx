@@ -15,6 +15,7 @@ import { sortFeaturedProducts, sortProductsIntelligently } from '@/lib/product-s
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { getColorClasses, defaultColorClasses } from '@/lib/color-classes'
 
 const TagPage: React.FC = () => {
     const { tagId } = useParams<{ tagId: string }>()
@@ -136,22 +137,21 @@ const TagPage: React.FC = () => {
                 <div className='w-full'>
                     <Breadcrumb className='mb-6 flex justify-center' />
                     <div className='flex items-center gap-4'>
-                        {tagData.icon && (
-                            <div
-                                className='flex h-14 w-14 items-center justify-center rounded-full'
-                                style={{
-                                    backgroundColor: tagData.color
-                                        ? `${tagData.color}20`
-                                        : undefined
-                                }}
-                            >
-                                <DynamicIcon
-                                    iconName={tagData.icon}
-                                    className='h-7 w-7'
-                                    style={{ color: tagData.color ?? undefined }}
-                                />
-                            </div>
-                        )}
+                        {tagData.icon &&
+                            (() => {
+                                const colorClasses =
+                                    getColorClasses(tagData.color) ?? defaultColorClasses
+                                return (
+                                    <div
+                                        className={`flex h-14 w-14 items-center justify-center rounded-full ${tagData.color ? colorClasses.bgTint : ''}`}
+                                    >
+                                        <DynamicIcon
+                                            iconName={tagData.icon}
+                                            className={`h-7 w-7 ${tagData.color ? colorClasses.text : ''}`}
+                                        />
+                                    </div>
+                                )
+                            })()}
                         <div>
                             <h1 className='text-3xl font-bold tracking-tight sm:text-4xl'>
                                 {tagData.name}
@@ -191,18 +191,21 @@ const TagPage: React.FC = () => {
                     <Section key={categoryId} className='py-12 sm:py-16'>
                         <div className='w-full'>
                             <div className='mb-8 flex items-center gap-3'>
-                                {category.icon && (
-                                    <div
-                                        className='flex h-12 w-12 items-center justify-center rounded-lg'
-                                        style={{ backgroundColor: `${category.color ?? ''}20` }}
-                                    >
-                                        <DynamicIcon
-                                            iconName={category.icon}
-                                            className='h-6 w-6'
-                                            style={{ color: category.color ?? undefined }}
-                                        />
-                                    </div>
-                                )}
+                                {category.icon &&
+                                    (() => {
+                                        const colorClasses =
+                                            getColorClasses(category.color) ?? defaultColorClasses
+                                        return (
+                                            <div
+                                                className={`flex h-12 w-12 items-center justify-center rounded-lg ${category.color ? colorClasses.bgTint : ''}`}
+                                            >
+                                                <DynamicIcon
+                                                    iconName={category.icon}
+                                                    className={`h-6 w-6 ${category.color ? colorClasses.text : ''}`}
+                                                />
+                                            </div>
+                                        )
+                                    })()}
                                 <div>
                                     <h2 className='text-2xl font-bold sm:text-3xl'>
                                         {category.name}

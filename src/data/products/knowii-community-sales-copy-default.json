@@ -1,115 +1,115 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Transform Information Chaos Into Your Greatest Advantage",
-        "secondaryTagline": "Community + Premium Courses + Professional Tools = Your Complete Knowledge System",
-        "problem": "Information chaos is silently sabotaging your productivity, creativity, and peace of mind. You're drowning in tabs, scattered notes, and forgotten learnings—while brilliant ideas slip through the cracks.",
+        "tagline": "Turn Information Chaos Into Your Competitive Edge",
+        "secondaryTagline": "Community + Courses + Tools = One System That Actually Works",
+        "problem": "You're drowning. Hundreds of browser tabs. Notes scattered across five different apps. That brilliant idea from last week's meeting? Gone. You spend more time searching for things than actually using them.",
         "problemPoints": [
-            "Drowning in browser tabs—hundreds open across multiple browsers, yet you still can't find what you need",
-            "Notes scattered everywhere—Evernote, Apple Notes, paper notebooks, random files, and 'I'll remember this'",
-            "Reading valuable content but retaining nothing—books highlighted, articles saved, insights forgotten",
-            "23 context switches daily—constant mental overhead that fragments your focus and drains your energy",
-            "60% of your valuable ideas lost—brilliant insights that vanish before you can capture or use them",
-            "More time searching than using—hours spent looking for 'that thing I saved somewhere' instead of doing meaningful work"
+            "Hundreds of browser tabs open, and you still can't find what you need when you need it",
+            "Notes everywhere: Notion, Apple Notes, random text files, paper notebooks, your phone",
+            "You read great content but remember almost none of it. All those highlights? Forgotten.",
+            "Constant context switching kills your focus. You never get into deep work anymore.",
+            "Your best ideas slip away before you can capture them. Probably 60% or more.",
+            "Hours spent looking for 'that thing I saved somewhere' instead of doing actual work"
         ],
-        "agitate": "The real cost goes beyond frustration. Research shows 41% of knowledge workers feel overwhelmed by information EVERY DAY. This isn't just inconvenient—it's actively sabotaging your career, creativity, and mental clarity.",
+        "agitate": "This isn't just annoying. Research shows 41% of knowledge workers feel overwhelmed by information every single day. It's hurting your work, your creativity, and honestly, your peace of mind.",
         "agitatePoints": [
-            "Ideas vanish before you can use them—that breakthrough thought from last week's meeting? Gone forever",
-            "Learnings that never compound—books read, courses taken, but nothing sticks or builds on itself",
-            "Decisions made in the dark—can't synthesize information fast enough to make confident choices",
-            "Professional growth stalled—your expertise stays locked in your head instead of advancing your career",
-            "Creative blocks from mental clutter—too much noise to hear your own original thoughts",
-            "The exhausting cycle—trying to remember everything, finding nothing, starting over again"
+            "That breakthrough thought from last week? Gone forever. You'll never get it back.",
+            "Books read, courses taken, but nothing sticks. Your learning doesn't compound.",
+            "You can't synthesize information fast enough to make confident decisions",
+            "Your expertise stays locked in your head instead of advancing your career",
+            "Too much mental noise to hear your own original thoughts",
+            "The exhausting cycle: try to remember everything, find nothing, start over"
         ],
-        "solution": "Knowii Community is a complete knowledge transformation system that combines supportive community, premium courses worth hundreds of dollars, and professional tools—all designed to work together to turn information chaos into your greatest competitive advantage.",
+        "solution": "Knowii is a complete system: supportive community, courses worth hundreds of euros, and professional tools. All designed to work together. Not just another tool to manage. A system.",
         "solutionPoints": [
-            "Find anything instantly—an organized system that makes retrieval effortless, not an endless hunt",
-            "Remember what matters—turn passive reading into lasting, usable knowledge that compounds over time",
-            "Reduce mental load—a 'second brain' that reliably holds information so your mind can think, not store",
-            "Make better decisions—see the full picture by connecting ideas across domains and time",
-            "Integrate AI effectively—enhance your thinking and creation without replacing your unique perspective",
-            "Create content consistently—reliable systems that transform your knowledge into valuable output without burnout",
-            "Build systems that scale—maintainable approaches that grow with your expertise and ambitions"
+            "Find anything instantly. No more endless hunting through folders and apps.",
+            "Actually remember what you read. Turn passive consumption into lasting knowledge.",
+            "Reduce mental load. Let your system hold information so your mind can think.",
+            "Make better decisions by connecting ideas across different areas and time.",
+            "Use AI effectively without losing your own perspective and voice.",
+            "Create content consistently through systems, not willpower.",
+            "Build systems that grow with you instead of becoming maintenance nightmares."
         ],
-        "description": "Knowii is a comprehensive community of practice bringing together hundreds of knowledge creators, professionals, and lifelong learners committed to breaking free from information overload. Unlike generic productivity communities, Knowii delivers a complete integrated solution: Community support + Premium courses + Professional tools + Direct expert guidance. Whether you're drowning in browser tabs or building sophisticated knowledge systems, Knowii meets you where you are and helps you transform chaos into clarity.",
+        "description": "Knowii brings together hundreds of knowledge workers, creators, and lifelong learners who are done with information overload. It's not a generic productivity community. You get community support, courses, tools, and direct expert guidance. All integrated. Whether you're drowning in tabs or building sophisticated knowledge systems, Knowii meets you where you are.",
         "features": [
-            "3 Membership Tiers—Explorer (€4.99/month), Knowledge Builder (€19.99/month), Knowledge Master (€39.99/month)",
+            "3 Membership Tiers: Explorer (€4.99/month), Knowledge Builder (€19.99/month), Knowledge Master (€39.99/month)",
             "Private community spaces with expert-led discussions and peer support",
-            "Live events—masterclasses, workshops, Q&As, knowledge-sharing sessions, and live streams",
+            "Live events: masterclasses, workshops, Q&As, knowledge-sharing sessions, and live streams",
             "Video recordings of all past events for Knowledge Builder and Master tiers",
             "Professional templates, workflows, and guides ready to use on day one",
             "Direct access to multiple Knowledge Management experts",
             "Monthly community challenges to build momentum and accountability",
-            "Explorer free bonuses—Knowledge base of 1,800+ concepts, KM System Checklist, Database of KM tools, Beginner's Guide to Obsidian",
+            "Explorer free bonuses: Knowledge base of 1,800+ concepts, KM System Checklist, Database of KM tools, Beginner's Guide to Obsidian",
             "Obsidian Starter Kit (€129.99 value) included for Knowledge Builder+",
             "Obsidian Starter Course (€69.99 value) included for Knowledge Builder+",
             "Knowledge Management for Beginners course (€69.99 value) for Knowledge Master",
-            "Knowledge Master tools—Knowledge Worker Kit, PKM Library, AI Ghostwriter Guide, AI Master Prompt, and all future tools",
-            "All workshops included—Journaling Deep Dive, Personal Organization 101, Clarity 101, AI Master Prompt, MCP, and more",
-            "DeveloPassion's Newsletter Archives—200+ editions of curated insights"
+            "Knowledge Master tools: Knowledge Worker Kit, PKM Library, AI Ghostwriter Guide, AI Master Prompt, and all future tools",
+            "All workshops included: Journaling Deep Dive, Personal Organization 101, Clarity 101, AI Master Prompt, MCP, and more",
+            "DeveloPassion's Newsletter Archives: 200+ editions of curated insights"
         ],
         "benefits": {
             "immediate": [
-                "Stop wasting hours searching—get proven systems you can implement on day one",
-                "Access ready-made templates and workflows—no need to build from scratch",
-                "Connect with people solving the same problems—you're not alone in this",
-                "Get expert guidance when stuck—direct access to knowledge management specialists"
+                "Stop wasting hours searching. Get proven systems you can implement on day one.",
+                "Access ready-made templates and workflows. No need to build from scratch.",
+                "Connect with people solving the same problems. You're not alone in this.",
+                "Get expert guidance when stuck. Direct access to knowledge management specialists."
             ],
             "systematic": [
-                "Complete integrated system—Community + Courses + Tools working together",
-                "Proven approaches from 20+ years of practice—learn what actually works",
-                "Implementation support—guidance through the journey, not just theory",
-                "Continuous learning—regular events, new content, and evolving best practices",
-                "AI integration strategies—modern workflows that leverage AI without losing your edge",
-                "Scalable systems—solutions that grow with your expertise and responsibilities"
+                "Complete integrated system. Community + Courses + Tools working together.",
+                "Proven approaches from 20+ years of practice. Learn what actually works.",
+                "Implementation support. Guidance through the journey, not just theory.",
+                "Continuous learning. Regular events, new content, and evolving best practices.",
+                "AI integration strategies. Modern workflows that use AI without losing your edge.",
+                "Scalable systems. Solutions that grow with your expertise and responsibilities."
             ],
             "longTerm": [
-                "Sustainable knowledge management for life—skills that compound over decades",
+                "Sustainable knowledge management for life. Skills that compound over decades.",
                 "Professional advancement through documented expertise and better decision-making",
-                "Mental clarity and reduced overwhelm—peace of mind from knowing where everything is",
-                "Creative freedom—reliable systems that turn knowledge into consistent content without burnout",
-                "Compound growth—each insight builds on the last, creating exponential returns on learning"
+                "Mental clarity and reduced overwhelm. Peace of mind from knowing where everything is.",
+                "Creative freedom. Reliable systems that turn knowledge into consistent content without burnout.",
+                "Compound growth. Each insight builds on the last, creating exponential returns on learning."
             ]
         },
         "targetAudience": [
-            "Knowledge Workers—keeping up with AI while delivering real-world impact",
-            "Overwhelmed Professionals—drowning in tabs, emails, Slack messages, and scattered notes",
-            "Career Builders—documenting expertise to advance professionally and stand out",
-            "Content Creators—producing consistent quality without burning out or running dry",
-            "Founders & Entrepreneurs—juggling investor decks, customer feedback, market research, and strategy",
-            "Consultants & Freelancers—managing multiple client projects and building reusable knowledge assets",
-            "Researchers & Students—turning highlights, papers, and notes into lasting, connected knowledge",
-            "Team Leaders & Executives—synthesizing complex information to make confident decisions fast"
+            "Knowledge Workers: keeping up with AI while delivering real-world impact",
+            "Overwhelmed Professionals: drowning in tabs, emails, Slack messages, and scattered notes",
+            "Career Builders: documenting expertise to advance professionally and stand out",
+            "Content Creators: producing consistent quality without burning out or running dry",
+            "Founders and Entrepreneurs: juggling investor decks, customer feedback, market research, and strategy",
+            "Consultants and Freelancers: managing multiple client projects and building reusable knowledge assets",
+            "Researchers and Students: turning highlights, papers, and notes into lasting, connected knowledge",
+            "Team Leaders and Executives: synthesizing complex information to make confident decisions fast"
         ],
         "perfectFor": [
             "You feel overwhelmed by information and want a system that actually reduces the noise",
             "You value systematic approaches and believe good systems create good outcomes",
             "You want a supportive community that understands the struggle, not just another forum",
-            "You're ready to invest in yourself—time, energy, and a modest membership—to transform how you work",
-            "You want both immediate tools and long-term transformation, not just quick fixes"
+            "You're ready to invest in yourself. Time, energy, and a modest membership.",
+            "You want both immediate tools and long-term change, not just quick fixes"
         ],
         "notForYou": [
             "You prefer working completely alone and don't value community learning or support",
-            "You don't struggle with information overload—your current system works perfectly",
+            "You don't struggle with information overload. Your current system works perfectly.",
             "You want only tools without understanding why they work or how to use them effectively"
         ],
         "trustBadges": [
-            "Complete System—Community + Courses + Tools in one integrated package",
-            "$150-500+ in Bonuses—depending on tier, immediate access to premium resources",
-            "Expert-Led—20+ years of knowledge management expertise, not just theory",
-            "Growing Community—340+ members actively sharing and learning together",
-            "Live Events—regular masterclasses, workshops, and Q&A sessions",
-            "Flexible Membership—upgrade, downgrade, or cancel anytime",
-            "Proven Track Record—2,000+ products sold, 10,000+ hours saved"
+            "Complete System: Community + Courses + Tools in one package",
+            "$150-500+ in Bonuses: depending on tier, immediate access to premium resources",
+            "Expert-Led: 20+ years of knowledge management expertise, not just theory",
+            "Growing Community: 340+ members actively sharing and learning together",
+            "Live Events: regular masterclasses, workshops, and Q&A sessions",
+            "Flexible Membership: upgrade, downgrade, or cancel anytime",
+            "Proven Track Record: 2,000+ products sold, 10,000+ hours saved"
         ],
         "guarantees": [
-            "Flexible membership—upgrade, downgrade, or cancel at any time",
-            "Immediate access—all courses and tools available as soon as you join, no additional purchases",
-            "Continuous value—new content, events, and resources added regularly",
-            "Annual plan protection—maintain access through end of billing period if you cancel"
+            "Flexible membership. Upgrade, downgrade, or cancel at any time.",
+            "Immediate access. All courses and tools available as soon as you join, no additional purchases.",
+            "Continuous value. New content, events, and resources added regularly.",
+            "Annual plan protection. Maintain access through end of billing period if you cancel."
         ],
-        "metaTitle": "Knowii Community - Transform Information Chaos Into Clarity | Community + Courses + Tools",
-        "metaDescription": "Join Knowii: Complete knowledge transformation system with community, premium courses, and professional tools. From €4.99/month. Stop drowning in information—start thriving.",
+        "metaTitle": "Knowii Community - Turn Information Chaos Into Clarity | Community + Courses + Tools",
+        "metaDescription": "Join Knowii: Complete knowledge system with community, premium courses, and professional tools. From €4.99/month. Stop drowning in information. Start thriving.",
         "keywords": [
             "knowledge management community",
             "pkm community",
@@ -126,16 +126,16 @@
         "storytelling": {
             "originStory": {
                 "title": "Why Knowii Exists",
-                "subtitle": "More than knowledge management—a complete system for thriving",
-                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost 200k€ and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. Burnout from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising three kids while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed—what we all need—is a complete system for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a community of practice where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
-                "inspirationPoint": "The moment I realized that knowledge management is the foundation—but clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
-                "icon": "FaLightbulb",
+                "subtitle": "More than knowledge management. A complete system for thriving.",
+                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost 200k€ and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. Burnout from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising three kids while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a complete system for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a community of practice where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
+                "inspirationPoint": "Knowledge management is the foundation. But clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
+                "icon": null,
                 "genesisDate": null
             },
             "creatorJourney": {
                 "title": "20+ Years Building Systems for Everything",
-                "subtitle": "Not just PKM—the complete knowledge worker toolkit",
-                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization—while running DeveloPassion, raising 3 kids, and maintaining nearly 10,000 notes in my personal knowledge system. I've published 3 books, written 400+ articles and newsletters, created courses, and built products used by thousands. But here's what matters: I didn't just build systems for managing information. I built systems for everything—clarity on values and priorities, habits that make productivity automatic, career management, effective learning, project organization, task management, focus and attention, and personal development. The Knowii Community is where I share ALL of it—not just PKM, but the complete framework for becoming a top-tier knowledge worker.",
+                "subtitle": "Not just PKM. The complete knowledge worker toolkit.",
+                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly 10,000 notes in my personal knowledge system. I've published 3 books, written 400+ articles and newsletters, created courses, and built products used by thousands. But here's what matters: I didn't just build systems for managing information. I built systems for everything. Clarity on values and priorities, habits that make productivity automatic, career management, effective learning, project organization, task management, focus and attention, and personal development. The Knowii Community is where I share ALL of it. Not just PKM, but the complete framework for becoming a top-tier knowledge worker.",
                 "struggles": [
                     "Crushing shyness and introversion that made communication terrifying",
                     "A failed startup that cost 200k€ and 2 years",
@@ -148,17 +148,17 @@
                     "Nearly 10,000 notes in personal knowledge vault",
                     "Published 3 books including Learn TypeScript",
                     "Written 400+ articles and newsletters",
-                    "Created the Knowledge Worker Kit covering 13 comprehensive topics",
+                    "Created the Knowledge Worker Kit covering 13 topics",
                     "Built the Knowii community from scratch",
                     "Transitioned from shy introvert to leader and entrepreneur",
                     "2,000+ products sold, 340+ community members"
                 ],
-                "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3—dedicated to helping knowledge workers build complete systems for clarity, learning, organization, and execution.",
-                "icon": "FaRoad"
+                "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3. Dedicated to helping knowledge workers build complete systems for clarity, learning, organization, and execution.",
+                "icon": null
             },
             "transformationArc": {
                 "title": "From Chaos to Clarity",
-                "subtitle": "The transformation journey every Knowii member experiences",
+                "subtitle": "The journey every Knowii member experiences",
                 "before": {
                     "title": "Before Knowii",
                     "description": "Drowning in information with no system to make sense of it. Tabs piling up, notes scattered everywhere, brilliant ideas slipping away. Spending more time searching than thinking. Feeling like you're always behind, never quite in control.",
@@ -169,7 +169,7 @@
                         "Hours lost searching for 'that thing I saved somewhere'",
                         "Mental exhaustion from trying to remember everything"
                     ],
-                    "icon": "FaExclamationTriangle"
+                    "icon": null
                 },
                 "during": {
                     "title": "The Transformation",
@@ -181,11 +181,11 @@
                         "Live events provide ongoing learning and accountability",
                         "Expert access ensures you never stay stuck for long"
                     ],
-                    "icon": "FaSync"
+                    "icon": null
                 },
                 "after": {
                     "title": "After Implementing the System",
-                    "description": "One central knowledge hub where everything is connected and accessible. Ready-made structures you can use on day one. The confidence that comes from knowing exactly where your information lives and how to leverage it.",
+                    "description": "One central knowledge hub where everything is connected and accessible. Ready-made structures you can use on day one. The confidence that comes from knowing exactly where your information lives and how to use it.",
                     "points": [
                         "Find any piece of information in seconds, not hours",
                         "Ideas connect and compound over time automatically",
@@ -193,93 +193,93 @@
                         "Consistent content creation without burning out",
                         "Professional advancement through better thinking and decisions"
                     ],
-                    "icon": "FaCheckCircle"
+                    "icon": null
                 },
-                "timeline": "Quick wins in the first week, solid foundations by month one, transformative results within 90 days"
+                "timeline": "Quick wins in the first week, solid foundations by month one, real results within 90 days"
             },
             "methodology": {
                 "title": "The Knowii System",
-                "subtitle": "Six interconnected phases from chaos to mastery",
+                "subtitle": "Six phases from chaos to mastery",
                 "steps": [
                     {
                         "title": "Break Free From Information Chaos",
-                        "description": "Discover proven systems to capture, organize, and leverage what truly matters. Learn to eliminate mental clutter by externalizing knowledge into reliable systems instead of trying to hold everything in your head.",
-                        "icon": "FaUnlock",
+                        "description": "Discover proven systems to capture, organize, and use what truly matters. Learn to eliminate mental clutter by externalizing knowledge into reliable systems instead of trying to hold everything in your head.",
+                        "icon": null,
                         "order": 0
                     },
                     {
                         "title": "Build Your Knowledge Command Center",
-                        "description": "Create your personal knowledge ecosystem with the right tools and workflows. Get set up with professional templates that evolve with your needs—no need to build from scratch or reinvent the wheel.",
-                        "icon": "FaDatabase",
+                        "description": "Create your personal knowledge ecosystem with the right tools and workflows. Get set up with professional templates that evolve with your needs. No need to build from scratch or reinvent the wheel.",
+                        "icon": null,
                         "order": 1
                     },
                     {
-                        "title": "Transform Information Into Insights",
+                        "title": "Turn Information Into Insights",
                         "description": "Master techniques to connect ideas, generate insights, and unlock creativity that would otherwise remain hidden. Learn to see patterns across domains and turn scattered information into actionable knowledge.",
-                        "icon": "FaBrain",
+                        "icon": null,
                         "order": 2
                     },
                     {
                         "title": "Apply Systems to Real-World Challenges",
                         "description": "Implement your knowledge framework in professional scenarios. Use your system to make better decisions, advance your career, and demonstrate expertise through documented, connected knowledge.",
-                        "icon": "FaBriefcase",
+                        "icon": null,
                         "order": 3
                     },
                     {
                         "title": "Achieve Zen Productivity",
                         "description": "Integrate knowledge management into a holistic approach prioritizing clarity, focus, and mental wellbeing. Experience the peace that comes from sustainable systems instead of constant heroic effort.",
-                        "icon": "FaYinYang",
+                        "icon": null,
                         "order": 4
                     },
                     {
                         "title": "Create Content With Confidence",
-                        "description": "Build reliable systems to transform your knowledge into valuable content consistently and efficiently. Turn your accumulated expertise into articles, courses, products, and thought leadership—without burnout.",
-                        "icon": "FaPencilAlt",
+                        "description": "Build reliable systems to turn your knowledge into valuable content consistently and efficiently. Turn your accumulated expertise into articles, courses, products, and thought leadership. Without burnout.",
+                        "icon": null,
                         "order": 5
                     }
                 ],
                 "philosophy": "Start small, stay practical, and build systems that compound. The best system is the one you'll actually use. Small tweaks add up to big results over time.",
-                "differentiation": "Unlike generic productivity forums that offer only theory, tool-specific communities that focus on software instead of your actual problems, or courses alone that leave you stuck implementing—Knowii delivers Community + Courses + Tools integrated to work together as one cohesive transformation system."
+                "differentiation": "Unlike generic productivity forums that offer only theory, tool-specific communities that focus on software instead of your actual problems, or courses alone that leave you stuck implementing: Knowii delivers Community + Courses + Tools integrated to work together as one cohesive system."
             },
             "vision": {
                 "title": "Building Top 1% Knowledge Workers",
                 "subtitle": "Our mission and where we're headed",
-                "mission": "I want people to grow and thrive. Knowii exists to help knowledge workers build complete systems—not just for managing information, but for everything: clarity on what matters, habits that make success automatic, career management, effective learning, project organization, task management, focus, and personal development. The goal is Zen Productivity: staying calm and organized no matter how much you're juggling, achieving consistent output without burnout, and becoming the kind of knowledge worker others look up to.",
+                "mission": "I want people to grow and thrive. Knowii exists to help knowledge workers build complete systems. Not just for managing information, but for everything: clarity on what matters, habits that make success automatic, career management, effective learning, project organization, task management, focus, and personal development. The goal is Zen Productivity: staying calm and organized no matter how much you're juggling, achieving consistent output without burnout, and becoming the kind of knowledge worker others look up to.",
                 "values": [
                     {
                         "title": "Curiosity",
                         "description": "A questioning mindset and eager exploration. We believe the best systems emerge from constantly asking 'why' and 'what if'.",
-                        "icon": "FaSearch"
+                        "icon": null
                     },
                     {
                         "title": "Practical Simplicity",
                         "description": "Clarity over complexity. If it's too complicated, it won't stick. We build systems that actually get used, not impressive frameworks that collect dust.",
-                        "icon": "FaLeaf"
+                        "icon": null
                     },
                     {
                         "title": "Continuous Improvement",
                         "description": "Small tweaks add up to big results. We believe in iteration over perfection, progress over paralysis.",
-                        "icon": "FaArrowUp"
+                        "icon": null
                     },
                     {
                         "title": "Generous Sharing",
                         "description": "Freely sharing what we know. Everyone has something valuable to contribute, and knowledge grows when it's shared.",
-                        "icon": "FaHandsHelping"
+                        "icon": null
                     }
                 ],
                 "futureGoals": [
                     "Expand the community to help thousands of creators build sustainable knowledge systems",
-                    "Develop BuilderOS—a complete creator operating system for systematic content creation",
+                    "Develop BuilderOS. A complete creator operating system for systematic content creation.",
                     "Create deeper integration between knowledge management and AI-powered workflows",
                     "Build a movement of systematic creators who prove sustainable success is possible"
                 ],
-                "biggerPicture": "We believe knowledge is the ultimate competitive advantage in the age of AI. Those who can capture, organize, connect, and leverage information systematically will thrive—not by working harder, but by working smarter with systems that compound over time.",
-                "icon": "FaRocket"
+                "biggerPicture": "We believe knowledge is the ultimate competitive advantage in the age of AI. Those who can capture, organize, connect, and use information systematically will thrive. Not by working harder, but by working smarter with systems that compound over time.",
+                "icon": null
             },
             "successStories": null
         },
         "timeline": {
-            "title": "Your Transformation Journey",
+            "title": "Your Journey",
             "subtitle": "What you'll achieve as a Knowii member",
             "milestones": [
                 {
@@ -293,7 +293,7 @@
                         "Capture your first ideas using the system",
                         "Join the community and connect with peers"
                     ],
-                    "icon": "🚀"
+                    "icon": null
                 },
                 {
                     "id": "month-1",
@@ -306,7 +306,7 @@
                         "First connections between ideas emerging",
                         "Significant reduction in 'where did I save that?' moments"
                     ],
-                    "icon": "⚙️"
+                    "icon": null
                 },
                 {
                     "id": "month-3",
@@ -319,7 +319,7 @@
                         "Noticeable reduction in mental clutter and overwhelm",
                         "Starting to create content from your knowledge base"
                     ],
-                    "icon": "🧠"
+                    "icon": null
                 },
                 {
                     "id": "month-6",
@@ -332,20 +332,20 @@
                         "Recognition as someone who 'has their act together'",
                         "System running smoothly with minimal maintenance"
                     ],
-                    "icon": "💼"
+                    "icon": null
                 },
                 {
                     "id": "year-1",
                     "timeframe": "Year 1",
                     "title": "Systematic Creator",
-                    "description": "You've transformed from overwhelmed to in control. Your knowledge compounds automatically. You create prolifically through reliable systems, not heroic effort. Information chaos is a distant memory.",
+                    "description": "You've gone from overwhelmed to in control. Your knowledge compounds automatically. You create prolifically through reliable systems, not heroic effort. Information chaos is a distant memory.",
                     "highlights": [
-                        "Complete transformation in how you work with knowledge",
+                        "Complete change in how you work with knowledge",
                         "Sustainable system that maintains itself",
                         "Creative output you never thought possible",
                         "Mental clarity and peace that comes from mastery"
                     ],
-                    "icon": "🏆"
+                    "icon": null
                 }
             ]
         },
