@@ -19,11 +19,11 @@ export const TestimonialSchema = z.object({
         .string()
         .min(1, 'Author is required')
         .refine((val) => val.trim().length > 0, 'Author cannot be only whitespace'),
-    role: z.string().optional(),
-    company: z.string().optional(),
-    avatarUrl: z.string().min(1).optional(),
-    twitterHandle: z.string().optional(),
-    twitterUrl: z.string().min(1).optional(),
+    role: z.string().nullable(),
+    company: z.string().nullable(),
+    avatarUrl: z.string().min(1).nullable(),
+    twitterHandle: z.string().nullable(),
+    twitterUrl: z.string().min(1).nullable(),
     quote: z
         .string()
         .min(1, 'Quote is required')

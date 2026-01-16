@@ -98,6 +98,9 @@
             "jobs to be done",
             "software specifications",
             "business analysis"
-        ]
+        ],
+        "storytelling": null,
+        "timeline": null,
+        "courseContent": null
     }
 }

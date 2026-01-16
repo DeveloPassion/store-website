@@ -8,7 +8,7 @@
         {
             "id": "faq-51",
             "question": "How often is it updated?",
-            "answer": "Weekly. New resources are added every week based on latest discoveries and developments in PKM space."
+            "answer": "Regularly. New resources are added as the PKM ecosystem evolves and new discoveries emerge."
         },
         {
             "id": "faq-52",
@@ -39,6 +39,21 @@
             "id": "faq-57",
             "question": "Do you promote your own products in the library?",
             "answer": "The library includes my own content alongside 2,000+ other resources. It's about comprehensive coverage, not self-promotion."
+        },
+        {
+            "id": "faq-58",
+            "question": "Why did you create this?",
+            "answer": "I spent 12+ months researching the entire PKM ecosystem while building a Knowledge Management startup. When that project didn't get funded, I realized the research itself was invaluable—so I turned it into a resource that helps others skip the same journey."
+        },
+        {
+            "id": "faq-59",
+            "question": "What's the people directory?",
+            "answer": "A database of ~2,000 PKM makers, creators, and experts. Not just tools and articles—actual people to follow, learn from, and connect with in the PKM space."
+        },
+        {
+            "id": "faq-60",
+            "question": "How is this different from other PKM resource lists?",
+            "answer": "Most lists are shallow collections that get outdated. This is the result of 12+ months of startup-level research, covering corners of the PKM ecosystem most people never find—including niche communities and experts beyond the usual names."
         }
     ]
 }

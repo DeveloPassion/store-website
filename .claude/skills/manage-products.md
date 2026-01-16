@@ -216,18 +216,12 @@ product.testimonials
 **Deprecated/Removed Fields**:
 - Inline sales copy fields: Moved to separate sales copy files
 
-**Nullable vs. Strictly Required Fields**:
-- **Strictly required (non-nullable)**: Must always be present with a value
-  - All boolean flags: `isSubscription`, `featured`, `bestValue`, `bestseller`
-  - Core identity: `id`, `name`, `activeSalesCopyId`
-  - Pricing: `price`, `priceDisplay`, `priceTier`, `gumroadUrl`
-  - Taxonomy: `mainCategory`, `tags` (at least one)
-  - Content: `included` (at least one)
-  - Meta: `priority`
-- **Nullable**: Can be `null` or omitted
-  - `variants`, `paymentFrequencies`, `defaultPaymentFrequency`
-  - `testimonials`, `stats`
-  - `landingPageUrl`, `dsebastienUrl` (can also be empty string `""`)
+**Nullable vs. Required Fields**:
+
+Schema uses `.nullable()` (always present in JSON, with `null` when empty).
+
+- **Required**: `id`, `name`, `activeSalesCopyId`, `price`, `priceDisplay`, `priceTier`, `gumroadUrl`, `mainCategory`, `tags`, `included`, `priority`, boolean flags (`isSubscription`, `featured`, `bestValue`, `bestseller`)
+- **Nullable**: `variants`, `paymentFrequencies`, `defaultPaymentFrequency`, `stats`, `ratingsCount`, `averageRating`, `landingPageUrl`, `dsebastienUrl`
 - **Empty arrays allowed**: `secondaryCategories`, `crossSellIds`, `targetAudience`, `perfectFor`, `notForYou`, `trustBadges`, `guarantees`
 
 **Subscription Products**:

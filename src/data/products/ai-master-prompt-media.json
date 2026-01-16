@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 800,
-            "height": 450
+            "height": 450,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736855100001",
@@ -20,7 +24,11 @@
             "order": 0,
             "group": "main",
             "width": 928,
-            "height": 454
+            "height": 454,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736855100002",
@@ -31,7 +39,11 @@
             "order": 1,
             "group": "main",
             "width": 871,
-            "height": 606
+            "height": 606,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736855100003",
@@ -42,7 +54,11 @@
             "order": 2,
             "group": "main",
             "width": 948,
-            "height": 508
+            "height": 508,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

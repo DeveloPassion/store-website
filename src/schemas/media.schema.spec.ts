@@ -20,7 +20,9 @@ describe('Media Schema Validation', () => {
         order: 0,
         group: 'main',
         width: 1920,
-        height: 1080
+        height: 1080,
+        youtubeId: null,
+        thumbnailUrl: null
     }
 
     const validVideoMedia: MediaItem = {
@@ -28,9 +30,13 @@ describe('Media Schema Validation', () => {
         type: 'video',
         url: 'https://youtube.com/watch?v=abc123',
         title: 'Product Demo',
+        description: null,
         altText: 'Product demonstration video',
+        caption: null,
         order: 0,
         group: 'cover',
+        width: null,
+        height: null,
         youtubeId: 'abc123',
         thumbnailUrl: 'https://img.youtube.com/vi/abc123/maxresdefault.jpg'
     }
@@ -204,66 +210,108 @@ describe('Media Schema Validation', () => {
         })
     })
 
-    describe('MediaItemSchema - Optional Fields', () => {
-        it('should accept media without description', () => {
-            const minimal = Object.fromEntries(
+    describe('MediaItemSchema - Nullable Fields', () => {
+        it('should accept media with null description', () => {
+            const valid = { ...validImageMedia, description: null }
+            const result = MediaItemSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject media without description field', () => {
+            const withoutDescription = Object.fromEntries(
                 Object.entries(validImageMedia).filter(([key]) => key !== 'description')
             )
-            const result = MediaItemSchema.safeParse(minimal)
+            const result = MediaItemSchema.safeParse(withoutDescription)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept media with null caption', () => {
+            const valid = { ...validImageMedia, caption: null }
+            const result = MediaItemSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept media without caption', () => {
-            const minimal = Object.fromEntries(
+        it('should reject media without caption field', () => {
+            const withoutCaption = Object.fromEntries(
                 Object.entries(validImageMedia).filter(([key]) => key !== 'caption')
             )
-            const result = MediaItemSchema.safeParse(minimal)
+            const result = MediaItemSchema.safeParse(withoutCaption)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept media with null youtubeId', () => {
+            const valid = { ...validImageMedia, youtubeId: null }
+            const result = MediaItemSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept media without youtubeId', () => {
-            const minimal = Object.fromEntries(
+        it('should reject media without youtubeId field', () => {
+            const withoutYoutubeId = Object.fromEntries(
                 Object.entries(validVideoMedia).filter(([key]) => key !== 'youtubeId')
             )
-            const result = MediaItemSchema.safeParse(minimal)
+            const result = MediaItemSchema.safeParse(withoutYoutubeId)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept media with null thumbnailUrl', () => {
+            const valid = { ...validVideoMedia, thumbnailUrl: null }
+            const result = MediaItemSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept media without thumbnailUrl', () => {
-            const minimal = Object.fromEntries(
+        it('should reject media without thumbnailUrl field', () => {
+            const withoutThumbnailUrl = Object.fromEntries(
                 Object.entries(validVideoMedia).filter(([key]) => key !== 'thumbnailUrl')
             )
-            const result = MediaItemSchema.safeParse(minimal)
+            const result = MediaItemSchema.safeParse(withoutThumbnailUrl)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept media with null width', () => {
+            const valid = { ...validImageMedia, width: null }
+            const result = MediaItemSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept media without width', () => {
-            const minimal = Object.fromEntries(
+        it('should reject media without width field', () => {
+            const withoutWidth = Object.fromEntries(
                 Object.entries(validImageMedia).filter(([key]) => key !== 'width')
             )
-            const result = MediaItemSchema.safeParse(minimal)
+            const result = MediaItemSchema.safeParse(withoutWidth)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept media with null height', () => {
+            const valid = { ...validImageMedia, height: null }
+            const result = MediaItemSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept media without height', () => {
-            const minimal = Object.fromEntries(
+        it('should reject media without height field', () => {
+            const withoutHeight = Object.fromEntries(
                 Object.entries(validImageMedia).filter(([key]) => key !== 'height')
             )
-            const result = MediaItemSchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = MediaItemSchema.safeParse(withoutHeight)
+            expect(result.success).toBe(false)
         })
 
-        it('should accept media with only required fields', () => {
-            const minimal = {
+        it('should accept media with all nullable fields set to null', () => {
+            const allNullable = {
                 id: 'media-minimal',
                 type: 'image' as const,
                 url: '/image.png',
                 title: 'Image',
                 altText: 'Alt text',
                 order: 0,
-                group: 'cover' as const
+                group: 'cover' as const,
+                description: null,
+                caption: null,
+                youtubeId: null,
+                thumbnailUrl: null,
+                width: null,
+                height: null
             }
-            const result = MediaItemSchema.safeParse(minimal)
+            const result = MediaItemSchema.safeParse(allNullable)
             expect(result.success).toBe(true)
         })
     })
@@ -371,11 +419,9 @@ describe('Media Schema Validation', () => {
     })
 
     describe('MediaItemSchema - Type-Specific Fields', () => {
-        it('should accept image without youtubeId', () => {
-            const imageWithoutYoutubeId = Object.fromEntries(
-                Object.entries(validImageMedia).filter(([key]) => key !== 'youtubeId')
-            )
-            const result = MediaItemSchema.safeParse(imageWithoutYoutubeId)
+        it('should accept image with null youtubeId', () => {
+            const imageWithNullYoutubeId = { ...validImageMedia, youtubeId: null }
+            const result = MediaItemSchema.safeParse(imageWithNullYoutubeId)
             expect(result.success).toBe(true)
         })
 
@@ -389,14 +435,26 @@ describe('Media Schema Validation', () => {
             expect(result.success).toBe(true)
         })
 
-        it('should accept video without dimensions', () => {
-            const videoWithoutDimensions = Object.fromEntries(
-                Object.entries(validVideoMedia).filter(
-                    ([key]) => key !== 'width' && key !== 'height'
-                )
-            )
-            const result = MediaItemSchema.safeParse(videoWithoutDimensions)
+        it('should accept video with null dimensions', () => {
+            const videoWithNullDimensions = { ...validVideoMedia, width: null, height: null }
+            const result = MediaItemSchema.safeParse(videoWithNullDimensions)
             expect(result.success).toBe(true)
+        })
+
+        it('should accept image with null thumbnailUrl', () => {
+            const imageWithNullThumbnail = { ...validImageMedia, thumbnailUrl: null }
+            const result = MediaItemSchema.safeParse(imageWithNullThumbnail)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept video with thumbnailUrl', () => {
+            const result = MediaItemSchema.safeParse(validVideoMedia)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.thumbnailUrl).toBe(
+                    'https://img.youtube.com/vi/abc123/maxresdefault.jpg'
+                )
+            }
         })
     })
 

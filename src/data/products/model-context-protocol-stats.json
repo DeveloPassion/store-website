@@ -1,5 +1,7 @@
 {
     "data": {
-        "userCount": "10+"
+        "userCount": "10+",
+        "timeSaved": null,
+        "ratings": null
     }
 }

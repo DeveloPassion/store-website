@@ -52,7 +52,7 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
                 {/* Header */}
                 <SectionHeader
                     title={title}
-                    subtitle={description}
+                    subtitle={description ?? undefined}
                     icon={
                         courseContent.sectionIcon ? (
                             isEmoji(courseContent.sectionIcon) ? (

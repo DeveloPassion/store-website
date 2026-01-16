@@ -44,8 +44,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -62,9 +65,38 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
+})
+
+// Helper to create milestones with all nullable fields
+const createMilestone = (
+    id: string,
+    timeframe: string,
+    title: string,
+    description: string,
+    overrides: { highlights?: string[] | null; icon?: string | null } = {}
+) => ({
+    id,
+    timeframe,
+    title,
+    description,
+    highlights: overrides.highlights ?? null,
+    icon: overrides.icon ?? null
+})
+
+// Helper to create timeline with all nullable fields
+const createTimeline = (
+    milestones: ReturnType<typeof createMilestone>[],
+    overrides: { title?: string | null; subtitle?: string | null } = {}
+) => ({
+    title: overrides.title ?? null,
+    subtitle: overrides.subtitle ?? null,
+    milestones
 })
 
 describe('ProductTimeline Component', () => {
@@ -79,7 +111,7 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: undefined
+                    timeline: null
                 }
             })
             const { container } = render(<ProductTimeline product={product} />)
@@ -101,11 +133,7 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        title: 'Journey',
-                        subtitle: 'Your path',
-                        milestones: []
-                    }
+                    timeline: createTimeline([], { title: 'Journey', subtitle: 'Your path' })
                 }
             })
             const { container } = render(<ProductTimeline product={product} />)
@@ -118,16 +146,9 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Start',
-                                description: 'Begin your journey today.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone('week-1', 'Week 1', 'Start', 'Begin your journey today.')
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -138,16 +159,9 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Start',
-                                description: 'Begin your journey today.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone('week-1', 'Week 1', 'Start', 'Begin your journey today.')
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -158,17 +172,10 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        title: 'Your Custom Journey',
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Start',
-                                description: 'Begin your journey today.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline(
+                        [createMilestone('week-1', 'Week 1', 'Start', 'Begin your journey today.')],
+                        { title: 'Your Custom Journey' }
+                    )
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -179,17 +186,10 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        subtitle: 'Follow this path to success',
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Start',
-                                description: 'Begin your journey today.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline(
+                        [createMilestone('week-1', 'Week 1', 'Start', 'Begin your journey today.')],
+                        { subtitle: 'Follow this path to success' }
+                    )
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -202,16 +202,14 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Foundation',
-                                description: 'Build your foundation for success.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'Foundation',
+                            'Build your foundation for success.'
+                        )
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -225,28 +223,26 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Foundation',
-                                description: 'Build your foundation for success.'
-                            },
-                            {
-                                id: 'month-1',
-                                timeframe: 'Month 1',
-                                title: 'Momentum',
-                                description: 'Build consistent habits and routines.'
-                            },
-                            {
-                                id: 'month-3',
-                                timeframe: 'Month 3',
-                                title: 'Mastery',
-                                description: 'Experience compound growth effects.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'Foundation',
+                            'Build your foundation for success.'
+                        ),
+                        createMilestone(
+                            'month-1',
+                            'Month 1',
+                            'Momentum',
+                            'Build consistent habits and routines.'
+                        ),
+                        createMilestone(
+                            'month-3',
+                            'Month 3',
+                            'Mastery',
+                            'Experience compound growth effects.'
+                        )
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -266,22 +262,10 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Start',
-                                description: 'Begin your journey today.'
-                            },
-                            {
-                                id: 'week-2',
-                                timeframe: 'Week 2',
-                                title: 'Continue',
-                                description: 'Keep building momentum.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone('week-1', 'Week 1', 'Start', 'Begin your journey today.'),
+                        createMilestone('week-2', 'Week 2', 'Continue', 'Keep building momentum.')
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -294,31 +278,17 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Launch',
-                                description: 'Begin your journey today.',
-                                icon: '🚀'
-                            },
-                            {
-                                id: 'month-1',
-                                timeframe: 'Month 1',
-                                title: 'Build',
-                                description: 'Keep building momentum.',
-                                icon: '⚙️'
-                            },
-                            {
-                                id: 'year-1',
-                                timeframe: 'Year 1',
-                                title: 'Win',
-                                description: 'Celebrate your success.',
-                                icon: '🏆'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone('week-1', 'Week 1', 'Launch', 'Begin your journey today.', {
+                            icon: '🚀'
+                        }),
+                        createMilestone('month-1', 'Month 1', 'Build', 'Keep building momentum.', {
+                            icon: '⚙️'
+                        }),
+                        createMilestone('year-1', 'Year 1', 'Win', 'Celebrate your success.', {
+                            icon: '🏆'
+                        })
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -334,21 +304,21 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
+                    timeline: createTimeline([
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'Foundation',
+                            'Build your foundation for success.',
                             {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Foundation',
-                                description: 'Build your foundation for success.',
                                 highlights: [
                                     'System configured',
                                     'Initial workflows set',
                                     'First results visible'
                                 ]
                             }
-                        ]
-                    }
+                        )
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -362,17 +332,17 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
+                    timeline: createTimeline([
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'Foundation',
+                            'Build your foundation for success.',
                             {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Foundation',
-                                description: 'Build your foundation for success.',
                                 highlights: []
                             }
-                        ]
-                    }
+                        )
+                    ])
                 }
             })
             const { container } = render(<ProductTimeline product={product} />)
@@ -386,16 +356,14 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Foundation',
-                                description: 'Build your foundation for success.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'Foundation',
+                            'Build your foundation for success.'
+                        )
+                    ])
                 }
             })
             const { container } = render(<ProductTimeline product={product} />)
@@ -411,34 +379,32 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'day-1',
-                                timeframe: 'Day 1',
-                                title: 'First Day',
-                                description: 'Your first day starts here.'
-                            },
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'First Week',
-                                description: 'Your first week journey.'
-                            },
-                            {
-                                id: 'month-1',
-                                timeframe: 'Month 1',
-                                title: 'First Month',
-                                description: 'Your first month progress.'
-                            },
-                            {
-                                id: 'quarter',
-                                timeframe: '3 Months',
-                                title: 'First Quarter',
-                                description: 'Your first quarter results.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone(
+                            'day-1',
+                            'Day 1',
+                            'First Day',
+                            'Your first day starts here.'
+                        ),
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'First Week',
+                            'Your first week journey.'
+                        ),
+                        createMilestone(
+                            'month-1',
+                            'Month 1',
+                            'First Month',
+                            'Your first month progress.'
+                        ),
+                        createMilestone(
+                            'quarter',
+                            '3 Months',
+                            'First Quarter',
+                            'Your first quarter results.'
+                        )
+                    ])
                 }
             })
             const { getByText } = render(<ProductTimeline product={product} />)
@@ -455,16 +421,9 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Start',
-                                description: 'Begin your journey today.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone('week-1', 'Week 1', 'Start', 'Begin your journey today.')
+                    ])
                 }
             })
             const { container } = render(<ProductTimeline product={product} />)
@@ -475,16 +434,14 @@ describe('ProductTimeline Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    timeline: {
-                        milestones: [
-                            {
-                                id: 'week-1',
-                                timeframe: 'Week 1',
-                                title: 'Foundation',
-                                description: 'Build your foundation for success.'
-                            }
-                        ]
-                    }
+                    timeline: createTimeline([
+                        createMilestone(
+                            'week-1',
+                            'Week 1',
+                            'Foundation',
+                            'Build your foundation for success.'
+                        )
+                    ])
                 }
             })
             const { container } = render(<ProductTimeline product={product} />)

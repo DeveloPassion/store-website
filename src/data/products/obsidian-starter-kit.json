@@ -11,14 +11,20 @@
             "price": 129.99,
             "priceDisplay": "€129.99",
             "description": "Vault + comprehensive user guide",
-            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=jFE4eFptU6WcQb1yvpgZHQ%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=jFE4eFptU6WcQb1yvpgZHQ%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         },
         {
             "name": "Premium",
             "price": 198.99,
             "priceDisplay": "€198.99",
             "description": "Essentials + 2h20m Obsidian Starter Course video",
-            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=Hv2ZxE5Spo1zjbvmr-aRQg%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=Hv2ZxE5Spo1zjbvmr-aRQg%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         }
     ],
     "tags": [

@@ -164,29 +164,49 @@ describe('Tag Schema Validation', () => {
         })
     })
 
-    describe('TagSchema - Optional Fields', () => {
-        it('should accept tag without icon', () => {
-            const minimal = Object.fromEntries(
+    describe('TagSchema - Nullable Fields', () => {
+        it('should accept tag with null icon', () => {
+            const withNullIcon = { ...validTag, icon: null }
+            const result = TagSchema.safeParse(withNullIcon)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.icon).toBeNull()
+            }
+        })
+
+        it('should accept tag with null color', () => {
+            const withNullColor = { ...validTag, color: null }
+            const result = TagSchema.safeParse(withNullColor)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.color).toBeNull()
+            }
+        })
+
+        it('should accept tag with null icon and color', () => {
+            const withNulls = { ...validTag, icon: null, color: null }
+            const result = TagSchema.safeParse(withNulls)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.icon).toBeNull()
+                expect(result.data.color).toBeNull()
+            }
+        })
+
+        it('should reject tag without icon field', () => {
+            const withoutIcon = Object.fromEntries(
                 Object.entries(validTag).filter(([key]) => key !== 'icon')
             )
-            const result = TagSchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = TagSchema.safeParse(withoutIcon)
+            expect(result.success).toBe(false)
         })
 
-        it('should accept tag without color', () => {
-            const minimal = Object.fromEntries(
+        it('should reject tag without color field', () => {
+            const withoutColor = Object.fromEntries(
                 Object.entries(validTag).filter(([key]) => key !== 'color')
             )
-            const result = TagSchema.safeParse(minimal)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept tag without icon and color', () => {
-            const minimal = Object.fromEntries(
-                Object.entries(validTag).filter(([key]) => !['icon', 'color'].includes(key))
-            )
-            const result = TagSchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = TagSchema.safeParse(withoutColor)
+            expect(result.success).toBe(false)
         })
     })
 

@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: [],
         agitate: 'Test agitate',
@@ -61,7 +64,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -78,11 +84,20 @@ describe('ProductCreatorJourney Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
                     creatorJourney: {
                         title: 'My Journey',
                         subtitle: 'How I got here',
-                        story: 'I started from nothing and built something amazing.'
-                    }
+                        story: 'I started from nothing and built something amazing.',
+                        struggles: null,
+                        achievements: null,
+                        credentials: null,
+                        icon: null
+                    },
+                    transformationArc: null,
+                    successStories: null,
+                    methodology: null,
+                    vision: null
                 }
             }
         })
@@ -97,12 +112,20 @@ describe('ProductCreatorJourney Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
                     creatorJourney: {
                         title: 'Journey',
+                        subtitle: null,
                         story: 'My story here.',
                         struggles: ['Lack of resources', 'Imposter syndrome'],
-                        achievements: ['10,000 customers', '5 books published']
-                    }
+                        achievements: ['10,000 customers', '5 books published'],
+                        credentials: null,
+                        icon: null
+                    },
+                    transformationArc: null,
+                    successStories: null,
+                    methodology: null,
+                    vision: null
                 }
             }
         })
@@ -117,11 +140,20 @@ describe('ProductCreatorJourney Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
                     creatorJourney: {
                         title: 'Journey',
+                        subtitle: null,
                         story: 'My story here.',
+                        struggles: null,
+                        achievements: null,
+                        credentials: null,
                         icon: '🛤️'
-                    }
+                    },
+                    transformationArc: null,
+                    successStories: null,
+                    methodology: null,
+                    vision: null
                 }
             }
         })

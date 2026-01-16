@@ -209,7 +209,11 @@
                                 "value": "Game changing",
                                 "icon": "⭐"
                             }
-                        ]
+                        ],
+                        "role": null,
+                        "company": null,
+                        "image": null,
+                        "avatarUrl": null
                     },
                     {
                         "name": "Blake Holder",
@@ -221,7 +225,11 @@
                                 "value": "1-2 Days",
                                 "icon": "⏱️"
                             }
-                        ]
+                        ],
+                        "role": null,
+                        "company": null,
+                        "image": null,
+                        "avatarUrl": null
                     },
                     {
                         "name": "Michael Aaron",
@@ -233,7 +241,11 @@
                                 "value": "100% Worth It",
                                 "icon": "👍"
                             }
-                        ]
+                        ],
+                        "role": null,
+                        "company": null,
+                        "image": null,
+                        "avatarUrl": null
                     },
                     {
                         "name": "Lubos Kolouch",
@@ -245,7 +257,11 @@
                                 "value": "Significantly Shortened",
                                 "icon": "🎓"
                             }
-                        ]
+                        ],
+                        "role": null,
+                        "company": null,
+                        "image": null,
+                        "avatarUrl": null
                     }
                 ]
             },
@@ -374,6 +390,7 @@
                     "icon": "💎"
                 }
             ]
-        }
+        },
+        "courseContent": null
     }
 }

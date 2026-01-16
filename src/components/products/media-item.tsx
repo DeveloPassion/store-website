@@ -67,8 +67,8 @@ const MediaItem: React.FC<MediaItemProps> = ({
                             className='h-full w-full cursor-pointer object-cover transition-transform duration-300 group-hover:scale-105'
                             loading={priority ? 'eager' : 'lazy'}
                             onClick={handleMediaClick}
-                            width={item.width}
-                            height={item.height}
+                            width={item.width ?? undefined}
+                            height={item.height ?? undefined}
                         />
 
                         {/* Overlay on Hover */}

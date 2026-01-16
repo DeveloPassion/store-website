@@ -206,14 +206,14 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                         <FaStar
                             key={star}
                             className={`h-3 w-3 ${
-                                product.averageRating !== undefined &&
+                                product.averageRating != null &&
                                 star <= Math.round(product.averageRating)
                                     ? 'text-secondary'
                                     : 'text-primary/20'
                             }`}
                         />
                     ))}
-                    {product.ratingsCount !== undefined && product.ratingsCount > 0 && (
+                    {product.ratingsCount != null && product.ratingsCount > 0 && (
                         <span className='text-primary/60 ml-1 text-xs'>
                             ({product.ratingsCount})
                         </span>

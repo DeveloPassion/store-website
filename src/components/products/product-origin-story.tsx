@@ -36,7 +36,7 @@ const ProductOriginStory: React.FC<ProductOriginStoryProps> = ({ product }) => {
                 <motion.div variants={itemVariants}>
                     <SectionHeader
                         title={originStory.title}
-                        subtitle={originStory.subtitle}
+                        subtitle={originStory.subtitle ?? undefined}
                         icon={
                             originStory.icon ? (
                                 isEmoji(originStory.icon) ? (

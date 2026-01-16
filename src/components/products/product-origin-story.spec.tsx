@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -61,7 +64,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -72,7 +78,7 @@ describe('ProductOriginStory Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    storytelling: undefined
+                    storytelling: null
                 }
             })
             const { container } = render(<ProductOriginStory product={product} />)
@@ -83,7 +89,14 @@ describe('ProductOriginStory Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    storytelling: { originStory: null }
+                    storytelling: {
+                        originStory: null,
+                        creatorJourney: null,
+                        transformationArc: null,
+                        successStories: null,
+                        methodology: null,
+                        vision: null
+                    }
                 }
             })
             const { container } = render(<ProductOriginStory product={product} />)
@@ -100,8 +113,16 @@ describe('ProductOriginStory Component', () => {
                         originStory: {
                             title: 'Why We Exist',
                             subtitle: 'Our founding story',
-                            story: 'This is how it all began with a simple idea.'
-                        }
+                            story: 'This is how it all began with a simple idea.',
+                            inspirationPoint: null,
+                            genesisDate: null,
+                            icon: null
+                        },
+                        creatorJourney: null,
+                        transformationArc: null,
+                        successStories: null,
+                        methodology: null,
+                        vision: null
                     }
                 }
             })
@@ -119,9 +140,17 @@ describe('ProductOriginStory Component', () => {
                     storytelling: {
                         originStory: {
                             title: 'Origin',
+                            subtitle: null,
                             story: 'The story begins here.',
-                            inspirationPoint: 'The moment everything changed'
-                        }
+                            inspirationPoint: 'The moment everything changed',
+                            genesisDate: null,
+                            icon: null
+                        },
+                        creatorJourney: null,
+                        transformationArc: null,
+                        successStories: null,
+                        methodology: null,
+                        vision: null
                     }
                 }
             })
@@ -137,9 +166,17 @@ describe('ProductOriginStory Component', () => {
                     storytelling: {
                         originStory: {
                             title: 'Origin',
+                            subtitle: null,
                             story: 'The story begins here.',
+                            inspirationPoint: null,
+                            genesisDate: null,
                             icon: '🚀'
-                        }
+                        },
+                        creatorJourney: null,
+                        transformationArc: null,
+                        successStories: null,
+                        methodology: null,
+                        vision: null
                     }
                 }
             })

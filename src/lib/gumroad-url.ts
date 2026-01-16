@@ -1,9 +1,9 @@
 import type { Product, ProductVariant, PaymentFrequency } from '@/schemas/product.schema'
 
 export interface GumroadUrlOptions {
-    variantId?: string
+    variantId?: string | null
     quantity?: number
-    paymentFrequency?: PaymentFrequency
+    paymentFrequency?: PaymentFrequency | null
     discountCode?: string
     wanted?: boolean
 }

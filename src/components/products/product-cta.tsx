@@ -125,8 +125,8 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                                     <div className='text-primary/60 text-sm'>Happy Users</div>
                                 </div>
                             )}
-                            {product.averageRating !== undefined &&
-                                product.ratingsCount !== undefined &&
+                            {product.averageRating != null &&
+                                product.ratingsCount != null &&
                                 product.ratingsCount > 0 && (
                                     <div className='text-center'>
                                         <div className='mb-1 flex items-center justify-center gap-2 text-2xl font-bold text-yellow-400'>

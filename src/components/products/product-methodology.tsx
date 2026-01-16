@@ -30,7 +30,10 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                 className='mx-auto max-w-5xl'
             >
                 <motion.div variants={itemVariants}>
-                    <SectionHeader title={methodology.title} subtitle={methodology.subtitle} />
+                    <SectionHeader
+                        title={methodology.title}
+                        subtitle={methodology.subtitle ?? undefined}
+                    />
                 </motion.div>
 
                 {/* Steps grid */}

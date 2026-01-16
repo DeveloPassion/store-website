@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 1600,
-            "height": 840
+            "height": 840,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "cover-video-001",
@@ -19,7 +23,12 @@
             "altText": "Press, speak, release - words appear anywhere",
             "order": 1,
             "group": "cover",
-            "youtubeId": "Z3nnUCJRWhI"
+            "youtubeId": "Z3nnUCJRWhI",
+            "description": null,
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-image-001",
@@ -30,7 +39,11 @@
             "order": 0,
             "group": "main",
             "width": 1248,
-            "height": 900
+            "height": 900,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-image-002",
@@ -41,7 +54,11 @@
             "order": 1,
             "group": "main",
             "width": 1245,
-            "height": 900
+            "height": 900,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-image-003",
@@ -52,7 +69,11 @@
             "order": 2,
             "group": "main",
             "width": 1247,
-            "height": 931
+            "height": 931,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-image-004",
@@ -63,7 +84,11 @@
             "order": 3,
             "group": "main",
             "width": 1249,
-            "height": 894
+            "height": 894,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-image-001",
@@ -74,7 +99,11 @@
             "order": 0,
             "group": "secondary",
             "width": 264,
-            "height": 46
+            "height": 46,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-image-002",
@@ -85,7 +114,11 @@
             "order": 1,
             "group": "secondary",
             "width": 764,
-            "height": 161
+            "height": 161,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-image-003",
@@ -96,7 +129,11 @@
             "order": 2,
             "group": "secondary",
             "width": 245,
-            "height": 87
+            "height": 87,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

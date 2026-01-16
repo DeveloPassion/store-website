@@ -49,7 +49,8 @@
             "prices": {
                 "monthly": 4.99,
                 "yearly": 49.99,
-                "biennial": 89.99
+                "biennial": 89.99,
+                "oneTime": null
             }
         },
         {
@@ -63,7 +64,8 @@
             "prices": {
                 "monthly": 19.99,
                 "yearly": 199.99,
-                "biennial": 379.99
+                "biennial": 379.99,
+                "oneTime": null
             }
         },
         {
@@ -77,7 +79,8 @@
             "prices": {
                 "monthly": 39.99,
                 "yearly": 399.99,
-                "biennial": 699.99
+                "biennial": 699.99,
+                "oneTime": null
             }
         }
     ],

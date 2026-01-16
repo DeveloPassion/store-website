@@ -3,7 +3,6 @@
     "salesCopy": {
         "tagline": "From Obsidian Newbie to Obsidian Hero in 2h20",
         "secondaryTagline": "Stop Guessing. Master Obsidian With a Complete Video Course That Shows How Everything Works Together.",
-
         "problem": "You know Obsidian is powerful, but figuring out how to actually use it takes months of trial and error. You've watched random YouTube tutorials, read scattered forum posts, and still feel lost. The features are overwhelming, the plugins confusing, and you're worried you'll create a messy system that falls apart at scale.",
         "problemPoints": [
             "Watched random tutorials but still don't know how to organize notes properly",
@@ -13,7 +12,6 @@
             "Spent weeks reading articles and still feel like you're missing something fundamental",
             "Starting to wonder if Obsidian is even the right tool for you"
         ],
-
         "agitate": "Every week of confusion is a week of lost insights. Your ideas stay scattered. Your knowledge remains disorganized. You keep starting over, trying new approaches, never finding the one that sticks. Meanwhile, the gap between what Obsidian could do for you and what you're actually getting widens.",
         "agitatePoints": [
             "Weeks wasted rebuilding your system from scratch",
@@ -23,7 +21,6 @@
             "Confusion about which methods are compatible and which conflict",
             "Ready to give up before experiencing what Obsidian can really do"
         ],
-
         "solution": "The Obsidian Starter Course is 2h20 of hands-on video training that takes you from confused beginner to confident user. No theory dumps. No conflicting advice. Just clear, step-by-step instruction showing exactly how each piece works and how everything connects into one unified system.",
         "solutionPoints": [
             "Complete training - 2h20 of practical, step-by-step video instruction",
@@ -33,9 +30,7 @@
             "Mindset shifts - Understand the 'why' behind every choice",
             "Skip months of trial and error - Start with a system that scales"
         ],
-
         "description": "This course was born from a simple reality: after selling hundreds of copies of the Obsidian Starter Kit, I kept receiving the same question over and over - 'How do I actually use this?' The Obsidian Starter Course is my answer: 2h20 of comprehensive video training that shows you exactly how to use Obsidian, understand proven PKM methods, and build a system that works. Whether you're brand new to note-taking, recently switched to Obsidian, or bought the Obsidian Starter Kit and want video guidance - this course gives you the complete foundation you need.",
-
         "features": [
             "2h20 of Hands-On Video Content - Comprehensive training you can complete in a weekend",
             "Obsidian Fundamentals - Installation, interface mastery, key features, essential plugins",
@@ -54,7 +49,6 @@
             "Canvas & Excalidraw - Visual thinking and diagramming tools",
             "Plugin Configuration - Essential plugins explained and configured"
         ],
-
         "benefits": {
             "immediate": [
                 "Understand Obsidian's full potential in one focused session",
@@ -77,7 +71,6 @@
                 "Continuous improvement mindset for lifelong learning"
             ]
         },
-
         "targetAudience": [
             "Obsidian beginners who want to start right",
             "Note-takers who recently switched from another tool",
@@ -85,7 +78,6 @@
             "Knowledge workers building their second brain",
             "Time-conscious learners who prefer structured learning over random tutorials"
         ],
-
         "perfectFor": [
             "Just getting started with Obsidian or note-taking",
             "Recently switched to Obsidian and feel lost",
@@ -93,13 +85,11 @@
             "Want a solid system that scales with your knowledge",
             "Curious about Zettelkasten, PARA, and Johnny Decimal working together"
         ],
-
         "notForYou": [
             "Already an Obsidian power user with years of experience",
             "Prefer figuring everything out through trial and error",
             "Not willing to invest 2h20 in focused learning"
         ],
-
         "trustBadges": [
             "100+ students enrolled",
             "Created by PKM expert with 10,000+ personal notes",
@@ -107,13 +97,11 @@
             "Lifetime access - pay once, learn forever",
             "Hands-on demonstrations throughout"
         ],
-
         "guarantees": [
             "Lifetime access to the complete video course",
             "Training from a Knowledge Management expert who uses this system daily",
             "Multiple proven frameworks explained and integrated"
         ],
-
         "metaTitle": "Obsidian Starter Course - Master Obsidian in 2h20 | Complete Video Training",
         "metaDescription": "2h20 video course teaching Obsidian, PKM methods (Zettelkasten, PARA, Johnny Decimal), templates, and automation. From confused beginner to confident user.",
         "keywords": [
@@ -130,14 +118,14 @@
             "personal knowledge management",
             "obsidian starter kit"
         ],
-
         "storytelling": {
             "originStory": {
                 "title": "Born From Real Questions",
                 "subtitle": "Why I created this course",
                 "story": "After selling hundreds of copies of the Obsidian Starter Kit, I noticed a pattern. The same question kept appearing in my inbox, over and over: 'This looks amazing, but how do I actually use it?' People had the templates, the folder structure, the plugins - but they needed to see it in action. They needed someone to walk them through it, step by step, explaining not just WHAT to do but WHY. That's why I created this course. It's the video companion I wish I had when I started - 2h20 of clear, practical instruction that shows exactly how everything works together.",
                 "inspirationPoint": "The question that launched a thousand notes: 'How do I actually use this?'",
-                "icon": "💡"
+                "icon": "💡",
+                "genesisDate": null
             },
             "methodology": {
                 "title": "The Integration Approach",
@@ -214,9 +202,11 @@
                     "icon": "🚀"
                 },
                 "timeline": "2 hours 20 minutes of focused learning"
-            }
+            },
+            "creatorJourney": null,
+            "successStories": null,
+            "vision": null
         },
-
         "timeline": {
             "title": "Your Learning Progress",
             "subtitle": "What you'll master as you move through the course",
@@ -301,7 +291,6 @@
                 }
             ]
         },
-
         "courseContent": {
             "sectionTitle": "Complete Course Curriculum",
             "sectionDescription": "Hands-on video training organized into clear learning modules",

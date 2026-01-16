@@ -119,7 +119,7 @@ export const iconRegistry: Record<string, IconType> = {
  * Get icon component by name
  */
 export function getIcon(
-    iconName?: string
+    iconName?: string | null
 ): React.ComponentType<{ className?: string }> | undefined {
     if (!iconName) return undefined
     return iconRegistry[iconName]
@@ -129,7 +129,7 @@ export function getIcon(
  * Get icon component with a fallback
  */
 export function getIconWithFallback(
-    iconName: string | undefined,
+    iconName: string | null | undefined,
     fallback: React.ComponentType<{ className?: string }>
 ): React.ComponentType<{ className?: string }> {
     return getIcon(iconName) || fallback

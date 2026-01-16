@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: [],
         agitate: 'Test agitate',
@@ -61,9 +64,50 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
+})
+
+// Helper to create a transformation phase with all nullable fields
+const createPhase = (
+    title: string,
+    description: string,
+    overrides: { points?: string[] | null; icon?: string | null } = {}
+) => ({
+    title,
+    description,
+    points: overrides.points ?? null,
+    icon: overrides.icon ?? null
+})
+
+// Helper to create a transformation arc with all nullable fields
+const createTransformationArc = (
+    title: string,
+    before: ReturnType<typeof createPhase>,
+    during: ReturnType<typeof createPhase>,
+    after: ReturnType<typeof createPhase>,
+    overrides: { subtitle?: string | null; timeline?: string | null } = {}
+) => ({
+    title,
+    subtitle: overrides.subtitle ?? null,
+    before,
+    during,
+    after,
+    timeline: overrides.timeline ?? null
+})
+
+// Helper to create storytelling with transformationArc
+const createStorytelling = (transformationArc: ReturnType<typeof createTransformationArc>) => ({
+    originStory: null,
+    creatorJourney: null,
+    transformationArc,
+    successStories: null,
+    methodology: null,
+    vision: null
 })
 
 describe('ProductTransformationArc Component', () => {
@@ -77,14 +121,14 @@ describe('ProductTransformationArc Component', () => {
         const product = createMockProduct({
             salesCopy: {
                 ...createMockProduct().salesCopy!,
-                storytelling: {
-                    transformationArc: {
-                        title: 'Your Journey',
-                        before: { title: 'Before', description: 'Struggling with chaos.' },
-                        during: { title: 'During', description: 'Learning the system.' },
-                        after: { title: 'After', description: 'Thriving with clarity.' }
-                    }
-                }
+                storytelling: createStorytelling(
+                    createTransformationArc(
+                        'Your Journey',
+                        createPhase('Before', 'Struggling with chaos.'),
+                        createPhase('During', 'Learning the system.'),
+                        createPhase('After', 'Thriving with clarity.')
+                    )
+                )
             }
         })
         const { getByText } = render(<ProductTransformationArc product={product} />)
@@ -99,14 +143,14 @@ describe('ProductTransformationArc Component', () => {
         const product = createMockProduct({
             salesCopy: {
                 ...createMockProduct().salesCopy!,
-                storytelling: {
-                    transformationArc: {
-                        title: 'Journey',
-                        before: { title: 'Before', description: 'The struggle.', icon: '😫' },
-                        during: { title: 'During', description: 'The process.', icon: '⚙️' },
-                        after: { title: 'After', description: 'The success.', icon: '🏆' }
-                    }
-                }
+                storytelling: createStorytelling(
+                    createTransformationArc(
+                        'Journey',
+                        createPhase('Before', 'The struggle.', { icon: '😫' }),
+                        createPhase('During', 'The process.', { icon: '⚙️' }),
+                        createPhase('After', 'The success.', { icon: '🏆' })
+                    )
+                )
             }
         })
         const { getByText } = render(<ProductTransformationArc product={product} />)
@@ -120,15 +164,15 @@ describe('ProductTransformationArc Component', () => {
         const product = createMockProduct({
             salesCopy: {
                 ...createMockProduct().salesCopy!,
-                storytelling: {
-                    transformationArc: {
-                        title: 'Journey',
-                        before: { title: 'Before', description: 'The struggle.' },
-                        during: { title: 'During', description: 'The process.' },
-                        after: { title: 'After', description: 'The success.' },
-                        timeline: 'Results in 90 days'
-                    }
-                }
+                storytelling: createStorytelling(
+                    createTransformationArc(
+                        'Journey',
+                        createPhase('Before', 'The struggle.'),
+                        createPhase('During', 'The process.'),
+                        createPhase('After', 'The success.'),
+                        { timeline: 'Results in 90 days' }
+                    )
+                )
             }
         })
         const { getByText } = render(<ProductTransformationArc product={product} />)

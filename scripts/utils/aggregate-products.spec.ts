@@ -41,7 +41,6 @@ const createValidTestimonial = (id: string = 'test-1') => ({
     avatarUrl: '/avatar.png',
     twitterHandle: '@johndoe',
     twitterUrl: 'https://twitter.com/johndoe',
-    rating: 5,
     quote: 'Great product!',
     featured: true
 })
@@ -57,7 +56,9 @@ const createValidMediaItem = (id: string = 'media-1') => ({
     order: 0,
     group: 'main' as const,
     width: 1920,
-    height: 1080
+    height: 1080,
+    youtubeId: null,
+    thumbnailUrl: null
 })
 
 const createValidSalesCopyData = () => ({
@@ -83,7 +84,10 @@ const createValidSalesCopyData = () => ({
     guarantees: ['Full refund'],
     metaTitle: 'Product - Transform Your Workflow',
     metaDescription: 'Transform your workflow with our solution',
-    keywords: ['productivity', 'workflow']
+    keywords: ['productivity', 'workflow'],
+    storytelling: null,
+    timeline: null,
+    courseContent: null
 })
 
 const createValidSalesCopyFile = (id: string = 'default') => ({
@@ -831,8 +835,17 @@ describe('loadActiveSalesCopy', () => {
                 storytelling: {
                     originStory: {
                         title: 'Our Origin',
-                        story: 'How we started this amazing journey.'
-                    }
+                        subtitle: null,
+                        story: 'How we started this amazing journey.',
+                        inspirationPoint: null,
+                        genesisDate: null,
+                        icon: null
+                    },
+                    creatorJourney: null,
+                    transformationArc: null,
+                    successStories: null,
+                    methodology: null,
+                    vision: null
                 }
             }
         }

@@ -21,10 +21,15 @@ const createMockMediaItem = (overrides: Partial<MediaItem> = {}): MediaItem => (
     type: 'video',
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     title: 'Test Video',
+    description: null,
     altText: 'Test video alt text',
+    caption: null,
     order: 0,
     group: 'cover',
     youtubeId: 'dQw4w9WgXcQ',
+    thumbnailUrl: null,
+    width: null,
+    height: null,
     ...overrides
 })
 
@@ -55,8 +60,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -73,7 +81,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -107,9 +118,15 @@ describe('CoverVideoSpot Component', () => {
                         type: 'image',
                         url: '/test.png',
                         title: 'Test Image',
+                        description: null,
                         altText: 'Test alt',
+                        caption: null,
                         order: 0,
-                        group: 'cover'
+                        group: 'cover',
+                        youtubeId: null,
+                        thumbnailUrl: null,
+                        width: null,
+                        height: null
                     }
                 ]
             })

@@ -29,7 +29,7 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                 <motion.div variants={itemVariants}>
                     <SectionHeader
                         title={vision.title}
-                        subtitle={vision.subtitle}
+                        subtitle={vision.subtitle ?? undefined}
                         icon={
                             vision.icon ? (
                                 isEmoji(vision.icon) ? (

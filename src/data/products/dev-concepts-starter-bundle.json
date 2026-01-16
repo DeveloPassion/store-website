@@ -48,14 +48,20 @@
             "price": 14.99,
             "priceDisplay": "€14.99",
             "description": "One copy of the e-books",
-            "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=mh1dCYM0cYuLJojqJNYE8w%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=mh1dCYM0cYuLJojqJNYE8w%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         },
         {
             "name": "The e-books + 1 hour of coaching",
             "price": 93.99,
             "priceDisplay": "€93.99",
             "description": "One copy of the e-books + 1 hour of personalized coaching",
-            "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=FdLcHOSaa-iP0HkA8HES0w%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=FdLcHOSaa-iP0HkA8HES0w%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         }
     ],
     "activeSalesCopyId": "default",

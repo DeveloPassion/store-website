@@ -24,18 +24,18 @@ export const MediaItemSchema = z.object({
         .string()
         .min(1)
         .refine((val) => val.trim().length > 0, 'Title cannot be only whitespace'),
-    description: z.string().optional(),
+    description: z.string().nullable(),
     altText: z
         .string()
         .min(1)
         .refine((val) => val.trim().length > 0, 'Alt text cannot be only whitespace'),
-    caption: z.string().optional(),
+    caption: z.string().nullable(),
     order: z.number().int().min(0),
     group: MediaGroupSchema,
-    youtubeId: z.string().optional(),
-    thumbnailUrl: z.string().optional(),
-    width: z.number().int().positive().optional(),
-    height: z.number().int().positive().optional()
+    youtubeId: z.string().nullable(),
+    thumbnailUrl: z.string().nullable(),
+    width: z.number().int().positive().nullable(),
+    height: z.number().int().positive().nullable()
 })
 
 /**

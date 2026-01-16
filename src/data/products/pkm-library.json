@@ -1,6 +1,6 @@
 {
     "id": "pkm-library",
-    "name": "PKM Library: Your Gateway to Information Management Mastery",
+    "name": "PKM Library: 2,000+ Curated PKM Resources",
     "price": 39.99,
     "priceDisplay": "€39.99",
     "priceTier": "budget",
@@ -47,14 +47,20 @@
             "price": 39.99,
             "priceDisplay": "€39.99",
             "description": "Access to the Personal Knowledge Management Notion space",
-            "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=mG87np3DF6rYFzEEyzSlNQ%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=mG87np3DF6rYFzEEyzSlNQ%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         },
         {
             "name": "Commercial License",
             "price": 139.99,
             "priceDisplay": "€139.99",
             "description": "Required if you buy the PKM Library for your business",
-            "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=2xsspQa0UQroFmHQwUTNmg%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=2xsspQa0UQroFmHQwUTNmg%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         }
     ],
     "priority": 70,

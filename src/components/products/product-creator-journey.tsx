@@ -29,7 +29,7 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                 <motion.div variants={itemVariants}>
                     <SectionHeader
                         title={creatorJourney.title}
-                        subtitle={creatorJourney.subtitle}
+                        subtitle={creatorJourney.subtitle ?? undefined}
                         icon={
                             creatorJourney.icon ? (
                                 isEmoji(creatorJourney.icon) ? (

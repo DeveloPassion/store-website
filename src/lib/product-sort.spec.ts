@@ -35,8 +35,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -45,7 +48,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         solutionPoints: ['Solution point 1'],
         description: 'Test description',
         features: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] }, // Use proper benefits structure
+        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
         targetAudience: [],
         perfectFor: [],
         notForYou: [],
@@ -53,7 +56,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })

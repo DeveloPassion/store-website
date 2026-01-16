@@ -203,13 +203,13 @@ export function loadStats(productId: string): Stats | null {
 /**
  * Compute ratingsCount and averageRating from Stats and testimonials
  * Testimonials count as 5-star ratings
- * Returns undefined values if no valid ratings found
+ * Returns null values if no valid ratings found
  * @internal - Exported for testing purposes only
  */
 export function computeRatings(
     stats: Stats | null,
     testimonialCount: number = 0
-): { ratingsCount?: number; averageRating?: number } {
+): { ratingsCount: number | null; averageRating: number | null } {
     const allRatings: number[] = []
 
     // Add ratings from stats.ratings (from -stats.json file)
@@ -229,7 +229,7 @@ export function computeRatings(
     }
 
     if (allRatings.length === 0) {
-        return {}
+        return { ratingsCount: null, averageRating: null }
     }
 
     const sum = allRatings.reduce((acc, val) => acc + val, 0)
@@ -430,8 +430,8 @@ function main() {
                 media,
                 stats,
                 salesCopy,
-                ...(ratingsCount !== undefined && { ratingsCount }),
-                ...(averageRating !== undefined && { averageRating })
+                ratingsCount,
+                averageRating
             }
 
             // Validate the aggregated product
@@ -452,7 +452,7 @@ function main() {
                 ? `sales-copy: ${product.activeSalesCopyId}`
                 : 'no sales-copy'
             const ratingsInfo =
-                ratingsCount !== undefined ? `${ratingsCount} ratings (avg: ${averageRating})` : ''
+                ratingsCount !== null ? `${ratingsCount} ratings (avg: ${averageRating})` : ''
             console.log(
                 `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media, ${salesCopyInfo}${ratingsInfo ? ', ' + ratingsInfo : ''})`
             )

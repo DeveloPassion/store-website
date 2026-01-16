@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -61,7 +64,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -215,6 +221,7 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct({
             stats: {
                 userCount: '10,000+',
+                timeSaved: null,
                 ratings: {}
             },
             averageRating: 4.9,
@@ -241,6 +248,7 @@ describe('ProductCTA Component', () => {
         const product = createMockProduct({
             stats: {
                 userCount: '5,000+',
+                timeSaved: null,
                 ratings: {}
             }
         })

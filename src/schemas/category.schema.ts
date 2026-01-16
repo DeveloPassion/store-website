@@ -39,8 +39,8 @@ export const CategorySchema = z.object({
     id: CategoryIdSchema,
     name: z.string().min(1, 'Category name is required'),
     description: z.string().min(1, 'Category description is required'),
-    icon: z.string().optional(),
-    color: z.string().optional(),
+    icon: z.string().nullable(),
+    color: z.string().nullable(),
     featured: z.boolean(),
     priority: z.number().int().min(1)
 })

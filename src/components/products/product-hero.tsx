@@ -32,12 +32,15 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     setSelectedFrequency: setControlledFrequency
 }) => {
     // Use controlled state if provided, otherwise fall back to local state
-    const defaultVariant = product.variants?.[0] || {
+    const defaultVariant: ProductVariant = product.variants?.[0] || {
         name: 'Standard',
         price: product.price,
         priceDisplay: product.priceDisplay,
         description: '',
-        gumroadUrl: product.gumroadUrl
+        gumroadUrl: product.gumroadUrl,
+        gumroadVariantId: null,
+        paymentFrequency: null,
+        prices: null
     }
 
     const selectedVariant = controlledVariant || defaultVariant
@@ -177,8 +180,8 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                         <div className='text-primary/60 text-sm'>Time Saved</div>
                                     </div>
                                 )}
-                                {product.averageRating !== undefined &&
-                                    product.ratingsCount !== undefined &&
+                                {product.averageRating != null &&
+                                    product.ratingsCount != null &&
                                     product.ratingsCount > 0 && (
                                         <div>
                                             <div className='flex items-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl'>
@@ -257,8 +260,8 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                 monthlyPrice={
                                     selectedVariant.prices?.monthly || selectedVariant.price
                                 }
-                                yearlyPrice={selectedVariant.prices?.yearly}
-                                biennialPrice={selectedVariant.prices?.biennial}
+                                yearlyPrice={selectedVariant.prices?.yearly ?? undefined}
+                                biennialPrice={selectedVariant.prices?.biennial ?? undefined}
                             />
                         )}
 

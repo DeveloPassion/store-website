@@ -7,7 +7,13 @@
             "title": "See Your Knowledge Come to Life",
             "altText": "Watch ideas connect and compound over time",
             "order": 0,
-            "group": "cover"
+            "group": "cover",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-001",
@@ -18,7 +24,11 @@
             "description": "A comprehensive 3-hour technical workshop covering all features of the Obsidian Starter Kit v3",
             "order": 1,
             "group": "cover",
-            "youtubeId": "d1otSlcHUhE"
+            "youtubeId": "d1otSlcHUhE",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-002",
@@ -29,7 +39,11 @@
             "description": "A comprehensive free workshop covering Obsidian from beginner to advanced level in 2.5 hours",
             "order": 2,
             "group": "cover",
-            "youtubeId": "DOy4dTLBHBQ"
+            "youtubeId": "DOy4dTLBHBQ",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-003",
@@ -40,7 +54,11 @@
             "description": "An overview of the Obsidian Starter Kit. Note: This video covers an older version and some features may have changed.",
             "order": 3,
             "group": "cover",
-            "youtubeId": "c34H1zqxSE8"
+            "youtubeId": "c34H1zqxSE8",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-004",
@@ -51,7 +69,11 @@
             "description": "Explore why taking and making notes is essential for learning and knowledge management",
             "order": 4,
             "group": "cover",
-            "youtubeId": "_KE6WXI5Dw4"
+            "youtubeId": "_KE6WXI5Dw4",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-005",
@@ -62,7 +84,11 @@
             "description": "Learn how to automatically move and organize notes in Obsidian",
             "order": 5,
             "group": "cover",
-            "youtubeId": "BhTA_taqjyg"
+            "youtubeId": "BhTA_taqjyg",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-006",
@@ -73,7 +99,11 @@
             "description": "Learn professional techniques for tagging and organizing your notes effectively",
             "order": 6,
             "group": "cover",
-            "youtubeId": "1bqBwFJgiUc"
+            "youtubeId": "1bqBwFJgiUc",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-007",
@@ -84,7 +114,11 @@
             "description": "Learn how to query and analyze your notes using the powerful Dataview and Dataview Serializer plugins",
             "order": 7,
             "group": "cover",
-            "youtubeId": "j2q6OF5XFUc"
+            "youtubeId": "j2q6OF5XFUc",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-008",
@@ -95,7 +129,11 @@
             "description": "Learn how to track your health, sleep, energy and more using Obsidian",
             "order": 8,
             "group": "cover",
-            "youtubeId": "IrHwD1QWako"
+            "youtubeId": "IrHwD1QWako",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-009",
@@ -106,7 +144,11 @@
             "description": "Master periodic reviews and journaling practices using Obsidian",
             "order": 9,
             "group": "cover",
-            "youtubeId": "VHdccDohK10"
+            "youtubeId": "VHdccDohK10",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-002",
@@ -115,7 +157,13 @@
             "title": "Track Every Book You Read",
             "altText": "Beautiful card views for your reading list with progress tracking",
             "order": 10,
-            "group": "cover"
+            "group": "cover",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-001",
@@ -124,7 +172,13 @@
             "title": "Start Every Day with Clarity",
             "altText": "Structured daily notes to capture thoughts, tasks, and reflections",
             "order": 1,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-002",
@@ -133,7 +187,13 @@
             "title": "Reflect and Plan with Purpose",
             "altText": "Weekly, monthly, and yearly reviews to track progress and set goals",
             "order": 2,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-003",
@@ -142,7 +202,13 @@
             "title": "Manage Projects Visually",
             "altText": "Built-in kanban boards for this week, month, quarter, and backburner",
             "order": 3,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-004",
@@ -151,7 +217,13 @@
             "title": "Never Miss a Deadline",
             "altText": "All your tasks organized in one view with due dates",
             "order": 4,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-005",
@@ -160,7 +232,13 @@
             "title": "Navigate Your Knowledge Effortlessly",
             "altText": "Maps of Content to find anything in 3 seconds",
             "order": 5,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-006",
@@ -169,7 +247,13 @@
             "title": "Build Your Personal Library",
             "altText": "Track reading progress with notes, highlights, and metadata",
             "order": 6,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-007",
@@ -178,7 +262,13 @@
             "title": "Capture Every Meeting Detail",
             "altText": "Meeting notes dashboard to track action items and follow-ups",
             "order": 7,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-008",
@@ -187,7 +277,13 @@
             "title": "Monitor Your Health Holistically",
             "altText": "Track mood, energy, sleep, and wellness in one dashboard",
             "order": 8,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-009",
@@ -196,7 +292,13 @@
             "title": "Strengthen Your Relationships",
             "altText": "Keep track of important people and never forget key details",
             "order": 9,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "main-010",
@@ -205,7 +307,13 @@
             "title": "Organized Structure Ready to Use",
             "altText": "Clean vault structure that scales from 10 to 10,000+ notes",
             "order": 10,
-            "group": "main"
+            "group": "main",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-001",
@@ -214,7 +322,13 @@
             "title": "Rich Metadata for Every Book",
             "altText": "Automatically organize books with detailed properties",
             "order": 0,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-002",
@@ -223,7 +337,13 @@
             "title": "Track Your Reading Progress",
             "altText": "See what you're reading and never lose your place",
             "order": 1,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-003",
@@ -232,7 +352,13 @@
             "title": "Improve Your Sleep Quality",
             "altText": "Track and analyze sleep patterns over time",
             "order": 2,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-004",
@@ -241,7 +367,13 @@
             "title": "Discover Your Health Patterns",
             "altText": "Spot trends and make data-driven health decisions",
             "order": 3,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-005",
@@ -250,7 +382,13 @@
             "title": "Maintain Mental Balance",
             "altText": "Track mood and find what helps you thrive",
             "order": 4,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-006",
@@ -259,7 +397,13 @@
             "title": "Track Your Fitness Journey",
             "altText": "Log workouts and watch your progress compound",
             "order": 5,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-007",
@@ -268,7 +412,13 @@
             "title": "Monitor Health and Medication",
             "altText": "Track symptoms and treatments to share with doctors",
             "order": 6,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-008",
@@ -277,7 +427,13 @@
             "title": "Capture Life's Best Lessons",
             "altText": "Collect wisdom and insights that matter to you",
             "order": 7,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-009",
@@ -286,7 +442,13 @@
             "title": "Connect Wisdom Across Domains",
             "altText": "See how insights from different areas relate",
             "order": 8,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-010",
@@ -295,7 +457,13 @@
             "title": "Surface Your Most Valuable Insights",
             "altText": "Your best wisdom rises to the top automatically",
             "order": 9,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-011",
@@ -304,7 +472,13 @@
             "title": "Save Quotes That Inspire",
             "altText": "Capture and organize meaningful quotes with context",
             "order": 10,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-012",
@@ -313,7 +487,13 @@
             "title": "Never Forget Important Information",
             "altText": "Spaced repetition system to retain what matters",
             "order": 11,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-013",
@@ -322,7 +502,13 @@
             "title": "Nurture Your Network",
             "altText": "Track relationships and stay connected with who matters",
             "order": 12,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-014",
@@ -331,7 +517,13 @@
             "title": "See All Connections to People",
             "altText": "Every note and interaction linked automatically",
             "order": 13,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-015",
@@ -340,7 +532,13 @@
             "title": "Learn from Those Who Inspire",
             "altText": "Track mentors and role models who shape your growth",
             "order": 14,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-016",
@@ -349,7 +547,13 @@
             "title": "Never Miss a Follow-Up",
             "altText": "CRM-style reminders to maintain relationships",
             "order": 15,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-017",
@@ -358,7 +562,13 @@
             "title": "Meeting Notes That Work",
             "altText": "Structured templates for attendees and action items",
             "order": 16,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-018",
@@ -367,7 +577,13 @@
             "title": "Visual Task Management",
             "altText": "Move task notes through your workflow with kanban",
             "order": 17,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-019",
@@ -376,7 +592,13 @@
             "title": "See Your Schedule at a Glance",
             "altText": "Calendar view of tasks and deadlines",
             "order": 18,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-020",
@@ -385,7 +607,13 @@
             "title": "Discover Related Ideas Automatically",
             "altText": "The system surfaces connections you might miss",
             "order": 19,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-021",
@@ -394,7 +622,13 @@
             "title": "Track Where Ideas Are Referenced",
             "altText": "See every place each note is mentioned",
             "order": 20,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-022",
@@ -403,7 +637,13 @@
             "title": "Find Notes Through Shared Tags",
             "altText": "Multiple ways to discover related content",
             "order": 21,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-023",
@@ -412,7 +652,13 @@
             "title": "Navigate by Time",
             "altText": "Jump to any date and see what you captured",
             "order": 22,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-024",
@@ -421,7 +667,13 @@
             "title": "Always Know Where You Are",
             "altText": "Visual breadcrumbs show your location in the vault",
             "order": 23,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-025",
@@ -430,7 +682,13 @@
             "title": "Metadata That Maintains Itself",
             "altText": "Automated organization reduces decision fatigue",
             "order": 24,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-026",
@@ -439,7 +697,13 @@
             "title": "40+ Templates for Every Situation",
             "altText": "Pre-built templates that auto-file notes for you",
             "order": 25,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-027",
@@ -448,7 +712,13 @@
             "title": "Track Goals from Dream to Done",
             "altText": "Complete action system with goals, projects, and tasks",
             "order": 26,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "secondary-028",
@@ -457,7 +727,13 @@
             "title": "Database-Like Views for Everything",
             "altText": "Structured bases for different content types",
             "order": 27,
-            "group": "secondary"
+            "group": "secondary",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-001",
@@ -466,7 +742,13 @@
             "title": "Complete Documentation Included",
             "altText": "Get started quickly with comprehensive guides",
             "order": 0,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-002",
@@ -475,7 +757,13 @@
             "title": "Step-by-Step Tutorials",
             "altText": "Learn exactly how to use every feature",
             "order": 1,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-003",
@@ -484,7 +772,13 @@
             "title": "Learn the Why, Not Just the How",
             "altText": "Understand PKM theory to customize your system",
             "order": 2,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-004",
@@ -493,7 +787,13 @@
             "title": "Philosophy Behind the System",
             "altText": "Deep understanding of why the OSK works",
             "order": 3,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-005",
@@ -502,7 +802,13 @@
             "title": "Pre-Configured Plugins",
             "altText": "Skip hours of plugin research and setup",
             "order": 4,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-006",
@@ -511,7 +817,13 @@
             "title": "Well-Organized Template Library",
             "altText": "Find the right template instantly",
             "order": 5,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-007",
@@ -520,7 +832,13 @@
             "title": "AI Integration Built In",
             "altText": "Supercharge your knowledge work with AI tools",
             "order": 6,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "bonus-008",
@@ -529,7 +847,13 @@
             "title": "Connect Ideas That Matter",
             "altText": "Build a web of knowledge that compounds over time",
             "order": 7,
-            "group": "bonus"
+            "group": "bonus",
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         }
     ]
 }

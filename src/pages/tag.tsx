@@ -148,7 +148,7 @@ const TagPage: React.FC = () => {
                                 <DynamicIcon
                                     iconName={tagData.icon}
                                     className='h-7 w-7'
-                                    style={{ color: tagData.color }}
+                                    style={{ color: tagData.color ?? undefined }}
                                 />
                             </div>
                         )}
@@ -194,12 +194,12 @@ const TagPage: React.FC = () => {
                                 {category.icon && (
                                     <div
                                         className='flex h-12 w-12 items-center justify-center rounded-lg'
-                                        style={{ backgroundColor: `${category.color}20` }}
+                                        style={{ backgroundColor: `${category.color ?? ''}20` }}
                                     >
                                         <DynamicIcon
                                             iconName={category.icon}
                                             className='h-6 w-6'
-                                            style={{ color: category.color }}
+                                            style={{ color: category.color ?? undefined }}
                                         />
                                     </div>
                                 )}

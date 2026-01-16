@@ -1,6 +1,7 @@
 {
     "data": {
         "userCount": "10+",
-        "timeSaved": "Hours saved weekly"
+        "timeSaved": "Hours saved weekly",
+        "ratings": null
     }
 }

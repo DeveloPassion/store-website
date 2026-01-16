@@ -109,12 +109,12 @@ const CategoryPage: React.FC = () => {
                         {category.icon && (
                             <div
                                 className='flex h-14 w-14 items-center justify-center rounded-full'
-                                style={{ backgroundColor: `${category.color}20` }}
+                                style={{ backgroundColor: `${category.color ?? ''}20` }}
                             >
                                 <DynamicIcon
                                     iconName={category.icon}
                                     className='h-7 w-7'
-                                    style={{ color: category.color }}
+                                    style={{ color: category.color ?? undefined }}
                                 />
                             </div>
                         )}

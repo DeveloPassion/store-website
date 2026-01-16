@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: [],
         agitate: 'Test agitate',
@@ -61,7 +64,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -78,6 +84,10 @@ describe('ProductMethodology Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
+                    successStories: null,
                     methodology: {
                         title: 'Our Process',
                         subtitle: 'How we do it',
@@ -85,15 +95,20 @@ describe('ProductMethodology Component', () => {
                             {
                                 title: 'Step 1',
                                 description: 'First step description here.',
+                                icon: null,
                                 order: 0
                             },
                             {
                                 title: 'Step 2',
                                 description: 'Second step description here.',
+                                icon: null,
                                 order: 1
                             }
-                        ]
-                    }
+                        ],
+                        philosophy: null,
+                        differentiation: null
+                    },
+                    vision: null
                 }
             }
         })
@@ -109,8 +124,13 @@ describe('ProductMethodology Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
+                    successStories: null,
                     methodology: {
                         title: 'Process',
+                        subtitle: null,
                         steps: [
                             {
                                 title: 'Launch',
@@ -118,8 +138,11 @@ describe('ProductMethodology Component', () => {
                                 order: 0,
                                 icon: '🚀'
                             }
-                        ]
-                    }
+                        ],
+                        philosophy: null,
+                        differentiation: null
+                    },
+                    vision: null
                 }
             }
         })
@@ -133,11 +156,20 @@ describe('ProductMethodology Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
+                    successStories: null,
                     methodology: {
                         title: 'Process',
-                        steps: [{ title: 'Step', description: 'Do the thing.', order: 0 }],
-                        philosophy: 'Keep it simple'
-                    }
+                        subtitle: null,
+                        steps: [
+                            { title: 'Step', description: 'Do the thing.', icon: null, order: 0 }
+                        ],
+                        philosophy: 'Keep it simple',
+                        differentiation: null
+                    },
+                    vision: null
                 }
             }
         })

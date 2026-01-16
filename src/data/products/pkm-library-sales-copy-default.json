@@ -1,107 +1,107 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "The Most Comprehensive PKM Resource Collection Ever Created",
-        "secondaryTagline": "Lifetime Access to 2,000+ Curated Resources About Personal Knowledge Management",
-        "problem": "Finding quality PKM resources is overwhelming. Don't know where to start. Too many tools—which one is right? Scattered articles across the internet. Wasting hours researching instead of learning.",
+        "tagline": "Skip Years of PKM Research. Start With 2,000+ Curated Resources.",
+        "secondaryTagline": "The Most Comprehensive Personal Knowledge Management Directory—Built From 12+ Months of Startup Research",
+        "problem": "You're curious about PKM, Second Brain, Zettelkasten, Evergreen notes... but finding quality resources feels like searching for needles in a haystack. Hours disappear into Google searches. You keep finding the same mediocre articles. The best tools, communities, and experts remain hidden.",
         "problemPoints": [
-            "Don't know where to start with PKM",
-            "Too many tools - which one is right?",
-            "Scattered articles across the internet",
-            "Can't find quality courses or books",
-            "Missing the best communities and creators",
-            "Wasting hours researching instead of learning"
+            "Hours wasted searching for quality PKM resources",
+            "Same mediocre articles keep appearing in search results",
+            "Too many tools—no way to compare them objectively",
+            "Best communities and experts stay hidden from newcomers",
+            "No clear starting point for your PKM journey",
+            "Reinventing wheels that others have already perfected"
         ],
-        "agitate": "You want to learn about PKM, SecondBrain, Zettelkasten, Evergreen notes—but where do you start? Hours wasted googling for resources. Finding the same mediocre articles repeatedly. Missing the best tools because you didn't know they exist. Can't distinguish quality content from noise. No clear learning path. Reinventing the wheel others have already perfected.",
+        "agitate": "The PKM space is exploding. Thousands of tools, methodologies, creators, and communities—and it grows daily. Without guidance, you'll spend months (or years) just mapping the landscape. Meanwhile, the people who found the right resources early are already building powerful systems. You don't need to start from zero.",
         "agitatePoints": [
-            "Hours wasted googling for resources",
-            "Finding the same mediocre articles repeatedly",
-            "Missing the best tools because you didn't know they exist",
-            "Can't distinguish quality content from noise",
-            "No clear learning path",
-            "Reinventing the wheel others have already perfected"
+            "The PKM ecosystem grows faster than anyone can track alone",
+            "Hidden gems remain undiscovered without insider knowledge",
+            "Wasted time means delayed transformation of your knowledge work",
+            "Most 'best PKM tools' lists are outdated or incomplete",
+            "Quality content is buried under SEO-optimized noise",
+            "Without a map, you'll wander the PKM landscape for years"
         ],
-        "solution": "PKM Library: Solid database of the best resources you can find about Personal Knowledge Management across the entire Internet. 20+ years of research, 2,000+ resources, weekly updates, lifetime access.",
+        "solution": "The PKM Library is what I wish existed when I started. A comprehensive Notion database with 2,000+ curated resources—tools, articles, books, courses, videos, podcasts, communities, AND the people behind them. Built from 12+ months of intensive startup research. Updated regularly. Organized for discovery.",
         "solutionPoints": [
-            "20+ years of research - Curated by PKM expert",
-            "2,000+ resources - Tools, articles, videos, books, courses, communities",
-            "Weekly updates - New resources added every week",
-            "Organized database - Find what you need instantly",
-            "Lifetime access - Pay once, benefit forever",
-            "Community access - Connect with PKM enthusiasts"
+            "2,000+ Resources—Most comprehensive PKM collection available",
+            "12+ Months Research—Done for a real startup project, not a side hobby",
+            "People Directory—~2,000 makers, creators, and experts to follow",
+            "Niche Communities—Forums, Discords, and groups most people never find",
+            "Organized Structure—Categorized, contextualized, instantly discoverable",
+            "Regular Updates—Living database that grows with the ecosystem"
         ],
-        "description": "The Personal Knowledge Management Library is a comprehensive, curated collection of resources focused on exploring the world of Personal Knowledge Management. This Notion database is the result of extensive research conducted over 20+ years and continuously updated weekly. An invaluable resource for the Knowledge Management community, listing tools, communities, experts, makers, content creators, courses, books, videos, podcasts, and much more.",
+        "description": "The Personal Knowledge Management Library is the result of over 12 months of intensive research I conducted while building a Knowledge Management startup. When that project didn't secure funding, I realized the research itself was invaluable—and decided to share it. This Notion database contains 2,000+ curated resources: tools, communities, experts, makers, content creators, courses, books, videos, podcasts, and more. It's one of the most comprehensive PKM resources available anywhere on the Web.",
         "features": [
-            "290+ Tools - Complete directory of PKM tools (Obsidian, Notion, Roam, LogSeq, etc.)",
-            "350+ Articles - Best articles on PKM, note-taking, knowledge work",
-            "145+ Videos - Curated video content and tutorials",
-            "90+ Books - Learning, thinking, writing, note-taking, journaling, neuroscience",
-            "225+ Sites & Blogs - Top PKM websites and blogs",
-            "75+ YouTube Channels - Channels dedicated to PKM and productivity",
-            "90+ Courses - From beginner to advanced",
-            "90+ Newsletters - Stay updated with best PKM newsletters",
-            "40+ Podcasts - Audio learning from PKM experts",
-            "70+ Communities and Forums - Where PKM enthusiasts gather",
-            "~2,000 PKM Leaders - Influencers, makers, and enthusiasts to follow",
-            "100+ Twitter Hashtags - Topics to follow for latest discussions",
-            "50+ Starter Kits and Templates - Jump-start your PKM system",
-            "80+ Topics - Organized by subject with relevant articles, books, videos"
+            "290+ Tools—Complete directory from Obsidian to niche apps you've never heard of",
+            "350+ Articles—Hand-picked PKM fundamentals, techniques, and expert guides",
+            "145+ Videos—Curated tutorials and explanations worth watching",
+            "90+ Books—Learning, thinking, writing, journaling, neuroscience, psychology",
+            "225+ Sites & Blogs—Where the PKM community actually publishes",
+            "75+ YouTube Channels—Creators dedicated to PKM and knowledge work",
+            "90+ Courses—Structured learning paths from beginner to advanced",
+            "90+ Newsletters—Stay updated without drowning in subscriptions",
+            "40+ Podcasts—Audio learning from PKM practitioners and experts",
+            "70+ Communities—Forums, Discords, and groups where PKM enthusiasts gather",
+            "~2,000 PKM Leaders—The people directory: makers, creators, experts to follow",
+            "100+ Twitter/X Hashtags—Topics to track for latest discussions",
+            "50+ Starter Kits & Templates—Jump-start your system without starting from scratch",
+            "80+ Topics—Resources organized by subject for targeted exploration"
         ],
         "benefits": {
             "immediate": [
-                "Skip months/years of research",
-                "Find the best tools for your needs immediately",
-                "Discover high-quality content instantly",
-                "Connect with top PKM creators"
+                "Skip months of research—start exploring quality resources today",
+                "Find tools you didn't know existed (beyond the obvious ones)",
+                "Discover the experts and creators shaping the PKM space",
+                "Connect with communities that match your specific interests"
             ],
             "systematic": [
-                "Clear Learning Path - Start with best resources",
-                "Avoid Mediocre Content - Only curated quality",
-                "Discover Hidden Gems - Resources you'd never find yourself",
-                "Save Hundreds of Hours - Research already done for you"
+                "Clear exploration path instead of random Google searches",
+                "Curated quality means no wading through mediocre content",
+                "Organized structure helps you find exactly what you need",
+                "People directory opens doors to collaboration and learning"
             ],
             "longTerm": [
-                "Living database that grows weekly",
-                "Always up-to-date with latest PKM developments",
-                "Community connections for ongoing learning",
-                "Reference library for entire PKM journey"
+                "Living database that grows with the PKM ecosystem",
+                "Reference library for your entire knowledge management journey",
+                "Community connections for ongoing learning and support",
+                "Foundation for building your own PKM expertise"
             ]
         },
         "targetAudience": [
-            "PKM beginners wanting to learn personal knowledge organization",
-            "Knowledge management enthusiasts curious about methodologies",
-            "Tool seekers overwhelmed by PKM options",
+            "PKM explorers wanting to understand the landscape before diving in",
+            "Knowledge management enthusiasts curious about tools and methodologies",
             "Lifelong learners building long-term knowledge systems",
-            "Content creators wanting to discover other PKM creators"
+            "Professionals overwhelmed by the number of PKM options",
+            "Anyone serious about organizing their personal knowledge"
         ],
         "perfectFor": [
-            "Want to learn personal knowledge organization",
-            "Curious about PKM, SecondBrain, Zettelkasten",
-            "Overwhelmed by PKM tool options",
-            "Improving knowledge management skills",
-            "Looking to discover other PKM creators"
+            "Exploring PKM, Second Brain, Zettelkasten, Digital Gardens",
+            "Discovering which tools actually fit your workflow",
+            "Finding the people and communities behind the tools",
+            "Building a solid foundation for your knowledge practice",
+            "Staying current with PKM developments without endless searching"
         ],
         "notForYou": [
-            "Not interested in knowledge management",
-            "Prefer to research everything yourself",
-            "Don't see value in curated collections"
+            "Not interested in organizing your knowledge",
+            "Prefer to spend months researching everything yourself",
+            "Already have comprehensive PKM resource knowledge"
         ],
         "trustBadges": [
-            "20+ Years Research - Decades of expertise",
-            "2,000+ Resources - Most comprehensive collection",
-            "Weekly Updates - Always current",
-            "One-Time Payment - €39.99, lifetime access",
-            "Community Access - Connect with PKM enthusiasts",
-            "All Skill Levels - Beginner to advanced",
-            "Global Coverage - Resources from worldwide PKM community"
+            "12+ Months Research—Built for a real startup project",
+            "2,000+ Resources—Most comprehensive collection available",
+            "20+ Years PKM Experience—Curated by a domain expert",
+            "One-Time Payment—€39.99, lifetime access",
+            "Regular Updates—Database grows with the ecosystem",
+            "People Directory—~2,000 makers and experts",
+            "Community Access—Connect with PKM enthusiasts"
         ],
         "guarantees": [
-            "Lifetime access to all resources",
-            "Weekly updates with new resources",
+            "Lifetime access to all current and future resources",
+            "Regular updates as new resources are discovered",
             "Community support included"
         ],
-        "metaTitle": "PKM Library - 2,000+ Curated Personal Knowledge Management Resources | Lifetime Access",
-        "metaDescription": "€39.99 for lifetime access to most comprehensive PKM resource collection. 290+ tools, 350+ articles, 90+ books, 145+ videos, 70+ communities. Updated weekly.",
+        "metaTitle": "PKM Library - 2,000+ Curated Personal Knowledge Management Resources | Lifetime Access €39.99",
+        "metaDescription": "Skip years of PKM research. €39.99 for lifetime access to 2,000+ curated resources: 290+ tools, 350+ articles, 90+ books, ~2,000 experts to follow. Built from 12+ months of startup research.",
         "keywords": [
             "pkm resources",
             "personal knowledge management",
@@ -112,7 +112,72 @@
             "roam research",
             "knowledge management tools",
             "pkm directory",
-            "curated resources"
-        ]
+            "curated resources",
+            "pkm experts",
+            "pkm community"
+        ],
+        "storytelling": {
+            "originStory": {
+                "title": "Born From a Startup That Never Launched",
+                "icon": "🚀",
+                "story": "In 2021, I set out to build a Knowledge Management platform. To do it right, I needed to understand everything about the PKM ecosystem—every tool, every methodology, every expert, every community. I spent over 12 months mapping the entire landscape, documenting thousands of resources in a Notion database.\n\nThe startup didn't get funded. But the research? That was gold.\n\nI realized I had built something valuable: a comprehensive map of the PKM world that didn't exist anywhere else. The kind of resource I wished I had when I started my own PKM journey 20+ years ago. So I decided to share it.\n\nThe PKM Library isn't a side project or a quick list. It's the result of serious research conducted for a real business venture. And now it's yours.",
+                "inspirationPoint": "When the startup fell through, I could have let this research gather dust. Instead, I turned months of work into something that helps others skip the same journey I took.",
+                "subtitle": null,
+                "genesisDate": null
+            },
+            "creatorJourney": {
+                "title": "20+ Years of PKM Exploration",
+                "icon": "🧭",
+                "story": "As a knowledge worker, author, and entrepreneur, I've spent over 20 years searching for better ways to manage information. I've tried dozens of tools—MediaWiki, TiddlyWiki, Evernote, OneNote, and many more—before finding what worked. I wasted years on approaches that didn't scale. I wished someone had mapped the landscape for me. This library represents everything I've learned about where to find quality PKM resources.",
+                "struggles": [
+                    "Tried dozens of tools before finding what worked (MediaWiki, TiddlyWiki, Evernote, OneNote, and many more)",
+                    "Wasted years on approaches that didn't scale",
+                    "Wished someone had mapped the landscape for me"
+                ],
+                "achievements": [
+                    "Published author on Knowledge Management topics",
+                    "Built a PKM system with 10,000+ notes",
+                    "Coached hundreds of people on PKM practices",
+                    "Created multiple PKM products used by thousands"
+                ],
+                "subtitle": null,
+                "credentials": null
+            },
+            "vision": {
+                "title": "A Map for PKM Explorers",
+                "icon": "🗺️",
+                "mission": "I want everyone curious about PKM to have a proper starting point. Not scattered Google results, but a curated, organized, comprehensive guide to the entire ecosystem.",
+                "biggerPicture": "The PKM Library helps you skip the wandering phase. Instead of spending months discovering what exists, you can focus on what matters: building a system that actually works for you.",
+                "values": [
+                    {
+                        "title": "Comprehensive Coverage",
+                        "description": "Every corner of the PKM ecosystem mapped, not just the obvious tools and resources everyone talks about",
+                        "icon": null
+                    },
+                    {
+                        "title": "Quality Curation",
+                        "description": "Each resource vetted and organized for discoverability, not just dumped into a giant list",
+                        "icon": null
+                    },
+                    {
+                        "title": "Living Resource",
+                        "description": "Regular updates keep the library current as the PKM ecosystem evolves and grows",
+                        "icon": null
+                    },
+                    {
+                        "title": "Community Connections",
+                        "description": "Not just content links, but people and communities to connect with on your PKM journey",
+                        "icon": null
+                    }
+                ],
+                "subtitle": null,
+                "futureGoals": null
+            },
+            "transformationArc": null,
+            "successStories": null,
+            "methodology": null
+        },
+        "timeline": null,
+        "courseContent": null
     }
 }

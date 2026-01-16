@@ -29,7 +29,7 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
                 <motion.div variants={itemVariants}>
                     <SectionHeader
                         title={successStories.title}
-                        subtitle={successStories.subtitle}
+                        subtitle={successStories.subtitle ?? undefined}
                     />
                 </motion.div>
 

@@ -38,7 +38,8 @@ describe('RedirectEntrySchema', () => {
     test('applies default type TEMPORARY', () => {
         const entry = {
             from: '/test',
-            to: '/destination'
+            to: '/destination',
+            description: null
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
@@ -51,7 +52,8 @@ describe('RedirectEntrySchema', () => {
     test('applies default includeInSitemap false', () => {
         const entry = {
             from: '/test',
-            to: '/destination'
+            to: '/destination',
+            description: null
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
@@ -65,7 +67,8 @@ describe('RedirectEntrySchema', () => {
         const entry = {
             from: '/affiliates',
             to: 'https://example.com/affiliates',
-            type: 'PERMANENT' as const
+            type: 'PERMANENT' as const,
+            description: null
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
@@ -95,7 +98,8 @@ describe('RedirectEntrySchema', () => {
     test('accepts source path with hyphens and underscores', () => {
         const entry = {
             from: '/valid-path_with-chars',
-            to: '/destination'
+            to: '/destination',
+            description: null
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
@@ -105,7 +109,8 @@ describe('RedirectEntrySchema', () => {
     test('accepts nested source paths', () => {
         const entry = {
             from: '/nested/path/here',
-            to: '/destination'
+            to: '/destination',
+            description: null
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
@@ -129,12 +134,14 @@ describe('RedirectsConfigSchema', () => {
             {
                 from: '/old-1',
                 to: '/new-1',
-                type: 'TEMPORARY'
+                type: 'TEMPORARY',
+                description: null
             },
             {
                 from: '/old-2',
                 to: 'https://example.com',
-                type: 'PERMANENT' as const
+                type: 'PERMANENT' as const,
+                description: null
             }
         ]
 
@@ -152,11 +159,13 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/same-path',
-                to: '/destination-1'
+                to: '/destination-1',
+                description: null
             },
             {
                 from: '/same-path',
-                to: '/destination-2'
+                to: '/destination-2',
+                description: null
             }
         ]
 
@@ -171,11 +180,13 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/a',
-                to: '/b'
+                to: '/b',
+                description: null
             },
             {
                 from: '/b',
-                to: '/a'
+                to: '/a',
+                description: null
             }
         ]
 
@@ -190,15 +201,18 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/a',
-                to: '/b'
+                to: '/b',
+                description: null
             },
             {
                 from: '/b',
-                to: '/c'
+                to: '/c',
+                description: null
             },
             {
                 from: '/c',
-                to: '/a'
+                to: '/a',
+                description: null
             }
         ]
 
@@ -213,15 +227,18 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/a',
-                to: '/b'
+                to: '/b',
+                description: null
             },
             {
                 from: '/b',
-                to: '/c'
+                to: '/c',
+                description: null
             },
             {
                 from: '/c',
-                to: 'https://example.com'
+                to: 'https://example.com',
+                description: null
             }
         ]
 
@@ -233,11 +250,13 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/affiliates',
-                to: 'https://external.com/affiliates'
+                to: 'https://external.com/affiliates',
+                description: null
             },
             {
                 from: '/partners',
-                to: 'https://external.com/partners'
+                to: 'https://external.com/partners',
+                description: null
             }
         ]
 
@@ -249,11 +268,13 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/old',
-                to: '/new'
+                to: '/new',
+                description: null
             },
             {
                 from: '/affiliates',
-                to: 'https://example.com/affiliates'
+                to: 'https://example.com/affiliates',
+                description: null
             }
         ]
 
@@ -265,7 +286,8 @@ describe('RedirectsConfigSchema', () => {
         const config = [
             {
                 from: '/same',
-                to: '/same'
+                to: '/same',
+                description: null
             }
         ]
 

@@ -11,6 +11,11 @@ const renderWithRouter = (component: React.ReactElement) => {
 const createMockTestimonial = (overrides: Partial<Testimonial> = {}): Testimonial => ({
     id: 'testimonial-1',
     author: 'John Doe',
+    role: null,
+    company: null,
+    avatarUrl: null,
+    twitterHandle: null,
+    twitterUrl: null,
     quote: 'This is an amazing product! It changed my life.',
     featured: true,
     ...overrides

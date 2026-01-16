@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 1600,
-            "height": 900
+            "height": 900,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "cover-features-overview",
@@ -20,7 +24,11 @@
             "order": 1,
             "group": "cover",
             "width": 1135,
-            "height": 474
+            "height": 474,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "cover-video-001",
@@ -31,7 +39,11 @@
             "description": "A comprehensive 3-hour technical workshop covering all features of the Obsidian Starter Kit v3",
             "order": 2,
             "group": "cover",
-            "youtubeId": "d1otSlcHUhE"
+            "youtubeId": "d1otSlcHUhE",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-002",
@@ -42,7 +54,11 @@
             "description": "A comprehensive free workshop covering Obsidian from beginner to advanced level in 2.5 hours",
             "order": 3,
             "group": "cover",
-            "youtubeId": "DOy4dTLBHBQ"
+            "youtubeId": "DOy4dTLBHBQ",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-003",
@@ -53,7 +69,11 @@
             "description": "An introduction to knowledge management and personal knowledge management fundamentals",
             "order": 4,
             "group": "cover",
-            "youtubeId": "KBiIp8vwnbM"
+            "youtubeId": "KBiIp8vwnbM",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-004",
@@ -64,7 +84,11 @@
             "description": "Learn how to build a knowledge system that actually works with this Knowledge Management 101 guide",
             "order": 5,
             "group": "cover",
-            "youtubeId": "VYqn9651pvA"
+            "youtubeId": "VYqn9651pvA",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-005",
@@ -75,7 +99,11 @@
             "description": "Learn how to leverage AI tools while keeping your data private and secure locally",
             "order": 6,
             "group": "cover",
-            "youtubeId": "af6DrWJ4Ek0"
+            "youtubeId": "af6DrWJ4Ek0",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-006",
@@ -86,7 +114,11 @@
             "description": "Learn how to track your health, sleep, energy and more using Obsidian",
             "order": 7,
             "group": "cover",
-            "youtubeId": "IrHwD1QWako"
+            "youtubeId": "IrHwD1QWako",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-007",
@@ -97,7 +129,11 @@
             "description": "Master periodic reviews and journaling practices using Obsidian",
             "order": 8,
             "group": "cover",
-            "youtubeId": "VHdccDohK10"
+            "youtubeId": "VHdccDohK10",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-concepts-overview",
@@ -108,7 +144,11 @@
             "order": 9,
             "group": "cover",
             "width": 1108,
-            "height": 487
+            "height": 487,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "cover-complete-system",
@@ -119,7 +159,11 @@
             "order": 10,
             "group": "cover",
             "width": 1135,
-            "height": 474
+            "height": 474,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-community-interface",
@@ -130,7 +174,11 @@
             "order": 0,
             "group": "main",
             "width": 1600,
-            "height": 579
+            "height": 579,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-course-player",
@@ -141,7 +189,11 @@
             "order": 1,
             "group": "main",
             "width": 1600,
-            "height": 639
+            "height": 639,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-courses-overview",
@@ -152,7 +204,11 @@
             "order": 2,
             "group": "main",
             "width": 1600,
-            "height": 644
+            "height": 644,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-masters-discussions",
@@ -163,7 +219,11 @@
             "order": 0,
             "group": "secondary",
             "width": 1204,
-            "height": 400
+            "height": 400,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-content-creation",
@@ -174,7 +234,11 @@
             "order": 1,
             "group": "secondary",
             "width": 1174,
-            "height": 643
+            "height": 643,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-announcements",
@@ -185,7 +249,11 @@
             "order": 2,
             "group": "secondary",
             "width": 1600,
-            "height": 619
+            "height": 619,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-members",
@@ -196,7 +264,11 @@
             "order": 3,
             "group": "secondary",
             "width": 910,
-            "height": 700
+            "height": 700,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-leaderboard",
@@ -207,7 +279,11 @@
             "order": 4,
             "group": "secondary",
             "width": 1395,
-            "height": 358
+            "height": 358,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-feed",
@@ -218,7 +294,11 @@
             "order": 5,
             "group": "secondary",
             "width": 1003,
-            "height": 673
+            "height": 673,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-course-details",
@@ -229,7 +309,11 @@
             "order": 6,
             "group": "secondary",
             "width": 582,
-            "height": 409
+            "height": 409,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "bonus-ai-discussions",
@@ -240,7 +324,11 @@
             "order": 0,
             "group": "bonus",
             "width": 754,
-            "height": 474
+            "height": 474,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "bonus-tools-channel",
@@ -251,7 +339,11 @@
             "order": 1,
             "group": "bonus",
             "width": 751,
-            "height": 448
+            "height": 448,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "bonus-journaling",
@@ -262,7 +354,11 @@
             "order": 2,
             "group": "bonus",
             "width": 748,
-            "height": 438
+            "height": 438,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

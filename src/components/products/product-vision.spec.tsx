@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: [],
         agitate: 'Test agitate',
@@ -61,9 +64,54 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
+})
+
+// Helper to create a value item with all nullable fields
+const createValue = (
+    title: string,
+    description: string,
+    overrides: { icon?: string | null } = {}
+) => ({
+    title,
+    description,
+    icon: overrides.icon ?? null
+})
+
+// Helper to create a vision with all nullable fields
+const createVision = (
+    title: string,
+    mission: string,
+    overrides: {
+        subtitle?: string | null
+        values?: ReturnType<typeof createValue>[] | null
+        futureGoals?: string[] | null
+        biggerPicture?: string | null
+        icon?: string | null
+    } = {}
+) => ({
+    title,
+    subtitle: overrides.subtitle ?? null,
+    mission,
+    values: overrides.values ?? null,
+    futureGoals: overrides.futureGoals ?? null,
+    biggerPicture: overrides.biggerPicture ?? null,
+    icon: overrides.icon ?? null
+})
+
+// Helper to create storytelling with vision
+const createStorytelling = (vision: ReturnType<typeof createVision>) => ({
+    originStory: null,
+    creatorJourney: null,
+    transformationArc: null,
+    successStories: null,
+    methodology: null,
+    vision
 })
 
 describe('ProductVision Component', () => {
@@ -77,13 +125,11 @@ describe('ProductVision Component', () => {
         const product = createMockProduct({
             salesCopy: {
                 ...createMockProduct().salesCopy!,
-                storytelling: {
-                    vision: {
-                        title: 'Our Vision',
-                        subtitle: 'Where we are headed',
-                        mission: 'To help everyone succeed in their goals.'
-                    }
-                }
+                storytelling: createStorytelling(
+                    createVision('Our Vision', 'To help everyone succeed in their goals.', {
+                        subtitle: 'Where we are headed'
+                    })
+                )
             }
         })
         const { getByText } = render(<ProductVision product={product} />)
@@ -96,15 +142,11 @@ describe('ProductVision Component', () => {
         const product = createMockProduct({
             salesCopy: {
                 ...createMockProduct().salesCopy!,
-                storytelling: {
-                    vision: {
-                        title: 'Vision',
-                        mission: 'Our mission statement here.',
-                        values: [
-                            { title: 'Innovation', description: 'We push boundaries.', icon: '💡' }
-                        ]
-                    }
-                }
+                storytelling: createStorytelling(
+                    createVision('Vision', 'Our mission statement here.', {
+                        values: [createValue('Innovation', 'We push boundaries.', { icon: '💡' })]
+                    })
+                )
             }
         })
         const { getByText } = render(<ProductVision product={product} />)
@@ -117,13 +159,11 @@ describe('ProductVision Component', () => {
         const product = createMockProduct({
             salesCopy: {
                 ...createMockProduct().salesCopy!,
-                storytelling: {
-                    vision: {
-                        title: 'Vision',
-                        mission: 'Our mission here.',
+                storytelling: createStorytelling(
+                    createVision('Vision', 'Our mission here.', {
                         futureGoals: ['Reach 10,000 users', 'Launch mobile app']
-                    }
-                }
+                    })
+                )
             }
         })
         const { getByText } = render(<ProductVision product={product} />)

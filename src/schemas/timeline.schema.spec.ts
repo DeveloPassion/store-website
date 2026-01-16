@@ -2,6 +2,23 @@ import { describe, expect, it } from 'bun:test'
 import { TimelineMilestoneSchema, TimelineSchema } from './timeline.schema'
 
 describe('TimelineMilestoneSchema', () => {
+    // Helper to create a valid milestone with all nullable fields
+    const createMilestone = (
+        id: string,
+        timeframe: string,
+        title: string,
+        description: string,
+        overrides = {}
+    ) => ({
+        id,
+        timeframe,
+        title,
+        description,
+        highlights: null,
+        icon: null,
+        ...overrides
+    })
+
     it('should validate a valid milestone with all fields', () => {
         const validData = {
             id: 'week-1',
@@ -14,165 +31,152 @@ describe('TimelineMilestoneSchema', () => {
         expect(() => TimelineMilestoneSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate milestone with minimal required fields', () => {
-        const minimalData = {
-            id: 'day-1',
-            timeframe: 'Day 1',
-            title: 'Getting Started',
-            description: 'Begin your journey with the basic setup process.'
-        }
+    it('should validate milestone with all nullable fields set to null', () => {
+        const minimalData = createMilestone(
+            'day-1',
+            'Day 1',
+            'Getting Started',
+            'Begin your journey with the basic setup process.'
+        )
         expect(() => TimelineMilestoneSchema.parse(minimalData)).not.toThrow()
     })
 
     it('should reject empty id', () => {
-        const invalidData = {
-            id: '',
-            timeframe: 'Week 1',
-            title: 'Foundation',
-            description: 'Valid description here.'
-        }
+        const invalidData = createMilestone('', 'Week 1', 'Foundation', 'Valid description here.')
         expect(() => TimelineMilestoneSchema.parse(invalidData)).toThrow()
     })
 
     it('should reject empty timeframe', () => {
-        const invalidData = {
-            id: 'week-1',
-            timeframe: '',
-            title: 'Foundation',
-            description: 'Valid description here.'
-        }
+        const invalidData = createMilestone('week-1', '', 'Foundation', 'Valid description here.')
         expect(() => TimelineMilestoneSchema.parse(invalidData)).toThrow()
     })
 
     it('should reject empty title', () => {
-        const invalidData = {
-            id: 'week-1',
-            timeframe: 'Week 1',
-            title: '',
-            description: 'Valid description here.'
-        }
+        const invalidData = createMilestone('week-1', 'Week 1', '', 'Valid description here.')
         expect(() => TimelineMilestoneSchema.parse(invalidData)).toThrow()
     })
 
     it('should reject description that is too short', () => {
-        const invalidData = {
-            id: 'week-1',
-            timeframe: 'Week 1',
-            title: 'Foundation',
-            description: 'Short'
-        }
+        const invalidData = createMilestone('week-1', 'Week 1', 'Foundation', 'Short')
         expect(() => TimelineMilestoneSchema.parse(invalidData)).toThrow()
     })
 
     it('should accept description exactly 10 characters', () => {
-        const validData = {
-            id: 'week-1',
-            timeframe: 'Week 1',
-            title: 'Foundation',
-            description: '1234567890'
-        }
+        const validData = createMilestone('week-1', 'Week 1', 'Foundation', '1234567890')
         expect(() => TimelineMilestoneSchema.parse(validData)).not.toThrow()
     })
 
     it('should accept empty highlights array', () => {
-        const validData = {
-            id: 'week-1',
-            timeframe: 'Week 1',
-            title: 'Foundation',
-            description: 'Valid description here.',
-            highlights: []
-        }
+        const validData = createMilestone(
+            'week-1',
+            'Week 1',
+            'Foundation',
+            'Valid description here.',
+            { highlights: [] }
+        )
         expect(() => TimelineMilestoneSchema.parse(validData)).not.toThrow()
     })
 
-    it('should accept milestone without optional fields', () => {
-        const validData = {
-            id: 'month-1',
-            timeframe: 'Month 1',
-            title: 'Building Momentum',
-            description: 'Develop consistent capture habits and see your knowledge graph emerge'
-        }
+    it('should accept null highlights and icon', () => {
+        const validData = createMilestone(
+            'month-1',
+            'Month 1',
+            'Building Momentum',
+            'Develop consistent capture habits and see your knowledge graph emerge'
+        )
         const result = TimelineMilestoneSchema.parse(validData)
-        expect(result.highlights).toBeUndefined()
-        expect(result.icon).toBeUndefined()
+        expect(result.highlights).toBeNull()
+        expect(result.icon).toBeNull()
     })
 })
 
 describe('TimelineSchema', () => {
+    // Helper to create a valid milestone with all nullable fields
+    const createMilestone = (
+        id: string,
+        timeframe: string,
+        title: string,
+        description: string,
+        overrides = {}
+    ) => ({
+        id,
+        timeframe,
+        title,
+        description,
+        highlights: null,
+        icon: null,
+        ...overrides
+    })
+
     it('should validate a valid timeline with all fields', () => {
         const validData = {
             title: 'Your Transformation Journey',
             subtitle: "Here's what you'll achieve over the coming weeks",
             milestones: [
-                {
-                    id: 'week-1',
-                    timeframe: 'Week 1',
-                    title: 'Foundation',
-                    description:
-                        'Set up your knowledge management system and capture your first 50 notes',
-                    highlights: [
-                        'System configured',
-                        'Initial capture workflow',
-                        'First connections made'
-                    ]
-                },
-                {
-                    id: 'month-1',
-                    timeframe: 'Month 1',
-                    title: 'Building Momentum',
-                    description:
-                        'Develop consistent capture habits and see your knowledge graph emerge',
-                    highlights: [
-                        'Daily review routine',
-                        '200+ notes captured',
-                        'First insights surface'
-                    ]
-                },
-                {
-                    id: 'month-3',
-                    timeframe: 'Month 3',
-                    title: 'Compound Growth',
-                    description:
-                        'Experience the compound effect as connections multiply and insights accelerate',
-                    highlights: [
-                        'Knowledge compounds',
-                        'Original ideas emerge',
-                        'Productivity doubles'
-                    ]
-                }
+                createMilestone(
+                    'week-1',
+                    'Week 1',
+                    'Foundation',
+                    'Set up your knowledge management system and capture your first 50 notes',
+                    {
+                        highlights: [
+                            'System configured',
+                            'Initial capture workflow',
+                            'First connections made'
+                        ]
+                    }
+                ),
+                createMilestone(
+                    'month-1',
+                    'Month 1',
+                    'Building Momentum',
+                    'Develop consistent capture habits and see your knowledge graph emerge',
+                    {
+                        highlights: [
+                            'Daily review routine',
+                            '200+ notes captured',
+                            'First insights surface'
+                        ]
+                    }
+                ),
+                createMilestone(
+                    'month-3',
+                    'Month 3',
+                    'Compound Growth',
+                    'Experience the compound effect as connections multiply and insights accelerate',
+                    {
+                        highlights: [
+                            'Knowledge compounds',
+                            'Original ideas emerge',
+                            'Productivity doubles'
+                        ]
+                    }
+                )
             ]
         }
         expect(() => TimelineSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate timeline with minimal fields (only milestones)', () => {
+    it('should validate timeline with all nullable fields set to null', () => {
         const minimalData = {
-            milestones: [
-                {
-                    id: 'day-1',
-                    timeframe: 'Day 1',
-                    title: 'Start',
-                    description: 'Begin your journey today.'
-                }
-            ]
+            title: null,
+            subtitle: null,
+            milestones: [createMilestone('day-1', 'Day 1', 'Start', 'Begin your journey today.')]
         }
         expect(() => TimelineSchema.parse(minimalData)).not.toThrow()
     })
 
-    it('should use default values for optional title and subtitle', () => {
+    it('should accept null title and subtitle', () => {
         const minimalData = {
+            title: null,
+            subtitle: null,
             milestones: [
-                {
-                    id: 'week-1',
-                    timeframe: 'Week 1',
-                    title: 'Foundation',
-                    description: 'Build your foundation.'
-                }
+                createMilestone('week-1', 'Week 1', 'Foundation', 'Build your foundation here.')
             ]
         }
         const result = TimelineSchema.parse(minimalData)
-        expect(result.title).toBeUndefined()
-        expect(result.subtitle).toBeUndefined()
+        expect(result.title).toBeNull()
+        expect(result.subtitle).toBeNull()
     })
 
     it('should reject empty milestones array', () => {
@@ -186,62 +190,43 @@ describe('TimelineSchema', () => {
 
     it('should validate timeline with single milestone', () => {
         const validData = {
+            title: null,
+            subtitle: null,
             milestones: [
-                {
-                    id: 'step-1',
-                    timeframe: 'Today',
-                    title: 'Get Started',
-                    description: 'Take your first step today.'
-                }
+                createMilestone('step-1', 'Today', 'Get Started', 'Take your first step today.')
             ]
         }
         expect(() => TimelineSchema.parse(validData)).not.toThrow()
     })
 
     it('should validate timeline with many milestones', () => {
-        const milestones = Array.from({ length: 10 }, (_, i) => ({
-            id: `step-${i + 1}`,
-            timeframe: `Week ${i + 1}`,
-            title: `Milestone ${i + 1}`,
-            description: `Description for milestone ${i + 1} in the journey.`
-        }))
-        const validData = { milestones }
+        const milestones = Array.from({ length: 10 }, (_, i) =>
+            createMilestone(
+                `step-${i + 1}`,
+                `Week ${i + 1}`,
+                `Milestone ${i + 1}`,
+                `Description for milestone ${i + 1} in the journey.`
+            )
+        )
+        const validData = { title: null, subtitle: null, milestones }
         expect(() => TimelineSchema.parse(validData)).not.toThrow()
     })
 
     it('should accept various timeframe formats', () => {
         const validData = {
+            title: null,
+            subtitle: null,
             milestones: [
-                {
-                    id: 'day-1',
-                    timeframe: 'Day 1',
-                    title: 'First Day',
-                    description: 'Your first day starts here.'
-                },
-                {
-                    id: 'week-1',
-                    timeframe: 'Week 1',
-                    title: 'First Week',
-                    description: 'Your first week journey.'
-                },
-                {
-                    id: 'month-1',
-                    timeframe: 'Month 1',
-                    title: 'First Month',
-                    description: 'Your first month progress.'
-                },
-                {
-                    id: 'quarter-1',
-                    timeframe: '3 Months',
-                    title: 'First Quarter',
-                    description: 'Your first quarter results.'
-                },
-                {
-                    id: 'year-1',
-                    timeframe: 'Year 1',
-                    title: 'First Year',
-                    description: 'Your first year transformation.'
-                }
+                createMilestone('day-1', 'Day 1', 'First Day', 'Your first day starts here.'),
+                createMilestone('week-1', 'Week 1', 'First Week', 'Your first week journey.'),
+                createMilestone('month-1', 'Month 1', 'First Month', 'Your first month progress.'),
+                createMilestone(
+                    'quarter-1',
+                    '3 Months',
+                    'First Quarter',
+                    'Your first quarter results.'
+                ),
+                createMilestone('year-1', 'Year 1', 'First Year', 'Your first year transformation.')
             ]
         }
         expect(() => TimelineSchema.parse(validData)).not.toThrow()
@@ -249,13 +234,10 @@ describe('TimelineSchema', () => {
 
     it('should reject milestones with invalid structure', () => {
         const invalidData = {
+            title: null,
+            subtitle: null,
             milestones: [
-                {
-                    id: 'week-1',
-                    timeframe: 'Week 1',
-                    title: '', // Empty title
-                    description: 'Valid description here.'
-                }
+                createMilestone('week-1', 'Week 1', '', 'Valid description here.') // Empty title
             ]
         }
         expect(() => TimelineSchema.parse(invalidData)).toThrow()
@@ -263,20 +245,12 @@ describe('TimelineSchema', () => {
 
     it('should preserve milestone order', () => {
         const validData = {
+            title: null,
+            subtitle: null,
             milestones: [
-                {
-                    id: 'first',
-                    timeframe: 'Day 1',
-                    title: 'First',
-                    description: 'First milestone.'
-                },
-                {
-                    id: 'second',
-                    timeframe: 'Day 2',
-                    title: 'Second',
-                    description: 'Second milestone.'
-                },
-                { id: 'third', timeframe: 'Day 3', title: 'Third', description: 'Third milestone.' }
+                createMilestone('first', 'Day 1', 'First', 'First milestone here.'),
+                createMilestone('second', 'Day 2', 'Second', 'Second milestone here.'),
+                createMilestone('third', 'Day 3', 'Third', 'Third milestone here.')
             ]
         }
         const result = TimelineSchema.parse(validData)

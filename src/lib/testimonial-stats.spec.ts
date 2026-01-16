@@ -12,7 +12,12 @@ const createMockTestimonial = (id: string): Testimonial => ({
     id,
     author: `Author ${id}`,
     quote: `Quote ${id}`,
-    featured: false
+    featured: false,
+    role: null,
+    company: null,
+    avatarUrl: null,
+    twitterHandle: null,
+    twitterUrl: null
 })
 
 const createMockProduct = (id: string, testimonials: Testimonial[]): Product => ({
@@ -42,8 +47,11 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem 1'],
         agitate: 'Test agitate',
@@ -60,7 +68,10 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     }
 })
 

@@ -33,8 +33,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'This is a test product tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -51,7 +54,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -139,9 +145,15 @@ describe('ProductCardEcommerce Component', () => {
                     type: 'image' as const,
                     url: '/test-image.jpg',
                     title: 'Test Image',
+                    description: null,
                     altText: 'Test Product',
+                    caption: null,
                     order: 0,
-                    group: 'cover' as const
+                    group: 'cover' as const,
+                    youtubeId: null,
+                    thumbnailUrl: null,
+                    width: null,
+                    height: null
                 }
             ]
         })

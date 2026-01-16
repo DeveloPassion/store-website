@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 800,
-            "height": 450
+            "height": 450,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736856000001",
@@ -20,7 +24,11 @@
             "order": 0,
             "group": "main",
             "width": 800,
-            "height": 1200
+            "height": 1200,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736856000002",
@@ -31,7 +39,11 @@
             "order": 1,
             "group": "main",
             "width": 936,
-            "height": 661
+            "height": 661,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736856000003",
@@ -42,7 +54,11 @@
             "order": 2,
             "group": "main",
             "width": 888,
-            "height": 648
+            "height": 648,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736856000004",
@@ -53,7 +69,11 @@
             "order": 3,
             "group": "main",
             "width": 904,
-            "height": 400
+            "height": 400,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 1280,
-            "height": 720
+            "height": 720,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "cover-knowledge-graph",
@@ -20,7 +24,11 @@
             "order": 1,
             "group": "cover",
             "width": 1185,
-            "height": 973
+            "height": 973,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-canvas-overview",
@@ -31,7 +39,11 @@
             "order": 0,
             "group": "main",
             "width": 1294,
-            "height": 1224
+            "height": 1224,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

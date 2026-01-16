@@ -40,8 +40,11 @@ const mockProduct: Product = {
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'A test product',
+        secondaryTagline: null,
         problem: '',
         problemPoints: [],
         agitate: '',
@@ -62,7 +65,10 @@ const mockProduct: Product = {
         guarantees: ['30-day money-back guarantee'],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     }
 }
 
@@ -74,14 +80,20 @@ const mockProductWithVariants: Product = {
             price: 29,
             priceDisplay: '$29',
             description: 'Basic package',
-            gumroadUrl: 'https://gumroad.com/test-basic'
+            gumroadUrl: 'https://gumroad.com/test-basic',
+            gumroadVariantId: null,
+            paymentFrequency: null,
+            prices: null
         },
         {
             name: 'Pro',
             price: 49,
             priceDisplay: '$49',
             description: 'Pro package',
-            gumroadUrl: 'https://gumroad.com/test-pro'
+            gumroadUrl: 'https://gumroad.com/test-pro',
+            gumroadVariantId: null,
+            paymentFrequency: null,
+            prices: null
         }
     ]
 }

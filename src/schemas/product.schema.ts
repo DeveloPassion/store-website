@@ -37,18 +37,18 @@ export const PaymentFrequencySchema = z.enum(['monthly', 'yearly', 'biennial', '
 // Categories are now defined in category.schema.ts (single source of truth)
 export const ProductCategorySchema = CategoryIdSchema
 
-// Secondary category with optional distant flag
+// Secondary category with distant flag (defaults to false)
 export const SecondaryCategorySchema = z.object({
     id: CategoryIdSchema,
-    distant: z.boolean().optional()
+    distant: z.boolean().default(false)
 })
 
 // Pricing per payment frequency for subscription variants
 export const VariantPricingSchema = z.object({
-    monthly: z.number().optional(),
-    yearly: z.number().optional(),
-    biennial: z.number().optional(),
-    oneTime: z.number().optional()
+    monthly: z.number().nullable(),
+    yearly: z.number().nullable(),
+    biennial: z.number().nullable(),
+    oneTime: z.number().nullable()
 })
 
 export const ProductVariantSchema = z.object({
@@ -57,9 +57,9 @@ export const ProductVariantSchema = z.object({
     priceDisplay: z.string(),
     description: z.string(),
     gumroadUrl: z.string().url(),
-    gumroadVariantId: z.string().optional(),
-    paymentFrequency: PaymentFrequencySchema.optional(),
-    prices: VariantPricingSchema.optional() // Per-frequency pricing for accurate savings calculation
+    gumroadVariantId: z.string().nullable(),
+    paymentFrequency: PaymentFrequencySchema.nullable(),
+    prices: VariantPricingSchema.nullable() // Per-frequency pricing for accurate savings calculation
 })
 
 /**
@@ -139,8 +139,8 @@ export const AggregatedProductSchema = BaseProductSchema.extend({
     salesCopy: SalesCopyDataSchema,
 
     // Computed rating fields (calculated from stats.ratings + testimonials during aggregation)
-    ratingsCount: z.number().int().nonnegative().optional(),
-    averageRating: z.number().min(0).max(5).optional()
+    ratingsCount: z.number().int().nonnegative().nullable(),
+    averageRating: z.number().min(0).max(5).nullable()
 })
 
 // Array schemas

@@ -42,10 +42,12 @@ This skill helps you manage the categories used across all products in the store
 - **featured**: Whether the category should appear in featured lists
 - **priority**: Determines display order (lower = higher priority)
 
-### Optional Fields
+### Nullable Fields
 
-- **icon**: React icon component name from `react-icons` library
-- **color**: Color value for visual styling (hex format `#RRGGBB` recommended, but any CSS color allowed)
+Fields use `.nullable()` (always present in JSON, with `null` when empty).
+
+- **icon**: React icon name (e.g., `"FaRobot"`) or emoji (e.g., `"🚀"`) - nullable
+- **color**: CSS color value (hex `#RRGGBB` recommended) - nullable
 
 ### Priority Guidelines
 
@@ -331,7 +333,7 @@ Validates categories along with tags, promotion, products, and all relationships
 - **CAN remove** (with `--force`) categories used only in `secondaryCategories`
 - Priority determines display order (featured first, then by priority)
 - Color format: `#RRGGBB` recommended but any CSS color allowed (no strict validation)
-- Icon names must be from `react-icons` library
+- Icon: emoji (e.g., `"🚀"`) or React icon name (e.g., `"FaRobot"`)
 
 ## Schema Sync Process
 

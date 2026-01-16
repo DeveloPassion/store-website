@@ -25,10 +25,14 @@ describe('OriginStorySchema', () => {
         expect(() => OriginStorySchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate origin story with minimal required fields', () => {
+    it('should validate origin story with all nullable fields set to null', () => {
         const minimalData = {
             title: 'Our Origin',
-            story: 'The beginning of our journey to build something amazing.'
+            subtitle: null,
+            story: 'The beginning of our journey to build something amazing.',
+            inspirationPoint: null,
+            genesisDate: null,
+            icon: null
         }
         expect(() => OriginStorySchema.parse(minimalData)).not.toThrow()
     })
@@ -36,7 +40,11 @@ describe('OriginStorySchema', () => {
     it('should reject empty title', () => {
         const invalidData = {
             title: '',
-            story: 'Valid story content here.'
+            subtitle: null,
+            story: 'Valid story content here.',
+            inspirationPoint: null,
+            genesisDate: null,
+            icon: null
         }
         expect(() => OriginStorySchema.parse(invalidData)).toThrow()
     })
@@ -44,7 +52,11 @@ describe('OriginStorySchema', () => {
     it('should reject story that is too short', () => {
         const invalidData = {
             title: 'Our Origin',
-            story: 'Short'
+            subtitle: null,
+            story: 'Short',
+            inspirationPoint: null,
+            genesisDate: null,
+            icon: null
         }
         expect(() => OriginStorySchema.parse(invalidData)).toThrow()
     })
@@ -52,7 +64,11 @@ describe('OriginStorySchema', () => {
     it('should accept story exactly 10 characters', () => {
         const validData = {
             title: 'Our Origin',
-            story: '1234567890'
+            subtitle: null,
+            story: '1234567890',
+            inspirationPoint: null,
+            genesisDate: null,
+            icon: null
         }
         expect(() => OriginStorySchema.parse(validData)).not.toThrow()
     })
@@ -72,10 +88,15 @@ describe('CreatorJourneySchema', () => {
         expect(() => CreatorJourneySchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate creator journey with minimal fields', () => {
+    it('should validate creator journey with all nullable fields set to null', () => {
         const minimalData = {
             title: 'Journey',
-            story: 'My personal story of transformation and growth.'
+            subtitle: null,
+            story: 'My personal story of transformation and growth.',
+            struggles: null,
+            achievements: null,
+            credentials: null,
+            icon: null
         }
         expect(() => CreatorJourneySchema.parse(minimalData)).not.toThrow()
     })
@@ -83,7 +104,12 @@ describe('CreatorJourneySchema', () => {
     it('should reject empty title', () => {
         const invalidData = {
             title: '',
-            story: 'Valid story.'
+            subtitle: null,
+            story: 'Valid story.',
+            struggles: null,
+            achievements: null,
+            credentials: null,
+            icon: null
         }
         expect(() => CreatorJourneySchema.parse(invalidData)).toThrow()
     })
@@ -91,9 +117,12 @@ describe('CreatorJourneySchema', () => {
     it('should accept empty arrays for struggles and achievements', () => {
         const validData = {
             title: 'Journey',
-            story: 'My story here.',
+            subtitle: null,
+            story: 'My story here and more text.',
             struggles: [],
-            achievements: []
+            achievements: [],
+            credentials: null,
+            icon: null
         }
         expect(() => CreatorJourneySchema.parse(validData)).not.toThrow()
     })
@@ -110,10 +139,12 @@ describe('TransformationPhaseSchema', () => {
         expect(() => TransformationPhaseSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate phase with minimal fields', () => {
+    it('should validate phase with all nullable fields set to null', () => {
         const minimalData = {
             title: 'During',
-            description: 'Implementation phase where things start to change.'
+            description: 'Implementation phase where things start to change.',
+            points: null,
+            icon: null
         }
         expect(() => TransformationPhaseSchema.parse(minimalData)).not.toThrow()
     })
@@ -121,7 +152,9 @@ describe('TransformationPhaseSchema', () => {
     it('should reject empty title', () => {
         const invalidData = {
             title: '',
-            description: 'Valid description.'
+            description: 'Valid description here.',
+            points: null,
+            icon: null
         }
         expect(() => TransformationPhaseSchema.parse(invalidData)).toThrow()
     })
@@ -129,45 +162,53 @@ describe('TransformationPhaseSchema', () => {
     it('should reject short description', () => {
         const invalidData = {
             title: 'After',
-            description: 'Short'
+            description: 'Short',
+            points: null,
+            icon: null
         }
         expect(() => TransformationPhaseSchema.parse(invalidData)).toThrow()
     })
 })
 
 describe('TransformationArcSchema', () => {
+    // Helper to create a valid phase
+    const createPhase = (title: string, description: string, overrides = {}) => ({
+        title,
+        description,
+        points: null,
+        icon: null,
+        ...overrides
+    })
+
     it('should validate a valid transformation arc', () => {
         const validData = {
             title: 'Your Transformation Journey',
             subtitle: 'From chaos to clarity',
-            before: {
-                title: 'Before',
-                description: 'Struggling with manual work and disorganization.',
+            before: createPhase('Before', 'Struggling with manual work and disorganization.', {
                 points: ['No system', 'Wasted time'],
                 icon: 'FaSadTear'
-            },
-            during: {
-                title: 'During',
-                description: 'Learning and implementing the new system.',
-                points: ['Training', 'Setup']
-            },
-            after: {
-                title: 'After',
-                description: 'Enjoying streamlined workflows and productivity.',
+            }),
+            during: createPhase('During', 'Learning and implementing the new system.', {
+                points: ['Training', 'Setup'],
+                icon: null
+            }),
+            after: createPhase('After', 'Enjoying streamlined workflows and productivity.', {
                 points: ['Efficient', 'Organized'],
                 icon: 'FaSmile'
-            },
+            }),
             timeline: '3-6 months'
         }
         expect(() => TransformationArcSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate transformation arc with minimal fields', () => {
+    it('should validate transformation arc with all nullable fields set to null', () => {
         const minimalData = {
             title: 'Transformation',
-            before: { title: 'Before', description: 'Old way was painful.' },
-            during: { title: 'During', description: 'Transition period.' },
-            after: { title: 'After', description: 'New way is better.' }
+            subtitle: null,
+            before: createPhase('Before', 'Old way was painful and slow.'),
+            during: createPhase('During', 'Transition period happens.'),
+            after: createPhase('After', 'New way is much better.'),
+            timeline: null
         }
         expect(() => TransformationArcSchema.parse(minimalData)).not.toThrow()
     })
@@ -175,13 +216,28 @@ describe('TransformationArcSchema', () => {
     it('should reject missing phases', () => {
         const invalidData = {
             title: 'Transformation',
-            before: { title: 'Before', description: 'Old way.' }
+            subtitle: null,
+            before: createPhase('Before', 'Old way was painful.'),
+            timeline: null
         }
         expect(() => TransformationArcSchema.parse(invalidData)).toThrow()
     })
 })
 
 describe('SuccessStorySchema', () => {
+    // Helper to create a valid success story with all nullable fields
+    const createSuccessStory = (name: string, result: string, overrides = {}) => ({
+        name,
+        role: null,
+        company: null,
+        result,
+        metrics: null,
+        quote: null,
+        image: null,
+        avatarUrl: null,
+        ...overrides
+    })
+
     it('should validate a valid success story', () => {
         const validData = {
             name: 'John Doe',
@@ -199,72 +255,66 @@ describe('SuccessStorySchema', () => {
         expect(() => SuccessStorySchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate success story with minimal fields', () => {
-        const minimalData = {
-            name: 'Jane Smith',
-            result: 'Achieved amazing results with this product.'
-        }
+    it('should validate success story with all nullable fields set to null', () => {
+        const minimalData = createSuccessStory(
+            'Jane Smith',
+            'Achieved amazing results with this product.'
+        )
         expect(() => SuccessStorySchema.parse(minimalData)).not.toThrow()
     })
 
     it('should reject empty name', () => {
-        const invalidData = {
-            name: '',
-            result: 'Great results.'
-        }
+        const invalidData = createSuccessStory('', 'Great results here.')
         expect(() => SuccessStorySchema.parse(invalidData)).toThrow()
     })
 
     it('should reject short result', () => {
-        const invalidData = {
-            name: 'John',
-            result: 'Good'
-        }
+        const invalidData = createSuccessStory('John', 'Good')
         expect(() => SuccessStorySchema.parse(invalidData)).toThrow()
     })
 
     it('should accept empty metrics array', () => {
-        const validData = {
-            name: 'Sarah',
-            result: 'Got excellent results.',
+        const validData = createSuccessStory('Sarah', 'Got excellent results here.', {
             metrics: []
-        }
+        })
         expect(() => SuccessStorySchema.parse(validData)).not.toThrow()
     })
 
     it('should validate metrics with all required fields', () => {
-        const validData = {
-            name: 'Mike',
-            result: 'Outstanding performance.',
-            metrics: [{ label: 'ROI', value: '300%' }]
-        }
+        const validData = createSuccessStory('Mike', 'Outstanding performance here.', {
+            metrics: [{ label: 'ROI', value: '300%', icon: null }]
+        })
         expect(() => SuccessStorySchema.parse(validData)).not.toThrow()
     })
 
     it('should reject metrics with empty label or value', () => {
-        const invalidData = {
-            name: 'Tom',
-            result: 'Great results achieved.',
-            metrics: [{ label: '', value: '100%' }]
-        }
+        const invalidData = createSuccessStory('Tom', 'Great results achieved here.', {
+            metrics: [{ label: '', value: '100%', icon: null }]
+        })
         expect(() => SuccessStorySchema.parse(invalidData)).toThrow()
     })
 })
 
 describe('SuccessStoriesSchema', () => {
+    // Helper to create a valid success story
+    const createSuccessStory = (name: string, result: string) => ({
+        name,
+        role: null,
+        company: null,
+        result,
+        metrics: null,
+        quote: null,
+        image: null,
+        avatarUrl: null
+    })
+
     it('should validate a valid success stories collection', () => {
         const validData = {
             title: 'Customer Success Stories',
             subtitle: 'Real results from real users',
             stories: [
-                {
-                    name: 'Alice',
-                    result: 'Transformed her business completely.'
-                },
-                {
-                    name: 'Bob',
-                    result: 'Saved 20 hours per month.'
-                }
+                createSuccessStory('Alice', 'Transformed her business completely.'),
+                createSuccessStory('Bob', 'Saved 20 hours per month with this tool.')
             ]
         }
         expect(() => SuccessStoriesSchema.parse(validData)).not.toThrow()
@@ -273,6 +323,7 @@ describe('SuccessStoriesSchema', () => {
     it('should reject empty stories array', () => {
         const invalidData = {
             title: 'Success Stories',
+            subtitle: null,
             stories: []
         }
         expect(() => SuccessStoriesSchema.parse(invalidData)).toThrow()
@@ -281,7 +332,8 @@ describe('SuccessStoriesSchema', () => {
     it('should validate with one story minimum', () => {
         const validData = {
             title: 'Success Story',
-            stories: [{ name: 'Chris', result: 'Amazing transformation.' }]
+            subtitle: null,
+            stories: [createSuccessStory('Chris', 'Amazing transformation achieved.')]
         }
         expect(() => SuccessStoriesSchema.parse(validData)).not.toThrow()
     })
@@ -298,10 +350,11 @@ describe('MethodologyStepSchema', () => {
         expect(() => MethodologyStepSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate step with minimal fields', () => {
+    it('should validate step with null icon', () => {
         const minimalData = {
             title: 'Step 2',
-            description: 'Implement the solution.',
+            description: 'Implement the solution here.',
+            icon: null,
             order: 1
         }
         expect(() => MethodologyStepSchema.parse(minimalData)).not.toThrow()
@@ -310,7 +363,8 @@ describe('MethodologyStepSchema', () => {
     it('should reject negative order', () => {
         const invalidData = {
             title: 'Step',
-            description: 'Do something.',
+            description: 'Do something here.',
+            icon: null,
             order: -1
         }
         expect(() => MethodologyStepSchema.parse(invalidData)).toThrow()
@@ -319,7 +373,8 @@ describe('MethodologyStepSchema', () => {
     it('should reject non-integer order', () => {
         const invalidData = {
             title: 'Step',
-            description: 'Do something.',
+            description: 'Do something here.',
+            icon: null,
             order: 1.5
         }
         expect(() => MethodologyStepSchema.parse(invalidData)).toThrow()
@@ -327,21 +382,21 @@ describe('MethodologyStepSchema', () => {
 })
 
 describe('MethodologySchema', () => {
+    // Helper to create a valid step
+    const createStep = (title: string, description: string, order: number) => ({
+        title,
+        description,
+        icon: null,
+        order
+    })
+
     it('should validate a valid methodology', () => {
         const validData = {
             title: 'Our Process',
             subtitle: 'A proven system for success',
             steps: [
-                {
-                    title: 'Step 1',
-                    description: 'First thing to do.',
-                    order: 0
-                },
-                {
-                    title: 'Step 2',
-                    description: 'Second thing to do.',
-                    order: 1
-                }
+                createStep('Step 1', 'First thing to do here.', 0),
+                createStep('Step 2', 'Second thing to do here.', 1)
             ],
             philosophy: 'We believe in systematic, repeatable approaches.',
             differentiation: 'Unlike others, we focus on long-term sustainability.'
@@ -349,10 +404,13 @@ describe('MethodologySchema', () => {
         expect(() => MethodologySchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate methodology with minimal fields', () => {
+    it('should validate methodology with all nullable fields set to null', () => {
         const minimalData = {
             title: 'Method',
-            steps: [{ title: 'Do this', description: 'Follow these steps.', order: 0 }]
+            subtitle: null,
+            steps: [createStep('Do this', 'Follow these steps here.', 0)],
+            philosophy: null,
+            differentiation: null
         }
         expect(() => MethodologySchema.parse(minimalData)).not.toThrow()
     })
@@ -360,7 +418,10 @@ describe('MethodologySchema', () => {
     it('should reject empty steps array', () => {
         const invalidData = {
             title: 'Method',
-            steps: []
+            subtitle: null,
+            steps: [],
+            philosophy: null,
+            differentiation: null
         }
         expect(() => MethodologySchema.parse(invalidData)).toThrow()
     })
@@ -391,10 +452,15 @@ describe('VisionSchema', () => {
         expect(() => VisionSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate vision with minimal fields', () => {
+    it('should validate vision with all nullable fields set to null', () => {
         const minimalData = {
             title: 'Vision',
-            mission: 'Make the world better through technology.'
+            subtitle: null,
+            mission: 'Make the world better through technology.',
+            values: null,
+            futureGoals: null,
+            biggerPicture: null,
+            icon: null
         }
         expect(() => VisionSchema.parse(minimalData)).not.toThrow()
     })
@@ -402,7 +468,12 @@ describe('VisionSchema', () => {
     it('should reject empty title', () => {
         const invalidData = {
             title: '',
-            mission: 'Valid mission.'
+            subtitle: null,
+            mission: 'Valid mission here.',
+            values: null,
+            futureGoals: null,
+            biggerPicture: null,
+            icon: null
         }
         expect(() => VisionSchema.parse(invalidData)).toThrow()
     })
@@ -410,7 +481,12 @@ describe('VisionSchema', () => {
     it('should reject short mission', () => {
         const invalidData = {
             title: 'Vision',
-            mission: 'Short'
+            subtitle: null,
+            mission: 'Short',
+            values: null,
+            futureGoals: null,
+            biggerPicture: null,
+            icon: null
         }
         expect(() => VisionSchema.parse(invalidData)).toThrow()
     })
@@ -418,9 +494,12 @@ describe('VisionSchema', () => {
     it('should accept empty values and futureGoals arrays', () => {
         const validData = {
             title: 'Vision',
+            subtitle: null,
             mission: 'Our guiding mission statement.',
             values: [],
-            futureGoals: []
+            futureGoals: [],
+            biggerPicture: null,
+            icon: null
         }
         expect(() => VisionSchema.parse(validData)).not.toThrow()
     })
@@ -428,8 +507,14 @@ describe('VisionSchema', () => {
     it('should validate value objects properly', () => {
         const validData = {
             title: 'Vision',
-            mission: 'Make things better.',
-            values: [{ title: 'Integrity', description: 'We do what is right.' }]
+            subtitle: null,
+            mission: 'Make things better for everyone.',
+            values: [
+                { title: 'Integrity', description: 'We do what is right always.', icon: null }
+            ],
+            futureGoals: null,
+            biggerPicture: null,
+            icon: null
         }
         expect(() => VisionSchema.parse(validData)).not.toThrow()
     })
@@ -437,42 +522,97 @@ describe('VisionSchema', () => {
     it('should reject value with empty title', () => {
         const invalidData = {
             title: 'Vision',
-            mission: 'Make things better.',
-            values: [{ title: '', description: 'Description here.' }]
+            subtitle: null,
+            mission: 'Make things better for all.',
+            values: [{ title: '', description: 'Description here and more.', icon: null }],
+            futureGoals: null,
+            biggerPicture: null,
+            icon: null
         }
         expect(() => VisionSchema.parse(invalidData)).toThrow()
     })
 })
 
 describe('StorytellingSchema', () => {
+    // Helpers for creating valid objects
+    const createOriginStory = () => ({
+        title: 'Origin',
+        subtitle: null,
+        story: 'How we started this journey and built something amazing.',
+        inspirationPoint: null,
+        genesisDate: null,
+        icon: null
+    })
+
+    const createCreatorJourney = () => ({
+        title: 'Journey',
+        subtitle: null,
+        story: 'My personal path to creating this product.',
+        struggles: null,
+        achievements: null,
+        credentials: null,
+        icon: null
+    })
+
+    const createPhase = (title: string, description: string) => ({
+        title,
+        description,
+        points: null,
+        icon: null
+    })
+
+    const createTransformationArc = () => ({
+        title: 'Transform',
+        subtitle: null,
+        before: createPhase('Before', 'Old way of doing things was painful.'),
+        during: createPhase('During', 'Transition period happens here.'),
+        after: createPhase('After', 'New way is much better now.'),
+        timeline: null
+    })
+
+    const createSuccessStories = () => ({
+        title: 'Stories',
+        subtitle: null,
+        stories: [
+            {
+                name: 'User',
+                role: null,
+                company: null,
+                result: 'Great results achieved with this tool.',
+                metrics: null,
+                quote: null,
+                image: null,
+                avatarUrl: null
+            }
+        ]
+    })
+
+    const createMethodology = () => ({
+        title: 'Method',
+        subtitle: null,
+        steps: [{ title: 'Step 1', description: 'Do this first step here.', icon: null, order: 0 }],
+        philosophy: null,
+        differentiation: null
+    })
+
+    const createVision = () => ({
+        title: 'Vision',
+        subtitle: null,
+        mission: 'Our mission statement goes here.',
+        values: null,
+        futureGoals: null,
+        biggerPicture: null,
+        icon: null
+    })
+
     it('should validate with all sections present', () => {
         const validData = {
-            originStory: {
-                title: 'Origin',
-                story: 'How we started this journey and built something amazing.'
-            },
-            creatorJourney: {
-                title: 'Journey',
-                story: 'My personal path to creating this product.'
-            },
-            transformationArc: {
-                title: 'Transform',
-                before: { title: 'Before', description: 'Old way of doing things was painful.' },
-                during: { title: 'During', description: 'Transition period.' },
-                after: { title: 'After', description: 'New way is much better.' }
-            },
-            successStories: {
-                title: 'Stories',
-                stories: [{ name: 'User', result: 'Great results achieved.' }]
-            },
-            methodology: {
-                title: 'Method',
-                steps: [{ title: 'Step 1', description: 'Do this first step.', order: 0 }]
-            },
-            vision: {
-                title: 'Vision',
-                mission: 'Our mission statement goes here.'
-            }
+            originStory: createOriginStory(),
+            creatorJourney: createCreatorJourney(),
+            transformationArc: createTransformationArc(),
+            successStories: createSuccessStories(),
+            methodology: createMethodology(),
+            vision: createVision()
         }
         expect(() => StorytellingSchema.parse(validData)).not.toThrow()
     })
@@ -489,32 +629,26 @@ describe('StorytellingSchema', () => {
         expect(() => StorytellingSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate with all sections omitted', () => {
-        const validData = {}
-        expect(() => StorytellingSchema.parse(validData)).not.toThrow()
-    })
-
     it('should validate with some sections present', () => {
         const validData = {
-            originStory: {
-                title: 'Origin',
-                story: 'How we began.'
-            },
-            vision: {
-                title: 'Vision',
-                mission: 'Our mission.'
-            }
+            originStory: createOriginStory(),
+            creatorJourney: null,
+            transformationArc: null,
+            successStories: null,
+            methodology: null,
+            vision: createVision()
         }
         expect(() => StorytellingSchema.parse(validData)).not.toThrow()
     })
 
-    it('should validate with mixed null and undefined sections', () => {
+    it('should validate with mixed null sections', () => {
         const validData = {
             originStory: null,
-            vision: {
-                title: 'Vision',
-                mission: 'Our mission.'
-            }
+            creatorJourney: null,
+            transformationArc: null,
+            successStories: null,
+            methodology: null,
+            vision: createVision()
         }
         expect(() => StorytellingSchema.parse(validData)).not.toThrow()
     })

@@ -88,55 +88,90 @@ describe('Testimonial Schema Validation', () => {
         })
     })
 
-    describe('TestimonialSchema - Optional Fields', () => {
-        it('should accept testimonial without role', () => {
-            const minimal = Object.fromEntries(
+    describe('TestimonialSchema - Nullable Fields', () => {
+        it('should accept testimonial with null role', () => {
+            const valid = { ...validTestimonial, role: null }
+            const result = TestimonialSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject testimonial without role field', () => {
+            const withoutRole = Object.fromEntries(
                 Object.entries(validTestimonial).filter(([key]) => key !== 'role')
             )
-            const result = TestimonialSchema.safeParse(minimal)
+            const result = TestimonialSchema.safeParse(withoutRole)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept testimonial with null company', () => {
+            const valid = { ...validTestimonial, company: null }
+            const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept testimonial without company', () => {
-            const minimal = Object.fromEntries(
+        it('should reject testimonial without company field', () => {
+            const withoutCompany = Object.fromEntries(
                 Object.entries(validTestimonial).filter(([key]) => key !== 'company')
             )
-            const result = TestimonialSchema.safeParse(minimal)
+            const result = TestimonialSchema.safeParse(withoutCompany)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept testimonial with null avatarUrl', () => {
+            const valid = { ...validTestimonial, avatarUrl: null }
+            const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept testimonial without avatarUrl', () => {
-            const minimal = Object.fromEntries(
+        it('should reject testimonial without avatarUrl field', () => {
+            const withoutAvatarUrl = Object.fromEntries(
                 Object.entries(validTestimonial).filter(([key]) => key !== 'avatarUrl')
             )
-            const result = TestimonialSchema.safeParse(minimal)
+            const result = TestimonialSchema.safeParse(withoutAvatarUrl)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept testimonial with null twitterHandle', () => {
+            const valid = { ...validTestimonial, twitterHandle: null }
+            const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept testimonial without twitterHandle', () => {
-            const minimal = Object.fromEntries(
+        it('should reject testimonial without twitterHandle field', () => {
+            const withoutTwitterHandle = Object.fromEntries(
                 Object.entries(validTestimonial).filter(([key]) => key !== 'twitterHandle')
             )
-            const result = TestimonialSchema.safeParse(minimal)
+            const result = TestimonialSchema.safeParse(withoutTwitterHandle)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept testimonial with null twitterUrl', () => {
+            const valid = { ...validTestimonial, twitterUrl: null }
+            const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept testimonial without twitterUrl', () => {
-            const minimal = Object.fromEntries(
+        it('should reject testimonial without twitterUrl field', () => {
+            const withoutTwitterUrl = Object.fromEntries(
                 Object.entries(validTestimonial).filter(([key]) => key !== 'twitterUrl')
             )
-            const result = TestimonialSchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = TestimonialSchema.safeParse(withoutTwitterUrl)
+            expect(result.success).toBe(false)
         })
 
-        it('should accept testimonial with only required fields', () => {
-            const minimal = {
+        it('should accept testimonial with all nullable fields set to null', () => {
+            const allNullable = {
                 id: 'test-1',
                 author: 'Jane Smith',
                 quote: 'Great product!',
-                featured: false
+                featured: false,
+                role: null,
+                company: null,
+                avatarUrl: null,
+                twitterHandle: null,
+                twitterUrl: null
             }
-            const result = TestimonialSchema.safeParse(minimal)
+            const result = TestimonialSchema.safeParse(allNullable)
             expect(result.success).toBe(true)
         })
     })

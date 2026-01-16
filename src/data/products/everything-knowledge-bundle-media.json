@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 1280,
-            "height": 720
+            "height": 720,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

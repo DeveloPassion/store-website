@@ -33,9 +33,9 @@ export const RatingsSchema = z.record(z.string(), z.array(RatingSchema))
  * Contains social proof statistics and ratings for a product
  */
 export const StatsSchema = z.object({
-    userCount: z.string().optional(), // e.g., "2,000+ users"
-    timeSaved: z.string().optional(), // e.g., "10+ hours/week"
-    ratings: RatingsSchema.optional() // Optional: grouped ratings by source
+    userCount: z.string().nullable(), // e.g., "2,000+ users"
+    timeSaved: z.string().nullable(), // e.g., "10+ hours/week"
+    ratings: RatingsSchema.nullable() // Nullable: grouped ratings by source
 })
 
 /**

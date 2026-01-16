@@ -9,7 +9,11 @@
             "order": 0,
             "group": "cover",
             "width": 1280,
-            "height": 720
+            "height": 720,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "cover-video-001",
@@ -19,7 +23,12 @@
             "altText": "Discover why note-taking is essential for learning and growth",
             "order": 1,
             "group": "cover",
-            "youtubeId": "_KE6WXI5Dw4"
+            "youtubeId": "_KE6WXI5Dw4",
+            "description": null,
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-002",
@@ -29,7 +38,12 @@
             "altText": "Automate your note organization and save hours of manual work",
             "order": 2,
             "group": "cover",
-            "youtubeId": "BhTA_taqjyg"
+            "youtubeId": "BhTA_taqjyg",
+            "description": null,
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-video-003",
@@ -39,7 +53,12 @@
             "altText": "Master note tagging for effortless retrieval",
             "order": 3,
             "group": "cover",
-            "youtubeId": "1bqBwFJgiUc"
+            "youtubeId": "1bqBwFJgiUc",
+            "description": null,
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         }
     ]
 }

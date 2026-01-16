@@ -42,7 +42,9 @@ This skill helps you manage the tags used across all products in the store websi
 - **featured**: Whether the tag should appear in featured lists
 - **priority**: Determines display order (lower = higher priority)
 
-### Optional Fields
+### Nullable Fields
+
+Fields use `.nullable()` (always present in JSON, with `null` when empty).
 
 - **icon**: React icon name (e.g., `"FaRobot"`) or emoji (e.g., `"🚀"`) - nullable
 - **color**: Hex color code (`#RRGGBB` format) - nullable
@@ -295,7 +297,7 @@ Validates tags along with categories, promotion, products, and all relationships
 - Products must be updated before removing tags used in products
 - Priority determines display order (featured first, then by priority)
 - Color format: `#RRGGBB` (6-digit hex) - will fail validation if incorrect
-- Icon names must be from `react-icons` library (e.g., `FaRobot`, `SiObsidian`)
+- Icon: emoji (e.g., `"🚀"`) or React icon name (e.g., `"FaRobot"`, `"SiObsidian"`)
 
 ## Schema Sync Process
 

@@ -9,7 +9,11 @@
             "description": "An overview of the PKM Library and its resources for personal knowledge management",
             "order": 0,
             "group": "cover",
-            "youtubeId": "M6HNRN6SkE4"
+            "youtubeId": "M6HNRN6SkE4",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-1736858000000",
@@ -20,7 +24,11 @@
             "order": 1,
             "group": "cover",
             "width": 800,
-            "height": 450
+            "height": 450,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736858000001",
@@ -31,7 +39,11 @@
             "order": 0,
             "group": "main",
             "width": 387,
-            "height": 759
+            "height": 759,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736858000002",
@@ -42,7 +54,11 @@
             "order": 1,
             "group": "main",
             "width": 1600,
-            "height": 628
+            "height": 628,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736858000003",
@@ -53,7 +69,11 @@
             "order": 2,
             "group": "main",
             "width": 1600,
-            "height": 681
+            "height": 681,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "main-1736858000004",
@@ -64,7 +84,11 @@
             "order": 3,
             "group": "main",
             "width": 1170,
-            "height": 721
+            "height": 721,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-1736858000005",
@@ -75,7 +99,11 @@
             "order": 0,
             "group": "secondary",
             "width": 1600,
-            "height": 684
+            "height": 684,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-1736858000006",
@@ -86,7 +114,11 @@
             "order": 1,
             "group": "secondary",
             "width": 1519,
-            "height": 726
+            "height": 726,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-1736858000007",
@@ -97,7 +129,11 @@
             "order": 2,
             "group": "secondary",
             "width": 1329,
-            "height": 721
+            "height": 721,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         },
         {
             "id": "secondary-1736858000008",
@@ -108,7 +144,11 @@
             "order": 3,
             "group": "secondary",
             "width": 1600,
-            "height": 654
+            "height": 654,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }

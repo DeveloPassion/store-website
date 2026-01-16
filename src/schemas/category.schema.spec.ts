@@ -119,29 +119,49 @@ describe('Category Schema Validation', () => {
         })
     })
 
-    describe('CategorySchema - Optional Fields', () => {
-        it('should accept category without icon', () => {
-            const minimal = Object.fromEntries(
+    describe('CategorySchema - Nullable Fields', () => {
+        it('should accept category with null icon', () => {
+            const withNullIcon = { ...validCategory, icon: null }
+            const result = CategorySchema.safeParse(withNullIcon)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.icon).toBeNull()
+            }
+        })
+
+        it('should accept category with null color', () => {
+            const withNullColor = { ...validCategory, color: null }
+            const result = CategorySchema.safeParse(withNullColor)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.color).toBeNull()
+            }
+        })
+
+        it('should accept category with null icon and color', () => {
+            const withNulls = { ...validCategory, icon: null, color: null }
+            const result = CategorySchema.safeParse(withNulls)
+            expect(result.success).toBe(true)
+            if (result.success) {
+                expect(result.data.icon).toBeNull()
+                expect(result.data.color).toBeNull()
+            }
+        })
+
+        it('should reject category without icon field', () => {
+            const withoutIcon = Object.fromEntries(
                 Object.entries(validCategory).filter(([key]) => key !== 'icon')
             )
-            const result = CategorySchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = CategorySchema.safeParse(withoutIcon)
+            expect(result.success).toBe(false)
         })
 
-        it('should accept category without color', () => {
-            const minimal = Object.fromEntries(
+        it('should reject category without color field', () => {
+            const withoutColor = Object.fromEntries(
                 Object.entries(validCategory).filter(([key]) => key !== 'color')
             )
-            const result = CategorySchema.safeParse(minimal)
-            expect(result.success).toBe(true)
-        })
-
-        it('should accept category without icon and color', () => {
-            const minimal = Object.fromEntries(
-                Object.entries(validCategory).filter(([key]) => !['icon', 'color'].includes(key))
-            )
-            const result = CategorySchema.safeParse(minimal)
-            expect(result.success).toBe(true)
+            const result = CategorySchema.safeParse(withoutColor)
+            expect(result.success).toBe(false)
         })
     })
 

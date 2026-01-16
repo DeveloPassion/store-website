@@ -30,6 +30,12 @@ const createValidMediaItem = (overrides: Partial<MediaItem> = {}): MediaItem => 
     altText: 'Test image description',
     order: 0,
     group: 'main',
+    description: null,
+    caption: null,
+    youtubeId: null,
+    thumbnailUrl: null,
+    width: null,
+    height: null,
     ...overrides
 })
 
@@ -45,6 +51,11 @@ const createValidTestimonial = (overrides: Partial<Testimonial> = {}): Testimoni
     author: 'John Doe',
     quote: 'This is an amazing product!',
     featured: false,
+    role: null,
+    company: null,
+    avatarUrl: null,
+    twitterHandle: null,
+    twitterUrl: null,
     ...overrides
 })
 

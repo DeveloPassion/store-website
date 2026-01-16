@@ -146,14 +146,19 @@
                         {
                             "name": "The Problems We Face",
                             "description": "Information overload, cognitive load, and why your brain struggles with scattered information",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "The Solution",
                             "description": "How a PKM system solves these problems and transforms your relationship with knowledge",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 2: Knowledge Management Overview",
@@ -163,19 +168,26 @@
                         {
                             "name": "Information Management vs Knowledge Management",
                             "description": "Understanding the crucial distinction between storing data and building wisdom",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Introduction to Personal Knowledge Management",
                             "description": "What PKM is, why it matters, and how it transforms your thinking",
-                            "url": "https://www.youtube.com/watch?v=KBiIp8vwnbM"
+                            "url": "https://www.youtube.com/watch?v=KBiIp8vwnbM",
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Elements of a PKM System",
                             "description": "The essential building blocks you need to create a working system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 3: Getting Started",
@@ -185,34 +197,47 @@
                         {
                             "name": "KISS & Keeping It Real",
                             "description": "Start simple, avoid overthinking, and build habits that actually stick",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Must-Have & Nice-to-Have Features",
                             "description": "What actually matters in a PKM tool vs what can wait",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "First Steps & Exploration",
                             "description": "Your first exploration of knowledge organization principles",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Minimal Organization Structure",
                             "description": "Creating a sustainable folder and file structure from the start",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Tags, Metadata & Note Naming",
                             "description": "Foundational conventions that make everything findable",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Complete System Walkthrough",
                             "description": "Tour of a real, battle-tested PKM system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 4: The PKM Process",
@@ -222,29 +247,40 @@
                         {
                             "name": "Process Overview & Recap",
                             "description": "The big picture of how everything fits together",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Your Idea Capture System",
                             "description": "Building a reliable system to capture valuable information",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "The PKM Process in Detail",
                             "description": "Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Overview of a Real System",
                             "description": "Deep dive into the instructor's personal PKM system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Real-World Examples",
                             "description": "See the process in action with practical demonstrations",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 5: PKM Concepts",
@@ -254,64 +290,89 @@
                         {
                             "name": "Mindset Foundations",
                             "description": "Clarify your goals, avoid perfectionism, and don't hoard information",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Note-Taking vs Note-Making",
                             "description": "The critical difference that changes everything about how you learn",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Dumb Notes vs Smart Notes",
                             "description": "Creating notes that actually help you think and connect ideas",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Externalization & Centralization",
                             "description": "Getting ideas out of your head and into one trusted place",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Atomic Notes & Connecting Ideas",
                             "description": "The power of single-idea notes and meaningful relationships",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Characteristics of Great Notes",
                             "description": "What makes notes truly useful over time",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Methods Overview: LIFT & FILE",
                             "description": "Popular organizational frameworks to structure your thinking",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "The PARA Method",
                             "description": "Projects, Areas, Resources, Archives - a proven organization system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "The Johnny Decimal System",
                             "description": "A systematic approach to categorization that scales",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Zettelkasten Method Deep Dive",
                             "description": "The slip-box system for connected thinking - theory, method, and process",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Evergreen & Top of Mind Notes",
                             "description": "Notes that remain relevant over time and keep important ideas accessible",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "The Me Note & Collector's Fallacy",
                             "description": "Personal knowledge anchors and avoiding the trap of hoarding without using",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 6: PKM Recommendations",
@@ -321,69 +382,96 @@
                         {
                             "name": "Building PKM Habits",
                             "description": "PKM requires changing your habits - here's how to make it stick",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Complete Capture System",
                             "description": "Why you need it, what it looks like, and the capture process in detail",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Capture Scenarios & The Capture Habit",
                             "description": "Different situations, different approaches - making capture automatic",
-                            "url": "https://www.youtube.com/watch?v=_sigcgludUE"
+                            "url": "https://www.youtube.com/watch?v=_sigcgludUE",
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Sources & Input Selection",
                             "description": "How to choose quality information sources that deserve your attention",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Analog & Digital Capture",
                             "description": "Working with both physical and digital, and transitioning between them",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Journaling & Daily Notes",
                             "description": "Templates, capture examples, and using journaling as your operations center",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Periodic Reviews",
                             "description": "Weekly, monthly, and annual reflection practices",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Knowledge Ingestion Process",
                             "description": "From capture to your knowledge base - with live demonstrations",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Finding & Organizing Notes",
                             "description": "Search strategies, single vs multiple knowledge bases, folder structure",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Tags, Links & Note Names",
                             "description": "Flexible categorization, connections, and naming conventions that work",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Chronological & Special Notes",
                             "description": "Time-based organization and special note types with examples",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Templates & Templating",
                             "description": "Template examples, usage patterns, and best practices",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Brain Dumps & Conclusion",
                             "description": "Getting everything out of your head and wrapping up recommendations",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 7: Building Your PKM System",
@@ -393,54 +481,75 @@
                         {
                             "name": "System Foundations",
                             "description": "Key reminders, overview, and characteristics of a solid system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Core Parts & Tools",
                             "description": "What you need, tool dimensions, bare minimum requirements",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Tool Selection & What I Use",
                             "description": "How to pick your tools and a tour of the instructor's current stack",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "System Design & Documentation",
                             "description": "Planning and documenting your approach with system overview",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Tool Setup & Configuration",
                             "description": "Setting up and configuring your chosen tools for success",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Readwise Demo",
                             "description": "Deep dive into Readwise for seamless highlight capture",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Obsidian Web Clipper Deep Dive",
                             "description": "Capturing web content directly into your knowledge base",
-                            "url": "https://www.youtube.com/watch?v=_sigcgludUE"
+                            "url": "https://www.youtube.com/watch?v=_sigcgludUE",
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Backups & Data Protection",
                             "description": "Protecting your knowledge investment with reliable backups",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Workflow Development",
                             "description": "Creating efficient, repeatable processes",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Advanced Topics",
                             "description": "Vendor lock-in avoidance, removing busywork, data synchronization",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Module 8: Going Further",
@@ -450,79 +559,110 @@
                         {
                             "name": "Advanced Knowledge Base Usage",
                             "description": "Power-user techniques for getting more from your system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Live Queries",
                             "description": "Dynamic, auto-updating views of your knowledge",
-                            "url": "https://www.youtube.com/watch?v=j2q6OF5XFUc"
+                            "url": "https://www.youtube.com/watch?v=j2q6OF5XFUc",
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Leveraging GenAI & LLMs",
                             "description": "Overview of using AI to supercharge your PKM",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "AI: ChatGPT & Claude",
                             "description": "Using conversational AI with your PKM system",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "AI: NotebookLM, Gemini & Google AI Studio",
                             "description": "Google's AI tools for knowledge work",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "AI: DeepSeek & Perplexity",
                             "description": "Alternative AI tools for research and knowledge work",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "AI: Local with LM Studio & Ollama",
                             "description": "Running AI privately on your own machine",
-                            "url": "https://www.youtube.com/watch?v=af6DrWJ4Ek0"
+                            "url": "https://www.youtube.com/watch?v=af6DrWJ4Ek0",
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "AI: Mega Prompts & MCP",
                             "description": "Creating powerful prompts and using Model Context Protocol",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "AI: Writing with AI & Obsidian Copilot",
                             "description": "Integrating AI directly into your writing workflow",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Visual Knowledge Management",
                             "description": "Canvas, mind maps, and visual thinking techniques",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Exploiting Serendipity",
                             "description": "Finding unexpected connections in your knowledge",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Project Management & Habit Tracking",
                             "description": "Connecting PKM to your work and building good habits",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Create Your Life OS",
                             "description": "A comprehensive system for your entire life",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Sharing Your Work",
                             "description": "Publishing and contributing your knowledge to the world",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "To Infinity and Beyond",
                             "description": "Future possibilities and where PKM is headed",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Conclusion",
@@ -532,9 +672,12 @@
                         {
                             "name": "Course Conclusion",
                             "description": "Key takeaways, next steps, and how to continue your PKM journey",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 },
                 {
                     "name": "Bonus: Course Resources",
@@ -544,29 +687,40 @@
                         {
                             "name": "Complete Course Slides",
                             "description": "All presentation materials for reference",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Example Obsidian Vault",
                             "description": "A working vault with solid structure and automation",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Obsidian Templates Pack",
                             "description": "Ready-to-use templates to get started fast",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "Knowledge System Checklist",
                             "description": "Verify your system has everything it needs",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         },
                         {
                             "name": "1,800+ Concept Knowledge Base",
                             "description": "Curated concepts, frameworks, mental models, and techniques",
-                            "url": null
+                            "url": null,
+                            "duration": null,
+                            "icon": null
                         }
-                    ]
+                    ],
+                    "duration": null
                 }
             ]
         },
@@ -575,7 +729,9 @@
                 "title": "The Breaking Point",
                 "subtitle": "Why I Built This Course",
                 "story": "For years, I lived with constant frustration. 'Where did I see this? Where did I put that? What app did I use for that?' I had information scattered across dozens of tools, documents, and browser tabs. No consistency. No system. Just chaos.\n\nI'd read something brilliant, take a note... and never find it again when I actually needed it. Important ideas slipped through my fingers daily. The mental load of trying to remember everything was crushing my ability to think clearly and create.\n\nAfter years of trial and error, learning from experts, and gradual refinement, I finally cracked the code. I built a system that actually works - one that's been battle-tested through years of real-world use, not just theory from a book.\n\nThis course contains everything I wish I had known from the start. The principles that took me years to discover, synthesized into a clear, actionable blueprint.",
-                "icon": "💡"
+                "icon": "💡",
+                "inspirationPoint": null,
+                "genesisDate": null
             },
             "creatorJourney": {
                 "title": "20+ Years in the Making",
@@ -627,7 +783,10 @@
                 ],
                 "philosophy": "I don't believe in quick hacks or productivity theater. I believe in building systems that work - simple enough to start today, powerful enough to last a lifetime. Systems that grow with you, not systems you outgrow.",
                 "differentiation": "Unlike other PKM courses that focus on a single method or tool, this course gives you the complete picture: the principles, the process, the practice, and the AI integration. It's the difference between learning a trick and understanding the game."
-            }
+            },
+            "transformationArc": null,
+            "successStories": null,
+            "vision": null
         },
         "timeline": {
             "title": "Your Knowledge Transformation",

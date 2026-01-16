@@ -6,8 +6,8 @@ interface CollectionItem {
     id: string
     name: string
     description: string
-    icon?: string
-    color?: string
+    icon?: string | null
+    color?: string | null
     featured?: boolean
 }
 
@@ -84,7 +84,7 @@ export const CollectionCard = <T extends CollectionItem>({
                         <DynamicIcon
                             iconName={item.icon}
                             className='h-8 w-8'
-                            style={{ color: item.color }}
+                            style={{ color: item.color ?? undefined }}
                         />
                     </div>
                 )}
@@ -126,7 +126,7 @@ export const CollectionCard = <T extends CollectionItem>({
                         <DynamicIcon
                             iconName={item.icon}
                             className='h-6 w-6'
-                            style={{ color: item.color }}
+                            style={{ color: item.color ?? undefined }}
                         />
                     </div>
                 )}

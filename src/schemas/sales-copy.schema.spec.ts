@@ -31,7 +31,10 @@ describe('SalesCopyDataSchema', () => {
         guarantees: ['Full refund if not satisfied'],
         metaTitle: 'Knowii - Knowledge Management Made Easy',
         metaDescription: 'Transform your workflow with AI-powered knowledge management.',
-        keywords: ['pkm', 'knowledge management', 'ai']
+        keywords: ['pkm', 'knowledge management', 'ai'],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     }
 
     it('should validate complete sales copy data', () => {
@@ -41,6 +44,7 @@ describe('SalesCopyDataSchema', () => {
     it('should validate sales copy data with minimal required fields', () => {
         const minimalData = {
             tagline: 'Great product',
+            secondaryTagline: null,
             problem: 'People have problems',
             problemPoints: ['Problem 1'],
             agitate: 'Makes things worse',
@@ -61,7 +65,10 @@ describe('SalesCopyDataSchema', () => {
             guarantees: [],
             metaTitle: '',
             metaDescription: '',
-            keywords: []
+            keywords: [],
+            storytelling: null,
+            timeline: null,
+            courseContent: null
         }
         expect(() => SalesCopyDataSchema.parse(minimalData)).not.toThrow()
     })
@@ -72,8 +79,17 @@ describe('SalesCopyDataSchema', () => {
             storytelling: {
                 originStory: {
                     title: 'How Knowii Was Born',
-                    story: 'One day I realized there had to be a better way...'
-                }
+                    subtitle: null,
+                    story: 'One day I realized there had to be a better way...',
+                    inspirationPoint: null,
+                    genesisDate: null,
+                    icon: null
+                },
+                creatorJourney: null,
+                transformationArc: null,
+                successStories: null,
+                methodology: null,
+                vision: null
             }
         }
         expect(() => SalesCopyDataSchema.parse(dataWithStorytelling)).not.toThrow()
@@ -271,6 +287,7 @@ describe('SalesCopyFileSchema', () => {
         id: 'default',
         salesCopy: {
             tagline: 'Transform your knowledge workflow',
+            secondaryTagline: null,
             problem: 'Knowledge workers struggle with information overload',
             problemPoints: ['Scattered information'],
             agitate: 'This costs you time',
@@ -291,7 +308,10 @@ describe('SalesCopyFileSchema', () => {
             guarantees: [],
             metaTitle: '',
             metaDescription: '',
-            keywords: []
+            keywords: [],
+            storytelling: null,
+            timeline: null,
+            courseContent: null
         }
     }
 
@@ -339,9 +359,19 @@ describe('SalesCopyFileSchema', () => {
             salesCopy: {
                 ...validSalesCopyFile.salesCopy,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
+                    successStories: null,
+                    methodology: null,
                     vision: {
                         title: 'Our Vision',
-                        mission: 'Empower knowledge workers worldwide.'
+                        subtitle: null,
+                        mission: 'Empower knowledge workers worldwide.',
+                        values: null,
+                        futureGoals: null,
+                        biggerPicture: null,
+                        icon: null
                     }
                 }
             }
@@ -368,29 +398,82 @@ describe('SalesCopyFileSchema', () => {
                 storytelling: {
                     originStory: {
                         title: 'Origin',
-                        story: 'How we started building this amazing product.'
+                        subtitle: null,
+                        story: 'How we started building this amazing product.',
+                        inspirationPoint: null,
+                        genesisDate: null,
+                        icon: null
                     },
                     creatorJourney: {
                         title: 'Journey',
-                        story: 'My path to creating this solution.'
+                        subtitle: null,
+                        story: 'My path to creating this solution.',
+                        struggles: null,
+                        achievements: null,
+                        credentials: null,
+                        icon: null
                     },
                     transformationArc: {
                         title: 'Transform',
-                        before: { title: 'Before', description: 'Old way was difficult.' },
-                        during: { title: 'During', description: 'Transition period.' },
-                        after: { title: 'After', description: 'New way is better.' }
+                        subtitle: null,
+                        before: {
+                            title: 'Before',
+                            description: 'Old way was very difficult.',
+                            points: null,
+                            icon: null
+                        },
+                        during: {
+                            title: 'During',
+                            description: 'Transition period here.',
+                            points: null,
+                            icon: null
+                        },
+                        after: {
+                            title: 'After',
+                            description: 'New way is much better.',
+                            points: null,
+                            icon: null
+                        },
+                        timeline: null
                     },
                     successStories: {
                         title: 'Stories',
-                        stories: [{ name: 'User', result: 'Great results were achieved.' }]
+                        subtitle: null,
+                        stories: [
+                            {
+                                name: 'User',
+                                role: null,
+                                company: null,
+                                result: 'Great results were achieved.',
+                                metrics: null,
+                                quote: null,
+                                image: null,
+                                avatarUrl: null
+                            }
+                        ]
                     },
                     methodology: {
                         title: 'Method',
-                        steps: [{ title: 'Step 1', description: 'Do this first.', order: 0 }]
+                        subtitle: null,
+                        steps: [
+                            {
+                                title: 'Step 1',
+                                description: 'Do this first step.',
+                                icon: null,
+                                order: 0
+                            }
+                        ],
+                        philosophy: null,
+                        differentiation: null
                     },
                     vision: {
                         title: 'Vision',
-                        mission: 'Our mission statement.'
+                        subtitle: null,
+                        mission: 'Our mission statement.',
+                        values: null,
+                        futureGoals: null,
+                        biggerPicture: null,
+                        icon: null
                     }
                 }
             }

@@ -89,11 +89,11 @@ export const TagSchema = z.object({
     id: TagIdSchema,
     name: z.string().min(1, 'Tag name is required'),
     description: z.string().min(1, 'Tag description is required'),
-    icon: z.string().optional(),
+    icon: z.string().nullable(),
     color: z
         .string()
         .regex(/^#[0-9A-Fa-f]{6}$/, 'Color must be hex format (#RRGGBB)')
-        .optional(),
+        .nullable(),
     featured: z.boolean(),
     priority: z.number().int().min(1)
 })

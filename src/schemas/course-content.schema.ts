@@ -11,10 +11,10 @@ export const DifficultySchema = z.enum(['beginner', 'intermediate', 'advanced'])
  */
 export const CourseSectionSchema = z.object({
     name: z.string().min(1, 'Section name is required'),
-    description: z.string().nullish(), // Required but nullable
-    duration: z.string().nullish(), // Required but nullable (e.g., "15 min")
-    icon: z.string().nullish(), // Required but nullable (emoji or React icon name)
-    url: z.string().url().nullable() // Required but nullable - URL to free lesson (if publicly accessible)
+    description: z.string().nullable(), // Nullable
+    duration: z.string().nullable(), // Nullable (e.g., "15 min")
+    icon: z.string().nullable(), // Nullable (emoji or React icon name)
+    url: z.string().url().nullable() // Nullable - URL to free lesson (if publicly accessible)
 })
 
 /**
@@ -23,9 +23,9 @@ export const CourseSectionSchema = z.object({
  */
 export const CourseModuleSchema = z.object({
     name: z.string().min(1, 'Module name is required'),
-    description: z.string().nullish(), // Required but nullable
-    icon: z.string().nullish(), // Required but nullable (emoji or React icon name)
-    duration: z.string().nullish(), // Required but nullable (e.g., "2 hours")
+    description: z.string().nullable(), // Nullable
+    icon: z.string().nullable(), // Nullable (emoji or React icon name)
+    duration: z.string().nullable(), // Nullable (e.g., "2 hours")
     sections: z.array(CourseSectionSchema).min(1, 'At least one section is required')
 })
 
@@ -39,12 +39,12 @@ export const CourseModuleSchema = z.object({
  * - Module breakdown with sections
  */
 export const CourseContentSchema = z.object({
-    sectionTitle: z.string().optional(), // Default: "What's Inside the Course"
-    sectionDescription: z.string().optional(),
-    sectionIcon: z.string().optional(), // Emoji or React icon name
-    totalDuration: z.string().optional(), // e.g., "12 hours"
-    prerequisites: z.array(z.string()).optional(),
-    difficulty: DifficultySchema.optional(),
+    sectionTitle: z.string().nullable(), // Default: "What's Inside the Course"
+    sectionDescription: z.string().nullable(),
+    sectionIcon: z.string().nullable(), // Emoji or React icon name
+    totalDuration: z.string().nullable(), // e.g., "12 hours"
+    prerequisites: z.array(z.string()).nullable(),
+    difficulty: DifficultySchema.nullable(),
     modules: z.array(CourseModuleSchema).min(1, 'At least one module is required')
 })
 

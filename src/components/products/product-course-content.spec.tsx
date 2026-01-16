@@ -42,8 +42,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: ['Problem point 1'],
         agitate: 'Test agitate',
@@ -60,9 +63,63 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
+})
+
+// Helper to create section with all nullable fields
+const createSection = (
+    name: string,
+    overrides: {
+        url?: string | null
+        description?: string | null
+        duration?: string | null
+        icon?: string | null
+    } = {}
+) => ({
+    name,
+    description: overrides.description ?? null,
+    duration: overrides.duration ?? null,
+    icon: overrides.icon ?? null,
+    url: overrides.url ?? null
+})
+
+// Helper to create module with all nullable fields
+const createModule = (
+    name: string,
+    sections: ReturnType<typeof createSection>[],
+    overrides: { description?: string | null; icon?: string | null; duration?: string | null } = {}
+) => ({
+    name,
+    description: overrides.description ?? null,
+    icon: overrides.icon ?? null,
+    duration: overrides.duration ?? null,
+    sections
+})
+
+// Helper to create courseContent with all nullable fields
+const createCourseContent = (
+    modules: ReturnType<typeof createModule>[],
+    overrides: {
+        sectionTitle?: string | null
+        sectionDescription?: string | null
+        sectionIcon?: string | null
+        totalDuration?: string | null
+        difficulty?: 'beginner' | 'intermediate' | 'advanced' | null
+        prerequisites?: string[] | null
+    } = {}
+) => ({
+    sectionTitle: overrides.sectionTitle ?? null,
+    sectionDescription: overrides.sectionDescription ?? null,
+    sectionIcon: overrides.sectionIcon ?? null,
+    totalDuration: overrides.totalDuration ?? null,
+    difficulty: overrides.difficulty ?? null,
+    prerequisites: overrides.prerequisites ?? null,
+    modules
 })
 
 describe('ProductCourseContent Component', () => {
@@ -77,7 +134,7 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: undefined
+                    courseContent: null
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -99,10 +156,7 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        sectionTitle: 'Course Content',
-                        modules: []
-                    }
+                    courseContent: createCourseContent([], { sectionTitle: 'Course Content' })
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -115,14 +169,9 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')])
+                    ])
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -133,15 +182,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        sectionTitle: 'Course Curriculum',
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { sectionTitle: 'Course Curriculum' }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -152,15 +196,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        sectionDescription: 'A comprehensive curriculum from beginner to expert',
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { sectionDescription: 'A comprehensive curriculum from beginner to expert' }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -175,15 +214,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        totalDuration: '12 hours',
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { totalDuration: '12 hours' }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -194,15 +228,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        difficulty: 'beginner',
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { difficulty: 'beginner' }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -213,15 +242,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        difficulty: 'intermediate',
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { difficulty: 'intermediate' }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -232,15 +256,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        difficulty: 'advanced',
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { difficulty: 'advanced' }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -251,21 +270,13 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [
-                                    { name: 'Section 1', url: null },
-                                    { name: 'Section 2', url: null }
-                                ]
-                            },
-                            {
-                                name: 'Module 2',
-                                sections: [{ name: 'Section 3', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [
+                            createSection('Section 1'),
+                            createSection('Section 2')
+                        ]),
+                        createModule('Module 2', [createSection('Section 3')])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -278,14 +289,9 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -299,15 +305,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        prerequisites: ['Basic computer skills', 'Obsidian installed'],
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { prerequisites: ['Basic computer skills', 'Obsidian installed'] }
+                    )
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -320,15 +321,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        prerequisites: [],
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent(
+                        [createModule('Module 1', [createSection('Section 1')])],
+                        { prerequisites: [] }
+                    )
                 }
             })
             const { queryByText } = render(<ProductCourseContent product={product} />)
@@ -339,14 +335,9 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')])
+                    ])
                 }
             })
             const { queryByText } = render(<ProductCourseContent product={product} />)
@@ -359,18 +350,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Getting Started',
-                                sections: [{ name: 'Section 1', url: null }]
-                            },
-                            {
-                                name: 'Advanced Topics',
-                                sections: [{ name: 'Section 2', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Getting Started', [createSection('Section 1')]),
+                        createModule('Advanced Topics', [createSection('Section 2')])
+                    ])
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -382,15 +365,11 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                duration: '45 min',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')], {
+                            duration: '45 min'
+                        })
+                    ])
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -401,18 +380,13 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [
-                                    { name: 'S1', url: null },
-                                    { name: 'S2', url: null },
-                                    { name: 'S3', url: null }
-                                ]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [
+                            createSection('S1'),
+                            createSection('S2'),
+                            createSection('S3')
+                        ])
+                    ])
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -423,18 +397,10 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            },
-                            {
-                                name: 'Module 2',
-                                sections: [{ name: 'Section 2', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')]),
+                        createModule('Module 2', [createSection('Section 2')])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -447,15 +413,11 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Getting Started',
-                                icon: '🚀',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Getting Started', [createSection('Section 1')], {
+                            icon: '🚀'
+                        })
+                    ])
                 }
             })
             const { getByText } = render(<ProductCourseContent product={product} />)
@@ -481,20 +443,14 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [
-                                    {
-                                        name: 'Free Introduction',
-                                        url: 'https://youtube.com/watch?v=abc123'
-                                    },
-                                    { name: 'Paid Lesson', url: null }
-                                ]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [
+                            createSection('Free Introduction', {
+                                url: 'https://youtube.com/watch?v=abc123'
+                            }),
+                            createSection('Paid Lesson')
+                        ])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -505,23 +461,12 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Free Module',
-                                sections: [
-                                    {
-                                        name: 'Lesson 1',
-                                        url: 'https://example.com/lesson1'
-                                    },
-                                    {
-                                        name: 'Lesson 2',
-                                        url: 'https://example.com/lesson2'
-                                    }
-                                ]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Free Module', [
+                            createSection('Lesson 1', { url: 'https://example.com/lesson1' }),
+                            createSection('Lesson 2', { url: 'https://example.com/lesson2' })
+                        ])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -532,27 +477,19 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [
-                                    {
-                                        name: 'Free Preview',
-                                        description: 'Watch this free lesson',
-                                        duration: '10 min',
-                                        url: 'https://youtube.com/watch?v=xyz'
-                                    },
-                                    {
-                                        name: 'Premium Content',
-                                        description: 'Exclusive paid content',
-                                        url: null
-                                    },
-                                    { name: 'Basic Lesson', url: null }
-                                ]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [
+                            createSection('Free Preview', {
+                                description: 'Watch this free lesson',
+                                duration: '10 min',
+                                url: 'https://youtube.com/watch?v=xyz'
+                            }),
+                            createSection('Premium Content', {
+                                description: 'Exclusive paid content'
+                            }),
+                            createSection('Basic Lesson')
+                        ])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -565,14 +502,9 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)
@@ -583,14 +515,9 @@ describe('ProductCourseContent Component', () => {
             const product = createMockProduct({
                 salesCopy: {
                     ...createMockProduct().salesCopy!,
-                    courseContent: {
-                        modules: [
-                            {
-                                name: 'Module 1',
-                                sections: [{ name: 'Section 1', url: null }]
-                            }
-                        ]
-                    }
+                    courseContent: createCourseContent([
+                        createModule('Module 1', [createSection('Section 1')])
+                    ])
                 }
             })
             const { container } = render(<ProductCourseContent product={product} />)

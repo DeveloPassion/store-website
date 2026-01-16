@@ -131,7 +131,8 @@
                 "subtitle": "From 15 Years on Rails to Designing My Own Path",
                 "story": "For 15 years, I worked as a software developer, then project manager. I found satisfaction in my work—I was learning, growing, building things. But there was this nagging feeling I couldn't shake: I wasn't exploring all my options. I wasn't fully taking advantage of my curiosity. For years, I didn't consider this a problem. The fulfillment from projects kept me going. Until one day, after conversations with colleagues and friends, I realized: staying on those rails was actually the problem I needed to solve. That realization changed everything. It led me to create my own company, start consulting, write books, build products, and eventually coach others. Today, I feel much happier than I was before. This workshop shares the exact framework that helped me—and now helps others—move from feeling stuck to designing intentional lives.",
                 "inspirationPoint": "You cannot solve a problem you're not willing to have. Once I accepted that staying comfortable was actually my problem, everything changed.",
-                "icon": "💡"
+                "icon": "💡",
+                "genesisDate": null
             },
             "creatorJourney": {
                 "title": "From Software Developer to Life Designer",
@@ -264,7 +265,8 @@
                 ],
                 "biggerPicture": "Clarity is just the first step. Once you have clarity, you need a SYSTEM to turn it into reality. That's what the Knowledge Worker Kit and the Knowii Community are for. But it all starts here—with clarity.",
                 "icon": "🎯"
-            }
+            },
+            "successStories": null
         },
         "timeline": {
             "title": "Your Clarity Journey",

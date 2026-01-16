@@ -38,8 +38,11 @@ describe('Product Schema Validation', () => {
         priority: 50,
         crossSellIds: [],
         activeSalesCopyId: 'default',
+        ratingsCount: null,
+        averageRating: null,
         salesCopy: {
             tagline: 'Test tagline',
+            secondaryTagline: null,
             problem: 'Test problem',
             problemPoints: ['Point 1', 'Point 2'],
             agitate: 'Test agitate',
@@ -60,7 +63,10 @@ describe('Product Schema Validation', () => {
             guarantees: [],
             metaTitle: '',
             metaDescription: '',
-            keywords: []
+            keywords: [],
+            storytelling: null,
+            timeline: null,
+            courseContent: null
         }
     }
 
@@ -120,13 +126,16 @@ describe('Product Schema Validation', () => {
     })
 
     describe('ProductVariantSchema', () => {
-        it('should accept valid variant', () => {
+        it('should accept valid variant with all nullable fields', () => {
             const valid = {
                 name: 'Pro Version',
                 price: 199.99,
                 priceDisplay: '€199.99',
                 description: 'Pro features included',
-                gumroadUrl: 'https://gumroad.com/pro'
+                gumroadUrl: 'https://gumroad.com/pro',
+                gumroadVariantId: null,
+                paymentFrequency: null,
+                prices: null
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -138,7 +147,9 @@ describe('Product Schema Validation', () => {
                 priceDisplay: '€199.99',
                 description: 'Pro features included',
                 gumroadUrl: 'https://gumroad.com/pro',
-                gumroadVariantId: 'pro-version'
+                gumroadVariantId: 'pro-version',
+                paymentFrequency: null,
+                prices: null
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -150,12 +161,14 @@ describe('Product Schema Validation', () => {
                 priceDisplay: '€9.99/month',
                 description: 'Monthly subscription',
                 gumroadUrl: 'https://gumroad.com/monthly',
-                paymentFrequency: 'monthly'
+                gumroadVariantId: null,
+                paymentFrequency: 'monthly',
+                prices: null
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
 
-        it('should accept variant with all new fields', () => {
+        it('should accept variant with all fields', () => {
             const valid = {
                 name: 'Yearly Subscription',
                 price: 99.99,
@@ -163,7 +176,13 @@ describe('Product Schema Validation', () => {
                 description: 'Yearly subscription',
                 gumroadUrl: 'https://gumroad.com/yearly',
                 gumroadVariantId: 'yearly-plan',
-                paymentFrequency: 'yearly'
+                paymentFrequency: 'yearly',
+                prices: {
+                    monthly: 9.99,
+                    yearly: 99.99,
+                    biennial: null,
+                    oneTime: null
+                }
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -174,7 +193,10 @@ describe('Product Schema Validation', () => {
                 price: 199.99,
                 priceDisplay: '€199.99',
                 description: 'Pro features',
-                gumroadUrl: 'not-a-url'
+                gumroadUrl: 'not-a-url',
+                gumroadVariantId: null,
+                paymentFrequency: null,
+                prices: null
             }
             expect(() => ProductVariantSchema.parse(invalid)).toThrow()
         })
@@ -186,7 +208,22 @@ describe('Product Schema Validation', () => {
                 priceDisplay: '€199.99',
                 description: 'Pro features',
                 gumroadUrl: 'https://gumroad.com/pro',
-                paymentFrequency: 'weekly'
+                gumroadVariantId: null,
+                paymentFrequency: 'weekly',
+                prices: null
+            }
+            expect(() => ProductVariantSchema.parse(invalid)).toThrow()
+        })
+
+        it('should reject variant without gumroadVariantId field', () => {
+            const invalid = {
+                name: 'Pro Version',
+                price: 199.99,
+                priceDisplay: '€199.99',
+                description: 'Pro features',
+                gumroadUrl: 'https://gumroad.com/pro',
+                paymentFrequency: null,
+                prices: null
             }
             expect(() => ProductVariantSchema.parse(invalid)).toThrow()
         })
@@ -278,7 +315,7 @@ describe('Product Schema Validation', () => {
     })
 
     describe('StatsSchema', () => {
-        it('should accept valid stats with ratings', () => {
+        it('should accept valid stats with all fields', () => {
             const valid = {
                 userCount: '10,000+',
                 timeSaved: '20 hours/month',
@@ -289,8 +326,10 @@ describe('Product Schema Validation', () => {
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
 
-        it('should accept stats with only ratings', () => {
+        it('should accept stats with null userCount and timeSaved', () => {
             const valid = {
+                userCount: null,
+                timeSaved: null,
                 ratings: {
                     gumroad: [{ id: 'gum-1', rating: 5, date: null }]
                 }
@@ -298,11 +337,30 @@ describe('Product Schema Validation', () => {
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
 
-        it('should accept stats without ratings field (ratings is optional)', () => {
+        it('should accept stats with null ratings', () => {
             const valid = {
-                userCount: '5,000+'
+                userCount: '5,000+',
+                timeSaved: null,
+                ratings: null
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should accept stats with all nullable fields set to null', () => {
+            const valid = {
+                userCount: null,
+                timeSaved: null,
+                ratings: null
+            }
+            expect(() => StatsSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should reject stats without userCount field', () => {
+            const invalid = {
+                timeSaved: null,
+                ratings: null
+            }
+            expect(() => StatsSchema.parse(invalid)).toThrow()
         })
     })
 
@@ -432,6 +490,7 @@ describe('Product Schema Validation', () => {
                 ...validProduct,
                 salesCopy: {
                     tagline: 'Test tagline',
+                    secondaryTagline: null,
                     problem: 'Test problem',
                     problemPoints: ['Point 1'],
                     agitate: 'Test agitate',
@@ -452,7 +511,10 @@ describe('Product Schema Validation', () => {
                     guarantees: [],
                     metaTitle: '',
                     metaDescription: '',
-                    keywords: []
+                    keywords: [],
+                    storytelling: null,
+                    timeline: null,
+                    courseContent: null
                 }
             }
             const result = AggregatedProductSchema.safeParse(valid)

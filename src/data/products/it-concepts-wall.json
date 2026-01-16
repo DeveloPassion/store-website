@@ -17,14 +17,20 @@
             "price": 9.99,
             "priceDisplay": "€9.99",
             "description": "Access to the IT Concepts Wall",
-            "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall?option=i01m7TZl5IAMpDh_90bnYQ%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall?option=i01m7TZl5IAMpDh_90bnYQ%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         },
         {
             "name": "The Board + 1 Hour of Coaching",
             "price": 88.99,
             "priceDisplay": "€88.99",
             "description": "Access to the IT Concepts Wall + 1 hour of personalized coaching",
-            "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall?option=_ZZ5jzXKv0uv_UQesVwAvA%3D%3D"
+            "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall?option=_ZZ5jzXKv0uv_UQesVwAvA%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null
         }
     ],
     "priority": 50,

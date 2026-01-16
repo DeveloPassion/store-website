@@ -34,9 +34,9 @@ export const RedirectEntrySchema = z.object({
     type: RedirectTypeSchema.default('TEMPORARY'),
 
     /**
-     * Optional description for documentation
+     * Nullable description for documentation
      */
-    description: z.string().optional(),
+    description: z.string().nullable(),
 
     /**
      * Whether to include this redirect in sitemap.xml

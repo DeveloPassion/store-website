@@ -129,7 +129,8 @@
                 "subtitle": "More than knowledge management—a complete system for thriving",
                 "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost 200k€ and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. Burnout from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising three kids while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed—what we all need—is a complete system for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a community of practice where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
                 "inspirationPoint": "The moment I realized that knowledge management is the foundation—but clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
-                "icon": "FaLightbulb"
+                "icon": "FaLightbulb",
+                "genesisDate": null
             },
             "creatorJourney": {
                 "title": "20+ Years Building Systems for Everything",
@@ -274,7 +275,8 @@
                 ],
                 "biggerPicture": "We believe knowledge is the ultimate competitive advantage in the age of AI. Those who can capture, organize, connect, and leverage information systematically will thrive—not by working harder, but by working smarter with systems that compound over time.",
                 "icon": "FaRocket"
-            }
+            },
+            "successStories": null
         },
         "timeline": {
             "title": "Your Transformation Journey",
@@ -346,6 +348,7 @@
                     "icon": "🏆"
                 }
             ]
-        }
+        },
+        "courseContent": null
     }
 }

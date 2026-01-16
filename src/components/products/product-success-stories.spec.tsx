@@ -43,8 +43,11 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     paymentFrequencies: null,
     defaultPaymentFrequency: null,
     activeSalesCopyId: 'default',
+    ratingsCount: null,
+    averageRating: null,
     salesCopy: {
         tagline: 'Test tagline',
+        secondaryTagline: null,
         problem: 'Test problem',
         problemPoints: [],
         agitate: 'Test agitate',
@@ -61,7 +64,10 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         guarantees: [],
         metaTitle: '',
         metaDescription: '',
-        keywords: []
+        keywords: [],
+        storytelling: null,
+        timeline: null,
+        courseContent: null
     },
     ...overrides
 })
@@ -78,10 +84,16 @@ describe('ProductSuccessStories Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
                     successStories: {
                         title: 'Success Stories',
+                        subtitle: null,
                         stories: []
-                    }
+                    },
+                    methodology: null,
+                    vision: null
                 }
             }
         })
@@ -94,17 +106,27 @@ describe('ProductSuccessStories Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
                     successStories: {
                         title: 'Customer Success',
+                        subtitle: null,
                         stories: [
                             {
                                 name: 'John Doe',
                                 role: 'CEO',
                                 company: 'Acme Corp',
-                                result: 'Increased productivity by 300% in just 3 months.'
+                                result: 'Increased productivity by 300% in just 3 months.',
+                                metrics: null,
+                                quote: null,
+                                image: null,
+                                avatarUrl: null
                             }
                         ]
-                    }
+                    },
+                    methodology: null,
+                    vision: null
                 }
             }
         })
@@ -121,16 +143,27 @@ describe('ProductSuccessStories Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
                     successStories: {
                         title: 'Success',
+                        subtitle: null,
                         stories: [
                             {
                                 name: 'Jane',
+                                role: null,
+                                company: null,
                                 result: 'Amazing results achieved.',
-                                metrics: [{ label: 'saved', value: '10 hours/week', icon: '⏰' }]
+                                metrics: [{ label: 'saved', value: '10 hours/week', icon: '⏰' }],
+                                quote: null,
+                                image: null,
+                                avatarUrl: null
                             }
                         ]
-                    }
+                    },
+                    methodology: null,
+                    vision: null
                 }
             }
         })
@@ -145,16 +178,27 @@ describe('ProductSuccessStories Component', () => {
             salesCopy: {
                 ...createMockProduct().salesCopy!,
                 storytelling: {
+                    originStory: null,
+                    creatorJourney: null,
+                    transformationArc: null,
                     successStories: {
                         title: 'Success',
+                        subtitle: null,
                         stories: [
                             {
                                 name: 'Mike',
+                                role: null,
+                                company: null,
                                 result: 'Great results here.',
-                                quote: 'This changed my life!'
+                                metrics: null,
+                                quote: 'This changed my life!',
+                                image: null,
+                                avatarUrl: null
                             }
                         ]
-                    }
+                    },
+                    methodology: null,
+                    vision: null
                 }
             }
         })

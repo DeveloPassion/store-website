@@ -113,7 +113,7 @@ const ProductTransformationArc: React.FC<ProductTransformationArcProps> = ({ pro
                 <motion.div variants={itemVariants}>
                     <SectionHeader
                         title={transformationArc.title}
-                        subtitle={transformationArc.subtitle}
+                        subtitle={transformationArc.subtitle ?? undefined}
                     />
                 </motion.div>
 

@@ -4,7 +4,12 @@
             "id": "testimonial-1",
             "author": "Julien Dambron",
             "quote": "Big thanks. Truly deep. Truly useful. You nailed why journaling works",
-            "featured": true
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }

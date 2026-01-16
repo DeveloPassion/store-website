@@ -25,14 +25,17 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
     const [isVisible, setIsVisible] = useState(false)
 
     // Use controlled state if provided, otherwise fall back to defaults
-    const selectedVariant = controlledVariant ||
-        product.variants?.[0] || {
-            name: 'Standard',
-            price: product.price,
-            priceDisplay: product.priceDisplay,
-            description: '',
-            gumroadUrl: product.gumroadUrl
-        }
+    const defaultVariant: ProductVariant = product.variants?.[0] || {
+        name: 'Standard',
+        price: product.price,
+        priceDisplay: product.priceDisplay,
+        description: '',
+        gumroadUrl: product.gumroadUrl,
+        gumroadVariantId: null,
+        paymentFrequency: null,
+        prices: null
+    }
+    const selectedVariant = controlledVariant || defaultVariant
 
     const selectedFrequency = controlledFrequency || product.defaultPaymentFrequency || 'monthly'
     const isFree = product.price === 0 || product.priceTier === 'free'

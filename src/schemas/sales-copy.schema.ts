@@ -13,11 +13,11 @@ import { CourseContentSchema } from './course-content.schema.js'
  * 2. Aggregated products: products.json (nested as salesCopy object)
  *
  * All fields are strictly required except:
- * - secondaryTagline: optional (can be undefined, null, or string)
+ * - secondaryTagline: nullable (can be null or string)
  * - SEO fields: required (keywords can be empty array)
- * - storytelling: optional (can be undefined, null, or StorytellingSchema object)
- * - timeline: optional (can be undefined, null, or TimelineSchema object)
- * - courseContent: optional (can be undefined, null, or CourseContentSchema object)
+ * - storytelling: nullable (can be null or StorytellingSchema object)
+ * - timeline: nullable (can be null or TimelineSchema object)
+ * - courseContent: nullable (can be null or CourseContentSchema object)
  *
  * Fields include:
  * - Identity: tagline, secondaryTagline
@@ -33,7 +33,7 @@ import { CourseContentSchema } from './course-content.schema.js'
 export const SalesCopyDataSchema = z.object({
     // Identity
     tagline: z.string().min(1, 'Tagline is required'),
-    secondaryTagline: z.string().nullish(),
+    secondaryTagline: z.string().nullable(),
 
     // Marketing Copy (PAS Framework) - All strictly required
     problem: z.string().min(1, 'Problem statement is required'),
@@ -62,14 +62,14 @@ export const SalesCopyDataSchema = z.object({
     metaDescription: z.string(),
     keywords: z.array(z.string()),
 
-    // Storytelling - Optional (all 6 sections optional within)
-    storytelling: StorytellingSchema.nullish(),
+    // Storytelling - Nullable (all 6 sections nullable within)
+    storytelling: StorytellingSchema.nullable(),
 
-    // Timeline - Optional transformation journey showing time-based milestones
-    timeline: TimelineSchema.nullish(),
+    // Timeline - Nullable transformation journey showing time-based milestones
+    timeline: TimelineSchema.nullable(),
 
-    // Course Content - Optional module/section structure for course products
-    courseContent: CourseContentSchema.nullish()
+    // Course Content - Nullable module/section structure for course products
+    courseContent: CourseContentSchema.nullable()
 })
 
 /**

@@ -236,8 +236,11 @@ describe('buildGumroadUrlFromProduct', () => {
         paymentFrequencies: null,
         defaultPaymentFrequency: null,
         activeSalesCopyId: 'default',
+        ratingsCount: null,
+        averageRating: null,
         salesCopy: {
             tagline: 'Test',
+            secondaryTagline: null,
             problem: 'Test',
             problemPoints: ['Test'],
             agitate: 'Test',
@@ -254,7 +257,10 @@ describe('buildGumroadUrlFromProduct', () => {
             guarantees: [],
             metaTitle: '',
             metaDescription: '',
-            keywords: []
+            keywords: [],
+            storytelling: null,
+            timeline: null,
+            courseContent: null
         }
     }
 
@@ -281,7 +287,9 @@ describe('buildGumroadUrlFromProduct', () => {
                     priceDisplay: '€49',
                     description: 'Basic version',
                     gumroadUrl: 'https://gumroad.com/l/test-product',
-                    gumroadVariantId: 'basic'
+                    gumroadVariantId: 'basic',
+                    paymentFrequency: null,
+                    prices: null
                 },
                 {
                     name: 'Premium',
@@ -289,7 +297,9 @@ describe('buildGumroadUrlFromProduct', () => {
                     priceDisplay: '€99',
                     description: 'Premium version',
                     gumroadUrl: 'https://gumroad.com/l/test-product',
-                    gumroadVariantId: 'premium'
+                    gumroadVariantId: 'premium',
+                    paymentFrequency: null,
+                    prices: null
                 }
             ]
         }
@@ -314,7 +324,9 @@ describe('buildGumroadUrlFromProduct', () => {
                         priceDisplay: '€99',
                         description: 'Premium',
                         gumroadUrl: 'https://gumroad.com/l/test-premium',
-                        gumroadVariantId: 'premium'
+                        gumroadVariantId: 'premium',
+                        paymentFrequency: null,
+                        prices: null
                     }
                 ]
             }
@@ -353,7 +365,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         description: 'Monthly plan',
                         gumroadUrl: 'https://gumroad.com/l/test-product',
                         gumroadVariantId: 'monthly-plan',
-                        paymentFrequency: 'monthly'
+                        paymentFrequency: 'monthly',
+                        prices: null
                     }
                 ]
             }
@@ -373,7 +386,9 @@ describe('buildGumroadUrlFromProduct', () => {
                         priceDisplay: '€9.99',
                         description: 'Plan',
                         gumroadUrl: 'https://gumroad.com/l/test',
-                        paymentFrequency: 'monthly'
+                        gumroadVariantId: null,
+                        paymentFrequency: 'monthly',
+                        prices: null
                     }
                 ]
             }
@@ -402,7 +417,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         description: 'Explorer tier',
                         gumroadUrl: 'https://gumroad.com/l/test',
                         gumroadVariantId: 'explorer',
-                        paymentFrequency: 'monthly'
+                        paymentFrequency: 'monthly',
+                        prices: null
                     },
                     {
                         name: 'Pro',
@@ -411,7 +427,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         description: 'Pro tier',
                         gumroadUrl: 'https://gumroad.com/l/test',
                         gumroadVariantId: 'pro',
-                        paymentFrequency: 'monthly'
+                        paymentFrequency: 'monthly',
+                        prices: null
                     }
                 ]
             }
@@ -437,8 +454,10 @@ describe('buildGumroadUrlFromProduct', () => {
                         price: 99,
                         priceDisplay: '€99',
                         description: 'Version',
-                        gumroadUrl: 'https://gumroad.com/l/test'
-                        // No gumroadVariantId
+                        gumroadUrl: 'https://gumroad.com/l/test',
+                        gumroadVariantId: null,
+                        paymentFrequency: null,
+                        prices: null
                     }
                 ]
             }

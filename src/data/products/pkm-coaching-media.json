@@ -9,7 +9,11 @@
             "description": "A comprehensive free workshop covering Obsidian from beginner to advanced level in 2.5 hours",
             "order": 0,
             "group": "cover",
-            "youtubeId": "DOy4dTLBHBQ"
+            "youtubeId": "DOy4dTLBHBQ",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
         },
         {
             "id": "cover-1736859000000",
@@ -20,7 +24,11 @@
             "order": 1,
             "group": "cover",
             "width": 800,
-            "height": 400
+            "height": 400,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
         }
     ]
 }
