@@ -124,7 +124,7 @@
                 "subtitle": "Why I created this course",
                 "story": "After selling hundreds of copies of the Obsidian Starter Kit, I noticed a pattern. The same question kept appearing in my inbox, over and over: 'This looks amazing, but how do I actually use it?' People had the templates, the folder structure, the plugins. But they needed to see it in action. They needed someone to walk them through it, step by step, explaining not just what to do but why. That's why I created this course. It's the video companion I wish I had when I started. 2.5 hours of clear, practical instruction that shows exactly how everything works together.",
                 "inspirationPoint": "The question that launched a thousand notes: 'How do I actually use this?'",
-                "icon": null,
+                "icon": "💡",
                 "genesisDate": null
             },
             "methodology": {
@@ -134,31 +134,31 @@
                     {
                         "title": "See the Big Picture First",
                         "description": "Before diving into features, understand how Obsidian fits into your knowledge work. No tool exists in isolation.",
-                        "icon": null,
+                        "icon": "🎯",
                         "order": 0
                     },
                     {
                         "title": "Learn Methods as Partners, Not Competitors",
                         "description": "PARA for organization. Zettelkasten for thinking. Johnny Decimal for navigation. They're not competing systems. They complement each other.",
-                        "icon": null,
+                        "icon": "🤝",
                         "order": 1
                     },
                     {
                         "title": "Watch Real Usage, Not Sanitized Demos",
                         "description": "Every demonstration uses actual notes, real workflows, and practical examples from a vault with 10,000+ notes.",
-                        "icon": null,
+                        "icon": "👀",
                         "order": 2
                     },
                     {
                         "title": "Understand Why, Then How",
                         "description": "For every technique, I explain the reasoning behind it. When you understand why, the how becomes obvious.",
-                        "icon": null,
+                        "icon": "🧠",
                         "order": 3
                     },
                     {
                         "title": "Build Simple Systems That Scale",
                         "description": "The best PKM systems are surprisingly simple. Complexity is the enemy of consistency. Start simple, stay simple.",
-                        "icon": null,
+                        "icon": "📈",
                         "order": 4
                     }
                 ],
@@ -177,7 +177,7 @@
                         "Frustrated by conflicting advice",
                         "Uncertain if you're doing it right"
                     ],
-                    "icon": null
+                    "icon": "😰"
                 },
                 "during": {
                     "title": "During the Course",
@@ -188,7 +188,7 @@
                         "Methods explained as integrated system",
                         "Simplicity emerging from apparent complexity"
                     ],
-                    "icon": null
+                    "icon": "🎓"
                 },
                 "after": {
                     "title": "After Completing",
@@ -199,7 +199,7 @@
                         "Foundation that grows with you",
                         "Mindset shift: simplicity over complexity"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 },
                 "timeline": "2.5 hours of focused learning"
             },
@@ -222,7 +222,7 @@
                         "Basic navigation confident",
                         "Know where everything lives"
                     ],
-                    "icon": null
+                    "icon": "⚙️"
                 },
                 {
                     "id": "milestone-2",
@@ -235,7 +235,7 @@
                         "Local and global graph views understood",
                         "Backlinks make sense"
                     ],
-                    "icon": null
+                    "icon": "🔗"
                 },
                 {
                     "id": "milestone-3",
@@ -248,7 +248,7 @@
                         "Folder structure designed",
                         "Tags working for you"
                     ],
-                    "icon": null
+                    "icon": "📁"
                 },
                 {
                     "id": "milestone-4",
@@ -261,7 +261,7 @@
                         "YAML metadata understood",
                         "Auto Note Mover working"
                     ],
-                    "icon": null
+                    "icon": "🗃️"
                 },
                 {
                     "id": "milestone-5",
@@ -274,7 +274,7 @@
                         "Weekly/monthly reviews understood",
                         "Knowledge extraction flowing"
                     ],
-                    "icon": null
+                    "icon": "📝"
                 },
                 {
                     "id": "milestone-6",
@@ -287,14 +287,14 @@
                         "Complete system understanding",
                         "Ready to scale to 10,000+ notes"
                     ],
-                    "icon": null
+                    "icon": "🏆"
                 }
             ]
         },
         "courseContent": {
             "sectionTitle": "Complete Course Curriculum",
             "sectionDescription": "Hands-on video training organized into clear learning modules",
-            "sectionIcon": null,
+            "sectionIcon": "🎓",
             "totalDuration": "2.5 hours",
             "difficulty": "beginner",
             "prerequisites": [
@@ -306,97 +306,97 @@
                 {
                     "name": "Getting Started",
                     "description": "Installation, setup, and understanding Obsidian's interface",
-                    "icon": null,
+                    "icon": "🚀",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Introduction",
                             "duration": null,
-                            "icon": null,
+                            "icon": "👋",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Installing Obsidian",
                             "duration": null,
-                            "icon": null,
+                            "icon": "💾",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Downloading and Installing the Vault",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📥",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Opening the Vault",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔓",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Obsidian User Interface",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🖥️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Left Toolbar & Top Buttons",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔧",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Editor, Sidebar & Tabs",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📑",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Splitting the Editor View",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🪟",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "View and Edit Modes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "👁️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Using One or Multiple Vaults",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🗄️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Settings & Community Plugins",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⚙️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Keep Things Simple",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎯",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Obsidian Help",
                             "duration": null,
-                            "icon": null,
+                            "icon": "❓",
                             "description": null,
                             "url": null
                         }
@@ -405,41 +405,41 @@
                 {
                     "name": "Markdown Mastery",
                     "description": "Complete guide to Markdown syntax and the value of plain text",
-                    "icon": null,
+                    "icon": "📝",
                     "duration": null,
                     "sections": [
                         {
                             "name": "The Value of Markdown",
                             "duration": null,
-                            "icon": null,
+                            "icon": "💎",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Markdown Syntax Introduction",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📝",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "More About Markdown",
                             "duration": null,
-                            "icon": null,
+                            "icon": "➕",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Creating Links",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔗",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Standard Markdown Links",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🌐",
                             "description": null,
                             "url": null
                         }
@@ -448,62 +448,62 @@
                 {
                     "name": "Links and Graph Views",
                     "description": "Building your knowledge network through connections",
-                    "icon": null,
+                    "icon": "🔗",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Local Graph View",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔍",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Navigating Forward and Back",
                             "duration": null,
-                            "icon": null,
+                            "icon": "↔️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Outgoing Links and Backlinks",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔄",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Global Graph View",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🌐",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Configuring the Graph View",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⚙️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Linking to Non-Existent Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "✨",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Creating Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "➕",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Home Note",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🏠",
                             "description": null,
                             "url": null
                         }
@@ -512,62 +512,62 @@
                 {
                     "name": "Navigation and Discovery",
                     "description": "Finding, organizing, and exploring your notes efficiently",
-                    "icon": null,
+                    "icon": "🔍",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Hiding/Showing Ribbon Icons",
                             "duration": null,
-                            "icon": null,
+                            "icon": "👁️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Finding Duplicate Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📋",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Finding Orphan Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔍",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Exploring Random Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎲",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Quickly Opening or Creating Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⚡",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Command Palette",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎹",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Tagging Notes & Tag Panel",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🏷️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Search View",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔎",
                             "description": null,
                             "url": null
                         }
@@ -576,76 +576,76 @@
                 {
                     "name": "Folder Structure and Organization",
                     "description": "Johnny Decimal, PARA method, and scalable organization",
-                    "icon": null,
+                    "icon": "📁",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Organizing Files",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📂",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Outline View",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📋",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "The Johnny Decimal System",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔢",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Root Folders",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🌳",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Categories",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🏷️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "The PARA Method",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📊",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Benefits of PARA",
                             "duration": null,
-                            "icon": null,
+                            "icon": "✅",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "The LIFT Principle",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔼",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "PARA Folders in Practice",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🛠️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "The Meta & Resources Folders",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📁",
                             "description": null,
                             "url": null
                         }
@@ -654,34 +654,34 @@
                 {
                     "name": "Working with Notes",
                     "description": "Meeting notes, tasks, people, and contacts",
-                    "icon": null,
+                    "icon": "📋",
                     "duration": null,
                     "sections": [
                         {
                             "name": "The Areas Folder",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🗂️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Meeting Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📝",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Creating Tasks with Markdown",
                             "duration": null,
-                            "icon": null,
+                            "icon": "☑️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "People and Contacts",
                             "duration": null,
-                            "icon": null,
+                            "icon": "👥",
                             "description": null,
                             "url": null
                         }
@@ -690,48 +690,48 @@
                 {
                     "name": "The Zettelkasten Method",
                     "description": "Building a network of connected thinking",
-                    "icon": null,
+                    "icon": "🗃️",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Introduction to Zettelkasten",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📚",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Zettelkasten Principles",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📐",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Fleeting Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "💭",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Literature Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📖",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Permanent Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "💎",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "More on Keeping Things Simple",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎯",
                             "description": null,
                             "url": null
                         }
@@ -740,76 +740,76 @@
                 {
                     "name": "Templates and Automation",
                     "description": "Speed up workflows with Templater, metadata, and automation",
-                    "icon": null,
+                    "icon": "⚡",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Avoid Breaking the Vault",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⚠️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Moving Notes Automatically (Auto Note Mover)",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔄",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Templating and Templates",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📄",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Using Templates (Templater Plugin)",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔌",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "YAML Metadata & Note Properties",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📊",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Adding Tags Through Metadata",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🏷️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Note Aliases",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔀",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Additional YAML Properties",
                             "duration": null,
-                            "icon": null,
+                            "icon": "➕",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Benefits of Metadata",
                             "duration": null,
-                            "icon": null,
+                            "icon": "✅",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Templates Deep Dive",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔬",
                             "description": null,
                             "url": null
                         }
@@ -818,62 +818,62 @@
                 {
                     "name": "Advanced Features",
                     "description": "Dataview, MoCs, atomic notes, and advanced tagging",
-                    "icon": null,
+                    "icon": "🔧",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Special Tags",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⭐",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Dataview Plugin",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📊",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Maps of Content (MoCs)",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🗺️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Capturing Quotes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "💬",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "More on Tagging",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🏷️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Nesting Tags",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📂",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Attachments",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📎",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Atomic Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⚛️",
                             "description": null,
                             "url": null
                         }
@@ -882,76 +882,76 @@
                 {
                     "name": "Daily Practice and Journaling",
                     "description": "Building sustainable habits with daily notes and periodic reviews",
-                    "icon": null,
+                    "icon": "📅",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Journaling",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📔",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Planning Ahead",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🗓️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Using Fewer Tools",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎯",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Daily Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📅",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Changed Notes Plugin",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔌",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Notes vs Time",
                             "duration": null,
-                            "icon": null,
+                            "icon": "⏰",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Weekly, Monthly & Yearly Notes",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📆",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Knowledge Extraction",
                             "duration": null,
-                            "icon": null,
+                            "icon": "💎",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Linking Discoveries to Time",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔗",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Meta Notes & Top of Mind",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🧠",
                             "description": null,
                             "url": null
                         }
@@ -960,48 +960,48 @@
                 {
                     "name": "Task Management and Visual Tools",
                     "description": "Kanban boards, Canvas, Excalidraw, and managing your work",
-                    "icon": null,
+                    "icon": "✅",
                     "duration": null,
                     "sections": [
                         {
                             "name": "Routines",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🔁",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Task Management",
                             "duration": null,
-                            "icon": null,
+                            "icon": "☑️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Kanban Plugin",
                             "duration": null,
-                            "icon": null,
+                            "icon": "📋",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Canvas",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎨",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Excalidraw Plugin",
                             "duration": null,
-                            "icon": null,
+                            "icon": "✏️",
                             "description": null,
                             "url": null
                         },
                         {
                             "name": "Conclusion & More Recommendations",
                             "duration": null,
-                            "icon": null,
+                            "icon": "🎓",
                             "description": null,
                             "url": null
                         }

@@ -105,7 +105,7 @@
                 "story": "After years of creating courses, kits, and communities, I kept receiving the same message: 'Your content is great, but I'm still stuck on MY specific situation.' I realized that even the best courses can't diagnose individual challenges. Some people don't need more information—they need someone to look at THEIR mess and help them see the patterns. Someone who's actually lived this for decades, not just theorized about it. That's why I started coaching. Not to replace self-learning, but to accelerate it. One focused hour with an expert can shortcut months of trial-and-error.",
                 "inspirationPoint": null,
                 "genesisDate": null,
-                "icon": null
+                "icon": "💡"
             },
             "creatorJourney": {
                 "title": "20+ Years of Real Practice",
@@ -124,7 +124,7 @@
                     "Created Obsidian Starter Kit, Knowledge Worker Kit, Knowii"
                 ],
                 "credentials": null,
-                "icon": null
+                "icon": "🛤️"
             },
             "transformationArc": {
                 "title": "The Coaching Transformation",
@@ -138,7 +138,7 @@
                         "Wasting time on trial-and-error that leads nowhere",
                         "Feeling like everyone else 'gets it' except you"
                     ],
-                    "icon": null
+                    "icon": "😰"
                 },
                 "during": {
                     "title": "During Our Session",
@@ -149,7 +149,7 @@
                         "Clear explanation of WHY certain approaches will work",
                         "Collaborative design of YOUR personalized system"
                     ],
-                    "icon": null
+                    "icon": "🔧"
                 },
                 "after": {
                     "title": "After Coaching",
@@ -160,7 +160,7 @@
                         "A system designed for YOUR life, not someone else's",
                         "Excitement to finally make real progress"
                     ],
-                    "icon": null
+                    "icon": "✨"
                 },
                 "timeline": null
             },
@@ -172,25 +172,25 @@
                     {
                         "title": "Listen and Diagnose",
                         "description": "I start by understanding YOUR situation. Your work, your goals, your challenges, and what you've already tried. No assumptions.",
-                        "icon": null,
+                        "icon": "👂",
                         "order": 0
                     },
                     {
                         "title": "Apply First Principles",
                         "description": "Instead of prescribing my system, I help you understand WHY certain approaches work. This lets you build something that fits YOUR reality.",
-                        "icon": null,
+                        "icon": "🧱",
                         "order": 1
                     },
                     {
                         "title": "Design Your System",
                         "description": "Together, we sketch out YOUR system. Not a copy of mine. Tool-agnostic principles that work whether you use Obsidian, Notion, or anything else.",
-                        "icon": null,
+                        "icon": "✏️",
                         "order": 2
                     },
                     {
                         "title": "Create Action Plan",
                         "description": "You leave with specific, immediate next steps. Not vague advice. Concrete actions you can take today.",
-                        "icon": null,
+                        "icon": "📋",
                         "order": 3
                     }
                 ],
@@ -213,7 +213,7 @@
                         "Actionable plan with specific next steps",
                         "Confidence to start implementing immediately"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 {
                     "id": "week-1",
@@ -225,7 +225,7 @@
                         "Early wins building confidence",
                         "Questions answered via follow-up support"
                     ],
-                    "icon": null
+                    "icon": "🌱"
                 },
                 {
                     "id": "month-1",
@@ -237,7 +237,7 @@
                         "Trust in your approach replacing doubt",
                         "Noticeable reduction in information anxiety"
                     ],
-                    "icon": null
+                    "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
@@ -249,7 +249,7 @@
                         "Creating and publishing with less friction",
                         "Knowledge compounds into real advantage"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 }
             ]
         },

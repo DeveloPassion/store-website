@@ -131,7 +131,7 @@
                 "subtitle": "From burnout to something that actually works",
                 "story": "I didn't create the Knowledge Worker Kit because I'm naturally organized. I created it because I was drowning. As a shy, introverted teenager, I found refuge in writing and building websites. Decades later, I was still struggling. A failed startup cost me 200k euros and two years. I burned out trying to do everything through sheer willpower. The transition from introverted engineer to leader was painful. Three kids while building a business. Losing loved ones and questioning what really matters. These experiences forced me to build systems that actually work. Not theoretical frameworks, but practical systems I use every day. Today, I manage nearly 10,000 notes in my personal vault and I'm almost always calm, despite a demanding life. The Knowledge Worker Kit is everything I wish I had when I started. It's 20+ years of building systems, trial, error, and hard lessons distilled into something you can use.",
                 "inspirationPoint": "The moment I realized I needed systems that worked even when motivation failed",
-                "icon": null,
+                "icon": "🔥",
                 "genesisDate": null
             },
             "creatorJourney": {
@@ -154,7 +154,7 @@
                     "IT Solution Architect at a major financial organization"
                 ],
                 "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3",
-                "icon": null
+                "icon": "🚀"
             },
             "transformationArc": {
                 "title": "Your Transformation",
@@ -169,7 +169,7 @@
                         "Starting from zero on every challenge",
                         "Feeling behind despite constant effort"
                     ],
-                    "icon": null
+                    "icon": "😰"
                 },
                 "during": {
                     "title": "Building the Foundation",
@@ -181,7 +181,7 @@
                         "Quick wins that build momentum",
                         "Habits that make progress automatic"
                     ],
-                    "icon": null
+                    "icon": "🔧"
                 },
                 "after": {
                     "title": "The Compounding Effect",
@@ -193,7 +193,7 @@
                         "Results that finally match your capabilities",
                         "Calm confidence in an uncertain world"
                     ],
-                    "icon": null
+                    "icon": "✨"
                 },
                 "timeline": "The transformation happens gradually, then suddenly. Small changes compound into real results."
             },
@@ -204,25 +204,25 @@
                     {
                         "title": "Clarity First",
                         "description": "Before you can be productive, you need to know what matters. Define your values, principles, goals, and priorities. Without this foundation, all the systems in the world won't help. You'll just be efficiently doing the wrong things.",
-                        "icon": null,
+                        "icon": "🎯",
                         "order": 0
                     },
                     {
                         "title": "Systems Beat Willpower",
                         "description": "Stop relying on motivation that comes and goes. Build habits, routines, and systems that make progress automatic. The best system is one that works even on your worst days.",
-                        "icon": null,
+                        "icon": "⚙️",
                         "order": 1
                     },
                     {
                         "title": "Knowledge as Leverage",
                         "description": "Your knowledge system is your advantage. Build a second brain that captures, organizes, and connects what you learn. Make your knowledge compound instead of fade away.",
-                        "icon": null,
+                        "icon": "🧠",
                         "order": 2
                     },
                     {
                         "title": "Connect Everything",
                         "description": "Ideas in isolation have limited value. Link your knowledge, connect with your community, build relationships that create opportunities. Breakthroughs happen at intersections.",
-                        "icon": null,
+                        "icon": "🔗",
                         "order": 3
                     }
                 ],
@@ -237,17 +237,17 @@
                     {
                         "title": "Battle-Tested Over Theoretical",
                         "description": "Every system here is something I use personally. If it doesn't work in real life with kids, deadlines, and chaos, it doesn't make the cut.",
-                        "icon": null
+                        "icon": "⚔️"
                     },
                     {
                         "title": "Comprehensive Over Fragmentary",
                         "description": "You don't need another isolated tip. You need a complete system where every piece connects. That's what this delivers.",
-                        "icon": null
+                        "icon": "🔄"
                     },
                     {
                         "title": "Evergreen Over Static",
                         "description": "The kit keeps growing. New content, new workshops, new resources. Buy once, benefit forever as the value compounds.",
-                        "icon": null
+                        "icon": "🌱"
                     }
                 ],
                 "futureGoals": [
@@ -257,7 +257,7 @@
                     "Help 10,000+ knowledge workers reach their potential"
                 ],
                 "biggerPicture": "In a world where AI is changing everything, your ability to manage knowledge, think clearly, and connect ideas is more valuable than ever. The Knowledge Worker Kit isn't just about productivity. It's about building the skills that make you irreplaceable.",
-                "icon": null
+                "icon": "🌟"
             },
             "successStories": null
         },
@@ -276,7 +276,7 @@
                         "Join the community and introduce yourself",
                         "Access all your bonuses"
                     ],
-                    "icon": null
+                    "icon": "🎯"
                 },
                 {
                     "id": "month-1",
@@ -289,7 +289,7 @@
                         "First habits taking hold",
                         "Initial organization improvements visible"
                     ],
-                    "icon": null
+                    "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
@@ -302,7 +302,7 @@
                         "Projects feel more organized",
                         "Time previously wasted is now recovered"
                     ],
-                    "icon": null
+                    "icon": "📈"
                 },
                 {
                     "id": "month-6",
@@ -315,7 +315,7 @@
                         "Career and life decisions feel clear",
                         "You're helping others implement similar systems"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 }
             ]
         },

@@ -109,7 +109,7 @@
                 "story": "In my 30+ years of building software, I've seen too much brilliant code go to waste. Features that took weeks to build, never used. Perfect implementations of the wrong solution. I've been on both sides of that frustration.\n\nThe hard truth? Technical skills alone aren't enough. You can write beautiful code, but if it doesn't solve what clients actually need, you've wasted everyone's time. Including your own.\n\nThis book exists because I want you to stop building the wrong things. I want you to understand how to discover what users truly need, how to think about design, and how to create specifications that lead to success. These are the skills that separate developers who ship features from developers who ship value.",
                 "inspirationPoint": "Stop building the wrong things. Start delivering real value.",
                 "genesisDate": null,
-                "icon": null
+                "icon": "💡"
             },
             "creatorJourney": {
                 "title": "Lessons from Building Real Products",
@@ -126,7 +126,7 @@
                     "Applied UX principles to ship software users actually love"
                 ],
                 "credentials": "Software craftsperson with 30+ years of coding experience and deep understanding of user-centered development",
-                "icon": null
+                "icon": "🛤️"
             },
             "transformationArc": null,
             "successStories": null,
@@ -137,25 +137,25 @@
                     {
                         "title": "Discover Real Needs",
                         "description": "Figure out what clients truly need, not just what they're asking for",
-                        "icon": null,
+                        "icon": "🔍",
                         "order": 0
                     },
                     {
                         "title": "Think Like Users",
                         "description": "Apply User-Centered Design and Jobs-To-Be-Done to see from their perspective",
-                        "icon": null,
+                        "icon": "👥",
                         "order": 1
                     },
                     {
                         "title": "Validate Before Building",
                         "description": "Use Design Sprints and MVP approaches to test assumptions before committing",
-                        "icon": null,
+                        "icon": "✅",
                         "order": 2
                     },
                     {
                         "title": "Specify Clearly",
                         "description": "Create specifications that align everyone and guide development toward the right outcome",
-                        "icon": null,
+                        "icon": "📋",
                         "order": 3
                     }
                 ],
@@ -170,22 +170,22 @@
                     {
                         "title": "Understanding before implementation",
                         "description": "Take time to discover real needs before committing to solutions",
-                        "icon": null
+                        "icon": "🔍"
                     },
                     {
                         "title": "User needs over technical elegance",
                         "description": "What users need matters more than impressive technical solutions",
-                        "icon": null
+                        "icon": "👥"
                     },
                     {
                         "title": "Validation over assumption",
                         "description": "Test assumptions with real feedback instead of guessing",
-                        "icon": null
+                        "icon": "✅"
                     },
                     {
                         "title": "Value delivered over code shipped",
                         "description": "Measure success by outcomes, not lines of code",
-                        "icon": null
+                        "icon": "📈"
                     }
                 ],
                 "futureGoals": [
@@ -194,7 +194,7 @@
                     "Create developers who consistently deliver what users actually want"
                 ],
                 "biggerPicture": "The software industry wastes enormous amounts of time and money building features nobody needs. By teaching developers to understand client needs, we can change that. One developer at a time.",
-                "icon": null
+                "icon": "🎯"
             }
         },
         "timeline": {
@@ -211,7 +211,7 @@
                         "See the client-developer communication gap clearly",
                         "Know what skills you need to develop"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 {
                     "id": "week-1",
@@ -223,7 +223,7 @@
                         "Ask better questions during requirements discussions",
                         "Spot potential misalignments early"
                     ],
-                    "icon": null
+                    "icon": "👀"
                 },
                 {
                     "id": "month-1",
@@ -235,7 +235,7 @@
                         "Create user personas and scenarios",
                         "Write specifications that actually guide development"
                     ],
-                    "icon": null
+                    "icon": "📋"
                 },
                 {
                     "id": "month-3",
@@ -247,7 +247,7 @@
                         "Less rework and misalignment",
                         "Become the developer clients trust"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 }
             ]
         },

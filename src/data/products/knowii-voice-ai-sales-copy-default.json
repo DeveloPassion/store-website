@@ -135,7 +135,7 @@
                 "subtitle": "From typing pain to voice-first productivity",
                 "story": "I type fast. Really fast. But it wasn't enough. Working with AI daily, I realized I was the bottleneck. AI works brilliantly when given the right context - and providing that context by typing was agonizingly slow. I'd have a complete thought, know exactly what I wanted to say, and watch it leak away as my fingers hunted for keys. Worse, after years of heavy keyboard use, my hands started hurting. At 40+, the physical toll of all-day typing became impossible to ignore. I tried every voice-to-text tool out there: cloud services at $20/month that sent my voice to someone else's servers, browser extensions that only worked in Chrome, mobile apps that didn't talk to my computer. They all had the same problems - no privacy, subscription fees, usage limits, limited app support. I wanted something different. Something that respects privacy. Something I could own, not rent. Something that works everywhere. So I decided to build it myself. I learned Rust and Tauri, built an MVP, then discovered an open source project called Handy that was further along. I forked it and made it my own - revamping the UI, the UX, adding features, building Linux support, creating a roadmap focused on Knowledge Management and AI integration. Knowii Voice AI is what I wanted to exist in the world.",
                 "inspirationPoint": "The moment I realized I could speak a detailed AI prompt in 30 seconds that would have taken 5 minutes to type, and get dramatically better results, I knew this tool had to exist.",
-                "icon": null,
+                "icon": "🎤",
                 "genesisDate": null
             },
             "methodology": {
@@ -147,19 +147,19 @@
                     {
                         "title": "Local-First Everything",
                         "description": "Your voice never leaves your computer by default. The AI models run locally. Your recordings stay on your machine. No internet required after the one-time model download. When I say private, I mean private.",
-                        "icon": null,
+                        "icon": "🔒",
                         "order": 0
                     },
                     {
                         "title": "Own, Don't Rent",
                         "description": "Pay 49 euros once. Own it forever. Every update, every new feature, included. No subscription. No usage caps. No 'premium tier.' Compare that to cloud services at 15-30 euros per month. That's 180-360 euros per year, 900-1,800 euros over five years. You'll save that money and actually own your tool.",
-                        "icon": null,
+                        "icon": "🏠",
                         "order": 1
                     },
                     {
                         "title": "Works Everywhere",
                         "description": "Not just Google Docs. Not just Chrome. Every application. Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, VS Code, your terminal. If you can put your cursor there and type, you can speak there instead.",
-                        "icon": null,
+                        "icon": "🌍",
                         "order": 2
                     }
                 ]

@@ -129,7 +129,7 @@
                 "subtitle": "More than knowledge management. A complete system for thriving.",
                 "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost 200k€ and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. Burnout from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising three kids while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a complete system for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a community of practice where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
                 "inspirationPoint": "Knowledge management is the foundation. But clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
-                "icon": null,
+                "icon": "FaLightbulb",
                 "genesisDate": null
             },
             "creatorJourney": {
@@ -154,7 +154,7 @@
                     "2,000+ products sold, 340+ community members"
                 ],
                 "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3. Dedicated to helping knowledge workers build complete systems for clarity, learning, organization, and execution.",
-                "icon": null
+                "icon": "FaRoad"
             },
             "transformationArc": {
                 "title": "From Chaos to Clarity",
@@ -169,7 +169,7 @@
                         "Hours lost searching for 'that thing I saved somewhere'",
                         "Mental exhaustion from trying to remember everything"
                     ],
-                    "icon": null
+                    "icon": "FaExclamationTriangle"
                 },
                 "during": {
                     "title": "The Transformation",
@@ -181,7 +181,7 @@
                         "Live events provide ongoing learning and accountability",
                         "Expert access ensures you never stay stuck for long"
                     ],
-                    "icon": null
+                    "icon": "FaSync"
                 },
                 "after": {
                     "title": "After Implementing the System",
@@ -193,7 +193,7 @@
                         "Consistent content creation without burning out",
                         "Professional advancement through better thinking and decisions"
                     ],
-                    "icon": null
+                    "icon": "FaCheckCircle"
                 },
                 "timeline": "Quick wins in the first week, solid foundations by month one, real results within 90 days"
             },
@@ -204,37 +204,37 @@
                     {
                         "title": "Break Free From Information Chaos",
                         "description": "Discover proven systems to capture, organize, and use what truly matters. Learn to eliminate mental clutter by externalizing knowledge into reliable systems instead of trying to hold everything in your head.",
-                        "icon": null,
+                        "icon": "FaUnlock",
                         "order": 0
                     },
                     {
                         "title": "Build Your Knowledge Command Center",
                         "description": "Create your personal knowledge ecosystem with the right tools and workflows. Get set up with professional templates that evolve with your needs. No need to build from scratch or reinvent the wheel.",
-                        "icon": null,
+                        "icon": "FaDatabase",
                         "order": 1
                     },
                     {
                         "title": "Turn Information Into Insights",
                         "description": "Master techniques to connect ideas, generate insights, and unlock creativity that would otherwise remain hidden. Learn to see patterns across domains and turn scattered information into actionable knowledge.",
-                        "icon": null,
+                        "icon": "FaBrain",
                         "order": 2
                     },
                     {
                         "title": "Apply Systems to Real-World Challenges",
                         "description": "Implement your knowledge framework in professional scenarios. Use your system to make better decisions, advance your career, and demonstrate expertise through documented, connected knowledge.",
-                        "icon": null,
+                        "icon": "FaBriefcase",
                         "order": 3
                     },
                     {
                         "title": "Achieve Zen Productivity",
                         "description": "Integrate knowledge management into a holistic approach prioritizing clarity, focus, and mental wellbeing. Experience the peace that comes from sustainable systems instead of constant heroic effort.",
-                        "icon": null,
+                        "icon": "FaYinYang",
                         "order": 4
                     },
                     {
                         "title": "Create Content With Confidence",
                         "description": "Build reliable systems to turn your knowledge into valuable content consistently and efficiently. Turn your accumulated expertise into articles, courses, products, and thought leadership. Without burnout.",
-                        "icon": null,
+                        "icon": "FaPencilAlt",
                         "order": 5
                     }
                 ],
@@ -249,22 +249,22 @@
                     {
                         "title": "Curiosity",
                         "description": "A questioning mindset and eager exploration. We believe the best systems emerge from constantly asking 'why' and 'what if'.",
-                        "icon": null
+                        "icon": "FaSearch"
                     },
                     {
                         "title": "Practical Simplicity",
                         "description": "Clarity over complexity. If it's too complicated, it won't stick. We build systems that actually get used, not impressive frameworks that collect dust.",
-                        "icon": null
+                        "icon": "FaLeaf"
                     },
                     {
                         "title": "Continuous Improvement",
                         "description": "Small tweaks add up to big results. We believe in iteration over perfection, progress over paralysis.",
-                        "icon": null
+                        "icon": "FaArrowUp"
                     },
                     {
                         "title": "Generous Sharing",
                         "description": "Freely sharing what we know. Everyone has something valuable to contribute, and knowledge grows when it's shared.",
-                        "icon": null
+                        "icon": "FaHandsHelping"
                     }
                 ],
                 "futureGoals": [
@@ -274,7 +274,7 @@
                     "Build a movement of systematic creators who prove sustainable success is possible"
                 ],
                 "biggerPicture": "We believe knowledge is the ultimate competitive advantage in the age of AI. Those who can capture, organize, connect, and use information systematically will thrive. Not by working harder, but by working smarter with systems that compound over time.",
-                "icon": null
+                "icon": "FaRocket"
             },
             "successStories": null
         },
@@ -293,7 +293,7 @@
                         "Capture your first ideas using the system",
                         "Join the community and connect with peers"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 },
                 {
                     "id": "month-1",
@@ -306,7 +306,7 @@
                         "First connections between ideas emerging",
                         "Significant reduction in 'where did I save that?' moments"
                     ],
-                    "icon": null
+                    "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
@@ -319,7 +319,7 @@
                         "Noticeable reduction in mental clutter and overwhelm",
                         "Starting to create content from your knowledge base"
                     ],
-                    "icon": null
+                    "icon": "🧠"
                 },
                 {
                     "id": "month-6",
@@ -332,7 +332,7 @@
                         "Recognition as someone who 'has their act together'",
                         "System running smoothly with minimal maintenance"
                     ],
-                    "icon": null
+                    "icon": "💼"
                 },
                 {
                     "id": "year-1",
@@ -345,7 +345,7 @@
                         "Creative output you never thought possible",
                         "Mental clarity and peace that comes from mastery"
                     ],
-                    "icon": null
+                    "icon": "🏆"
                 }
             ]
         },

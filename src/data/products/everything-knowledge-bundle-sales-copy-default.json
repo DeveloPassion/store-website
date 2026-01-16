@@ -125,7 +125,7 @@
                 "subtitle": "For those who want to own, not rent",
                 "story": "When I launched the Knowii Community subscription, I heard from a different kind of customer. They'd say: 'I love your products, but I don't want live events. I don't need community access. I just want to buy everything and learn at my own pace.' Independent learners. Introverts. Busy people who preferred private study over public engagement. Professionals who hated watching subscriptions drain their accounts month after month. They wanted ownership, not rental. One decision, not ongoing commitments. So I made the Everything Knowledge Bundle. Every course, every kit, every workshop, every tool. One purchase, yours forever. You learn when you want, how you want, with no community pressure and no recurring fees. This isn't a downgrade from the subscription. It's a different philosophy: complete ownership for independent learners who know exactly what they want.",
                 "inspirationPoint": "Customers kept asking: 'Can I just buy everything and skip the community?' This is that answer.",
-                "icon": null,
+                "icon": "📦",
                 "genesisDate": null
             },
             "creatorJourney": {
@@ -145,7 +145,7 @@
                     "Half-time business + corporate IT role + 3 kids = still calm and zen"
                 ],
                 "credentials": "Knowledge Management Expert • Author • Coach • IT Solution Architect • 20+ Years Experience",
-                "icon": null
+                "icon": "🛤️"
             },
             "transformationArc": null,
             "methodology": {
@@ -155,31 +155,31 @@
                     {
                         "title": "Foundation: Understand Knowledge Management",
                         "description": "Knowledge Management for Beginners (10+ hours) teaches you the principles, methods, and mindset. PARA, Zettelkasten, Johnny Decimal. Not as competing systems but as complementary tools. This is where you learn WHY before HOW.",
-                        "icon": null,
+                        "icon": "📚",
                         "order": 0
                     },
                     {
                         "title": "Implementation: Build Your System",
                         "description": "The Obsidian Starter Kit gives you a battle-tested vault that implements what you learned. 40+ auto-filing templates, pre-configured plugins, proven workflows. The Obsidian Starter Course (2.5 hours) shows you how everything works together.",
-                        "icon": null,
+                        "icon": "🏗️",
                         "order": 1
                     },
                     {
                         "title": "Expansion: Master Knowledge Work",
                         "description": "The Knowledge Worker Kit covers 13 comprehensive areas: clarity, habits, career, learning, PKM, projects, planning, tasks, focus, development, control, organization, and work. This is where your system becomes your competitive advantage.",
-                        "icon": null,
+                        "icon": "🚀",
                         "order": 2
                     },
                     {
                         "title": "Acceleration: Leverage AI",
                         "description": "The AI Ghostwriter Guide teaches you to train AI to write with your exact voice. Knowii Voice AI lets you capture ideas at the speed of thought. Together, they transform how fast you can create quality content.",
-                        "icon": null,
+                        "icon": "🤖",
                         "order": 3
                     },
                     {
                         "title": "Discovery: Keep Growing",
                         "description": "The PKM Library (2,000+ resources) provides ongoing discovery. The workshops deepen specific skills. Future additions expand your toolkit. Your investment compounds over time.",
-                        "icon": null,
+                        "icon": "🌱",
                         "order": 4
                     }
                 ],
@@ -194,22 +194,22 @@
                     {
                         "title": "Ownership Over Rental",
                         "description": "Pay once, own forever. No subscriptions eating into your budget month after month. Your tools belong to you.",
-                        "icon": null
+                        "icon": "🔑"
                     },
                     {
                         "title": "Privacy Over Performance",
                         "description": "Learn at your own pace, in your own space. No community obligations, no public learning, no pressure to show up.",
-                        "icon": null
+                        "icon": "🔒"
                     },
                     {
                         "title": "Integration Over Isolation",
                         "description": "Products designed to work together, not in isolation. The ecosystem grows over time, with each new addition strengthening the whole.",
-                        "icon": null
+                        "icon": "🔗"
                     },
                     {
                         "title": "One Decision Over Many",
                         "description": "Stop deliberating about which products to buy. Get everything, start anywhere, master at your own pace.",
-                        "icon": null
+                        "icon": "✅"
                     }
                 ],
                 "futureGoals": [
@@ -218,7 +218,7 @@
                     "Serve independent learners who prefer ownership and privacy"
                 ],
                 "biggerPicture": "In a world of subscription fatigue and endless choices, this bundle is a different path. One purchase. Complete system. Lifetime ownership. Learn what you need, when you need it, at your own pace.",
-                "icon": null
+                "icon": "🎯"
             },
             "successStories": null
         },

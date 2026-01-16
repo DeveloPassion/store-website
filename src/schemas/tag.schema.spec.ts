@@ -7,7 +7,7 @@ describe('Tag Schema Validation', () => {
         name: 'AI',
         description: 'Artificial Intelligence tools and resources',
         icon: 'FaRobot',
-        color: '#FF5733',
+        color: 'red-500' as const,
         featured: true,
         priority: 1
     }
@@ -211,44 +211,36 @@ describe('Tag Schema Validation', () => {
     })
 
     describe('TagSchema - Color Validation', () => {
-        it('should accept valid hex color with uppercase', () => {
-            const valid = { ...validTag, color: '#FF5733' }
+        it('should accept valid color key', () => {
+            const valid = { ...validTag, color: 'blue-500' }
             const result = TagSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
 
-        it('should accept valid hex color with lowercase', () => {
-            const valid = { ...validTag, color: '#ff5733' }
-            const result = TagSchema.safeParse(valid)
-            expect(result.success).toBe(true)
+        it('should accept various valid color keys', () => {
+            const validColorKeys = [
+                'red-400',
+                'orange-500',
+                'green-400',
+                'teal-300',
+                'purple-500',
+                'pink-400'
+            ]
+            validColorKeys.forEach((colorKey) => {
+                const valid = { ...validTag, color: colorKey }
+                const result = TagSchema.safeParse(valid)
+                expect(result.success).toBe(true)
+            })
         })
 
-        it('should accept valid hex color with mixed case', () => {
-            const valid = { ...validTag, color: '#Ff5733' }
-            const result = TagSchema.safeParse(valid)
-            expect(result.success).toBe(true)
-        })
-
-        it('should reject hex color without hash', () => {
-            const invalid = { ...validTag, color: 'FF5733' }
+        it('should reject hex color format', () => {
+            const invalid = { ...validTag, color: '#FF5733' }
             const result = TagSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
 
-        it('should reject short hex color', () => {
-            const invalid = { ...validTag, color: '#FFF' }
-            const result = TagSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject long hex color', () => {
-            const invalid = { ...validTag, color: '#FF57331' }
-            const result = TagSchema.safeParse(invalid)
-            expect(result.success).toBe(false)
-        })
-
-        it('should reject invalid hex characters', () => {
-            const invalid = { ...validTag, color: '#GGGGGG' }
+        it('should reject invalid color key', () => {
+            const invalid = { ...validTag, color: 'invalid-color' }
             const result = TagSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })

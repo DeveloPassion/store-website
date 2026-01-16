@@ -130,7 +130,7 @@
                 "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and use knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. Eventually, I built something that worked. A system that scaled from my first notes to tens of thousands, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome (spending months recreating mistakes I'd already solved) that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
                 "inspirationPoint": "Watching talented people waste months on problems I had already solved",
                 "genesisDate": "Refined over 20+ years, shared since 2022",
-                "icon": null
+                "icon": "💡"
             },
             "creatorJourney": {
                 "title": "My Journey Through Knowledge Chaos",
@@ -150,7 +150,7 @@
                     "Helped 1,000+ knowledge workers change their workflows"
                 ],
                 "credentials": "20+ years of Knowledge Management expertise as an author, blogger, entrepreneur, and IT professional",
-                "icon": null
+                "icon": "🛤️"
             },
             "transformationArc": {
                 "title": "Your Journey",
@@ -165,7 +165,7 @@
                         "Information scattered across multiple apps",
                         "Creative blocks from disconnected thinking"
                     ],
-                    "icon": null
+                    "icon": "⚠️"
                 },
                 "during": {
                     "title": "Getting Started",
@@ -177,7 +177,7 @@
                         "Clear methodology explained as you use it",
                         "Immediate productivity from day one"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 },
                 "after": {
                     "title": "After OSK",
@@ -189,7 +189,7 @@
                         "Creating content directly from your notes",
                         "Confident your system scales with your growth"
                     ],
-                    "icon": null
+                    "icon": "✅"
                 },
                 "timeline": "From chaos to organized notes in your first days"
             },
@@ -205,7 +205,7 @@
                             {
                                 "label": "Impact",
                                 "value": "Game changing",
-                                "icon": null
+                                "icon": "⭐"
                             }
                         ],
                         "role": null,
@@ -221,7 +221,7 @@
                             {
                                 "label": "Time to Productive",
                                 "value": "1-2 Days",
-                                "icon": null
+                                "icon": "⏱️"
                             }
                         ],
                         "role": null,
@@ -237,7 +237,7 @@
                             {
                                 "label": "Satisfaction",
                                 "value": "100% Worth It",
-                                "icon": null
+                                "icon": "👍"
                             }
                         ],
                         "role": null,
@@ -253,7 +253,7 @@
                             {
                                 "label": "Learning Curve",
                                 "value": "Significantly Shortened",
-                                "icon": null
+                                "icon": "🎓"
                             }
                         ],
                         "role": null,
@@ -270,25 +270,25 @@
                     {
                         "title": "Systems Over Willpower",
                         "description": "The system does the work, not your discipline or memory. Templates auto-file. Tags auto-organize. You focus on thinking, not housekeeping. When organization is automatic, consistency becomes natural.",
-                        "icon": null,
+                        "icon": "⚙️",
                         "order": 0
                     },
                     {
                         "title": "Opinionated But Flexible",
                         "description": "Every decision has been made for you. But nothing is locked. You get a complete, working system from day one with no analysis paralysis. As you learn, customize anything. But you don't have to customize anything to be productive.",
-                        "icon": null,
+                        "icon": "🗂️",
                         "order": 1
                     },
                     {
                         "title": "Built to Evolve",
                         "description": "OSK isn't static. It grows and adapts as your needs change, as new tools emerge, as AI gets better. Free lifetime updates mean your system evolves with you.",
-                        "icon": null,
+                        "icon": "🌱",
                         "order": 2
                     },
                     {
                         "title": "Knowledge Compounds",
                         "description": "Every note should make you more capable, not just more organized. OSK is built around connecting ideas across time, projects, and domains. Your second brain should make your first brain smarter.",
-                        "icon": null,
+                        "icon": "🔗",
                         "order": 3
                     }
                 ],
@@ -303,22 +303,22 @@
                     {
                         "title": "Clarity Over Complexity",
                         "description": "A system should bring clarity, not add another layer of complexity. OSK simplifies knowledge work by making organization invisible.",
-                        "icon": null
+                        "icon": "👁️"
                     },
                     {
                         "title": "Growth Over Perfection",
                         "description": "Your system doesn't need to be perfect to work. OSK is designed for iteration. Start simple, evolve naturally.",
-                        "icon": null
+                        "icon": "📈"
                     },
                     {
                         "title": "Action Over Accumulation",
                         "description": "Collecting notes is worthless if you never use them. OSK prioritizes retrieval, connection, and creation. Not just capture.",
-                        "icon": null
+                        "icon": "⚡"
                     },
                     {
                         "title": "Future-Ready",
                         "description": "AI is changing knowledge work. OSK is built to use AI tools today and adapt to whatever comes tomorrow.",
-                        "icon": null
+                        "icon": "🤖"
                     }
                 ],
                 "futureGoals": [
@@ -328,7 +328,7 @@
                     "Give you confidence that your system will serve you for life"
                 ],
                 "biggerPicture": "In a world of information overload, the people who thrive are those who can capture, connect, and use knowledge systematically. OSK is your foundation for becoming one of them.",
-                "icon": null
+                "icon": "🧭"
             }
         },
         "timeline": {
@@ -346,7 +346,7 @@
                         "Daily note routine established",
                         "Core PKM concepts understood through hands-on use"
                     ],
-                    "icon": null
+                    "icon": "🏗️"
                 },
                 {
                     "id": "month-1",
@@ -359,7 +359,7 @@
                         "Goals, projects, tasks workflow established",
                         "Personal customizations added to match your style"
                     ],
-                    "icon": null
+                    "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
@@ -372,7 +372,7 @@
                         "Ideas connecting naturally across domains",
                         "Review rhythms keeping you clear and focused"
                     ],
-                    "icon": null
+                    "icon": "🌊"
                 },
                 {
                     "id": "year-1",
@@ -385,7 +385,7 @@
                         "AI integration amplifying your knowledge work",
                         "Confident your system will serve you for life"
                     ],
-                    "icon": null
+                    "icon": "💎"
                 }
             ]
         },

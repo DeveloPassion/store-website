@@ -110,7 +110,7 @@
                 "story": "Software development has been my passion since I was 10 years old. I've spent over 30 years exploring, tinkering, learning, and enjoying every aspect of this craft. Throughout my career, I've seen countless talented people struggle. Not because they lacked intelligence or coding ability, but because nobody taught them how professionals actually think.\n\nI believe first principles and concepts are at the core of building a solid practice. I consider myself a software craftsperson, and I want apprentices. I want to help people grow. I want to see the 'Aha' moment in their eyes when concepts finally click.\n\nWith AI everywhere now, understanding these fundamentals matters more than ever. I want you to thrive, fully understanding what you're doing, what AI is doing for you, and how to use both effectively. This book is my way of sharing everything I wish someone had told me when I started.",
                 "inspirationPoint": "I want to see the 'Aha' moment when concepts finally click",
                 "genesisDate": null,
-                "icon": null
+                "icon": "💡"
             },
             "creatorJourney": {
                 "title": "From Curious Kid to Software Craftsperson",
@@ -128,7 +128,7 @@
                     "Mentored dozens of junior developers"
                 ],
                 "credentials": "Software craftsperson with 30+ years of coding experience and ~20 years in professional industry roles",
-                "icon": null
+                "icon": "🛤️"
             },
             "transformationArc": null,
             "successStories": null,
@@ -139,25 +139,25 @@
                     {
                         "title": "First Principles",
                         "description": "Build understanding from foundational concepts, not memorized patterns that become obsolete",
-                        "icon": null,
+                        "icon": "🧱",
                         "order": 0
                     },
                     {
                         "title": "Interconnected Learning",
                         "description": "See how concepts connect across the entire field of software development",
-                        "icon": null,
+                        "icon": "🔗",
                         "order": 1
                     },
                     {
                         "title": "Mindset Over Syntax",
                         "description": "Develop the traits that make you valuable regardless of technology",
-                        "icon": null,
+                        "icon": "🧠",
                         "order": 2
                     },
                     {
                         "title": "Practical Application",
                         "description": "Every concept comes with real-world lessons and advice you can use immediately",
-                        "icon": null,
+                        "icon": "⚡",
                         "order": 3
                     }
                 ],
@@ -172,22 +172,22 @@
                     {
                         "title": "Principles over patterns",
                         "description": "Understanding fundamentals that last rather than memorizing patterns that become obsolete",
-                        "icon": null
+                        "icon": "📐"
                     },
                     {
                         "title": "Understanding over memorization",
                         "description": "Building deep comprehension that lets you adapt to any technology or situation",
-                        "icon": null
+                        "icon": "🧠"
                     },
                     {
                         "title": "Craftsmanship over coding",
                         "description": "Developing professional excellence beyond just writing code that works",
-                        "icon": null
+                        "icon": "🛠️"
                     },
                     {
                         "title": "Growth over comfort",
                         "description": "Embracing continuous learning as a core professional value",
-                        "icon": null
+                        "icon": "🌱"
                     }
                 ],
                 "futureGoals": [
@@ -196,7 +196,7 @@
                     "Create a new generation of software craftspeople"
                 ],
                 "biggerPicture": "The world needs developers who understand principles, not just syntax. Developers who can think critically, communicate effectively, and build software that truly serves users. This book is my contribution to creating more of them.",
-                "icon": null
+                "icon": "🎯"
             }
         },
         "timeline": {
@@ -213,7 +213,7 @@
                         "Know which skills matter most",
                         "See your career trajectory clearly"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 {
                     "id": "week-1",
@@ -225,7 +225,7 @@
                         "Approach problems with professional methodology",
                         "Build confidence in your professional identity"
                     ],
-                    "icon": null
+                    "icon": "🧠"
                 }
             ]
         },

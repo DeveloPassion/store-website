@@ -102,7 +102,7 @@
                 "title": "Why This Checklist Exists",
                 "subtitle": "From years of building and coaching",
                 "story": "After years of building my own systems and coaching professionals on knowledge management, I kept seeing the same patterns. People would jump into tools without planning. They'd forget about backups until disaster struck. They'd set up elaborate systems but never build the habits to maintain them.\n\nThis checklist is everything I wish I had when I started. And everything my coaching clients wish they'd had before making costly mistakes. It's the complete picture, distilled into actionable steps.",
-                "icon": null,
+                "icon": "📋",
                 "inspirationPoint": null,
                 "genesisDate": null
             },
@@ -114,25 +114,25 @@
                     {
                         "title": "Phase 1: Foundation and Planning",
                         "description": "The phase most people skip. And the reason most systems fail. Define your goals, understand your needs, then choose your tools.",
-                        "icon": null,
+                        "icon": "🏗️",
                         "order": 0
                     },
                     {
                         "title": "Phases 2-5: Build and Connect",
                         "description": "System architecture, capture workflows, processing routines, and connection strategies that turn scattered notes into connected knowledge.",
-                        "icon": null,
+                        "icon": "🔗",
                         "order": 1
                     },
                     {
                         "title": "Phase 6: Habits and Maintenance",
                         "description": "The most overlooked phase. Systems without habits become graveyards. Build the routines that keep your system alive.",
-                        "icon": null,
+                        "icon": "🔄",
                         "order": 2
                     },
                     {
                         "title": "Phases 7-8: Optimize and Evolve",
                         "description": "Advanced optimization including AI integration, and continuous improvement strategies for long-term success.",
-                        "icon": null,
+                        "icon": "🚀",
                         "order": 3
                     }
                 ],

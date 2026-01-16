@@ -119,7 +119,7 @@
             "originStory": {
                 "title": "Why This System Exists",
                 "story": "I didn't wake up one day with a perfect organization system. It evolved over 20+ years, starting with something simple: organizing my files, movies, and comic books as a teenager. Then it grew. I applied the same thinking to code for larger and larger software projects. Then IT infrastructure. Then project management for teams. Each domain taught me something new about structure, tracking, and getting things done. Now I've applied everything I've learned to entrepreneurship, knowledge management, and life itself. This workshop is those 20+ years distilled into 90 minutes.",
-                "icon": null,
+                "icon": "🧠",
                 "subtitle": null,
                 "inspirationPoint": null,
                 "genesisDate": null
@@ -140,7 +140,7 @@
                     "System that's worked for 20+ years and keeps evolving",
                     "Helping thousands organize their knowledge and lives"
                 ],
-                "icon": null,
+                "icon": "🚀",
                 "subtitle": null
             },
             "transformationArc": {
@@ -154,7 +154,7 @@
                         "No clear connection between daily tasks and life goals",
                         "Fear that any new system will be too complex to maintain"
                     ],
-                    "icon": null
+                    "icon": "😰"
                 },
                 "during": {
                     "title": "During: The Framework Click",
@@ -165,7 +165,7 @@
                         "Self-assessment reveals your weakest areas",
                         "40+ frameworks suddenly make sense together"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 "after": {
                     "title": "After: Living with Intention",
@@ -176,7 +176,7 @@
                         "Sustainable progress, not overwhelming change",
                         "A system that evolves with your life"
                     ],
-                    "icon": null
+                    "icon": "🧘"
                 },
                 "subtitle": null,
                 "timeline": null
@@ -189,19 +189,19 @@
                     {
                         "title": "Pillar 1: Clarity System",
                         "description": "From life mission to daily tasks. Goals, priorities, time horizons. Everything aligned so you always know what to work on and why.",
-                        "icon": null,
+                        "icon": "🎯",
                         "order": 0
                     },
                     {
                         "title": "Pillar 2: Information Management",
                         "description": "Every piece of information has its place. Knowledge management, documents, emails, calendars, contacts. Organized so you can find anything instantly.",
-                        "icon": null,
+                        "icon": "📚",
                         "order": 1
                     },
                     {
                         "title": "Pillar 3: Productivity System",
                         "description": "Habits, routines, and techniques that work without relying on willpower or motivation. Time blocking, focus strategies, periodic reviews. The engine that turns clarity into action.",
-                        "icon": null,
+                        "icon": "⚡",
                         "order": 2
                     }
                 ],
@@ -214,26 +214,26 @@
                     {
                         "title": "Simplicity over complexity",
                         "description": "Start simple, add complexity only when needed. The best system is one you'll actually use.",
-                        "icon": null
+                        "icon": "🎯"
                     },
                     {
                         "title": "Progress over perfection",
                         "description": "A good-enough system today beats a perfect system never. Iterate and improve over time.",
-                        "icon": null
+                        "icon": "📈"
                     },
                     {
                         "title": "Systems over willpower",
                         "description": "Don't rely on motivation. Build systems that work even when you don't feel like it.",
-                        "icon": null
+                        "icon": "⚙️"
                     },
                     {
                         "title": "Integration over isolation",
                         "description": "All three pillars must work together. Isolated systems eventually collapse.",
-                        "icon": null
+                        "icon": "🔗"
                     }
                 ],
                 "biggerPicture": "Imagine a busy life with multiple responsibilities, but feeling calm and in control. Knowing exactly what matters. Nothing falling through the cracks. That's not a fantasy. It's what happens when all three pillars work together.",
-                "icon": null,
+                "icon": "✨",
                 "subtitle": null,
                 "futureGoals": null
             },
@@ -254,7 +254,7 @@
                         "Self-assessment reveals weak spots",
                         "40+ frameworks to draw from"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 {
                     "id": "milestone-week1",
@@ -267,7 +267,7 @@
                         "First taste of intentional living",
                         "Quick wins build momentum"
                     ],
-                    "icon": null
+                    "icon": "🎯"
                 },
                 {
                     "id": "milestone-month1",
@@ -280,7 +280,7 @@
                         "Daily-to-goal alignment visible",
                         "Reduced overwhelm"
                     ],
-                    "icon": null
+                    "icon": "🔧"
                 },
                 {
                     "id": "milestone-month3",
@@ -293,7 +293,7 @@
                         "Continuous improvement built-in",
                         "Intentional living, not reactive surviving"
                     ],
-                    "icon": null
+                    "icon": "✨"
                 }
             ]
         },

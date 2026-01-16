@@ -130,7 +130,7 @@
                 "subtitle": "From 15 Years on Rails to Designing My Own Path",
                 "story": "For 15 years, I worked as a software developer, then project manager. I found satisfaction in my work. I was learning, growing, building things. But there was this nagging feeling I couldn't shake: I wasn't exploring all my options. I wasn't fully taking advantage of my curiosity. For years, I didn't consider this a problem. The fulfillment from projects kept me going. Until one day, after conversations with colleagues and friends, I realized: staying on those rails was actually the problem I needed to solve. That realization changed everything. It led me to create my own company, start consulting, write books, build products, and eventually coach others. Today, I feel much happier than I was before. This workshop shares the exact framework that helped me, and now helps others, move from feeling stuck to designing intentional lives.",
                 "inspirationPoint": "You cannot solve a problem you're not willing to have. Once I accepted that staying comfortable was actually my problem, everything changed.",
-                "icon": null,
+                "icon": "💡",
                 "genesisDate": null
             },
             "creatorJourney": {
@@ -149,7 +149,7 @@
                     "Designed a life where happiness, freedom, and family come first"
                 ],
                 "credentials": "Author of multiple books, Creator of the Obsidian Starter Kit and Knowledge Worker Kit, Founder of the Knowii Community",
-                "icon": null
+                "icon": "🚀"
             },
             "transformationArc": {
                 "title": "Your Transformation",
@@ -164,7 +164,7 @@
                         "Goals that don't align with who you really are",
                         "Reactive living instead of intentional design"
                     ],
-                    "icon": null
+                    "icon": "😔"
                 },
                 "during": {
                     "title": "The Clarity Process",
@@ -176,7 +176,7 @@
                         "Use Design Thinking to explore possibilities",
                         "Set SMART goals across time horizons"
                     ],
-                    "icon": null
+                    "icon": "🔧"
                 },
                 "after": {
                     "title": "After Clarity",
@@ -188,7 +188,7 @@
                         "Priorities that reflect what truly matters",
                         "Intentional living instead of drifting"
                     ],
-                    "icon": null
+                    "icon": "✨"
                 },
                 "timeline": "About 1 hour to learn the framework. A few weeks to implement the basics. A lifetime of intentional living."
             },
@@ -199,37 +199,37 @@
                     {
                         "title": "Accept Your Gravity Problems",
                         "description": "Identify the problems in your life that you haven't accepted yet. You cannot solve a problem you're not willing to have. This is where change begins.",
-                        "icon": null,
+                        "icon": "🎯",
                         "order": 0
                     },
                     {
                         "title": "Map Values to Needs",
                         "description": "Uncover your core values and connect them to your actual needs. Your values act as guides for decision-making. Your needs must be satisfied for happiness.",
-                        "icon": null,
+                        "icon": "🧭",
                         "order": 1
                     },
                     {
                         "title": "Create Your Personal Manifesto",
                         "description": "Combine your values, principles, and beliefs into a guiding document. This becomes your north star for every major decision.",
-                        "icon": null,
+                        "icon": "📜",
                         "order": 2
                     },
                     {
                         "title": "Find Your Ikigai",
                         "description": "Discover the intersection of what you love, what you're good at, what the world needs, and what you can be paid for. Your reason for being.",
-                        "icon": null,
+                        "icon": "🌟",
                         "order": 3
                     },
                     {
                         "title": "Design and Prototype Futures",
                         "description": "Use Design Thinking to envision multiple possible futures. Create Vision Grids. Prototype through conversations and experiences before committing.",
-                        "icon": null,
+                        "icon": "🔮",
                         "order": 4
                     },
                     {
                         "title": "Set Goals and Priorities",
                         "description": "Use Reverse Goal Setting and SMART Goals across different time horizons. Focus on your top 3 priorities based on impact.",
-                        "icon": null,
+                        "icon": "📊",
                         "order": 5
                     }
                 ],
@@ -244,17 +244,17 @@
                     {
                         "title": "Happiness First",
                         "description": "Career is important, but it's secondary to happiness, freedom, and family. Alignment across all of these is what creates a fulfilling life.",
-                        "icon": null
+                        "icon": "❤️"
                     },
                     {
                         "title": "Action Over Perfection",
                         "description": "You don't need perfect clarity to start. Think of your life as an experiment. Set the bar low, try stuff, learn, try again.",
-                        "icon": null
+                        "icon": "🚀"
                     },
                     {
                         "title": "Your Own Path",
                         "description": "I don't tell people how to live their lives. To each their own. I share what has worked for me, and you adapt it to your situation.",
-                        "icon": null
+                        "icon": "🛤️"
                     }
                 ],
                 "futureGoals": [
@@ -263,7 +263,7 @@
                     "Create a community of intentional life designers"
                 ],
                 "biggerPicture": "Clarity is just the first step. Once you have clarity, you need a SYSTEM to turn it into reality. That's what the Knowledge Worker Kit and the Knowii Community are for. But it all starts here. With clarity.",
-                "icon": null
+                "icon": "🎯"
             },
             "successStories": null
         },
@@ -282,7 +282,7 @@
                         "Map values to your actual needs",
                         "Draft your Personal Manifesto v1"
                     ],
-                    "icon": null
+                    "icon": "🏗️"
                 },
                 {
                     "id": "month-1",
@@ -295,7 +295,7 @@
                         "List your 12 Favorite Questions",
                         "Have 3+ prototype conversations"
                     ],
-                    "icon": null
+                    "icon": "🧭"
                 },
                 {
                     "id": "month-3",
@@ -309,7 +309,7 @@
                         "Complete your first quarterly review",
                         "Take your first major aligned action"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 },
                 {
                     "id": "ongoing",
@@ -322,7 +322,7 @@
                         "Life feels designed, not accidental",
                         "You're creating your path, not following someone else's"
                     ],
-                    "icon": null
+                    "icon": "✨"
                 }
             ]
         },

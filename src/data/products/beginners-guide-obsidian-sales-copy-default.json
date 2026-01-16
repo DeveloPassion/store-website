@@ -118,7 +118,7 @@
                 "story": "I spent years searching for the perfect note-taking tool. MediaWiki. TiddlyWiki. Evernote. Google Keep. Apple Notes. Notion. Each time, I'd migrate my notes, learn the new system, and eventually hit the same wall: my notes were trapped in someone else's format, my ideas stayed disconnected, and I never felt like I truly owned my knowledge. Then I discovered Obsidian. Two things changed everything: linked thinking (the ability to connect ideas across notes and watch patterns emerge) and true data ownership (plain Markdown files I control forever). This guide exists because I don't want you to spend years finding this path. I want to hand you the map.",
                 "inspirationPoint": "The realization that most beginners fail not because Obsidian is hard, but because they make the same avoidable mistakes",
                 "genesisDate": null,
-                "icon": null
+                "icon": "💡"
             },
             "creatorJourney": {
                 "title": "From Confused User to PKM Nerd",
@@ -137,7 +137,7 @@
                     "Helped countless beginners avoid the mistakes I made"
                 ],
                 "credentials": "IT Solution Architect with 20+ years experience, Obsidian daily user since 2020",
-                "icon": null
+                "icon": "🛤️"
             },
             "transformationArc": {
                 "title": "Your Journey From Confusion to Confidence",
@@ -151,7 +151,7 @@
                         "Worried about building bad habits",
                         "Confused by conflicting advice online"
                     ],
-                    "icon": null
+                    "icon": "😰"
                 },
                 "during": {
                     "title": "During: Building Your Foundation",
@@ -162,7 +162,7 @@
                         "Hands-on practice with immediate results",
                         "Common mistakes mapped out so you avoid them"
                     ],
-                    "icon": null
+                    "icon": "🔧"
                 },
                 "after": {
                     "title": "After: Confident and Ready to Grow",
@@ -173,7 +173,7 @@
                         "Foundation ready for advanced techniques",
                         "Clear next steps for continued growth"
                     ],
-                    "icon": null
+                    "icon": "✨"
                 },
                 "timeline": null
             },
@@ -185,25 +185,25 @@
                     {
                         "title": "Understand the Core",
                         "description": "Learn what makes Obsidian fundamentally different from other note apps. Data ownership, linked thinking, and Markdown portability.",
-                        "icon": null,
+                        "icon": "🧠",
                         "order": 0
                     },
                     {
                         "title": "Start Simple",
                         "description": "Create your first notes without overthinking organization. The guide shows you exactly what to do first.",
-                        "icon": null,
+                        "icon": "📝",
                         "order": 1
                     },
                     {
                         "title": "Connect Ideas",
                         "description": "Discover the power of links and backlinks. Watch your knowledge come alive as connections emerge.",
-                        "icon": null,
+                        "icon": "🔗",
                         "order": 2
                     },
                     {
                         "title": "Build Confidence",
                         "description": "Develop habits that scale as your vault grows. Ready for advanced techniques when you choose to go deeper.",
-                        "icon": null,
+                        "icon": "🌱",
                         "order": 3
                     }
                 ],
@@ -218,22 +218,22 @@
                     {
                         "title": "Simplicity over Complexity",
                         "description": "Start with what works, not with what looks impressive. The best system is the one you actually use.",
-                        "icon": null
+                        "icon": "🎯"
                     },
                     {
                         "title": "Ownership over Dependency",
                         "description": "Your knowledge should survive any tool, any company, any trend. Plain text files are forever.",
-                        "icon": null
+                        "icon": "🔒"
                     },
                     {
                         "title": "Connection over Isolation",
                         "description": "Ideas become powerful when linked. Watch patterns emerge as your notes connect to each other.",
-                        "icon": null
+                        "icon": "🔗"
                     },
                     {
                         "title": "Progress over Perfection",
                         "description": "Start now, improve later. A working system beats a perfect plan you never implement.",
-                        "icon": null
+                        "icon": "📈"
                     }
                 ],
                 "futureGoals": [
@@ -242,7 +242,7 @@
                     "Support your journey from beginner to confident Obsidian user"
                 ],
                 "biggerPicture": "Obsidian isn't just a note-taking app. It's a tool for thinking. When you connect ideas, patterns emerge. When you own your data, you're free. When you build on solid foundations, your knowledge compounds over time. This guide is your first step.",
-                "icon": null
+                "icon": "🧭"
             }
         },
         "timeline": {
@@ -260,7 +260,7 @@
                         "The interface demystified",
                         "Why your data stays yours forever"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 {
                     "id": "hour-2",
@@ -273,7 +273,7 @@
                         "Basic linking between notes established",
                         "Quick Switcher and Command Palette mastered"
                     ],
-                    "icon": null
+                    "icon": "📝"
                 },
                 {
                     "id": "end-of-day",
@@ -286,7 +286,7 @@
                         "Clear vision of your next steps",
                         "Confidence to explore on your own"
                     ],
-                    "icon": null
+                    "icon": "✅"
                 }
             ]
         },

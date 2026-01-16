@@ -12,7 +12,7 @@ describe('Category Schema Validation', () => {
         name: 'AI Mastery',
         description: 'Master AI tools and techniques',
         icon: 'FaRobot',
-        color: '#FF5733',
+        color: 'red-500' as const,
         featured: true,
         priority: 1
     }

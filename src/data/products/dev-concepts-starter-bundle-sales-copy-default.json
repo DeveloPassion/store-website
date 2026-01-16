@@ -103,7 +103,7 @@
                 "story": "After 30+ years in software, I've noticed a pattern. Junior developers get stuck for two reasons.\n\nFirst: they code, but they don't think like professionals. They haven't developed the mindset, habits, and approach that turns coding ability into career growth.\n\nSecond: they build things, but they don't understand clients. They create technically solid features that nobody uses because they never learned to figure out what users actually need.\n\nHere's the thing: these two gaps are connected. Professional developers know their job isn't to write code. It's to solve problems for real people. That takes both the right mindset AND the ability to understand what clients truly need.\n\nI created this bundle because fixing one gap without the other leaves you stuck. You need both foundations.",
                 "inspirationPoint": "Fixing one gap without the other leaves you stuck",
                 "genesisDate": null,
-                "icon": null
+                "icon": "📦"
             },
             "creatorJourney": null,
             "transformationArc": null,
@@ -115,25 +115,25 @@
                     {
                         "title": "Mindset First (Volume 1)",
                         "description": "Develop the professional psychology and habits that drive success",
-                        "icon": null,
+                        "icon": "🧠",
                         "order": 0
                     },
                     {
                         "title": "Client Understanding (Volume 2)",
                         "description": "Learn to discover what users truly need before you build",
-                        "icon": null,
+                        "icon": "👥",
                         "order": 1
                     },
                     {
                         "title": "Connect the Dots",
                         "description": "See how mindset and client focus work together",
-                        "icon": null,
+                        "icon": "🔗",
                         "order": 2
                     },
                     {
                         "title": "Apply It",
                         "description": "Use these principles in your current work from day one",
-                        "icon": null,
+                        "icon": "⚡",
                         "order": 3
                     }
                 ],
@@ -148,22 +148,22 @@
                     {
                         "title": "Complete foundations",
                         "description": "Both mindset and client understanding, not just one or the other",
-                        "icon": null
+                        "icon": "🏗️"
                     },
                     {
                         "title": "Skills that compound",
                         "description": "The two skills that multiply each other for career success",
-                        "icon": null
+                        "icon": "📈"
                     },
                     {
                         "title": "Coherent learning",
                         "description": "A clear path, not scattered tutorials",
-                        "icon": null
+                        "icon": "🛤️"
                     },
                     {
                         "title": "Good value",
                         "description": "Complete foundation at 25% off",
-                        "icon": null
+                        "icon": "💰"
                     }
                 ],
                 "futureGoals": [
@@ -172,7 +172,7 @@
                     "Bridge the gap between technical skills and business value"
                 ],
                 "biggerPicture": "The best developers I've worked with share two traits: they approach work with professional discipline, and they genuinely understand the people they're building for. This bundle helps you develop both.",
-                "icon": null
+                "icon": "🎯"
             }
         },
         "timeline": {
@@ -189,7 +189,7 @@
                         "Understanding the client-developer gap",
                         "A roadmap for your growth"
                     ],
-                    "icon": null
+                    "icon": "💡"
                 },
                 {
                     "id": "week-1",
@@ -201,7 +201,7 @@
                         "View projects from user perspective",
                         "Approach work differently"
                     ],
-                    "icon": null
+                    "icon": "🧠"
                 },
                 {
                     "id": "month-1",
@@ -213,7 +213,7 @@
                         "Better requirements conversations",
                         "Integrated approach to work"
                     ],
-                    "icon": null
+                    "icon": "🏗️"
                 },
                 {
                     "id": "month-3",
@@ -225,7 +225,7 @@
                         "Clients trust your understanding",
                         "Career moving forward"
                     ],
-                    "icon": null
+                    "icon": "🚀"
                 }
             ]
         },
