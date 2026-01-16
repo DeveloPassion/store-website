@@ -27,7 +27,9 @@ This skill will:
 
 ## Available Icons
 
-The skill can choose from the following icons (from `src/lib/icon-registry.ts`):
+Icon fields accept: emojis (e.g., `"🚀"`), React-icon names (e.g., `"FaRobot"`), or image URLs.
+
+Available React icons (from `src/lib/icon-registry.ts`):
 
 ### General Purpose Icons
 - `FaLightbulb` - Ideas, clarity, concepts, insights

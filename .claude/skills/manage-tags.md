@@ -44,8 +44,8 @@ This skill helps you manage the tags used across all products in the store websi
 
 ### Optional Fields
 
-- **icon**: React icon component name from `react-icons` library
-- **color**: Hex color code for visual styling (#RRGGBB format)
+- **icon**: React icon name (e.g., `"FaRobot"`) or emoji (e.g., `"🚀"`) - nullable
+- **color**: Hex color code (`#RRGGBB` format) - nullable
 
 ### Priority Guidelines
 

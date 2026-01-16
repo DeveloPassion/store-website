@@ -4,6 +4,7 @@
  * The ESLint rule is disabled for this utility component.
  *
  * Supports:
+ * - Emojis (e.g., "🚀", "💡") - rendered as span
  * - React icon names (e.g., "FaRobot", "SiObsidian")
  * - Image URLs (http/https)
  * - Local image paths (starting with /)
@@ -12,6 +13,7 @@
  */
 
 import { getIcon } from '@/lib/icon-registry'
+import { isEmoji } from '@/lib/is-emoji'
 
 // Icon-specific colors (brand colors where applicable)
 const iconColors: Record<string, string> = {
@@ -67,13 +69,21 @@ const sizeClasses = {
 }
 
 interface DynamicIconProps {
-    iconName?: string
+    iconName?: string | null
     className?: string
     style?: React.CSSProperties
     /** Size preset (sm, md, lg, xl). Only applies to SVG icons, not images. */
     size?: 'sm' | 'md' | 'lg' | 'xl'
     /** Whether to apply brand colors. Default: true */
     useBrandColors?: boolean
+}
+
+// Emoji size classes (slightly larger than icon sizes for visual balance)
+const emojiSizeClasses = {
+    sm: 'text-base', // 16px
+    md: 'text-xl', // 20px
+    lg: 'text-2xl', // 24px
+    xl: 'text-3xl' // 30px
 }
 
 /* eslint-disable react-hooks/static-components */
@@ -84,6 +94,21 @@ export const DynamicIcon: React.FC<DynamicIconProps> = ({
     size = 'md',
     useBrandColors = true
 }) => {
+    // If iconName is an emoji, render it as a span
+    if (iconName && isEmoji(iconName)) {
+        const emojiSpan = (
+            <span
+                className={`${emojiSizeClasses[size]} leading-none ${className}`}
+                role='img'
+                aria-hidden='true'
+            >
+                {iconName}
+            </span>
+        )
+        // Wrap in span if style provided
+        return style ? <span style={style}>{emojiSpan}</span> : emojiSpan
+    }
+
     // If iconName is a URL or path, render an image
     if (iconName && (iconName.startsWith('http') || iconName.startsWith('/'))) {
         return (

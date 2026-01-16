@@ -417,4 +417,59 @@ describe('DynamicIcon Component', () => {
             expect(svg?.classList.contains('my-custom-class')).toBe(true)
         })
     })
+
+    describe('Emoji Support', () => {
+        it('should render emoji as span', () => {
+            const { container } = render(<DynamicIcon iconName='🚀' />)
+            const span = container.querySelector('span')
+
+            expect(span).toBeTruthy()
+            expect(span?.textContent).toBe('🚀')
+            expect(span?.getAttribute('role')).toBe('img')
+        })
+
+        it('should render various emojis', () => {
+            const emojis = ['💡', '🎯', '✨', '🔥', '📚']
+            emojis.forEach((emoji) => {
+                const { container } = render(<DynamicIcon iconName={emoji} />)
+                const span = container.querySelector('span')
+                expect(span?.textContent).toBe(emoji)
+            })
+        })
+
+        it('should apply size class to emoji', () => {
+            const { container: smContainer } = render(<DynamicIcon iconName='🚀' size='sm' />)
+            const { container: lgContainer } = render(<DynamicIcon iconName='🚀' size='lg' />)
+
+            expect(smContainer.querySelector('span')?.className).toContain('text-base')
+            expect(lgContainer.querySelector('span')?.className).toContain('text-2xl')
+        })
+
+        it('should apply custom className to emoji', () => {
+            const { container } = render(<DynamicIcon iconName='🚀' className='custom-class' />)
+            const span = container.querySelector('span')
+
+            expect(span?.classList.contains('custom-class')).toBe(true)
+        })
+
+        it('should wrap emoji in span when style provided', () => {
+            const { container } = render(<DynamicIcon iconName='🚀' style={{ color: 'red' }} />)
+            const outerSpan = container.querySelector('span')
+            expect(outerSpan?.style.color).toBe('red')
+
+            const innerSpan = outerSpan?.querySelector('span')
+            expect(innerSpan?.textContent).toBe('🚀')
+        })
+
+        it('should not render svg for emoji', () => {
+            const { container } = render(<DynamicIcon iconName='🚀' />)
+            expect(container.querySelector('svg')).toBeNull()
+        })
+
+        it('should have aria-hidden on emoji span', () => {
+            const { container } = render(<DynamicIcon iconName='💡' />)
+            const span = container.querySelector('span')
+            expect(span?.getAttribute('aria-hidden')).toBe('true')
+        })
+    })
 })

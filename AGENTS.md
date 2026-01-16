@@ -77,7 +77,7 @@ All three arrays must be present (can be empty arrays if no benefits for that ca
 
 ## Icons
 
-Icons can be React-icon names (e.g., `"FaCalendarAlt"`, `"SiObsidian"`) or URLs. Available icons include FontAwesome (Fa*) and Simple Icons (Si*). Icon registry is in `/src/lib/icon-registry.ts`. Brand colors and size presets are configured in `/src/components/ui/dynamic-icon.tsx`.
+All `icon` fields support: emojis (e.g., `"🚀"`, `"💡"`), React-icon names (e.g., `"FaRobot"`, `"SiObsidian"`), or URLs/paths. Use `DynamicIcon` component to render - handles all formats automatically. Icon registry: `/src/lib/icon-registry.ts`. Available: FontAwesome (Fa*), Simple Icons (Si*).
 
 ## Meta Tags and Open Graph Images
 
@@ -829,6 +829,8 @@ Keyboard navigation, ARIA labels, focus management, command palette shortcuts, s
     - React page components (if they have hardcoded branding in `useEffect` hooks or titles)
 
     **Search strategy**: Use `grep -r "old-brand-name"` across the codebase to find all instances that need updating. The build scripts must match the branding in `index.html` to ensure consistency between static generation and runtime.
+
+12. **Zod Schema Fields - Prefer Nullable**: Use `.nullable()` instead of `.optional()` or `.nullish()` for Zod schema fields that may not have a value. This ensures fields are always present in JSON (with `null` when empty), keeping data explicit and consistent.
 
 **Pre-Commit Checklist:**
 
