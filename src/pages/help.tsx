@@ -241,7 +241,7 @@ const HelpPage: React.FC = () => {
             <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
                 <QuickNavigation
                     title='Ready to Get Started?'
-                    description='Explore our products and find the perfect tools for your needs'
+                    description='Explore the products and find the perfect tools for your needs'
                 />
             </Section>
         </>

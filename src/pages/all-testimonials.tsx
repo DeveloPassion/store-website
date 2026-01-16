@@ -301,7 +301,7 @@ const AllTestimonialsPage: React.FC = () => {
                         The product you're looking for doesn't exist or has been removed.
                     </p>
                     <QuickNavigation
-                        title='Explore Our Products'
+                        title='Explore the products'
                         description='Discover our amazing products and their testimonials'
                     />
                 </div>
@@ -322,7 +322,7 @@ const AllTestimonialsPage: React.FC = () => {
                         share your experience!
                     </p>
                     <QuickNavigation
-                        title='Explore Our Products'
+                        title='Explore the products'
                         description='Discover our other products with customer testimonials'
                     />
                 </div>
@@ -479,7 +479,7 @@ const AllTestimonialsPage: React.FC = () => {
             {/* Quick Navigation */}
             <Section className='border-primary/10 border-t border-b py-0'>
                 <QuickNavigation
-                    title='Explore Our Products'
+                    title='Explore the products'
                     description='Discover the products behind these amazing testimonials'
                 />
             </Section>

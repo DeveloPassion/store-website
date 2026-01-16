@@ -97,7 +97,7 @@ const ErrorPage: React.FC = () => {
             <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
                 <QuickNavigation
                     title='While We Fix This...'
-                    description='Explore our products while we resolve the issue'
+                    description='Explore the products while we resolve the issue'
                 />
             </Section>
 
