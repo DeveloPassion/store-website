@@ -1,3 +1,22 @@
+## [0.7.0](https://github.com/DeveloPassion/store-website/compare/0.6.5...0.7.0) (2026-01-17)
+
+### Features
+
+* **all:** added better support for icons and emojis ([9d40455](https://github.com/DeveloPassion/store-website/commit/9d40455b79f7a6aa3750cadde76633454621db41))
+* **all:** added global faq system (json file) and introduced markdown support (used in the global faq ) ([8a3aea3](https://github.com/DeveloPassion/store-website/commit/8a3aea3a8195ec3e17f1f67f27421b7ff42afc1e))
+* **all:** added Markdown support all over ([b4daf23](https://github.com/DeveloPassion/store-website/commit/b4daf23b50d1fc1cfa1297d4ceda28dc4fa62dc1))
+* **all:** added markdown to all product pages ([b7dfb42](https://github.com/DeveloPassion/store-website/commit/b7dfb42f139f0f86e9a807f4716825a1ee2674d8))
+* **all:** added script to extract data/stats from ghost and plausible ([aa3de88](https://github.com/DeveloPassion/store-website/commit/aa3de88d75bf091f8ee7c020fee5a774ace6bdb2))
+* **all:** change copy ([00e2aa2](https://github.com/DeveloPassion/store-website/commit/00e2aa223932fc30a5b392a552e20422667e1e4a))
+* **all:** improved copy ([f36a7a5](https://github.com/DeveloPassion/store-website/commit/f36a7a57490d8063dd55dc89fa17a98eea1644bc))
+* **all:** improved faq comp ([9c32ae1](https://github.com/DeveloPassion/store-website/commit/9c32ae17d7d54e7e6234e5c4091d185a8fe35590))
+* **all:** improved schemas strictness and PKM Lib sales copy ([485fa94](https://github.com/DeveloPassion/store-website/commit/485fa94cbbea66f5e6f4f9fd7287966852a842e1))
+* **all:** removed inline styles and reviewed sales copies (second pass) ([8e9e674](https://github.com/DeveloPassion/store-website/commit/8e9e674cef285875ec5a71e7f8d0f3a9a4f0d691))
+* **all:** removed order from FAQ entries (useless) ([724a368](https://github.com/DeveloPassion/store-website/commit/724a36882674f04777247e4870a26f7866e73ce4))
+* **all:** updated ([52ff09b](https://github.com/DeveloPassion/store-website/commit/52ff09b4c566f9576d4d314983b853dad6abab27))
+* **all:** updated copy ([814ae0f](https://github.com/DeveloPassion/store-website/commit/814ae0ffa2553b319d9d708b2e2434ddeb7adc80))
+* **all:** updated copy of po101 ([fe4536a](https://github.com/DeveloPassion/store-website/commit/fe4536a7c7a69170b0b22e924e017d6a3f31d052))
+* **all:** updated entries ([d60127a](https://github.com/DeveloPassion/store-website/commit/d60127afce984aeb4e18080b918756a51be6f6a8))
 ## [0.6.5](https://github.com/DeveloPassion/store-website/compare/0.6.4...0.6.5) (2026-01-15)
 
 ### Features
