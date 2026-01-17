@@ -290,6 +290,12 @@
                 }
             ]
         },
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "Free Workshop Preview",
+            "description": "Get a taste of what you'll learn with these free tutorials",
+            "mediaIds": ["cover-video-001", "cover-video-003"]
+        },
+        "mediaSections": null
     }
 }

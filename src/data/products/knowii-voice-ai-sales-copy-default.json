@@ -170,6 +170,31 @@
             "vision": null
         },
         "timeline": null,
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "See Voice AI in Action",
+            "description": "Watch how Knowii Voice AI captures your thoughts instantly",
+            "mediaIds": ["cover-video-001"]
+        },
+        "mediaSections": {
+            "main": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
+        }
     }
 }

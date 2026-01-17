@@ -159,6 +159,7 @@ Aggregated products include auto-loaded content:
   - All SEO: metaTitle, metaDescription, keywords
   - Optional storytelling sections
   - Optional timeline (transformation journey with time-based milestones)
+  - See How It Works: showSeeHowItWorks (boolean), seeHowItWorksText (nullable object with heading/subheading)
 
 **Important Notes:**
 - Individual product files do NOT contain tagline, description, features, benefits, PAS framework, or other sales copy
@@ -221,7 +222,7 @@ product.testimonials
 Schema uses `.nullable()` (always present in JSON, with `null` when empty).
 
 - **Required**: `id`, `name`, `activeSalesCopyId`, `price`, `priceDisplay`, `priceTier`, `gumroadUrl`, `mainCategory`, `tags`, `included`, `priority`, boolean flags (`isSubscription`, `featured`, `bestValue`, `bestseller`)
-- **Nullable**: `variants`, `paymentFrequencies`, `defaultPaymentFrequency`, `stats`, `ratingsCount`, `averageRating`, `landingPageUrl`, `dsebastienUrl`
+- **Nullable**: `variants`, `paymentFrequencies`, `defaultPaymentFrequency`, `stats`, `ratingsCount`, `averageRating`, `landingPageUrl`, `dsebastienUrl`, `seeHowItWorksText`
 - **Empty arrays allowed**: `secondaryCategories`, `crossSellIds`, `targetAudience`, `perfectFor`, `notForYou`, `trustBadges`, `guarantees`
 
 **Subscription Products**:

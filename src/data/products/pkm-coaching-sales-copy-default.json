@@ -253,6 +253,12 @@
                 }
             ]
         },
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "Free Workshop",
+            "description": "Watch a sample of my teaching style",
+            "mediaIds": ["cover-video-001"]
+        },
+        "mediaSections": null
     }
 }

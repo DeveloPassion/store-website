@@ -1,0 +1,197 @@
+{
+    "data": [
+        {
+            "id": "cart-new-tab",
+            "question": "Why does the shopping cart open in a new tab?",
+            "answer": "All products on this store are sold through [Gumroad](https://gumroad.com), a trusted e-commerce platform. When you click the shopping cart icon, it opens Gumroad's secure checkout page in a new tab. This happens because Gumroad handles all payment processing on their own secure servers, which cannot be embedded in an iframe for security reasons. This design protects your payment information and prevents malicious websites from intercepting your transactions.",
+            "icon": "FaShoppingCart",
+            "order": 0,
+            "style": "default",
+            "features": null,
+            "steps": null,
+            "bullets": null,
+            "links": null,
+            "additionalText": null
+        },
+        {
+            "id": "why-gumroad",
+            "question": "Why do we use Gumroad?",
+            "answer": "Gumroad is a trusted platform used by thousands of creators worldwide. Here's why it's the perfect choice for this store:",
+            "icon": "FaShieldAlt",
+            "order": 1,
+            "style": "default",
+            "features": [
+                {
+                    "icon": "FaLock",
+                    "title": "Bank-Level Security",
+                    "description": "Gumroad is PCI DSS Level 1 compliant, meaning your payment information is protected with the highest industry security standards. Your credit card details never touch our servers."
+                },
+                {
+                    "icon": "FaCreditCard",
+                    "title": "Secure Payment Processing",
+                    "description": "All payments are processed through Stripe and PayPal, two of the most trusted payment processors in the world. Gumroad accepts credit cards, debit cards, PayPal, Apple Pay, and Google Pay."
+                },
+                {
+                    "icon": "FaGlobe",
+                    "title": "Global Infrastructure",
+                    "description": "Gumroad handles tax compliance, VAT collection, and international payments automatically. This means you can purchase from anywhere in the world without worrying about complex tax regulations."
+                },
+                {
+                    "icon": "FaShieldAlt",
+                    "title": "Buyer Protection",
+                    "description": "Gumroad provides dispute resolution and fraud protection. All purchases come with a 30-day money-back guarantee, and refunds are processed quickly and securely."
+                }
+            ],
+            "steps": null,
+            "bullets": null,
+            "links": null,
+            "additionalText": null
+        },
+        {
+            "id": "how-shopping-works",
+            "question": "How does shopping work?",
+            "answer": "Here's how the shopping experience works:",
+            "icon": "FaShoppingCart",
+            "order": 2,
+            "style": "default",
+            "features": null,
+            "steps": [
+                {
+                    "title": "Browse products",
+                    "description": "on this website and click \"Quick Open\" or view the product detail page"
+                },
+                {
+                    "title": "Click \"Buy Now\"",
+                    "description": "to add items to your Gumroad cart (opens in a new tab)"
+                },
+                {
+                    "title": "View your cart",
+                    "description": "by clicking the cart icon in the header or via the command palette using '/' (opens Gumroad checkout in a new tab)"
+                },
+                {
+                    "title": "Complete your purchase",
+                    "description": "on Gumroad's secure checkout page using your preferred payment method"
+                },
+                {
+                    "title": "Receive instant access",
+                    "description": "- After payment, you'll immediately receive an email with download links and access instructions"
+                }
+            ],
+            "bullets": null,
+            "links": null,
+            "additionalText": null
+        },
+        {
+            "id": "payment-security",
+            "question": "Is my payment information secure?",
+            "answer": "Absolutely. Your payment information is handled exclusively by Gumroad, Stripe, and PayPal - never by this website. These platforms use:",
+            "icon": "FaLock",
+            "order": 3,
+            "style": "default",
+            "features": null,
+            "steps": null,
+            "bullets": [
+                "256-bit SSL encryption for all data transmission",
+                "PCI DSS Level 1 compliance (highest security certification)",
+                "Tokenization to protect credit card numbers",
+                "Advanced fraud detection and prevention systems",
+                "Two-factor authentication support"
+            ],
+            "links": null,
+            "additionalText": null
+        },
+        {
+            "id": "gumroad-account",
+            "question": "Do I need a Gumroad account?",
+            "answer": "No, you don't need to create a Gumroad account to make a purchase. However, creating a free Gumroad account offers several benefits:",
+            "icon": "FaQuestionCircle",
+            "order": 4,
+            "style": "default",
+            "features": null,
+            "steps": null,
+            "bullets": [
+                "Access all your purchases in one place (Gumroad Library)",
+                "Automatic product updates and new versions",
+                "Easy re-downloads if you lose files",
+                "Purchase history and invoices",
+                "Faster checkout for future purchases"
+            ],
+            "links": null,
+            "additionalText": null
+        },
+        {
+            "id": "ratings-testimonials",
+            "question": "Why do ratings and testimonials differ from Gumroad?",
+            "answer": "You might notice that the number of ratings, stars, or testimonials shown on this website doesn't always match what appears on Gumroad. This is completely normal and here's why:",
+            "icon": "FaStar",
+            "order": 5,
+            "style": "default",
+            "features": null,
+            "steps": null,
+            "bullets": [
+                "Multiple sales channels: Products are sold and feedback is collected through different platforms, not just Gumroad",
+                "Manual data collection: Customer feedback and ratings are captured manually and through scripts that run periodically, so the data may not always be up to date",
+                "Incomplete picture on Gumroad: The information displayed on Gumroad doesn't reflect the full scope of customer feedback received across all channels"
+            ],
+            "links": null,
+            "additionalText": "Rest assured that all ratings and testimonials are genuine - nothing is made up. The differences simply reflect the multi-channel nature of how these products are sold and how feedback is collected."
+        },
+        {
+            "id": "refunds-guarantees",
+            "question": "What about refunds and guarantees?",
+            "answer": "All products come with a 30-day money-back guarantee. If you're not satisfied with your purchase for any reason, simply contact me within 30 days and I'll process a full refund through Gumroad.",
+            "icon": null,
+            "order": 6,
+            "style": "highlight",
+            "features": null,
+            "steps": null,
+            "bullets": null,
+            "links": null,
+            "additionalText": "For refund requests or purchase issues, please email [sebastien@developassion.be](mailto:sebastien@developassion.be)"
+        },
+        {
+            "id": "mistake-purchase",
+            "question": "What if I bought something by mistake?",
+            "answer": "Mistakes happen, and I'm happy to help sort things out:",
+            "icon": "FaUndo",
+            "order": 7,
+            "style": "default",
+            "features": [
+                {
+                    "icon": "FaShoppingCart",
+                    "title": "Extra items in your cart",
+                    "description": "If you accidentally purchased items you didn't intend to buy, just drop me an email and I'll process a refund for those items. No hassle, no questions asked."
+                },
+                {
+                    "icon": "FaExchangeAlt",
+                    "title": "Wrong version or variant",
+                    "description": "If you purchased the wrong version of a product (e.g., Essentials instead of Premium), I'll refund your purchase. You can then buy the correct version at your convenience."
+                }
+            ],
+            "steps": null,
+            "bullets": null,
+            "links": null,
+            "additionalText": "Just email [sebastien@developassion.be](mailto:sebastien@developassion.be) with your order details and I'll take care of it promptly."
+        },
+        {
+            "id": "student-discount",
+            "question": "I'm a student with limited financial means. Can I still access your products?",
+            "answer": "Absolutely! I believe knowledge should be accessible to everyone, especially students who are investing in their future. If you're a student or facing financial constraints, please reach out to me directly.",
+            "icon": "FaGraduationCap",
+            "order": 8,
+            "style": "default",
+            "features": null,
+            "steps": null,
+            "bullets": null,
+            "links": [
+                {
+                    "label": "Contact Me",
+                    "url": "mailto:sebastien@developassion.be",
+                    "external": false,
+                    "primary": true
+                }
+            ],
+            "additionalText": "Simply explain your situation, and I'll see what I can do to help. I want to support your learning journey."
+        }
+    ]
+}

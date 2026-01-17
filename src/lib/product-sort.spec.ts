@@ -59,7 +59,9 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         keywords: [],
         storytelling: null,
         timeline: null,
-        courseContent: null
+        courseContent: null,
+        howItWorks: null,
+        mediaSections: null
     },
     ...overrides
 })

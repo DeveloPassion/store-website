@@ -87,7 +87,9 @@ const createValidSalesCopyData = () => ({
     keywords: ['productivity', 'workflow'],
     storytelling: null,
     timeline: null,
-    courseContent: null
+    courseContent: null,
+    howItWorks: null,
+    mediaSections: null
 })
 
 const createValidSalesCopyFile = (id: string = 'default') => ({

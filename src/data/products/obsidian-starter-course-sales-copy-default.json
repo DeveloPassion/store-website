@@ -1008,6 +1008,12 @@
                     ]
                 }
             ]
-        }
+        },
+        "howItWorks": {
+            "title": "Course Preview",
+            "description": "See the quality content that awaits you",
+            "mediaIds": ["cover-video-001", "cover-video-003"]
+        },
+        "mediaSections": null
     }
 }

@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'bun:test'
-import { SalesCopyDataSchema, SalesCopyFileSchema } from './sales-copy.schema'
+import {
+    SalesCopyDataSchema,
+    SalesCopyFileSchema,
+    HowItWorksSchema,
+    MediaSectionConfigSchema,
+    MediaSectionsSchema
+} from './sales-copy.schema'
 
 describe('SalesCopyDataSchema', () => {
     const validSalesCopyData = {
@@ -34,7 +40,13 @@ describe('SalesCopyDataSchema', () => {
         keywords: ['pkm', 'knowledge management', 'ai'],
         storytelling: null,
         timeline: null,
-        courseContent: null
+        courseContent: null,
+        howItWorks: {
+            title: null,
+            description: null,
+            mediaIds: []
+        },
+        mediaSections: null
     }
 
     it('should validate complete sales copy data', () => {
@@ -68,7 +80,9 @@ describe('SalesCopyDataSchema', () => {
             keywords: [],
             storytelling: null,
             timeline: null,
-            courseContent: null
+            courseContent: null,
+            howItWorks: null,
+            mediaSections: null
         }
         expect(() => SalesCopyDataSchema.parse(minimalData)).not.toThrow()
     })
@@ -311,7 +325,9 @@ describe('SalesCopyFileSchema', () => {
             keywords: [],
             storytelling: null,
             timeline: null,
-            courseContent: null
+            courseContent: null,
+            howItWorks: null,
+            mediaSections: null
         }
     }
 
@@ -479,5 +495,223 @@ describe('SalesCopyFileSchema', () => {
             }
         }
         expect(() => SalesCopyFileSchema.parse(validData)).not.toThrow()
+    })
+})
+
+describe('HowItWorksSchema', () => {
+    it('should validate with all fields', () => {
+        const validData = {
+            title: 'See How It Works',
+            description: 'Watch a quick walkthrough',
+            mediaIds: ['video-1', 'image-2']
+        }
+        expect(() => HowItWorksSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with null title and description', () => {
+        const validData = {
+            title: null,
+            description: null,
+            mediaIds: []
+        }
+        expect(() => HowItWorksSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with empty mediaIds', () => {
+        const validData = {
+            title: 'Custom Title',
+            description: null,
+            mediaIds: []
+        }
+        expect(() => HowItWorksSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with multiple mediaIds', () => {
+        const validData = {
+            title: null,
+            description: null,
+            mediaIds: ['media-1', 'media-2', 'media-3']
+        }
+        expect(() => HowItWorksSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should reject missing mediaIds', () => {
+        const invalidData = {
+            title: 'Title',
+            description: 'Description'
+        }
+        expect(() => HowItWorksSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should reject non-array mediaIds', () => {
+        const invalidData = {
+            title: null,
+            description: null,
+            mediaIds: 'not-an-array'
+        }
+        expect(() => HowItWorksSchema.parse(invalidData)).toThrow()
+    })
+})
+
+describe('MediaSectionConfigSchema', () => {
+    it('should validate with all fields', () => {
+        const validData = {
+            show: true,
+            title: 'Custom Title',
+            description: 'Custom Description',
+            mediaIds: ['id-1', 'id-2']
+        }
+        expect(() => MediaSectionConfigSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with show false', () => {
+        const validData = {
+            show: false,
+            title: null,
+            description: null,
+            mediaIds: null
+        }
+        expect(() => MediaSectionConfigSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with null mediaIds (auto mode)', () => {
+        const validData = {
+            show: true,
+            title: null,
+            description: null,
+            mediaIds: null
+        }
+        expect(() => MediaSectionConfigSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with empty mediaIds array', () => {
+        const validData = {
+            show: true,
+            title: 'Title Only',
+            description: null,
+            mediaIds: []
+        }
+        expect(() => MediaSectionConfigSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with explicit mediaIds', () => {
+        const validData = {
+            show: true,
+            title: null,
+            description: null,
+            mediaIds: ['cover-1', 'main-2', 'video-3']
+        }
+        expect(() => MediaSectionConfigSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should reject missing show field', () => {
+        const invalidData = {
+            title: null,
+            description: null,
+            mediaIds: null
+        }
+        expect(() => MediaSectionConfigSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should reject non-boolean show field', () => {
+        const invalidData = {
+            show: 'true',
+            title: null,
+            description: null,
+            mediaIds: null
+        }
+        expect(() => MediaSectionConfigSchema.parse(invalidData)).toThrow()
+    })
+})
+
+describe('MediaSectionsSchema', () => {
+    it('should validate with all null sections (complete auto)', () => {
+        const validData = {
+            main: null,
+            secondary: null,
+            bonus: null
+        }
+        expect(() => MediaSectionsSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with mixed section configs', () => {
+        const validData = {
+            main: {
+                show: true,
+                title: 'Custom Main',
+                description: null,
+                mediaIds: null
+            },
+            secondary: {
+                show: false,
+                title: null,
+                description: null,
+                mediaIds: null
+            },
+            bonus: null
+        }
+        expect(() => MediaSectionsSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should validate with explicit mediaIds in sections', () => {
+        const validData = {
+            main: {
+                show: true,
+                title: null,
+                description: null,
+                mediaIds: ['main-1', 'cover-video-1']
+            },
+            secondary: {
+                show: true,
+                title: 'Custom Secondary',
+                description: 'Custom description',
+                mediaIds: ['secondary-1', 'secondary-2']
+            },
+            bonus: {
+                show: true,
+                title: null,
+                description: null,
+                mediaIds: []
+            }
+        }
+        expect(() => MediaSectionsSchema.parse(validData)).not.toThrow()
+    })
+
+    it('should reject missing main section', () => {
+        const invalidData = {
+            secondary: null,
+            bonus: null
+        }
+        expect(() => MediaSectionsSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should reject missing secondary section', () => {
+        const invalidData = {
+            main: null,
+            bonus: null
+        }
+        expect(() => MediaSectionsSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should reject missing bonus section', () => {
+        const invalidData = {
+            main: null,
+            secondary: null
+        }
+        expect(() => MediaSectionsSchema.parse(invalidData)).toThrow()
+    })
+
+    it('should reject invalid section config', () => {
+        const invalidData = {
+            main: {
+                show: 'yes', // Should be boolean
+                title: null,
+                description: null,
+                mediaIds: null
+            },
+            secondary: null,
+            bonus: null
+        }
+        expect(() => MediaSectionsSchema.parse(invalidData)).toThrow()
     })
 })

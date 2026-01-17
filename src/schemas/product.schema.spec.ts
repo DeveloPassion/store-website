@@ -66,7 +66,9 @@ describe('Product Schema Validation', () => {
             keywords: [],
             storytelling: null,
             timeline: null,
-            courseContent: null
+            courseContent: null,
+            howItWorks: null,
+            mediaSections: null
         }
     }
 
@@ -514,7 +516,9 @@ describe('Product Schema Validation', () => {
                     keywords: [],
                     storytelling: null,
                     timeline: null,
-                    courseContent: null
+                    courseContent: null,
+                    howItWorks: null,
+                    mediaSections: null
                 }
             }
             const result = AggregatedProductSchema.safeParse(valid)

@@ -326,6 +326,27 @@
                 }
             ]
         },
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": null,
+        "mediaSections": {
+            "main": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
+        }
     }
 }

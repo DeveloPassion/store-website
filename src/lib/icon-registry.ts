@@ -44,7 +44,14 @@ import {
     FaGift,
     FaRocket,
     FaStar,
-    FaTag
+    FaTag,
+    FaUndo,
+    FaExchangeAlt,
+    FaShoppingCart,
+    FaShieldAlt,
+    FaLock,
+    FaCreditCard,
+    FaQuestionCircle
 } from 'react-icons/fa'
 import {
     SiObsidian,
@@ -102,6 +109,13 @@ export const iconRegistry: Record<string, IconType> = {
     FaRocket,
     FaStar,
     FaTag,
+    FaUndo,
+    FaExchangeAlt,
+    FaShoppingCart,
+    FaShieldAlt,
+    FaLock,
+    FaCreditCard,
+    FaQuestionCircle,
     // Simple Icons
     SiObsidian,
     SiAngular,

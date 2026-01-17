@@ -215,6 +215,31 @@
             "successStories": null
         },
         "timeline": null,
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "See What's Inside",
+            "description": "Take a closer look at what you'll get",
+            "mediaIds": ["main-1736857000001", "main-1736857000002"]
+        },
+        "mediaSections": {
+            "main": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
+        }
     }
 }

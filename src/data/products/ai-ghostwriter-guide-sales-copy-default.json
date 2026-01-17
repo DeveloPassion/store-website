@@ -340,6 +340,31 @@
                 }
             ]
         },
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "See What's Inside",
+            "description": "Take a closer look at what you'll get",
+            "mediaIds": ["main-1736856000001", "main-1736856000002", "main-1736856000003"]
+        },
+        "mediaSections": {
+            "main": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
+        }
     }
 }

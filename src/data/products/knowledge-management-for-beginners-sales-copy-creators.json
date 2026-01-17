@@ -844,6 +844,31 @@
                     "icon": "🚀"
                 }
             ]
+        },
+        "howItWorks": {
+            "title": "Preview the Course",
+            "description": "Get a taste of what you'll learn in this comprehensive course",
+            "mediaIds": ["cover-video-001", "cover-video-003"]
+        },
+        "mediaSections": {
+            "main": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
         }
     }
 }

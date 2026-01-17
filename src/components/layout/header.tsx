@@ -12,7 +12,8 @@ import {
     FaStar,
     FaHeart,
     FaShoppingCart,
-    FaGlobe
+    FaGlobe,
+    FaQuestionCircle
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
@@ -130,6 +131,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             }
         ]
 
+        // Static link: FAQ
+        const faqLink: NavLink = {
+            to: '/faq',
+            label: 'FAQ',
+            icon: <FaQuestionCircle className='h-5 w-5' />,
+            color: 'text-indigo-400 bg-indigo-500/10 hover:bg-indigo-500/20'
+        }
+
         // External link: DeveloPassion Website
         const websiteLink: NavLink = {
             to: 'https://www.dsebastien.net',
@@ -147,6 +156,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             ...categoryLinks,
             ...staticLinks,
             wishlistLink,
+            faqLink,
             websiteLink
         ]
     }, [featuredCategories, wishlistCount])

@@ -348,6 +348,31 @@
                 }
             ]
         },
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "See the Community in Action",
+            "description": "Discover what awaits you inside the Knowii Community",
+            "mediaIds": ["cover-video-001", "cover-video-003"]
+        },
+        "mediaSections": {
+            "main": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
+        }
     }
 }

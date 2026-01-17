@@ -71,7 +71,9 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
         keywords: [],
         storytelling: null,
         timeline: null,
-        courseContent: null
+        courseContent: null,
+        howItWorks: null,
+        mediaSections: null
     }
 })
 

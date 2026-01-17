@@ -18,7 +18,7 @@ import ProductFAQ from '@/components/products/product-faq'
 import ProductVision from '@/components/products/product-vision'
 import ProductCTA from '@/components/products/product-cta'
 import StickyBuyButton from '@/components/products/sticky-buy-button'
-import CoverVideoSpot from '@/components/products/cover-video-spot'
+import HowItWorksSection from '@/components/products/how-it-works-section'
 import productsData from '@/data/products.json'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
@@ -120,7 +120,7 @@ const ProductPage: React.FC = () => {
             {/* Origin Story & Creator Journey: Build emotional connection and credibility after PAS */}
             <ProductOriginStory product={product} />
             <ProductCreatorJourney product={product} />
-            <CoverVideoSpot product={product} position={1} />
+            <HowItWorksSection product={product} />
             <ProductFeatures product={product} />
             {/* Course Content: For course products, show module structure after features */}
             <ProductCourseContent product={product} />
@@ -137,7 +137,6 @@ const ProductPage: React.FC = () => {
             {/* Transformation Arc & Timeline: Visualize the journey after benefits */}
             <ProductTransformationArc product={product} />
             <ProductTimeline product={product} />
-            <CoverVideoSpot product={product} position={2} />
             <MediaCarouselSection
                 product={product}
                 group='secondary'
@@ -167,7 +166,6 @@ const ProductPage: React.FC = () => {
             <ProductFAQ product={product} />
             {/* Vision: Reinforce mission alignment before final CTA */}
             <ProductVision product={product} />
-            <CoverVideoSpot product={product} position={3} />
             <ProductCTA product={product} />
             <MediaCarouselSection
                 product={product}

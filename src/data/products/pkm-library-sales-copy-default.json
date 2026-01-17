@@ -178,6 +178,31 @@
             "methodology": null
         },
         "timeline": null,
-        "courseContent": null
+        "courseContent": null,
+        "howItWorks": {
+            "title": "Explore the Library",
+            "description": "See the wealth of PKM resources at your fingertips",
+            "mediaIds": ["cover-video-001"]
+        },
+        "mediaSections": {
+            "main": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "secondary": {
+                "show": true,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            },
+            "bonus": {
+                "show": false,
+                "title": null,
+                "description": null,
+                "mediaIds": null
+            }
+        }
     }
 }

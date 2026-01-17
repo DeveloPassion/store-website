@@ -308,6 +308,144 @@ Example subscription product structure:
 
 **Per-Frequency Pricing:** The `prices` object enables accurate savings calculation and dynamic price display in the PaymentFrequencySelector. When a user selects yearly or biennial frequency, the UI automatically calculates and displays the percentage savings compared to monthly pricing.
 
+**How It Works Section:**
+
+The "How It Works" section displays media on product pages (after storytelling sections). This section provides per-product control over visibility, text, and explicit media selection via the `howItWorks` field in the `salesCopy` object.
+
+**Schema:**
+
+```typescript
+howItWorks: HowItWorksSchema.nullable()
+
+HowItWorksSchema = {
+    title: z.string().nullable(), // null = use default "See How It Works"
+    description: z.string().nullable(), // null = use default subheading
+    mediaIds: z.array(z.string()) // Required, array of media IDs to display
+}
+```
+
+**Behavior:**
+
+- `howItWorks: null` → Section hidden entirely
+- `howItWorks.title: null` → Uses default: "See How It Works"
+- `howItWorks.description: null` → Uses default subheading
+- `howItWorks.mediaIds: []` → Section shown with title/description, no media
+- `howItWorks.mediaIds: ["id1", "id2"]` → Displays those specific media items in order
+
+**Note:** These fields are stored in sales copy files (`{product-id}-sales-copy-{variant}.json`), NOT in product files. This allows different sales copy variants to have different configurations.
+
+**Example - Show section with specific media (in sales copy file):**
+
+```json
+{
+    "salesCopy": {
+        "howItWorks": {
+            "title": "Watch It In Action",
+            "description": "See how this product transforms your workflow",
+            "mediaIds": ["cover-video-1", "main-screenshot-1"]
+        }
+    }
+}
+```
+
+**Example - Hide section entirely:**
+
+```json
+{
+    "salesCopy": {
+        "howItWorks": null
+    }
+}
+```
+
+**Example - Show heading only (no media):**
+
+```json
+{
+    "salesCopy": {
+        "howItWorks": {
+            "title": null,
+            "description": null,
+            "mediaIds": []
+        }
+    }
+}
+```
+
+**Media Sections Configuration:**
+
+The `mediaSections` field provides per-product control over the main, secondary, and bonus media carousel sections.
+
+**Schema:**
+
+```typescript
+mediaSections: MediaSectionsSchema.nullable()
+
+MediaSectionsSchema = {
+    main: MediaSectionConfigSchema.nullable(),
+    secondary: MediaSectionConfigSchema.nullable(),
+    bonus: MediaSectionConfigSchema.nullable()
+}
+
+MediaSectionConfigSchema = {
+    show: z.boolean(), // true=show, false=hide
+    title: z.string().nullable(), // null=use default
+    description: z.string().nullable(), // null=use default
+    mediaIds: z.array(z.string()).nullable() // null=auto, []=none, [ids]=explicit
+}
+```
+
+**Behavior:**
+
+- `mediaSections: null` → Complete auto (show all sections with default headings, all media from group)
+- `show: false` → Section hidden regardless of other fields
+- `title: null` / `description: null` → Use defaults from component props
+- `mediaIds: null` → Auto-display all media from the corresponding group
+- `mediaIds: []` → No media displayed (but section shows if `show: true`)
+- `mediaIds: ["id1"]` → Display only those specific media items in order
+
+**Default Headings:**
+| Section | Default Title | Default Description |
+|---------|---------------|---------------------|
+| `main` | "See It In Action" | "Explore screenshots and videos to see exactly what you'll get" |
+| `secondary` | "Dive Deeper" | "Take a closer look at the details and features" |
+| `bonus` | "Bonus Content" | "Additional resources and insights" |
+
+**Example - Hide secondary section:**
+
+```json
+{
+    "salesCopy": {
+        "mediaSections": {
+            "main": null,
+            "secondary": { "show": false, "title": null, "description": null, "mediaIds": null },
+            "bonus": null
+        }
+    }
+}
+```
+
+**Example - Custom heading with explicit media:**
+
+```json
+{
+    "salesCopy": {
+        "mediaSections": {
+            "main": {
+                "show": true,
+                "title": "Key Screenshots",
+                "description": "The most important views",
+                "mediaIds": ["main-001", "cover-video-001"]
+            },
+            "secondary": null,
+            "bonus": null
+        }
+    }
+}
+```
+
+**Note:** `mediaIds` can reference ANY media ID from the product's media file, not just those in the corresponding group. This allows cross-group references (e.g., showing a cover video in the secondary section).
+
 ## Managing Product Media
 
 Products support rich media (images and videos) organized into four groups: **cover**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
@@ -467,6 +605,8 @@ Sales copy is extracted from product JSON files into versioned `-sales-copy-{var
 - **Storytelling**: `storytelling` (required but nullable - can be null or contain storytelling sections)
 - **Timeline**: `timeline` (required but nullable - can be null or contain transformation journey milestones)
 - **Course Content**: `courseContent` (required but nullable - can be null or contain course modules and sections)
+- **How It Works**: `howItWorks` (required but nullable - null = hidden, object = shown with title, description, mediaIds)
+- **Media Sections**: `mediaSections` (required but nullable - null = complete auto, object = per-section config for main/secondary/bonus)
 
 **Benefits Object Requirements:**
 All three categories are strictly required (can be empty arrays):
@@ -734,6 +874,36 @@ Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.j
 
 **Note**: Testimonials no longer have a `rating` field. All testimonials are assumed to be 5-star and contribute to the computed `averageRating` during aggregation.
 
+## Managing Global FAQ
+
+Global FAQs are displayed on the `/faq` page. Stored in `src/data/faq-global.json` with rich content support.
+
+**Validation**: Use `bun run validate:global-faq` to validate the data file.
+
+**Schema**: See `/src/schemas/global-faq.schema.ts` for complete field definitions.
+
+**FAQ Structure**:
+
+- `id`: Unique identifier (kebab-case)
+- `question`: The FAQ question
+- `answer`: Main answer text
+- `icon`: Emoji (e.g., `"🛒"`), React icon name (e.g., `"FaShoppingCart"`), or null
+- `order`: Display order (0-based, lower = first)
+- `style`: `"default"` or `"highlight"` (for important FAQs)
+- `features`: Array of sub-items with icon, title, description (for complex answers)
+- `steps`: Array of ordered steps with title, description (for processes)
+- `bullets`: Array of bullet point strings
+- `links`: Array of CTA links with label, url, external, primary flags
+- `additionalText`: Extra text after main content
+
+**Content Types**: Choose based on answer complexity:
+
+- Simple text: Just `answer` field
+- List of points: `bullets` array
+- Sub-items with details: `features` array
+- Ordered process: `steps` array
+- Call-to-action: `links` array
+
 ## Managing Product Stats
 
 Optional stats files: `{product-id}-stats.json`. Contains social proof metrics and ratings by source. Auto-loaded during product aggregation into `AggregatedProductSchema.stats`.
@@ -852,6 +1022,8 @@ Dedicated skills available in `.claude/skills/` for comprehensive store manageme
     - Keywords: tag, tags, taxonomy
 - **manage-promotion** - Configure promotion banner (behavior, dates, text, links)
     - Keywords: promotion, banner, promo, discount
+- **manage-global-faq** - Add, edit, remove global FAQ entries for the FAQ page
+    - Keywords: faq, global faq, add faq, faq questions
 - **add-product-media** - Add product images/videos with optimization and conversion-focused metadata
     - Keywords: media, screenshot, video, image, cover, visual, add
 

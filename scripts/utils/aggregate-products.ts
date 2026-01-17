@@ -240,6 +240,47 @@ export function computeRatings(
 }
 
 /**
+ * Validate mediaIds references in howItWorks and mediaSections
+ * Warns about invalid references but doesn't fail aggregation
+ * @internal - Exported for testing purposes only
+ */
+export function validateMediaIdsReferences(
+    productId: string,
+    salesCopy: SalesCopyData,
+    media: MediaItem[]
+): void {
+    const validMediaIds = new Set(media.map((m) => m.id))
+
+    // Validate howItWorks.mediaIds
+    if (salesCopy.howItWorks?.mediaIds && salesCopy.howItWorks.mediaIds.length > 0) {
+        for (const mediaId of salesCopy.howItWorks.mediaIds) {
+            if (!validMediaIds.has(mediaId)) {
+                console.warn(
+                    `  ⚠️ Product ${productId}: howItWorks references invalid media ID "${mediaId}"`
+                )
+            }
+        }
+    }
+
+    // Validate mediaSections mediaIds
+    if (salesCopy.mediaSections) {
+        const sections = ['main', 'secondary', 'bonus'] as const
+        for (const section of sections) {
+            const config = salesCopy.mediaSections[section]
+            if (config?.mediaIds && config.mediaIds.length > 0) {
+                for (const mediaId of config.mediaIds) {
+                    if (!validMediaIds.has(mediaId)) {
+                        console.warn(
+                            `  ⚠️ Product ${productId}: mediaSections.${section} references invalid media ID "${mediaId}"`
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
  * Discover all sales copy variant files for a product
  * Returns array of variant IDs (e.g., ['default', 'holiday-2026'])
  * @internal - Exported for testing purposes only
@@ -418,6 +459,9 @@ function main() {
                 errors.push(`  ❌ ${file}: ${message}`)
                 continue
             }
+
+            // Validate mediaIds references in howItWorks and mediaSections
+            validateMediaIdsReferences(product.id, salesCopy, media)
 
             // Create aggregated product with proper structure
             // salesCopy is a nested object (not spread into product)
