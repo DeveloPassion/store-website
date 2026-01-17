@@ -1,3 +1,9 @@
+## [0.7.2](https://github.com/DeveloPassion/store-website/compare/0.7.1...0.7.2) (2026-01-17)
+
+### Features
+
+* **all:** added validation script for icons ([69fbebf](https://github.com/DeveloPassion/store-website/commit/69fbebfd9d1363fef7da77eb01c313a8224a1f92))
+* **all:** updated icons ([2fc1d60](https://github.com/DeveloPassion/store-website/commit/2fc1d60eaa7a0b85afcad3997342ba9bd91551d4))
 ## [0.7.1](https://github.com/DeveloPassion/store-website/compare/0.7.0...0.7.1) (2026-01-17)
 
 ### Features
