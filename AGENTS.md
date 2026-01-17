@@ -446,6 +446,29 @@ MediaSectionConfigSchema = {
 
 **Note:** `mediaIds` can reference ANY media ID from the product's media file, not just those in the corresponding group. This allows cross-group references (e.g., showing a cover video in the secondary section).
 
+## Product Links
+
+**CRITICAL**: All product links must be valid. Run `bun run validate:product-links` before committing.
+
+**Format**: `/product/{product-id}` (singular, NOT `/products/`)
+
+**Validation Errors**:
+
+- `invalid-id`: Product ID doesn't exist in `/src/data/products/`
+- `wrong-path`: Using `/products/` instead of `/product/`
+
+**Usage**:
+
+```typescript
+// React: always use product.id
+<Link to={`/product/${product.id}`}>View</Link>
+
+// Markdown: exact product ID
+[Knowii](/product/knowii-community)
+```
+
+**Links appear in**: Product JSON (`included`, `features`), FAQ files (`answer`), sales copy files, global FAQ.
+
 ## Managing Product Media
 
 Products support rich media (images and videos) organized into four groups: **cover**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
