@@ -8,10 +8,14 @@
  */
 
 // Fixed particle positions for consistent, deterministic animations
+// position: Tailwind classes, x/y: animation travel distance (px)
 const PARTICLE_POSITIONS = [
-    { x: 42, y: -75 },
-    { x: -18, y: -52 },
-    { x: 8, y: -93 }
+    { position: 'left-[5%] top-[20%]', x: 42, y: -75, delay: 0 },
+    { position: 'left-[25%] top-[35%]', x: -18, y: -52, delay: 0.4 },
+    { position: 'left-[45%] top-[15%]', x: 8, y: -93, delay: 0.8 },
+    { position: 'left-[60%] top-[40%]', x: -35, y: -68, delay: 1.2 },
+    { position: 'left-[75%] top-[25%]', x: 55, y: -45, delay: 1.6 },
+    { position: 'left-[90%] top-[30%]', x: -8, y: -82, delay: 2.0 }
 ]
 
 interface AnimatedKnowledgeSystemProps {
@@ -53,7 +57,7 @@ const AnimatedKnowledgeSystem: React.FC<AnimatedKnowledgeSystemProps> = ({ text 
                 {PARTICLE_POSITIONS.map((pos, i) => (
                     <span
                         key={i}
-                        className={`bg-secondary/60 animate-particle absolute h-1 w-1 rounded-full [--particle-left:${20 + i * 30}%] [--particle-top:${10 + i * 20}%] [--animation-delay:${i * 0.7}s] [animation-duration:${2 + i * 0.5}s] [--particle-x:${pos.x}px] [--particle-y:${pos.y}px]`}
+                        className={`bg-secondary/60 animate-particle absolute h-1 w-1 rounded-full ${pos.position} [--animation-delay:${pos.delay}s] [--particle-x:${pos.x}px] [--particle-y:${pos.y}px]`}
                     />
                 ))}
             </span>
