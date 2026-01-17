@@ -8,6 +8,7 @@ import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
 import { Button } from '@/components/ui/button'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import MediaCarousel from './media-carousel'
 import MediaLightbox from './media-lightbox'
 
@@ -150,15 +151,21 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         </div>
 
                         {/* Tagline */}
-                        <p className='text-primary/80 mb-2 text-xl sm:text-2xl md:text-3xl'>
-                            {product.salesCopy?.tagline}
-                        </p>
+                        {product.salesCopy?.tagline && (
+                            <MarkdownContent
+                                content={product.salesCopy.tagline}
+                                inline
+                                className='text-primary/80 mb-2 text-xl sm:text-2xl md:text-3xl'
+                            />
+                        )}
 
                         {/* Secondary Tagline */}
                         {product.salesCopy?.secondaryTagline && (
-                            <p className='text-primary/60 mb-6 text-lg sm:text-xl'>
-                                {product.salesCopy.secondaryTagline}
-                            </p>
+                            <MarkdownContent
+                                content={product.salesCopy.secondaryTagline}
+                                inline
+                                className='text-primary/60 mb-6 text-lg sm:text-xl'
+                            />
                         )}
 
                         {/* Stats Proof */}
@@ -226,9 +233,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                                     <div className='font-semibold'>
                                                         {variant.name}
                                                     </div>
-                                                    <div className='text-primary/60 text-sm'>
-                                                        {variant.description}
-                                                    </div>
+                                                    {variant.description && (
+                                                        <MarkdownContent
+                                                            content={variant.description}
+                                                            inline
+                                                            className='text-primary/60 text-sm'
+                                                        />
+                                                    )}
                                                 </div>
 
                                                 {/* Right Column: Checkmark and Price */}
@@ -300,8 +311,8 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                                 key={idx}
                                                 className='bg-primary/5 text-primary/70 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm'
                                             >
-                                                <FaCheckCircle className='text-secondary h-4 w-4' />
-                                                {guarantee}
+                                                <FaCheckCircle className='text-secondary h-4 w-4 shrink-0' />
+                                                <MarkdownContent content={guarantee} inline />
                                             </div>
                                         ))}
                                 </div>

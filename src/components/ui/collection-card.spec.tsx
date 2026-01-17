@@ -251,12 +251,11 @@ describe('CollectionCard', () => {
     describe('edge cases', () => {
         it('should handle empty description', () => {
             const item = createMockItem({ description: '' })
-            const { container } = renderWithRouter(
+            const { queryByText } = renderWithRouter(
                 <CollectionCard item={item} basePath='/test' variant='detailed' />
             )
-            const description = container.querySelector('.text-sm')
-            expect(description).toBeInTheDocument()
-            expect(description?.textContent).toBe('')
+            // MarkdownContent returns null for empty content, so nothing is rendered
+            expect(queryByText('Test description for the item')).not.toBeInTheDocument()
         })
 
         it('should handle very long names', () => {

@@ -3,6 +3,7 @@ import { FaCheckCircle } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { cn } from '@/lib/utils'
 import { isEmoji } from '@/lib/is-emoji'
 import type { Product } from '@/schemas/product.schema'
@@ -71,9 +72,11 @@ const ProductTimeline: React.FC<ProductTimelineProps> = ({ product }) => {
                                         </h3>
 
                                         {/* Description */}
-                                        <p className='text-primary/70 mb-4'>
-                                            {milestone.description}
-                                        </p>
+                                        <MarkdownContent
+                                            content={milestone.description}
+                                            autoDetect
+                                            className='text-primary/70 mb-4'
+                                        />
 
                                         {/* Highlights (optional) */}
                                         {milestone.highlights &&
@@ -96,7 +99,10 @@ const ProductTimeline: React.FC<ProductTimelineProps> = ({ product }) => {
                                                                 )}
                                                             >
                                                                 <FaCheckCircle className='text-solution h-4 w-4 shrink-0' />
-                                                                <span>{highlight}</span>
+                                                                <MarkdownContent
+                                                                    content={highlight}
+                                                                    inline
+                                                                />
                                                             </li>
                                                         )
                                                     )}

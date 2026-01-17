@@ -3,6 +3,7 @@ import { FaArrowRight, FaCheckCircle } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { cn } from '@/lib/utils'
@@ -73,7 +74,11 @@ const PhaseCard: React.FC<{
             <h4 className='mb-2 text-center text-lg font-bold text-white'>{phase.title}</h4>
 
             {/* Description */}
-            <p className='text-primary/70 mb-4 text-center text-sm'>{phase.description}</p>
+            <MarkdownContent
+                content={phase.description}
+                inline
+                className='text-primary/70 mb-4 block text-center text-sm'
+            />
 
             {/* Points */}
             {phase.points && phase.points.length > 0 && (
@@ -86,7 +91,7 @@ const PhaseCard: React.FC<{
                                     styles.dotColor
                                 )}
                             />
-                            {point}
+                            <MarkdownContent content={point} inline />
                         </li>
                     ))}
                 </ul>
@@ -145,10 +150,12 @@ const ProductTransformationArc: React.FC<ProductTransformationArcProps> = ({ pro
                 {transformationArc.timeline && (
                     <motion.div variants={itemVariants} className='mt-8 text-center'>
                         <div className='border-solution/20 bg-solution/5 inline-flex items-center gap-2 rounded-full border px-4 py-2'>
-                            <FaCheckCircle className='text-solution h-4 w-4' />
-                            <span className='text-primary/70 text-sm'>
-                                {transformationArc.timeline}
-                            </span>
+                            <FaCheckCircle className='text-solution h-4 w-4 shrink-0' />
+                            <MarkdownContent
+                                content={transformationArc.timeline}
+                                inline
+                                className='text-primary/70 text-sm'
+                            />
                         </div>
                     </motion.div>
                 )}

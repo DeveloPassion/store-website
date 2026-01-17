@@ -3,6 +3,7 @@ import { FaCheckCircle } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import type { Product } from '@/schemas/product.schema'
@@ -49,7 +50,11 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                 {/* Mission statement */}
                 <motion.div variants={itemVariants} className='mb-8'>
                     <div className='border-secondary/30 bg-secondary/10 rounded-xl border p-6 text-center'>
-                        <p className='text-primary/90 text-lg leading-relaxed'>{vision.mission}</p>
+                        <MarkdownContent
+                            content={vision.mission}
+                            autoDetect
+                            className='text-primary/90 text-lg leading-relaxed'
+                        />
                     </div>
                 </motion.div>
 
@@ -86,7 +91,11 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                                         </div>
                                         <h4 className='font-semibold text-white'>{value.title}</h4>
                                     </div>
-                                    <p className='text-primary/70 text-sm'>{value.description}</p>
+                                    <MarkdownContent
+                                        content={value.description}
+                                        inline
+                                        className='text-primary/70 text-sm'
+                                    />
                                 </div>
                             ))}
                         </div>
@@ -106,7 +115,11 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                                     className='border-solution/20 flex items-start gap-3 rounded-lg border bg-white/5 p-3'
                                 >
                                     <FaCheckCircle className='text-solution mt-0.5 h-5 w-5 shrink-0' />
-                                    <p className='text-primary/70'>{goal}</p>
+                                    <MarkdownContent
+                                        content={goal}
+                                        inline
+                                        className='text-primary/70'
+                                    />
                                 </div>
                             ))}
                         </div>
@@ -117,7 +130,11 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                 {vision.biggerPicture && (
                     <motion.div variants={itemVariants}>
                         <div className='border-primary/10 rounded-lg border bg-white/5 p-5 text-center'>
-                            <p className='text-primary/70 italic'>"{vision.biggerPicture}"</p>
+                            <MarkdownContent
+                                content={`"${vision.biggerPicture}"`}
+                                inline
+                                className='text-primary/70 italic'
+                            />
                         </div>
                     </motion.div>
                 )}

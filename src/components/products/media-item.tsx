@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FaExpand, FaPlay } from 'react-icons/fa'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import type { MediaItem } from '@/schemas/media.schema'
 
 interface MediaItemProps {
@@ -143,7 +144,11 @@ const MediaItem: React.FC<MediaItemProps> = ({
 
             {/* Caption */}
             {showCaption && item.caption && (
-                <p className='text-primary/70 text-center text-sm italic'>{item.caption}</p>
+                <MarkdownContent
+                    content={item.caption}
+                    inline
+                    className='text-primary/70 text-center text-sm italic'
+                />
             )}
         </div>
     )

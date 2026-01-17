@@ -6,6 +6,7 @@ import type { MediaItem } from '@/schemas/media.schema'
 import { extractYouTubeId } from '@/components/products/media-item'
 import MediaCarousel from '@/components/products/media-carousel'
 import MediaLightbox from '@/components/products/media-lightbox'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 
 interface HowItWorksSectionProps {
@@ -77,9 +78,13 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
                     >
                         <div className='text-center'>
                             <h2 className='mb-3 text-2xl font-bold sm:text-3xl'>{title}</h2>
-                            <p className='text-primary/70 mx-auto max-w-xl text-sm sm:text-base'>
-                                {description}
-                            </p>
+                            {description && (
+                                <MarkdownContent
+                                    content={description}
+                                    inline
+                                    className='text-primary/70 mx-auto max-w-xl text-sm sm:text-base'
+                                />
+                            )}
                         </div>
                     </motion.div>
                 </div>
@@ -115,9 +120,13 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
                         >
                             <div className='mb-8 text-center'>
                                 <h2 className='mb-3 text-2xl font-bold sm:text-3xl'>{title}</h2>
-                                <p className='text-primary/70 mx-auto max-w-xl text-sm sm:text-base'>
-                                    {description}
-                                </p>
+                                {description && (
+                                    <MarkdownContent
+                                        content={description}
+                                        inline
+                                        className='text-primary/70 mx-auto max-w-xl text-sm sm:text-base'
+                                    />
+                                )}
                             </div>
 
                             <motion.div
@@ -174,9 +183,11 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
                             </motion.div>
 
                             {item.caption && (
-                                <p className='text-primary/60 mt-4 text-center text-sm italic'>
-                                    {item.caption}
-                                </p>
+                                <MarkdownContent
+                                    content={item.caption}
+                                    inline
+                                    className='text-primary/60 mt-4 text-center text-sm italic'
+                                />
                             )}
                         </motion.div>
                     </div>
@@ -196,9 +207,13 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
                     >
                         <div className='mb-8 text-center'>
                             <h2 className='mb-3 text-2xl font-bold sm:text-3xl'>{title}</h2>
-                            <p className='text-primary/70 mx-auto max-w-xl text-sm sm:text-base'>
-                                {description}
-                            </p>
+                            {description && (
+                                <MarkdownContent
+                                    content={description}
+                                    inline
+                                    className='text-primary/70 mx-auto max-w-xl text-sm sm:text-base'
+                                />
+                            )}
                         </div>
 
                         <motion.div
@@ -216,9 +231,11 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
                         </motion.div>
 
                         {item.caption && (
-                            <p className='text-primary/60 mt-4 text-center text-sm italic'>
-                                {item.caption}
-                            </p>
+                            <MarkdownContent
+                                content={item.caption}
+                                inline
+                                className='text-primary/60 mt-4 text-center text-sm italic'
+                            />
                         )}
                     </motion.div>
                 </div>
@@ -246,7 +263,13 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
                     >
                         <div className='mb-12 text-center'>
                             <h2 className='mb-4 text-3xl font-bold sm:text-4xl'>{title}</h2>
-                            <p className='text-primary/70 mx-auto max-w-2xl'>{description}</p>
+                            {description && (
+                                <MarkdownContent
+                                    content={description}
+                                    inline
+                                    className='text-primary/70 mx-auto max-w-2xl'
+                                />
+                            )}
                         </div>
 
                         <MediaCarousel

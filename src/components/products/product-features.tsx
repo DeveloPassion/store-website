@@ -14,6 +14,7 @@ import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { SectionHeader } from '@/components/ui/section-header'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 
 interface ProductFeaturesProps {
     product: Product
@@ -61,7 +62,11 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                     <IconComponent className='text-secondary h-6 w-6' />
                                 </div>
                                 {/* Text */}
-                                <p className='text-primary/80'>{feature}</p>
+                                <MarkdownContent
+                                    content={feature}
+                                    inline
+                                    className='text-primary/80'
+                                />
                             </motion.div>
                         )
                     })}
@@ -85,11 +90,13 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                     className='border-secondary/20 bg-secondary/5 grid grid-cols-[auto_1fr] items-center gap-2.5 rounded-lg border p-2.5 sm:gap-3 sm:p-4'
                                 >
                                     {/* Icon */}
-                                    <FaCheckCircle className='text-secondary h-4 w-4 sm:h-5 sm:w-5' />
+                                    <FaCheckCircle className='text-secondary h-4 w-4 shrink-0 sm:h-5 sm:w-5' />
                                     {/* Text */}
-                                    <span className='text-primary/80 text-sm break-words sm:text-base'>
-                                        {item}
-                                    </span>
+                                    <MarkdownContent
+                                        content={item}
+                                        inline
+                                        className='text-primary/80 text-sm break-words sm:text-base'
+                                    />
                                 </div>
                             ))}
                         </div>
@@ -119,9 +126,13 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                                 className='grid grid-cols-[auto_1fr] items-center gap-3'
                                             >
                                                 {/* Icon */}
-                                                <FaCheckCircle className='text-secondary h-4 w-4' />
+                                                <FaCheckCircle className='text-secondary h-4 w-4 shrink-0' />
                                                 {/* Text */}
-                                                <span className='text-primary/80'>{item}</span>
+                                                <MarkdownContent
+                                                    content={item}
+                                                    inline
+                                                    className='text-primary/80'
+                                                />
                                             </li>
                                         ))}
                                     </ul>
@@ -139,9 +150,15 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                             className='grid grid-cols-[auto_1fr] items-center gap-3'
                                         >
                                             {/* Bullet */}
-                                            <span className='text-primary/40 text-lg'>•</span>
+                                            <span className='text-primary/40 shrink-0 text-lg'>
+                                                •
+                                            </span>
                                             {/* Text */}
-                                            <span className='text-primary/70'>{item}</span>
+                                            <MarkdownContent
+                                                content={item}
+                                                inline
+                                                className='text-primary/70'
+                                            />
                                         </li>
                                     ))}
                                 </ul>

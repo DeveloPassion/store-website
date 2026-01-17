@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
 import { FaStar, FaQuoteLeft } from 'react-icons/fa'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
 interface TestimonialCardLinkedProps {
@@ -78,7 +79,7 @@ const TestimonialCardLinked: React.FC<TestimonialCardLinkedProps> = ({
 
             {/* Quote */}
             <blockquote className='text-primary/80 mb-3 flex-grow text-sm leading-relaxed italic md:mb-3 md:text-sm xl:mb-4 xl:text-sm'>
-                "{testimonial.quote}"
+                <MarkdownContent content={`"${testimonial.quote}"`} inline />
             </blockquote>
 
             {/* Author */}

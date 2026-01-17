@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Button } from '@/components/ui/button'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 
 interface ProductFAQProps {
     product: Product
@@ -53,9 +54,11 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                         )}
                                     >
                                         <Disclosure.Button className='hover:bg-primary/5 flex w-full items-center justify-between px-6 py-4 text-left transition-colors'>
-                                            <span className='min-w-0 flex-1 pr-4 font-semibold break-words'>
-                                                {faq.question}
-                                            </span>
+                                            <MarkdownContent
+                                                content={faq.question}
+                                                inline
+                                                className='min-w-0 flex-1 pr-4 font-semibold break-words'
+                                            />
                                             <FaChevronDown
                                                 className={cn(
                                                     'text-secondary h-5 w-5 shrink-0 transition-transform duration-200',
@@ -64,9 +67,11 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className='border-primary/10 border-t px-6 py-4'>
-                                            <p className='text-primary/70 leading-relaxed break-words'>
-                                                {faq.answer}
-                                            </p>
+                                            <MarkdownContent
+                                                content={faq.answer}
+                                                autoDetect
+                                                className='text-primary/70 leading-relaxed break-words'
+                                            />
                                         </Disclosure.Panel>
                                     </div>
                                 )}

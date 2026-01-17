@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import type React from 'react'
 
 interface SectionHeaderProps {
@@ -83,15 +84,15 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
             )}
             <h2 className={cn('mb-4 font-bold', sizeConfig.title, titleClassName)}>{title}</h2>
             {subtitle && (
-                <p
+                <MarkdownContent
+                    content={subtitle}
+                    autoDetect
                     className={cn(
                         'text-primary/70 mx-auto max-w-2xl',
                         sizeConfig.subtitle,
                         subtitleClassName
                     )}
-                >
-                    {subtitle}
-                </p>
+                />
             )}
         </Container>
     )

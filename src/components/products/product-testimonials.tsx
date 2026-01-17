@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Button } from '@/components/ui/button'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
@@ -48,7 +49,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
 
         {/* Quote */}
         <blockquote className='text-primary/80 mb-3 flex-grow text-sm leading-relaxed italic md:mb-3 md:text-sm xl:mb-4 xl:text-sm'>
-            "{testimonial.quote}"
+            <MarkdownContent content={`"${testimonial.quote}"`} inline />
         </blockquote>
 
         {/* Author */}

@@ -4,6 +4,7 @@ import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { Button } from '@/components/ui/button'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 
 interface ProductCTAProps {
     product: Product
@@ -63,8 +64,8 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                                     key={idx}
                                     className='bg-solution/10 text-solution flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium'
                                 >
-                                    <FaCheckCircle className='h-4 w-4' />
-                                    {guarantee}
+                                    <FaCheckCircle className='h-4 w-4 shrink-0' />
+                                    <MarkdownContent content={guarantee} inline />
                                 </div>
                             ))}
                         </div>
@@ -103,12 +104,12 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                         <div className='border-primary/10 mt-8 border-t pt-8'>
                             <div className='flex flex-wrap justify-center gap-3'>
                                 {product.salesCopy.trustBadges?.map((badge, idx) => (
-                                    <div
+                                    <MarkdownContent
                                         key={idx}
+                                        content={badge}
+                                        inline
                                         className='bg-primary/5 text-primary/70 rounded-full px-3 py-1.5 text-sm'
-                                    >
-                                        {badge}
-                                    </div>
+                                    />
                                 ))}
                             </div>
                         </div>

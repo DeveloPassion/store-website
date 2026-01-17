@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import type { Product } from '@/schemas/product.schema'
@@ -55,9 +56,11 @@ const ProductOriginStory: React.FC<ProductOriginStoryProps> = ({ product }) => {
 
                 <motion.div variants={itemVariants} className='space-y-6'>
                     <div className='border-secondary/20 rounded-xl border bg-white/5 p-6 backdrop-blur-sm'>
-                        <p className='text-primary/80 text-lg leading-relaxed whitespace-pre-line'>
-                            {originStory.story}
-                        </p>
+                        <MarkdownContent
+                            content={originStory.story}
+                            autoDetect
+                            className='text-primary/80 text-lg leading-relaxed'
+                        />
                     </div>
 
                     {originStory.inspirationPoint && (
@@ -65,9 +68,11 @@ const ProductOriginStory: React.FC<ProductOriginStoryProps> = ({ product }) => {
                             <div className='text-secondary shrink-0'>
                                 {renderIcon('FaLightbulb', 'h-6 w-6')}
                             </div>
-                            <p className='text-primary/70 italic'>
-                                "{originStory.inspirationPoint}"
-                            </p>
+                            <MarkdownContent
+                                content={`"${originStory.inspirationPoint}"`}
+                                inline
+                                className='text-primary/70 italic'
+                            />
                         </div>
                     )}
 

@@ -112,15 +112,17 @@ describe('SectionHeader', () => {
         })
 
         it('should apply custom subtitleClassName to subtitle', () => {
-            const { getByText } = render(
+            const { container } = render(
                 <SectionHeader
                     title='Test'
                     subtitle='Subtitle'
                     subtitleClassName='custom-subtitle'
                 />
             )
-            const subtitle = getByText('Subtitle')
-            expect(subtitle).toHaveClass('custom-subtitle')
+            // MarkdownContent wraps the content, so find the container with custom class
+            const subtitleContainer = container.querySelector('.custom-subtitle')
+            expect(subtitleContainer).toBeInTheDocument()
+            expect(subtitleContainer?.textContent).toContain('Subtitle')
         })
 
         it('should preserve default classes when adding custom classes', () => {

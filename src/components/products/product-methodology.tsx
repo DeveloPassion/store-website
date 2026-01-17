@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { cn } from '@/lib/utils'
@@ -79,9 +80,11 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                             </div>
 
                             {/* Description */}
-                            <p className='text-primary/70 text-sm leading-relaxed'>
-                                {step.description}
-                            </p>
+                            <MarkdownContent
+                                content={step.description}
+                                autoDetect
+                                className='text-primary/70 text-sm leading-relaxed'
+                            />
                         </motion.div>
                     ))}
                 </motion.div>
@@ -90,7 +93,11 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                 {methodology.philosophy && (
                     <motion.div variants={itemVariants} className='mt-8'>
                         <div className='border-secondary/20 rounded-lg border bg-white/5 p-5 text-center'>
-                            <p className='text-primary/70 italic'>"{methodology.philosophy}"</p>
+                            <MarkdownContent
+                                content={`"${methodology.philosophy}"`}
+                                inline
+                                className='text-primary/70 italic'
+                            />
                         </div>
                     </motion.div>
                 )}
@@ -99,9 +106,11 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                 {methodology.differentiation && (
                     <motion.div variants={itemVariants} className='mt-6'>
                         <div className='border-solution/20 bg-solution/5 rounded-lg border p-5'>
-                            <p className='text-primary/80 text-center text-sm'>
-                                {methodology.differentiation}
-                            </p>
+                            <MarkdownContent
+                                content={methodology.differentiation}
+                                inline
+                                className='text-primary/80 text-center text-sm'
+                            />
                         </div>
                     </motion.div>
                 )}

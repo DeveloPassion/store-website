@@ -3,6 +3,7 @@ import { FaTimesCircle, FaTrophy } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import type { Product } from '@/schemas/product.schema'
@@ -49,9 +50,11 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                 <motion.div variants={itemVariants} className='space-y-6'>
                     {/* Main story */}
                     <div className='border-primary/10 rounded-xl border bg-white/5 p-6 backdrop-blur-sm'>
-                        <p className='text-primary/80 text-lg leading-relaxed whitespace-pre-line'>
-                            {creatorJourney.story}
-                        </p>
+                        <MarkdownContent
+                            content={creatorJourney.story}
+                            autoDetect
+                            className='text-primary/80 text-lg leading-relaxed'
+                        />
                     </div>
 
                     {/* Struggles and Achievements in two columns */}
@@ -70,8 +73,10 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                                                 key={idx}
                                                 className='text-primary/70 flex items-start gap-2 text-sm'
                                             >
-                                                <span className='text-problem mt-1'>•</span>
-                                                {struggle}
+                                                <span className='text-problem mt-1 shrink-0'>
+                                                    •
+                                                </span>
+                                                <MarkdownContent content={struggle} inline />
                                             </li>
                                         ))}
                                     </ul>
@@ -92,8 +97,10 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                                                     key={idx}
                                                     className='text-primary/70 flex items-start gap-2 text-sm'
                                                 >
-                                                    <span className='text-solution mt-1'>•</span>
-                                                    {achievement}
+                                                    <span className='text-solution mt-1 shrink-0'>
+                                                        •
+                                                    </span>
+                                                    <MarkdownContent content={achievement} inline />
                                                 </li>
                                             ))}
                                         </ul>
@@ -105,9 +112,11 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                     {/* Credentials */}
                     {creatorJourney.credentials && (
                         <div className='border-secondary/20 bg-secondary/5 rounded-lg border p-4 text-center'>
-                            <p className='text-primary/70 text-sm italic'>
-                                {creatorJourney.credentials}
-                            </p>
+                            <MarkdownContent
+                                content={creatorJourney.credentials}
+                                inline
+                                className='text-primary/70 text-sm italic'
+                            />
                         </div>
                     )}
                 </motion.div>

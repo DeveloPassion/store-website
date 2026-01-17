@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { FaStar } from 'react-icons/fa'
 import { getColorClasses, defaultColorClasses } from '@/lib/color-classes'
 import type { ColorKey } from '@/schemas/color-key.schema'
@@ -121,7 +122,11 @@ export const CollectionCard = <T extends CollectionItem>({
             </div>
 
             {/* Description */}
-            <p className='text-primary/70 text-sm'>{item.description}</p>
+            <MarkdownContent
+                content={item.description}
+                inline
+                className='text-primary/70 text-sm'
+            />
 
             {/* Stats (only if count provided) */}
             {count !== undefined && (

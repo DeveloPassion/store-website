@@ -6,6 +6,7 @@ import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
 import { cn } from '@/lib/utils'
 import { SectionHeader } from '@/components/ui/section-header'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 
 interface ProductBenefitsProps {
     product: Product
@@ -108,7 +109,11 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                             className='border-solution/20 bg-solution/5 flex items-center gap-3 rounded-lg border p-4'
                                         >
                                             <FaCheckCircle className='text-solution h-5 w-5 shrink-0' />
-                                            <p className='text-primary/80'>{benefit}</p>
+                                            <MarkdownContent
+                                                content={benefit}
+                                                inline
+                                                className='text-primary/80'
+                                            />
                                         </motion.div>
                                     ))}
                                 </motion.div>

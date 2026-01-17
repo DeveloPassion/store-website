@@ -11,6 +11,7 @@ import {
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { cn } from '@/lib/utils'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
@@ -123,7 +124,7 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
                                     className='text-primary/80 flex items-center gap-2 text-sm'
                                 >
                                     <FaCheckCircle className='h-4 w-4 shrink-0 text-green-400' />
-                                    {prereq}
+                                    <MarkdownContent content={prereq} inline />
                                 </li>
                             ))}
                         </ul>
@@ -204,9 +205,11 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
                                         <Disclosure.Panel className='border-primary/10 border-t px-6 py-4'>
                                             {/* Module description */}
                                             {module.description && (
-                                                <p className='text-primary/70 mb-4 leading-relaxed'>
-                                                    {module.description}
-                                                </p>
+                                                <MarkdownContent
+                                                    content={module.description}
+                                                    autoDetect
+                                                    className='text-primary/70 mb-4 leading-relaxed'
+                                                />
                                             )}
 
                                             {/* Sections list */}
@@ -268,9 +271,11 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
                                                                 )}
                                                             </div>
                                                             {section.description && (
-                                                                <p className='text-primary/50 mt-0.5 text-xs'>
-                                                                    {section.description}
-                                                                </p>
+                                                                <MarkdownContent
+                                                                    content={section.description}
+                                                                    inline
+                                                                    className='text-primary/50 mt-0.5 text-xs'
+                                                                />
                                                             )}
                                                         </div>
                                                     </div>

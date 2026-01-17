@@ -7,6 +7,7 @@ import type { Category } from '@/schemas/category.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { Button } from '@/components/ui/button'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 
 interface ProductCardEcommerceProps {
     product: Product
@@ -196,9 +197,13 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                 </Link>
 
                 {/* Tagline */}
-                <p className='text-primary/60 mb-3 line-clamp-2 flex-1 text-sm'>
-                    {product.salesCopy?.tagline}
-                </p>
+                {product.salesCopy?.tagline && (
+                    <MarkdownContent
+                        content={product.salesCopy.tagline}
+                        inline
+                        className='text-primary/60 mb-3 line-clamp-2 flex-1 text-sm'
+                    />
+                )}
 
                 {/* Rating */}
                 <div className='mb-3 flex items-center gap-1'>

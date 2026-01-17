@@ -3,6 +3,7 @@ import { FaQuoteLeft, FaUser } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { SectionHeader } from '@/components/ui/section-header'
 import { DynamicIcon } from '@/components/ui/dynamic-icon'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 import { isEmoji } from '@/lib/is-emoji'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import type { Product } from '@/schemas/product.schema'
@@ -73,7 +74,11 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
 
                                 {/* Result and quote */}
                                 <div className='flex-1'>
-                                    <p className='text-primary/80 mb-4'>{story.result}</p>
+                                    <MarkdownContent
+                                        content={story.result}
+                                        autoDetect
+                                        className='text-primary/80 mb-4'
+                                    />
 
                                     {/* Metrics */}
                                     {story.metrics && story.metrics.length > 0 && (
@@ -114,9 +119,11 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
                                     {story.quote && (
                                         <div className='border-solution/20 flex items-start gap-3 rounded-lg border bg-white/5 p-4'>
                                             <FaQuoteLeft className='text-solution/50 mt-1 h-4 w-4 shrink-0' />
-                                            <p className='text-primary/70 text-sm italic'>
-                                                {story.quote}
-                                            </p>
+                                            <MarkdownContent
+                                                content={story.quote}
+                                                inline
+                                                className='text-primary/70 text-sm italic'
+                                            />
                                         </div>
                                     )}
                                 </div>

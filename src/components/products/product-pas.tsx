@@ -4,6 +4,7 @@ import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { SectionHeader } from '@/components/ui/section-header'
+import { MarkdownContent } from '@/components/ui/markdown-content'
 
 interface ProductPASProps {
     product: Product
@@ -40,7 +41,11 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                                 className='border-problem/20 bg-problem/5 flex gap-4 rounded-lg border p-4'
                             >
                                 <FaTimesCircle className='text-problem mt-1 h-5 w-5 shrink-0' />
-                                <p className='text-primary/70'>{point}</p>
+                                <MarkdownContent
+                                    content={point}
+                                    inline
+                                    className='text-primary/70'
+                                />
                             </div>
                         ))}
                     </motion.div>
@@ -71,7 +76,11 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                                 className='border-agitate/20 bg-agitate/5 flex gap-4 rounded-lg border p-4'
                             >
                                 <FaExclamationTriangle className='text-agitate mt-1 h-5 w-5 shrink-0' />
-                                <p className='text-primary/70'>{point}</p>
+                                <MarkdownContent
+                                    content={point}
+                                    inline
+                                    className='text-primary/70'
+                                />
                             </div>
                         ))}
                     </motion.div>
@@ -102,7 +111,11 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                                 className='border-solution/20 bg-solution/5 flex gap-4 rounded-lg border p-4'
                             >
                                 <FaCheckCircle className='text-solution mt-1 h-5 w-5 shrink-0' />
-                                <p className='text-primary/80 font-medium'>{point}</p>
+                                <MarkdownContent
+                                    content={point}
+                                    inline
+                                    className='text-primary/80 font-medium'
+                                />
                             </div>
                         ))}
                     </motion.div>
