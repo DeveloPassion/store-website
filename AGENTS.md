@@ -1,286 +1,74 @@
 # AGENTS.md - Store Website Maintenance Guide
 
-This document provides instructions for AI agents and developers on how to maintain and extend this store website.
-
 ## Project Overview
 
-Static website built with React 19+, TypeScript, Bun, Tailwind CSS v4, React Router, and React Icons. Features include product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), and fully responsive design.
+React 19+, TypeScript, Bun, Tailwind CSS v4, React Router, React Icons. Features: product showcase, category/tag filtering, command palette (`/` or `Ctrl+K`), responsive design.
 
 ## Schema Architecture
 
-The product system uses two distinct schemas to maintain clean separation between individual product files and aggregated runtime data:
+Two schemas: `IndividualProductSchema` (individual JSON files) and `AggregatedProductSchema` (runtime after build).
 
-**IndividualProductSchema** (`/src/schemas/product.schema.ts`):
-
-- Used for individual `{product-id}.json` files in `/src/data/products/`
-- Contains core product data: identity, pricing, subscription, taxonomy, variants, links, status, meta
-- Does NOT include: `faqs`, `media`, or inline sales copy fields (tagline, description, etc.)
-- References external data via `activeSalesCopyId` (required, non-nullable)
-- All boolean flags required: `featured`, `bestValue`, `bestseller`, `isSubscription`
-- All taxonomy fields required: `mainCategory`, `secondaryCategories`, `tags`
-
-**AggregatedProductSchema** (`/src/schemas/product.schema.ts`):
-
-- Used for aggregated `products.json` at build time
-- Merges individual product with external data files during aggregation
-- Includes `salesCopy` object (nested): `product.salesCopy.tagline`, `product.salesCopy.description`, etc.
-- Includes `faqs` array (loaded from `{product-id}-faq.json`)
-- Includes `media` array (loaded from `{product-id}-media.json`)
-- Used at runtime throughout the application
-
-**Key Differences:**
-
-| Field               | IndividualProduct       | AggregatedProduct                   |
-| ------------------- | ----------------------- | ----------------------------------- |
-| `activeSalesCopyId` | Required (non-nullable) | Required (non-nullable)             |
-| `salesCopy`         | Not present             | Required object with all PAS fields |
-| `faqs`              | Not present             | Required array (can be empty)       |
-| `testimonials`      | Not present             | Required array (can be empty)       |
-| `media`             | Not present             | Required array (can be empty)       |
-| Inline sales fields | Not present             | Not present (use `salesCopy.*`)     |
-
-**Type Usage in Code:**
+| Field                           | IndividualProduct | AggregatedProduct              |
+| ------------------------------- | ----------------- | ------------------------------ |
+| `activeSalesCopyId`             | Required          | Required                       |
+| `salesCopy`                     | Not present       | Required object                |
+| `faqs`, `testimonials`, `media` | Not present       | Required arrays (can be empty) |
 
 ```typescript
+// Build scripts: IndividualProduct | React components: AggregatedProduct (or Product alias)
 import { IndividualProduct, AggregatedProduct } from '@/types/product'
-
-// For individual product files (before aggregation)
-const product: IndividualProduct = {
-    /* ... */
-}
-
-// For runtime use (after aggregation)
-const product: AggregatedProduct = {
-    /* ... */
-}
-// Access: product.salesCopy.tagline, product.salesCopy.description, etc.
-
-// Convenience alias
-const product: Product = {
-    /* ... */
-} // Same as AggregatedProduct
 ```
 
-**Benefits Schema Requirements:**
-
-Both `IndividualBenefitsSchema` (in sales copy) and `AggregatedBenefitsSchema` (in aggregated product) require all three categories:
-
-- `immediate`: Array of immediate benefits
-- `systematic`: Array of systematic benefits
-- `longTerm`: Array of long-term benefits
-
-All three arrays must be present (can be empty arrays if no benefits for that category).
+**Benefits**: All three required (can be empty): `immediate`, `systematic`, `longTerm`
 
 ## Product Display
 
-**IMPORTANT**: Always use `ProductCardEcommerce` component (`/src/components/products/product-card-ecommerce.tsx`) when displaying products.
+Always use `ProductCardEcommerce` (`/src/components/products/product-card-ecommerce.tsx`).
 
 ## Icons
 
-All `icon` fields support: emojis (e.g., `"🚀"`, `"💡"`), React-icon names (e.g., `"FaRobot"`, `"SiObsidian"`), or URLs/paths. Use `DynamicIcon` component to render - handles all formats automatically. Icon registry: `/src/lib/icon-registry.ts`. Available: FontAwesome (Fa*), Simple Icons (Si*).
+All `icon` fields: emojis (`"🚀"`), React-icon names (`"FaRobot"`, `"SiObsidian"`), or URLs. Use `DynamicIcon`. Registry: `/src/lib/icon-registry.ts`.
 
-## Meta Tags and Open Graph Images
+## Meta Tags
 
-**CRITICAL**: All pages must properly handle meta tags for SEO and social sharing. This includes both static generation (build time) and runtime updates (client-side navigation).
+**Required**: document.title, meta description, og:_, twitter:_, canonical. Use `updateAllMetaTags()` from `/src/lib/update-meta-tags.ts`. Static gen: `scripts/utils/generate-static-pages.ts`.
 
-### Required Meta Tags
-
-Every page must update these meta tags:
-
-1. **Document title**: `document.title`
-2. **Meta description**: `<meta name="description">`
-3. **Open Graph tags**: `og:title`, `og:description`, `og:url`, `og:image`
-4. **Twitter Card tags**: `twitter:title`, `twitter:description`, `twitter:url`, `twitter:image`
-5. **Canonical URL**: `<link rel="canonical">`
-
-### OG Image Rules
-
-- **Generic pages**: `https://store.dsebastien.net/assets/images/social-card.png`
-- **Product pages**: Use primary cover image (`media.group === 'cover'`, sorted by `order`, lowest first) if available, otherwise fall back to default social card
-- **Home page**: Set in `index.html`
-
-### Implementation
-
-**Use the utility function** `updateAllMetaTags()` from `/src/lib/update-meta-tags.ts`:
-
-```typescript
-import { updateAllMetaTags } from '@/lib/update-meta-tags'
-
-useEffect(() => {
-    updateAllMetaTags({
-        title: 'Page Title - Knowledge Forge',
-        description: 'Page description for SEO and social sharing',
-        url: 'https://store.dsebastien.net/page-path',
-        image: 'https://store.dsebastien.net/image.png' // Optional, defaults to social-card.png
-    })
-}, [dependencies])
-```
-
-### Static Generation
-
-Product pages, category pages, and tag pages have their meta tags pre-rendered at build time via `scripts/utils/generate-static-pages.ts`. This ensures search engines and social media crawlers see correct metadata without JavaScript execution.
-
-**When adding new page types**, update `generate-static-pages.ts` to pre-render their meta tags.
-
-### Why Both?
-
-- **Static HTML**: For SEO crawlers and social media link unfurling (they don't execute JavaScript)
-- **Runtime updates**: For correct meta tags during client-side navigation with React Router
+**OG Images**: Generic=social-card.png, Product=first cover image.
 
 ## Styling
 
-Tailwind CSS v4 with custom theme in `/src/styles/index.css`:
-
-- `--color-primary: #ffffff` (main text)
-- `--color-secondary: #e5007d` (pink accent)
-- `--color-secondary-text: #ff1493` (hover)
-- `--color-background: #37404c`
+Tailwind v4, theme in `/src/styles/index.css`: primary (#ffffff), secondary (#e5007d), background (#37404c).
 
 ## Responsive Design
 
-**CRITICAL**: Ensure responsive UI works across all device sizes (mobile to ultra-wide).
+**Breakpoints**: sm(600), md(960), lg(1280), xg(1600), xl(1920), 2xl(2440)
 
-**Breakpoints**: sm(600px), md(960px), lg(1280px), xg(1600px), xl(1920px), 2xl(2440px)
-
-**Guidelines:**
-
-- Use `Section` component for consistent containers (`max-w-[1800px] 2xl:max-w-[2200px]`)
 - Product grids: `grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5`
-- Category grids: `grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6`
-- Avoid small `max-w-*` on grid containers; use `w-full` instead
-- Test at: mobile (320-600px), tablet (600-960px), desktop (960-1920px), ultra-wide (1920-2440px+)
+- Use `Section` component for containers
 
-## Data Management Overview
+## Data Management
 
-All data entities (Products, Categories, Tags, Promotion, FAQs, Testimonials) follow this pattern:
+All entities: JSON in `/src/data/`, Zod schemas in `/src/schemas/`, types in `/src/types/`, CLI in `/scripts/update-*.ts`, validation in `/scripts/validate-*.ts`.
 
-- **Files**: Individual JSON files in `/src/data/`
-- **Schema**: Zod schemas in `/src/schemas/*.schema.ts` (source of truth)
-- **Types**: TypeScript types in `/src/types/*.ts`
-- **CLI Tools**: Interactive scripts in `/scripts/update-*.ts`
-- **Validation**: Scripts in `/scripts/validate-*.ts`
-- **Skills**: Claude Code skills in `.claude/skills/manage-*.md`
+**Product files** (in `/src/data/products/`):
 
-**Schema Organization:**
+- `{id}.json` - core data
+- `{id}-sales-copy-{variant}.json` - marketing
+- `{id}-faq.json`, `{id}-testimonials.json`, `{id}-media.json`, `{id}-stats.json`
 
-Each schema file contains ONE primary schema with optional tightly-coupled helper schemas. Independent schemas must be in separate files (e.g., `ProductBenefitsSchema` in `product-benefits.schema.ts`, `ProductStatsSchema` in `product-stats.schema.ts`).
-
-**Product Data Architecture:**
-
-Individual product files (`{product-id}.json`) contain ONLY core product data. External data is stored separately and merged during aggregation:
-
-- **Individual product file**: Core data (pricing, taxonomy, variants, links, status, `activeSalesCopyId`)
-- **Sales copy files**: `{product-id}-sales-copy-{variant}.json` (marketing copy, PAS framework, storytelling)
-- **FAQ files**: `{product-id}-faq.json` (product-specific questions/answers)
-- **Media files**: `{product-id}-media.json` (images, videos, screenshots)
-- **Testimonials files**: `{product-id}-testimonials.json` (customer reviews, all assumed 5-star)
-- **Stats files**: `{product-id}-stats.json` (optional: userCount, timeSaved, ratings by source)
-
-During build-time aggregation:
-
-1. Individual product files are validated against `IndividualProductSchema`
-2. External files (sales copy, FAQs, media, testimonials, stats) are loaded
-3. Active sales copy variant is merged into product as `salesCopy` object
-4. Computed fields `ratingsCount` and `averageRating` are calculated from stats + testimonials (testimonials count as 5-star)
-5. Result is validated against `AggregatedProductSchema`
-6. Aggregated products are written to `products.json` (gitignored, runtime use)
-
-**Common Workflow:**
-
-1. Use CLI tool (`bun run update:<entity>`) or edit JSON directly
-2. Validate (`bun run validate:<entity>`)
-3. Fix errors if any
-4. Commit changes
+**Aggregation**: Individual files → validate → merge external → compute ratings → `products.json` (gitignored)
 
 ## Managing Products
 
-Products are JSON files in `/src/data/products/{product-id}.json`. Auto-aggregated into `products.json` (gitignored) at build time.
+**CLI**: `bun run update:products` | **Validate**: `bun run validate:products`
 
-**CLI**: Use `bun run update:products` for interactive management or `bun run validate:products` to validate after changes.
+**Individual fields**: id, slug, name, activeSalesCopyId, price, priceDisplay, priceTier, currency, discount, isSubscription, paymentFrequencies, defaultPaymentFrequency, mainCategory, secondaryCategories, tags, variants, gumroadUrl, websiteUrl, demoUrl, documentationUrl, githubUrl, status, featured, bestValue, bestseller, priority, createdAt, updatedAt
 
-**Schema**: See `/src/schemas/product.schema.ts` for complete field definitions.
+**NOT in individual files**: faqs, testimonials, media, inline sales copy
 
-**Individual Product Schema (`IndividualProductSchema`):**
+**Priority**: 100 (flagship), 90-95 (featured), 80-85 (premium), 70-79 (standard), 60-69 (workshops), 50-59 (coaching), 40-49 (free), 20-29 (archived)
 
-- Identity: `id`, `slug`, `name`, `activeSalesCopyId` (required, non-nullable)
-- Pricing: `price`, `priceDisplay`, `priceTier`, `currency`, `discount`
-- Subscription: `isSubscription` (required), `paymentFrequencies`, `defaultPaymentFrequency`
-- Taxonomy: `mainCategory` (required), `secondaryCategories` (required), `tags` (required)
-- Variants: Defined within product schema with pricing, Gumroad URLs, variant IDs
-- Links: `gumroadUrl`, `websiteUrl`, `demoUrl`, `documentationUrl`, `githubUrl`
-- Status: `status`, `featured` (required), `bestValue` (required), `bestseller` (required)
-- Meta: `priority`, `createdAt`, `updatedAt`
-
-**Fields NOT in Individual Product Files:**
-
-- NO `faqs` (loaded from `{product-id}-faq.json` during aggregation)
-- NO `testimonials` (loaded from `{product-id}-testimonials.json` during aggregation)
-- NO `media` (loaded from `{product-id}-media.json` during aggregation)
-- NO inline sales copy fields (tagline, description, etc. - use sales copy files instead)
-
-**Aggregated Product Schema (`AggregatedProductSchema`):**
-
-- Everything from `IndividualProductSchema`
-- PLUS `salesCopy` object with all PAS framework fields (merged from active sales copy variant)
-- PLUS `faqs` array (required but can be empty, from FAQ file)
-- PLUS `testimonials` array (required but can be empty, from testimonials file)
-- PLUS `media` array (required but can be empty, from media file)
-
-**CLI vs Direct Editing:**
-
-- **CLI**: Adding products, taxonomy changes, pricing/status/priority, managing sales copy variants, media, FAQs
-- **Direct editing**: Variants configuration, links, subscription settings, advanced meta fields
-
-**Priority Guidelines:**
-
-- 100: Flagship products
-- 90-95: Featured products/bundles
-- 80-85: Premium kits/courses
-- 70-79: Standard kits/courses/guides
-- 60-69: Workshops/tools
-- 50-59: Coaching/standard
-- 40-49: Free resources
-- 20-29: Archived
-
-**Subscription Products:**
-
-For products with `priceTier: 'subscription'`, add these fields:
-
-- `isSubscription: true` - Enables subscription-specific UI/UX
-- `paymentFrequencies`: Array of `['monthly', 'yearly', 'biennial', 'one-time']`
-- `defaultPaymentFrequency`: Default selection ('monthly', 'yearly', or 'biennial')
-
-Each variant can have:
-
-- `gumroadVariantId`: Maps to Gumroad's variant system for pre-selection
-- `paymentFrequency`: Variant-specific frequency
-
-**Gumroad URL Parameters:**
-
-All purchase URLs automatically include these working parameters:
-
-**Required Parameters:**
-
-- `wanted=true` - Enables Gumroad overlay checkout (direct to checkout page)
-- `quantity=1` - Sets item quantity to 1
-
-**Variant Selection:**
-
-- `variant={gumroadVariantId}` - Pre-selects product variant/tier when gumroadVariantId is set
-    - Example: `variant=explorer`, `variant=knowledge-builder`, `variant=knowledge-master`
-
-**Payment Frequency (Subscriptions):**
-Use boolean parameters to pre-select billing cycle:
-
-- `monthly=true` - Pre-selects monthly billing
-- `yearly=true` - Pre-selects yearly billing
-- `every_two_years=true` - Pre-selects 2-year billing
-
-**Note:** Gumroad also supports `option={encoded_id}` for variant selection (seen in product URLs), but we use the simpler `variant={id}` parameter which is confirmed working.
-
-**Implementation:** See `/src/lib/gumroad-url.ts` for URL building logic. All parameters are automatically added by `buildGumroadUrlFromProduct()`.
-
-Example subscription product structure:
+### Subscription Products
 
 ```json
 {
@@ -292,774 +80,185 @@ Example subscription product structure:
         {
             "name": "Explorer",
             "price": 4.99,
-            "priceDisplay": "€4.99/month",
-            "gumroadUrl": "https://gumroad.com/l/product",
             "gumroadVariantId": "explorer",
-            "paymentFrequency": "monthly",
-            "prices": {
-                "monthly": 4.99,
-                "yearly": 49.99,
-                "biennial": 89.99
-            }
+            "prices": { "monthly": 4.99, "yearly": 49.99, "biennial": 89.99 }
         }
     ]
 }
 ```
 
-**Per-Frequency Pricing:** The `prices` object enables accurate savings calculation and dynamic price display in the PaymentFrequencySelector. When a user selects yearly or biennial frequency, the UI automatically calculates and displays the percentage savings compared to monthly pricing.
+### Gumroad URLs
 
-**How It Works Section:**
+Auto-added params: `wanted=true`, `quantity=1`, `variant={id}`, `monthly/yearly/every_two_years=true`. See `/src/lib/gumroad-url.ts`.
 
-The "How It Works" section displays media on product pages (after storytelling sections). This section provides per-product control over visibility, text, and explicit media selection via the `howItWorks` field in the `salesCopy` object.
+### howItWorks (in sales copy)
 
-**Schema:**
+`howItWorks: { title: string|null, description: string|null, mediaIds: string[] } | null`
 
-```typescript
-howItWorks: HowItWorksSchema.nullable()
+- null = hidden, title/description null = defaults
 
-HowItWorksSchema = {
-    title: z.string().nullable(), // null = use default "See How It Works"
-    description: z.string().nullable(), // null = use default subheading
-    mediaIds: z.array(z.string()) // Required, array of media IDs to display
-}
-```
+### mediaSections (in sales copy)
 
-**Behavior:**
+`mediaSections: { main/secondary/bonus: { show: boolean, title: string|null, description: string|null, mediaIds: string[]|null } | null } | null`
 
-- `howItWorks: null` → Section hidden entirely
-- `howItWorks.title: null` → Uses default: "See How It Works"
-- `howItWorks.description: null` → Uses default subheading
-- `howItWorks.mediaIds: []` → Section shown with title/description, no media
-- `howItWorks.mediaIds: ["id1", "id2"]` → Displays those specific media items in order
-
-**Note:** These fields are stored in sales copy files (`{product-id}-sales-copy-{variant}.json`), NOT in product files. This allows different sales copy variants to have different configurations.
-
-**Example - Show section with specific media (in sales copy file):**
-
-```json
-{
-    "salesCopy": {
-        "howItWorks": {
-            "title": "Watch It In Action",
-            "description": "See how this product transforms your workflow",
-            "mediaIds": ["cover-video-1", "main-screenshot-1"]
-        }
-    }
-}
-```
-
-**Example - Hide section entirely:**
-
-```json
-{
-    "salesCopy": {
-        "howItWorks": null
-    }
-}
-```
-
-**Example - Show heading only (no media):**
-
-```json
-{
-    "salesCopy": {
-        "howItWorks": {
-            "title": null,
-            "description": null,
-            "mediaIds": []
-        }
-    }
-}
-```
-
-**Media Sections Configuration:**
-
-The `mediaSections` field provides per-product control over the main, secondary, and bonus media carousel sections.
-
-**Schema:**
-
-```typescript
-mediaSections: MediaSectionsSchema.nullable()
-
-MediaSectionsSchema = {
-    main: MediaSectionConfigSchema.nullable(),
-    secondary: MediaSectionConfigSchema.nullable(),
-    bonus: MediaSectionConfigSchema.nullable()
-}
-
-MediaSectionConfigSchema = {
-    show: z.boolean(), // true=show, false=hide
-    title: z.string().nullable(), // null=use default
-    description: z.string().nullable(), // null=use default
-    mediaIds: z.array(z.string()).nullable() // null=auto, []=none, [ids]=explicit
-}
-```
-
-**Behavior:**
-
-- `mediaSections: null` → Complete auto (show all sections with default headings, all media from group)
-- `show: false` → Section hidden regardless of other fields
-- `title: null` / `description: null` → Use defaults from component props
-- `mediaIds: null` → Auto-display all media from the corresponding group
-- `mediaIds: []` → No media displayed (but section shows if `show: true`)
-- `mediaIds: ["id1"]` → Display only those specific media items in order
-
-**Default Headings:**
-| Section | Default Title | Default Description |
-|---------|---------------|---------------------|
-| `main` | "See It In Action" | "Explore screenshots and videos to see exactly what you'll get" |
-| `secondary` | "Dive Deeper" | "Take a closer look at the details and features" |
-| `bonus` | "Bonus Content" | "Additional resources and insights" |
-
-**Example - Hide secondary section:**
-
-```json
-{
-    "salesCopy": {
-        "mediaSections": {
-            "main": null,
-            "secondary": { "show": false, "title": null, "description": null, "mediaIds": null },
-            "bonus": null
-        }
-    }
-}
-```
-
-**Example - Custom heading with explicit media:**
-
-```json
-{
-    "salesCopy": {
-        "mediaSections": {
-            "main": {
-                "show": true,
-                "title": "Key Screenshots",
-                "description": "The most important views",
-                "mediaIds": ["main-001", "cover-video-001"]
-            },
-            "secondary": null,
-            "bonus": null
-        }
-    }
-}
-```
-
-**Note:** `mediaIds` can reference ANY media ID from the product's media file, not just those in the corresponding group. This allows cross-group references (e.g., showing a cover video in the secondary section).
+- null = auto, show:false = hidden, mediaIds:null = auto
 
 ## Product Links
 
-**CRITICAL**: All product links must be valid. Run `bun run validate:product-links` before committing.
+**CRITICAL**: Run `bun run validate:product-links` before committing.
 
 **Format**: `/product/{product-id}` (singular, NOT `/products/`)
 
-**Validation Errors**:
-
-- `invalid-id`: Product ID doesn't exist in `/src/data/products/`
-- `wrong-path`: Using `/products/` instead of `/product/`
-
-**Usage**:
+**Errors**: `invalid-id` (doesn't exist), `wrong-path` (using `/products/`)
 
 ```typescript
-// React: always use product.id
-<Link to={`/product/${product.id}`}>View</Link>
-
-// Markdown: exact product ID
-[Knowii](/product/knowii-community)
+<Link to={`/product/${product.id}`}>View</Link>  // React
+[Knowii](/product/knowii-community)              // Markdown
 ```
-
-**Links appear in**: Product JSON (`included`, `features`), FAQ files (`answer`), sales copy files, global FAQ.
 
 ## Managing Product Media
 
-Products support rich media (images and videos) organized into four groups: **cover**, **main**, **secondary**, and **bonus**. Each group serves a specific purpose in the product display.
+**CLI**: `bun run update:products` → Edit → Manage Media
 
-**CLI**: Use `bun run update:products` (select "Edit existing product" → "🖼️ Manage Media") for interactive media management with list, add, edit, remove, and reorder operations.
+**Groups**: cover (card thumbnails 16:9), main (above What's Included), secondary (below Benefits), bonus (below Ready to Get Started)
 
-**Schema**: See `/src/schemas/media.schema.ts` for complete field definitions.
+**Types**: `image` (PNG/JPG/WebP), `video` (YouTube)
 
-**Media Types:**
+**Priority for cards/OG**: cover → main → secondary → bonus
 
-- `image`: Static images (PNG, JPG, WebP, etc.)
-- `video`: YouTube videos (click-to-play, no autoplay)
-
-**Media Groups & Placement:**
-
-- `cover`: Product card thumbnails - optimized for card display (16:9 aspect ratio recommended)
-- `main`: Above "What's Included" section - primary product showcase
-- `secondary`: Below "Benefits You'll Experience" - deeper dive content
-- `bonus`: Below "Ready to Get Started" - additional resources/social proof
-
-**Media Display:**
-
-Each group displays in a mixed-media carousel with:
-
-- Auto-rotation (7 seconds, pauses on hover)
-- Keyboard navigation (Arrow keys)
-- Navigation arrows + dot indicators
-- Lightbox for images (full-screen viewing)
-- YouTube embeds for videos (click-to-play)
-- Captions (optional)
-
-**YouTube Video Support:**
-
-- Automatically extracts video ID from YouTube URLs
-- Supports formats: `youtube.com/watch?v=ID`, `youtu.be/ID`, `youtube.com/embed/ID`
-- Uses `youtube-nocookie.com` domain for privacy
-- Generates high-quality thumbnails automatically
-- Videos require user click to play (no autoplay)
-
-**Example Media Object:**
-
-```json
-{
-    "id": "main-1234567890",
-    "type": "image",
-    "url": "/assets/images/knowii/screenshot-dashboard.png",
-    "title": "Dashboard Overview",
-    "description": "Main dashboard showing knowledge graph visualization",
-    "altText": "Knowii dashboard with interactive knowledge graph",
-    "caption": "Visualize your knowledge connections",
-    "order": 0,
-    "group": "main",
-    "width": 1920,
-    "height": 1080
-}
-```
-
-**Best Practices:**
-
-- Use descriptive titles and alt text for accessibility
-- Keep order sequential within groups (0, 1, 2...)
-- **Cover images**: Use 16:9 aspect ratio, compress to WebP (max 800x450)
-- **Banner images**: High-quality hero images, WebP preferred (max 1920x1080)
-- **Main/secondary/bonus**: Screenshots, demos, tutorials
-- Compress images before upload (WebP preferred)
-- Use high-quality YouTube thumbnails (auto-generated)
-- Add 1-2 cover images for best UX
-
-**Product Card Display:**
-
-Product cards automatically display the first image from the media array with priority: cover → main → secondary → bonus. Cover images are recommended for consistent card thumbnails.
-
-**Open Graph Images:**
-
-The first image from the media array (prioritized by group: cover → main → secondary → bonus) is automatically used for og:image meta tags for social sharing. Cover images are recommended for social cards.
-
-**Storage:**
-
-Media is stored separately from product JSON files for better organization and cleaner git diffs:
-
-- FAQs: `src/data/products/{product-id}-faq.json`
-- Testimonials: `src/data/products/{product-id}-testimonials.json`
-- Media: `src/data/products/{product-id}-media.json`
-
-These files are automatically loaded during aggregation and attached to products.
-
-**File Format:**
-
-All FAQ, Testimonial, and Media files use a consistent JSON structure with a `data` property containing the array of items:
-
-```json
-{
-    "data": [
-        { "id": "item-1", ... },
-        { "id": "item-2", ... }
-    ]
-}
-```
-
-**Media File Format:**
-
-Media items are sorted by group priority (cover → main → secondary → bonus), then by order within each group.
-
-Example `knowii-voice-ai-media.json`:
-
-```json
-{
-    "data": [
-        {
-            "id": "cover-1234567890",
-            "type": "image",
-            "url": "/assets/images/knowii/cover.png",
-            "title": "Knowii Cover",
-            "altText": "Knowii app cover image",
-            "order": 0,
-            "group": "cover",
-            "width": 1200,
-            "height": 630
-        },
-        {
-            "id": "main-1234567891",
-            "type": "video",
-            "url": "https://youtube.com/watch?v=abc123",
-            "title": "Demo Video",
-            "altText": "Product demonstration video",
-            "order": 0,
-            "group": "main",
-            "youtubeId": "abc123"
-        }
-    ]
-}
-```
+**File format**: `{ "data": [{ id, type, url, title, altText, order, group, width?, height?, youtubeId? }] }`
 
 ## Managing Sales Copy
 
-Sales copy is extracted from product JSON files into versioned `-sales-copy-{variant}.json` files. This enables A/B testing, seasonal campaigns, and cleaner product data management.
+**CLI**: `bun run update:products` (list/add/edit/enable/duplicate/remove)
 
-**Architecture:**
+**Required**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints, tagline, secondaryTagline (nullable), description, features, benefits, targetAudience, perfectFor, notForYou, trustBadges, guarantees, metaTitle, metaDescription, keywords, storytelling (nullable), timeline (nullable), courseContent (nullable), howItWorks (nullable), mediaSections (nullable)
 
-- **Product JSON**: Core product data (pricing, taxonomy, links, meta) + `activeSalesCopyId` reference
-- **Sales Copy Files**: `{product-id}-sales-copy-{variant}.json` (marketing copy, features, benefits, storytelling)
-- **Active Variant**: Product JSON references active variant via `activeSalesCopyId` field (required, non-nullable)
-- **Aggregation**: Sales copy auto-loaded and merged into product as `salesCopy` object during build
-- **Runtime Access**: Use `product.salesCopy.tagline`, `product.salesCopy.description`, etc. in code
+### Storytelling (all optional)
 
-**CLI**: Use `bun run update:products` for managing sales copy variants with operations: list, add, edit, enable, duplicate, and remove.
+originStory, creatorJourney, transformationArc, successStories, methodology, vision
 
-**Schema**: See `/src/schemas/sales-copy.schema.ts`, `/src/schemas/storytelling.schema.ts`, `/src/schemas/timeline.schema.ts`, and `/src/schemas/course-content.schema.ts` for complete field definitions.
+### Timeline
 
-**Required Fields in `SalesCopyDataSchema`:**
-
-- **PAS Framework**: `problem` (required), `problemPoints` (required), `agitate` (required), `agitatePoints` (required), `solution` (required), `solutionPoints` (required)
-- **Content**: `tagline` (required), `secondaryTagline` (required but nullable), `description` (required), `features` (required), `benefits` (required with all three categories)
-- **Audience**: `targetAudience` (required), `perfectFor` (required), `notForYou` (required)
-- **Trust**: `trustBadges` (required), `guarantees` (required)
-- **SEO**: `metaTitle` (required), `metaDescription` (required), `keywords` (required)
-- **Storytelling**: `storytelling` (required but nullable - can be null or contain storytelling sections)
-- **Timeline**: `timeline` (required but nullable - can be null or contain transformation journey milestones)
-- **Course Content**: `courseContent` (required but nullable - can be null or contain course modules and sections)
-- **How It Works**: `howItWorks` (required but nullable - null = hidden, object = shown with title, description, mediaIds)
-- **Media Sections**: `mediaSections` (required but nullable - null = complete auto, object = per-section config for main/secondary/bonus)
-
-**Benefits Object Requirements:**
-All three categories are strictly required (can be empty arrays):
-
-- `immediate`: Array of immediate benefits
-- `systematic`: Array of systematic benefits
-- `longTerm`: Array of long-term benefits
-
-**Storytelling Sections** (storytelling object can be null or contain any of these optional sections):
-
-1. **Origin Story** - Why product exists, genesis moment, inspiration
-2. **Creator Journey** - Personal story, struggles, credibility, achievements
-3. **Transformation Arc** - Before/during/after customer journey with timeline
-4. **Success Stories** - Detailed case studies with metrics, customer results
-5. **Methodology** - Step-by-step process, philosophy, differentiation
-6. **Vision** - Mission statement, bigger picture, values, future goals
-
-All `icon` fields in storytelling sections support emojis (e.g., "🚀") or React icon names (e.g., "FaRocket").
-
-**Timeline Structure** (transformation journey with time-based milestones):
-
-The timeline shows the progression of benefits over time, distinct from the transformation arc (before/during/after). Use it for granular, time-based milestones.
-
-- `title` (optional): Header title, defaults to "Your Transformation Journey"
-- `subtitle` (optional): Header subtitle, defaults to "See what you'll achieve over time"
-- `milestones` (required): Array of milestone objects (at least 1 required):
-    - `id` (required): Unique identifier
-    - `timeframe` (required): Display text like "Week 1", "Month 1", "Day 1"
-    - `title` (required): Milestone title
-    - `description` (required): Detailed description (min 10 chars)
-    - `highlights` (optional): Array of bullet points
-    - `icon` (optional): Emoji (e.g., "🚀") or React icon name (e.g., "FaRocket")
-
-**ProductTimeline Component:**
-
-Displays the timeline on product pages after ProductBenefits. Features:
-
-- Vertical timeline with connecting line
-- Milestone cards with timeframe badges
-- Optional icon or numbered indicators
-- Alternating layout on desktop (left/right)
-- Staggered scroll animations
+```json
+{
+    "title": "...",
+    "milestones": [
+        { "id": "...", "timeframe": "Week 1", "title": "...", "description": "...", "icon": "🚀" }
+    ]
+}
+```
 
 ## Managing Course Content
 
-Course products can have structured course content displayed on product pages. This is stored in the sales copy file as `courseContent`.
-
-**Schema**: See `/src/schemas/course-content.schema.ts` for complete field definitions.
-
-**Course Content Structure** (required but nullable):
-
-The `courseContent` field in sales copy defines the course structure with modules and sections:
+In sales copy as `courseContent` (nullable).
 
 ```json
 {
-    "courseContent": {
-        "sectionTitle": "What's Inside the Course",
-        "sectionDescription": "A comprehensive curriculum from beginner to expert",
-        "sectionIcon": "FaGraduationCap",
-        "totalDuration": "12 hours",
-        "difficulty": "beginner",
-        "prerequisites": ["Basic computer skills", "Obsidian installed"],
-        "modules": [
-            {
-                "name": "Getting Started",
-                "description": "Install, configure, and understand the interface",
-                "icon": "🚀",
-                "duration": "25 min",
-                "sections": [
-                    { "name": "Installing Obsidian", "duration": "5 min", "icon": "💻" },
-                    { "name": "Understanding the Interface", "duration": "10 min" }
-                ]
-            }
-        ]
-    }
-}
-```
-
-**Field Definitions:**
-
-- `sectionTitle` (optional): Header title for the section. Default: "What's Inside the Course"
-- `sectionDescription` (optional): Subtitle text describing the course content
-- `sectionIcon` (optional): Emoji or React icon name for the header
-- `totalDuration` (optional): Total course duration (e.g., "12 hours", "2h 30min")
-- `difficulty` (optional): One of `beginner`, `intermediate`, `advanced`
-- `prerequisites` (optional): Array of prerequisite items
-- `modules` (required): Array of course modules (at least 1 required)
-
-**Module Fields:**
-
-- `name` (required): Module title
-- `description` (required but nullable): Module description
-- `icon` (required but nullable): Emoji or React icon name
-- `duration` (required but nullable): Module duration (e.g., "45 min")
-- `sections` (required): Array of sections within the module (at least 1 required)
-
-**Section Fields:**
-
-- `name` (required): Section/lesson title
-- `description` (required but nullable): Section description
-- `duration` (required but nullable): Section duration (e.g., "15 min")
-- `icon` (required but nullable): Emoji or React icon name
-
-**Validation:**
-
-If a product has `mainCategory === 'courses'` AND `courseContent` is defined, the validation script checks that at least one module is present.
-
-**ProductCourseContent Component:**
-
-Displays course content on product pages after ProductFeatures. Features:
-
-- Header with title, description, and icon
-- Meta badges showing total duration, difficulty, and module/lesson counts
-- Prerequisites list with checkmarks
-- Accordion for modules (all collapsed by default)
-- Sections list within each expanded module
-- Icons for modules and sections (emoji or React icons)
-
-## Accessing Product Data in Code
-
-Understanding when to use `IndividualProduct` vs `AggregatedProduct` types is critical for type safety:
-
-**Use `AggregatedProduct` (or `Product` alias):**
-
-- In all React components (runtime, after aggregation)
-- When loading from `products.json`
-- When accessing sales copy data via `product.salesCopy.*`
-- When accessing FAQs via `product.faqs`
-- When accessing testimonials via `product.testimonials`
-- When accessing media via `product.media`
-
-**Use `IndividualProduct`:**
-
-- In build scripts working with individual product files
-- During validation before aggregation
-- In CLI tools that read/write individual product files
-- When you need to distinguish between pre-aggregation and post-aggregation data
-
-**Example Usage:**
-
-```typescript
-// React component (runtime - use AggregatedProduct)
-import { AggregatedProduct } from '@/types/product'
-
-function ProductCard({ product }: { product: AggregatedProduct }) {
-    return (
-        <div>
-            <h2>{product.salesCopy.tagline}</h2>
-            <p>{product.salesCopy.description}</p>
-            <p>Price: {product.priceDisplay}</p>
-            {product.media && <img src={product.media[0].url} />}
-        </div>
-    )
-}
-
-// Build script (pre-aggregation - use IndividualProduct)
-import { IndividualProduct } from '@/types/product'
-
-function validateProduct(product: IndividualProduct) {
-    console.log('Product:', product.name)
-    console.log('Active sales copy:', product.activeSalesCopyId)
-    // No access to product.salesCopy here - it doesn't exist yet
-}
-```
-
-**Important Notes:**
-
-- The `Product` type is a convenience alias for `AggregatedProduct`
-- Sales copy fields are accessed via `product.salesCopy.*` in aggregated products
-- Individual products reference sales copy via `activeSalesCopyId` only
-- FAQs and media are ONLY available in aggregated products
-
-**File Structure:**
-
-Example `knowii-voice-ai-sales-copy-default.json`:
-
-```json
-{
-    "id": "default",
-    "salesCopy": {
-        "tagline": "Transform your knowledge workflow",
-        "secondaryTagline": "AI-powered knowledge management",
-        "problem": "Knowledge workers struggle with information overload",
-        "problemPoints": [
-            "Scattered information across multiple tools",
-            "No centralized knowledge base"
-        ],
-        "agitate": "This costs you time, money, and opportunities",
-        "agitatePoints": [
-            "Wasted hours searching for information",
-            "Missed deadlines due to disorganization"
-        ],
-        "solution": "Knowii brings everything together",
-        "solutionPoints": ["Unified knowledge workspace", "AI-powered organization"],
-        "description": "A comprehensive knowledge management solution",
-        "features": ["Voice-to-text capture", "AI categorization"],
-        "benefits": {
-            "immediate": ["Start capturing knowledge today"],
-            "systematic": ["Build a lasting knowledge base"],
-            "longTerm": ["Compound your expertise over time"]
-        },
-        "targetAudience": ["Knowledge workers", "Researchers"],
-        "perfectFor": ["Content creators", "Consultants"],
-        "notForYou": ["If you prefer paper notes"],
-        "trustBadges": ["30-day money-back guarantee"],
-        "guarantees": ["Full refund if not satisfied"],
-        "metaTitle": "Knowii - Knowledge Management Made Easy",
-        "metaDescription": "Transform your workflow with AI",
-        "keywords": ["pkm", "knowledge management"],
-        "storytelling": {
-            "originStory": {
-                "title": "How Knowii Was Born",
-                "story": "One day I realized there had to be a better way..."
-            }
+    "sectionTitle": "...",
+    "totalDuration": "12 hours",
+    "difficulty": "beginner",
+    "modules": [
+        {
+            "name": "...",
+            "icon": "🚀",
+            "duration": "25 min",
+            "sections": [{ "name": "...", "duration": "5 min" }]
         }
-    }
+    ]
 }
 ```
+
+## Accessing Product Data
+
+- **AggregatedProduct/Product**: React components, runtime
+- **IndividualProduct**: Build scripts, validation, CLI
+
+Access: `product.salesCopy.tagline`, `product.faqs`, `product.media`
 
 ## Managing Promotion Banner
 
-Configuration in `src/data/promotion.json` (not gitignored).
+**CLI**: `bun run update:promotion` | **Validate**: `bun run validate:promotion`
 
-**CLI**: Use `bun run update:promotion` for interactive configuration or `bun run validate:promotion` to validate.
-
-**Schema**: See `/src/schemas/promotion.schema.ts` for complete field definitions.
-
-**Behavior Modes:** ALWAYS (always visible), NEVER (never shown), PROMOTIONS (shows during configured period)
+**Modes**: ALWAYS, NEVER, PROMOTIONS (date-based)
 
 ## Managing Tags
 
-96 tags in `src/data/tags.json` (object/map structure). Used for detailed product metadata.
+**CLI**: `bun run update:tags` | **Validate**: `bun run validate:tags`
 
-**CLI**: Use `bun run update:tags` for interactive management or `bun run validate:tags` to validate after changes.
-
-**Schema**: See `/src/schemas/tag.schema.ts` for complete field definitions.
-
-**Priority Guidelines**: Featured 1-8, Non-featured 21+
-
-**Critical**: Sync `TagIdSchema` enum in schema after add/remove operations
+96 tags in `src/data/tags.json`. Priority: Featured 1-8, Non-featured 21+. Sync `TagIdSchema` after changes.
 
 ## Managing Categories
 
-23 categories in `src/data/categories.json` (array structure). Used for broad product organization.
+**CLI**: `bun run update:categories` | **Validate**: `bun run validate:categories`
 
-**CLI**: Use `bun run update:categories` for interactive management or `bun run validate:categories` to validate after changes.
-
-**Schema**: See `/src/schemas/category.schema.ts` for complete field definitions.
-
-**Priority Guidelines**: Featured 1-7, Non-featured 8-23
-
-**Usage**: Every product has one `mainCategory` (required) and 0-N `secondaryCategories` (optional, with `distant` flag)
-
-**Removal**: CANNOT remove if used as mainCategory; CAN remove (with --force) if only in secondaryCategories
-
-**Critical**: Sync `CategoryIdSchema` enum in schema after add/remove operations
+23 categories in `src/data/categories.json`. Priority: Featured 1-7, Non-featured 8-23. Sync `CategoryIdSchema` after changes. Cannot remove if used as mainCategory.
 
 ## Managing FAQs and Testimonials
 
-Product-specific files: `{product-id}-faq.json` and `{product-id}-testimonials.json`. Auto-loaded during product aggregation.
+**CLI**: `bun run update:products` → Edit → Manage Content
 
-**CLI**: Use `bun run update:products` (select "Edit existing product" → "📝💬 Manage Content") for interactive FAQ and testimonial management with list, add, edit, and remove operations.
-
-**Schemas**: See `/src/schemas/faq.schema.ts` and `/src/schemas/testimonial.schema.ts` for complete field definitions.
-
-**Note**: Testimonials no longer have a `rating` field. All testimonials are assumed to be 5-star and contribute to the computed `averageRating` during aggregation.
+Files: `{id}-faq.json`, `{id}-testimonials.json`. Testimonials assumed 5-star.
 
 ## Managing Global FAQ
 
-Global FAQs are displayed on the `/faq` page. Stored in `src/data/faq-global.json` with rich content support.
+**Validate**: `bun run validate:global-faq`
 
-**Validation**: Use `bun run validate:global-faq` to validate the data file.
-
-**Schema**: See `/src/schemas/global-faq.schema.ts` for complete field definitions.
-
-**FAQ Structure**:
-
-- `id`: Unique identifier (kebab-case)
-- `question`: The FAQ question
-- `answer`: Main answer text
-- `icon`: Emoji (e.g., `"🛒"`), React icon name (e.g., `"FaShoppingCart"`), or null
-- `order`: Display order (0-based, lower = first)
-- `style`: `"default"` or `"highlight"` (for important FAQs)
-- `features`: Array of sub-items with icon, title, description (for complex answers)
-- `steps`: Array of ordered steps with title, description (for processes)
-- `bullets`: Array of bullet point strings
-- `links`: Array of CTA links with label, url, external, primary flags
-- `additionalText`: Extra text after main content
-
-**Content Types**: Choose based on answer complexity:
-
-- Simple text: Just `answer` field
-- List of points: `bullets` array
-- Sub-items with details: `features` array
-- Ordered process: `steps` array
-- Call-to-action: `links` array
+File: `src/data/faq-global.json`. Fields: id, question, answer, icon, order, style (default/highlight), features, steps, bullets, links, additionalText.
 
 ## Managing Product Stats
 
-Optional stats files: `{product-id}-stats.json`. Contains social proof metrics and ratings by source. Auto-loaded during product aggregation into `AggregatedProductSchema.stats`.
+**CLI**: `bun run update:products` → Edit → Manage Content → Manage Stats
 
-**CLI**: Use `bun run update:products` (select "Edit existing product" → "📝 Manage Content" → "📊 Manage Stats") for interactive stats management:
+File: `{id}-stats.json`. Fields: userCount, timeSaved, ratings. Computed: ratingsCount, averageRating.
 
-- Edit userCount and timeSaved display strings
-- Add, view, and remove ratings grouped by source
+## Testing
 
-**Schema**: See `/src/schemas/stats.schema.ts` for complete field definitions (`StatsSchema`, `RatingSchema`, `RatingsSchema`).
+**Framework**: Bun test, React Testing Library, Jest DOM, Happy DOM
 
-**Fields**:
+**Naming**: `*.spec.ts`, `*.spec.tsx`, `*.integration.spec.ts`
 
-- `userCount`: Display string (e.g., "2,000+ users")
-- `timeSaved`: Display string (e.g., "10+ hours/week")
-- `ratings`: Record of source → array of `{ id, rating (0-5, nullable), date (nullable) }`
-
-**Computed Fields**: During aggregation, `ratingsCount` and `averageRating` are computed from stats ratings combined with testimonials (each testimonial counts as a 5-star rating).
-
-**Note**: Stats are stored in separate files, NOT in individual product JSON files. The stats property only exists in `AggregatedProductSchema` (loaded during aggregation), not in `IndividualProductSchema`.
-
-## Testing Requirements
-
-**CRITICAL**: Comprehensive testing mandatory for all code. Tests must be co-located with source files.
-
-**Framework**: Bun test (built-in test runner), React Testing Library, Jest DOM, Happy DOM
-
-**Naming**: `filename.spec.ts` (unit), `filename.spec.tsx` (components), `filename.integration.spec.ts` (integration)
-
-**Coverage Requirements:**
-
-- Utility functions: 90%+
-- Components: 80%+ for critical paths
-- Schemas: 100%
-
-**What to Test:**
-
-- All functions in `src/lib/` (all paths, edge cases, immutability)
-- All components (props, interactions, conditional rendering, a11y)
-- All Zod schemas (required fields, validation rules, edge cases)
-- Scripts core logic (extract into testable functions)
-
-**Commands:**
+**Coverage**: Utilities 90%+, Components 80%+, Schemas 100%
 
 ```bash
-bun test                              # Watch mode
-bun run test:run                      # Run once
-bun run test:ui                       # UI mode
-bun run test:coverage                 # Coverage report
+bun test              # Watch
+bun run test:run      # Once
+bun run test:coverage # Report
 ```
-
-**CI/CD**: All tests must pass before merge/deploy/release.
-
-**Skip tests only for**: Type definitions (`.d.ts`), config files (`*.config.ts`), simple re-exports.
 
 ## Development Commands
 
 ```bash
-bun run store                         # Store CLI (all management tools)
-bun dev                           # Dev server (auto-aggregates)
-bun run build                         # Production build
-bun run lint / format / tsc           # Code quality
-bun test / test:run / test:coverage   # Testing
-bun run validate:all                  # Validate all data
-bun run ci:local                      # Full CI checks locally
-bun run release                       # Deploy to Cloudflare Pages
+bun run store         # Store CLI
+bun dev               # Dev server
+bun run build         # Production
+bun run lint          # Lint
+bun run tsc           # Type check
+bun run validate:all  # Validate data
+bun run ci:local      # Full CI
 ```
-
-## Deployment
-
-Ignore!
-
-## Accessibility
-
-Keyboard navigation, ARIA labels, focus management, command palette shortcuts, semantic HTML.
 
 ## Best Practices
 
-1. Write tests first (mandatory)
+1. Write tests first
 2. Run `bun run ci:local` before committing
-3. Keep descriptions concise (1-2 sentences)
-4. Validate data after edits (`bun run validate:all`)
+3. Keep descriptions concise
+4. Validate after edits (`bun run validate:all`)
 5. Use conventional commits
 6. Don't edit CHANGELOG.md (auto-generated)
-7. **CLI Documentation**: When documenting CLIs in AGENTS.md, keep explanations succinct - one sentence about what the CLI can be used for and the basic command invocation. Detailed CLI arguments and examples belong in skill files (`.claude/skills/`) only.
-8. **Backwards Compatibility**: When there is a question of backwards compatibility (e.g., renaming routes, changing URLs, renaming fields), ALWAYS ASK the user whether they want to maintain backwards compatibility or if breaking changes are acceptable. Do not assume either way.
-9. **TypeScript Types**: NEVER use `any` type unless absolutely unavoidable. Always use proper TypeScript types such as `React.ComponentPropsWithoutRef<'element'>`, `React.ReactNode`, specific interface types, or generic constraints. The `any` type bypasses type safety and should be avoided.
-10. **No Re-exports for Backwards Compatibility**: NEVER re-export types, interfaces, schemas, or functions from one module just for backwards compatibility. Always import from the original source where they are defined. Update all import statements throughout the codebase to point to the correct source. This keeps the codebase clean and makes dependencies explicit.
-11. **Branding Consistency**: When making branding changes (site name, taglines, descriptions), update ALL of these locations:
-    - `src/index.html` - Base HTML template with meta tags
-    - `scripts/utils/generate-static-pages.ts` - Static page generation (JSON-LD schemas, page titles, meta tags)
-    - `scripts/utils/generate-llms-txt.ts` - LLMs.txt file generation (site title)
-    - React page components (if they have hardcoded branding in `useEffect` hooks or titles)
-
-    **Search strategy**: Use `grep -r "old-brand-name"` across the codebase to find all instances that need updating. The build scripts must match the branding in `index.html` to ensure consistency between static generation and runtime.
-
-12. **Zod Schema Fields - Prefer Nullable**: Use `.nullable()` instead of `.optional()` or `.nullish()` for Zod schema fields that may not have a value. This ensures fields are always present in JSON (with `null` when empty), keeping data explicit and consistent.
-
-**Pre-Commit Checklist:**
-
-```bash
-bun run ci:local  # Runs: tests, lint, tsc, validate:all, build, format
-```
+7. CLI docs: succinct here, details in skills
+8. Ask about backwards compatibility before breaking changes
+9. Never use `any` type
+10. No re-exports for backwards compatibility
+11. Branding changes: update `index.html`, `generate-static-pages.ts`, `generate-llms-txt.ts`
+12. Zod: prefer `.nullable()` over `.optional()`
 
 ## Claude Code Skills
 
-Dedicated skills available in `.claude/skills/` for comprehensive store management and optimization:
+Skills in `.claude/skills/`:
 
-### Data Management Skills
+**Data**: manage-products, manage-categories, manage-tags, manage-promotion, manage-global-faq, add-product-media
 
-- **manage-products** - Add, edit, list, remove products with full CRUD operations
-    - Keywords: product, products, add product, edit product, list products
-- **manage-categories** - Add, modify, list, remove product categories
-    - Keywords: category, categories, taxonomy
-- **manage-tags** - Add, modify, list, remove product tags
-    - Keywords: tag, tags, taxonomy
-- **manage-promotion** - Configure promotion banner (behavior, dates, text, links)
-    - Keywords: promotion, banner, promo, discount
-- **manage-global-faq** - Add, edit, remove global FAQ entries for the FAQ page
-    - Keywords: faq, global faq, add faq, faq questions
-- **add-product-media** - Add product images/videos with optimization and conversion-focused metadata
-    - Keywords: media, screenshot, video, image, cover, visual, add
+**Content**: manage-taglines, add-icons-to-taxonomy
 
-### Content Enhancement Skills
-
-- **manage-taglines** - Generate and optimize product taglines and value propositions
-    - Keywords: tagline, taglines, headline, value proposition
-- **add-icons-to-taxonomy** - Add icons and colors to categories and tags
-    - Keywords: icon, icons, color, colors, taxonomy
-
-### Marketing & Optimization Skills
-
-- **optimize-product-images** - Generate AI image prompts, cover text overlays, and screenshot strategies for maximum conversion
-    - Keywords: optimize images, image prompt, marketing visuals, conversion, screenshot strategy, cover image, headline, cta
-
-**Invocation**: Skills are automatically triggered when you mention their keywords in conversation. Example: "optimize images for knowii" will invoke the optimize-product-images skill.
+**Marketing**: optimize-product-images
