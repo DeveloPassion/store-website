@@ -60,6 +60,7 @@ export interface GumroadVariantOption {
 export interface GumroadSale {
     id: string
     email: string
+    full_name: string // Customer's full name
     seller_id: string
     timestamp: string
     daystamp: string
@@ -82,6 +83,17 @@ export interface GumroadSale {
     product_rating?: number | null // Individual sale's rating (1-5, null if customer didn't rate)
     reviews_count?: number // Total number of reviews for the product
     average_rating?: number // Product's average rating
+}
+
+/**
+ * Customer who hasn't left a review for their purchase(s)
+ */
+export interface CustomerWithoutReview {
+    firstName: string
+    lastName: string
+    email: string
+    productNames: string[] // Products purchased without review
+    purchaseDate: string // Date of earliest purchase without review
 }
 
 /**

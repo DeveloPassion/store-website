@@ -11,12 +11,14 @@
  * - Update userCount based on sales (only if higher than existing)
  * - Verify prices match between local and Gumroad
  * - Check for missing products (Gumroad products not in local store)
+ * - List customers who haven't left a review for their purchases
  * - Uses _redirects file for Gumroad slug → local product mapping
  *
  * Usage:
  *   bun run sync:gumroad                    # Interactive mode
  *   bun scripts/sync-gumroad.ts --all       # Sync all (ratings + sales + prices)
  *   bun scripts/sync-gumroad.ts --check-missing  # Find missing products
+ *   bun scripts/sync-gumroad.ts --no-review      # List customers without reviews
  *
  * Requires GUMROAD_ACCESS_TOKEN environment variable (from .env file)
  */
@@ -28,6 +30,7 @@ import { select } from '@inquirer/prompts'
 import { GumroadApiClient, GumroadApiError } from './utils/gumroad/api-client.js'
 import { parseRedirects, getUniqueLocalProductIds } from './utils/gumroad/redirects-parser.js'
 import type {
+    CustomerWithoutReview,
     GumroadMapping,
     GumroadProduct,
     GumroadSale,
@@ -178,6 +181,153 @@ function extractRatingsFromSales(sales: GumroadSale[]): Rating[] {
         }
     }
     return ratings
+}
+
+/**
+ * Parse full name into first and last name
+ */
+function parseFullName(fullName: string): { firstName: string; lastName: string } {
+    const trimmed = fullName.trim()
+    if (!trimmed) {
+        return { firstName: '', lastName: '' }
+    }
+    const parts = trimmed.split(/\s+/)
+    if (parts.length === 1) {
+        return { firstName: parts[0], lastName: '' }
+    }
+    const firstName = parts[0]
+    const lastName = parts.slice(1).join(' ')
+    return { firstName, lastName }
+}
+
+/**
+ * Extract customers who haven't left a review for their purchases
+ * Groups by email to consolidate multiple purchases
+ */
+function extractCustomersWithoutReview(sales: GumroadSale[]): CustomerWithoutReview[] {
+    // Map: email -> customer data with all unreviewed products
+    const customerMap = new Map<
+        string,
+        {
+            firstName: string
+            lastName: string
+            email: string
+            productNames: Set<string>
+            earliestDate: string
+        }
+    >()
+
+    for (const sale of sales) {
+        // Skip sales that have a rating
+        if (sale.product_rating !== undefined && sale.product_rating !== null) {
+            continue
+        }
+
+        const email = sale.email.toLowerCase()
+        const { firstName, lastName } = parseFullName(sale.full_name || '')
+        const purchaseDate = sale.created_at?.split('T')[0] || ''
+
+        if (customerMap.has(email)) {
+            const existing = customerMap.get(email)!
+            existing.productNames.add(sale.product_name)
+            // Keep the earliest purchase date
+            if (purchaseDate && (!existing.earliestDate || purchaseDate < existing.earliestDate)) {
+                existing.earliestDate = purchaseDate
+            }
+        } else {
+            customerMap.set(email, {
+                firstName,
+                lastName,
+                email: sale.email,
+                productNames: new Set([sale.product_name]),
+                earliestDate: purchaseDate
+            })
+        }
+    }
+
+    // Convert to array and sort by earliest purchase date (newest first)
+    return Array.from(customerMap.values())
+        .map((c) => ({
+            firstName: c.firstName,
+            lastName: c.lastName,
+            email: c.email,
+            productNames: Array.from(c.productNames),
+            purchaseDate: c.earliestDate
+        }))
+        .sort((a, b) => b.purchaseDate.localeCompare(a.purchaseDate))
+}
+
+/**
+ * Display customers without reviews
+ */
+function displayCustomersWithoutReview(customers: CustomerWithoutReview[]): void {
+    showOperationHeader('CUSTOMERS WITHOUT REVIEWS')
+
+    if (customers.length === 0) {
+        console.log(`  ${colors.green}✓${colors.reset} All customers have left reviews!`)
+        return
+    }
+
+    console.log(
+        `  Found ${colors.bright}${customers.length}${colors.reset} customers without reviews:\n`
+    )
+
+    // Table header
+    console.log(
+        `  ${colors.dim}${'First Name'.padEnd(20)} ${'Last Name'.padEnd(20)} ${'Email'.padEnd(40)} ${'Products'.padEnd(30)} ${'Purchase Date'}${colors.reset}`
+    )
+    console.log(`  ${colors.dim}${'-'.repeat(130)}${colors.reset}`)
+
+    for (const customer of customers) {
+        const firstName = (customer.firstName || '-').substring(0, 19).padEnd(20)
+        const lastName = (customer.lastName || '-').substring(0, 19).padEnd(20)
+        const email = customer.email.substring(0, 39).padEnd(40)
+        const products = customer.productNames.join(', ').substring(0, 29).padEnd(30)
+        const date = customer.purchaseDate || '-'
+
+        console.log(`  ${firstName} ${lastName} ${email} ${products} ${date}`)
+    }
+
+    showSectionHeader('SUMMARY')
+    console.log(`  Total customers without reviews: ${customers.length}`)
+
+    // Count total unreviewed purchases
+    const totalPurchases = customers.reduce((sum, c) => sum + c.productNames.length, 0)
+    console.log(`  Total unreviewed purchases: ${totalPurchases}`)
+}
+
+/**
+ * Run the customers without review report
+ */
+async function runCustomersWithoutReview(): Promise<void> {
+    // Check for access token
+    const accessToken = process.env.GUMROAD_ACCESS_TOKEN
+    if (!accessToken) {
+        showError('GUMROAD_ACCESS_TOKEN not found in environment')
+        showInfo('Create a .env file with your Gumroad API token')
+        showInfo('Example: GUMROAD_ACCESS_TOKEN=your_token_here')
+        process.exit(1)
+    }
+
+    // Initialize client
+    const client = new GumroadApiClient({ accessToken })
+
+    showInfo('Fetching all sales from Gumroad API (this may take a while)...')
+
+    try {
+        const allSales = await client.getAllSales()
+        showInfo(`Fetched ${allSales.length} total sales`)
+
+        const customersWithoutReview = extractCustomersWithoutReview(allSales)
+        displayCustomersWithoutReview(customersWithoutReview)
+    } catch (error) {
+        if (error instanceof GumroadApiError) {
+            showError(`Gumroad API error: ${error.message} (status ${error.statusCode})`)
+        } else {
+            showError(`Failed to fetch sales: ${error}`)
+        }
+        process.exit(1)
+    }
 }
 
 /**
@@ -661,6 +811,11 @@ async function interactiveMenu(): Promise<void> {
                     description: 'Find Gumroad products not in local store'
                 },
                 {
+                    name: '📧 List Customers Without Reviews',
+                    value: 'no-review',
+                    description: "List customers who haven't left a review"
+                },
+                {
                     name: '👋 Exit',
                     value: 'exit',
                     description: 'Exit the CLI'
@@ -713,6 +868,11 @@ async function interactiveMenu(): Promise<void> {
             continue
         }
 
+        if (choice === 'no-review') {
+            await runCustomersWithoutReview()
+            continue
+        }
+
         const options = {
             syncRatings: choice === 'sync-all' || choice === 'sync-ratings',
             syncSales: choice === 'sync-all' || choice === 'sync-sales',
@@ -749,6 +909,7 @@ function parseArgs(): {
     product?: string
     listMappings?: boolean
     checkMissing?: boolean
+    noReview?: boolean
     debug?: boolean
 } {
     const args: Record<string, string | boolean> = {}
@@ -768,6 +929,8 @@ function parseArgs(): {
             args.listMappings = true
         } else if (arg === '--check-missing') {
             args.checkMissing = true
+        } else if (arg === '--no-review') {
+            args.noReview = true
         } else if (arg === '--debug') {
             args.debug = true
         } else if (arg === '--product' && processArgs[i + 1]) {
@@ -792,8 +955,14 @@ async function main(): Promise<void> {
         args.syncSales ||
         args.verifyPrices ||
         args.listMappings ||
-        args.checkMissing
+        args.checkMissing ||
+        args.noReview
     ) {
+        if (args.noReview) {
+            await runCustomersWithoutReview()
+            return
+        }
+
         if (args.listMappings) {
             const accessToken = process.env.GUMROAD_ACCESS_TOKEN
             if (!accessToken) {
