@@ -3,54 +3,54 @@
     "salesCopy": {
         "tagline": "You Think Faster Than You Type",
         "secondaryTagline": "Your Keyboard Is Costing You Hours Every Week",
-        "problem": "Your keyboard is the bottleneck between your thoughts and getting things done. Average typing: 40 wpm vs speaking: 150 wpm. You speak 3.75x faster than you type.",
+        "problem": "Your keyboard is the bottleneck between your thoughts and getting things done. Average typing: **40 wpm** vs speaking: **150 wpm**. You speak **3.75x faster** than you type.",
         "problemPoints": [
             "Your fingers can't keep up with your brain",
             "You hunt for keys while thoughts race ahead",
             "Autocorrect changes words you didn't want changed",
             "You stop to fix typos and lose train of thought",
             "Five minutes pass, you've written three sentences",
-            "By noon you've typed 5,000 words and your hands hurt",
+            "By noon you've typed **5,000 words** and your hands hurt",
             "By 3pm you're abbreviating because tired of typing"
         ],
-        "agitate": "Writing 2 hours/day: Typing = 4,800 words. Speaking = 18,000 words. Difference: 13,200 more words OR get back 88 minutes per day. 7.3 hours per week wasted. 380 hours per year lost to keyboard bottleneck.",
+        "agitate": "Writing 2 hours/day: Typing = **4,800 words**. Speaking = **18,000 words**. Difference: **13,200 more words** OR get back **88 minutes per day**. **7.3 hours per week** wasted. **380 hours per year** lost to keyboard bottleneck.",
         "agitatePoints": [
-            "7.3 hours per week wasted on typing",
-            "380 hours per year lost to keyboard bottleneck",
+            "**7.3 hours per week** wasted on typing",
+            "**380 hours per year** lost to keyboard bottleneck",
             "Tired hands and sore neck from typing",
-            "Email takes 10 minutes to type carefully",
+            "Email takes **10 minutes** to type carefully",
             "Blog posts - staring at blank page exhausting",
             "Code documentation avoided because takes forever",
             "Commit messages rushed and vague",
-            "You're the bottleneck, not AI"
+            "**You're the bottleneck**, not AI"
         ],
         "solution": "Voice-to-text that runs entirely on your computer. One keyboard shortcut. Any application. Complete privacy.",
         "solutionPoints": [
-            "Press Ctrl+Space, speak, release - words appear",
-            "Responses faster and more thorough",
-            "Clear inbox in half the time",
+            "Press `Ctrl+Space`, speak, release - words appear",
+            "Responses **faster and more thorough**",
+            "Clear inbox in **half the time**",
             "Leave work with energy (not drained from typing)",
             "First drafts spoken like explaining to a friend",
-            "1,200 words deep in 15 minutes",
-            "Detailed commit messages in 30 seconds"
+            "**1,200 words** deep in **15 minutes**",
+            "Detailed commit messages in **30 seconds**"
         ],
-        "description": "Knowii Voice AI is a privacy-first voice-to-text application that runs entirely on your computer. Press Ctrl+Space, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models process everything locally. No cloud. No subscription. No usage limits. Just €49 once, yours forever. Works in Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, Telegram, VS Code, terminal - literally any application where you can type.",
+        "description": "Knowii Voice AI is a **privacy-first** voice-to-text application that runs entirely on your computer. Press `Ctrl+Space`, speak, and your words appear exactly where you need them - in any application. State-of-the-art AI models process everything locally. **No cloud. No subscription. No usage limits.** Just **€49 once**, yours forever. Works in `Gmail`, `Notion`, Microsoft Word, `Teams`, `Slack`, `Discord`, `WhatsApp`, `Telegram`, `VS Code`, terminal - literally any application where you can type.",
         "features": [
-            "Press-speak-release in any application - works in Gmail, Notion, Teams, VS Code, terminal, literally everywhere",
-            "Multiple AI models: Whisper, Parakeet, Moonshine, Omnilingual - choose speed vs accuracy",
-            "99+ languages supported with automatic language detection",
-            "Searchable transcription history - find what you said weeks ago",
-            "GPU acceleration for near-instant results (NVIDIA, AMD, Intel)",
-            "Custom keyboard shortcuts - configure to your preference",
-            "Word replacements - auto-correct commonly misrecognized words",
-            "Clipboard preservation - your copied content stays safe",
-            "Model auto-unload - free memory when not in use"
+            "**Press-speak-release** in any application - works in `Gmail`, `Notion`, `Teams`, `VS Code`, terminal, literally everywhere",
+            "Multiple AI models: `Whisper`, `Parakeet`, `Moonshine`, `Omnilingual` - choose speed vs accuracy",
+            "**99+ languages** supported with automatic language detection",
+            "**Searchable transcription history** - find what you said weeks ago",
+            "**GPU acceleration** for near-instant results (`NVIDIA`, `AMD`, `Intel`)",
+            "**Custom keyboard shortcuts** - configure to your preference",
+            "**Word replacements** - auto-correct commonly misrecognized words",
+            "**Clipboard preservation** - your copied content stays safe",
+            "**Model auto-unload** - free memory when not in use"
         ],
         "benefits": {
             "immediate": [
-                "Download, install, transcribe in under 5 minutes",
-                "No account creation or registration required",
-                "Works with any microphone you already own"
+                "Download, install, transcribe in **under 5 minutes**",
+                "**No account creation** or registration required",
+                "Works with **any microphone** you already own"
             ],
             "systematic": [
                 "Responses faster and more thorough",
@@ -94,22 +94,22 @@
             "Need real-time live transcription (coming in future update)"
         ],
         "trustBadges": [
-            "30-Day Money-Back Guarantee",
-            "Lifetime Updates: every new feature included forever",
-            "Complete Privacy: everything runs on your computer",
-            "Works Everywhere: every application where you can type",
-            "Early Access: help shape development, get lowest price ever",
-            "Creator Track Record: built by the creator of Obsidian Starter Kit (2,000+ users)",
-            "No Subscription: 49 euros once, own forever",
-            "GPU Accelerated: near-instant transcription with Vulkan support",
-            "Commercial License Included: use for work without restrictions"
+            "**30-Day Money-Back Guarantee**",
+            "**Lifetime Updates**: every new feature included forever",
+            "**Complete Privacy**: everything runs on your computer",
+            "**Works Everywhere**: every application where you can type",
+            "**Early Access**: help shape development, get lowest price ever",
+            "**Creator Track Record**: built by the creator of [Obsidian Starter Kit](/products/obsidian-starter-kit) (**2,000+ users**)",
+            "**No Subscription**: **€49** once, own forever",
+            "**GPU Accelerated**: near-instant transcription with `Vulkan` support",
+            "**Commercial License Included**: use for work without restrictions"
         ],
         "guarantees": [
-            "30-day money-back guarantee - don't like it? Email for refund, no questions asked",
-            "All future updates free - no upgrade fees ever",
-            "Complete privacy - everything runs on your computer, no cloud by default",
-            "Works everywhere - every application where you can type",
-            "Direct support from the creator - email me, I respond personally"
+            "**30-day money-back guarantee** - don't like it? Email for refund, no questions asked",
+            "**All future updates free** - no upgrade fees ever",
+            "**Complete privacy** - everything runs on your computer, no cloud by default",
+            "**Works everywhere** - every application where you can type",
+            "**Direct support** from the creator - email me, I respond personally"
         ],
         "metaTitle": "Knowii Voice AI - Voice-to-Text That Runs on Your Computer | Privacy-First Speech Recognition",
         "metaDescription": "Speak 3.75x faster than typing. Local AI transcription in every app. No cloud, no subscription. €49 once, yours forever. Windows 10/11. 30-day guarantee.",
@@ -133,8 +133,8 @@
             "originStory": {
                 "title": "Why I Built This",
                 "subtitle": "From typing pain to voice-first productivity",
-                "story": "I type fast. Really fast. But it wasn't enough. Working with AI daily, I realized I was the bottleneck. AI works brilliantly when given the right context - and providing that context by typing was agonizingly slow. I'd have a complete thought, know exactly what I wanted to say, and watch it leak away as my fingers hunted for keys. Worse, after years of heavy keyboard use, my hands started hurting. At 40+, the physical toll of all-day typing became impossible to ignore. I tried every voice-to-text tool out there: cloud services at $20/month that sent my voice to someone else's servers, browser extensions that only worked in Chrome, mobile apps that didn't talk to my computer. They all had the same problems - no privacy, subscription fees, usage limits, limited app support. I wanted something different. Something that respects privacy. Something I could own, not rent. Something that works everywhere. So I decided to build it myself. I learned Rust and Tauri, built an MVP, then discovered an open source project called Handy that was further along. I forked it and made it my own - revamping the UI, the UX, adding features, building Linux support, creating a roadmap focused on Knowledge Management and AI integration. Knowii Voice AI is what I wanted to exist in the world.",
-                "inspirationPoint": "The moment I realized I could speak a detailed AI prompt in 30 seconds that would have taken 5 minutes to type, and get dramatically better results, I knew this tool had to exist.",
+                "story": "I type fast. Really fast. But it wasn't enough. Working with AI daily, I realized I was the bottleneck. AI works brilliantly when given the right context - and providing that context by typing was agonizingly slow. I'd have a complete thought, know exactly what I wanted to say, and watch it leak away as my fingers hunted for keys. Worse, after years of heavy keyboard use, my hands started hurting. At **40+**, the physical toll of all-day typing became impossible to ignore. I tried every voice-to-text tool out there: cloud services at **$20/month** that sent my voice to someone else's servers, browser extensions that only worked in Chrome, mobile apps that didn't talk to my computer. They all had the same problems - no privacy, subscription fees, usage limits, limited app support. I wanted something different. Something that respects privacy. Something I could **own, not rent**. Something that works everywhere. So I decided to build it myself. I learned `Rust` and `Tauri`, built an MVP, then discovered an open source project called Handy that was further along. I forked it and made it my own - revamping the UI, the UX, adding features, building Linux support, creating a roadmap focused on Knowledge Management and AI integration. Knowii Voice AI is what I wanted to exist in the world.",
+                "inspirationPoint": "The moment I realized I could speak a detailed AI prompt in **30 seconds** that would have taken **5 minutes** to type, and get dramatically better results, I knew this tool had to exist.",
                 "icon": "🎤",
                 "genesisDate": null
             },
@@ -152,13 +152,13 @@
                     },
                     {
                         "title": "Own, Don't Rent",
-                        "description": "Pay 49 euros once. Own it forever. Every update, every new feature, included. No subscription. No usage caps. No 'premium tier.' Compare that to cloud services at 15-30 euros per month. That's 180-360 euros per year, 900-1,800 euros over five years. You'll save that money and actually own your tool.",
+                        "description": "Pay **€49 once**. Own it forever. Every update, every new feature, included. No subscription. No usage caps. No 'premium tier.' Compare that to cloud services at **€15-30 per month**. That's **€180-360 per year**, **€900-1,800 over five years**. You'll save that money and actually own your tool.",
                         "icon": "🏠",
                         "order": 1
                     },
                     {
                         "title": "Works Everywhere",
-                        "description": "Not just Google Docs. Not just Chrome. Every application. Gmail, Notion, Microsoft Word, Teams, Slack, Discord, WhatsApp, VS Code, your terminal. If you can put your cursor there and type, you can speak there instead.",
+                        "description": "Not just Google Docs. Not just Chrome. **Every application**. `Gmail`, `Notion`, Microsoft Word, `Teams`, `Slack`, `Discord`, `WhatsApp`, `VS Code`, your terminal. If you can put your cursor there and type, you can speak there instead.",
                         "icon": "🌍",
                         "order": 2
                     }

@@ -7,12 +7,12 @@
     "gumroadUrl": "https://developassion.gumroad.com/l/knowii-model-context-protocol-mcp",
     "tags": ["mcp", "model-context-protocol", "ai", "llms", "claude", "obsidian", "automation"],
     "included": [
-        "Video masterclass",
-        "5 Live Demos",
+        "**Video masterclass**",
+        "**5 Live Demos** - Real workflows with `Obsidian`, `Notion`, web search, browser automation",
         "Complete technical guide",
         "Practical examples",
         "Knowledge base",
-        "Tool directories"
+        "**Tool directories** - Curated MCP servers and clients"
     ],
     "featured": false,
     "bestValue": false,

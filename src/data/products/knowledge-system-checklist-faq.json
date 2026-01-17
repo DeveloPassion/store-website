@@ -8,7 +8,7 @@
         {
             "id": "faq-131",
             "question": "What format is the checklist?",
-            "answer": "You'll get it in Markdown format - perfect for importing into Obsidian, Notion, or any note-taking app. You can also use it as a simple text reference."
+            "answer": "You'll get it in **Markdown format** - perfect for importing into `Obsidian`, `Notion`, or any note-taking app. You can also use it as a simple text reference."
         },
         {
             "id": "faq-132",
@@ -18,12 +18,12 @@
         {
             "id": "faq-133",
             "question": "Will this tell me HOW to build each component?",
-            "answer": "This checklist shows you WHAT you need and helps you understand where you stand. For detailed how-to guidance, the Knowledge Management for Beginners course walks you through everything step-by-step with video tutorials."
+            "answer": "This checklist shows you **WHAT** you need and helps you understand where you stand. For detailed how-to guidance, the [Knowledge Management for Beginners](/products/knowledge-management-for-beginners) course walks you through everything step-by-step with video tutorials."
         },
         {
             "id": "faq-134",
             "question": "What tools does this work with?",
-            "answer": "The checklist is tool-agnostic - these principles work whether you use Obsidian, Notion, Logseq, or any other knowledge management tool. The fundamentals of a good system don't change based on your tool choice."
+            "answer": "The checklist is **tool-agnostic** - these principles work whether you use `Obsidian`, `Notion`, `Logseq`, or any other knowledge management tool. The fundamentals of a good system don't change based on your tool choice."
         },
         {
             "id": "faq-135",
@@ -33,17 +33,17 @@
         {
             "id": "faq-136",
             "question": "How long does it take to go through the checklist?",
-            "answer": "You can review the complete checklist in 15-20 minutes to understand what's needed. Actually implementing all 8 phases is a gradual process - the checklist gives you the roadmap, and you work through it at your own pace."
+            "answer": "You can review the complete checklist in **15-20 minutes** to understand what's needed. Actually implementing all **8 phases** is a gradual process - the checklist gives you the roadmap, and you work through it at your own pace."
         },
         {
             "id": "faq-137",
             "question": "What's included in the 8 phases?",
-            "answer": "Phase 1: Foundation & Planning, Phase 2: System Architecture, Phase 3: Capture Systems, Phase 4: Knowledge Processing, Phase 5: Connection & Navigation, Phase 6: Habits & Maintenance, Phase 7: Advanced Optimization, Phase 8: Continuous Improvement. Each phase covers all essential components."
+            "answer": "**Phase 1**: Foundation & Planning, **Phase 2**: System Architecture, **Phase 3**: Capture Systems, **Phase 4**: Knowledge Processing, **Phase 5**: Connection & Navigation, **Phase 6**: Habits & Maintenance, **Phase 7**: Advanced Optimization, **Phase 8**: Continuous Improvement. Each phase covers all essential components."
         },
         {
             "id": "faq-138",
             "question": "Where can I get more help after downloading?",
-            "answer": "The checklist includes pro tips and links to deeper resources. For comprehensive guidance, check out the Knowledge Management for Beginners course or join the Knowii Community for ongoing support and learning."
+            "answer": "The checklist includes pro tips and links to deeper resources. For comprehensive guidance, check out the [Knowledge Management for Beginners](/products/knowledge-management-for-beginners) course or join the [Knowii Community](/products/knowii-community) for ongoing support and learning."
         }
     ]
 }

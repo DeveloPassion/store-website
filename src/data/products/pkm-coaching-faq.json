@@ -8,7 +8,7 @@
         {
             "id": "faq-101",
             "question": "What if I'm a complete beginner?",
-            "answer": "Coaching works at all levels, but you'll get the most value if you've already tried some self-directed learning. If you're brand new to PKM, consider starting with my Knowledge Management for Beginners course or the Obsidian Starter Kit first. Then book coaching for personalized optimization once you have a foundation to build on."
+            "answer": "Coaching works at all levels, but you'll get the most value if you've already tried some self-directed learning. If you're brand new to PKM, consider starting with my [Knowledge Management for Beginners](/products/knowledge-management-for-beginners) course or the [Obsidian Starter Kit](/products/obsidian-starter-kit) first. Then book coaching for personalized optimization once you have a foundation to build on."
         },
         {
             "id": "faq-102",
@@ -23,7 +23,7 @@
         {
             "id": "faq-104",
             "question": "Do you only coach on Obsidian?",
-            "answer": "No. While I'm an Obsidian expert, my coaching is tool-agnostic. The principles of system design, knowledge capture, and organization work regardless of whether you use Obsidian, Notion, Roam, or anything else. We can discuss specific tool guidance, but the real value is in first-principles thinking that transfers across platforms."
+            "answer": "No. While I'm an `Obsidian` expert, my coaching is **tool-agnostic**. The principles of system design, knowledge capture, and organization work regardless of whether you use `Obsidian`, `Notion`, `Roam`, or anything else. We can discuss specific tool guidance, but the real value is in **first-principles thinking** that transfers across platforms."
         },
         {
             "id": "faq-105",
@@ -48,12 +48,12 @@
         {
             "id": "faq-109",
             "question": "What makes your coaching different from other PKM coaches?",
-            "answer": "Two things: real practice and first principles. I've practiced PKM for 20+ years as an author, entrepreneur, IT architect, and content creator—not as a theorist. And I don't prescribe my exact system. I help you understand WHY certain approaches work so you can build YOUR system. My background in software architecture and system design means I approach PKM as a design problem, not a tool problem."
+            "answer": "Two things: **real practice** and **first principles**. I've practiced PKM for **20+ years** as an author, entrepreneur, IT architect, and content creator—not as a theorist. And I don't prescribe my exact system. I help you understand WHY certain approaches work so you can build YOUR system. My background in software architecture and system design means I approach PKM as a **design problem**, not a tool problem."
         },
         {
             "id": "faq-110",
             "question": "Is coaching included in any of your other products?",
-            "answer": "The Knowledge Master tier of the Knowii Community includes quarterly check-ins. This PKM Coaching product is for additional 1-on-1 sessions beyond that, or for anyone who wants personalized guidance without joining the community."
+            "answer": "The **Knowledge Master** tier of the [Knowii Community](/products/knowii-community) includes quarterly check-ins. This PKM Coaching product is for additional 1-on-1 sessions beyond that, or for anyone who wants personalized guidance without joining the community."
         }
     ]
 }

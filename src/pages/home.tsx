@@ -461,7 +461,7 @@ const HomeEcommerce: React.FC = () => {
                             <div className='font-semibold'>Happy Customers</div>
                         </div>
                         <div className='bg-primary/5 rounded-xl p-6'>
-                            <div className='mb-3 flex items-center gap-2 text-4xl font-bold text-yellow-400'>
+                            <div className='mb-3 flex items-center justify-center gap-2 text-4xl font-bold text-yellow-400'>
                                 {formatAverageRating(averageRating)}
                                 <FaStar className='h-8 w-8' />
                             </div>

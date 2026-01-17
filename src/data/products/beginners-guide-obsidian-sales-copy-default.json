@@ -2,8 +2,8 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Stop Drowning in Scattered Notes. Start Building Your Second Brain.",
-        "secondaryTagline": "A FREE 50+ Page Guide to Obsidian. From Confused Beginner to Confident Note-Taker.",
-        "problem": "You've heard about Obsidian. You've downloaded it. And now you're staring at a blank vault, wondering where to start. The interface looks foreign. Everyone online seems to have figured it out overnight. And you're worried that one wrong move will create a mess you'll never untangle.",
+        "secondaryTagline": "A **FREE 50+ Page** Guide to `Obsidian`. From Confused Beginner to Confident Note-Taker.",
+        "problem": "You've heard about `Obsidian`. You've downloaded it. And now you're staring at a blank vault, wondering where to start. The interface looks foreign. Everyone online seems to have figured it out overnight. And you're worried that one wrong move will create a mess you'll never untangle.",
         "problemPoints": [
             "Staring at a blank vault with no idea where to start",
             "Overwhelmed by features you don't understand yet",
@@ -11,36 +11,36 @@
             "Confused by conflicting advice from YouTube and Reddit",
             "Worried you'll waste weeks setting things up wrong"
         ],
-        "agitate": "Here's what nobody tells you: most Obsidian beginners fail not because the tool is too hard, but because they make the same three mistakes. They over-engineer from day one, creating complex folder structures before understanding the basics. They treat Obsidian like just another note-taking app, missing the real power of linked thinking. And they drown themselves in plugins before mastering the core. These mistakes don't just slow you down. They kill your momentum and make you abandon the tool entirely.",
+        "agitate": "Here's what nobody tells you: most `Obsidian` beginners fail not because the tool is too hard, but because they make the same three mistakes. They over-engineer from day one, creating complex folder structures before understanding the basics. They treat `Obsidian` like just another note-taking app, missing the real power of linked thinking. And they drown themselves in plugins before mastering the core. These mistakes don't just slow you down. They kill your momentum and make you abandon the tool entirely.",
         "agitatePoints": [
             "Over-engineering from day one with complex folder structures you don't need yet",
-            "Treating Obsidian like Evernote or Google Docs and missing its real power",
+            "Treating `Obsidian` like `Evernote` or `Google Docs` and missing its real power",
             "Installing dozens of plugins before understanding core features",
             "Building systems that work against you instead of for you",
             "Giving up on a tool that could change how you think and work"
         ],
-        "solution": "This free 50+ page guide gives you exactly what you need: a clear, step-by-step path from confused beginner to confident Obsidian user. I spent years jumping between wikis, Evernote, and dozens of other tools before discovering that Obsidian was the answer. This guide distills everything I learned so you don't have to make the same mistakes.",
+        "solution": "This **free 50+ page** guide gives you exactly what you need: a clear, step-by-step path from confused beginner to confident `Obsidian` user. I spent years jumping between wikis, `Evernote`, and dozens of other tools before discovering that `Obsidian` was the answer. This guide distills everything I learned so you don't have to make the same mistakes.",
         "solutionPoints": [
-            "50+ pages of clear, actionable guidance (not overwhelming theory)",
+            "**50+ pages** of clear, actionable guidance (not overwhelming theory)",
             "Step-by-step instructions that respect your time",
             "The essential features you actually need to know first",
             "Organization fundamentals that scale as your vault grows",
             "Common pitfalls mapped out so you can avoid them",
             "A clear path to deeper learning when you're ready"
         ],
-        "description": "The Beginner's Guide to Mastering Obsidian is a 50+ page guide I created after years of jumping between wikis, Evernote, and countless other tools. When I found Obsidian, two things changed everything: linked thinking (the ability to connect ideas across notes) and true data ownership (plain Markdown files I control forever). This guide distills that journey into a clear roadmap so you can skip the confusion and start building your second brain with confidence.",
+        "description": "The Beginner's Guide to Mastering `Obsidian` is a **50+ page** guide I created after years of jumping between wikis, `Evernote`, and countless other tools. When I found `Obsidian`, two things changed everything: linked thinking (the ability to connect ideas across notes) and true data ownership (plain `Markdown` files I control forever). This guide distills that journey into a clear roadmap so you can skip the confusion and start building your second brain with confidence.",
         "features": [
-            "What Obsidian is and why it's more than just a note-taking app",
-            "Core concepts explained: vaults, the .obsidian folder, and Markdown format",
+            "What `Obsidian` is and why it's more than just a note-taking app",
+            "Core concepts explained: vaults, the `.obsidian` folder, and `Markdown` format",
             "Complete interface walkthrough: left sidebar, editor view, right sidebar, tabs",
             "Essential tools mastered: Quick Switcher, Command Palette, Search view",
             "The power of links, backlinks, and the Graph view",
-            "Organization methods explained: PARA, Zettelkasten, Johnny Decimal, LIFT principle",
+            "Organization methods explained: *PARA*, *Zettelkasten*, *Johnny Decimal*, *LIFT* principle",
             "Tags and hierarchical tag support for flexible organization",
             "Canvas feature for visual thinking and infinite whiteboards",
             "Plugin ecosystem: core plugins vs community plugins and what to install first",
             "Templates basics for consistent note-taking from day one",
-            "Sync and backup options: Obsidian Sync vs free alternatives",
+            "Sync and backup options: `Obsidian Sync` vs free alternatives",
             "Keyboard shortcuts that save hours",
             "Common beginner mistakes mapped out so you avoid them"
         ],
@@ -54,7 +54,7 @@
             "systematic": [
                 "Build habits that scale instead of systems that break",
                 "Develop a foundation ready for advanced techniques",
-                "Understand why Obsidian works differently (and better) than other tools",
+                "Understand why `Obsidian` works differently (and better) than other tools",
                 "Create organization patterns that grow with your knowledge"
             ],
             "longTerm": [
@@ -65,31 +65,31 @@
             ]
         },
         "targetAudience": [
-            "Complete beginners who just downloaded Obsidian",
-            "People who tried Obsidian before but gave up confused",
-            "Note-takers switching from Evernote, Notion, or Apple Notes",
+            "Complete beginners who just downloaded `Obsidian`",
+            "People who tried `Obsidian` before but gave up confused",
+            "Note-takers switching from `Evernote`, `Notion`, or `Apple Notes`",
             "Students building their first knowledge management system",
             "Professionals who need to organize information but don't know where to start",
             "Anyone curious about 'second brain' and 'PKM' but overwhelmed by the jargon"
         ],
         "perfectFor": [
-            "You just downloaded Obsidian and the blank vault feels intimidating",
+            "You just downloaded `Obsidian` and the blank vault feels intimidating",
             "You've heard about 'linked thinking' but have no idea what it actually means",
-            "You're switching from another note app and want to do Obsidian right from the start",
-            "You tried Obsidian before but abandoned it. This time you want clarity.",
+            "You're switching from another note app and want to do `Obsidian` right from the start",
+            "You tried `Obsidian` before but abandoned it. This time you want clarity.",
             "You want a solid foundation before investing in courses or templates"
         ],
         "notForYou": [
-            "You're already comfortable with Obsidian's core features",
+            "You're already comfortable with `Obsidian`'s core features",
             "You don't take digital notes and prefer paper only",
-            "You want a complete system handed to you (check out the Obsidian Starter Kit instead)"
+            "You want a complete system handed to you (check out the [Obsidian Starter Kit](/products/obsidian-starter-kit) instead)"
         ],
         "trustBadges": [
-            "100% FREE. No credit card, no catch.",
-            "50+ pages of guidance",
-            "Created by Obsidian Starter Kit author",
-            "Instant download access",
-            "Based on 20+ years of PKM experience"
+            "**100% FREE**. No credit card, no catch.",
+            "**50+ pages** of guidance",
+            "Created by [Obsidian Starter Kit](/products/obsidian-starter-kit) author",
+            "**Instant download** access",
+            "Based on **20+ years** of PKM experience"
         ],
         "guarantees": [
             "Completely free. No payment information required.",
@@ -115,28 +115,28 @@
             "originStory": {
                 "title": "Why I Created This Guide",
                 "subtitle": "From years of tool-hopping to finally finding what works",
-                "story": "I spent years searching for the perfect note-taking tool. MediaWiki. TiddlyWiki. Evernote. Google Keep. Apple Notes. Notion. Each time, I'd migrate my notes, learn the new system, and eventually hit the same wall: my notes were trapped in someone else's format, my ideas stayed disconnected, and I never felt like I truly owned my knowledge. Then I discovered Obsidian. Two things changed everything: linked thinking (the ability to connect ideas across notes and watch patterns emerge) and true data ownership (plain Markdown files I control forever). This guide exists because I don't want you to spend years finding this path. I want to hand you the map.",
-                "inspirationPoint": "The realization that most beginners fail not because Obsidian is hard, but because they make the same avoidable mistakes",
+                "story": "I spent years searching for the perfect note-taking tool. `MediaWiki`. `TiddlyWiki`. `Evernote`. `Google Keep`. `Apple Notes`. `Notion`. Each time, I'd migrate my notes, learn the new system, and eventually hit the same wall: my notes were trapped in someone else's format, my ideas stayed disconnected, and I never felt like I truly owned my knowledge. Then I discovered `Obsidian`. Two things changed everything: linked thinking (the ability to connect ideas across notes and watch patterns emerge) and true data ownership (plain `Markdown` files I control forever). This guide exists because I don't want you to spend years finding this path. I want to hand you the map.",
+                "inspirationPoint": "The realization that most beginners fail not because `Obsidian` is hard, but because they make the same avoidable mistakes",
                 "genesisDate": null,
                 "icon": "💡"
             },
             "creatorJourney": {
                 "title": "From Confused User to PKM Nerd",
-                "subtitle": "The path that led to creating the Obsidian Starter Kit",
-                "story": "Before getting deep into PKM, I was just like you. Overwhelmed by information, scattered across tools, and frustrated that my notes never seemed to work for me. I'm a software developer by training, which means I've always been drawn to systems and optimization. But knowledge management isn't about the fanciest system. It's about what actually works. The moment I realized that Obsidian's plain text files meant my knowledge would survive any tool, any company, any trend. That's when everything clicked. I stopped fighting my notes and started building with them.",
+                "subtitle": "The path that led to creating the [Obsidian Starter Kit](/products/obsidian-starter-kit)",
+                "story": "Before getting deep into PKM, I was just like you. Overwhelmed by information, scattered across tools, and frustrated that my notes never seemed to work for me. I'm a software developer by training, which means I've always been drawn to systems and optimization. But knowledge management isn't about the fanciest system. It's about what actually works. The moment I realized that `Obsidian`'s plain text files meant my knowledge would survive any tool, any company, any trend. That's when everything clicked. I stopped fighting my notes and started building with them.",
                 "struggles": [
-                    "Migrated notes between 10+ different tools over the years",
+                    "Migrated notes between **10+** different tools over the years",
                     "Lost important ideas because they were locked in proprietary formats",
                     "Built complex systems that collapsed under their own weight",
                     "Watched connections between ideas disappear in folder hierarchies"
                 ],
                 "achievements": [
-                    "Created the Obsidian Starter Kit used by thousands",
-                    "Published hundreds of articles on knowledge management",
-                    "Built a personal vault with 10,000+ interconnected notes",
+                    "Created the [Obsidian Starter Kit](/products/obsidian-starter-kit) used by thousands",
+                    "Published **hundreds of articles** on knowledge management",
+                    "Built a personal vault with **10,000+** interconnected notes",
                     "Helped countless beginners avoid the mistakes I made"
                 ],
-                "credentials": "IT Solution Architect with 20+ years experience, Obsidian daily user since 2020",
+                "credentials": "IT Solution Architect with **20+ years** experience, `Obsidian` daily user since **2020**",
                 "icon": "🛤️"
             },
             "transformationArc": {
@@ -144,7 +144,7 @@
                 "subtitle": "What changes when you follow this guide",
                 "before": {
                     "title": "Before: Lost and Overwhelmed",
-                    "description": "You've downloaded Obsidian but feel paralyzed. The blank vault is intimidating. YouTube tutorials overwhelm you with features. You're afraid of making mistakes that'll haunt you later.",
+                    "description": "You've downloaded `Obsidian` but feel paralyzed. The blank vault is intimidating. YouTube tutorials overwhelm you with features. You're afraid of making mistakes that'll haunt you later.",
                     "points": [
                         "Staring at a blank screen with no idea where to start",
                         "Overwhelmed by features you don't understand",
@@ -184,7 +184,7 @@
                 "steps": [
                     {
                         "title": "Understand the Core",
-                        "description": "Learn what makes Obsidian fundamentally different from other note apps. Data ownership, linked thinking, and Markdown portability.",
+                        "description": "Learn what makes `Obsidian` fundamentally different from other note apps. Data ownership, linked thinking, and `Markdown` portability.",
                         "icon": "🧠",
                         "order": 0
                     },
@@ -207,7 +207,7 @@
                         "order": 3
                     }
                 ],
-                "philosophy": "Most Obsidian tutorials make the same mistake: they throw advanced features at beginners before the fundamentals are solid. This guide is different. We start with what matters. The core concepts that make everything else click. Then build up from there. No plugin overload. No complex folder structures. Just the essentials you need to feel confident.",
+                "philosophy": "Most `Obsidian` tutorials make the same mistake: they throw advanced features at beginners before the fundamentals are solid. This guide is different. We start with what matters. The core concepts that make everything else click. Then build up from there. No plugin overload. No complex folder structures. Just the essentials you need to feel confident.",
                 "differentiation": "Unlike tutorials that overwhelm you with features, this guide respects your time. You'll learn what you need when you need it. And have a clear path forward when you're ready for more."
             },
             "vision": {
@@ -239,9 +239,9 @@
                 "futureGoals": [
                     "Help you build a knowledge system that serves you for decades",
                     "Provide clear paths to deeper learning when you're ready",
-                    "Support your journey from beginner to confident Obsidian user"
+                    "Support your journey from beginner to confident `Obsidian` user"
                 ],
-                "biggerPicture": "Obsidian isn't just a note-taking app. It's a tool for thinking. When you connect ideas, patterns emerge. When you own your data, you're free. When you build on solid foundations, your knowledge compounds over time. This guide is your first step.",
+                "biggerPicture": "`Obsidian` isn't just a note-taking app. It's a tool for thinking. When you connect ideas, patterns emerge. When you own your data, you're free. When you build on solid foundations, your knowledge compounds over time. This guide is your first step.",
                 "icon": "🧭"
             }
         },
@@ -253,10 +253,10 @@
                     "id": "hour-1",
                     "timeframe": "Hour 1",
                     "title": "Foundations Understood",
-                    "description": "You understand what Obsidian is, what makes it different from other note apps, and why people build their entire knowledge systems around it. The confusion is replaced with clarity.",
+                    "description": "You understand what `Obsidian` is, what makes it different from other note apps, and why people build their entire knowledge systems around it. The confusion is replaced with clarity.",
                     "highlights": [
-                        "What Obsidian actually is and why it's different",
-                        "Core concepts: vaults, notes, Markdown",
+                        "What `Obsidian` actually is and why it's different",
+                        "Core concepts: vaults, notes, `Markdown`",
                         "The interface demystified",
                         "Why your data stays yours forever"
                     ],
@@ -279,7 +279,7 @@
                     "id": "end-of-day",
                     "timeframe": "End of Day",
                     "title": "Confident Foundation",
-                    "description": "You have a working understanding of organization strategies like PARA and LIFT. You know what to focus on and what to ignore. You're ready to build on this foundation.",
+                    "description": "You have a working understanding of organization strategies like *PARA* and *LIFT*. You know what to focus on and what to ignore. You're ready to build on this foundation.",
                     "highlights": [
                         "Organization strategies understood",
                         "Common pitfalls avoided",

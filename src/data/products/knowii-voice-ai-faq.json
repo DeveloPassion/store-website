@@ -3,12 +3,12 @@
         {
             "id": "faq-8",
             "question": "Is this actually private?",
-            "answer": "Yes. Everything runs on your computer. Voice recordings stored locally. AI model runs locally. Nothing sent to any server. Run with internet disabled - works perfectly. (Optional cloud models coming, but default is always local-first)"
+            "answer": "Yes. **Everything runs on your computer**. Voice recordings stored locally. AI model runs locally. Nothing sent to any server. Run with internet disabled - works perfectly. (Optional cloud models coming, but default is always **local-first**)"
         },
         {
             "id": "faq-9",
             "question": "Does it work offline?",
-            "answer": "Yes. After one-time AI model download (2-10 GB), everything runs on your computer. Laptop in airplane mode? Still works perfectly."
+            "answer": "Yes. After one-time AI model download (**2-10 GB**), everything runs on your computer. Laptop in airplane mode? **Still works perfectly**."
         },
         {
             "id": "faq-10",
@@ -18,7 +18,7 @@
         {
             "id": "faq-11",
             "question": "How accurate is it?",
-            "answer": "Very. The AI models we use (e.g., Whisper, Parakeet, Moonshine) are among best free speech recognition models available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: accurate enough for daily use without constant corrections."
+            "answer": "Very. The AI models we use (e.g., `Whisper`, `Parakeet`, `Moonshine`) are among **best free speech recognition models** available. Accuracy depends on audio quality, background noise, and model. Larger models more accurate but slower. In practice: **accurate enough for daily use** without constant corrections."
         },
         {
             "id": "faq-12",
@@ -28,7 +28,7 @@
         {
             "id": "faq-13",
             "question": "Will this work on my computer?",
-            "answer": "Windows 10/11: yes. macOS and Linux: coming soon. Don't need powerful computer, but GPU acceleration helps (NVIDIA CUDA). Works fine on CPU-only, just bit slower."
+            "answer": "**Windows 10/11**: yes. macOS and Linux: coming soon. Don't need powerful computer, but GPU acceleration helps (`NVIDIA CUDA`). Works fine on CPU-only, just bit slower."
         },
         {
             "id": "faq-14",
@@ -48,7 +48,7 @@
         {
             "id": "faq-17",
             "question": "Can I use this at work?",
-            "answer": "Yes. Commercial license included. Use for personal projects, professional work, client communications, whatever you need."
+            "answer": "Yes. **Commercial license included**. Use for personal projects, professional work, client communications, whatever you need."
         },
         {
             "id": "faq-18",
@@ -63,7 +63,7 @@
         {
             "id": "faq-20",
             "question": "Will the price increase?",
-            "answer": "Yes. This is Early Access pricing. When product leaves beta, price goes up. Buy now to lock in lifetime access at this price. No future charges, ever."
+            "answer": "Yes. This is **Early Access pricing**. When product leaves beta, price goes up. Buy now to lock in **lifetime access** at this price. **No future charges, ever**."
         },
         {
             "id": "faq-21",
@@ -73,7 +73,7 @@
         {
             "id": "faq-22",
             "question": "How does this relate to your other products?",
-            "answer": "Part of growing Knowii ecosystem. Voice AI helps capture thoughts faster. Knowii Community helps organize/leverage that knowledge. Knowledge Worker Kit gives frameworks to use it all effectively. Interconnected systems that amplify how you think and work."
+            "answer": "Part of growing Knowii ecosystem. Voice AI helps capture thoughts faster. [Knowii Community](/products/knowii-community) helps organize/leverage that knowledge. [Knowledge Worker Kit](/products/knowledge-worker-kit) gives frameworks to use it all effectively. Interconnected systems that amplify how you think and work."
         }
     ]
 }

@@ -3,7 +3,7 @@
     "salesCopy": {
         "tagline": "Turn Information Chaos Into Your Competitive Edge",
         "secondaryTagline": "Community + Courses + Tools = One System That Actually Works",
-        "problem": "You're drowning. Hundreds of browser tabs. Notes scattered across five different apps. That brilliant idea from last week's meeting? Gone. You spend more time searching for things than actually using them.",
+        "problem": "You're drowning. **Hundreds of browser tabs**. Notes scattered across **five different apps**. That brilliant idea from last week's meeting? *Gone.* You spend more time **searching** for things than actually using them.",
         "problemPoints": [
             "Hundreds of browser tabs open, and you still can't find what you need when you need it",
             "Notes everywhere: Notion, Apple Notes, random text files, paper notebooks, your phone",
@@ -12,7 +12,7 @@
             "Your best ideas slip away before you can capture them. Probably 60% or more.",
             "Hours spent looking for 'that thing I saved somewhere' instead of doing actual work"
         ],
-        "agitate": "This isn't just annoying. Research shows 41% of knowledge workers feel overwhelmed by information every single day. It's hurting your work, your creativity, and honestly, your peace of mind.",
+        "agitate": "This isn't just annoying. Research shows **41% of knowledge workers** feel overwhelmed by information every single day. It's hurting your work, your creativity, and honestly, **your peace of mind**.",
         "agitatePoints": [
             "That breakthrough thought from last week? Gone forever. You'll never get it back.",
             "Books read, courses taken, but nothing sticks. Your learning doesn't compound.",
@@ -33,20 +33,20 @@
         ],
         "description": "Knowii brings together hundreds of knowledge workers, creators, and lifelong learners who are done with information overload. It's not a generic productivity community. You get community support, courses, tools, and direct expert guidance. All integrated. Whether you're drowning in tabs or building sophisticated knowledge systems, Knowii meets you where you are.",
         "features": [
-            "3 Membership Tiers: Explorer (€4.99/month), Knowledge Builder (€19.99/month), Knowledge Master (€39.99/month)",
-            "Private community spaces with expert-led discussions and peer support",
-            "Live events: masterclasses, workshops, Q&As, knowledge-sharing sessions, and live streams",
-            "Video recordings of all past events for Knowledge Builder and Master tiers",
-            "Professional templates, workflows, and guides ready to use on day one",
-            "Direct access to multiple Knowledge Management experts",
-            "Monthly community challenges to build momentum and accountability",
-            "Explorer free bonuses: Knowledge base of 1,800+ concepts, KM System Checklist, Database of KM tools, Beginner's Guide to Obsidian",
-            "Obsidian Starter Kit (€129.99 value) included for Knowledge Builder+",
-            "Obsidian Starter Course (€69.99 value) included for Knowledge Builder+",
-            "Knowledge Management for Beginners course (€69.99 value) for Knowledge Master",
-            "Knowledge Master tools: Knowledge Worker Kit, PKM Library, AI Ghostwriter Guide, AI Master Prompt, and all future tools",
-            "All workshops included: Journaling Deep Dive, Personal Organization 101, Clarity 101, AI Master Prompt, MCP, and more",
-            "DeveloPassion's Newsletter Archives: 200+ editions of curated insights"
+            "**3 Membership Tiers**: Explorer (**€4.99**/month), Knowledge Builder (**€19.99**/month), Knowledge Master (**€39.99**/month)",
+            "**Private community spaces** with expert-led discussions and peer support",
+            "**Live events**: masterclasses, workshops, Q&As, knowledge-sharing sessions, and live streams",
+            "**Video recordings** of all past events for Knowledge Builder and Master tiers",
+            "**Professional templates**, workflows, and guides ready to use on day one",
+            "**Direct access** to multiple Knowledge Management experts",
+            "**Monthly community challenges** to build momentum and accountability",
+            "Explorer free bonuses: Knowledge base of **1,800+ concepts**, KM System Checklist, Database of KM tools, [Beginner's Guide to Obsidian](/products/beginners-guide-obsidian)",
+            "[Obsidian Starter Kit](/products/obsidian-starter-kit) (**€129.99** value) included for Knowledge Builder+",
+            "[Obsidian Starter Course](/products/obsidian-starter-course) (**€69.99** value) included for Knowledge Builder+",
+            "[Knowledge Management for Beginners](/products/knowledge-management-for-beginners) course (**€69.99** value) for Knowledge Master",
+            "Knowledge Master tools: [Knowledge Worker Kit](/products/knowledge-worker-kit), [PKM Library](/products/pkm-library), [AI Ghostwriter Guide](/products/ai-ghostwriter-guide), [AI Master Prompt](/products/ai-master-prompt), and all future tools",
+            "All workshops included: [Journaling Deep Dive](/products/journaling-deep-dive), [Personal Organization 101](/products/personal-organization-101), [Clarity 101](/products/clarity-101), [AI Master Prompt](/products/ai-master-prompt), [MCP](/products/model-context-protocol), and more",
+            "DeveloPassion's Newsletter Archives: **200+ editions** of curated insights"
         ],
         "benefits": {
             "immediate": [
@@ -94,13 +94,13 @@
             "You want only tools without understanding why they work or how to use them effectively"
         ],
         "trustBadges": [
-            "Complete System: Community + Courses + Tools in one package",
-            "$150-500+ in Bonuses: depending on tier, immediate access to premium resources",
-            "Expert-Led: 20+ years of knowledge management expertise, not just theory",
-            "Growing Community: 340+ members actively sharing and learning together",
-            "Live Events: regular masterclasses, workshops, and Q&A sessions",
-            "Flexible Membership: upgrade, downgrade, or cancel anytime",
-            "Proven Track Record: 2,000+ products sold, 10,000+ hours saved"
+            "**Complete System**: Community + Courses + Tools in one package",
+            "**$150-500+ in Bonuses**: depending on tier, immediate access to premium resources",
+            "**Expert-Led**: 20+ years of knowledge management expertise, not just theory",
+            "**Growing Community**: 340+ members actively sharing and learning together",
+            "**Live Events**: regular masterclasses, workshops, and Q&A sessions",
+            "**Flexible Membership**: upgrade, downgrade, or cancel anytime",
+            "**Proven Track Record**: 2,000+ products sold, 10,000+ hours saved"
         ],
         "guarantees": [
             "Flexible membership. Upgrade, downgrade, or cancel at any time.",
@@ -127,7 +127,7 @@
             "originStory": {
                 "title": "Why Knowii Exists",
                 "subtitle": "More than knowledge management. A complete system for thriving.",
-                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost 200k€ and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. Burnout from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising three kids while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a complete system for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a community of practice where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
+                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost **200k€** and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. **Burnout** from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising **three kids** while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a **complete system** for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a **community of practice** where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
                 "inspirationPoint": "Knowledge management is the foundation. But clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
                 "icon": "FaLightbulb",
                 "genesisDate": null
@@ -135,7 +135,7 @@
             "creatorJourney": {
                 "title": "20+ Years Building Systems for Everything",
                 "subtitle": "Not just PKM. The complete knowledge worker toolkit.",
-                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly 10,000 notes in my personal knowledge system. I've published 3 books, written 400+ articles and newsletters, created courses, and built products used by thousands. But here's what matters: I didn't just build systems for managing information. I built systems for everything. Clarity on values and priorities, habits that make productivity automatic, career management, effective learning, project organization, task management, focus and attention, and personal development. The Knowii Community is where I share ALL of it. Not just PKM, but the complete framework for becoming a top-tier knowledge worker.",
+                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly **10,000 notes** in my personal knowledge system. I've published **3 books**, written **400+ articles** and newsletters, created courses, and built products used by thousands. But here's what matters: I didn't just build systems for managing information. I built systems for **everything**. Clarity on values and priorities, habits that make productivity automatic, career management, effective learning, project organization, task management, focus and attention, and personal development. The Knowii Community is where I share ALL of it. Not just PKM, but the **complete framework** for becoming a top-tier knowledge worker.",
                 "struggles": [
                     "Crushing shyness and introversion that made communication terrifying",
                     "A failed startup that cost 200k€ and 2 years",
@@ -145,13 +145,13 @@
                 ],
                 "achievements": [
                     "IT Solution Architect at a major financial organization",
-                    "Nearly 10,000 notes in personal knowledge vault",
-                    "Published 3 books including Learn TypeScript",
-                    "Written 400+ articles and newsletters",
-                    "Created the Knowledge Worker Kit covering 13 topics",
+                    "Nearly **10,000 notes** in personal knowledge vault",
+                    "Published **3 books** including *Learn TypeScript*",
+                    "Written **400+ articles** and newsletters",
+                    "Created the [Knowledge Worker Kit](/products/knowledge-worker-kit) covering **13 topics**",
                     "Built the Knowii community from scratch",
-                    "Transitioned from shy introvert to leader and entrepreneur",
-                    "2,000+ products sold, 340+ community members"
+                    "Transitioned from shy introvert to **leader and entrepreneur**",
+                    "**2,000+ products** sold, **340+ community members**"
                 ],
                 "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3. Dedicated to helping knowledge workers build complete systems for clarity, learning, organization, and execution.",
                 "icon": "FaRoad"
@@ -289,7 +289,7 @@
                     "description": "Get your tools configured and templates installed. Experience your first 'aha' moment when you capture and find information effortlessly. Join the community and introduce yourself.",
                     "highlights": [
                         "Install and configure your knowledge management tool",
-                        "Import the Obsidian Starter Kit templates",
+                        "Import the [Obsidian Starter Kit](/products/obsidian-starter-kit) templates",
                         "Capture your first ideas using the system",
                         "Join the community and connect with peers"
                     ],

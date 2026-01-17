@@ -3,37 +3,37 @@
         {
             "id": "faq-42",
             "question": "Do I need technical skills?",
-            "answer": "No. The core system works with simple copy-paste or file uploads on any AI platform. There are advanced options for power users, but they're completely optional."
+            "answer": "**No**. The core system works with simple copy-paste or file uploads on any AI platform. There are advanced options for power users, but they're completely optional."
         },
         {
             "id": "faq-43",
             "question": "Which AI platforms does this work with?",
-            "answer": "ChatGPT, Claude, Gemini, DeepSeek, NotebookLM. Basically any AI that accepts custom instructions or file uploads."
+            "answer": "`ChatGPT`, `Claude`, `Gemini`, `DeepSeek`, `NotebookLM`. Basically any AI that accepts custom instructions or file uploads."
         },
         {
             "id": "faq-44",
             "question": "How long does setup take?",
-            "answer": "Basic setup: 2-3 hours. Advanced MCP implementation: a weekend. You'll earn that time back quickly."
+            "answer": "Basic setup: **2-3 hours**. Advanced `MCP` implementation: **a weekend**. You'll earn that time back quickly."
         },
         {
             "id": "faq-45",
             "question": "Will this work for my niche or industry?",
-            "answer": "Yes. The system analyzes YOUR writing samples, so it works regardless of your topic, industry, or content type."
+            "answer": "Yes. The system analyzes **YOUR** writing samples, so it works regardless of your topic, industry, or content type."
         },
         {
             "id": "faq-46",
             "question": "What if I don't have many writing samples?",
-            "answer": "Start with what you have. Even a handful of pieces is enough to get started. You can add more over time, and the system improves as you use it."
+            "answer": "Start with what you have. Even a **handful of pieces** is enough to get started. You can add more over time, and the system improves as you use it."
         },
         {
             "id": "faq-47",
             "question": "Is this just better prompts?",
-            "answer": "No. This is a complete SYSTEM for training AI to understand YOU: your voice, style, strategy, business, and audience. Prompts are included, but they're just one piece. Other guides give you prompts. This gives you an ecosystem."
+            "answer": "**No**. This is a **complete SYSTEM** for training AI to understand YOU: your voice, style, strategy, business, and audience. Prompts are included, but they're just one piece. Other guides give you prompts. This gives you an **ecosystem**."
         },
         {
             "id": "faq-48",
             "question": "Do I get updates?",
-            "answer": "Yes. You get access to the private community where I share updates as the guide evolves."
+            "answer": "Yes. You get access to the [private community](/products/knowii-community) where I share updates as the guide evolves."
         },
         {
             "id": "faq-49",
@@ -43,7 +43,7 @@
         {
             "id": "faq-50",
             "question": "Can this help with more than writing?",
-            "answer": "Absolutely. Once AI knows your voice and business, it helps with podcast scripts, branding feedback, product brainstorming, marketing copy, ads, and more. The system is versatile."
+            "answer": "Absolutely. Once AI knows your voice and business, it helps with **podcast scripts**, **branding feedback**, **product brainstorming**, **marketing copy**, **ads**, and more. The system is versatile."
         },
         {
             "id": "faq-51",
@@ -53,12 +53,12 @@
         {
             "id": "faq-52",
             "question": "How is this different from other AI writing guides?",
-            "answer": "Most guides give you prompts. Prompts work once. This gives you a complete system that evolves and improves over time. You capture your voice, document your strategy, add business context, and build an AI that truly understands you."
+            "answer": "Most guides give you prompts. Prompts work once. This gives you a **complete system** that evolves and improves over time. You capture your voice, document your strategy, add business context, and build an AI that **truly understands you**."
         },
         {
             "id": "faq-53",
             "question": "What results can I expect?",
-            "answer": "Day 1: first draft that sounds like you. Week 1: full system configured and working. Month 1: dramatically faster content creation with minimal editing. Month 3+: AI becomes a creative partner you can't imagine working without."
+            "answer": "**Day 1**: first draft that sounds like you. **Week 1**: full system configured and working. **Month 1**: dramatically faster content creation with minimal editing. **Month 3+**: AI becomes a creative partner you can't imagine working without."
         }
     ]
 }

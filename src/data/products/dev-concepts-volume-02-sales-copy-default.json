@@ -22,23 +22,23 @@
         "solution": "Learn to figure out what clients actually need before you write a line of code",
         "solutionPoints": [
             "Requirements discovery techniques that uncover the real problem behind the request",
-            "User-Centered Design and Jobs-To-Be-Done frameworks that actually make sense",
+            "*User-Centered Design* and *Jobs-To-Be-Done* frameworks that actually make sense",
             "Practical UX fundamentals: research, personas, patterns you can apply immediately",
-            "Minimum Lovable Products and Design Sprints to validate before you commit",
+            "*Minimum Lovable Products* and *Design Sprints* to validate before you commit",
             "Specifications that keep everyone aligned and prevent scope creep"
         ],
-        "description": "Dev Concepts Volume 2 is about understanding what clients truly need so you stop wasting time building the wrong things. This 50-page e-book comes from my 30+ years of coding experience, about 20 years professionally. I've seen too much great code go to waste because it solved the wrong problem. Here's what I learned about requirements discovery, User-Centered Design, Jobs-To-Be-Done, UX fundamentals, and writing specs that actually work. Part of a 12-volume series covering everything developers need to know.",
+        "description": "Dev Concepts Volume 2 is about understanding what clients truly need so you stop wasting time building the wrong things. This **50-page** e-book comes from my **30+ years** of coding experience, about **20 years** professionally. I've seen too much great code go to waste because it solved the wrong problem. Here's what I learned about requirements discovery, *User-Centered Design*, *Jobs-To-Be-Done*, UX fundamentals, and writing specs that actually work. Part of a **12-volume series** covering everything developers need to know.",
         "features": [
-            "50-page e-book focused on understanding client needs",
+            "**50-page** e-book focused on understanding client needs",
             "Requirements discovery techniques from real projects",
-            "User-Centered Design and Jobs-To-Be-Done explained clearly",
+            "*User-Centered Design* and *Jobs-To-Be-Done* explained clearly",
             "UX basics you can use right away: research, personas, design patterns",
-            "Minimum Lovable Products and Design Sprints approaches",
+            "*Minimum Lovable Products* and *Design Sprints* approaches",
             "How to write specs that prevent misunderstandings",
-            "Based on 30+ years of hands-on experience",
-            "Part of a 12-volume series covering software development end-to-end",
-            "PDF format for easy reference",
-            "Free updates forever"
+            "Based on **30+ years** of hands-on experience",
+            "Part of a **12-volume series** covering software development end-to-end",
+            "**PDF format** for easy reference",
+            "**Free updates** forever"
         ],
         "benefits": {
             "immediate": [
@@ -48,9 +48,9 @@
             ],
             "systematic": [
                 "Build features clients actually want",
-                "Apply User-Centered Design and Jobs-To-Be-Done in your work",
+                "Apply *User-Centered Design* and *Jobs-To-Be-Done* in your work",
                 "Write specs that keep stakeholders aligned",
-                "Use Design Sprints and MVP thinking to validate early"
+                "Use *Design Sprints* and MVP thinking to validate early"
             ],
             "longTerm": [
                 "Stop wasting time on misaligned development",
@@ -79,15 +79,15 @@
             "Anyone expecting tutorials on design tools like Figma or Sketch"
         ],
         "trustBadges": [
-            "30+ years hands-on experience",
-            "~20 years professional industry work",
-            "Part of 12-volume series",
-            "Lifetime updates included"
+            "**30+ years** hands-on experience",
+            "**~20 years** professional industry work",
+            "Part of **12-volume series**",
+            "**Lifetime updates** included"
         ],
         "guarantees": [
-            "14-day money-back guarantee",
-            "Lifetime access to content",
-            "Free updates forever"
+            "**14-day** money-back guarantee",
+            "**Lifetime access** to content",
+            "**Free updates** forever"
         ],
         "metaTitle": "Dev Concepts Volume 2 - What Clients Need | Requirements & UX for Developers",
         "metaDescription": "Stop building features nobody uses. Learn requirements discovery, User-Centered Design, and UX fundamentals from 30+ years of experience. 50-page e-book for developers.",
@@ -106,7 +106,7 @@
             "originStory": {
                 "title": "Why Client Understanding Matters",
                 "subtitle": "Lessons from watching brilliant code go to waste",
-                "story": "In my 30+ years of building software, I've seen too much brilliant code go to waste. Features that took weeks to build, never used. Perfect implementations of the wrong solution. I've been on both sides of that frustration.\n\nThe hard truth? Technical skills alone aren't enough. You can write beautiful code, but if it doesn't solve what clients actually need, you've wasted everyone's time. Including your own.\n\nThis book exists because I want you to stop building the wrong things. I want you to understand how to discover what users truly need, how to think about design, and how to create specifications that lead to success. These are the skills that separate developers who ship features from developers who ship value.",
+                "story": "In my **30+ years** of building software, I've seen too much brilliant code go to waste. Features that took weeks to build, never used. Perfect implementations of the wrong solution. I've been on both sides of that frustration.\n\nThe hard truth? Technical skills alone aren't enough. You can write beautiful code, but if it doesn't solve what clients actually need, you've wasted everyone's time. Including your own.\n\nThis book exists because I want you to stop building the wrong things. I want you to understand how to discover what users truly need, how to think about design, and how to create specifications that lead to success. These are the skills that separate developers who ship features from developers who ship value.",
                 "inspirationPoint": "Stop building the wrong things. Start delivering real value.",
                 "genesisDate": null,
                 "icon": "💡"
@@ -114,7 +114,7 @@
             "creatorJourney": {
                 "title": "Lessons from Building Real Products",
                 "subtitle": "From painful failures to systematic success",
-                "story": "Early in my career, I learned the hard way that clients don't always know what they need. And neither did I. Projects failed not because of bad code, but because we built the wrong things. Everything changed when I discovered User-Centered Design and Jobs-To-Be-Done theory. Now I teach developers to ask the right questions before writing code.",
+                "story": "Early in my career, I learned the hard way that clients don't always know what they need. And neither did I. Projects failed not because of bad code, but because we built the wrong things. Everything changed when I discovered *User-Centered Design* and *Jobs-To-Be-Done* theory. Now I teach developers to ask the right questions before writing code.",
                 "struggles": [
                     "Building features that clients never used",
                     "Discovering requirements too late in the project",
@@ -125,7 +125,7 @@
                     "Learned requirements discovery through real project successes and failures",
                     "Applied UX principles to ship software users actually love"
                 ],
-                "credentials": "Software craftsperson with 30+ years of coding experience and deep understanding of user-centered development",
+                "credentials": "Software craftsperson with **30+ years** of coding experience and deep understanding of user-centered development",
                 "icon": "🛤️"
             },
             "transformationArc": null,
@@ -142,13 +142,13 @@
                     },
                     {
                         "title": "Think Like Users",
-                        "description": "Apply User-Centered Design and Jobs-To-Be-Done to see from their perspective",
+                        "description": "Apply *User-Centered Design* and *Jobs-To-Be-Done* to see from their perspective",
                         "icon": "👥",
                         "order": 1
                     },
                     {
                         "title": "Validate Before Building",
-                        "description": "Use Design Sprints and MVP approaches to test assumptions before committing",
+                        "description": "Use *Design Sprints* and MVP approaches to test assumptions before committing",
                         "icon": "✅",
                         "order": 2
                     },
@@ -231,7 +231,7 @@
                     "title": "Better Requirements",
                     "description": "Apply requirements discovery techniques to real projects. Uncover needs that would have been missed.",
                     "highlights": [
-                        "Use Jobs-To-Be-Done framework in practice",
+                        "Use *Jobs-To-Be-Done* framework in practice",
                         "Create user personas and scenarios",
                         "Write specifications that actually guide development"
                     ],

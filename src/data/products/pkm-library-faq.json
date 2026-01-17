@@ -3,57 +3,57 @@
         {
             "id": "faq-50",
             "question": "Is this just a list of links?",
-            "answer": "No. It's an organized Notion database with context, categorization, and curation. Each resource is vetted and organized for discoverability."
+            "answer": "**No**. It's an organized `Notion` database with context, categorization, and curation. Each resource is **vetted and organized** for discoverability."
         },
         {
             "id": "faq-51",
             "question": "How often is it updated?",
-            "answer": "Regularly. New resources are added as the PKM ecosystem evolves and new discoveries emerge."
+            "answer": "**Regularly**. New resources are added as the PKM ecosystem evolves and new discoveries emerge."
         },
         {
             "id": "faq-52",
             "question": "What format is it in?",
-            "answer": "Notion database with lifetime access. You can view it directly in Notion or duplicate it to your own workspace."
+            "answer": "`Notion` database with **lifetime access**. You can view it directly in `Notion` or duplicate it to your own workspace."
         },
         {
             "id": "faq-53",
             "question": "Do I need to know anything about PKM to use this?",
-            "answer": "No. Whether you're a complete beginner or advanced practitioner, the library has resources for your level."
+            "answer": "No. Whether you're a **complete beginner** or **advanced practitioner**, the library has resources for your level."
         },
         {
             "id": "faq-54",
             "question": "Can I suggest resources to add?",
-            "answer": "Yes, through the PKM community. The library benefits from community contributions."
+            "answer": "Yes, through the PKM community. The library benefits from **community contributions**."
         },
         {
             "id": "faq-55",
             "question": "Is this included in any bundles?",
-            "answer": "Yes - included in: Knowii Community paid subscriptions, Knowledge Worker Kit (€149.99), Everything Knowledge Bundle (€299.99)"
+            "answer": "Yes - included in: [Knowii Community](/products/knowii-community) paid subscriptions, [Knowledge Worker Kit](/products/knowledge-worker-kit) (**€149.99**), [Everything Knowledge Bundle](/products/everything-knowledge-bundle) (**€299.99**)."
         },
         {
             "id": "faq-56",
             "question": "Will I get overwhelmed by so many resources?",
-            "answer": "No. Resources are organized by category and topic. Start with what's relevant to you right now."
+            "answer": "No. Resources are **organized by category and topic**. Start with what's relevant to you right now."
         },
         {
             "id": "faq-57",
             "question": "Do you promote your own products in the library?",
-            "answer": "The library includes my own content alongside 2,000+ other resources. It's about comprehensive coverage, not self-promotion."
+            "answer": "The library includes my own content alongside **2,000+ other resources**. It's about comprehensive coverage, not self-promotion."
         },
         {
             "id": "faq-58",
             "question": "Why did you create this?",
-            "answer": "I spent 12+ months researching the entire PKM ecosystem while building a Knowledge Management startup. When that project didn't get funded, I realized the research itself was invaluable—so I turned it into a resource that helps others skip the same journey."
+            "answer": "I spent **12+ months** researching the entire PKM ecosystem while building a Knowledge Management startup. When that project didn't get funded, I realized the research itself was invaluable—so I turned it into a resource that helps others skip the same journey."
         },
         {
             "id": "faq-59",
             "question": "What's the people directory?",
-            "answer": "A database of ~2,000 PKM makers, creators, and experts. Not just tools and articles—actual people to follow, learn from, and connect with in the PKM space."
+            "answer": "A database of **~2,000 PKM makers**, creators, and experts. Not just tools and articles—**actual people** to follow, learn from, and connect with in the PKM space."
         },
         {
             "id": "faq-60",
             "question": "How is this different from other PKM resource lists?",
-            "answer": "Most lists are shallow collections that get outdated. This is the result of 12+ months of startup-level research, covering corners of the PKM ecosystem most people never find—including niche communities and experts beyond the usual names."
+            "answer": "Most lists are shallow collections that get outdated. This is the result of **12+ months of startup-level research**, covering corners of the PKM ecosystem most people never find—including **niche communities** and experts beyond the usual names."
         }
     ]
 }

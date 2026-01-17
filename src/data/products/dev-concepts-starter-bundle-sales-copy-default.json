@@ -2,7 +2,7 @@
     "id": "default",
     "salesCopy": {
         "tagline": "The two skills every junior developer needs (but nobody teaches)",
-        "secondaryTagline": "Volumes 1 & 2 at 25% off",
+        "secondaryTagline": "Volumes 1 & 2 at **25% off**",
         "problem": "Most juniors can code, but they lack the mindset AND the ability to understand what clients actually need",
         "problemPoints": [
             "You can write code, but you're not sure how to think like a professional developer",
@@ -21,32 +21,32 @@
         ],
         "solution": "Get both foundations in one bundle: professional mindset + client understanding",
         "solutionPoints": [
-            "Volume 1 (100 pages): Software craftsmanship, mindset, how to think like a pro",
-            "Volume 2 (50 pages): Understanding clients, UX basics, requirements discovery",
-            "30+ years of real experience packed into 150 pages",
-            "Save 25% compared to buying volumes separately",
+            "[Volume 1](/products/dev-concepts-volume-01) (**100 pages**): Software craftsmanship, mindset, how to think like a pro",
+            "[Volume 2](/products/dev-concepts-volume-02) (**50 pages**): Understanding clients, UX basics, requirements discovery",
+            "**30+ years** of real experience packed into **150 pages**",
+            "Save **25%** compared to buying volumes separately",
             "The foundation I wish someone had given me when I started"
         ],
-        "description": "I've been coding for 30+ years, and I've seen the same pattern countless times: junior developers who can code but struggle to advance. Why? Two gaps. First, they don't think like professionals. Second, they don't understand what clients actually need. This bundle addresses both. Volume 1 (100 pages) covers the software craft mindset. Volume 2 (50 pages) teaches you how to understand client needs before you write a single line of code. Together, they give you the foundation that separates developers who advance from those who stay stuck. And you save 25% compared to buying them separately.",
+        "description": "I've been coding for **30+ years**, and I've seen the same pattern countless times: junior developers who can code but struggle to advance. Why? Two gaps. First, they don't think like professionals. Second, they don't understand what clients actually need. This bundle addresses both. [Volume 1](/products/dev-concepts-volume-01) (**100 pages**) covers the software craft mindset. [Volume 2](/products/dev-concepts-volume-02) (**50 pages**) teaches you how to understand client needs before you write a single line of code. Together, they give you the foundation that separates developers who advance from those who stay stuck. And you save **25%** compared to buying them separately.",
         "features": [
-            "Dev Concepts Volume 1: Software Craft (100 pages)",
-            "Dev Concepts Volume 2: What Clients Need (50 pages)",
-            "150 pages total, no fluff",
-            "25% off compared to buying individually",
+            "**[Dev Concepts Volume 1](/products/dev-concepts-volume-01)**: Software Craft (**100 pages**)",
+            "**[Dev Concepts Volume 2](/products/dev-concepts-volume-02)**: What Clients Need (**50 pages**)",
+            "**150 pages** total, no fluff",
+            "**25% off** compared to buying individually",
             "All future updates to both volumes included",
-            "Part of a 12-volume series covering the full developer journey",
-            "PDF format, read anywhere",
-            "Lifetime access"
+            "Part of a **12-volume series** covering the full developer journey",
+            "**PDF format**, read anywhere",
+            "**Lifetime access**"
         ],
         "benefits": {
             "immediate": [
-                "Save 25% vs buying volumes separately",
-                "Start reading 150 pages of practical content today",
+                "Save **25%** vs buying volumes separately",
+                "Start reading **150 pages** of practical content today",
                 "Get clarity on what's actually holding you back"
             ],
             "systematic": [
                 "Build the complete foundation: mindset + client understanding",
-                "Apply lessons from 30+ years of real projects",
+                "Apply lessons from **30+ years** of real projects",
                 "Stop guessing and start progressing systematically"
             ],
             "longTerm": [
@@ -65,7 +65,7 @@
             "You're a junior developer who wants both technical craft and business understanding",
             "You're a career-changer who needs solid foundations fast",
             "You're self-taught and filling in the gaps",
-            "You want to save 25% while getting both volumes"
+            "You want to save **25%** while getting both volumes"
         ],
         "notForYou": [
             "Senior developers who already have these foundations",
@@ -73,16 +73,16 @@
             "Developers who prefer buying one volume at a time"
         ],
         "trustBadges": [
-            "30+ years of hands-on experience",
-            "150 pages of practical content",
-            "25% bundle savings",
-            "Part of 12-volume series",
-            "Lifetime updates"
+            "**30+ years** of hands-on experience",
+            "**150 pages** of practical content",
+            "**25%** bundle savings",
+            "Part of **12-volume series**",
+            "**Lifetime updates**"
         ],
         "guarantees": [
-            "14-day money-back guarantee, no hassle",
-            "Lifetime access",
-            "Free updates forever"
+            "**14-day** money-back guarantee, no hassle",
+            "**Lifetime access**",
+            "**Free updates** forever"
         ],
         "metaTitle": "Dev Concepts Starter Bundle | Software Craft + Client Needs at 25% Off",
         "metaDescription": "Learn to think like a professional developer AND understand client needs. Volumes 1 & 2 bundled at 25% off. 150 pages from 30+ years of real experience.",
@@ -100,7 +100,7 @@
             "originStory": {
                 "title": "Why I Bundled These Two",
                 "subtitle": "The two gaps I've seen hold back hundreds of developers",
-                "story": "After 30+ years in software, I've noticed a pattern. Junior developers get stuck for two reasons.\n\nFirst: they code, but they don't think like professionals. They haven't developed the mindset, habits, and approach that turns coding ability into career growth.\n\nSecond: they build things, but they don't understand clients. They create technically solid features that nobody uses because they never learned to figure out what users actually need.\n\nHere's the thing: these two gaps are connected. Professional developers know their job isn't to write code. It's to solve problems for real people. That takes both the right mindset AND the ability to understand what clients truly need.\n\nI created this bundle because fixing one gap without the other leaves you stuck. You need both foundations.",
+                "story": "After **30+ years** in software, I've noticed a pattern. Junior developers get stuck for two reasons.\n\nFirst: they code, but they don't think like professionals. They haven't developed the mindset, habits, and approach that turns coding ability into career growth.\n\nSecond: they build things, but they don't understand clients. They create technically solid features that nobody uses because they never learned to figure out what users actually need.\n\nHere's the thing: these two gaps are connected. Professional developers know their job isn't to write code. It's to solve problems for real people. That takes both the right mindset AND the ability to understand what clients truly need.\n\nI created this bundle because fixing one gap without the other leaves you stuck. You need both foundations.",
                 "inspirationPoint": "Fixing one gap without the other leaves you stuck",
                 "genesisDate": null,
                 "icon": "📦"
@@ -162,7 +162,7 @@
                     },
                     {
                         "title": "Good value",
-                        "description": "Complete foundation at 25% off",
+                        "description": "Complete foundation at **25% off**",
                         "icon": "💰"
                     }
                 ],

@@ -3,7 +3,7 @@
         {
             "id": "faq-120",
             "question": "What exactly do I get?",
-            "answer": "A Trello board with 200+ curated links to IT and software development resources. You get access to view and browse the board. Everything is organized by topic."
+            "answer": "A `Trello` board with **200+** curated links to IT and software development resources. You get access to view and browse the board. Everything is organized by topic."
         },
         {
             "id": "faq-121",
@@ -38,7 +38,7 @@
         {
             "id": "faq-127",
             "question": "What's the connection to Dev Concepts?",
-            "answer": "This is the research collection I built while writing my Dev Concepts book series. Same resources that informed those books, now organized so you can browse them."
+            "answer": "This is the research collection I built while writing my [Dev Concepts](/products/dev-concepts-starter-bundle) book series. Same resources that informed those books, now organized so you can browse them."
         }
     ]
 }

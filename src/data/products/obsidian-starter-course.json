@@ -20,12 +20,12 @@
         "templates"
     ],
     "included": [
-        "2h20 Video Course - Complete curriculum across 11 modules",
-        "Lifetime Access - Watch anytime, at your own pace",
+        "**2h20** Video Course - Complete curriculum across **11 modules**",
+        "**Lifetime Access** - Watch anytime, at your own pace",
         "Real Vault Demonstrations - See actual workflows, not sanitized demos",
-        "3 PKM Frameworks Integrated - PARA + Zettelkasten + Johnny Decimal working together",
-        "Essential Plugins Configured - Templater, Dataview, Kanban, Auto Note Mover, and more",
-        "Beginner-Friendly - No prior Obsidian experience required"
+        "**3 PKM Frameworks** Integrated - *PARA* + *Zettelkasten* + *Johnny Decimal* working together",
+        "Essential Plugins Configured - `Templater`, `Dataview`, `Kanban`, `Auto Note Mover`, and more",
+        "Beginner-Friendly - No prior `Obsidian` experience required"
     ],
     "featured": false,
     "bestValue": false,

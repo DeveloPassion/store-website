@@ -7,7 +7,7 @@
         },
         {
             "id": "no-time-to-read",
-            "question": "I don't have time to read 150 pages...",
+            "question": "I don't have time to read **150 pages**...",
             "answer": "Fair enough. The volumes are designed so you can jump to specific topics when you need them. Each chapter stands alone. You don't have to read cover to cover. Grab what you need, when you need it."
         },
         {
@@ -18,27 +18,27 @@
         {
             "id": "why-bundle",
             "question": "Why get the bundle instead of buying volumes separately?",
-            "answer": "Two reasons. First, you save 25% (€14.99 instead of €19.98). Second, these volumes are designed to work together. Volume 1 builds the professional mindset, Volume 2 teaches client understanding. One without the other leaves gaps."
+            "answer": "Two reasons. First, you save **25%** (**€14.99** instead of €19.98). Second, these volumes are designed to work together. [Dev Concepts Volume 1](/products/dev-concepts-volume-01) builds the professional mindset, [Dev Concepts Volume 2](/products/dev-concepts-volume-02) teaches client understanding. One without the other leaves gaps."
         },
         {
             "id": "money-back-guarantee",
             "question": "What if I don't like it?",
-            "answer": "Email me within 14 days, full refund. I just ask that you tell me what didn't work for you so I can improve. No hassle, no interrogation."
+            "answer": "Email me within **14 days**, full refund. I just ask that you tell me what didn't work for you so I can improve. No hassle, no interrogation."
         },
         {
             "id": "future-volumes",
             "question": "Why only Volumes 1 and 2?",
-            "answer": "I'm releasing new volumes regularly. This starter bundle gives you the first two foundational volumes. If you want all 12 volumes as they come out, look at the Lifetime Bundle instead."
+            "answer": "I'm releasing new volumes regularly. This starter bundle gives you the first two foundational volumes. If you want all **12 volumes** as they come out, look at the Lifetime Bundle instead."
         },
         {
             "id": "volume-contents",
             "question": "What exactly is in each volume?",
-            "answer": "Volume 1 (100 pages): software craftsmanship, mindset, how to think like a professional developer. Volume 2 (50 pages): understanding client needs, UX basics, requirements discovery. These are the two biggest gaps I've seen hold junior developers back. Check dev-concepts.dev for detailed chapter breakdowns and free samples."
+            "answer": "[Dev Concepts Volume 1](/products/dev-concepts-volume-01) (**100 pages**): software craftsmanship, mindset, how to think like a professional developer. [Dev Concepts Volume 2](/products/dev-concepts-volume-02) (**50 pages**): understanding client needs, UX basics, requirements discovery. These are the two biggest gaps I've seen hold junior developers back. Check [dev-concepts.dev](https://dev-concepts.dev) for detailed chapter breakdowns and free samples."
         },
         {
             "id": "single-volume-option",
             "question": "Can I just buy one volume?",
-            "answer": "Yes, they're available separately. But the bundle saves you 25%, and honestly, the two topics work together. Professional mindset without client understanding (or vice versa) only gets you halfway there."
+            "answer": "Yes, they're available separately. But the bundle saves you **25%**, and honestly, the two topics work together. Professional mindset without client understanding (or vice versa) only gets you halfway there."
         },
         {
             "id": "cant-afford",

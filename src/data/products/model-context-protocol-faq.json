@@ -8,22 +8,22 @@
         {
             "id": "faq-90",
             "question": "Do I need to be technical to use MCP?",
-            "answer": "No. This masterclass is specifically designed for knowledge workers, not developers. It covers GUI tools (Dockmaster, Toolbase, OneMCP) that make installation point-and-click easy. No command line or coding required."
+            "answer": "No. This masterclass is specifically designed for **knowledge workers**, not developers. It covers GUI tools (`Dockmaster`, `Toolbase`, `OneMCP`) that make installation **point-and-click** easy. No command line or coding required."
         },
         {
             "id": "faq-91",
             "question": "Which AI tools support MCP?",
-            "answer": "Claude Desktop, Claude Web (with extension), Claude Code, Cline, Cursor, VSCode with Copilot, Windsurf, Glama Chat, and growing. OpenAI announced ChatGPT support in March 2025."
+            "answer": "`Claude` Desktop, `Claude` Web (with extension), `Claude Code`, `Cline`, `Cursor`, `VSCode` with Copilot, `Windsurf`, `Glama Chat`, and growing. OpenAI announced `ChatGPT` support in March 2025."
         },
         {
             "id": "faq-92",
             "question": "Can I use MCP with my Obsidian notes?",
-            "answer": "Yes! Demo 1 shows exactly this. Claude reads and summarizes notes from your Obsidian vault directly—no copy-paste required."
+            "answer": "Yes! Demo 1 shows exactly this. `Claude` reads and summarizes notes from your `Obsidian` vault directly—**no copy-paste required**."
         },
         {
             "id": "faq-93",
             "question": "Is MCP secure? I'm worried about AI accessing my data.",
-            "answer": "Security is covered in depth in this masterclass. MCP servers run locally on your machine. Claude Desktop requires user confirmation for sensitive operations. You learn about the risks of untrusted servers, how to verify what you're installing, and best practices for protecting your data."
+            "answer": "**Security is covered in depth** in this masterclass. MCP servers run **locally on your machine**. `Claude` Desktop requires user confirmation for sensitive operations. You learn about the risks of untrusted servers, how to verify what you're installing, and best practices for protecting your data."
         },
         {
             "id": "faq-94",
@@ -33,7 +33,7 @@
         {
             "id": "faq-95",
             "question": "How do I install MCP servers?",
-            "answer": "Multiple methods demonstrated: GUI tools like Dockmaster and Toolbase (easiest—just point and click), Smithery CLI, and manual configuration. You pick what's comfortable for you."
+            "answer": "Multiple methods demonstrated: GUI tools like `Dockmaster` and `Toolbase` (easiest—just **point and click**), `Smithery` CLI, and manual configuration. You pick what's comfortable for you."
         },
         {
             "id": "faq-96",
@@ -53,7 +53,7 @@
         {
             "id": "faq-99",
             "question": "Is this included in any bundles?",
-            "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)"
+            "answer": "Yes - included free with: [Knowii Community](/products/knowii-community) **Knowledge Builder** tier (**€19.99/month**), [Knowii Community](/products/knowii-community) **Knowledge Master** tier (**€39.99/month**), [Knowledge Worker Kit](/products/knowledge-worker-kit) (**€149.99** one-time)."
         },
         {
             "id": "faq-100",
@@ -63,7 +63,7 @@
         {
             "id": "faq-101",
             "question": "Why pay €19.99 when there are free YouTube tutorials?",
-            "answer": "Most free tutorials are written by developers, for developers. This masterclass is designed for knowledge workers who want results without technical overhead. You get a curated path (I tested dozens of servers), GUI-focused installation, security guidance most tutorials skip, and PKM-specific use cases like Obsidian and Notion integration."
+            "answer": "Most free tutorials are written by developers, for developers. This masterclass is designed for **knowledge workers** who want results without technical overhead. You get a **curated path** (I tested dozens of servers), GUI-focused installation, security guidance most tutorials skip, and PKM-specific use cases like `Obsidian` and `Notion` integration."
         },
         {
             "id": "faq-102",
@@ -73,7 +73,7 @@
         {
             "id": "faq-103",
             "question": "What's the main use case for knowledge workers?",
-            "answer": "Breaking down knowledge silos. AI can read your Obsidian notes, query your Notion databases, search the web, and control your browser—all from a single prompt. No more being the middleman copy-pasting context between tools."
+            "answer": "**Breaking down knowledge silos**. AI can read your `Obsidian` notes, query your `Notion` databases, search the web, and control your browser—all from a **single prompt**. No more being the middleman copy-pasting context between tools."
         }
     ]
 }

@@ -3,72 +3,72 @@
     "salesCopy": {
         "tagline": "Stop Configuring. Start Thinking.",
         "secondaryTagline": "A Complete Obsidian System, Ready in 30 Minutes",
-        "problem": "You've heard Obsidian is powerful. But every time you try to set it up, you hit the same wall: where should notes go? Which plugins matter? How do you structure this thing so it doesn't become another digital junk drawer? I've watched people spend months on this. Meanwhile, their ideas stay trapped in their heads or scattered across apps they'll never open again.",
+        "problem": "You've heard `Obsidian` is powerful. But every time you try to set it up, you hit the same wall: *where should notes go?* Which plugins matter? How do you structure this thing so it doesn't become another digital junk drawer? I've watched people spend **months** on this. Meanwhile, their ideas stay trapped in their heads or scattered across apps they'll never open again.",
         "problemPoints": [
-            "Weeks spent on folder structure, only to scrap it when things don't fit",
-            "Trying dozens of plugins without knowing which actually matter",
-            "Building templates from scratch that break after 50 notes",
-            "Reading contradictory PKM advice that makes you more confused",
-            "Watching your vault become messier as it grows"
+            "**Weeks spent** on folder structure, only to scrap it when things don't fit",
+            "Trying **dozens of plugins** without knowing which actually matter",
+            "Building templates from scratch that **break after 50 notes**",
+            "Reading contradictory PKM advice that makes you *more confused*",
+            "Watching your vault become **messier as it grows**"
         ],
-        "agitate": "The real cost isn't the setup time. It's the constant anxiety that important ideas are slipping through the cracks. It's the creative blocks when you can't find your own notes. It's feeling less capable than you should because your 'second brain' is a disorganized mess. I spent years living with that anxiety before I built something that actually worked.",
+        "agitate": "The real cost isn't the setup time. It's the **constant anxiety** that important ideas are slipping through the cracks. It's the **creative blocks** when you can't find your own notes. It's feeling less capable than you should because your *'second brain'* is a disorganized mess. I spent years living with that anxiety before I built something that actually worked.",
         "agitatePoints": [
-            "That nagging feeling that you captured something important but can't find it",
-            "Creative blocks because your thinking is disconnected",
-            "Analysis paralysis from too many options and no clear path",
-            "Starting from scratch feels like reinventing the wheel. Because it is.",
-            "Your brain becomes the only connection point between scattered tools"
+            "That **nagging feeling** that you captured something important but can't find it",
+            "**Creative blocks** because your thinking is disconnected",
+            "**Analysis paralysis** from too many options and no clear path",
+            "Starting from scratch feels like reinventing the wheel. *Because it is.*",
+            "Your brain becomes the **only connection point** between scattered tools"
         ],
-        "solution": "OSK is 20+ years of PKM trial and error distilled into a system that works from day one. Not tips and tricks. A complete system of how you capture, organize, and use your knowledge. Every decision has been made, but everything stays customizable as you grow.",
+        "solution": "OSK is **20+ years** of PKM trial and error distilled into a system that works **from day one**. Not tips and tricks. A complete system of how you capture, organize, and use your knowledge. Every decision has been made, but everything stays customizable as you grow.",
         "solutionPoints": [
-            "Ready in 30 minutes. Not weeks. Not months.",
-            "40+ templates that auto-file notes so you stop thinking about organization",
-            "Pre-configured plugins that actually work together",
-            "Zettelkasten, PARA, Johnny Decimal, GTD built in and explained",
-            "Scales from 10 notes to 10,000+ without breaking down",
-            "AI-ready with Claude and MCP integration for modern knowledge work"
+            "**Ready in 30 minutes**. Not weeks. Not months.",
+            "**40+ templates** that auto-file notes so you stop thinking about organization",
+            "**Pre-configured plugins** that actually work together",
+            "*Zettelkasten*, *PARA*, *Johnny Decimal*, *GTD* built in and explained",
+            "Scales from **10 notes to 10,000+** without breaking down",
+            "**AI-ready** with `Claude` and `MCP` integration for modern knowledge work"
         ],
-        "description": "I've spent 20+ years obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (PARA, Zettelkasten, Johnny Decimal, GTD) with a structure that scales. 1,000+ people use it. You can be productive on day one.",
+        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**.",
         "features": [
-            "Clearly defined note types with structured properties and automation",
-            "40+ specialized templates for every content type that auto-file themselves",
-            "Powerful journaling system with daily/weekly/monthly/quarterly/yearly reviews",
-            "Complete action system connecting goals to plans to projects to tasks",
-            "Mature knowledge workflow from content capture to permanent wisdom",
-            "People and relationship management with interaction tracking",
-            "Health and habit tracking with mood, energy, sleep, exercise, nutrition",
-            "Zero manual filing. Everything organizes automatically.",
-            "Hierarchical tags system to find any note in 3 seconds",
-            "First-class Obsidian Bases support for database-like views",
-            "AI-ready architecture with Claude Code and MCP integration",
-            "Visual thinking support with drawings and diagrams",
-            "Pre-configured settings optimized for productivity",
-            "100+ page user guide",
-            "2h20m video course (Premium tier)"
+            "**Clearly defined note types** with structured properties and automation",
+            "**40+ specialized templates** for every content type that auto-file themselves",
+            "**Powerful journaling system** with daily/weekly/monthly/quarterly/yearly reviews",
+            "**Complete action system** connecting goals to plans to projects to tasks",
+            "**Mature knowledge workflow** from content capture to permanent wisdom",
+            "**People and relationship management** with interaction tracking",
+            "**Health and habit tracking** with mood, energy, sleep, exercise, nutrition",
+            "**Zero manual filing**. Everything organizes automatically.",
+            "**Hierarchical tags system** to find any note in **3 seconds**",
+            "First-class `Obsidian Bases` support for database-like views",
+            "**AI-ready architecture** with `Claude Code` and `MCP` integration",
+            "**Visual thinking support** with drawings and diagrams",
+            "**Pre-configured settings** optimized for productivity",
+            "**100+ page** user guide",
+            "**2h20m video course** (Premium tier)"
         ],
         "benefits": {
             "immediate": [
-                "Productive on day one. Not after weeks of configuration.",
-                "No analysis paralysis. Every decision has been made for you.",
-                "Workflows that actually work in the real world",
-                "Instant clarity on where everything goes and how to find it",
-                "Confidence that you're building on a solid foundation"
+                "**Productive on day one**. Not after weeks of configuration.",
+                "**No analysis paralysis**. Every decision has been made for you.",
+                "**Workflows that actually work** in the real world",
+                "**Instant clarity** on where everything goes and how to find it",
+                "**Confidence** that you're building on a solid foundation"
             ],
             "systematic": [
-                "Find any note in 3 seconds with hierarchical tags and multiple discovery methods",
-                "Scale from 10 notes to 10,000+ without your system breaking down",
-                "Automated organization that reduces decision fatigue to zero",
-                "Clear workflows for every type of information you capture",
-                "AI-ready structure so tools like Claude can actually help you",
-                "Sustainable habits with built-in journaling and review systems"
+                "**Find any note in 3 seconds** with hierarchical tags and multiple discovery methods",
+                "Scale from **10 notes to 10,000+** without your system breaking down",
+                "**Automated organization** that reduces decision fatigue to zero",
+                "**Clear workflows** for every type of information you capture",
+                "**AI-ready structure** so tools like `Claude` can actually help you",
+                "**Sustainable habits** with built-in journaling and review systems"
             ],
             "longTerm": [
-                "Knowledge that compounds. Every note makes you more capable.",
-                "Ideas connecting naturally across different areas of your life",
-                "Writing and creating directly from your connected knowledge",
-                "Hours reclaimed weekly that were lost to searching and organizing",
-                "Confidence that your system will grow with you, not against you",
-                "Future-proofed for AI tools that will only get better"
+                "**Knowledge that compounds**. Every note makes you more capable.",
+                "Ideas **connecting naturally** across different areas of your life",
+                "**Writing and creating** directly from your connected knowledge",
+                "**Hours reclaimed weekly** that were lost to searching and organizing",
+                "Confidence that your system will **grow with you**, not against you",
+                "**Future-proofed** for AI tools that will only get better"
             ]
         },
         "targetAudience": [
@@ -93,18 +93,18 @@
             "You prefer simple note-taking without organization or methodology"
         ],
         "trustBadges": [
-            "30-Day Money-Back Guarantee",
-            "Lifetime Updates Included",
-            "1,000+ Users Worldwide",
-            "4.9/5 Average Rating",
-            "20+ Years PKM Expertise",
-            "Beginner Friendly"
+            "**30-Day Money-Back Guarantee**",
+            "**Lifetime Updates Included**",
+            "**1,000+ Users** Worldwide",
+            "**4.9/5 Average Rating**",
+            "**20+ Years** PKM Expertise",
+            "**Beginner Friendly**"
         ],
         "guarantees": [
-            "30-day money-back guarantee. Full refund, no questions asked.",
-            "Free lifetime updates. All future versions included at no cost.",
-            "Lifetime community access for support and learning",
-            "Priority email support with personal responses"
+            "**30-day money-back guarantee**. Full refund, no questions asked.",
+            "**Free lifetime updates**. All future versions included at no cost.",
+            "**Lifetime community access** for support and learning",
+            "**Priority email support** with personal responses"
         ],
         "metaTitle": "Obsidian Starter Kit - Stop Configuring, Start Thinking | Knowledge Forge",
         "metaDescription": "Complete Obsidian vault with 40+ auto-filing templates, pre-configured plugins, and PKM methodology. 1,000+ users. 20+ years expertise. 30-day guarantee.",
