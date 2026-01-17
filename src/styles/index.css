@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
+/* Explicitly tell Tailwind v4 where to scan for class usage */
+@source '../**/*.{ts,tsx}';
+@source '../index.html';
+
 @theme {
     --color-primary: #ffffff;
     --color-secondary: #e5007d;
