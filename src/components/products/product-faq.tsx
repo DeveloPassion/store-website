@@ -53,7 +53,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                             open && 'ring-secondary/30 ring-2 ring-inset'
                                         )}
                                     >
-                                        <Disclosure.Button className='hover:bg-primary/5 flex w-full items-center justify-between px-6 py-4 text-left transition-colors'>
+                                        <Disclosure.Button className='hover:bg-primary/5 flex w-full cursor-pointer items-center justify-between px-6 py-4 text-left transition-colors'>
                                             <MarkdownContent
                                                 content={faq.question}
                                                 inline

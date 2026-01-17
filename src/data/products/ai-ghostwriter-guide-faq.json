@@ -8,7 +8,7 @@
         {
             "id": "faq-43",
             "question": "Which AI platforms does this work with?",
-            "answer": "`ChatGPT`, `Claude`, `Gemini`, `DeepSeek`, `NotebookLM`. Basically any AI that accepts custom instructions or file uploads."
+            "answer": "`ChatGPT`, `Claude`, `Claude Code`, `Gemini`, `DeepSeek`, `NotebookLM`. Basically any AI that accepts custom instructions or file uploads."
         },
         {
             "id": "faq-44",
