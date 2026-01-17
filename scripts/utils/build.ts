@@ -23,10 +23,24 @@ fs.mkdirSync(DIST_DIR, { recursive: true })
 
 // Step 1: Build CSS with Tailwind
 console.log('🎨 Building CSS with Tailwind...')
+let cssFilename = 'index.css'
 try {
     // Use Tailwind CLI to process the CSS
-    await $`bunx @tailwindcss/cli -i ${path.join(SRC_DIR, 'styles/index.css')} -o ${path.join(DIST_DIR, 'assets/index.css')} --minify`
-    console.log('✅ CSS built successfully\n')
+    const tempCssPath = path.join(DIST_DIR, 'assets/index.css')
+    await $`bunx @tailwindcss/cli -i ${path.join(SRC_DIR, 'styles/index.css')} -o ${tempCssPath} --minify`
+
+    // Generate content hash for cache-busting
+    const cssContent = fs.readFileSync(tempCssPath)
+    const hasher = new Bun.CryptoHasher('md5')
+    hasher.update(cssContent)
+    const hash = hasher.digest('hex').slice(0, 8)
+    cssFilename = `index-${hash}.css`
+
+    // Rename CSS file with hash
+    const hashedCssPath = path.join(DIST_DIR, 'assets', cssFilename)
+    fs.renameSync(tempCssPath, hashedCssPath)
+
+    console.log(`✅ CSS built successfully: ${cssFilename}\n`)
 } catch (error) {
     console.error('❌ Failed to build CSS:', error)
     process.exit(1)
@@ -70,7 +84,7 @@ try {
 
     // Store the hashed filename for HTML generation
     const jsFilename = path.basename(mainOutput.path)
-    const cssFilename = 'index.css' // Tailwind outputs without hash
+    // cssFilename is already set with hash from Step 1
 
     // Step 3: Process HTML
     console.log('📄 Processing HTML...')
