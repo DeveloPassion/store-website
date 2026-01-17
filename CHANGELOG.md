@@ -1,3 +1,14 @@
+## [0.7.3](https://github.com/DeveloPassion/store-website/compare/0.7.2...0.7.3) (2026-01-17)
+
+### Features
+
+* **all:** fixed knowii copy for explorer tier ([9be806f](https://github.com/DeveloPassion/store-website/commit/9be806f6503011e20c893812fd5465e567373869))
+* **all:** fixed tailwind loading issue on CF ([f4d8472](https://github.com/DeveloPassion/store-website/commit/f4d8472451d6e7d4f8b2fe07228c1b3f121a8dee))
+* **all:** improved homepage animation ([59dbdc5](https://github.com/DeveloPassion/store-website/commit/59dbdc5d78f1f01c865f487ee5f7fc20e5c871ca))
+
+### Bug Fixes
+
+* **all:** fixed tests ([f865e5f](https://github.com/DeveloPassion/store-website/commit/f865e5f88106a71b2a7363f7975a25d55f68bcb2))
 ## [0.7.2](https://github.com/DeveloPassion/store-website/compare/0.7.1...0.7.2) (2026-01-17)
 
 ### Features
