@@ -1,3 +1,13 @@
+## [0.7.1](https://github.com/DeveloPassion/store-website/compare/0.7.0...0.7.1) (2026-01-17)
+
+### Features
+
+* **all:** added rules ([6be9e05](https://github.com/DeveloPassion/store-website/commit/6be9e0503513a710324172d8cba71ca79975391e))
+* **all:** added script to detect invalid links ([918b958](https://github.com/DeveloPassion/store-website/commit/918b958c2cdf4054715b9717450d17bb73ae2696))
+* **all:** fixed invalid link ([f4f7609](https://github.com/DeveloPassion/store-website/commit/f4f760922a902922a38748a522e724d34e8a59ce))
+* **all:** fixed invalid link ([e8a73dd](https://github.com/DeveloPassion/store-website/commit/e8a73dd821951aa3413db0856f7f4a4340eb830c))
+* **all:** fixed product links ([1d799aa](https://github.com/DeveloPassion/store-website/commit/1d799aafd7dfded4f2e728d81cba5d7dc9b2f0e3))
+* **all:** updated script ([9c86d74](https://github.com/DeveloPassion/store-website/commit/9c86d749f8f4e994da4fe2eccda18276f5555e95))
 ## [0.7.0](https://github.com/DeveloPassion/store-website/compare/0.6.5...0.7.0) (2026-01-17)
 
 ### Features
