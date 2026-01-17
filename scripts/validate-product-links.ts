@@ -86,7 +86,11 @@ function loadProductIds(): Set<string> {
 /**
  * Recursively get all files matching extensions
  */
-function getFilesRecursively(dir: string, extensions: string[]): string[] {
+function getFilesRecursively(
+    dir: string,
+    extensions: string[],
+    excludePatterns: string[] = []
+): string[] {
     const files: string[] = []
 
     if (!existsSync(dir)) {
@@ -104,8 +108,12 @@ function getFilesRecursively(dir: string, extensions: string[]): string[] {
             if (entry === 'node_modules' || entry === 'dist') {
                 continue
             }
-            files.push(...getFilesRecursively(fullPath, extensions))
+            files.push(...getFilesRecursively(fullPath, extensions, excludePatterns))
         } else if (extensions.some((ext) => entry.endsWith(ext))) {
+            // Skip files matching exclude patterns
+            if (excludePatterns.some((pattern) => entry === pattern || entry.endsWith(pattern))) {
+                continue
+            }
             files.push(fullPath)
         }
     }
@@ -227,9 +235,10 @@ function validateProductLinks(): {
     const productIds = loadProductIds()
     console.log(`📦 Found ${productIds.size} valid product ID(s)\n`)
 
-    // Get all source files
+    // Get all source files, excluding products.json (aggregated file) and media files
     const extensions = ['.ts', '.tsx', '.json']
-    const files = getFilesRecursively(SRC_DIR, extensions)
+    const excludePatterns = ['products.json', '-media.json']
+    const files = getFilesRecursively(SRC_DIR, extensions, excludePatterns)
 
     console.log(`📂 Scanning ${files.length} file(s)...\n`)
 
