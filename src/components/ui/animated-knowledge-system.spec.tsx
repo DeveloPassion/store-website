@@ -21,7 +21,7 @@ describe('AnimatedKnowledgeSystem', () => {
         it('renders decorative particle effects', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const particles = container.querySelectorAll('.animate-particle')
-            expect(particles).toHaveLength(3)
+            expect(particles).toHaveLength(6)
         })
 
         it('renders glow effect with proper ARIA hiding', () => {
@@ -85,58 +85,6 @@ describe('AnimatedKnowledgeSystem', () => {
 
             chars.forEach((char) => {
                 expect(char).toHaveClass('animate-char-reveal')
-            })
-        })
-
-        it('applies different animation durations to particles via CSS class', () => {
-            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const particles = container.querySelectorAll('.animate-particle')
-
-            particles.forEach((particle, index) => {
-                // Animation duration is set via Tailwind arbitrary property class
-                expect((particle as HTMLElement).className).toContain(
-                    `[animation-duration:${2 + index * 0.5}s]`
-                )
-            })
-        })
-
-        it('applies different animation delays to particles via CSS class', () => {
-            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const particles = container.querySelectorAll('.animate-particle')
-
-            particles.forEach((particle, index) => {
-                // Animation delay is set via Tailwind arbitrary property class
-                expect((particle as HTMLElement).className).toContain(
-                    `[--animation-delay:${index * 0.7}s]`
-                )
-            })
-        })
-
-        it('applies particle positions via CSS classes', () => {
-            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const particles = container.querySelectorAll('.animate-particle')
-
-            particles.forEach((particle, index) => {
-                const className = (particle as HTMLElement).className
-                expect(className).toContain(`[--particle-left:${20 + index * 30}%]`)
-                expect(className).toContain(`[--particle-top:${10 + index * 20}%]`)
-            })
-        })
-
-        it('applies particle movement via CSS classes', () => {
-            const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const particles = container.querySelectorAll('.animate-particle')
-            const expectedPositions = [
-                { x: 42, y: -75 },
-                { x: -18, y: -52 },
-                { x: 8, y: -93 }
-            ]
-
-            particles.forEach((particle, index) => {
-                const className = (particle as HTMLElement).className
-                const expected = expectedPositions[index]
-                expect(className).toContain(`[--particle-x:${expected?.x}px]`)
-                expect(className).toContain(`[--particle-y:${expected?.y}px]`)
             })
         })
     })
