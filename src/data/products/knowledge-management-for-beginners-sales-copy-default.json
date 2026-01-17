@@ -607,7 +607,7 @@
                         },
                         {
                             "name": "AI: Mega Prompts & `MCP`",
-                            "description": "Creating powerful prompts and using [Model Context Protocol](/products/model-context-protocol)",
+                            "description": "Creating powerful prompts and using [Model Context Protocol](/product/model-context-protocol)",
                             "url": null,
                             "duration": null,
                             "icon": "⚡"
@@ -745,11 +745,11 @@
                 ],
                 "achievements": [
                     "Built a **10,000+ note** knowledge base that I actually use daily",
-                    "Created the [Obsidian Starter Kit](/products/obsidian-starter-kit) - used by over **a thousand professionals**",
+                    "Created the [Obsidian Starter Kit](/product/obsidian-starter-kit) - used by over **a thousand professionals**",
                     "Coached **many professionals** on knowledge management",
                     "Authored **multiple courses and books** on PKM and productivity"
                 ],
-                "credentials": "**20+ years** in IT and software development. Knowledge Management coach. Author of multiple courses on PKM and `Obsidian`. Creator of the [Obsidian Starter Kit](/products/obsidian-starter-kit). Daily practitioner with a **10,000+ note** knowledge base.",
+                "credentials": "**20+ years** in IT and software development. Knowledge Management coach. Author of multiple courses on PKM and `Obsidian`. Creator of the [Obsidian Starter Kit](/product/obsidian-starter-kit). Daily practitioner with a **10,000+ note** knowledge base.",
                 "icon": "🧠"
             },
             "methodology": {

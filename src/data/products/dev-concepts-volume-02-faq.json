@@ -28,7 +28,7 @@
         {
             "id": "bundle-option",
             "question": "Should I get the bundle instead?",
-            "answer": "If you also want [Volume 1](/products/dev-concepts-volume-01) (software craftsmanship, professional mindset), the [Starter Bundle](/products/dev-concepts-starter-bundle) saves you **25%**. Together they cover the two biggest gaps I've seen hold junior developers back."
+            "answer": "If you also want [Volume 1](/product/dev-concepts-volume-01) (software craftsmanship, professional mindset), the [Starter Bundle](/product/dev-concepts-starter-bundle) saves you **25%**. Together they cover the two biggest gaps I've seen hold junior developers back."
         },
         {
             "id": "future-volumes",

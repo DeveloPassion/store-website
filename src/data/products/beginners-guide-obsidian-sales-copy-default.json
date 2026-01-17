@@ -82,12 +82,12 @@
         "notForYou": [
             "You're already comfortable with `Obsidian`'s core features",
             "You don't take digital notes and prefer paper only",
-            "You want a complete system handed to you (check out the [Obsidian Starter Kit](/products/obsidian-starter-kit) instead)"
+            "You want a complete system handed to you (check out the [Obsidian Starter Kit](/product/obsidian-starter-kit) instead)"
         ],
         "trustBadges": [
             "**100% FREE**. No credit card, no catch.",
             "**50+ pages** of guidance",
-            "Created by [Obsidian Starter Kit](/products/obsidian-starter-kit) author",
+            "Created by [Obsidian Starter Kit](/product/obsidian-starter-kit) author",
             "**Instant download** access",
             "Based on **20+ years** of PKM experience"
         ],
@@ -122,7 +122,7 @@
             },
             "creatorJourney": {
                 "title": "From Confused User to PKM Nerd",
-                "subtitle": "The path that led to creating the [Obsidian Starter Kit](/products/obsidian-starter-kit)",
+                "subtitle": "The path that led to creating the [Obsidian Starter Kit](/product/obsidian-starter-kit)",
                 "story": "Before getting deep into PKM, I was just like you. Overwhelmed by information, scattered across tools, and frustrated that my notes never seemed to work for me. I'm a software developer by training, which means I've always been drawn to systems and optimization. But knowledge management isn't about the fanciest system. It's about what actually works. The moment I realized that `Obsidian`'s plain text files meant my knowledge would survive any tool, any company, any trend. That's when everything clicked. I stopped fighting my notes and started building with them.",
                 "struggles": [
                     "Migrated notes between **10+** different tools over the years",
@@ -131,7 +131,7 @@
                     "Watched connections between ideas disappear in folder hierarchies"
                 ],
                 "achievements": [
-                    "Created the [Obsidian Starter Kit](/products/obsidian-starter-kit) used by thousands",
+                    "Created the [Obsidian Starter Kit](/product/obsidian-starter-kit) used by thousands",
                     "Published **hundreds of articles** on knowledge management",
                     "Built a personal vault with **10,000+** interconnected notes",
                     "Helped countless beginners avoid the mistakes I made"

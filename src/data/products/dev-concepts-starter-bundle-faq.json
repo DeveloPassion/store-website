@@ -18,7 +18,7 @@
         {
             "id": "why-bundle",
             "question": "Why get the bundle instead of buying volumes separately?",
-            "answer": "Two reasons. First, you save **25%** (**€14.99** instead of €19.98). Second, these volumes are designed to work together. [Dev Concepts Volume 1](/products/dev-concepts-volume-01) builds the professional mindset, [Dev Concepts Volume 2](/products/dev-concepts-volume-02) teaches client understanding. One without the other leaves gaps."
+            "answer": "Two reasons. First, you save **25%** (**€14.99** instead of €19.98). Second, these volumes are designed to work together. [Dev Concepts Volume 1](/product/dev-concepts-volume-01) builds the professional mindset, [Dev Concepts Volume 2](/product/dev-concepts-volume-02) teaches client understanding. One without the other leaves gaps."
         },
         {
             "id": "money-back-guarantee",
@@ -33,7 +33,7 @@
         {
             "id": "volume-contents",
             "question": "What exactly is in each volume?",
-            "answer": "[Dev Concepts Volume 1](/products/dev-concepts-volume-01) (**100 pages**): software craftsmanship, mindset, how to think like a professional developer. [Dev Concepts Volume 2](/products/dev-concepts-volume-02) (**50 pages**): understanding client needs, UX basics, requirements discovery. These are the two biggest gaps I've seen hold junior developers back. Check [dev-concepts.dev](https://dev-concepts.dev) for detailed chapter breakdowns and free samples."
+            "answer": "[Dev Concepts Volume 1](/product/dev-concepts-volume-01) (**100 pages**): software craftsmanship, mindset, how to think like a professional developer. [Dev Concepts Volume 2](/product/dev-concepts-volume-02) (**50 pages**): understanding client needs, UX basics, requirements discovery. These are the two biggest gaps I've seen hold junior developers back. Check [dev-concepts.dev](https://dev-concepts.dev) for detailed chapter breakdowns and free samples."
         },
         {
             "id": "single-volume-option",

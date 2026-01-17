@@ -125,11 +125,11 @@
             "creatorJourney": {
                 "title": "Built by a Knowledge Management Expert",
                 "icon": "🎯",
-                "story": "I've spent **20+ years** in IT as a Solution Architect and Systems Engineer. But my real passion is knowledge management. I've published **10,000+ notes** publicly, built the [Obsidian Starter Kit](/products/obsidian-starter-kit) used by thousands, and created courses teaching people how to organize their digital lives. When `MCP` emerged, I was an early adopter. I've tested the ecosystem extensively, identified the reliable servers, discovered the GUI tools that make setup painless, and mapped out the security considerations most people miss. This masterclass distills months of exploration into a clear path for knowledge workers who want AI superpowers without touching a command line.",
+                "story": "I've spent **20+ years** in IT as a Solution Architect and Systems Engineer. But my real passion is knowledge management. I've published **10,000+ notes** publicly, built the [Obsidian Starter Kit](/product/obsidian-starter-kit) used by thousands, and created courses teaching people how to organize their digital lives. When `MCP` emerged, I was an early adopter. I've tested the ecosystem extensively, identified the reliable servers, discovered the GUI tools that make setup painless, and mapped out the security considerations most people miss. This masterclass distills months of exploration into a clear path for knowledge workers who want AI superpowers without touching a command line.",
                 "achievements": [
                     "**20+ years** IT experience (Solution Architect, Systems Engineer)",
                     "**10,000+ public notes** in personal knowledge base",
-                    "Creator of [Obsidian Starter Kit](/products/obsidian-starter-kit)",
+                    "Creator of [Obsidian Starter Kit](/product/obsidian-starter-kit)",
                     "Early `MCP` adopter since Anthropic's release",
                     "Tested **dozens of MCP servers** for reliability"
                 ],

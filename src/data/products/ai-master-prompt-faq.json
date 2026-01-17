@@ -28,17 +28,17 @@
         {
             "id": "faq-85",
             "question": "How do I actually use my Master Prompt once it's created?",
-            "answer": "Several ways covered in the workshop: copy/paste into conversations, create AI 'projects' in `Claude` or `ChatGPT`, use [Model Context Protocol (MCP)](/products/model-context-protocol) for automatic context loading, or build dedicated AI assistants. You'll find the approach that fits your workflow."
+            "answer": "Several ways covered in the workshop: copy/paste into conversations, create AI 'projects' in `Claude` or `ChatGPT`, use [Model Context Protocol (MCP)](/product/model-context-protocol) for automatic context loading, or build dedicated AI assistants. You'll find the approach that fits your workflow."
         },
         {
             "id": "faq-86",
             "question": "What is Model Context Protocol (MCP)?",
-            "answer": "`MCP` is a technology that lets AI **automatically access** your knowledge base and context. Instead of copy-pasting your Master Prompt, AI can read it directly from your notes. The workshop introduces this as an advanced implementation option. For a deeper dive, check out the [MCP Masterclass](/products/model-context-protocol)."
+            "answer": "`MCP` is a technology that lets AI **automatically access** your knowledge base and context. Instead of copy-pasting your Master Prompt, AI can read it directly from your notes. The workshop introduces this as an advanced implementation option. For a deeper dive, check out the [MCP Masterclass](/product/model-context-protocol)."
         },
         {
             "id": "faq-87",
             "question": "Is this included in any bundles or memberships?",
-            "answer": "Yes. It's included free with: [Knowii Community](/products/knowii-community) **Knowledge Builder** tier (**€19.99/month**), [Knowii Community](/products/knowii-community) **Knowledge Master** tier (**€39.99/month**), and [Knowledge Worker Kit](/products/knowledge-worker-kit) (**€149.99** one-time). If you're already a member, you already have access."
+            "answer": "Yes. It's included free with: [Knowii Community](/product/knowii-community) **Knowledge Builder** tier (**€19.99/month**), [Knowii Community](/product/knowii-community) **Knowledge Master** tier (**€39.99/month**), and [Knowledge Worker Kit](/product/knowledge-worker-kit) (**€149.99** one-time). If you're already a member, you already have access."
         },
         {
             "id": "faq-88",
