@@ -1,3 +1,9 @@
+## [0.7.4](https://github.com/DeveloPassion/store-website/compare/0.7.3...0.7.4) (2026-01-17)
+
+### Features
+
+* **all:** added cache busting to the css file ([aab94a9](https://github.com/DeveloPassion/store-website/commit/aab94a95bb2881b4a033d52582abe4fa88d14e51))
+* **all:** added script to check who did not leave a product review/rating yet ([a7d9eef](https://github.com/DeveloPassion/store-website/commit/a7d9eef80015e2ac82020c033a4c58277501c8ea))
 ## [0.7.3](https://github.com/DeveloPassion/store-website/compare/0.7.2...0.7.3) (2026-01-17)
 
 ### Features
