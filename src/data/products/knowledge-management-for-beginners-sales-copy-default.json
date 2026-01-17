@@ -130,7 +130,7 @@
         "courseContent": {
             "sectionTitle": "What's Inside the Course",
             "sectionDescription": "A comprehensive curriculum taking you from information chaos to systematic knowledge mastery. **10+ hours** of practical, actionable content built from **20+ years** of real-world experience.",
-            "sectionIcon": "FaGraduationCap",
+            "sectionIcon": "🎓",
             "totalDuration": "10+ hours",
             "difficulty": "beginner",
             "prerequisites": [

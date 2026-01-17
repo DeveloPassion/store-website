@@ -127,7 +127,7 @@
                 "subtitle": "These systems produced everything you see here",
                 "story": "Look at what these systems have produced: 3 published books. 400+ articles and newsletters. 20+ digital products including courses, workshops, templates, and tools. 2,000+ sales. The Knowii Community with 340+ members. A voice AI app. Obsidian plugins. A knowledge base of 1,800+ concepts. Nearly 10,000 personal notes. All of this while working half-time at a major financial organization and raising 3 kids. I'm not sharing theory about how to create—I'm sharing the exact systems that produced this output. The systems that took me from scattered ideas and burnout cycles to consistent, sustainable creation that actually generates revenue. If you want to create prolifically without burning out, you need systems that actually work. These are the systems.",
                 "inspirationPoint": "The moment I realized I could share not just what I created, but HOW I created it—the systems that made prolific output possible without sacrificing everything else.",
-                "icon": "FaPencilAlt",
+                "icon": "✏️",
                 "genesisDate": null
             },
             "creatorJourney": {
@@ -153,7 +153,7 @@
                     "All while working half-time and raising 3 kids"
                 ],
                 "credentials": "Author (3 books), Course Creator, Product Builder (20+ products), Community Founder, IT Solution Architect, Father of 3—proof that prolific creation is possible with the right systems.",
-                "icon": "FaRoad"
+                "icon": "🛤️"
             },
             "transformationArc": {
                 "title": "The Creator Transformation",
@@ -168,7 +168,7 @@
                         "Revenue as unpredictable as your output",
                         "Burnout cycles that feel inevitable"
                     ],
-                    "icon": "FaExclamationTriangle"
+                    "icon": "⚠️"
                 },
                 "during": {
                     "title": "Building Your Creator Operating System",
@@ -180,7 +180,7 @@
                         "Challenges build momentum and shipping habits",
                         "Expert guidance when you hit creative walls"
                     ],
-                    "icon": "FaCogs"
+                    "icon": "⚙️"
                 },
                 "after": {
                     "title": "The Systematic Creator",
@@ -192,7 +192,7 @@
                         "Creative freedom from systems that maintain themselves",
                         "Sustainable pace that compounds over years"
                     ],
-                    "icon": "FaCheckCircle"
+                    "icon": "✅"
                 },
                 "timeline": "First content shipped in Week 1, reliable systems by Month 1, sustainable creation rhythm by Month 3"
             },
@@ -203,37 +203,37 @@
                     {
                         "title": "Capture Everything That Matters",
                         "description": "Build reliable systems to capture ideas, research, and inspiration before they slip away. Stop losing brilliant thoughts to poor capture habits.",
-                        "icon": "FaLightbulb",
+                        "icon": "💡",
                         "order": 0
                     },
                     {
                         "title": "Build Your Knowledge Command Center",
                         "description": "Create a centralized system where all your expertise, research, and ideas live. One place to find everything, connected and searchable.",
-                        "icon": "FaDatabase",
+                        "icon": "🗄️",
                         "order": 1
                     },
                     {
                         "title": "Bridge Knowledge to Content",
                         "description": "Master the frameworks that turn accumulated knowledge into publishable content. Close the gap between what you know and what you ship.",
-                        "icon": "FaBridge",
+                        "icon": "🌉",
                         "order": 2
                     },
                     {
                         "title": "Build Your Content Pipeline",
                         "description": "Create end-to-end workflows from ideation through creation, editing, publishing, and promotion. Systems that ship, not just systems that organize.",
-                        "icon": "FaStream",
+                        "icon": "🌊",
                         "order": 3
                     },
                     {
                         "title": "Scale Without Burnout",
                         "description": "Learn sustainable creation practices that prioritize energy management over time management. Build systems that compound, not systems that deplete.",
-                        "icon": "FaBalanceScale",
+                        "icon": "⚖️",
                         "order": 4
                     },
                     {
                         "title": "Turn Knowledge Into Revenue",
                         "description": "Transform your content and knowledge assets into multiple revenue streams. Courses, products, memberships, and services built on your systematic foundation.",
-                        "icon": "FaMoneyBillWave",
+                        "icon": "💸",
                         "order": 5
                     }
                 ],
@@ -248,22 +248,22 @@
                     {
                         "title": "Systems Over Hustle",
                         "description": "Reliable systems beat heroic effort every time. We build for sustainability, not sprints.",
-                        "icon": "FaCogs"
+                        "icon": "⚙️"
                     },
                     {
                         "title": "Ship Over Perfect",
                         "description": "Done is better than perfect. We prioritize consistent shipping over endless refinement.",
-                        "icon": "FaRocket"
+                        "icon": "🚀"
                     },
                     {
                         "title": "Build in Public",
                         "description": "Transparency creates accountability and connection. We share our journeys openly.",
-                        "icon": "FaEye"
+                        "icon": "👁️"
                     },
                     {
                         "title": "Knowledge First",
                         "description": "Lead with ideas and expertise, not personality or entertainment. Create real value.",
-                        "icon": "FaBrain"
+                        "icon": "🧠"
                     }
                 ],
                 "futureGoals": [
@@ -273,7 +273,7 @@
                     "Create the definitive playbook for sustainable creator success"
                 ],
                 "biggerPicture": "The creator economy is broken because it rewards unsustainable hustle. We believe there's a better way—building knowledge systems that compound over time, creating value through expertise rather than entertainment, and achieving success through sustainability rather than burnout. Every systematic creator who succeeds proves this is possible.",
-                "icon": "FaRocket"
+                "icon": "🚀"
             },
             "successStories": null
         },
