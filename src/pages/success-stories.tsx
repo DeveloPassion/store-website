@@ -1,6 +1,6 @@
 import { useMemo, useEffect, useState } from 'react'
 import { Link } from 'react-router'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FaTrophy, FaStar, FaQuoteLeft, FaArrowRight, FaFilter, FaUser } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
@@ -13,6 +13,7 @@ import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { useProductStats } from '@/hooks/use-product-stats'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import type { MediaItem } from '@/schemas/media.schema'
+import { useAnimationVariants } from '@/hooks/use-animation-variants'
 
 // Shuffle array using Fisher-Yates algorithm
 const shuffle = <T,>(array: T[]): T[] => {
@@ -48,6 +49,10 @@ const SuccessStoriesPage: React.FC = () => {
     const products = productsData as Product[]
     const categories = categoriesData as Category[]
     const [selectedCategory, setSelectedCategory] = useState<string>('all')
+
+    // Animation variants for staggered animations
+    const { containerVariants, itemVariants } = useAnimationVariants({ staggerDelay: 0.1 })
+    const fastContainerVariants = useAnimationVariants({ staggerDelay: 0.05 }).containerVariants
 
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Success Stories' }])
 
@@ -149,56 +154,93 @@ const SuccessStoriesPage: React.FC = () => {
     return (
         <>
             <Section className='pt-16 pb-12 sm:pt-24 sm:pb-16'>
-                <div className='mx-auto max-w-[1400px] text-center'>
-                    <Breadcrumb className='mb-6 flex justify-center' />
-                    <h1 className='mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
+                <motion.div
+                    className='mx-auto max-w-[1400px] text-center'
+                    initial='hidden'
+                    animate='visible'
+                    variants={containerVariants}
+                >
+                    <motion.div variants={itemVariants}>
+                        <Breadcrumb className='mb-6 flex justify-center' />
+                    </motion.div>
+                    <motion.h1
+                        className='mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'
+                        variants={itemVariants}
+                    >
                         <FaTrophy className='text-secondary mr-3 inline-block' />
                         Success Stories
-                    </h1>
-                    <p className='text-primary/70 mx-auto max-w-2xl text-lg'>
+                    </motion.h1>
+                    <motion.p
+                        className='text-primary/70 mx-auto max-w-2xl text-lg'
+                        variants={itemVariants}
+                    >
                         Real stories from real customers who transformed their productivity and
                         workflows.
-                    </p>
+                    </motion.p>
 
                     {/* Stats */}
-                    <div className='mt-8 grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-12'>
-                        <div className='text-center'>
+                    <motion.div
+                        className='mt-8 grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-12'
+                        variants={itemVariants}
+                    >
+                        <motion.div
+                            className='text-center'
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                        >
                             <div className='text-secondary text-2xl font-bold sm:text-4xl'>
                                 {formattedCustomers}
                             </div>
                             <div className='text-primary/60 text-xs sm:text-sm'>
                                 Happy Customers
                             </div>
-                        </div>
-                        <div className='text-center'>
+                        </motion.div>
+                        <motion.div
+                            className='text-center'
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                        >
                             <div className='flex items-center justify-center gap-1 text-2xl font-bold text-yellow-400 sm:text-4xl'>
                                 {averageRating.toFixed(1)}{' '}
                                 <FaStar className='inline h-4 w-4 sm:h-6 sm:w-6' />
                             </div>
                             <div className='text-primary/60 text-xs sm:text-sm'>Average Rating</div>
-                        </div>
-                        <Link
-                            to='/testimonials'
-                            className='group text-center transition-transform hover:scale-105'
+                        </motion.div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                         >
-                            <div className='text-2xl font-bold text-green-400 transition-colors group-hover:text-green-300 sm:text-4xl'>
-                                {totalTestimonials}
-                            </div>
-                            <div className='text-primary/60 group-hover:text-primary text-xs transition-colors sm:text-sm'>
-                                Testimonials
-                            </div>
-                        </Link>
-                    </div>
-                </div>
+                            <Link to='/testimonials' className='group block text-center'>
+                                <div className='text-2xl font-bold text-green-400 transition-colors group-hover:text-green-300 sm:text-4xl'>
+                                    {totalTestimonials}
+                                </div>
+                                <div className='text-primary/60 group-hover:text-primary text-xs transition-colors sm:text-sm'>
+                                    Testimonials
+                                </div>
+                            </Link>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
             </Section>
 
             {/* Filter */}
             {categoriesWithTestimonials.length > 1 && (
                 <Section className='pb-6 sm:pb-8'>
-                    <div className='mx-auto max-w-4xl'>
+                    <motion.div
+                        className='mx-auto max-w-4xl'
+                        initial='hidden'
+                        whileInView='visible'
+                        viewport={{ once: true, margin: '-50px' }}
+                        variants={containerVariants}
+                    >
                         <div className='flex flex-wrap items-center justify-center gap-1.5 sm:gap-2'>
-                            <FaFilter className='text-primary/40 h-3 w-3 sm:h-4 sm:w-4' />
-                            <button
+                            <motion.div variants={itemVariants}>
+                                <FaFilter className='text-primary/40 h-3 w-3 sm:h-4 sm:w-4' />
+                            </motion.div>
+                            <motion.button
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                                 onClick={() => setSelectedCategory('all')}
                                 className={`rounded-full px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm ${
                                     selectedCategory === 'all'
@@ -207,10 +249,13 @@ const SuccessStoriesPage: React.FC = () => {
                                 }`}
                             >
                                 All Stories
-                            </button>
+                            </motion.button>
                             {categoriesWithTestimonials.slice(0, 6).map((cat) => (
-                                <button
+                                <motion.button
                                     key={cat.id}
+                                    variants={itemVariants}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                     onClick={() => setSelectedCategory(cat.id)}
                                     className={`rounded-full px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm ${
                                         selectedCategory === cat.id
@@ -219,10 +264,10 @@ const SuccessStoriesPage: React.FC = () => {
                                     }`}
                                 >
                                     {cat.name}
-                                </button>
+                                </motion.button>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </Section>
             )}
 
@@ -230,76 +275,91 @@ const SuccessStoriesPage: React.FC = () => {
             {featuredTestimonials.length > 0 && (
                 <Section className='pb-8 sm:pb-12'>
                     <div className='mx-auto max-w-7xl'>
-                        <h2 className='mb-6 text-center text-lg font-bold sm:mb-8 sm:text-xl md:text-2xl'>
+                        <motion.h2
+                            className='mb-6 text-center text-lg font-bold sm:mb-8 sm:text-xl md:text-2xl'
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-50px' }}
+                            transition={{ duration: 0.5 }}
+                        >
                             Featured Stories
-                        </h2>
-                        <div className='grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3'>
-                            {featuredTestimonials.map((testimonial, index) => (
-                                <motion.div
-                                    key={`${testimonial.product.id}-${testimonial.author}-${index}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className='border-primary/10 hover:border-secondary/30 flex min-h-[280px] flex-col rounded-xl border p-4 transition-colors sm:min-h-[320px] sm:rounded-2xl sm:p-6'
-                                >
-                                    <FaQuoteLeft className='text-secondary/30 mb-3 h-6 w-6 flex-shrink-0 sm:mb-4 sm:h-8 sm:w-8' />
-                                    <p className='text-primary/90 mb-4 line-clamp-5 flex-1 text-sm leading-relaxed sm:mb-6 sm:line-clamp-6 sm:text-lg'>
-                                        "{testimonial.quote}"
-                                    </p>
-                                    <div className='mt-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-                                        <div className='flex items-center gap-3'>
-                                            <div className='bg-secondary/20 flex h-10 w-10 items-center justify-center rounded-full sm:h-12 sm:w-12'>
-                                                <FaUser className='text-secondary h-4 w-4 sm:h-5 sm:w-5' />
-                                            </div>
-                                            <div>
-                                                <div className='text-sm font-semibold sm:text-base'>
-                                                    {testimonial.author}
+                        </motion.h2>
+                        <AnimatePresence mode='wait'>
+                            <motion.div
+                                key={selectedCategory}
+                                className='grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3'
+                                initial='hidden'
+                                whileInView='visible'
+                                viewport={{ once: true, margin: '-100px' }}
+                                variants={containerVariants}
+                            >
+                                {featuredTestimonials.map((testimonial, index) => (
+                                    <motion.div
+                                        key={`${testimonial.product.id}-${testimonial.author}-${index}`}
+                                        variants={itemVariants}
+                                        whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                                        className='border-primary/10 hover:border-secondary/30 flex min-h-[280px] flex-col rounded-xl border p-4 transition-colors sm:min-h-[320px] sm:rounded-2xl sm:p-6'
+                                    >
+                                        <FaQuoteLeft className='text-secondary/30 mb-3 h-6 w-6 flex-shrink-0 sm:mb-4 sm:h-8 sm:w-8' />
+                                        <p className='text-primary/90 mb-4 line-clamp-5 flex-1 text-sm leading-relaxed sm:mb-6 sm:line-clamp-6 sm:text-lg'>
+                                            "{testimonial.quote}"
+                                        </p>
+                                        <div className='mt-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
+                                            <div className='flex items-center gap-3'>
+                                                <div className='bg-secondary/20 flex h-10 w-10 items-center justify-center rounded-full sm:h-12 sm:w-12'>
+                                                    <FaUser className='text-secondary h-4 w-4 sm:h-5 sm:w-5' />
                                                 </div>
-                                                <div className='flex items-center gap-0.5'>
-                                                    {[...Array(5)].map((_, i) => (
-                                                        <FaStar
-                                                            key={i}
-                                                            className='h-2.5 w-2.5 text-yellow-400 sm:h-3 sm:w-3'
-                                                        />
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <Link
-                                            to={`/product/${testimonial.product.id}`}
-                                            className='group flex items-center gap-2'
-                                        >
-                                            <div className='bg-primary/10 h-8 w-8 overflow-hidden rounded sm:h-10 sm:w-10'>
-                                                {getCoverImage(testimonial.product.media) ? (
-                                                    <img
-                                                        src={
-                                                            getCoverImage(testimonial.product.media)
-                                                                ?.url
-                                                        }
-                                                        alt={testimonial.product.name}
-                                                        className='h-full w-full object-cover'
-                                                    />
-                                                ) : (
-                                                    <div className='flex h-full w-full items-center justify-center text-sm sm:text-lg'>
-                                                        📦
+                                                <div>
+                                                    <div className='text-sm font-semibold sm:text-base'>
+                                                        {testimonial.author}
                                                     </div>
-                                                )}
-                                            </div>
-                                            <div>
-                                                <div className='group-hover:text-secondary text-xs font-medium transition-colors sm:text-sm'>
-                                                    {testimonial.product.name}
+                                                    <div className='flex items-center gap-0.5'>
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <FaStar
+                                                                key={i}
+                                                                className='h-2.5 w-2.5 text-yellow-400 sm:h-3 sm:w-3'
+                                                            />
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                                <div className='text-primary/50 text-[10px] sm:text-xs'>
-                                                    {getCategoryName(
-                                                        testimonial.product.mainCategory
+                                            </div>
+                                            <Link
+                                                to={`/product/${testimonial.product.id}`}
+                                                className='group flex items-center gap-2'
+                                            >
+                                                <div className='bg-primary/10 h-8 w-8 overflow-hidden rounded sm:h-10 sm:w-10'>
+                                                    {getCoverImage(testimonial.product.media) ? (
+                                                        <img
+                                                            src={
+                                                                getCoverImage(
+                                                                    testimonial.product.media
+                                                                )?.url
+                                                            }
+                                                            alt={testimonial.product.name}
+                                                            className='h-full w-full object-cover'
+                                                        />
+                                                    ) : (
+                                                        <div className='flex h-full w-full items-center justify-center text-sm sm:text-lg'>
+                                                            📦
+                                                        </div>
                                                     )}
                                                 </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                                                <div>
+                                                    <div className='group-hover:text-secondary text-xs font-medium transition-colors sm:text-sm'>
+                                                        {testimonial.product.name}
+                                                    </div>
+                                                    <div className='text-primary/50 text-[10px] sm:text-xs'>
+                                                        {getCategoryName(
+                                                            testimonial.product.mainCategory
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </Section>
             )}
@@ -308,47 +368,67 @@ const SuccessStoriesPage: React.FC = () => {
             {regularTestimonials.length > 0 && (
                 <Section className='pb-12 sm:pb-16'>
                     <div className='mx-auto max-w-7xl'>
-                        <h2 className='mb-6 text-center text-lg font-bold sm:mb-8 sm:text-xl md:text-2xl'>
+                        <motion.h2
+                            className='mb-6 text-center text-lg font-bold sm:mb-8 sm:text-xl md:text-2xl'
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-50px' }}
+                            transition={{ duration: 0.5 }}
+                        >
                             More Success Stories
-                        </h2>
-                        <div className='grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4'>
-                            {regularTestimonials.map((testimonial, index) => (
-                                <motion.div
-                                    key={`${testimonial.product.id}-${testimonial.author}-regular-${index}`}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className='border-primary/10 rounded-lg border p-3 sm:rounded-xl sm:p-4'
-                                >
-                                    <div className='mb-2 flex items-center gap-0.5 sm:mb-3 sm:gap-1'>
-                                        {[...Array(5)].map((_, i) => (
-                                            <FaStar
-                                                key={i}
-                                                className='h-2.5 w-2.5 text-yellow-400 sm:h-3 sm:w-3'
-                                            />
-                                        ))}
-                                    </div>
-                                    <p className='text-primary/80 mb-3 line-clamp-4 text-xs sm:mb-4 sm:text-sm'>
-                                        "{testimonial.quote}"
-                                    </p>
-                                    <div className='flex items-center justify-between gap-2'>
-                                        <div className='min-w-0 flex-1 truncate text-xs font-medium sm:text-sm'>
-                                            {testimonial.author}
+                        </motion.h2>
+                        <AnimatePresence mode='wait'>
+                            <motion.div
+                                key={`regular-${selectedCategory}`}
+                                className='grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4'
+                                initial='hidden'
+                                whileInView='visible'
+                                viewport={{ once: true, margin: '-100px' }}
+                                variants={fastContainerVariants}
+                            >
+                                {regularTestimonials.map((testimonial, index) => (
+                                    <motion.div
+                                        key={`${testimonial.product.id}-${testimonial.author}-regular-${index}`}
+                                        variants={itemVariants}
+                                        whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                                        className='border-primary/10 hover:border-secondary/20 rounded-lg border p-3 transition-colors sm:rounded-xl sm:p-4'
+                                    >
+                                        <div className='mb-2 flex items-center gap-0.5 sm:mb-3 sm:gap-1'>
+                                            {[...Array(5)].map((_, i) => (
+                                                <FaStar
+                                                    key={i}
+                                                    className='h-2.5 w-2.5 text-yellow-400 sm:h-3 sm:w-3'
+                                                />
+                                            ))}
                                         </div>
-                                        <Link
-                                            to={`/product/${testimonial.product.id}`}
-                                            className='text-secondary hover:text-secondary/80 flex-shrink-0 text-[10px] transition-colors sm:text-xs'
-                                        >
-                                            View →
-                                        </Link>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                                        <p className='text-primary/80 mb-3 line-clamp-4 text-xs sm:mb-4 sm:text-sm'>
+                                            "{testimonial.quote}"
+                                        </p>
+                                        <div className='flex items-center justify-between gap-2'>
+                                            <div className='min-w-0 flex-1 truncate text-xs font-medium sm:text-sm'>
+                                                {testimonial.author}
+                                            </div>
+                                            <Link
+                                                to={`/product/${testimonial.product.id}`}
+                                                className='text-secondary hover:text-secondary/80 flex-shrink-0 text-[10px] transition-colors sm:text-xs'
+                                            >
+                                                View →
+                                            </Link>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </AnimatePresence>
 
                         {filteredTestimonials.length >
                             featuredTestimonials.length + regularTestimonials.length && (
-                            <div className='mt-6 text-center sm:mt-8'>
+                            <motion.div
+                                className='mt-6 text-center sm:mt-8'
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 }}
+                            >
                                 <Link
                                     to='/testimonials'
                                     className='text-secondary hover:text-secondary/80 inline-flex items-center gap-2 text-sm transition-colors sm:text-base'
@@ -356,51 +436,106 @@ const SuccessStoriesPage: React.FC = () => {
                                     View All {allTestimonials.length} Testimonials
                                     <FaArrowRight className='h-3 w-3 sm:h-4 sm:w-4' />
                                 </Link>
-                            </div>
+                            </motion.div>
                         )}
                     </div>
                 </Section>
             )}
 
             {/* Empty State */}
-            {filteredTestimonials.length === 0 && (
-                <Section className='pb-12 sm:pb-16'>
-                    <div className='text-center'>
-                        <div className='text-4xl sm:text-5xl'>🔍</div>
-                        <h3 className='mt-3 text-lg font-semibold sm:mt-4 sm:text-xl'>
-                            No stories in this category yet
-                        </h3>
-                        <p className='text-primary/60 mt-2 text-sm sm:text-base'>
-                            Try selecting a different category or view all stories.
-                        </p>
-                        <button
-                            onClick={() => setSelectedCategory('all')}
-                            className='bg-secondary hover:bg-secondary/90 mt-4 rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-colors sm:mt-6 sm:px-6 sm:py-3 sm:text-base'
+            <AnimatePresence>
+                {filteredTestimonials.length === 0 && (
+                    <Section className='pb-12 sm:pb-16'>
+                        <motion.div
+                            className='text-center'
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.3 }}
                         >
-                            View All Stories
-                        </button>
-                    </div>
-                </Section>
-            )}
+                            <motion.div
+                                className='text-4xl sm:text-5xl'
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{
+                                    type: 'spring',
+                                    stiffness: 260,
+                                    damping: 20,
+                                    delay: 0.1
+                                }}
+                            >
+                                🔍
+                            </motion.div>
+                            <motion.h3
+                                className='mt-3 text-lg font-semibold sm:mt-4 sm:text-xl'
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                            >
+                                No stories in this category yet
+                            </motion.h3>
+                            <motion.p
+                                className='text-primary/60 mt-2 text-sm sm:text-base'
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                            >
+                                Try selecting a different category or view all stories.
+                            </motion.p>
+                            <motion.button
+                                onClick={() => setSelectedCategory('all')}
+                                className='bg-secondary hover:bg-secondary/90 mt-4 rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-colors sm:mt-6 sm:px-6 sm:py-3 sm:text-base'
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                View All Stories
+                            </motion.button>
+                        </motion.div>
+                    </Section>
+                )}
+            </AnimatePresence>
 
             {/* CTA Section */}
             <Section className='bg-secondary/5 py-10 sm:py-16'>
-                <div className='mx-auto max-w-2xl text-center'>
-                    <h2 className='mb-3 text-xl font-bold sm:mb-4 sm:text-2xl md:text-3xl'>
+                <motion.div
+                    className='mx-auto max-w-2xl text-center'
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, margin: '-100px' }}
+                    variants={containerVariants}
+                >
+                    <motion.h2
+                        className='mb-3 text-xl font-bold sm:mb-4 sm:text-2xl md:text-3xl'
+                        variants={itemVariants}
+                    >
                         Ready to Write Your Success Story?
-                    </h2>
-                    <p className='text-primary/70 mb-6 text-sm sm:mb-8 sm:text-base'>
+                    </motion.h2>
+                    <motion.p
+                        className='text-primary/70 mb-6 text-sm sm:mb-8 sm:text-base'
+                        variants={itemVariants}
+                    >
                         Join thousands of knowledge workers who have transformed their productivity
                         with our courses, templates, and tools.
-                    </p>
-                    <Link
-                        to='/products'
-                        className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-colors sm:px-8 sm:py-4 sm:text-lg'
-                    >
-                        Browse All Products
-                        <FaArrowRight className='h-4 w-4 sm:h-5 sm:w-5' />
-                    </Link>
-                </div>
+                    </motion.p>
+                    <motion.div variants={itemVariants}>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className='inline-block'
+                        >
+                            <Link
+                                to='/products'
+                                className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-colors sm:px-8 sm:py-4 sm:text-lg'
+                            >
+                                Browse All Products
+                                <FaArrowRight className='h-4 w-4 sm:h-5 sm:w-5' />
+                            </Link>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
             </Section>
         </>
     )

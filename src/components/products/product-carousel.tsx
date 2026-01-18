@@ -113,57 +113,68 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         })
     }
 
-    return (
-        <div className={cn('relative px-12', className)}>
-            {/* Carousel container */}
-            <div className='relative overflow-hidden'>
-                <AnimatePresence initial={false} custom={direction} mode='wait'>
-                    <motion.div
-                        key={currentIndex}
-                        custom={direction}
-                        variants={slideVariants}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{
-                            x: { type: 'spring', stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 }
-                        }}
-                        className={cn(
-                            'grid gap-6',
-                            slidesPerView === 2 ? 'grid-cols-2' : 'grid-cols-1'
-                        )}
-                    >
-                        {currentSlideGroup.map((product) => (
-                            <ProductCardEcommerce
-                                key={product.id}
-                                product={product}
-                                compactBadges={slidesPerView === 2}
-                            />
-                        ))}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
+    const showButtons = showNavigation && slideGroups.length > 1
 
-            {/* Navigation buttons */}
-            {showNavigation && slideGroups.length > 1 && (
-                <>
+    return (
+        <div className={cn('flex flex-col', className)}>
+            {/* 3-column layout: prev button | carousel | next button */}
+            <div className='flex items-center gap-2 sm:gap-4'>
+                {/* Previous button */}
+                {showButtons ? (
                     <button
                         onClick={goToPrevious}
-                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
+                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary shrink-0 cursor-pointer rounded-full border-2 p-2 transition-all hover:scale-110 hover:text-white sm:p-3'
                         aria-label='Previous slide'
                     >
-                        <FaChevronLeft className='h-5 w-5' />
+                        <FaChevronLeft className='h-4 w-4 sm:h-5 sm:w-5' />
                     </button>
+                ) : (
+                    <div />
+                )}
+
+                {/* Carousel container */}
+                <div className='relative min-w-0 flex-1 overflow-hidden'>
+                    <AnimatePresence initial={false} custom={direction} mode='wait'>
+                        <motion.div
+                            key={currentIndex}
+                            custom={direction}
+                            variants={slideVariants}
+                            initial='enter'
+                            animate='center'
+                            exit='exit'
+                            transition={{
+                                x: { type: 'spring', stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.2 }
+                            }}
+                            className={cn(
+                                'grid gap-6',
+                                slidesPerView === 2 ? 'grid-cols-2' : 'grid-cols-1'
+                            )}
+                        >
+                            {currentSlideGroup.map((product) => (
+                                <ProductCardEcommerce
+                                    key={product.id}
+                                    product={product}
+                                    compactBadges={slidesPerView === 2}
+                                />
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                {/* Next button */}
+                {showButtons ? (
                     <button
                         onClick={goToNext}
-                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-2 p-3 transition-all hover:scale-110 hover:text-white'
+                        className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary shrink-0 cursor-pointer rounded-full border-2 p-2 transition-all hover:scale-110 hover:text-white sm:p-3'
                         aria-label='Next slide'
                     >
-                        <FaChevronRight className='h-5 w-5' />
+                        <FaChevronRight className='h-4 w-4 sm:h-5 sm:w-5' />
                     </button>
-                </>
-            )}
+                ) : (
+                    <div />
+                )}
+            </div>
 
             {/* Dot indicators */}
             {showIndicators && slideGroups.length > 1 && (
