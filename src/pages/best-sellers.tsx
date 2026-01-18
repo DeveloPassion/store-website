@@ -149,7 +149,7 @@ const BestSellersPage: React.FC = () => {
             <Section className='bg-primary/5 py-12 sm:py-16'>
                 <div className='mx-auto max-w-2xl text-center'>
                     <h2 className='mb-4 text-3xl font-bold sm:text-4xl'>
-                        Ready to Join Thousands?
+                        Ready to Join The Top 1%?
                     </h2>
                     <p className='text-primary/70 mb-8 text-lg'>
                         Choose any of our bestselling products and experience the transformation
