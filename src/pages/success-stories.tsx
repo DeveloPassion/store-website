@@ -14,6 +14,7 @@ import { useProductStats } from '@/hooks/use-product-stats'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import type { MediaItem } from '@/schemas/media.schema'
 import { useAnimationVariants } from '@/hooks/use-animation-variants'
+import QuickNavigation from '@/components/navigation/quick-navigation'
 
 // Shuffle array using Fisher-Yates algorithm
 const shuffle = <T,>(array: T[]): T[] => {
@@ -498,44 +499,12 @@ const SuccessStoriesPage: React.FC = () => {
                 )}
             </AnimatePresence>
 
-            {/* CTA Section */}
-            <Section className='bg-secondary/5 py-10 sm:py-16'>
-                <motion.div
-                    className='mx-auto max-w-2xl text-center'
-                    initial='hidden'
-                    whileInView='visible'
-                    viewport={{ once: true, margin: '-100px' }}
-                    variants={containerVariants}
-                >
-                    <motion.h2
-                        className='mb-3 text-xl font-bold sm:mb-4 sm:text-2xl md:text-3xl'
-                        variants={itemVariants}
-                    >
-                        Ready to Write Your Success Story?
-                    </motion.h2>
-                    <motion.p
-                        className='text-primary/70 mb-6 text-sm sm:mb-8 sm:text-base'
-                        variants={itemVariants}
-                    >
-                        Join thousands of knowledge workers who have transformed their productivity
-                        with our courses, templates, and tools.
-                    </motion.p>
-                    <motion.div variants={itemVariants}>
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className='inline-block'
-                        >
-                            <Link
-                                to='/products'
-                                className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-colors sm:px-8 sm:py-4 sm:text-lg'
-                            >
-                                Browse All Products
-                                <FaArrowRight className='h-4 w-4 sm:h-5 sm:w-5' />
-                            </Link>
-                        </motion.div>
-                    </motion.div>
-                </motion.div>
+            {/* Quick Navigation CTA */}
+            <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>
+                <QuickNavigation
+                    title='Ready to Write Your Success Story?'
+                    description='Join thousands of knowledge workers who transformed their productivity'
+                />
             </Section>
         </>
     )
