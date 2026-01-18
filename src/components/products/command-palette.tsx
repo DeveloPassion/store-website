@@ -7,10 +7,18 @@ import {
     FaHeart,
     FaHome,
     FaTag,
+    FaTags,
     FaFilter,
+    FaThLarge,
     FaShoppingBag,
     FaStar,
-    FaTrophy
+    FaTrophy,
+    FaFire,
+    FaUsers,
+    FaBalanceScale,
+    FaQuoteLeft,
+    FaQuestionCircle,
+    FaLifeRing
 } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import type { Product } from '@/schemas/product.schema'
@@ -116,6 +124,138 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             }
         })
 
+        cmds.push({
+            id: 'action-products',
+            type: 'action',
+            title: 'All Products',
+            subtitle: 'Browse all products',
+            icon: <FaShoppingBag className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/products')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-featured',
+            type: 'action',
+            title: 'Featured Products',
+            subtitle: 'View our featured products',
+            icon: <FaStar className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/featured')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-best-value',
+            type: 'action',
+            title: 'Best Value Products',
+            subtitle: 'Products offering the best value',
+            icon: <FaTrophy className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/best-value')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-best-sellers',
+            type: 'action',
+            title: 'Best Sellers',
+            subtitle: 'View our most popular products',
+            icon: <FaFire className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/best-sellers')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-success-stories',
+            type: 'action',
+            title: 'Success Stories',
+            subtitle: 'Read customer success stories',
+            icon: <FaUsers className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/success-stories')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-compare',
+            type: 'action',
+            title: 'Compare Products',
+            subtitle: 'Compare products side by side',
+            icon: <FaBalanceScale className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/compare')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-categories',
+            type: 'action',
+            title: 'Browse Categories',
+            subtitle: 'View all product categories',
+            icon: <FaThLarge className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/categories')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-tags',
+            type: 'action',
+            title: 'Browse Tags',
+            subtitle: 'View all product tags',
+            icon: <FaTags className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/tags')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-testimonials',
+            type: 'action',
+            title: 'Testimonials',
+            subtitle: 'Read customer testimonials',
+            icon: <FaQuoteLeft className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/testimonials')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-faq',
+            type: 'action',
+            title: 'FAQ',
+            subtitle: 'Frequently asked questions',
+            icon: <FaQuestionCircle className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/faq')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-help',
+            type: 'action',
+            title: 'Help',
+            subtitle: 'Get help and support',
+            icon: <FaLifeRing className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/help')
+                onClose()
+            }
+        })
+
         // Add category filters
         // Sort categories by priority (lower priority number = higher in list)
         const sortedCategories = (categoriesData as Category[])
@@ -203,17 +343,23 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
     // Get displayed commands for keyboard navigation
     const displayedCommandsForNav = useMemo(() => {
         const productCommands = filteredCommands.filter((c) => c.type === 'product')
+        const featuredProducts = productCommands.filter(
+            (c) => c.product?.featured && !c.product?.bestValue
+        )
         const bestValueProducts = productCommands.filter((c) => c.product?.bestValue)
-        const regularProducts = productCommands.filter((c) => !c.product?.bestValue)
+        const regularProducts = productCommands.filter(
+            (c) => !c.product?.bestValue && !c.product?.featured
+        )
         const actionCommands = filteredCommands.filter((c) => c.type === 'action')
         const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
         const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
 
         return [
+            ...featuredProducts,
             ...bestValueProducts,
             ...regularProducts,
-            ...actionCommands,
             ...categoryCommands,
+            ...actionCommands,
             ...tagCommands
         ]
     }, [filteredCommands])
@@ -293,8 +439,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
 
     // Group commands by type for display
     const productCommands = filteredCommands.filter((c) => c.type === 'product')
+    const featuredProducts = productCommands.filter(
+        (c) => c.product?.featured && !c.product?.bestValue
+    )
     const bestValueProducts = productCommands.filter((c) => c.product?.bestValue)
-    const regularProducts = productCommands.filter((c) => !c.product?.bestValue)
+    const regularProducts = productCommands.filter(
+        (c) => !c.product?.bestValue && !c.product?.featured
+    )
     const actionCommands = filteredCommands.filter((c) => c.type === 'action')
     const categoryCommands = filteredCommands.filter((c) => c.type === 'category')
     const tagCommands = filteredCommands.filter((c) => c.type === 'tag')
@@ -353,6 +504,28 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                         </div>
                     ) : (
                         <>
+                            {/* Featured Products */}
+                            {featuredProducts.length > 0 && (
+                                <div className='mb-2'>
+                                    <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
+                                        Featured Products ({featuredProducts.length})
+                                    </div>
+                                    {featuredProducts.map((cmd) => {
+                                        const idx = currentIndex++
+                                        return (
+                                            <CommandItem
+                                                key={cmd.id}
+                                                command={cmd}
+                                                isSelected={selectedIndex === idx}
+                                                onSelect={() => setSelectedIndex(idx)}
+                                                onClick={() => cmd.action()}
+                                                itemIndex={idx}
+                                            />
+                                        )
+                                    })}
+                                </div>
+                            )}
+
                             {/* Best Value Products */}
                             {bestValueProducts.length > 0 && (
                                 <div className='mb-2'>
@@ -397,13 +570,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                 </div>
                             )}
 
-                            {/* Actions */}
-                            {actionCommands.length > 0 && (
+                            {/* Categories */}
+                            {categoryCommands.length > 0 && (
                                 <div className='mb-2'>
                                     <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
-                                        Actions
+                                        Categories
                                     </div>
-                                    {actionCommands.map((cmd) => {
+                                    {categoryCommands.map((cmd) => {
                                         const idx = currentIndex++
                                         return (
                                             <CommandItem
@@ -419,13 +592,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                 </div>
                             )}
 
-                            {/* Categories */}
-                            {categoryCommands.length > 0 && (
+                            {/* Actions */}
+                            {actionCommands.length > 0 && (
                                 <div className='mb-2'>
                                     <div className='text-primary/40 px-3 py-1.5 text-xs font-medium tracking-wider uppercase'>
-                                        Categories
+                                        Actions
                                     </div>
-                                    {categoryCommands.map((cmd) => {
+                                    {actionCommands.map((cmd) => {
                                         const idx = currentIndex++
                                         return (
                                             <CommandItem

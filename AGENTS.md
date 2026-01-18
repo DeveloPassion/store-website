@@ -252,6 +252,7 @@ bun run ci:local      # Full CI
 10. No re-exports for backwards compatibility
 11. Branding changes: update `index.html`, `generate-static-pages.ts`, `generate-llms-txt.ts`
 12. Zod: prefer `.nullable()` over `.optional()`
+13. New pages: add navigation action to command palette (`src/components/products/command-palette.tsx`)
 
 ## Claude Code Skills
 
