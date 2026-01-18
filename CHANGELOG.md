@@ -1,3 +1,9 @@
+## [0.7.5](https://github.com/DeveloPassion/store-website/compare/0.7.4...0.7.5) (2026-01-18)
+
+### Features
+
+* **all:** added success stories and compare pages. Updated the promo bar. Improved various other things ([c7de5a3](https://github.com/DeveloPassion/store-website/commit/c7de5a3f1ac08465648a03cada78db20821ac8f6))
+* **all:** randomized success stories and improved hamburger menu card colors ([93cc710](https://github.com/DeveloPassion/store-website/commit/93cc7106f256b987749857584593f24f74aea086))
 ## [0.7.4](https://github.com/DeveloPassion/store-website/compare/0.7.3...0.7.4) (2026-01-17)
 
 ### Features
