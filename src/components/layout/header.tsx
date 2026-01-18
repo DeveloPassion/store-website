@@ -62,12 +62,23 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
 
     // Generate menu links dynamically
     const menuLinks: NavLink[] = useMemo(() => {
+        // Color palette for category cards - rotating vibrant colors with gradients
+        const categoryColorPalette = [
+            'text-rose-300 bg-gradient-to-br from-rose-500/20 to-rose-600/10 border border-rose-500/20 hover:from-rose-500/30 hover:to-rose-600/20 hover:border-rose-400/30',
+            'text-amber-300 bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/20 hover:from-amber-500/30 hover:to-amber-600/20 hover:border-amber-400/30',
+            'text-lime-300 bg-gradient-to-br from-lime-500/20 to-lime-600/10 border border-lime-500/20 hover:from-lime-500/30 hover:to-lime-600/20 hover:border-lime-400/30',
+            'text-sky-300 bg-gradient-to-br from-sky-500/20 to-sky-600/10 border border-sky-500/20 hover:from-sky-500/30 hover:to-sky-600/20 hover:border-sky-400/30',
+            'text-violet-300 bg-gradient-to-br from-violet-500/20 to-violet-600/10 border border-violet-500/20 hover:from-violet-500/30 hover:to-violet-600/20 hover:border-violet-400/30',
+            'text-fuchsia-300 bg-gradient-to-br from-fuchsia-500/20 to-fuchsia-600/10 border border-fuchsia-500/20 hover:from-fuchsia-500/30 hover:to-fuchsia-600/20 hover:border-fuchsia-400/30',
+            'text-emerald-300 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/20 hover:from-emerald-500/30 hover:to-emerald-600/20 hover:border-emerald-400/30'
+        ]
+
         // Static link: All Products
         const allProductsLink: NavLink = {
             to: '/products',
             label: 'All Products',
             icon: <FaStore className='h-5 w-5' />,
-            color: 'bg-primary/10 hover:bg-primary/20'
+            color: 'text-white bg-gradient-to-br from-slate-500/25 to-slate-600/15 border border-slate-400/20 hover:from-slate-500/35 hover:to-slate-600/25 hover:border-slate-300/30'
         }
 
         // Static link: Featured
@@ -75,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/featured',
             label: 'Featured',
             icon: <FaStar className='h-5 w-5' />,
-            color: 'text-yellow-400 bg-yellow-500/10 hover:bg-yellow-500/20'
+            color: 'text-yellow-300 bg-gradient-to-br from-yellow-500/25 to-amber-600/15 border border-yellow-500/25 hover:from-yellow-500/35 hover:to-amber-600/25 hover:border-yellow-400/35'
         }
 
         // Static link: Best Value
@@ -83,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/best-value',
             label: 'Best Value',
             icon: <FaTrophy className='h-5 w-5' />,
-            color: 'text-blue-400 bg-blue-500/10 hover:bg-blue-500/20'
+            color: 'text-blue-300 bg-gradient-to-br from-blue-500/25 to-indigo-600/15 border border-blue-500/25 hover:from-blue-500/35 hover:to-indigo-600/25 hover:border-blue-400/35'
         }
 
         // Static link: Best Sellers
@@ -91,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/best-sellers',
             label: 'Best Sellers',
             icon: <FaFire className='h-5 w-5' />,
-            color: 'text-orange-400 bg-orange-500/10 hover:bg-orange-500/20'
+            color: 'text-orange-300 bg-gradient-to-br from-orange-500/25 to-red-600/15 border border-orange-500/25 hover:from-orange-500/35 hover:to-red-600/25 hover:border-orange-400/35'
         }
 
         // Static link: Success Stories
@@ -99,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/success-stories',
             label: 'Success Stories',
             icon: <FaComments className='h-5 w-5' />,
-            color: 'text-teal-400 bg-teal-500/10 hover:bg-teal-500/20'
+            color: 'text-teal-300 bg-gradient-to-br from-teal-500/25 to-cyan-600/15 border border-teal-500/25 hover:from-teal-500/35 hover:to-cyan-600/25 hover:border-teal-400/35'
         }
 
         // Static link: Compare
@@ -107,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/compare',
             label: 'Compare',
             icon: <FaBalanceScale className='h-5 w-5' />,
-            color: 'text-amber-400 bg-amber-500/10 hover:bg-amber-500/20'
+            color: 'text-amber-300 bg-gradient-to-br from-amber-500/25 to-orange-600/15 border border-amber-500/25 hover:from-amber-500/35 hover:to-orange-600/25 hover:border-amber-400/35'
         }
 
         // Static link: Wishlist
@@ -115,12 +126,18 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/wishlist',
             label: wishlistCount > 0 ? `Wishlist (${wishlistCount})` : 'Wishlist',
             icon: <FaHeart className='h-5 w-5' />,
-            color: 'text-pink-400 bg-pink-500/10 hover:bg-pink-500/20'
+            color: 'text-pink-300 bg-gradient-to-br from-pink-500/25 to-rose-600/15 border border-pink-500/25 hover:from-pink-500/35 hover:to-rose-600/25 hover:border-pink-400/35'
         }
 
-        // Generate featured category links
-        const categoryLinks: NavLink[] = featuredCategories.map((cat) => {
+        // Default color for categories (fallback)
+        const defaultCategoryColor =
+            'text-rose-300 bg-gradient-to-br from-rose-500/20 to-rose-600/10 border border-rose-500/20 hover:from-rose-500/30 hover:to-rose-600/20 hover:border-rose-400/30'
+
+        // Generate featured category links with rotating colors
+        const categoryLinks: NavLink[] = featuredCategories.map((cat, index) => {
             const IconComponent = getCategoryIcon(cat.icon)
+            const colorClass =
+                categoryColorPalette[index % categoryColorPalette.length] ?? defaultCategoryColor
             return {
                 to: `/categories/${cat.id}`,
                 label: cat.name,
@@ -129,7 +146,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 ) : (
                     <FaFolder className='h-5 w-5' />
                 ),
-                color: 'bg-primary/10 hover:bg-primary/20'
+                color: colorClass
             }
         })
 
@@ -139,13 +156,13 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                 to: '/categories',
                 label: 'Categories',
                 icon: <FaFolder className='h-5 w-5' />,
-                color: 'text-cyan-400 bg-cyan-500/10 hover:bg-cyan-500/20'
+                color: 'text-cyan-300 bg-gradient-to-br from-cyan-500/25 to-sky-600/15 border border-cyan-500/25 hover:from-cyan-500/35 hover:to-sky-600/25 hover:border-cyan-400/35'
             },
             {
                 to: '/tags',
                 label: 'Tags',
                 icon: <FaTag className='h-5 w-5' />,
-                color: 'text-green-400 bg-green-500/10 hover:bg-green-500/20'
+                color: 'text-green-300 bg-gradient-to-br from-green-500/25 to-emerald-600/15 border border-green-500/25 hover:from-green-500/35 hover:to-emerald-600/25 hover:border-green-400/35'
             }
         ]
 
@@ -154,7 +171,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: '/faq',
             label: 'FAQ',
             icon: <FaQuestionCircle className='h-5 w-5' />,
-            color: 'text-indigo-400 bg-indigo-500/10 hover:bg-indigo-500/20'
+            color: 'text-indigo-300 bg-gradient-to-br from-indigo-500/25 to-purple-600/15 border border-indigo-500/25 hover:from-indigo-500/35 hover:to-purple-600/25 hover:border-indigo-400/35'
         }
 
         // External link: DeveloPassion Website
@@ -162,7 +179,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             to: 'https://www.dsebastien.net',
             label: 'Official Website',
             icon: <FaGlobe className='h-5 w-5' />,
-            color: 'text-purple-400 bg-purple-500/10 hover:bg-purple-500/20',
+            color: 'text-purple-300 bg-gradient-to-br from-purple-500/25 to-fuchsia-600/15 border border-purple-500/25 hover:from-purple-500/35 hover:to-fuchsia-600/25 hover:border-purple-400/35',
             external: true
         }
 
@@ -363,7 +380,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Grid on desktop, compact list on mobile */}
-                    <div className='mx-auto grid max-w-[1400px] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6 lg:max-w-[1600px] lg:grid-cols-5 lg:gap-8 xl:max-w-[1800px] xl:grid-cols-6 2xl:max-w-[2000px] 2xl:grid-cols-7'>
+                    <div className='mx-auto mt-4 grid max-w-[1400px] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6 lg:max-w-[1600px] lg:grid-cols-5 lg:gap-8 xl:max-w-[1800px] xl:grid-cols-6 2xl:max-w-[2000px] 2xl:grid-cols-7'>
                         {menuLinks.map((link) =>
                             link.external ? (
                                 <a

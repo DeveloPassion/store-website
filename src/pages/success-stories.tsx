@@ -14,6 +14,18 @@ import { useProductStats } from '@/hooks/use-product-stats'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import type { MediaItem } from '@/schemas/media.schema'
 
+// Shuffle array using Fisher-Yates algorithm
+const shuffle = <T,>(array: T[]): T[] => {
+    const result = [...array]
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        const temp = result[i]
+        result[i] = result[j] as T
+        result[j] = temp as T
+    }
+    return result
+}
+
 // Get first cover image from media array
 const getCoverImage = (media: MediaItem[] | undefined): MediaItem | undefined => {
     if (!media) return undefined
@@ -48,7 +60,7 @@ const SuccessStoriesPage: React.FC = () => {
         })
     }, [])
 
-    // Collect all testimonials with product info
+    // Collect all testimonials with product info, with randomization on each page load
     const allTestimonials = useMemo((): EnrichedTestimonial[] => {
         const testimonials: EnrichedTestimonial[] = []
 
@@ -63,12 +75,29 @@ const SuccessStoriesPage: React.FC = () => {
             }
         })
 
-        // Sort by featured first, then by product priority
-        return testimonials.sort((a, b) => {
-            if (a.featured && !b.featured) return -1
-            if (!a.featured && b.featured) return 1
-            return (b.product.priority || 0) - (a.product.priority || 0)
-        })
+        // Separate truly featured testimonials from the rest
+        const trulyFeatured = testimonials.filter((t) => t.featured)
+        const nonFeatured = testimonials.filter((t) => !t.featured)
+
+        // Group non-featured by priority tiers (flagship 90+, premium 70-89, standard 50-69, other <50)
+        const flagship = nonFeatured.filter((t) => (t.product.priority || 0) >= 90)
+        const premium = nonFeatured.filter(
+            (t) => (t.product.priority || 0) >= 70 && (t.product.priority || 0) < 90
+        )
+        const standard = nonFeatured.filter(
+            (t) => (t.product.priority || 0) >= 50 && (t.product.priority || 0) < 70
+        )
+        const other = nonFeatured.filter((t) => (t.product.priority || 0) < 50)
+
+        // Shuffle within each tier for variety while maintaining tier hierarchy
+        // Combine: featured first, then by priority tiers
+        return [
+            ...shuffle(trulyFeatured),
+            ...shuffle(flagship),
+            ...shuffle(premium),
+            ...shuffle(standard),
+            ...shuffle(other)
+        ]
     }, [products])
 
     // Filter testimonials by category
