@@ -1,6 +1,14 @@
 import { useMemo, useEffect } from 'react'
 import { Link, useSearchParams, useParams } from 'react-router'
-import { FaStar, FaShieldAlt, FaRocket, FaClock, FaGraduationCap, FaTrophy } from 'react-icons/fa'
+import {
+    FaStar,
+    FaShieldAlt,
+    FaRocket,
+    FaClock,
+    FaGraduationCap,
+    FaTrophy,
+    FaBalanceScale
+} from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import ProductCarousel from '@/components/products/product-carousel'
@@ -23,7 +31,8 @@ import {
 import { getFeaturedSorted } from '@/lib/collection-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import CompactNewsletter from '@/components/ui/compact-newsletter'
-import { calculateTestimonialStats, formatAverageRating } from '@/lib/testimonial-stats'
+import { formatAverageRating } from '@/lib/testimonial-stats'
+import { useProductStats } from '@/hooks/use-product-stats'
 import { getWeightedRandomTagline } from '@/lib/tagline-utils'
 import { getWeightedRandomAnimatedHeroText } from '@/lib/animated-hero-text-utils'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
@@ -35,12 +44,8 @@ const HomeEcommerce: React.FC = () => {
     const categoryFilter = searchParams.get('category') || null
     const searchQuery = searchParams.get('q') || ''
 
-    // Calculate testimonial statistics
-    const testimonialStats = useMemo(() => {
-        const products = productsData as Product[]
-        return calculateTestimonialStats(products)
-    }, [])
-    const { totalTestimonials, averageRating } = testimonialStats
+    // Get product statistics (customers, testimonials, ratings)
+    const { formattedCustomers, totalTestimonials, averageRating } = useProductStats()
 
     // Get random tagline (featured 25% of the time, non-featured 75% of the time)
     const randomTagline = useMemo(() => {
@@ -249,12 +254,12 @@ const HomeEcommerce: React.FC = () => {
                         <div className='mb-8 flex flex-row gap-12'>
                             <div>
                                 <div className='text-2xl font-bold text-green-400 sm:text-3xl'>
-                                    3K+
+                                    {formattedCustomers}
                                 </div>
-                                <div className='text-primary/60 text-sm'>Students</div>
+                                <div className='text-primary/60 text-sm'>Happy Customers</div>
                             </div>
                             <Link
-                                to='/testimonials'
+                                to='/success-stories'
                                 className='group transition-transform hover:scale-105'
                             >
                                 <div className='text-secondary group-hover:text-secondary-text text-2xl font-bold transition-colors sm:text-3xl'>
@@ -397,6 +402,31 @@ const HomeEcommerce: React.FC = () => {
                 </Section>
             )}
 
+            {/* Compare Products CTA - positioned after best value products */}
+            {!categoryFilter && !searchQuery && !decodedTagName && (
+                <Section className='py-8'>
+                    <Link
+                        to='/compare'
+                        className='bg-primary/5 hover:bg-primary/10 mx-auto flex max-w-2xl items-center justify-between gap-4 rounded-xl p-6 transition-all hover:scale-[1.02]'
+                    >
+                        <div className='flex items-center gap-4'>
+                            <div className='bg-secondary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full'>
+                                <FaBalanceScale className='text-secondary h-6 w-6' />
+                            </div>
+                            <div>
+                                <div className='font-semibold'>
+                                    Not sure which product to choose?
+                                </div>
+                                <div className='text-primary/60 text-sm'>
+                                    Compare products side-by-side to find the perfect fit
+                                </div>
+                            </div>
+                        </div>
+                        <div className='text-secondary shrink-0 font-semibold'>Compare →</div>
+                    </Link>
+                </Section>
+            )}
+
             {/* Categories Section */}
             <Section className='py-12 sm:py-16'>
                 <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
@@ -457,7 +487,9 @@ const HomeEcommerce: React.FC = () => {
                     </h2>
                     <div className='grid gap-6 sm:grid-cols-3'>
                         <div className='bg-primary/5 rounded-xl p-6'>
-                            <div className='text-secondary mb-3 text-4xl font-bold'>1,000+</div>
+                            <div className='text-secondary mb-3 text-4xl font-bold'>
+                                {formattedCustomers}
+                            </div>
                             <div className='font-semibold'>Happy Customers</div>
                         </div>
                         <div className='bg-primary/5 rounded-xl p-6'>

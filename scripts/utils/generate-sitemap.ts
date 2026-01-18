@@ -110,6 +110,22 @@ function generateSitemap(): string {
         priority: '0.8'
     })
 
+    // Add success stories page
+    urls.push({
+        loc: `${BASE_URL}/success-stories`,
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.8'
+    })
+
+    // Add compare page
+    urls.push({
+        loc: `${BASE_URL}/compare`,
+        lastmod: today,
+        changefreq: 'monthly',
+        priority: '0.7'
+    })
+
     // Add tags page
     urls.push({
         loc: `${BASE_URL}/tags`,
@@ -198,13 +214,15 @@ function writeSitemap(): void {
     console.log(`  - Best sellers page: 1 URL`)
     console.log(`  - Wishlist page: 1 URL`)
     console.log(`  - Testimonials page: 1 URL`)
+    console.log(`  - Success stories page: 1 URL`)
+    console.log(`  - Compare page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
     console.log(`  - Categories page: 1 URL`)
     console.log(`  - Products: ${productsData.length} URLs`)
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
     console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
     console.log(
-        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 11} URLs`
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 13} URLs`
     )
 }
 

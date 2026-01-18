@@ -261,10 +261,18 @@ const Footer: React.FC = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        to='/testimonials'
+                                        to='/success-stories'
                                         className='text-primary/70 hover:text-secondary transition-colors'
                                     >
-                                        💬 Testimonials
+                                        🏆 Success Stories
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/compare'
+                                        className='text-primary/70 hover:text-secondary transition-colors'
+                                    >
+                                        ⚖️ Compare Products
                                     </Link>
                                 </li>
                             </ul>

@@ -110,7 +110,7 @@ const PromotionBanner: React.FC = () => {
                             aria-label={`Copy discount code ${config.discountCode}`}
                             title={isCopied ? 'Copied!' : 'Click to copy'}
                         >
-                            <span className='text-amber-600'>({config.discountCode})</span>
+                            <span className='text-amber-600'>{config.discountCode}</span>
                             {isCopied ? (
                                 <FaCheck className='h-3 w-3 text-green-500' />
                             ) : (

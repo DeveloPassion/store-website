@@ -23,6 +23,8 @@ const TagPage = lazy(() => import('./pages/tag'))
 const CategoriesPage = lazy(() => import('./pages/categories'))
 const CategoryPage = lazy(() => import('./pages/category'))
 const AllTestimonialsPage = lazy(() => import('./pages/all-testimonials'))
+const ComparePage = lazy(() => import('./pages/compare'))
+const SuccessStoriesPage = lazy(() => import('./pages/success-stories'))
 const NotFoundPage = lazy(() => import('./pages/not-found'))
 const ErrorPage = lazy(() => import('./pages/error'))
 
@@ -156,6 +158,22 @@ ReactDOM.createRoot(rootElement).render(
                                 element={
                                     <Suspense fallback={<RouteLoadingFallback />}>
                                         <AllTestimonialsPage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/compare'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <ComparePage />
+                                    </Suspense>
+                                }
+                            />
+                            <Route
+                                path='/success-stories'
+                                element={
+                                    <Suspense fallback={<RouteLoadingFallback />}>
+                                        <SuccessStoriesPage />
                                     </Suspense>
                                 }
                             />

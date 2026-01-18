@@ -63,6 +63,8 @@ Store: https://store.dsebastien.net
 - /best-sellers - Bestseller products page
 - /wishlist - User's saved products wishlist
 - /testimonials - All customer testimonials from all products
+- /success-stories - Curated featured testimonials and success stories
+- /compare - Compare products side-by-side
 - /product/{id} - Individual product pages
 - /tags - Browse all tags
 - /tags/{name} - Tag pages showing related products

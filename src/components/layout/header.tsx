@@ -13,7 +13,9 @@ import {
     FaHeart,
     FaShoppingCart,
     FaGlobe,
-    FaQuestionCircle
+    FaQuestionCircle,
+    FaComments,
+    FaBalanceScale
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
@@ -92,6 +94,22 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             color: 'text-orange-400 bg-orange-500/10 hover:bg-orange-500/20'
         }
 
+        // Static link: Success Stories
+        const successStoriesLink: NavLink = {
+            to: '/success-stories',
+            label: 'Success Stories',
+            icon: <FaComments className='h-5 w-5' />,
+            color: 'text-teal-400 bg-teal-500/10 hover:bg-teal-500/20'
+        }
+
+        // Static link: Compare
+        const compareLink: NavLink = {
+            to: '/compare',
+            label: 'Compare',
+            icon: <FaBalanceScale className='h-5 w-5' />,
+            color: 'text-amber-400 bg-amber-500/10 hover:bg-amber-500/20'
+        }
+
         // Static link: Wishlist
         const wishlistLink: NavLink = {
             to: '/wishlist',
@@ -153,6 +171,8 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             featuredLink,
             bestValueLink,
             bestSellersLink,
+            successStoriesLink,
+            compareLink,
             ...categoryLinks,
             ...staticLinks,
             wishlistLink,
