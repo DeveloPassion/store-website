@@ -192,6 +192,41 @@
                 }
             ],
             "additionalText": "Simply explain your situation, and I'll see what I can do to help. I want to support your learning journey."
+        },
+        {
+            "id": "manage-subscription",
+            "question": "How do I change or cancel my subscription?",
+            "answer": "All subscription management is handled through your Gumroad account. There are two ways to cancel:",
+            "icon": "FaSync",
+            "order": 9,
+            "style": "default",
+            "features": [
+                {
+                    "icon": "FaEnvelope",
+                    "title": "Via your charge receipt",
+                    "description": "Find your latest charge receipt email, click \"Manage membership\", then select \"Cancel membership\"."
+                },
+                {
+                    "icon": "FaBook",
+                    "title": "Via your Gumroad Library",
+                    "description": "Log in at gumroad.com, go to your Library, select the membership, click \"Manage membership\", then \"Cancel membership\"."
+                }
+            ],
+            "steps": null,
+            "bullets": [
+                "Cancellation stops future charges but does not automatically refund past payments",
+                "You'll receive a confirmation email after cancellation",
+                "To request a refund, contact me separately"
+            ],
+            "links": [
+                {
+                    "label": "Go to Gumroad",
+                    "url": "https://gumroad.com/library",
+                    "external": true,
+                    "primary": true
+                }
+            ],
+            "additionalText": "If you need help with your subscription or want to request a refund, email [sebastien@developassion.be](mailto:sebastien@developassion.be)."
         }
     ]
 }
