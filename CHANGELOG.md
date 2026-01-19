@@ -1,3 +1,8 @@
+## [0.8.3](https://github.com/DeveloPassion/store-website/compare/0.8.2...0.8.3) (2026-01-19)
+
+### Features
+
+* **all:** added support for fuzzy search ([808a166](https://github.com/DeveloPassion/store-website/commit/808a1661ffb63b8cc9bf3662e340d60951420c82))
 ## [0.8.2](https://github.com/DeveloPassion/store-website/compare/0.8.1...0.8.2) (2026-01-19)
 
 ### Features
