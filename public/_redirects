@@ -83,6 +83,3 @@
 
 # Other redirects
 /affiliates https://developassion.gumroad.com/affiliates 301
-
-# SPA fallback - catch all non-file requests and serve index.html
-/*  /index.html  200

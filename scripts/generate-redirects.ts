@@ -158,15 +158,9 @@ function generateRedirectsContent(
         lines.push('')
     }
 
-    // SPA fallback must be last
-    const spaFallback = additionalRedirects.find((r) => r.source === '/*')
-    if (spaFallback) {
-        lines.push('# SPA fallback - catch all non-file requests and serve index.html')
-        lines.push(
-            `${spaFallback.source}  ${spaFallback.destination}  ${spaFallback.httpStatusCode}`
-        )
-        lines.push('')
-    }
+    // Note: SPA fallback (/* -> /index.html) is intentionally NOT included here.
+    // Cloudflare Pages handles SPA routing automatically and including it causes
+    // an infinite loop error during deployment.
 
     return lines.join('\n')
 }
