@@ -3,6 +3,7 @@
     "name": "Everything Knowledge Bundle",
     "gumroadId": "ku7mnn7Pe9Id8b-oHnoKYw==",
     "isGumroadProduct": true,
+    "gumroadProductSlugs": ["everything-knowledge", "lbocum"],
     "price": 299.99,
     "priceDisplay": "€299.99 (Save €289)",
     "priceTier": "premium",

@@ -1,31 +1,12 @@
 import { describe, expect, test } from 'bun:test'
-import { RedirectEntrySchema, RedirectsConfigSchema, RedirectTypeSchema } from './redirect.schema'
-
-describe('RedirectTypeSchema', () => {
-    test('accepts TEMPORARY', () => {
-        const result = RedirectTypeSchema.safeParse('TEMPORARY')
-        expect(result.success).toBe(true)
-    })
-
-    test('accepts PERMANENT', () => {
-        const result = RedirectTypeSchema.safeParse('PERMANENT')
-        expect(result.success).toBe(true)
-    })
-
-    test('rejects invalid type', () => {
-        const result = RedirectTypeSchema.safeParse('INVALID')
-        expect(result.success).toBe(false)
-    })
-})
+import { RedirectEntrySchema, RedirectsFileSchema } from './redirect.schema'
 
 describe('RedirectEntrySchema', () => {
     test('validates a complete redirect entry', () => {
         const validEntry = {
-            from: '/old-path',
-            to: '/new-path',
-            type: 'TEMPORARY' as const,
-            description: 'Test redirect',
-            includeInSitemap: true
+            source: '/affiliates',
+            destination: 'https://example.com/affiliates',
+            httpStatusCode: 301
         }
 
         const result = RedirectEntrySchema.safeParse(validEntry)
@@ -35,266 +16,165 @@ describe('RedirectEntrySchema', () => {
         }
     })
 
-    test('applies default type TEMPORARY', () => {
+    test('validates internal path destination', () => {
         const entry = {
-            from: '/test',
-            to: '/destination',
-            description: null
-        }
-
-        const result = RedirectEntrySchema.safeParse(entry)
-        expect(result.success).toBe(true)
-        if (result.success) {
-            expect(result.data.type).toBe('TEMPORARY')
-        }
-    })
-
-    test('applies default includeInSitemap false', () => {
-        const entry = {
-            from: '/test',
-            to: '/destination',
-            description: null
-        }
-
-        const result = RedirectEntrySchema.safeParse(entry)
-        expect(result.success).toBe(true)
-        if (result.success) {
-            expect(result.data.includeInSitemap).toBe(false)
-        }
-    })
-
-    test('accepts external URL as destination', () => {
-        const entry = {
-            from: '/affiliates',
-            to: 'https://example.com/affiliates',
-            type: 'PERMANENT' as const,
-            description: null
+            source: '/*',
+            destination: '/index.html',
+            httpStatusCode: 200
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
         expect(result.success).toBe(true)
     })
 
-    test('rejects source path without leading slash', () => {
+    test('validates external URL destination', () => {
         const entry = {
-            from: 'no-leading-slash',
-            to: '/destination'
+            source: '/product-slug',
+            destination: 'https://gumroad.com/l/product',
+            httpStatusCode: 301
+        }
+
+        const result = RedirectEntrySchema.safeParse(entry)
+        expect(result.success).toBe(true)
+    })
+
+    test('accepts various HTTP status codes', () => {
+        const statusCodes = [200, 301, 302, 307, 308, 404, 500]
+
+        for (const httpStatusCode of statusCodes) {
+            const entry = {
+                source: '/test',
+                destination: '/destination',
+                httpStatusCode
+            }
+
+            const result = RedirectEntrySchema.safeParse(entry)
+            expect(result.success).toBe(true)
+        }
+    })
+
+    test('rejects empty source', () => {
+        const entry = {
+            source: '',
+            destination: '/destination',
+            httpStatusCode: 301
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
         expect(result.success).toBe(false)
-    })
-
-    test('rejects source path with invalid characters', () => {
-        const entry = {
-            from: '/invalid path with spaces',
-            to: '/destination'
-        }
-
-        const result = RedirectEntrySchema.safeParse(entry)
-        expect(result.success).toBe(false)
-    })
-
-    test('accepts source path with hyphens and underscores', () => {
-        const entry = {
-            from: '/valid-path_with-chars',
-            to: '/destination',
-            description: null
-        }
-
-        const result = RedirectEntrySchema.safeParse(entry)
-        expect(result.success).toBe(true)
-    })
-
-    test('accepts nested source paths', () => {
-        const entry = {
-            from: '/nested/path/here',
-            to: '/destination',
-            description: null
-        }
-
-        const result = RedirectEntrySchema.safeParse(entry)
-        expect(result.success).toBe(true)
     })
 
     test('rejects empty destination', () => {
         const entry = {
-            from: '/test',
-            to: ''
+            source: '/test',
+            destination: '',
+            httpStatusCode: 301
         }
 
         const result = RedirectEntrySchema.safeParse(entry)
         expect(result.success).toBe(false)
     })
+
+    test('rejects invalid HTTP status code (too low)', () => {
+        const entry = {
+            source: '/test',
+            destination: '/destination',
+            httpStatusCode: 99
+        }
+
+        const result = RedirectEntrySchema.safeParse(entry)
+        expect(result.success).toBe(false)
+    })
+
+    test('rejects invalid HTTP status code (too high)', () => {
+        const entry = {
+            source: '/test',
+            destination: '/destination',
+            httpStatusCode: 600
+        }
+
+        const result = RedirectEntrySchema.safeParse(entry)
+        expect(result.success).toBe(false)
+    })
+
+    test('rejects non-integer HTTP status code', () => {
+        const entry = {
+            source: '/test',
+            destination: '/destination',
+            httpStatusCode: 301.5
+        }
+
+        const result = RedirectEntrySchema.safeParse(entry)
+        expect(result.success).toBe(false)
+    })
+
+    test('rejects missing required fields', () => {
+        const incomplete = {
+            source: '/test'
+        }
+
+        const result = RedirectEntrySchema.safeParse(incomplete)
+        expect(result.success).toBe(false)
+    })
 })
 
-describe('RedirectsConfigSchema', () => {
-    test('validates an array of redirect entries', () => {
-        const config = [
-            {
-                from: '/old-1',
-                to: '/new-1',
-                type: 'TEMPORARY',
-                description: null
-            },
-            {
-                from: '/old-2',
-                to: 'https://example.com',
-                type: 'PERMANENT' as const,
-                description: null
-            }
-        ]
+describe('RedirectsFileSchema', () => {
+    test('validates a file with multiple redirects', () => {
+        const file = {
+            redirects: [
+                {
+                    source: '/affiliates',
+                    destination: 'https://example.com/affiliates',
+                    httpStatusCode: 301
+                },
+                {
+                    source: '/*',
+                    destination: '/index.html',
+                    httpStatusCode: 200
+                }
+            ]
+        }
 
-        const result = RedirectsConfigSchema.safeParse(config)
+        const result = RedirectsFileSchema.safeParse(file)
         expect(result.success).toBe(true)
-    })
-
-    test('validates empty array', () => {
-        const config: unknown[] = []
-        const result = RedirectsConfigSchema.safeParse(config)
-        expect(result.success).toBe(true)
-    })
-
-    test('rejects duplicate source paths', () => {
-        const config = [
-            {
-                from: '/same-path',
-                to: '/destination-1',
-                description: null
-            },
-            {
-                from: '/same-path',
-                to: '/destination-2',
-                description: null
-            }
-        ]
-
-        const result = RedirectsConfigSchema.safeParse(config)
-        expect(result.success).toBe(false)
-        if (!result.success) {
-            expect(result.error.message).toContain('Duplicate source paths')
+        if (result.success) {
+            expect(result.data.redirects).toHaveLength(2)
         }
     })
 
-    test('detects 2-hop redirect loop', () => {
-        const config = [
-            {
-                from: '/a',
-                to: '/b',
-                description: null
-            },
-            {
-                from: '/b',
-                to: '/a',
-                description: null
-            }
-        ]
-
-        const result = RedirectsConfigSchema.safeParse(config)
-        expect(result.success).toBe(false)
-        if (!result.success) {
-            expect(result.error.message).toContain('Redirect loop')
+    test('validates empty redirects array', () => {
+        const file = {
+            redirects: []
         }
-    })
 
-    test('detects 3-hop redirect loop', () => {
-        const config = [
-            {
-                from: '/a',
-                to: '/b',
-                description: null
-            },
-            {
-                from: '/b',
-                to: '/c',
-                description: null
-            },
-            {
-                from: '/c',
-                to: '/a',
-                description: null
-            }
-        ]
-
-        const result = RedirectsConfigSchema.safeParse(config)
-        expect(result.success).toBe(false)
-        if (!result.success) {
-            expect(result.error.message).toContain('Redirect loop')
-        }
-    })
-
-    test('allows valid redirect chains without loops', () => {
-        const config = [
-            {
-                from: '/a',
-                to: '/b',
-                description: null
-            },
-            {
-                from: '/b',
-                to: '/c',
-                description: null
-            },
-            {
-                from: '/c',
-                to: 'https://example.com',
-                description: null
-            }
-        ]
-
-        const result = RedirectsConfigSchema.safeParse(config)
+        const result = RedirectsFileSchema.safeParse(file)
         expect(result.success).toBe(true)
     })
 
-    test('allows redirects to external URLs (no loop possible)', () => {
-        const config = [
-            {
-                from: '/affiliates',
-                to: 'https://external.com/affiliates',
-                description: null
-            },
-            {
-                from: '/partners',
-                to: 'https://external.com/partners',
-                description: null
-            }
-        ]
+    test('rejects missing redirects property', () => {
+        const file = {}
 
-        const result = RedirectsConfigSchema.safeParse(config)
-        expect(result.success).toBe(true)
-    })
-
-    test('allows mixed internal and external redirects', () => {
-        const config = [
-            {
-                from: '/old',
-                to: '/new',
-                description: null
-            },
-            {
-                from: '/affiliates',
-                to: 'https://example.com/affiliates',
-                description: null
-            }
-        ]
-
-        const result = RedirectsConfigSchema.safeParse(config)
-        expect(result.success).toBe(true)
-    })
-
-    test('detects self-referential redirect', () => {
-        const config = [
-            {
-                from: '/same',
-                to: '/same',
-                description: null
-            }
-        ]
-
-        const result = RedirectsConfigSchema.safeParse(config)
+        const result = RedirectsFileSchema.safeParse(file)
         expect(result.success).toBe(false)
-        if (!result.success) {
-            expect(result.error.message).toContain('Redirect loop')
+    })
+
+    test('rejects invalid redirect entry in array', () => {
+        const file = {
+            redirects: [
+                {
+                    source: '/valid',
+                    destination: '/destination',
+                    httpStatusCode: 301
+                },
+                {
+                    source: '',
+                    destination: '/destination',
+                    httpStatusCode: 301
+                }
+            ]
         }
+
+        const result = RedirectsFileSchema.safeParse(file)
+        expect(result.success).toBe(false)
     })
 })

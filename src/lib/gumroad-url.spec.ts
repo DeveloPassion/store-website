@@ -214,6 +214,7 @@ describe('buildGumroadUrlFromProduct', () => {
         name: 'Test Product',
         gumroadId: null,
         isGumroadProduct: false,
+        gumroadProductSlugs: null,
         price: 99,
         priceDisplay: '€99',
         priceTier: 'standard',

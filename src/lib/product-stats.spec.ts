@@ -124,6 +124,7 @@ describe('calculateProductStats', () => {
             name: 'Test Product',
             gumroadId: null,
             isGumroadProduct: false,
+            gumroadProductSlugs: null,
             activeSalesCopyId: 'default',
             salesCopy: {
                 problem: '',

@@ -25,6 +25,7 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     name: `Product ${id}`,
     gumroadId: null,
     isGumroadProduct: false,
+    gumroadProductSlugs: null,
     price: 99.99,
     priceDisplay: '€99.99',
     priceTier: 'standard',

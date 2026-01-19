@@ -133,6 +133,7 @@ The product schema is defined using Zod with two distinct schemas:
 Individual product files (`{product-id}.json`) contain core product data WITHOUT sales copy, FAQs, or media:
 
 - **Identity**: id, name
+- **Gumroad**: gumroadId (internal ID), isGumroadProduct, gumroadProductSlugs (for redirects)
 - **Pricing**: price, priceDisplay, priceTier, gumroadUrl, variants
 - **Subscription**: isSubscription, paymentFrequencies, defaultPaymentFrequency
 - **Taxonomy**: mainCategory, secondaryCategories, tags
@@ -221,8 +222,8 @@ product.testimonials
 
 Schema uses `.nullable()` (always present in JSON, with `null` when empty).
 
-- **Required**: `id`, `name`, `activeSalesCopyId`, `price`, `priceDisplay`, `priceTier`, `gumroadUrl`, `mainCategory`, `tags`, `included`, `priority`, boolean flags (`isSubscription`, `featured`, `bestValue`, `bestseller`)
-- **Nullable**: `variants`, `paymentFrequencies`, `defaultPaymentFrequency`, `stats`, `ratingsCount`, `averageRating`, `landingPageUrl`, `dsebastienUrl`, `seeHowItWorksText`
+- **Required**: `id`, `name`, `isGumroadProduct`, `activeSalesCopyId`, `price`, `priceDisplay`, `priceTier`, `gumroadUrl`, `mainCategory`, `tags`, `included`, `priority`, boolean flags (`isSubscription`, `featured`, `bestValue`, `bestseller`)
+- **Nullable**: `gumroadId`, `gumroadProductSlugs`, `variants`, `paymentFrequencies`, `defaultPaymentFrequency`, `stats`, `ratingsCount`, `averageRating`, `landingPageUrl`, `dsebastienUrl`, `seeHowItWorksText`
 - **Empty arrays allowed**: `secondaryCategories`, `crossSellIds`, `targetAudience`, `perfectFor`, `notForYou`, `trustBadges`, `guarantees`
 
 **Subscription Products**:

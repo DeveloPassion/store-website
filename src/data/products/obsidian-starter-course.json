@@ -3,6 +3,7 @@
     "name": "Obsidian Starter Course",
     "gumroadId": "0bX10SURICq6Q2U6Qlizcg==",
     "isGumroadProduct": true,
+    "gumroadProductSlugs": ["obsidian-starter-course", "nolle"],
     "price": 69.99,
     "priceDisplay": "$69.99",
     "priceTier": "standard",

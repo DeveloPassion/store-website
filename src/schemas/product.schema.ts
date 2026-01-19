@@ -74,6 +74,7 @@ const BaseProductSchema = z.object({
     // Gumroad integration
     gumroadId: z.string().nullable(), // Gumroad internal product ID (e.g., "ND-WoQbTx1d9m1phJKOT9Q==")
     isGumroadProduct: z.boolean(), // Whether this product is sold on Gumroad
+    gumroadProductSlugs: z.array(z.string()).nullable(), // Gumroad product slugs (for redirects, e.g., ["obsidian-starter-kit", "mghmmj"])
 
     // Pricing - All strictly required (non-nullable)
     price: z.number().nonnegative('Price must be non-negative'),

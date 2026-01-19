@@ -3,6 +3,7 @@
     "name": "Journaling Deep Dive Workshop",
     "gumroadId": "yvTwsgrocNK3qaXAFJPDKw==",
     "isGumroadProduct": true,
+    "gumroadProductSlugs": ["knowii-journaling-deep-dive", "cdwol"],
     "price": 29.99,
     "priceDisplay": "€29.99",
     "priceTier": "budget",

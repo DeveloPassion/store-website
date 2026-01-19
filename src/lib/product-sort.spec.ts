@@ -13,6 +13,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     name: 'Test Product',
     gumroadId: null,
     isGumroadProduct: false,
+    gumroadProductSlugs: null,
     price: 100,
     priceDisplay: '$100',
     priceTier: 'standard',
@@ -122,6 +123,7 @@ describe('sortProductsIntelligently', () => {
                 name: 'Regular Product',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 mainCategory: 'workshops'
             }),
             createMockProduct({
@@ -129,6 +131,7 @@ describe('sortProductsIntelligently', () => {
                 name: 'Featured Only',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 mainCategory: 'bundles'
             }),
@@ -137,6 +140,7 @@ describe('sortProductsIntelligently', () => {
                 name: 'Featured Bestseller',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestseller: true,
                 mainCategory: 'guides'
@@ -146,6 +150,7 @@ describe('sortProductsIntelligently', () => {
                 name: 'Featured Value',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestValue: true,
                 mainCategory: 'journaling'
@@ -155,6 +160,7 @@ describe('sortProductsIntelligently', () => {
                 name: 'All Three',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestValue: true,
                 bestseller: true,
@@ -214,6 +220,7 @@ describe('sortBestValueProducts', () => {
                 name: 'Regular Product',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 mainCategory: 'workshops'
             }),
             createMockProduct({
@@ -221,6 +228,7 @@ describe('sortBestValueProducts', () => {
                 name: 'Value Only',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 bestValue: true,
                 mainCategory: 'bundles'
             }),
@@ -229,6 +237,7 @@ describe('sortBestValueProducts', () => {
                 name: 'Value Bestseller',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 bestValue: true,
                 bestseller: true,
                 mainCategory: 'guides'
@@ -238,6 +247,7 @@ describe('sortBestValueProducts', () => {
                 name: 'Featured Value',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestValue: true,
                 mainCategory: 'journaling'
@@ -247,6 +257,7 @@ describe('sortBestValueProducts', () => {
                 name: 'All Three',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestValue: true,
                 bestseller: true,
@@ -293,6 +304,7 @@ describe('sortFeaturedProducts', () => {
                 name: 'Featured Only',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 mainCategory: 'bundles'
             }),
@@ -301,6 +313,7 @@ describe('sortFeaturedProducts', () => {
                 name: 'Featured Bestseller',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestseller: true,
                 mainCategory: 'guides'
@@ -310,6 +323,7 @@ describe('sortFeaturedProducts', () => {
                 name: 'Featured Value',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestValue: true,
                 mainCategory: 'journaling'
@@ -319,6 +333,7 @@ describe('sortFeaturedProducts', () => {
                 name: 'All Three',
                 gumroadId: null,
                 isGumroadProduct: false,
+                gumroadProductSlugs: null,
                 featured: true,
                 bestValue: true,
                 bestseller: true,

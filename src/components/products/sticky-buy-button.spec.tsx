@@ -18,6 +18,7 @@ const mockProduct: Product = {
     name: 'Test Product',
     gumroadId: null,
     isGumroadProduct: false,
+    gumroadProductSlugs: null,
     price: 49,
     priceDisplay: '$49',
     priceTier: 'standard',

@@ -62,7 +62,13 @@ All entities: JSON in `/src/data/`, Zod schemas in `/src/schemas/`, types in `/s
 
 **CLI**: `bun run update:products` | **Validate**: `bun run validate:products`
 
-**Individual fields**: id, slug, name, activeSalesCopyId, price, priceDisplay, priceTier, currency, discount, isSubscription, paymentFrequencies, defaultPaymentFrequency, mainCategory, secondaryCategories, tags, variants, gumroadUrl, websiteUrl, demoUrl, documentationUrl, githubUrl, status, featured, bestValue, bestseller, priority, createdAt, updatedAt
+**Individual fields**: id, name, gumroadId, isGumroadProduct, gumroadProductSlugs, activeSalesCopyId, price, priceDisplay, priceTier, currency, discount, isSubscription, paymentFrequencies, defaultPaymentFrequency, mainCategory, secondaryCategories, tags, variants, gumroadUrl, websiteUrl, demoUrl, documentationUrl, githubUrl, status, featured, bestValue, bestseller, priority, createdAt, updatedAt
+
+### Gumroad Integration Fields
+
+- `gumroadId`: Internal Gumroad product ID (e.g., "ND-WoQbTx1d9m1phJKOT9Q=="), nullable
+- `isGumroadProduct`: Boolean, true if sold on Gumroad
+- `gumroadProductSlugs`: Array of Gumroad slugs for redirects (e.g., ["obsidian-starter-kit", "mghmmj"]), nullable
 
 **NOT in individual files**: faqs, testimonials, media, inline sales copy
 
@@ -212,6 +218,34 @@ File: `src/data/faq-global.json`. Fields: id, question, answer, icon, order, sty
 
 File: `{id}-stats.json`. Fields: userCount, timeSaved, ratings. Computed: ratingsCount, averageRating.
 
+## Managing Redirects
+
+**Generate**: `bun run generate:redirects`
+
+The `public/_redirects` file is auto-generated from:
+
+1. Product JSON files - `gumroadProductSlugs` → `/product/{id}` redirects
+2. `src/data/redirects.json` - additional redirects (affiliates, SPA fallback)
+
+**Redirects schema**: `{ source, destination, httpStatusCode }` (all required, not nullable)
+
+**Example redirects.json**:
+
+```json
+{
+    "redirects": [
+        {
+            "source": "/affiliates",
+            "destination": "https://developassion.gumroad.com/affiliates",
+            "httpStatusCode": 301
+        },
+        { "source": "/*", "destination": "/index.html", "httpStatusCode": 200 }
+    ]
+}
+```
+
+**Note**: SPA fallback (`/*`) is always placed last. Do not manually edit `_redirects`.
+
 ## Testing
 
 **Framework**: Bun test, React Testing Library, Jest DOM, Happy DOM
@@ -229,13 +263,14 @@ bun run test:coverage # Report
 ## Development Commands
 
 ```bash
-bun run store         # Store CLI
-bun dev               # Dev server
-bun run build         # Production
-bun run lint          # Lint
-bun run tsc           # Type check
-bun run validate:all  # Validate data
-bun run ci:local      # Full CI
+bun run store              # Store CLI
+bun dev                    # Dev server
+bun run build              # Production
+bun run lint               # Lint
+bun run tsc                # Type check
+bun run validate:all       # Validate data
+bun run generate:redirects # Rebuild _redirects
+bun run ci:local           # Full CI
 ```
 
 ## Best Practices

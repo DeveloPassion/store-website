@@ -3,6 +3,7 @@
     "name": "Knowii Clarity 101 Workshop",
     "gumroadId": "kVur9PvVZV93SdSvFTA1LA==",
     "isGumroadProduct": true,
+    "gumroadProductSlugs": ["knowii-clarity-101", "uysik"],
     "price": 19.99,
     "priceDisplay": "€19.99",
     "priceTier": "budget",
