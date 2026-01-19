@@ -11,7 +11,7 @@
             "Reading contradictory PKM advice that makes you *more confused*",
             "Watching your vault become **messier as it grows**"
         ],
-        "agitate": "The real cost isn't the setup time. It's the **constant anxiety** that important ideas are slipping through the cracks. It's the **creative blocks** when you can't find your own notes. It's feeling less capable than you should because your *'second brain'* is a disorganized mess. I spent years living with that anxiety before I built something that actually worked.",
+        "agitate": "The real cost isn't the setup time. It's the **constant anxiety** that important ideas are slipping through the cracks. It's the **creative blocks** when you can't find your own notes. It's feeling less capable than you should because your *'second brain'* is a disorganized mess. I spent years organizing information at scale, and mastered the art. I applied it to my Obsidian vault as well.",
         "agitatePoints": [
             "That **nagging feeling** that you captured something important but can't find it",
             "**Creative blocks** because your thinking is disconnected",
@@ -28,7 +28,7 @@
             "Scales from **10 notes to 10,000+** without breaking down",
             "**AI-ready** with `Claude` and `MCP` integration for modern knowledge work"
         ],
-        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**.",
+        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/)—a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and books.",
         "features": [
             "**Clearly defined note types** with structured properties and automation",
             "**40+ specialized templates** for every content type that auto-file themselves",
@@ -135,7 +135,7 @@
             "creatorJourney": {
                 "title": "My Journey Through Knowledge Chaos",
                 "subtitle": "From Scattered Notes to Systematic Mastery",
-                "story": "Before I had this system, I lived with constant background anxiety. Important ideas would slip away. I'd capture something brilliant and never find it again. My information was scattered across tools that never talked to each other. And I was the only connection point, relying on my memory to bridge the gaps. The creative blocks were the worst part. I knew I had the pieces, but I couldn't connect them. I felt less competent than I should have been, struggling to use my own thinking. Sound familiar? That's exactly why I spent years refining this system. So you don't have to. Today, I use OSK daily with AI tools like Claude, and my knowledge genuinely compounds. Every note I create makes me more capable. That's what I want for you.",
+                "story": "Before I had this system, I lived with constant background anxiety. Important ideas would slip away. I'd capture something brilliant and never find it again. My information was scattered across tools that never talked to each other. And I was the only connection point, relying on my memory to bridge the gaps. The creative blocks were the worst part. I knew I had the pieces, but I couldn't connect them. I felt less competent than I should have been, struggling to use my own thinking. Sound familiar? That's exactly why I spent years refining this system. So you don't have to. Today, I use OSK daily with AI tools like Claude, and my knowledge genuinely compounds. Every note I create makes me more capable. That's how I've been able to write hundreds of articles, newsletters, and books—and share a [free public knowledge base](https://notes.dsebastien.net/) full of everything I've learned about knowledge management. That's what I want for you.",
                 "struggles": [
                     "Anxiety about forgetting insights I knew I had captured somewhere",
                     "Information scattered across multiple tools that never connected",
@@ -147,7 +147,8 @@
                     "Built a vault that scales to tens of thousands of notes without chaos",
                     "Author, blogger, and entrepreneur using this system daily",
                     "Created a system that works well with AI tools",
-                    "Helped 1,000+ knowledge workers change their workflows"
+                    "Helped 1,000+ knowledge workers change their workflows",
+                    "Published a free public knowledge base at notes.dsebastien.net: a goldmine of knowledge management insights built with OSK"
                 ],
                 "credentials": "20+ years of Knowledge Management expertise as an author, blogger, entrepreneur, and IT professional",
                 "icon": "🛤️"
@@ -383,7 +384,8 @@
                         "1,000-10,000+ notes, still perfectly organized",
                         "Writing and creating directly from connected notes",
                         "AI integration amplifying your knowledge work",
-                        "Confident your system will serve you for life"
+                        "Confident your system will serve you for life",
+                        "Ready to share your knowledge publicly—like my [free public notes](https://notes.dsebastien.net/)"
                     ],
                     "icon": "💎"
                 }
