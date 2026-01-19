@@ -42,7 +42,8 @@ const config: Linter.Config[] = [
         rules: {
             'react/react-in-jsx-scope': 'off',
             'react/prop-types': 'off', // We use TypeScript for prop validation
-            'react/no-unescaped-entities': 'off' // Allow apostrophes and quotes in JSX
+            'react/no-unescaped-entities': 'off', // Allow apostrophes and quotes in JSX
+            'react/jsx-no-target-blank': ['error', { allowReferrer: true }] // Allow rel="noopener" without noreferrer for analytics
         }
     },
     // Allow CommonJS require in .cjs and .release-it.js files
