@@ -51,7 +51,8 @@ import {
     FaShieldAlt,
     FaLock,
     FaCreditCard,
-    FaQuestionCircle
+    FaQuestionCircle,
+    FaSync
 } from 'react-icons/fa'
 import {
     SiObsidian,
@@ -116,6 +117,7 @@ export const iconRegistry: Record<string, IconType> = {
     FaLock,
     FaCreditCard,
     FaQuestionCircle,
+    FaSync,
     // Simple Icons
     SiObsidian,
     SiAngular,
