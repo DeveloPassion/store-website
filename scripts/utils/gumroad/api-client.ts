@@ -164,36 +164,20 @@ export class GumroadApiClient {
     /**
      * Get all sales across all products (handles pagination)
      *
+     * Note: The Gumroad API requires a product_id for the /sales endpoint,
+     * so we fetch all products first and then get sales for each one.
+     *
      * @param after - Optional date filter (ISO string) - only return sales after this date
      */
     async getAllSales(after?: string): Promise<GumroadSale[]> {
+        // First, get all products
+        const products = await this.getProducts()
+
+        // Then fetch sales for each product
         const allSales: GumroadSale[] = []
-        let page = 1
-        let hasMore = true
-
-        while (hasMore) {
-            const params = new URLSearchParams({
-                page: String(page)
-            })
-
-            if (after) {
-                params.set('after', after)
-            }
-
-            const response = await this.request<GumroadSalesResponse>(`/sales?${params.toString()}`)
-
-            if (!response.success) {
-                throw new GumroadApiError('Failed to fetch sales', 0)
-            }
-
-            allSales.push(...response.sales)
-
-            // Check for more pages
-            if (response.next_page_url) {
-                page++
-            } else {
-                hasMore = false
-            }
+        for (const product of products) {
+            const productSales = await this.getProductSales(product.id, after)
+            allSales.push(...productSales)
         }
 
         return allSales

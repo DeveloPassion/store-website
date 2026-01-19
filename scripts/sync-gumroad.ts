@@ -17,13 +17,15 @@
  * Usage:
  *   bun run sync:gumroad                    # Interactive mode
  *   bun scripts/sync-gumroad.ts --all       # Sync all (ratings + sales + prices)
+ *   bun scripts/sync-gumroad.ts --products       # List all Gumroad products
  *   bun scripts/sync-gumroad.ts --check-missing  # Find missing products
  *   bun scripts/sync-gumroad.ts --no-review      # List customers without reviews
+ *   bun scripts/sync-gumroad.ts --export         # Export customers without reviews to JSON
  *
  * Requires GUMROAD_ACCESS_TOKEN environment variable (from .env file)
  */
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { select } from '@inquirer/prompts'
@@ -37,7 +39,12 @@ import type {
     SyncResult,
     SyncSummary
 } from './utils/gumroad/types.js'
-import { StatsFileSchema, type Stats, type Rating } from '../src/schemas/stats.schema.js'
+import {
+    StatsFileSchema,
+    type Stats,
+    type Rating,
+    type StatItem
+} from '../src/schemas/stats.schema.js'
 import { IndividualProductSchema, type IndividualProduct } from '../src/schemas/product.schema.js'
 import {
     colors,
@@ -52,9 +59,11 @@ import {
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-// Directories
+// Directories and files
 const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
 const REDIRECTS_FILE = resolve(__dirname, '../public/_redirects')
+const EXPORTS_DIR = resolve(__dirname, '../exports')
+const CUSTOMERS_EXPORT_FILE = resolve(EXPORTS_DIR, 'customers-without-reviews.json')
 
 // Products to exclude from userCount updates (data is meaningless for these)
 const USER_COUNT_BLACKLIST = new Set(['knowii-community', 'knowledge-worker-kit'])
@@ -93,23 +102,50 @@ function loadLocalProduct(productId: string): IndividualProduct | null {
 }
 
 /**
+ * Default stats object with all required fields
+ */
+function getDefaultStats(): Stats {
+    return {
+        userCount: null,
+        timeSaved: null,
+        ratings: null,
+        additionalStats: []
+    }
+}
+
+/**
  * Load existing stats for a product
+ * Returns default stats if file doesn't exist or parsing fails
+ * Gracefully handles schema changes by preserving existing data
  */
 function loadStats(productId: string): Stats {
     const statsPath = join(PRODUCTS_DIR, `${productId}-stats.json`)
+    const defaults = getDefaultStats()
+
     if (!existsSync(statsPath)) {
-        return {}
+        return defaults
     }
+
     try {
         const content = readFileSync(statsPath, 'utf-8')
         const parsed = JSON.parse(content)
         const result = StatsFileSchema.safeParse(parsed)
+
         if (result.success) {
             return result.data.data
         }
-        return {}
+
+        // Schema validation failed - try to preserve existing data
+        // Merge raw data with defaults to ensure all required fields exist
+        const rawData = parsed?.data || {}
+        return {
+            ...defaults,
+            ...rawData,
+            // Ensure additionalStats is always an array
+            additionalStats: Array.isArray(rawData.additionalStats) ? rawData.additionalStats : []
+        }
     } catch {
-        return {}
+        return defaults
     }
 }
 
@@ -123,12 +159,16 @@ function saveStats(productId: string, stats: Stats): void {
 }
 
 /**
- * Parse existing userCount to extract numeric value
+ * Parse existing userCount (string or StatItem) to extract numeric value
  */
-function parseUserCount(userCount: string | undefined): number {
+function parseUserCount(userCount: StatItem | undefined | null): number {
     if (!userCount) return 0
-    // Match patterns like "500+ users", "1,000+ users", "10 users"
-    const match = userCount.match(/^([\d,]+)\+?\s*users?$/i)
+
+    // Handle both string and object formats
+    const value = typeof userCount === 'string' ? userCount : userCount.value
+
+    // Match patterns like "500+ users", "1,000+ users", "10 users", "500+", etc.
+    const match = value.match(/^([\d,]+)\+?/)
     if (!match) return 0
     return parseInt(match[1].replace(/,/g, ''), 10)
 }
@@ -147,13 +187,30 @@ function formatUserCount(count: number): string {
 }
 
 /**
+ * Update userCount while preserving custom label if present.
+ * Returns the new StatItem value to save.
+ */
+function updateUserCountValue(existing: StatItem | undefined | null, newValue: string): StatItem {
+    if (!existing || typeof existing === 'string') {
+        // No custom label, just use the new value as a string
+        return newValue
+    }
+
+    // Preserve the custom label from the existing object
+    return {
+        value: newValue,
+        label: existing.label
+    }
+}
+
+/**
  * Check if new userCount should replace existing
  * Only update if new value is higher (users may have joined via other channels)
  * Also respects the USER_COUNT_BLACKLIST
  */
 function shouldUpdateUserCount(
     productId: string,
-    existing: string | undefined,
+    existing: StatItem | undefined | null,
     newCount: number
 ): boolean {
     // Check blacklist first
@@ -297,9 +354,32 @@ function displayCustomersWithoutReview(customers: CustomerWithoutReview[]): void
 }
 
 /**
+ * Export customers without reviews to a JSON file
+ */
+function exportCustomersToJson(customers: CustomerWithoutReview[], outputPath: string): void {
+    const exportData = {
+        exportedAt: new Date().toISOString(),
+        totalCustomers: customers.length,
+        totalUnreviewedPurchases: customers.reduce((sum, c) => sum + c.productNames.length, 0),
+        customers: customers
+    }
+
+    // Ensure exports directory exists
+    if (!existsSync(EXPORTS_DIR)) {
+        mkdirSync(EXPORTS_DIR, { recursive: true })
+    }
+
+    const absolutePath = resolve(outputPath)
+    writeFileSync(absolutePath, JSON.stringify(exportData, null, 2) + '\n')
+    console.log(
+        `  ${colors.green}✓${colors.reset} Exported ${customers.length} customers to ${colors.bright}${absolutePath}${colors.reset}`
+    )
+}
+
+/**
  * Run the customers without review report
  */
-async function runCustomersWithoutReview(): Promise<void> {
+async function runCustomersWithoutReview(exportPath?: string): Promise<void> {
     // Check for access token
     const accessToken = process.env.GUMROAD_ACCESS_TOKEN
     if (!accessToken) {
@@ -320,6 +400,11 @@ async function runCustomersWithoutReview(): Promise<void> {
 
         const customersWithoutReview = extractCustomersWithoutReview(allSales)
         displayCustomersWithoutReview(customersWithoutReview)
+
+        // Export to JSON if path provided
+        if (exportPath) {
+            exportCustomersToJson(customersWithoutReview, exportPath)
+        }
     } catch (error) {
         if (error instanceof GumroadApiError) {
             showError(`Gumroad API error: ${error.message} (status ${error.statusCode})`)
@@ -350,7 +435,7 @@ function mergeRatings(existingStats: Stats, newGumroadRatings: Rating[]): Stats[
         merged.gumroad = newGumroadRatings
     }
 
-    return Object.keys(merged).length > 0 ? merged : undefined
+    return Object.keys(merged).length > 0 ? merged : null
 }
 
 /**
@@ -450,7 +535,12 @@ async function syncProduct(
             const salesCount = gumroadProduct.sales_count
             result.salesCount = salesCount
             if (shouldUpdateUserCount(localProductId, existingStats.userCount, salesCount)) {
-                updatedStats.userCount = formatUserCount(salesCount)
+                // Use updateUserCountValue to preserve custom labels (e.g., "Members", "Students")
+                const formattedCount = formatUserCount(salesCount)
+                updatedStats.userCount = updateUserCountValue(
+                    existingStats.userCount,
+                    formattedCount
+                )
                 result.userCountUpdated = true
                 messages.push(`${salesCount} sales`)
             } else {
@@ -526,6 +616,58 @@ function displayResults(results: SyncResult[], summary: SyncSummary): void {
         `  Synced: ${summary.synced} | Skipped: ${summary.skipped} | Errors: ${summary.errors}`
     )
     console.log(`  Ratings: ${summary.totalRatings} | Price mismatches: ${summary.priceMismatches}`)
+}
+
+/**
+ * Display all Gumroad products
+ */
+function displayProducts(gumroadProducts: GumroadProduct[]): void {
+    showOperationHeader('GUMROAD PRODUCTS')
+
+    // Filter out unpublished (disabled) products
+    const publishedProducts = gumroadProducts.filter((p) => p.published)
+    const unpublishedCount = gumroadProducts.length - publishedProducts.length
+
+    if (publishedProducts.length === 0) {
+        console.log(`  ${colors.yellow}⚠️${colors.reset} No published products found on Gumroad`)
+        return
+    }
+
+    // Sort by sales count (highest first)
+    const sortedProducts = [...publishedProducts].sort((a, b) => b.sales_count - a.sales_count)
+
+    // Table header
+    console.log(
+        `  ${colors.dim}${'Name'.padEnd(40)} ${'Slug'.padEnd(22)} ${'Price'.padEnd(10)} ${'Sales'.padEnd(7)} ${'Revenue'}${colors.reset}`
+    )
+    console.log(`  ${colors.dim}${'-'.repeat(95)}${colors.reset}`)
+
+    for (const product of sortedProducts) {
+        const name = product.name.substring(0, 39).padEnd(40)
+        const slug = (product.permalink || product.custom_permalink || '-')
+            .substring(0, 21)
+            .padEnd(22)
+        const price =
+            product.price === 0
+                ? 'Free'.padEnd(10)
+                : `€${(product.price / 100).toFixed(2)}`.padEnd(10)
+        const sales = String(product.sales_count).padEnd(7)
+        const revenue = `$${(product.sales_usd_cents / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+
+        console.log(`  ${name} ${slug} ${price} ${sales} ${revenue}`)
+    }
+
+    showSectionHeader('SUMMARY')
+    console.log(`  Published products: ${publishedProducts.length}`)
+    if (unpublishedCount > 0) {
+        console.log(`  ${colors.dim}Unpublished (hidden): ${unpublishedCount}${colors.reset}`)
+    }
+    const totalSales = publishedProducts.reduce((sum, p) => sum + p.sales_count, 0)
+    const totalRevenue = publishedProducts.reduce((sum, p) => sum + p.sales_usd_cents, 0)
+    console.log(`  Total sales: ${totalSales}`)
+    console.log(
+        `  Total revenue: $${(totalRevenue / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    )
 }
 
 /**
@@ -801,6 +943,11 @@ async function interactiveMenu(): Promise<void> {
                     description: 'Compare local prices with Gumroad'
                 },
                 {
+                    name: '📦 List All Products',
+                    value: 'list-products',
+                    description: 'Show all Gumroad products with sales'
+                },
+                {
                     name: '📋 List Product Mappings',
                     value: 'list-mappings',
                     description: 'Show Gumroad → local product mappings'
@@ -816,6 +963,11 @@ async function interactiveMenu(): Promise<void> {
                     description: "List customers who haven't left a review"
                 },
                 {
+                    name: '📤 Export Customers Without Reviews to JSON',
+                    value: 'export-no-review',
+                    description: 'Export customer list to a JSON file'
+                },
+                {
                     name: '👋 Exit',
                     value: 'exit',
                     description: 'Exit the CLI'
@@ -826,6 +978,25 @@ async function interactiveMenu(): Promise<void> {
         if (choice === 'exit') {
             showGoodbye('Gumroad Sync')
             return
+        }
+
+        if (choice === 'list-products') {
+            const accessToken = process.env.GUMROAD_ACCESS_TOKEN
+            if (!accessToken) {
+                showError('GUMROAD_ACCESS_TOKEN not found in environment')
+                continue
+            }
+
+            const client = new GumroadApiClient({ accessToken })
+
+            showInfo('Fetching products from Gumroad API...')
+            try {
+                const gumroadProducts = await client.getProducts()
+                displayProducts(gumroadProducts)
+            } catch (error) {
+                showError(`Failed to fetch Gumroad products: ${error}`)
+            }
+            continue
         }
 
         if (choice === 'list-mappings') {
@@ -873,6 +1044,11 @@ async function interactiveMenu(): Promise<void> {
             continue
         }
 
+        if (choice === 'export-no-review') {
+            await runCustomersWithoutReview(CUSTOMERS_EXPORT_FILE)
+            continue
+        }
+
         const options = {
             syncRatings: choice === 'sync-all' || choice === 'sync-ratings',
             syncSales: choice === 'sync-all' || choice === 'sync-sales',
@@ -907,9 +1083,11 @@ function parseArgs(): {
     syncSales?: boolean
     verifyPrices?: boolean
     product?: string
+    listProducts?: boolean
     listMappings?: boolean
     checkMissing?: boolean
     noReview?: boolean
+    exportNoReview?: boolean
     debug?: boolean
 } {
     const args: Record<string, string | boolean> = {}
@@ -925,12 +1103,16 @@ function parseArgs(): {
             args.syncSales = true
         } else if (arg === '--prices') {
             args.verifyPrices = true
+        } else if (arg === '--products') {
+            args.listProducts = true
         } else if (arg === '--list') {
             args.listMappings = true
         } else if (arg === '--check-missing') {
             args.checkMissing = true
         } else if (arg === '--no-review') {
             args.noReview = true
+        } else if (arg === '--export') {
+            args.exportNoReview = true
         } else if (arg === '--debug') {
             args.debug = true
         } else if (arg === '--product' && processArgs[i + 1]) {
@@ -954,12 +1136,33 @@ async function main(): Promise<void> {
         args.syncRatings ||
         args.syncSales ||
         args.verifyPrices ||
+        args.listProducts ||
         args.listMappings ||
         args.checkMissing ||
-        args.noReview
+        args.noReview ||
+        args.exportNoReview
     ) {
+        if (args.exportNoReview) {
+            await runCustomersWithoutReview(CUSTOMERS_EXPORT_FILE)
+            return
+        }
+
         if (args.noReview) {
             await runCustomersWithoutReview()
+            return
+        }
+
+        if (args.listProducts) {
+            const accessToken = process.env.GUMROAD_ACCESS_TOKEN
+            if (!accessToken) {
+                showError('GUMROAD_ACCESS_TOKEN not found in environment')
+                process.exit(1)
+            }
+
+            const client = new GumroadApiClient({ accessToken })
+            showInfo('Fetching products from Gumroad API...')
+            const gumroadProducts = await client.getProducts()
+            displayProducts(gumroadProducts)
             return
         }
 
