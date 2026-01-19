@@ -695,15 +695,16 @@ function displayProducts(gumroadProducts: GumroadProduct[]): void {
 
     // Table header
     console.log(
-        `  ${colors.dim}${'Name'.padEnd(40)} ${'Slug'.padEnd(22)} ${'Price'.padEnd(10)} ${'Sales'.padEnd(7)} ${'Revenue'}${colors.reset}`
+        `  ${colors.dim}${'Name'.padEnd(35)} ${'Slug'.padEnd(25)} ${'Gumroad ID'.padEnd(28)} ${'Price'.padEnd(10)} ${'Sales'.padEnd(7)} ${'Revenue'}${colors.reset}`
     )
-    console.log(`  ${colors.dim}${'-'.repeat(95)}${colors.reset}`)
+    console.log(`  ${colors.dim}${'-'.repeat(125)}${colors.reset}`)
 
     for (const product of sortedProducts) {
-        const name = product.name.substring(0, 39).padEnd(40)
+        const name = product.name.substring(0, 34).padEnd(35)
         const slug = (product.permalink || product.custom_permalink || '-')
-            .substring(0, 21)
-            .padEnd(22)
+            .substring(0, 24)
+            .padEnd(25)
+        const gumroadId = product.id.padEnd(28)
         const price =
             product.price === 0
                 ? 'Free'.padEnd(10)
@@ -711,7 +712,7 @@ function displayProducts(gumroadProducts: GumroadProduct[]): void {
         const sales = String(product.sales_count).padEnd(7)
         const revenue = `$${(product.sales_usd_cents / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 
-        console.log(`  ${name} ${slug} ${price} ${sales} ${revenue}`)
+        console.log(`  ${name} ${slug} ${gumroadId} ${price} ${sales} ${revenue}`)
     }
 
     showSectionHeader('SUMMARY')
@@ -748,7 +749,7 @@ function displayMappings(mappings: GumroadMapping[], gumroadProducts: GumroadPro
 
         const status = gumroadProduct ? colors.green + '✓' : colors.red + '✗'
         const gumroadInfo = gumroadProduct
-            ? `(${gumroadProduct.sales_count} sales)`
+            ? `(${gumroadProduct.sales_count} sales, id: ${gumroadProduct.id})`
             : '(not found on Gumroad)'
 
         console.log(
