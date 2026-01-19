@@ -1,3 +1,13 @@
+## [0.8.6](https://github.com/DeveloPassion/store-website/compare/0.8.5...0.8.6) (2026-01-19)
+
+### Features
+
+* **all:** improved sales copy osk kwk ([4759d23](https://github.com/DeveloPassion/store-website/commit/4759d230667c3ff99170411557916f20702e3d75))
+* **all:** updated sales copy osk ([a089d21](https://github.com/DeveloPassion/store-website/commit/a089d21712b3aaa3192c096aee0f9f0fe8d17644))
+
+### Bug Fixes
+
+* **all:** fixed media carousels rendering while maintaining visual stability ([9d907c1](https://github.com/DeveloPassion/store-website/commit/9d907c175eb154e14246a2ec5f11bd09c3dfdb6b))
 ## [0.8.5](https://github.com/DeveloPassion/store-website/compare/0.8.4...0.8.5) (2026-01-19)
 
 ### Features
