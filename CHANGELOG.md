@@ -1,3 +1,8 @@
+## [0.8.2](https://github.com/DeveloPassion/store-website/compare/0.8.1...0.8.2) (2026-01-19)
+
+### Features
+
+* **all:** added related products at the end of product pages ([94b4535](https://github.com/DeveloPassion/store-website/commit/94b4535dcb8897ea5c17e42fd56df17d67b88064))
 ## [0.8.1](https://github.com/DeveloPassion/store-website/compare/0.8.0...0.8.1) (2026-01-19)
 
 ### Features
