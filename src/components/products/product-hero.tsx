@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { formatDistanceToNow } from 'date-fns'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
@@ -246,6 +247,18 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                             </div>
                                         </Link>
                                     )}
+                                {/* Last Sale - Social proof for recent purchases */}
+                                {product.stats?.lastSale && (
+                                    <div className='flex items-center gap-2 rounded-lg border border-green-500/20 bg-green-500/10 px-3 py-2'>
+                                        <div className='h-2 w-2 animate-pulse rounded-full bg-green-500' />
+                                        <span className='text-sm text-green-600 dark:text-green-400'>
+                                            Last sale{' '}
+                                            {formatDistanceToNow(new Date(product.stats.lastSale), {
+                                                addSuffix: true
+                                            })}
+                                        </span>
+                                    </div>
+                                )}
                             </div>
                         )}
 

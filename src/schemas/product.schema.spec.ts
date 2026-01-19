@@ -324,7 +324,8 @@ describe('Product Schema Validation', () => {
                 ratings: {
                     gumroad: [{ id: 'gum-1', rating: 5, date: '2026-01-10' }]
                 },
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -336,7 +337,8 @@ describe('Product Schema Validation', () => {
                 ratings: {
                     gumroad: [{ id: 'gum-1', rating: 5, date: null }]
                 },
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -346,7 +348,8 @@ describe('Product Schema Validation', () => {
                 userCount: '5,000+',
                 timeSaved: null,
                 ratings: null,
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -356,7 +359,8 @@ describe('Product Schema Validation', () => {
                 userCount: null,
                 timeSaved: null,
                 ratings: null,
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -365,7 +369,8 @@ describe('Product Schema Validation', () => {
             const invalid = {
                 timeSaved: null,
                 ratings: null,
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             }
             expect(() => StatsSchema.parse(invalid)).toThrow()
         })
@@ -378,7 +383,8 @@ describe('Product Schema Validation', () => {
                 additionalStats: [
                     { value: '50+', label: 'Countries', link: null },
                     { value: '1M+', label: 'Messages', link: 'https://example.com/stats' }
-                ]
+                ],
+                lastSale: null
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })

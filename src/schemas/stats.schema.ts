@@ -60,6 +60,17 @@ export const AdditionalStatSchema = z.object({
 })
 
 /**
+ * ISO 8601 timestamp schema for dates with time component
+ * Matches formats like: "2026-01-19T14:30:00Z" or "2026-01-19T14:30:00.000Z"
+ */
+export const ISOTimestampSchema = z
+    .string()
+    .regex(
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z?$/,
+        'Must be a valid ISO 8601 timestamp (e.g., 2026-01-19T14:30:00Z)'
+    )
+
+/**
  * Stats Schema
  * Contains social proof statistics and ratings for a product
  */
@@ -67,7 +78,8 @@ export const StatsSchema = z.object({
     userCount: StatItemSchema.nullable(), // e.g., "2,000+" or { value: "2,000+", label: "Members" }
     timeSaved: StatItemSchema.nullable(), // e.g., "10+ hours/week"
     ratings: RatingsSchema.nullable(), // Nullable: grouped ratings by source
-    additionalStats: z.array(AdditionalStatSchema) // Required, can be empty []
+    additionalStats: z.array(AdditionalStatSchema), // Required, can be empty []
+    lastSale: ISOTimestampSchema.nullable() // ISO timestamp of most recent sale (null if >6 months ago or no sales)
 })
 
 /**

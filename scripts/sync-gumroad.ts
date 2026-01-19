@@ -109,7 +109,8 @@ function getDefaultStats(): Stats {
         userCount: null,
         timeSaved: null,
         ratings: null,
-        additionalStats: []
+        additionalStats: [],
+        lastSale: null
     }
 }
 
@@ -238,6 +239,41 @@ function extractRatingsFromSales(sales: GumroadSale[]): Rating[] {
         }
     }
     return ratings
+}
+
+/**
+ * Get the most recent sale date from sales data
+ * Returns null if no sales or if the most recent sale is older than 6 months
+ */
+function getLastSaleDate(sales: GumroadSale[]): string | null {
+    if (sales.length === 0) {
+        return null
+    }
+
+    // Find the most recent sale by created_at
+    let mostRecent: string | null = null
+    for (const sale of sales) {
+        if (sale.created_at) {
+            if (!mostRecent || sale.created_at > mostRecent) {
+                mostRecent = sale.created_at
+            }
+        }
+    }
+
+    if (!mostRecent) {
+        return null
+    }
+
+    // Check if the most recent sale is within 6 months
+    const lastSaleDate = new Date(mostRecent)
+    const sixMonthsAgo = new Date()
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6)
+
+    if (lastSaleDate < sixMonthsAgo) {
+        return null // Too old, don't display
+    }
+
+    return mostRecent
 }
 
 /**
@@ -512,7 +548,7 @@ async function syncProduct(
         const updatedStats = { ...existingStats }
         const messages: string[] = []
 
-        // Sync ratings
+        // Sync ratings and lastSale
         if (options.syncRatings) {
             const sales = await client.getProductSales(gumroadProduct.id)
 
@@ -527,7 +563,18 @@ async function syncProduct(
             const ratings = extractRatingsFromSales(sales)
             updatedStats.ratings = mergeRatings(existingStats, ratings)
             result.ratingsAdded = ratings.length
-            messages.push(`${ratings.length} ratings from ${sales.length} sales`)
+
+            // Update lastSale date (null if >6 months ago or no sales)
+            const lastSale = getLastSaleDate(sales)
+            updatedStats.lastSale = lastSale
+            if (lastSale) {
+                const lastSaleDate = lastSale.split('T')[0]
+                messages.push(
+                    `${ratings.length} ratings from ${sales.length} sales, last sale: ${lastSaleDate}`
+                )
+            } else {
+                messages.push(`${ratings.length} ratings from ${sales.length} sales`)
+            }
         }
 
         // Sync sales count

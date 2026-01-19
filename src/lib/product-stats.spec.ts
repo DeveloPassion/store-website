@@ -200,18 +200,26 @@ describe('calculateProductStats', () => {
                     userCount: '1,000+ users',
                     timeSaved: null,
                     ratings: null,
-                    additionalStats: []
+                    additionalStats: [],
+                    lastSale: null
                 }
             }),
             createMockProduct({
-                stats: { userCount: '500', timeSaved: null, ratings: null, additionalStats: [] }
+                stats: {
+                    userCount: '500',
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: [],
+                    lastSale: null
+                }
             }),
             createMockProduct({
                 stats: {
                     userCount: '2,500+ students',
                     timeSaved: null,
                     ratings: null,
-                    additionalStats: []
+                    additionalStats: [],
+                    lastSale: null
                 }
             })
         ]
@@ -258,7 +266,13 @@ describe('calculateProductStats', () => {
         const products = [
             createMockProduct({ stats: null }),
             createMockProduct({
-                stats: { userCount: null, timeSaved: null, ratings: null, additionalStats: [] }
+                stats: {
+                    userCount: null,
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: [],
+                    lastSale: null
+                }
             })
         ]
         const result = calculateProductStats(products)
@@ -273,7 +287,8 @@ describe('calculateProductStats', () => {
                     userCount: '1,500+ users',
                     timeSaved: null,
                     ratings: null,
-                    additionalStats: []
+                    additionalStats: [],
+                    lastSale: null
                 },
                 testimonials: [
                     createTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
@@ -282,7 +297,13 @@ describe('calculateProductStats', () => {
                 averageRating: 4.8
             }),
             createMockProduct({
-                stats: { userCount: '500', timeSaved: null, ratings: null, additionalStats: [] },
+                stats: {
+                    userCount: '500',
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: [],
+                    lastSale: null
+                },
                 testimonials: [
                     createTestimonial({
                         id: '3',
@@ -309,7 +330,8 @@ describe('calculateProductStats', () => {
                     userCount: '1,000+ users',
                     timeSaved: null,
                     ratings: null,
-                    additionalStats: []
+                    additionalStats: [],
+                    lastSale: null
                 }
             }),
             createMockProduct({
@@ -317,7 +339,8 @@ describe('calculateProductStats', () => {
                     userCount: { value: '500+', label: 'Members' },
                     timeSaved: null,
                     ratings: null,
-                    additionalStats: []
+                    additionalStats: [],
+                    lastSale: null
                 }
             }),
             createMockProduct({
@@ -325,7 +348,8 @@ describe('calculateProductStats', () => {
                     userCount: { value: '200+', label: null },
                     timeSaved: null,
                     ratings: null,
-                    additionalStats: []
+                    additionalStats: [],
+                    lastSale: null
                 }
             })
         ]

@@ -225,7 +225,8 @@ describe('ProductCTA Component', () => {
                 userCount: '10,000+',
                 timeSaved: null,
                 ratings: {},
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             },
             averageRating: 4.9,
             ratingsCount: 100
@@ -255,7 +256,8 @@ describe('ProductCTA Component', () => {
                 userCount: '5,000+',
                 timeSaved: null,
                 ratings: {},
-                additionalStats: []
+                additionalStats: [],
+                lastSale: null
             }
         })
         const { getByText, queryByText } = renderWithRouter(<ProductCTA product={product} />)
