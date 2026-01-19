@@ -534,7 +534,17 @@ async function syncProduct(
         if (options.syncSales) {
             const salesCount = gumroadProduct.sales_count
             result.salesCount = salesCount
-            if (shouldUpdateUserCount(localProductId, existingStats.userCount, salesCount)) {
+
+            // Set userCount to null if fewer than 10 sales (not meaningful to display)
+            if (salesCount < 10) {
+                if (existingStats.userCount !== null) {
+                    updatedStats.userCount = null
+                    result.userCountUpdated = true
+                    messages.push(`${salesCount} sales (too few, set to null)`)
+                } else {
+                    messages.push(`${salesCount} sales (too few)`)
+                }
+            } else if (shouldUpdateUserCount(localProductId, existingStats.userCount, salesCount)) {
                 // Use updateUserCountValue to preserve custom labels (e.g., "Members", "Students")
                 const formattedCount = formatUserCount(salesCount)
                 updatedStats.userCount = updateUserCountValue(
