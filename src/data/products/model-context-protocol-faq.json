@@ -18,7 +18,7 @@
         {
             "id": "faq-92",
             "question": "Can I use MCP with my Obsidian notes?",
-            "answer": "Yes! Demo 1 shows exactly this. `Claude` reads and summarizes notes from your `Obsidian` vault directly—**no copy-paste required**."
+            "answer": "Yes! Demo 1 shows exactly this. `Claude` reads and summarizes notes from your `Obsidian` vault directly. **No copy-paste required**."
         },
         {
             "id": "faq-93",
@@ -33,7 +33,7 @@
         {
             "id": "faq-95",
             "question": "How do I install MCP servers?",
-            "answer": "Multiple methods demonstrated: GUI tools like `Dockmaster` and `Toolbase` (easiest—just **point and click**), `Smithery` CLI, and manual configuration. You pick what's comfortable for you."
+            "answer": "Multiple methods demonstrated: GUI tools like `Dockmaster` and `Toolbase` (easiest, just **point and click**), `Smithery` CLI, and manual configuration. You pick what's comfortable for you."
         },
         {
             "id": "faq-96",
@@ -43,7 +43,7 @@
         {
             "id": "faq-97",
             "question": "Can AI control my browser?",
-            "answer": "Yes! Demo 4 shows browser control using Browser MCP. Navigate sites, extract data, fill forms—perfect for automating tasks on websites without APIs."
+            "answer": "Yes! Demo 4 shows browser control using Browser MCP. Navigate sites, extract data, fill forms. Perfect for automating tasks on websites without APIs."
         },
         {
             "id": "faq-98",
@@ -67,13 +67,13 @@
         },
         {
             "id": "faq-102",
-            "question": "I'm overwhelmed—there are hundreds of MCP servers. Where do I start?",
+            "question": "I'm overwhelmed. There are hundreds of MCP servers. Where do I start?",
             "answer": "That's exactly why this masterclass exists. Instead of a scavenger hunt through documentation, you get a curated path: which servers are reliable, which clients work best, which tools make installation painless. I've done the testing so you don't have to."
         },
         {
             "id": "faq-103",
             "question": "What's the main use case for knowledge workers?",
-            "answer": "**Breaking down knowledge silos**. AI can read your `Obsidian` notes, query your `Notion` databases, search the web, and control your browser—all from a **single prompt**. No more being the middleman copy-pasting context between tools."
+            "answer": "**Breaking down knowledge silos**. AI can read your `Obsidian` notes, query your `Notion` databases, search the web, and control your browser, all from a **single prompt**. No more being the middleman copy-pasting context between tools."
         }
     ]
 }

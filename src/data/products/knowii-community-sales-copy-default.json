@@ -10,9 +10,9 @@
             "AI gives you generic slop. You know it could do more, but you don't know HOW",
             "Hours spent searching for things you KNOW you saved somewhere",
             "Your best ideas slip away before you can capture and develop them",
-            "Everyone talks about AI—but you're not sure you're using it right"
+            "Everyone talks about AI, but you're not sure you're using it right"
         ],
-        "agitate": "Here's what's happening: **41% of knowledge workers** feel overwhelmed by information daily. Meanwhile, AI is changing everything—and people who master it are pulling ahead. You're stuck in the middle: too much information, not enough system, and AI tools you can't quite figure out.",
+        "agitate": "**41% of knowledge workers** feel overwhelmed by information daily. Meanwhile, AI is changing everything, and people who master it are pulling ahead. You're stuck in the middle: too much information, not enough system, and AI tools you can't quite figure out.",
         "agitatePoints": [
             "That breakthrough thought from last week? Gone. You'll never get it back.",
             "AI could save you hours weekly, but your prompts get generic, useless output",
@@ -40,7 +40,7 @@
             "**Knowledge Master**: [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course (€69.99 value)",
             "**Knowledge Master**: Complete AI Mastery Stack: [AI Ghostwriter Guide](/product/ai-ghostwriter-guide), [AI Master Prompt](/product/ai-master-prompt), [MCP Workshop](/product/model-context-protocol)",
             "**Knowledge Master**: [Knowledge Worker Kit](/product/knowledge-worker-kit) + [PKM Library](/product/pkm-library) = **€500+ total value**",
-            "**Knowledge Master**: ALL future courses, tools, and workshops—automatically included",
+            "**Knowledge Master**: ALL future courses, tools, and workshops, automatically included",
             "**Flagship Offer**: Everything keeps growing. Join now, get everything added later."
         ],
         "benefits": {
@@ -55,7 +55,7 @@
                 "Master AI workflows for writing, research, learning, and decision-making",
                 "Build knowledge systems that scale with your career and responsibilities",
                 "Continuous learning: new workshops, tools, and content added regularly",
-                "Implementation support. This isn't self-paced courses—it's guided change."
+                "Implementation support. This isn't self-paced courses; it's guided change."
             ],
             "longTerm": [
                 "Knowledge + AI skills that compound over decades",
@@ -88,7 +88,7 @@
         ],
         "trustBadges": [
             "**Complete System**: Knowledge Management + AI Mastery in one place",
-            "**€500+ Value**: Knowledge Master includes everything—courses, tools, future additions",
+            "**€500+ Value**: Knowledge Master includes everything: courses, tools, future additions",
             "**340+ Members**: Active community learning and building together",
             "**Expert-Led**: 20+ years of IT and KM expertise, hundreds of hours mastering AI",
             "**Always Growing**: New workshops, tools, and content added regularly",
@@ -120,7 +120,7 @@
             "originStory": {
                 "title": "Why Knowii Exists",
                 "subtitle": "More than knowledge management. A complete system for thriving.",
-                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost **200k€** and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. **Burnout** from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising **three kids** while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a **complete system** for clarity, learning, organization, and execution—PLUS the AI skills to amplify everything. That's what Knowii delivers: a **community of practice** where we share Knowledge Management techniques, AI mastery, and the full toolkit for thriving as a modern knowledge worker.",
+                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost **200k€** and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. **Burnout** from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising **three kids** while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a **complete system** for clarity, learning, organization, and execution, PLUS the AI skills to amplify everything. That's what Knowii delivers: a **community of practice** where we share Knowledge Management techniques, AI mastery, and the full toolkit for thriving as a modern knowledge worker.",
                 "inspirationPoint": "Knowledge management is the foundation. AI mastery is the accelerator. Together, they create an unfair advantage.",
                 "icon": "💡",
                 "genesisDate": null
@@ -128,7 +128,7 @@
             "creatorJourney": {
                 "title": "20+ Years Building Systems. Hundreds of Hours Mastering AI.",
                 "subtitle": "Not just theory. Battle-tested systems I use daily.",
-                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly **10,000 notes** in my personal knowledge system. I've published **3 books**, written **400+ articles** and newsletters, created courses, and built products used by thousands. When AI exploded, I didn't just dabble—I spent **hundreds of hours** mastering it. I built systems for AI ghostwriting, MCP integration, and workflows that actually work. The Knowii Community is where I share ALL of it: Knowledge Management + AI Mastery + the complete framework for becoming a top-tier knowledge worker.",
+                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly **10,000 notes** in my personal knowledge system. I've published **3 books**, written **400+ articles** and newsletters, created courses, and built products used by thousands. When AI exploded, I didn't just dabble; I spent **hundreds of hours** mastering it. I built systems for AI ghostwriting, MCP integration, and workflows that actually work. The Knowii Community is where I share ALL of it: Knowledge Management + AI Mastery + the complete framework for becoming a top-tier knowledge worker.",
                 "struggles": [
                     "Crushing shyness and introversion that made communication terrifying",
                     "A failed startup that cost 200k€ and 2 years",
@@ -237,7 +237,7 @@
             "vision": {
                 "title": "Building Top 1% Knowledge Workers",
                 "subtitle": "Our mission and where we're headed",
-                "mission": "Two skills define the future of work: managing information and using AI. Knowii exists to help you master both. Not just for managing notes, but for everything: clarity on what matters, systems that scale, AI workflows that actually work, and the support to implement it all. The goal is becoming the kind of knowledge worker who thinks, creates, and decides faster than everyone else—without burning out.",
+                "mission": "Two skills define the future of work: managing information and using AI. Knowii exists to help you master both. Not just for managing notes, but for everything: clarity on what matters, systems that scale, AI workflows that actually work, and the support to implement it all. The goal is becoming the kind of knowledge worker who thinks, creates, and decides faster than everyone else, without burning out.",
                 "values": [
                     {
                         "title": "Curiosity",

@@ -3,27 +3,27 @@
     "salesCopy": {
         "tagline": "One Hour That Saves You Months of Trial and Error",
         "secondaryTagline": "Get Expert PKM Guidance From Someone Who's Lived It for **20+ Years**",
-        "problem": "You've bought the courses. Read the articles. Watched the videos. Yet your knowledge system is still a mess. The problem isn't lack of information—it's that generic advice doesn't fit YOUR unique situation, challenges, and goals.",
+        "problem": "You've bought the courses. Read the articles. Watched the videos. Yet your knowledge system is still a mess. The problem isn't lack of information. It's that generic advice doesn't fit YOUR unique situation, challenges, and goals.",
         "problemPoints": [
             "Generic courses teach theory but can't diagnose YOUR specific situation",
             "You've accumulated tools and techniques but can't see how they fit together",
-            "You're paralyzed by options—afraid to commit without expert validation",
+            "You're paralyzed by options; afraid to commit without expert validation",
             "You're stuck in trial-and-error loops that waste weeks or months",
             "A deadline or life change is approaching and you can't afford more experimentation",
             "You need someone who understands system design, not just tool features"
         ],
         "agitate": "Every week spent struggling alone is a week of lost clarity, missed ideas, and mounting frustration. The courses you've taken? They taught you what worked for someone else. The articles you've read? They're scattered puzzle pieces with no one to help you assemble YOUR picture. Meanwhile, information keeps piling up, important ideas slip through the cracks, and that nagging feeling of being overwhelmed never quite goes away.",
         "agitatePoints": [
-            "Tools don't solve problems—they just move chaos to a different app",
+            "Tools don't solve problems; they just move chaos to a different app",
             "Copying someone else's system never works because YOUR needs are different",
             "Complexity worship leads to systems that collapse under their own weight",
             "Perfectionism keeps you planning instead of making progress",
             "Self-study takes months to discover what an expert spots in minutes"
         ],
-        "solution": "Skip the trial-and-error. In a single focused session, get personalized guidance from someone who's practiced PKM for over two decades—as an author, entrepreneur, IT architect, and content creator with a busy family life. I'll diagnose your specific challenges, help you think from first principles, and give you a clear action plan. Not a copy of my system—YOUR system, designed for YOUR reality.",
+        "solution": "Skip the trial-and-error. In a single focused session, get personalized guidance from someone who's practiced PKM for over two decades. As an author, entrepreneur, IT architect, and content creator with a busy family life. I'll diagnose your specific challenges, help you think from first principles, and give you a clear action plan. Not a copy of my system. YOUR system, designed for YOUR reality.",
         "solutionPoints": [
             "**Expert diagnosis** of YOUR specific situation and challenges",
-            "**First-principles thinking**—understand WHY, not just what to do",
+            "**First-principles thinking**. Understand WHY, not just what to do",
             "**System design guidance** that works regardless of which tool you use",
             "**Clear, actionable plan** you can implement immediately",
             "**Continued support** after the session for follow-up questions",
@@ -55,7 +55,7 @@
                 "A sustainable PKM practice that scales with your life",
                 "Compound returns as your system matures over months and years",
                 "Skills and principles that transfer across tools and contexts",
-                "Freedom from information overwhelm—permanently"
+                "Freedom from information overwhelm. Permanently"
             ]
         },
         "targetAudience": [
@@ -102,7 +102,7 @@
             "originStory": {
                 "title": "Why I Started Coaching",
                 "subtitle": null,
-                "story": "After years of creating courses, kits, and communities, I kept receiving the same message: 'Your content is great, but I'm still stuck on MY specific situation.' I realized that even the best courses can't diagnose individual challenges. Some people don't need more information—they need someone to look at THEIR mess and help them see the patterns. Someone who's actually lived this for decades, not just theorized about it. That's why I started coaching. Not to replace self-learning, but to accelerate it. One focused hour with an expert can shortcut months of trial-and-error.",
+                "story": "After years of creating courses, kits, and communities, I kept receiving the same message: 'Your content is great, but I'm still stuck on MY specific situation.' I realized that even the best courses can't diagnose individual challenges. Some people don't need more information; they need someone to look at THEIR mess and help them see the patterns. Someone who's actually lived this for decades, not just theorized about it. That's why I started coaching. Not to replace self-learning, but to accelerate it. One focused hour with an expert can shortcut months of trial-and-error.",
                 "inspirationPoint": null,
                 "genesisDate": null,
                 "icon": "💡"

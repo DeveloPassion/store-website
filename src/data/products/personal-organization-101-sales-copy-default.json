@@ -3,8 +3,8 @@
     "salesCopy": {
         "tagline": "Stop Drowning in Tasks. Start Living with Intention.",
         "secondaryTagline": "The 3-Pillar System That Brings Clarity to Chaos",
-        "description": "A **90-minute workshop** revealing the complete Personal Organization System I've refined over **20+ years**—from organizing files and code to managing large IT projects, a business, and a family with **3 kids**. This isn't just productivity tips. It's the operating system for your entire life.",
-        "problem": "You're working hard but constantly overwhelmed. Your to-do list keeps growing. You've tried *GTD*, *PARA*, `Notion` templates, and productivity apps—but nothing sticks. You know what you SHOULD be doing, but can't seem to prioritize what actually matters.",
+        "description": "A **90-minute workshop** revealing the complete Personal Organization System I've refined over **20+ years**, from organizing files and code to managing large IT projects, a business, and a family with **3 kids**. This isn't just productivity tips. It's the operating system for your entire life.",
+        "problem": "You're working hard but constantly overwhelmed. Your to-do list keeps growing. You've tried *GTD*, *PARA*, `Notion` templates, and productivity apps, but nothing sticks. You know what you SHOULD be doing, but can't seem to prioritize what actually matters.",
         "problemPoints": [
             "Tired of feeling **overwhelmed** despite working hard",
             "Tried multiple systems (*GTD*, *PARA*, apps) but none stuck",
@@ -14,23 +14,23 @@
             "Juggling too many projects without a clear path",
             "Managing work, life, and side projects alone"
         ],
-        "agitate": "Here's the uncomfortable truth: without a real system, you're stuck in reactive mode. You spend hours on busywork that feels productive but moves nothing forward. Important tasks slip through the cracks. You work harder but not smarter. And that nagging feeling? That's your potential being wasted. Every system you've tried before failed because it only addressed ONE piece of the puzzle—productivity without clarity, or organization without a system for actually getting things done.",
+        "agitate": "Here's the uncomfortable truth: without a real system, you're stuck in reactive mode. You spend hours on busywork that feels productive but moves nothing forward. Important tasks slip through the cracks. You work harder but not smarter. And that nagging feeling? That's your potential being wasted. Every system you've tried before failed because it only addressed ONE piece of the puzzle: productivity without clarity, or organization without a system for actually getting things done.",
         "agitatePoints": [
             "Hours wasted on busywork that feels productive",
-            "Stuck in reactive mode—always putting out fires",
+            "Stuck in reactive mode, always putting out fires",
             "No clear path from goals to daily tasks",
             "Working hard without seeing real results",
             "Previous systems failed because they were incomplete",
             "Burning out while watching others stay calm and focused"
         ],
-        "solution": "The **3-Pillar Personal Organization System** changes everything. It's not another productivity hack—it's a complete operating system for your life that I've refined over **20+ years**. The secret? You need ALL THREE pillars working together: **Clarity** (knowing what matters), **Information Management** (organizing everything), and **Productivity** (actually getting things done). Miss one pillar and the whole thing collapses.",
+        "solution": "The **3-Pillar Personal Organization System** changes everything. It's not another productivity hack; it's a complete operating system for your life that I've refined over **20+ years**. The secret? You need ALL THREE pillars working together: **Clarity** (knowing what matters), **Information Management** (organizing everything), and **Productivity** (actually getting things done). Miss one pillar and the whole thing collapses.",
         "solutionPoints": [
-            "**Clarity System**: From life mission to daily tasks—everything aligned",
+            "**Clarity System**: From life mission to daily tasks, everything aligned",
             "**Information Management**: Every piece of information has its place",
             "**Productivity System**: Techniques that work WITHOUT relying on willpower",
             "**40+ frameworks**, methods, and mental models you can implement immediately",
             "**100+ linked resources** for deeper exploration",
-            "**Real examples** from my own system—not just theory"
+            "**Real examples** from my own system, not just theory"
         ],
         "features": [
             "**90-Minute Workshop Video**",
@@ -50,15 +50,15 @@
                 "Clear **self-assessment** of where you stand",
                 "Access to **40+ proven frameworks** you can use TODAY",
                 "**Visual overview** connecting all the pieces",
-                "Real examples from a working system—not theory"
+                "Real examples from a working system. Not theory"
             ],
             "systematic": [
                 "Crystal-clear priorities aligned across all time horizons",
-                "Organization that covers EVERYTHING—work, life, projects, family",
+                "Organization that covers EVERYTHING: work, life, projects, family",
                 "Productivity without depending on motivation or willpower",
                 "Time management that actually fits your real life",
                 "Focus mastery to eliminate distractions",
-                "Information under control—nothing falls through the cracks",
+                "Information under control. Nothing falls through the cracks",
                 "Daily actions aligned to long-term goals"
             ],
             "longTerm": [
@@ -66,7 +66,7 @@
                 "A **sustainable system** that evolves with you",
                 "The foundation for your own **LifeOS**",
                 "**Continuous improvement** built into the process",
-                "**Busy life, but zen**—not exhausted or lost"
+                "**Busy life, but zen**; not exhausted or lost"
             ]
         },
         "targetAudience": [
@@ -126,13 +126,13 @@
             },
             "creatorJourney": {
                 "title": "From Managing Code to Managing Life",
-                "story": "Over **20+ years**, I've built personal organization systems across every domain of my life—from organizing files and comic books as a teenager, to managing large-scale IT projects and infrastructure, to now balancing a half-time day job, side projects, community management, and **3 kids**. I'm **busy, but zen**. Not exhausted or lost. The system works because it evolved through real-world pressure, not theory. I'm a Knowledge Management coach and instructor, creator of the products used by thousands, and I use this exact system every day.",
+                "story": "Over **20+ years**, I've built personal organization systems across every domain of my life. From organizing files and comic books as a teenager, to managing large-scale IT projects and infrastructure, to now balancing a half-time day job, side projects, community management, and **3 kids**. I'm **busy, but zen**. Not exhausted or lost. The system works because it evolved through real-world pressure, not theory. I'm a Knowledge Management coach and instructor, creator of the products used by thousands, and I use this exact system every day.",
                 "credentials": "**20+ years** building and refining personal organization systems across IT, entrepreneurship, and life management",
                 "struggles": [
                     "Started with scattered files across multiple systems",
                     "Tried countless productivity methods that didn't stick",
                     "Learned through managing increasingly complex projects",
-                    "Discovered that isolated systems don't work—you need integration"
+                    "Discovered that isolated systems don't work. You need integration"
                 ],
                 "achievements": [
                     "Half-time day job + side projects + community + **3 kids** = still zen",
@@ -147,7 +147,7 @@
                 "title": "The Transformation You'll Experience",
                 "before": {
                     "title": "Before: Drowning in Chaos",
-                    "description": "Overwhelmed by information. Reactive mode all day. Tried systems that failed. Feeling like an imposter—appearing organized but chaos inside. Working hard but not moving forward.",
+                    "description": "Overwhelmed by information. Reactive mode all day. Tried systems that failed. Feeling like an imposter, appearing organized but chaos inside. Working hard but not moving forward.",
                     "points": [
                         "Constant overwhelm despite hard work",
                         "Systems that worked for others didn't work for you",
@@ -169,7 +169,7 @@
                 },
                 "after": {
                     "title": "After: Living with Intention",
-                    "description": "You'll have a clear roadmap. Start with your **Clarity system**—define what actually matters. Then build from there. Not overnight transformation, but **sustainable progress**. The goal? **Busy life, but zen**. Not exhausted or lost.",
+                    "description": "You'll have a clear roadmap. Start with your **Clarity system**; define what actually matters. Then build from there. Not overnight transformation, but **sustainable progress**. The goal? **Busy life, but zen**. Not exhausted or lost.",
                     "points": [
                         "Clear starting point based on YOUR assessment",
                         "**Clarity system** as foundation for everything else",
@@ -205,11 +205,11 @@
                         "order": 2
                     }
                 ],
-                "differentiation": "This isn't another app or template. It's the mental framework and principles that make ANY tool work better. Use it with `Obsidian`, `Notion`, paper—whatever fits your life."
+                "differentiation": "This isn't another app or template. It's the mental framework and principles that make ANY tool work better. Use it with `Obsidian`, `Notion`, paper; whatever fits your life."
             },
             "vision": {
                 "title": "The Bigger Picture",
-                "mission": "To help you escape overwhelm and live with intention—not by working harder, but by working smarter with systems that actually fit your life.",
+                "mission": "To help you escape overwhelm and live with intention. Not by working harder, but by working smarter with systems that actually fit your life.",
                 "values": [
                     {
                         "title": "Simplicity over complexity",
