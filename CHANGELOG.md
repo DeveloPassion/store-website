@@ -1,3 +1,8 @@
+## [0.8.1](https://github.com/DeveloPassion/store-website/compare/0.8.0...0.8.1) (2026-01-19)
+
+### Features
+
+* **all:** enable SPA fallback for cf pages ([022c405](https://github.com/DeveloPassion/store-website/commit/022c4058d41f873fff749586cef77c0fed0f583d))
 ## [0.8.0](https://github.com/DeveloPassion/store-website/compare/0.7.6...0.8.0) (2026-01-19)
 
 ### Features
