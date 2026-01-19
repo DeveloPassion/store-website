@@ -289,6 +289,10 @@ bun run ci:local           # Full CI
 12. Zod: prefer `.nullable()` over `.optional()`
 13. New pages: add navigation action to command palette (`src/components/products/command-palette.tsx`)
 
+## Writing Style
+
+See [documentation/writing-style.md](documentation/writing-style.md) for sales copy, FAQs, taglines, and descriptions.
+
 ## Claude Code Skills
 
 Skills in `.claude/skills/`:

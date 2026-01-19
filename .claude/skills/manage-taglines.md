@@ -456,6 +456,10 @@ const randomTagline = useMemo(() => {
 </p>
 ```
 
+## Writing Style
+
+See [documentation/writing-style.md](/documentation/writing-style.md) for tagline writing guidelines.
+
 ## Best Practices
 
 1. **Keep it concise**: Taglines should be punchy and memorable (under 100 characters ideal)

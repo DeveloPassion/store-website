@@ -241,6 +241,10 @@ The global FAQ currently contains 9 entries:
 
 **Note**: The "Still have questions?" section is a static element in `faq.tsx`, not part of the JSON data. It always appears last with contact links.
 
+## Writing Style
+
+See [documentation/writing-style.md](/documentation/writing-style.md) for FAQ writing guidelines.
+
 ## Content Type Guidelines
 
 Choose the right content type based on the answer structure:

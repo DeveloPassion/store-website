@@ -376,6 +376,10 @@ Always run validation before committing changes:
 bun run validate:products
 ```
 
+## Writing Style
+
+See [documentation/writing-style.md](/documentation/writing-style.md) for sales copy, FAQs, and descriptions.
+
 ## Important Notes
 
 - **Source of Truth**: `src/schemas/product.schema.ts` defines all fields and validation rules
