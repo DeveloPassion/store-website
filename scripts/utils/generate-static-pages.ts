@@ -851,6 +851,169 @@ function generateProductPageHtml(product: Product): string {
     return html
 }
 
+/**
+ * Generate WebPage JSON-LD schema for a simple page
+ */
+function generateWebPageSchema(path: string, title: string, description: string): string {
+    const pageUrl = `${BASE_URL}${path}`
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'WebPage',
+                '@id': `${pageUrl}#webpage`,
+                'name': title,
+                'description': description,
+                'url': pageUrl,
+                'creator': { '@id': `${BASE_URL}/#person` },
+                'publisher': { '@id': `${BASE_URL}/#organization` },
+                'isPartOf': {
+                    '@type': 'WebSite',
+                    '@id': `${BASE_URL}/#website`,
+                    'name': 'Knowledge Forge',
+                    'url': BASE_URL
+                },
+                'inLanguage': 'en'
+            },
+            authorSchema,
+            publisherSchema,
+            {
+                '@type': 'BreadcrumbList',
+                '@id': `${pageUrl}#breadcrumb`,
+                'itemListElement': [
+                    {
+                        '@type': 'ListItem',
+                        'position': 1,
+                        'name': 'Home',
+                        'item': BASE_URL
+                    },
+                    {
+                        '@type': 'ListItem',
+                        'position': 2,
+                        'name': title.replace(' - Knowledge Forge', ''),
+                        'item': pageUrl
+                    }
+                ]
+            }
+        ]
+    }
+
+    return JSON.stringify(schema, null, 12)
+}
+
+/**
+ * Generate customized HTML for a simple page with appropriate meta tags
+ */
+function generateSimplePageHtml(path: string, title: string, description: string): string {
+    const pageUrl = `${BASE_URL}${path}`
+
+    let html = indexHtml
+
+    // Update <title>
+    html = html.replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
+
+    // Update canonical URL
+    html = html.replace(
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+        `<link rel="canonical" href="${pageUrl}" />`
+    )
+
+    // Update meta description
+    html = html.replace(
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update Open Graph tags
+    html = html.replace(
+        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:url" content="${pageUrl}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update Twitter tags
+    html = html.replace(
+        /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:url" content="${pageUrl}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Replace JSON-LD schema with WebPage schema
+    const webPageSchema = generateWebPageSchema(path, title, description)
+    html = html.replace(
+        /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+        `<script type="application/ld+json">\n${webPageSchema}\n        </script>`
+    )
+
+    return html
+}
+
+// Define simple pages to generate
+const simplePages = [
+    { path: '/products', title: 'Products - Knowledge Forge', description: 'Browse all products' },
+    {
+        path: '/best-value',
+        title: 'Best Value - Knowledge Forge',
+        description: 'Best value products and deals'
+    },
+    {
+        path: '/best-sellers',
+        title: 'Best Sellers - Knowledge Forge',
+        description: 'Most popular products'
+    },
+    { path: '/featured', title: 'Featured - Knowledge Forge', description: 'Featured products' },
+    { path: '/help', title: 'Help - Knowledge Forge', description: 'Get help and support' },
+    { path: '/faq', title: 'FAQ - Knowledge Forge', description: 'Frequently asked questions' },
+    {
+        path: '/testimonials',
+        title: 'Testimonials - Knowledge Forge',
+        description: 'Customer testimonials and reviews'
+    },
+    {
+        path: '/compare',
+        title: 'Compare - Knowledge Forge',
+        description: 'Compare products side by side'
+    },
+    {
+        path: '/success-stories',
+        title: 'Success Stories - Knowledge Forge',
+        description: 'Customer success stories'
+    },
+    { path: '/wishlist', title: 'Wishlist - Knowledge Forge', description: 'Your saved products' },
+    {
+        path: '/shared-wishlist',
+        title: 'Shared Wishlist - Knowledge Forge',
+        description: 'View a shared wishlist'
+    }
+]
+
+// Generate simple pages
+console.log('Generating static pages for app routes...')
+let simplePageCount = 0
+for (const page of simplePages) {
+    const pageDir = join(distDir, page.path.slice(1)) // Remove leading slash
+    mkdirSync(pageDir, { recursive: true })
+    const pageHtml = generateSimplePageHtml(page.path, page.title, page.description)
+    writeFileSync(join(pageDir, 'index.html'), pageHtml)
+    simplePageCount++
+}
+console.log(`  ✓ Created ${simplePageCount} app route pages`)
+
 // Create directory and generate customized HTML for the tags index page
 console.log('Generating static page for tags index...')
 const tagsDir = join(distDir, 'tags')
@@ -909,15 +1072,16 @@ for (const product of productsData) {
 }
 console.log(`  ✓ Created ${productCount} product pages`)
 
-// Create 404.html for GitHub Pages fallback (copy of index.html)
-writeFileSync(join(distDir, '404.html'), indexHtml)
-console.log('  ✓ Created 404.html fallback')
+// Note: 404.html is intentionally NOT generated to enable Cloudflare Pages' automatic SPA fallback
+// Unknown routes are handled by React Router's catch-all route which shows NotFoundPage
 
-console.log(`\n✓ Static pages generated: ${tagCount + categoryCount + productCount + 4} total`)
+console.log(
+    `\n✓ Static pages generated: ${simplePageCount + tagCount + categoryCount + productCount + 3} total`
+)
 console.log(`  - Homepage: 1`)
+console.log(`  - App route pages: ${simplePageCount}`)
 console.log(`  - Tags index: 1`)
 console.log(`  - Individual tag pages: ${tagCount}`)
 console.log(`  - Categories index: 1`)
 console.log(`  - Individual category pages: ${categoryCount}`)
 console.log(`  - Products: ${productCount}`)
-console.log(`  - 404 fallback: 1`)
