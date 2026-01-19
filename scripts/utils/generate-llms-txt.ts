@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import type { AggregatedProduct } from '../../src/schemas/product.schema.js'
+import type { AggregatedProduct, Product } from '../../src/schemas/product.schema.js'
 import type { Category } from '../../src/schemas/category.schema.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
