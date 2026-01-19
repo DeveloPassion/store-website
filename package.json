@@ -79,6 +79,7 @@
     },
     "dependencies": {
         "@headlessui/react": "2.2.9",
+        "@leeoniya/ufuzzy": "1.0.19",
         "clsx": "2.1.1",
         "date-fns": "4.1.0",
         "framer-motion": "12.25.0",

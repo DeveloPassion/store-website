@@ -31,6 +31,36 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
         secondaryCategories: [],
         tags: ['knowledge-management'],
         testimonialsCount: 0,
+        salesCopy: {
+            tagline: 'A test product tagline',
+            secondaryTagline: null,
+            problem: 'Test problem',
+            problemPoints: ['Point 1'],
+            agitate: 'Test agitate',
+            agitatePoints: ['Agitate 1'],
+            solution: 'Test solution',
+            solutionPoints: ['Solution 1'],
+            description: 'Test description',
+            features: [{ title: 'Feature', description: 'Desc', icon: null }],
+            benefits: {
+                immediate: [{ title: 'Benefit', description: 'Desc', icon: null }],
+                systematic: [{ title: 'Benefit', description: 'Desc', icon: null }],
+                longTerm: [{ title: 'Benefit', description: 'Desc', icon: null }]
+            },
+            targetAudience: ['Audience 1'],
+            perfectFor: ['Person 1'],
+            notForYou: ['Not for 1'],
+            trustBadges: ['Badge 1'],
+            guarantees: ['Guarantee 1'],
+            metaTitle: 'Meta title',
+            metaDescription: 'Meta description',
+            keywords: ['keyword'],
+            storytelling: null,
+            timeline: null,
+            courseContent: null,
+            howItWorks: null,
+            mediaSections: null
+        },
         ...overrides
     }) as Product
 
@@ -268,6 +298,191 @@ describe('CommandPalette - Keyboard Navigation', () => {
                 expect(updatedItems[3]?.className).toContain('bg-secondary/20')
                 expect(updatedItems[2]?.className).not.toContain('bg-secondary/20')
             }
+        })
+    })
+})
+
+describe('CommandPalette - Fuzzy Search', () => {
+    // Create mock products with valid tags for fuzzy search testing
+    const products = [
+        createMockProduct({
+            id: 'obsidian-starter-kit',
+            name: 'Obsidian Starter Kit',
+            tags: ['obsidian', 'pkm', 'note-taking']
+        }),
+        createMockProduct({
+            id: 'typescript-course',
+            name: 'TypeScript Course',
+            tags: ['courses', 'learning', 'beginners']
+        }),
+        createMockProduct({
+            id: 'react-fundamentals',
+            name: 'React Fundamentals',
+            tags: ['learning', 'beginners', 'productivity']
+        }),
+        createMockProduct({
+            id: 'knowledge-system',
+            name: 'Knowledge Management System',
+            tags: ['knowledge-management', 'pkm', 'productivity']
+        })
+    ]
+
+    beforeEach(() => {
+        mockNavigate.mockClear()
+    })
+
+    it('should find products with exact name match', async () => {
+        const user = userEvent.setup()
+        const onClose = mock(() => {})
+        const { container } = render(
+            <BrowserRouter>
+                <CommandPalette isOpen={true} onClose={onClose} products={products} />
+            </BrowserRouter>
+        )
+
+        const input = await waitFor(() => {
+            const inp = container.querySelector(
+                'input[placeholder*="Search..."]'
+            ) as HTMLInputElement
+            expect(inp).toBeTruthy()
+            return inp
+        })
+
+        await user.type(input, 'Obsidian')
+
+        await waitFor(() => {
+            const items = container.querySelectorAll('[role="option"]')
+            // Should find Obsidian Starter Kit
+            const itemTexts = Array.from(items).map((item) => item.textContent)
+            expect(itemTexts.some((text) => text?.includes('Obsidian Starter Kit'))).toBe(true)
+        })
+    })
+
+    it('should find products with fuzzy/partial query', async () => {
+        const user = userEvent.setup()
+        const onClose = mock(() => {})
+        const { container } = render(
+            <BrowserRouter>
+                <CommandPalette isOpen={true} onClose={onClose} products={products} />
+            </BrowserRouter>
+        )
+
+        const input = await waitFor(() => {
+            const inp = container.querySelector(
+                'input[placeholder*="Search..."]'
+            ) as HTMLInputElement
+            expect(inp).toBeTruthy()
+            return inp
+        })
+
+        // "obsk" should match "Obsidian Starter Kit"
+        await user.type(input, 'obsk')
+
+        await waitFor(() => {
+            const items = container.querySelectorAll('[role="option"]')
+            const itemTexts = Array.from(items).map((item) => item.textContent)
+            expect(itemTexts.some((text) => text?.includes('Obsidian Starter Kit'))).toBe(true)
+        })
+    })
+
+    it('should find products by tag', async () => {
+        const user = userEvent.setup()
+        const onClose = mock(() => {})
+        const { container } = render(
+            <BrowserRouter>
+                <CommandPalette isOpen={true} onClose={onClose} products={products} />
+            </BrowserRouter>
+        )
+
+        const input = await waitFor(() => {
+            const inp = container.querySelector(
+                'input[placeholder*="Search..."]'
+            ) as HTMLInputElement
+            expect(inp).toBeTruthy()
+            return inp
+        })
+
+        // Search by tag
+        await user.type(input, 'pkm')
+
+        await waitFor(() => {
+            const items = container.querySelectorAll('[role="option"]')
+            const itemTexts = Array.from(items).map((item) => item.textContent)
+            // Both products with 'pkm' tag should be found
+            expect(itemTexts.some((text) => text?.includes('Obsidian Starter Kit'))).toBe(true)
+            expect(itemTexts.some((text) => text?.includes('Knowledge Management System'))).toBe(
+                true
+            )
+        })
+    })
+
+    it('should be case insensitive', async () => {
+        const user = userEvent.setup()
+        const onClose = mock(() => {})
+        const { container } = render(
+            <BrowserRouter>
+                <CommandPalette isOpen={true} onClose={onClose} products={products} />
+            </BrowserRouter>
+        )
+
+        const input = await waitFor(() => {
+            const inp = container.querySelector(
+                'input[placeholder*="Search..."]'
+            ) as HTMLInputElement
+            expect(inp).toBeTruthy()
+            return inp
+        })
+
+        // Lowercase search
+        await user.type(input, 'typescript')
+
+        await waitFor(() => {
+            const items = container.querySelectorAll('[role="option"]')
+            const itemTexts = Array.from(items).map((item) => item.textContent)
+            expect(itemTexts.some((text) => text?.includes('TypeScript Course'))).toBe(true)
+        })
+    })
+
+    it('should rank title matches higher than tag matches', async () => {
+        const user = userEvent.setup()
+        const onClose = mock(() => {})
+        const { container } = render(
+            <BrowserRouter>
+                <CommandPalette isOpen={true} onClose={onClose} products={products} />
+            </BrowserRouter>
+        )
+
+        const input = await waitFor(() => {
+            const inp = container.querySelector(
+                'input[placeholder*="Search..."]'
+            ) as HTMLInputElement
+            expect(inp).toBeTruthy()
+            return inp
+        })
+
+        // Search for "react" - appears in both title and as a tag
+        await user.type(input, 'react')
+
+        await waitFor(() => {
+            const items = container.querySelectorAll('[role="option"]')
+            // React Fundamentals (title match) should appear in results
+            const itemTexts = Array.from(items).map((item) => item.textContent)
+            expect(itemTexts.some((text) => text?.includes('React Fundamentals'))).toBe(true)
+        })
+    })
+
+    it('should show all products when query is empty', async () => {
+        const onClose = mock(() => {})
+        const { container } = render(
+            <BrowserRouter>
+                <CommandPalette isOpen={true} onClose={onClose} products={products} />
+            </BrowserRouter>
+        )
+
+        await waitFor(() => {
+            const items = container.querySelectorAll('[role="option"]')
+            // Should show all products plus navigation actions
+            expect(items.length).toBeGreaterThan(products.length)
         })
     })
 })

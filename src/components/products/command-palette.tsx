@@ -21,9 +21,20 @@ import {
     FaLifeRing
 } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
+import { fuzzySearch, type FuzzySearchConfig } from '@/lib/fuzzy-search'
 import type { Product } from '@/schemas/product.schema'
 import type { Category } from '@/schemas/category.schema'
 import categoriesData from '@/data/categories.json'
+
+// Field weights for fuzzy search
+const SEARCH_CONFIG: FuzzySearchConfig<'title' | 'subtitle' | 'tags' | 'categories'> = {
+    fields: {
+        title: { weight: 5 },
+        subtitle: { weight: 3 },
+        tags: { weight: 2 },
+        categories: { weight: 1 }
+    }
+}
 
 interface CommandPaletteProps {
     isOpen: boolean
@@ -309,7 +320,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
         return cmds
     }, [products, uniqueTags, navigate, onClose])
 
-    // Filter commands based on query
+    // Filter commands based on query using fuzzy search
     const filteredCommands = useMemo(() => {
         if (!query.trim()) {
             // Show products, main actions, and only featured categories when no query
@@ -325,18 +336,22 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             })
         }
 
-        const lowerQuery = query.toLowerCase()
-        return commands.filter((cmd) => {
-            const titleMatch = cmd.title.toLowerCase().includes(lowerQuery)
-            const subtitleMatch = cmd.subtitle?.toLowerCase().includes(lowerQuery)
-            const productTags = cmd.product?.tags.some((t) => t.toLowerCase().includes(lowerQuery))
-            const productCategories = cmd.product
-                ? [
-                      cmd.product.mainCategory,
-                      ...cmd.product.secondaryCategories.map((sc) => sc.id)
-                  ].some((c) => c.toLowerCase().includes(lowerQuery))
-                : false
-            return titleMatch || subtitleMatch || productTags || productCategories
+        // Use fuzzy search for better matching
+        return fuzzySearch(commands, query, SEARCH_CONFIG, (cmd, field) => {
+            switch (field) {
+                case 'title':
+                    return cmd.title
+                case 'subtitle':
+                    return cmd.subtitle ?? null
+                case 'tags':
+                    return cmd.product?.tags ?? []
+                case 'categories':
+                    if (!cmd.product) return []
+                    return [
+                        cmd.product.mainCategory,
+                        ...cmd.product.secondaryCategories.map((sc) => sc.id)
+                    ]
+            }
         })
     }, [commands, query])
 
