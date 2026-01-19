@@ -26,9 +26,9 @@
             "**Pre-configured plugins** that actually work together",
             "*Zettelkasten*, *PARA*, *Johnny Decimal*, *GTD* built in and explained",
             "Scales from **10 notes to 10,000+** without breaking down",
-            "**AI-ready** with `Claude` and `MCP` integration for modern knowledge work"
+            "**AI-ready** with full compatibility with `ChatGPT`, `Codex`, `Claude`, `Claude Code`, `Gemini`, `MCP`, and more. Perfect for modern knowledge work"
         ],
-        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/)—a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and books.",
+        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books.",
         "features": [
             "**Clearly defined note types** with structured properties and automation",
             "**40+ specialized templates** for every content type that auto-file themselves",
@@ -40,7 +40,7 @@
             "**Zero manual filing**. Everything organizes automatically.",
             "**Hierarchical tags system** to find any note in **3 seconds**",
             "First-class `Obsidian Bases` support for database-like views",
-            "**AI-ready architecture** with `Claude Code` and `MCP` integration",
+            "**AI-ready architecture** with full compatibility with `ChatGPT`, `Codex`, `Claude`, `Claude Code`, `Gemini`, `MCP`, and more.",
             "**Visual thinking support** with drawings and diagrams",
             "**Pre-configured settings** optimized for productivity",
             "**100+ page** user guide",
@@ -59,7 +59,7 @@
                 "Scale from **10 notes to 10,000+** without your system breaking down",
                 "**Automated organization** that reduces decision fatigue to zero",
                 "**Clear workflows** for every type of information you capture",
-                "**AI-ready structure** so tools like `Claude` can actually help you",
+                "**AI-ready structure** so tools like `ChatGPT`, `Claude`, `Claude Code`, `Gemini` and many others can actually help you",
                 "**Sustainable habits** with built-in journaling and review systems"
             ],
             "longTerm": [
@@ -127,7 +127,7 @@
             "originStory": {
                 "title": "Why I Built the Obsidian Starter Kit",
                 "subtitle": "20+ Years of Knowledge Management, Distilled",
-                "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and use knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. Eventually, I built something that worked. A system that scaled from my first notes to tens of thousands, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome (spending months recreating mistakes I'd already solved) that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
+                "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and use knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly (many times) and refined relentlessly. Eventually, I learned my lessons and ended up with a solid system. A system that scaled from my first notes to 10K+, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome (spending months recreating mistakes I'd already solved) that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
                 "inspirationPoint": "Watching talented people waste months on problems I had already solved",
                 "genesisDate": "Refined over 20+ years, shared since 2022",
                 "icon": "💡"
@@ -135,7 +135,7 @@
             "creatorJourney": {
                 "title": "My Journey Through Knowledge Chaos",
                 "subtitle": "From Scattered Notes to Systematic Mastery",
-                "story": "Before I had this system, I lived with constant background anxiety. Important ideas would slip away. I'd capture something brilliant and never find it again. My information was scattered across tools that never talked to each other. And I was the only connection point, relying on my memory to bridge the gaps. The creative blocks were the worst part. I knew I had the pieces, but I couldn't connect them. I felt less competent than I should have been, struggling to use my own thinking. Sound familiar? That's exactly why I spent years refining this system. So you don't have to. Today, I use OSK daily with AI tools like Claude, and my knowledge genuinely compounds. Every note I create makes me more capable. That's how I've been able to write hundreds of articles, newsletters, and books—and share a [free public knowledge base](https://notes.dsebastien.net/) full of everything I've learned about knowledge management. That's what I want for you.",
+                "story": "Before I had this system, I lived with constant background anxiety. Important ideas would slip away. I'd capture something brilliant and never find it again. My information was scattered across tools that never talked to each other. And I was the only connection point, relying on my memory to bridge the gaps. The creative blocks were the worst part. I knew I had the pieces, but I couldn't connect them. I felt less competent than I should have been, struggling to use my own thinking. Sound familiar? That's exactly why I spent years refining this system. So you don't have to. Today, I use OSK daily with AI tools like Claude, and my knowledge genuinely compounds. Every note I create makes me more capable. That's how I've been able to write hundreds of articles, newsletters, books, and share a [free public knowledge base](https://notes.dsebastien.net/) full of everything I've learned about knowledge management. That's what I want for you.",
                 "struggles": [
                     "Anxiety about forgetting insights I knew I had captured somewhere",
                     "Information scattered across multiple tools that never connected",
@@ -294,7 +294,7 @@
                     }
                 ],
                 "philosophy": "Most PKM systems fail because they require constant effort to maintain. OSK works because the system works for you, freeing your energy for what actually matters: thinking, creating, growing.",
-                "differentiation": "Unlike templates that give you empty structures or tutorials that leave you to figure out implementation, OSK is a complete, working system refined over 20+ years of real-world use. It's not theory. It's what I actually use every single day."
+                "differentiation": "Unlike templates that give you empty structures or tutorials that leave you to figure out implementation, OSK is a complete, working and battle-tested system. It is based on techniques I've refined and mastered over 20+ years. It's not theory. It's what I actually use every single day."
             },
             "vision": {
                 "title": "Where This Takes You",
@@ -325,7 +325,7 @@
                 "futureGoals": [
                     "Help you reach 10,000+ notes with zero chaos",
                     "Let you write and create directly from your knowledge",
-                    "Make AI tools like Claude genuinely useful for your workflow",
+                    "Make AI tools like ChatGPT and Claude genuinely useful for your workflow",
                     "Give you confidence that your system will serve you for life"
                 ],
                 "biggerPicture": "In a world of information overload, the people who thrive are those who can capture, connect, and use knowledge systematically. OSK is your foundation for becoming one of them.",
