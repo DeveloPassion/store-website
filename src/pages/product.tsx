@@ -26,8 +26,21 @@ import type { PaymentFrequency } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
+/**
+ * Wrapper component that forces remount when productSlug changes.
+ * This ensures useState initializers run fresh for each product,
+ * preventing stale state when navigating via command palette.
+ */
 const ProductPage: React.FC = () => {
     const { productSlug } = useParams<{ productSlug: string }>()
+    return <ProductPageContent key={productSlug} productSlug={productSlug} />
+}
+
+interface ProductPageContentProps {
+    productSlug: string | undefined
+}
+
+const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) => {
     const navigate = useNavigate()
     const heroBuyButtonRef = useRef<HTMLAnchorElement>(null)
 

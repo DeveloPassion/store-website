@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -82,14 +82,8 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     const displayPrice = getDisplayPrice()
     const isFree = product.price === 0 || product.priceTier === 'free'
 
-    // Wishlist state
+    // Wishlist state - no useEffect needed since ProductPage uses key-based remounting
     const [isWishlisted, setIsWishlisted] = useState(() => isInWishlist(product.id))
-
-    // Update wishlist status when product changes
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setIsWishlisted(isInWishlist(product.id))
-    }, [product.id])
 
     const handleWishlist = (e: React.MouseEvent) => {
         e.preventDefault()

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useCallback } from 'react'
 import { Link } from 'react-router'
 import { FaShoppingCart, FaHeart, FaRegHeart, FaStar, FaTrophy, FaFire } from 'react-icons/fa'
 import type { Product } from '@/schemas/product.schema'
@@ -8,6 +8,7 @@ import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { useSyncedState } from '@/hooks/use-synced-state'
 
 interface ProductCardEcommerceProps {
     product: Product
@@ -20,15 +21,9 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
     onAddToCart,
     compactBadges = false
 }) => {
-    // Initialize with actual wishlist status to avoid cascading renders
-    const [isWishlisted, setIsWishlisted] = useState(() => isInWishlist(product.id))
-
-    // Update wishlist status when product changes (different product ID)
-    // This is intentional to handle product prop changes
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setIsWishlisted(isInWishlist(product.id))
-    }, [product.id])
+    // Wishlist state - resets when product.id changes
+    const getWishlistStatus = useCallback(() => isInWishlist(product.id), [product.id])
+    const [isWishlisted, setIsWishlisted] = useSyncedState(product.id, getWishlistStatus)
 
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault()
