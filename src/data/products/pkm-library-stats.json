@@ -1,6 +1,9 @@
 {
     "data": {
-        "userCount": "300+",
+        "userCount": {
+            "value": "300+",
+            "label": "Explorers"
+        },
         "timeSaved": "Hundreds of hours of research",
         "ratings": {
             "gumroad": [
@@ -90,6 +93,7 @@
                     "date": "2021-12-15"
                 }
             ]
-        }
+        },
+        "additionalStats": []
     }
 }

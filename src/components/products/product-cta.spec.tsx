@@ -224,18 +224,21 @@ describe('ProductCTA Component', () => {
             stats: {
                 userCount: '10,000+',
                 timeSaved: null,
-                ratings: {}
+                ratings: {},
+                additionalStats: []
             },
             averageRating: 4.9,
             ratingsCount: 100
         })
-        const { getByText } = renderWithRouter(<ProductCTA product={product} />)
+        const { getByText, getByRole } = renderWithRouter(<ProductCTA product={product} />)
 
         expect(getByText('10,000+')).toBeInTheDocument()
         expect(getByText('Happy Users')).toBeInTheDocument()
         expect(getByText('4.9')).toBeInTheDocument()
-        expect(getByText(/Average Rating/)).toBeInTheDocument()
         expect(getByText('100 reviews')).toBeInTheDocument()
+        // Verify the reviews link to testimonials page
+        const reviewsLink = getByRole('link', { name: /4\.9.*100 reviews/i })
+        expect(reviewsLink).toHaveAttribute('href', '/testimonials?product=test-product')
     })
 
     it('should not render stats proof section when not provided', () => {
@@ -243,7 +246,7 @@ describe('ProductCTA Component', () => {
         const { queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
         expect(queryByText('Happy Users')).not.toBeInTheDocument()
-        expect(queryByText('Average Rating')).not.toBeInTheDocument()
+        expect(queryByText(/reviews/)).not.toBeInTheDocument()
     })
 
     it('should display stats proof partially when only some fields provided', () => {
@@ -251,14 +254,15 @@ describe('ProductCTA Component', () => {
             stats: {
                 userCount: '5,000+',
                 timeSaved: null,
-                ratings: {}
+                ratings: {},
+                additionalStats: []
             }
         })
         const { getByText, queryByText } = renderWithRouter(<ProductCTA product={product} />)
 
         expect(getByText('5,000+')).toBeInTheDocument()
         expect(getByText('Happy Users')).toBeInTheDocument()
-        expect(queryByText('Average Rating')).not.toBeInTheDocument()
+        expect(queryByText(/reviews/)).not.toBeInTheDocument()
     })
 
     it('should have proper styling classes', () => {

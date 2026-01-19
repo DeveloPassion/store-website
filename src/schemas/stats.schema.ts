@@ -3,7 +3,7 @@ import { z } from 'zod'
 /**
  * Stats Schema - Statistics and ratings for products
  * SINGLE SOURCE OF TRUTH for product stats types and validation
- * Last updated: 2026-01-13
+ * Last updated: 2026-01-18
  *
  * Stats are stored in product-specific files:
  * src/data/products/{product-id}-stats.json
@@ -29,13 +29,45 @@ export const RatingSchema = z.object({
 export const RatingsSchema = z.record(z.string(), z.array(RatingSchema))
 
 /**
+ * StatItem Schema - Flexible stat value with optional custom label
+ *
+ * Accepts either:
+ * - Simple string (backward compatible): "350+" → uses default label
+ * - Object with value and optional label: { value: "350+", label: "Members" }
+ *
+ * This allows custom labels like "Members" or "Students" instead of default "Users"
+ */
+export const StatItemSchema = z.union([
+    z.string().min(1), // Simple string, uses default label
+    z.object({
+        value: z.string().min(1, 'Stat value is required'),
+        label: z.string().nullable() // null = use default label
+    })
+])
+
+/**
+ * Additional stat item with required value, label, and optional link
+ * These are custom stats beyond the predefined userCount, timeSaved, and ratings
+ *
+ * @example
+ * { value: "50+", label: "Countries", link: null }
+ * { value: "1M+", label: "Messages", link: "#community-stats" }
+ */
+export const AdditionalStatSchema = z.object({
+    value: z.string().min(1, 'Value is required'),
+    label: z.string().min(1, 'Label is required'),
+    link: z.string().url().nullable() // If set, makes the stat block clickable
+})
+
+/**
  * Stats Schema
  * Contains social proof statistics and ratings for a product
  */
 export const StatsSchema = z.object({
-    userCount: z.string().nullable(), // e.g., "2,000+ users"
-    timeSaved: z.string().nullable(), // e.g., "10+ hours/week"
-    ratings: RatingsSchema.nullable() // Nullable: grouped ratings by source
+    userCount: StatItemSchema.nullable(), // e.g., "2,000+" or { value: "2,000+", label: "Members" }
+    timeSaved: StatItemSchema.nullable(), // e.g., "10+ hours/week"
+    ratings: RatingsSchema.nullable(), // Nullable: grouped ratings by source
+    additionalStats: z.array(AdditionalStatSchema) // Required, can be empty []
 })
 
 /**
@@ -49,5 +81,7 @@ export const StatsFileSchema = z.object({
 // Export TypeScript types derived from Zod schemas
 export type Rating = z.infer<typeof RatingSchema>
 export type Ratings = z.infer<typeof RatingsSchema>
+export type StatItem = z.infer<typeof StatItemSchema>
+export type AdditionalStat = z.infer<typeof AdditionalStatSchema>
 export type Stats = z.infer<typeof StatsSchema>
 export type StatsFile = z.infer<typeof StatsFileSchema>

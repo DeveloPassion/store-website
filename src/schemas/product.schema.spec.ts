@@ -323,7 +323,8 @@ describe('Product Schema Validation', () => {
                 timeSaved: '20 hours/month',
                 ratings: {
                     gumroad: [{ id: 'gum-1', rating: 5, date: '2026-01-10' }]
-                }
+                },
+                additionalStats: []
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -334,7 +335,8 @@ describe('Product Schema Validation', () => {
                 timeSaved: null,
                 ratings: {
                     gumroad: [{ id: 'gum-1', rating: 5, date: null }]
-                }
+                },
+                additionalStats: []
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -343,7 +345,8 @@ describe('Product Schema Validation', () => {
             const valid = {
                 userCount: '5,000+',
                 timeSaved: null,
-                ratings: null
+                ratings: null,
+                additionalStats: []
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -352,7 +355,8 @@ describe('Product Schema Validation', () => {
             const valid = {
                 userCount: null,
                 timeSaved: null,
-                ratings: null
+                ratings: null,
+                additionalStats: []
             }
             expect(() => StatsSchema.parse(valid)).not.toThrow()
         })
@@ -360,7 +364,51 @@ describe('Product Schema Validation', () => {
         it('should reject stats without userCount field', () => {
             const invalid = {
                 timeSaved: null,
-                ratings: null
+                ratings: null,
+                additionalStats: []
+            }
+            expect(() => StatsSchema.parse(invalid)).toThrow()
+        })
+
+        it('should accept stats with additional stats', () => {
+            const valid = {
+                userCount: '1,000+',
+                timeSaved: null,
+                ratings: null,
+                additionalStats: [
+                    { value: '50+', label: 'Countries', link: null },
+                    { value: '1M+', label: 'Messages', link: 'https://example.com/stats' }
+                ]
+            }
+            expect(() => StatsSchema.parse(valid)).not.toThrow()
+        })
+
+        it('should reject additional stats without required value', () => {
+            const invalid = {
+                userCount: null,
+                timeSaved: null,
+                ratings: null,
+                additionalStats: [{ label: 'Test', link: null }]
+            }
+            expect(() => StatsSchema.parse(invalid)).toThrow()
+        })
+
+        it('should reject additional stats without required label', () => {
+            const invalid = {
+                userCount: null,
+                timeSaved: null,
+                ratings: null,
+                additionalStats: [{ value: '100+', link: null }]
+            }
+            expect(() => StatsSchema.parse(invalid)).toThrow()
+        })
+
+        it('should reject additional stats with invalid link URL', () => {
+            const invalid = {
+                userCount: null,
+                timeSaved: null,
+                ratings: null,
+                additionalStats: [{ value: '100+', label: 'Test', link: 'not-a-url' }]
             }
             expect(() => StatsSchema.parse(invalid)).toThrow()
         })

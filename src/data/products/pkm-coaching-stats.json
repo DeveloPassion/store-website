@@ -1,6 +1,10 @@
 {
     "data": {
-        "userCount": "100+",
+        "userCount": {
+            "value": "100+",
+            "label": "Clients"
+        },
+        "timeSaved": null,
         "ratings": {
             "gumroad": [
                 {
@@ -15,6 +19,6 @@
                 }
             ]
         },
-        "timeSaved": null
+        "additionalStats": []
     }
 }

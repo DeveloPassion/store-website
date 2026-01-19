@@ -1,7 +1,11 @@
 {
     "data": {
-        "userCount": "10+",
+        "userCount": {
+            "value": "10+",
+            "label": "Organized People"
+        },
         "timeSaved": "Hours saved weekly",
-        "ratings": null
+        "ratings": null,
+        "additionalStats": []
     }
 }

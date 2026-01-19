@@ -55,6 +55,27 @@ describe('parseUserCount', () => {
         expect(parseUserCount('many users')).toBe(0)
         expect(parseUserCount('N/A')).toBe(0)
     })
+
+    describe('with object format (StatItem)', () => {
+        it('should parse value from object with custom label', () => {
+            expect(parseUserCount({ value: '350+', label: 'Members' })).toBe(350)
+            expect(parseUserCount({ value: '100+', label: 'Students' })).toBe(100)
+        })
+
+        it('should parse value from object with null label', () => {
+            expect(parseUserCount({ value: '1,000+', label: null })).toBe(1000)
+        })
+
+        it('should parse complex values from object', () => {
+            expect(parseUserCount({ value: '2,500+ users', label: 'Clients' })).toBe(2500)
+        })
+
+        it('should handle mixed products with string and object formats', () => {
+            // This ensures backward compatibility works when mixed
+            expect(parseUserCount('500+')).toBe(500)
+            expect(parseUserCount({ value: '500+', label: 'Members' })).toBe(500)
+        })
+    })
 })
 
 describe('formatCustomerCount', () => {
@@ -175,11 +196,23 @@ describe('calculateProductStats', () => {
     it('should sum customer counts from multiple products', () => {
         const products = [
             createMockProduct({
-                stats: { userCount: '1,000+ users', timeSaved: null, ratings: null }
+                stats: {
+                    userCount: '1,000+ users',
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: []
+                }
             }),
-            createMockProduct({ stats: { userCount: '500', timeSaved: null, ratings: null } }),
             createMockProduct({
-                stats: { userCount: '2,500+ students', timeSaved: null, ratings: null }
+                stats: { userCount: '500', timeSaved: null, ratings: null, additionalStats: [] }
+            }),
+            createMockProduct({
+                stats: {
+                    userCount: '2,500+ students',
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: []
+                }
             })
         ]
         const result = calculateProductStats(products)
@@ -224,7 +257,9 @@ describe('calculateProductStats', () => {
     it('should handle products without stats', () => {
         const products = [
             createMockProduct({ stats: null }),
-            createMockProduct({ stats: { userCount: null, timeSaved: null, ratings: null } })
+            createMockProduct({
+                stats: { userCount: null, timeSaved: null, ratings: null, additionalStats: [] }
+            })
         ]
         const result = calculateProductStats(products)
         expect(result.totalCustomers).toBe(0)
@@ -234,7 +269,12 @@ describe('calculateProductStats', () => {
     it('should calculate all stats together', () => {
         const products = [
             createMockProduct({
-                stats: { userCount: '1,500+ users', timeSaved: null, ratings: null },
+                stats: {
+                    userCount: '1,500+ users',
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: []
+                },
                 testimonials: [
                     createTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
                     createTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
@@ -242,7 +282,7 @@ describe('calculateProductStats', () => {
                 averageRating: 4.8
             }),
             createMockProduct({
-                stats: { userCount: '500', timeSaved: null, ratings: null },
+                stats: { userCount: '500', timeSaved: null, ratings: null, additionalStats: [] },
                 testimonials: [
                     createTestimonial({
                         id: '3',
@@ -260,5 +300,37 @@ describe('calculateProductStats', () => {
         expect(result.totalTestimonials).toBe(3)
         expect(result.averageRating).toBe(4.9)
         expect(result.productsWithRatings).toBe(2)
+    })
+
+    it('should handle mixed string and object stat formats', () => {
+        const products = [
+            createMockProduct({
+                stats: {
+                    userCount: '1,000+ users',
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: []
+                }
+            }),
+            createMockProduct({
+                stats: {
+                    userCount: { value: '500+', label: 'Members' },
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: []
+                }
+            }),
+            createMockProduct({
+                stats: {
+                    userCount: { value: '200+', label: null },
+                    timeSaved: null,
+                    ratings: null,
+                    additionalStats: []
+                }
+            })
+        ]
+        const result = calculateProductStats(products)
+        expect(result.totalCustomers).toBe(1700)
+        expect(result.formattedCustomers).toBe('1.5K+')
     })
 })

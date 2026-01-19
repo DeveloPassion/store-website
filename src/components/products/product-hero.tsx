@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
+import { Link } from 'react-router'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
+import { resolveStatItem } from '@/lib/stats-helpers'
 import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
 import { Button } from '@/components/ui/button'
@@ -171,41 +173,78 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         {/* Stats Proof */}
                         {(product.stats || product.averageRating !== undefined) && (
                             <div className='mb-8 flex flex-wrap gap-6'>
-                                {product.stats?.userCount && (
-                                    <div>
+                                {(() => {
+                                    const userCountStat = resolveStatItem(
+                                        product.stats?.userCount,
+                                        'Users'
+                                    )
+                                    return (
+                                        userCountStat && (
+                                            <div>
+                                                <div className='text-secondary text-2xl font-bold sm:text-3xl'>
+                                                    {userCountStat.value}
+                                                </div>
+                                                <div className='text-primary/60 text-sm'>
+                                                    {userCountStat.label}
+                                                </div>
+                                            </div>
+                                        )
+                                    )
+                                })()}
+                                {(() => {
+                                    const timeSavedStat = resolveStatItem(
+                                        product.stats?.timeSaved,
+                                        'Time Saved'
+                                    )
+                                    return (
+                                        timeSavedStat && (
+                                            <div>
+                                                <div className='text-secondary text-2xl font-bold sm:text-3xl'>
+                                                    {timeSavedStat.value}
+                                                </div>
+                                                <div className='text-primary/60 text-sm'>
+                                                    {timeSavedStat.label}
+                                                </div>
+                                            </div>
+                                        )
+                                    )
+                                })()}
+                                {/* Additional Stats */}
+                                {product.stats?.additionalStats?.map((stat, index) => (
+                                    <div key={index}>
                                         <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                            {product.stats.userCount}
+                                            {stat.value}
                                         </div>
-                                        <div className='text-primary/60 text-sm'>Users</div>
-                                    </div>
-                                )}
-                                {product.stats?.timeSaved && (
-                                    <div>
-                                        <div className='text-secondary text-2xl font-bold sm:text-3xl'>
-                                            {product.stats.timeSaved}
+                                        <div className='text-primary/60 text-sm'>
+                                            {stat.link ? (
+                                                <a
+                                                    href={stat.link}
+                                                    className='hover:text-secondary underline transition-colors'
+                                                >
+                                                    {stat.label}
+                                                </a>
+                                            ) : (
+                                                stat.label
+                                            )}
                                         </div>
-                                        <div className='text-primary/60 text-sm'>Time Saved</div>
                                     </div>
-                                )}
+                                ))}
                                 {product.averageRating != null &&
                                     product.ratingsCount != null &&
                                     product.ratingsCount > 0 && (
-                                        <div>
+                                        <Link
+                                            to={`/testimonials?product=${product.id}`}
+                                            className='hover:bg-primary/5 group -m-2 rounded-lg p-2 transition-colors'
+                                        >
                                             <div className='flex items-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl'>
                                                 {product.averageRating.toFixed(1)}
                                                 <FaStar className='h-5 w-5 sm:h-6 sm:w-6' />
                                             </div>
-                                            <div className='text-primary/60 text-sm'>
-                                                Rating (
-                                                <a
-                                                    href='#testimonials'
-                                                    className='hover:text-secondary underline transition-colors'
-                                                >
-                                                    {product.ratingsCount}
-                                                </a>
-                                                )
+                                            <div className='text-primary/60 group-hover:text-secondary text-sm transition-colors'>
+                                                {product.ratingsCount}{' '}
+                                                {product.ratingsCount === 1 ? 'rating' : 'ratings'}
                                             </div>
-                                        </div>
+                                        </Link>
                                     )}
                             </div>
                         )}

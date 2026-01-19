@@ -1,4 +1,6 @@
 import type { Product } from '@/schemas/product.schema'
+import type { StatItem } from '@/schemas/stats.schema'
+import { getStatValue } from '@/lib/stats-helpers'
 
 export interface ProductStats {
     totalCustomers: number
@@ -9,11 +11,18 @@ export interface ProductStats {
 }
 
 /**
- * Parse a userCount string like "2,000+ users" or "500+" into a number
+ * Parse a userCount (string or StatItem object) into a number.
+ * Handles both legacy string format and new object format with custom labels.
+ *
+ * @example
+ * parseUserCount("2,000+ users") → 2000
+ * parseUserCount({ value: "350+", label: "Members" }) → 350
  */
-export function parseUserCount(userCount: string | undefined | null): number {
-    if (!userCount) return 0
-    const cleaned = userCount.replace(/,/g, '')
+export function parseUserCount(userCount: string | StatItem | undefined | null): number {
+    // Extract the value string from StatItem (handles both string and object)
+    const value = getStatValue(userCount as StatItem | undefined | null)
+    if (!value) return 0
+    const cleaned = value.replace(/,/g, '')
     const match = cleaned.match(/\d+/)
     return match ? parseInt(match[0], 10) : 0
 }

@@ -129,7 +129,13 @@ import { TagIdSchema } from '../src/schemas/tag.schema.js'
 import { CategoriesArraySchema } from '../src/schemas/category.schema.js'
 import { FAQFileSchema } from '../src/schemas/faq.schema.js'
 import { TestimonialFileSchema } from '../src/schemas/testimonial.schema.js'
-import { StatsFileSchema, type Stats, type Rating } from '../src/schemas/stats.schema.js'
+import {
+    StatsFileSchema,
+    type Stats,
+    type Rating,
+    type StatItem,
+    type AdditionalStat
+} from '../src/schemas/stats.schema.js'
 import { SalesCopyFileSchema } from '../src/schemas/sales-copy.schema.js'
 import { discoverSalesCopyFiles } from './utils/aggregate-products.js'
 import type { Product, SecondaryCategory } from '../src/types/product'
@@ -935,6 +941,15 @@ function countTotalRatings(stats: Stats | null): number {
     return Object.values(stats.ratings).reduce((total, ratings) => total + ratings.length, 0)
 }
 
+function formatStatItemDisplay(stat: StatItem | null | undefined, defaultLabel: string): string {
+    if (!stat) return ''
+    if (typeof stat === 'string') {
+        return `${stat} ${colors.dim}(default: "${defaultLabel}")${colors.reset}`
+    }
+    const label = stat.label ?? defaultLabel
+    return `${stat.value} ${colors.dim}(label: "${label}")${colors.reset}`
+}
+
 function formatStatsDisplay(stats: Stats | null): string {
     if (!stats) {
         return `${colors.dim}No stats configured${colors.reset}`
@@ -943,11 +958,13 @@ function formatStatsDisplay(stats: Stats | null): string {
     const lines: string[] = []
 
     if (stats.userCount) {
-        lines.push(`   User Count: ${colors.cyan}${stats.userCount}${colors.reset}`)
+        const display = formatStatItemDisplay(stats.userCount, 'Users')
+        lines.push(`   User Count: ${colors.cyan}${display}`)
     }
 
     if (stats.timeSaved) {
-        lines.push(`   Time Saved: ${colors.cyan}${stats.timeSaved}${colors.reset}`)
+        const display = formatStatItemDisplay(stats.timeSaved, 'Time Saved')
+        lines.push(`   Time Saved: ${colors.cyan}${display}`)
     }
 
     if (stats.ratings && Object.keys(stats.ratings).length > 0) {
@@ -962,6 +979,16 @@ function formatStatsDisplay(stats: Stats | null): string {
                     `     • ${source}: ${ratings.length} ratings (avg: ${avgRating.toFixed(1)})`
                 )
             }
+        }
+    }
+
+    if (stats.additionalStats && stats.additionalStats.length > 0) {
+        lines.push(
+            `   Additional Stats: ${colors.cyan}${stats.additionalStats.length} items${colors.reset}`
+        )
+        for (const stat of stats.additionalStats) {
+            const linkInfo = stat.link ? ` [${stat.link}]` : ''
+            lines.push(`     • ${stat.value} - ${stat.label}${linkInfo}`)
         }
     }
 
@@ -3069,13 +3096,18 @@ async function manageStats(product: Product): Promise<void> {
         const stats = loadStats(PRODUCTS_DIR, product.id)
         const totalRatings = countTotalRatings(stats)
 
+        const additionalCount = stats?.additionalStats?.length ?? 0
         const action = await select({
-            message: `Stats Management (${totalRatings} ratings):`,
+            message: `Stats Management (${totalRatings} ratings, ${additionalCount} additional):`,
             choices: [
                 { name: '📊 View current stats', value: 'view' },
                 { name: '👥 Edit user count', value: 'userCount' },
                 { name: '⏱️ Edit time saved', value: 'timeSaved' },
                 { name: '⭐ Manage ratings', value: 'ratings' },
+                {
+                    name: `📈 Manage additional stats (${additionalCount})`,
+                    value: 'additionalStats'
+                },
                 { name: '← Back', value: 'back' }
             ],
             pageSize: 10
@@ -3100,18 +3132,45 @@ async function manageStats(product: Product): Promise<void> {
                     break
                 }
                 case 'userCount': {
+                    // Extract current value and label
+                    const currentValue =
+                        typeof stats?.userCount === 'string'
+                            ? stats.userCount
+                            : stats?.userCount?.value || ''
+                    const currentLabel =
+                        typeof stats?.userCount === 'object' ? stats.userCount?.label : null
+
                     const answers = await inquirer.prompt([
                         {
                             type: 'input',
-                            name: 'userCount',
-                            message: 'User count (e.g., "2,000+ users", leave empty to clear):',
-                            default: stats?.userCount || ''
+                            name: 'value',
+                            message: 'User count value (e.g., "2,000+", leave empty to clear):',
+                            default: currentValue
+                        },
+                        {
+                            type: 'input',
+                            name: 'label',
+                            message:
+                                'Custom label (e.g., "Members", "Students", leave empty for default "Users"):',
+                            default: currentLabel || '',
+                            when: (ans: { value: string }) => !!ans.value
                         }
                     ])
 
+                    let userCount: StatItem | null = null
+                    if (answers.value) {
+                        if (answers.label) {
+                            // Use object format with custom label
+                            userCount = { value: answers.value, label: answers.label }
+                        } else {
+                            // Use simple string format (backward compatible)
+                            userCount = answers.value
+                        }
+                    }
+
                     const updatedStats: Stats = {
                         ...stats,
-                        userCount: answers.userCount || undefined
+                        userCount
                     }
                     saveStats(PRODUCTS_DIR, product.id, updatedStats)
                     showSuccess('User count updated')
@@ -3119,18 +3178,45 @@ async function manageStats(product: Product): Promise<void> {
                     break
                 }
                 case 'timeSaved': {
+                    // Extract current value and label
+                    const currentValue =
+                        typeof stats?.timeSaved === 'string'
+                            ? stats.timeSaved
+                            : stats?.timeSaved?.value || ''
+                    const currentLabel =
+                        typeof stats?.timeSaved === 'object' ? stats.timeSaved?.label : null
+
                     const answers = await inquirer.prompt([
                         {
                             type: 'input',
-                            name: 'timeSaved',
-                            message: 'Time saved (e.g., "10+ hours/week", leave empty to clear):',
-                            default: stats?.timeSaved || ''
+                            name: 'value',
+                            message:
+                                'Time saved value (e.g., "10+ hours/week", leave empty to clear):',
+                            default: currentValue
+                        },
+                        {
+                            type: 'input',
+                            name: 'label',
+                            message: 'Custom label (leave empty for default "Time Saved"):',
+                            default: currentLabel || '',
+                            when: (ans: { value: string }) => !!ans.value
                         }
                     ])
 
+                    let timeSaved: StatItem | null = null
+                    if (answers.value) {
+                        if (answers.label) {
+                            // Use object format with custom label
+                            timeSaved = { value: answers.value, label: answers.label }
+                        } else {
+                            // Use simple string format (backward compatible)
+                            timeSaved = answers.value
+                        }
+                    }
+
                     const updatedStats: Stats = {
                         ...stats,
-                        timeSaved: answers.timeSaved || undefined
+                        timeSaved
                     }
                     saveStats(PRODUCTS_DIR, product.id, updatedStats)
                     showSuccess('Time saved updated')
@@ -3139,6 +3225,10 @@ async function manageStats(product: Product): Promise<void> {
                 }
                 case 'ratings': {
                     await manageRatings(product, stats)
+                    break
+                }
+                case 'additionalStats': {
+                    await manageAdditionalStats(product, stats)
                     break
                 }
             }
@@ -3290,6 +3380,249 @@ async function manageRatings(product: Product, initialStats: Stats | null): Prom
                         stats = updatedStats
                         showSuccess(`Rating removed: ${selected.id}`)
                     }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+            }
+        } catch (error) {
+            showError(error instanceof Error ? error.message : String(error))
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Manage additional stats for a product (add, edit, remove, reorder)
+ */
+async function manageAdditionalStats(product: Product, initialStats: Stats | null): Promise<void> {
+    let managing = true
+    let stats = initialStats
+
+    while (managing) {
+        const additionalStats = stats?.additionalStats ?? []
+        const count = additionalStats.length
+
+        const action = await select({
+            message: `Additional Stats Management (${count} items):`,
+            choices: [
+                { name: `📋 List all (${count} items)`, value: 'list' },
+                { name: '➕ Add new stat', value: 'add' },
+                { name: '✏️ Edit stat', value: 'edit' },
+                { name: '🗑️ Remove stat', value: 'remove' },
+                { name: '↕️ Reorder stats', value: 'reorder' },
+                { name: '← Back', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'list': {
+                    console.log(
+                        `\n📈 Additional Stats for: ${product.name} ${colors.dim}(${product.id})${colors.reset}\n`
+                    )
+                    if (additionalStats.length === 0) {
+                        console.log(`${colors.dim}No additional stats configured${colors.reset}`)
+                    } else {
+                        for (let i = 0; i < additionalStats.length; i++) {
+                            const stat = additionalStats[i]
+                            const linkInfo = stat.link
+                                ? ` ${colors.dim}→ ${stat.link}${colors.reset}`
+                                : ''
+                            console.log(
+                                `   ${i + 1}. ${colors.cyan}${stat.value}${colors.reset} - ${stat.label}${linkInfo}`
+                            )
+                        }
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'add': {
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'value',
+                            message: 'Stat value (e.g., "50+", "1M+"):',
+                            validate: (input) => (input.trim() ? true : 'Value is required')
+                        },
+                        {
+                            type: 'input',
+                            name: 'label',
+                            message: 'Stat label (e.g., "Countries", "Messages"):',
+                            validate: (input) => (input.trim() ? true : 'Label is required')
+                        },
+                        {
+                            type: 'input',
+                            name: 'link',
+                            message: 'Link URL (optional, leave empty for none):'
+                        }
+                    ])
+
+                    const newStat: AdditionalStat = {
+                        value: answers.value.trim(),
+                        label: answers.label.trim(),
+                        link: answers.link.trim() || null
+                    }
+
+                    const updatedStats: Stats = {
+                        ...stats,
+                        additionalStats: [...additionalStats, newStat]
+                    }
+
+                    saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                    stats = updatedStats
+                    showSuccess(`Additional stat added: ${newStat.value} - ${newStat.label}`)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'edit': {
+                    if (additionalStats.length === 0) {
+                        showError('No additional stats to edit')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const choices = additionalStats.map((stat, index) => ({
+                        name: `${index + 1}. ${stat.value} - ${stat.label}`,
+                        value: index
+                    }))
+
+                    const selectedIndex = await select({
+                        message: 'Select stat to edit:',
+                        choices
+                    })
+
+                    const currentStat = additionalStats[selectedIndex]
+
+                    const answers = await inquirer.prompt([
+                        {
+                            type: 'input',
+                            name: 'value',
+                            message: 'Stat value:',
+                            default: currentStat.value,
+                            validate: (input) => (input.trim() ? true : 'Value is required')
+                        },
+                        {
+                            type: 'input',
+                            name: 'label',
+                            message: 'Stat label:',
+                            default: currentStat.label,
+                            validate: (input) => (input.trim() ? true : 'Label is required')
+                        },
+                        {
+                            type: 'input',
+                            name: 'link',
+                            message: 'Link URL (leave empty to clear):',
+                            default: currentStat.link || ''
+                        }
+                    ])
+
+                    const updatedAdditionalStats = [...additionalStats]
+                    updatedAdditionalStats[selectedIndex] = {
+                        value: answers.value.trim(),
+                        label: answers.label.trim(),
+                        link: answers.link.trim() || null
+                    }
+
+                    const updatedStats: Stats = {
+                        ...stats,
+                        additionalStats: updatedAdditionalStats
+                    }
+
+                    saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                    stats = updatedStats
+                    showSuccess('Additional stat updated')
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'remove': {
+                    if (additionalStats.length === 0) {
+                        showError('No additional stats to remove')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const choices = additionalStats.map((stat, index) => ({
+                        name: `${index + 1}. ${stat.value} - ${stat.label}`,
+                        value: index
+                    }))
+
+                    const selectedIndex = await select({
+                        message: 'Select stat to remove:',
+                        choices
+                    })
+
+                    const selectedStat = additionalStats[selectedIndex]
+                    const confirmed = await confirm(
+                        `${colors.red}Confirm removal of "${selectedStat.value} - ${selectedStat.label}"?${colors.reset}`
+                    )
+
+                    if (confirmed) {
+                        const updatedAdditionalStats = additionalStats.filter(
+                            (_, i) => i !== selectedIndex
+                        )
+
+                        const updatedStats: Stats = {
+                            ...stats,
+                            additionalStats: updatedAdditionalStats
+                        }
+
+                        saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                        stats = updatedStats
+                        showSuccess('Additional stat removed')
+                    }
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                }
+                case 'reorder': {
+                    if (additionalStats.length < 2) {
+                        showError('Need at least 2 stats to reorder')
+                        await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                        break
+                    }
+
+                    const choices = additionalStats.map((stat, index) => ({
+                        name: `${index + 1}. ${stat.value} - ${stat.label}`,
+                        value: index
+                    }))
+
+                    const selectedIndex = await select({
+                        message: 'Select stat to move:',
+                        choices
+                    })
+
+                    const positionChoices = []
+                    for (let i = 0; i < additionalStats.length; i++) {
+                        if (i !== selectedIndex) {
+                            positionChoices.push({
+                                name: `Position ${i + 1}${i === 0 ? ' (first)' : i === additionalStats.length - 1 ? ' (last)' : ''}`,
+                                value: i
+                            })
+                        }
+                    }
+
+                    const newPosition = await select({
+                        message: 'Move to position:',
+                        choices: positionChoices
+                    })
+
+                    const reorderedStats = [...additionalStats]
+                    const [movedItem] = reorderedStats.splice(selectedIndex, 1)
+                    reorderedStats.splice(newPosition, 0, movedItem)
+
+                    const updatedStats: Stats = {
+                        ...stats,
+                        additionalStats: reorderedStats
+                    }
+
+                    saveStats(PRODUCTS_DIR, product.id, updatedStats)
+                    stats = updatedStats
+                    showSuccess('Stats reordered')
                     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
                     break
                 }

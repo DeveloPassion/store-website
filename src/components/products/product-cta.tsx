@@ -1,8 +1,10 @@
+import { Link } from 'react-router'
 import { motion } from 'framer-motion'
 import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { resolveStatItem } from '@/lib/stats-helpers'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
 
@@ -118,33 +120,60 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     {/* Stats Proof */}
                     {(product.stats || product.averageRating !== undefined) && (
                         <div className='mt-8 flex flex-wrap justify-center gap-8'>
-                            {product.stats?.userCount && (
-                                <div>
+                            {(() => {
+                                const userCountStat = resolveStatItem(
+                                    product.stats?.userCount,
+                                    'Happy Users'
+                                )
+                                return (
+                                    userCountStat && (
+                                        <div>
+                                            <div className='text-solution mb-1 text-2xl font-bold'>
+                                                {userCountStat.value}
+                                            </div>
+                                            <div className='text-primary/60 text-sm'>
+                                                {userCountStat.label}
+                                            </div>
+                                        </div>
+                                    )
+                                )
+                            })()}
+                            {/* Additional Stats */}
+                            {product.stats?.additionalStats?.map((stat, index) => (
+                                <div key={index}>
                                     <div className='text-solution mb-1 text-2xl font-bold'>
-                                        {product.stats.userCount}
+                                        {stat.value}
                                     </div>
-                                    <div className='text-primary/60 text-sm'>Happy Users</div>
+                                    <div className='text-primary/60 text-sm'>
+                                        {stat.link ? (
+                                            <a
+                                                href={stat.link}
+                                                className='hover:text-secondary underline transition-colors'
+                                            >
+                                                {stat.label}
+                                            </a>
+                                        ) : (
+                                            stat.label
+                                        )}
+                                    </div>
                                 </div>
-                            )}
+                            ))}
                             {product.averageRating != null &&
                                 product.ratingsCount != null &&
                                 product.ratingsCount > 0 && (
-                                    <div className='text-center'>
+                                    <Link
+                                        to={`/testimonials?product=${product.id}`}
+                                        className='hover:bg-primary/5 group -m-2 rounded-lg p-2 text-center transition-colors'
+                                    >
                                         <div className='mb-1 flex items-center justify-center gap-2 text-2xl font-bold text-yellow-400'>
                                             {product.averageRating.toFixed(1)}
                                             <FaStar className='h-5 w-5' />
                                         </div>
-                                        <div className='text-primary/60 text-sm'>
-                                            Average Rating (
-                                            <a
-                                                href='#testimonials'
-                                                className='hover:text-secondary underline transition-colors'
-                                            >
-                                                {product.ratingsCount} reviews
-                                            </a>
-                                            )
+                                        <div className='text-primary/60 group-hover:text-secondary text-sm transition-colors'>
+                                            {product.ratingsCount}{' '}
+                                            {product.ratingsCount === 1 ? 'review' : 'reviews'}
                                         </div>
-                                    </div>
+                                    </Link>
                                 )}
                         </div>
                     )}
