@@ -1,3 +1,24 @@
+## [0.7.6](https://github.com/DeveloPassion/store-website/compare/0.7.4...0.7.6) (2026-01-19)
+
+### Features
+
+* **all:** added gumroad details to product json files ([2f63340](https://github.com/DeveloPassion/store-website/commit/2f6334011297fc0835384f5a503982d51710fe67))
+* **all:** added gumroad metadata to product json files and improved scripts ([0d739a7](https://github.com/DeveloPassion/store-website/commit/0d739a7473f1e78c5d302179e3e4da0501c7da11))
+* **all:** added success stories and compare pages. Updated the promo bar. Improved various other things ([c7de5a3](https://github.com/DeveloPassion/store-website/commit/c7de5a3f1ac08465648a03cada78db20821ac8f6))
+* **all:** allowed the referrer header to be passed ([1cfae08](https://github.com/DeveloPassion/store-website/commit/1cfae084f9a85a3ca70e3e9516530e53b535ba3e))
+* **all:** capture and display last sale info ([1805840](https://github.com/DeveloPassion/store-website/commit/1805840d279d34cc38a3246573a628d5ebeb55d8))
+* **all:** gumroad script can now fetch information about sales withut reviews ([6fc0839](https://github.com/DeveloPassion/store-website/commit/6fc083906b0d7902b113e379487fd8c9457019b5))
+* **all:** hide official website hamburger menu link on desktop (icon is there) ([dc9a9e2](https://github.com/DeveloPassion/store-website/commit/dc9a9e2516d34ec96f93586f8397c3b5f8f0ef38))
+* **all:** improved command palette (added missing pages \& cats) ([319decd](https://github.com/DeveloPassion/store-website/commit/319decd77eb04f2a76c34ba35cc82c582d179e1e))
+* **all:** improved rendering of the main carousel on the homepage and added animations to the success stories ([8ca5def](https://github.com/DeveloPassion/store-website/commit/8ca5deff49a7bed777389823665c4e040c43b392))
+* **all:** randomized success stories and improved hamburger menu card colors ([93cc710](https://github.com/DeveloPassion/store-website/commit/93cc7106f256b987749857584593f24f74aea086))
+* **all:** removed the noreferrer option for multiple links where we need analytics ([f057d4c](https://github.com/DeveloPassion/store-website/commit/f057d4c4cef21a7ab0737a424b97eec707e5f815))
+* **all:** replaced knowii cover image ([63118fc](https://github.com/DeveloPassion/store-website/commit/63118fc86f654f1763198dbdfc3875f1855017cc))
+* **all:** updated CTA ([8a97190](https://github.com/DeveloPassion/store-website/commit/8a971905a73d75cb1305b6128ddd5f748750bd5b))
+* **all:** updated Gumroad script ([a961ed4](https://github.com/DeveloPassion/store-website/commit/a961ed46f6b347b88249ec02d52b43d4eb441999))
+* **all:** updated Gumroad script to also have the internal gumroad product ids ([6a2d9e8](https://github.com/DeveloPassion/store-website/commit/6a2d9e884ac9cba327c1808d4f5a5fc52b6381f8))
+* **all:** updated stats ([08f3ee1](https://github.com/DeveloPassion/store-website/commit/08f3ee1b3827af9b8674535f369c01529596f352))
+* **all:** used the QuickNavigation component on the success stories page ([5a9663c](https://github.com/DeveloPassion/store-website/commit/5a9663c4d3661c2bfbab3ae44bd599599ffcab86))
 ## [0.7.4](https://github.com/DeveloPassion/store-website/compare/0.7.3...0.7.4) (2026-01-17)
 
 ### Features
