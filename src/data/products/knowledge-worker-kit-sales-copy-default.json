@@ -26,23 +26,23 @@
         "solutionPoints": [
             "**Dozens of in-depth articles** across core foundations",
             "**[~10K published notes](https://notes.dsebastien.net/)**: Explore my evergreen knowledge base as a learning resource",
-            "**Clarity System** (22 pages): Values, principles, manifesto, purpose, goals, non-goals, priorities",
-            "**PKM & Journaling System** (15 pages): Writing, note-taking, note-making, atomic notes, idea connection",
-            "**Personal Organization System** (18 pages): PARA, Johnny Decimal, LIFT, DRY, KISS principles",
+            "**Clarity System**: Values, principles, manifesto, purpose, goals, non-goals, priorities",
+            "**PKM & Journaling System**: Writing, note-taking, note-making, atomic notes, idea connection",
+            "**Personal Organization System**: PARA, Johnny Decimal, LIFT, DRY, KISS principles",
             "**Career Management & Habits foundations** to build on",
             "**Private community** of knowledge workers facing the same challenges",
             "**€340+ in bonuses** including the [Obsidian Starter Kit](/product/obsidian-starter-kit), courses, and workshops",
             "**Lifetime access**. Buy once, get everything I add in the future"
         ],
-        "description": "The Knowledge Worker Kit is a private community and deep-dive guide I built from **20+ years** of doing this work. Unlike products that jump straight to tactics, this starts with clarity: your values, principles, goals, and priorities. That foundation alone spans **22 pages**. Then it builds practical systems for PKM & journaling (**15 pages**), personal organization (**18 pages** covering PARA, Johnny Decimal, LIFT, KISS, DRY), career management, and habits. The kit is a living system. It keeps expanding. You get **dozens+ of articles** today plus everything I add in the future. The community, **€340+ in bonuses**, and lifetime access are all included.",
+        "description": "The Knowledge Worker Kit is a private community and deep-dive guide I built from **20+ years** of doing this work. Unlike products that jump straight to tactics, this starts with clarity: your values, principles, goals, and priorities. That foundation alone covers a lot. Then it builds practical systems for PKM & journaling, personal organization (covering PARA, Johnny Decimal, LIFT, KISS, DRY, ...), career management, and habits. The kit is a living system. It keeps expanding. You get **dozens+ of articles** today plus everything I add in the future. The community, **€340+ in bonuses**, and lifetime access are all included.",
         "features": [
             "Private Community Access: Join the Knowii community of knowledge workers committed to growth",
             "Dozens of In-Depth Articles: Real depth, not surface-level tips",
-            "Part 01. Clarity (22 pages): Values, principles, personal manifesto, purpose, goals (10 sub-articles), non-goals, priorities",
+            "Part 01. Clarity: Values, principles, personal manifesto, purpose, goals (10 sub-articles), non-goals, priorities",
             "Part 02. Habits & Systems: Build routines that make productivity automatic",
             "Part 03. Career Management: Alignment, cohesion, career goals",
-            "Part 05. PKM & Journaling (15 pages): Writing, note-taking vs note-making, atomic notes, connecting ideas, journaling",
-            "Part 12. Personal Organization (18 pages): PARA method, Johnny Decimal, LIFT, DRY, KISS principles, data portability",
+            "Part 05. PKM & Journaling: Writing, note-taking vs note-making, atomic notes, connecting ideas, journaling",
+            "Part 12. Personal Organization: PARA method, Johnny Decimal, LIFT, DRY, KISS principles, data portability",
             "Expanding Content: Learning, projects, planning, task management, focus, personal development, control, modern work, all being added",
             "Proven Frameworks: PARA, Johnny Decimal, LIFT, KISS, DRY, Smart Goals, atomic notes, mental context management",
             "[~10K Published Notes](https://notes.dsebastien.net/): Explore my evergreen knowledge base, continuously growing",
@@ -213,7 +213,7 @@
                 "steps": [
                     {
                         "title": "Clarity First",
-                        "description": "Before you can be productive, you need to know what matters. Define your values, principles, goals, and priorities. This isn't optional. It's where everything else starts. 22 pages of the kit are dedicated to this foundation because most systems skip it entirely.",
+                        "description": "Before you can be productive, you need to know what matters. Define your values, principles, goals, and priorities. This isn't optional. It's where everything else starts. Many pages of the guide are dedicated to this foundation because most systems skip it entirely.",
                         "icon": "🎯",
                         "order": 0
                     },
@@ -237,7 +237,7 @@
                     }
                 ],
                 "philosophy": "Clarity creates direction. Systems create consistency. Knowledge creates leverage. Connection creates opportunities.",
-                "differentiation": "This isn't another productivity course that jumps to tactics. It starts with foundation: your values, principles, and goals. 22 pages on clarity before we even touch productivity systems. That's what makes this different. And that's why it works."
+                "differentiation": "This isn't another productivity course that jumps to tactics. It starts with foundation: your values, principles, and goals. Many pages on clarity before we even touch productivity systems. That's what makes this different. And that's why it works."
             },
             "vision": {
                 "title": "The Mission",
@@ -251,7 +251,7 @@
                     },
                     {
                         "title": "Depth Over Breadth",
-                        "description": "22 pages on clarity. 15 pages on PKM. 18 pages on organization. This isn't surface-level tips; it's comprehensive systems you can actually implement.",
+                        "description": "This isn't surface-level tips; it's comprehensive systems you can actually implement.",
                         "icon": "📚"
                     },
                     {
