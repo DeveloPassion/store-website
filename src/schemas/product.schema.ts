@@ -71,6 +71,10 @@ const BaseProductSchema = z.object({
     id: z.string().min(1, 'Product ID is required'),
     name: z.string().min(1, 'Product name is required'),
 
+    // Gumroad integration
+    gumroadId: z.string().nullable(), // Gumroad internal product ID (e.g., "ND-WoQbTx1d9m1phJKOT9Q==")
+    isGumroadProduct: z.boolean(), // Whether this product is sold on Gumroad
+
     // Pricing - All strictly required (non-nullable)
     price: z.number().nonnegative('Price must be non-negative'),
     priceDisplay: z.string().min(1, 'Price display is required'),

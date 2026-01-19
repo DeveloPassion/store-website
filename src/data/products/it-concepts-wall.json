@@ -1,6 +1,8 @@
 {
     "id": "it-concepts-wall",
     "name": "IT Concepts Wall",
+    "gumroadId": "tEXiUDu_r9qUSVlJsGCkkA==",
+    "isGumroadProduct": true,
     "price": 9.99,
     "priceDisplay": "€9.99",
     "priceTier": "budget",

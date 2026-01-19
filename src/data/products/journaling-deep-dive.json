@@ -1,6 +1,8 @@
 {
     "id": "journaling-deep-dive",
     "name": "Journaling Deep Dive Workshop",
+    "gumroadId": "yvTwsgrocNK3qaXAFJPDKw==",
+    "isGumroadProduct": true,
     "price": 29.99,
     "priceDisplay": "€29.99",
     "priceTier": "budget",

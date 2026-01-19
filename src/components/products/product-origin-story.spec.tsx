@@ -19,6 +19,8 @@ mock.module('framer-motion', () => ({
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     id: 'test-product',
     name: 'Test Product',
+    gumroadId: null,
+    isGumroadProduct: false,
     price: 99.99,
     priceDisplay: '€99.99',
     priceTier: 'standard',

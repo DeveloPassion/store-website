@@ -23,6 +23,8 @@ const createMockTestimonial = (id: string): Testimonial => ({
 const createMockProduct = (id: string, testimonials: Testimonial[]): Product => ({
     id,
     name: `Product ${id}`,
+    gumroadId: null,
+    isGumroadProduct: false,
     price: 99.99,
     priceDisplay: '€99.99',
     priceTier: 'standard',

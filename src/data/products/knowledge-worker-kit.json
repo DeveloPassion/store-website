@@ -1,6 +1,8 @@
 {
     "id": "knowledge-worker-kit",
     "name": "Knowledge Worker Kit",
+    "gumroadId": "BC42KgrpAsfZt1T1RXqYjg==",
+    "isGumroadProduct": true,
     "price": 149.99,
     "priceDisplay": "€149.99",
     "priceTier": "premium",

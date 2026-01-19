@@ -1,6 +1,8 @@
 {
     "id": "pkm-library",
     "name": "PKM Library: 2,000+ Curated PKM Resources",
+    "gumroadId": "Y1L3GmJtDDrStHH5mq8vqg==",
+    "isGumroadProduct": true,
     "price": 39.99,
     "priceDisplay": "€39.99",
     "priceTier": "budget",

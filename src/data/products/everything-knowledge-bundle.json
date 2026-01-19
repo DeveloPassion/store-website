@@ -1,6 +1,8 @@
 {
     "id": "everything-knowledge-bundle",
     "name": "Everything Knowledge Bundle",
+    "gumroadId": "ku7mnn7Pe9Id8b-oHnoKYw==",
+    "isGumroadProduct": true,
     "price": 299.99,
     "priceDisplay": "€299.99 (Save €289)",
     "priceTier": "premium",

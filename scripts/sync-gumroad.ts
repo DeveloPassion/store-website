@@ -12,7 +12,8 @@
  * - Verify prices match between local and Gumroad
  * - Check for missing products (Gumroad products not in local store)
  * - List customers who haven't left a review for their purchases
- * - Uses _redirects file for Gumroad slug → local product mapping
+ * - Uses gumroadId from product JSON files to match with Gumroad products
+ * - Only syncs products with isGumroadProduct=true
  *
  * Usage:
  *   bun run sync:gumroad                    # Interactive mode
@@ -30,10 +31,8 @@ import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { select } from '@inquirer/prompts'
 import { GumroadApiClient, GumroadApiError } from './utils/gumroad/api-client.js'
-import { parseRedirects, getUniqueLocalProductIds } from './utils/gumroad/redirects-parser.js'
 import type {
     CustomerWithoutReview,
-    GumroadMapping,
     GumroadProduct,
     GumroadSale,
     SyncResult,
@@ -61,7 +60,6 @@ const __dirname = dirname(__filename)
 
 // Directories and files
 const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
-const REDIRECTS_FILE = resolve(__dirname, '../public/_redirects')
 const EXPORTS_DIR = resolve(__dirname, '../exports')
 const CUSTOMERS_EXPORT_FILE = resolve(EXPORTS_DIR, 'customers-without-reviews.json')
 
@@ -69,14 +67,57 @@ const CUSTOMERS_EXPORT_FILE = resolve(EXPORTS_DIR, 'customers-without-reviews.js
 const USER_COUNT_BLACKLIST = new Set(['knowii-community', 'knowledge-worker-kit'])
 
 /**
- * Load and parse the _redirects file
+ * Local Gumroad product info extracted from product JSON files
  */
-function loadRedirectsMappings(): GumroadMapping[] {
-    if (!existsSync(REDIRECTS_FILE)) {
-        throw new Error(`_redirects file not found at ${REDIRECTS_FILE}`)
+interface LocalGumroadProduct {
+    id: string
+    name: string
+    gumroadId: string // Non-null for Gumroad products
+}
+
+/**
+ * Load all products that are sold on Gumroad (isGumroadProduct=true with valid gumroadId)
+ */
+function loadGumroadProducts(): LocalGumroadProduct[] {
+    const products: LocalGumroadProduct[] = []
+    const files = readdirSync(PRODUCTS_DIR)
+
+    // Match only main product files
+    const productFiles = files.filter((f) => {
+        if (!f.endsWith('.json')) return false
+        // Exclude auxiliary files
+        if (
+            f.includes('-faq.json') ||
+            f.includes('-media.json') ||
+            f.includes('-sales-copy-') ||
+            f.includes('-stats.json') ||
+            f.includes('-testimonials.json')
+        ) {
+            return false
+        }
+        return true
+    })
+
+    for (const file of productFiles) {
+        const filePath = join(PRODUCTS_DIR, file)
+        try {
+            const content = readFileSync(filePath, 'utf-8')
+            const parsed = JSON.parse(content)
+
+            // Only include products that are sold on Gumroad and have a valid gumroadId
+            if (parsed.isGumroadProduct === true && parsed.gumroadId) {
+                products.push({
+                    id: parsed.id,
+                    name: parsed.name,
+                    gumroadId: parsed.gumroadId
+                })
+            }
+        } catch {
+            console.error(`  Failed to parse ${file}`)
+        }
     }
-    const content = readFileSync(REDIRECTS_FILE, 'utf-8')
-    return parseRedirects(content)
+
+    return products
 }
 
 /**
@@ -731,91 +772,56 @@ function displayProducts(gumroadProducts: GumroadProduct[]): void {
 /**
  * Display product mappings
  */
-function displayMappings(mappings: GumroadMapping[], gumroadProducts: GumroadProduct[]): void {
+function displayMappings(
+    localProducts: LocalGumroadProduct[],
+    gumroadProducts: GumroadProduct[]
+): void {
     showOperationHeader('PRODUCT MAPPINGS')
 
-    const uniqueLocalIds = getUniqueLocalProductIds(mappings)
-
-    for (const localId of uniqueLocalIds) {
-        const slugsForProduct = mappings
-            .filter((m) => m.localProductId === localId)
-            .map((m) => m.gumroadSlug)
-
-        // Find matching Gumroad product (use permalink or custom_permalink)
-        const gumroadProduct = gumroadProducts.find((gp) => {
-            const slug = gp.permalink || gp.custom_permalink
-            return slug && slugsForProduct.some((s) => s.toLowerCase() === slug.toLowerCase())
-        })
+    for (const localProduct of localProducts) {
+        // Find matching Gumroad product by gumroadId
+        const gumroadProduct = gumroadProducts.find((gp) => gp.id === localProduct.gumroadId)
 
         const status = gumroadProduct ? colors.green + '✓' : colors.red + '✗'
+        const slug = gumroadProduct
+            ? gumroadProduct.permalink || gumroadProduct.custom_permalink || '-'
+            : '-'
         const gumroadInfo = gumroadProduct
             ? `(${gumroadProduct.sales_count} sales, id: ${gumroadProduct.id})`
             : '(not found on Gumroad)'
 
         console.log(
-            `  ${status}${colors.reset} ${colors.bright}${localId}${colors.reset} → ${slugsForProduct.join(', ')} ${colors.dim}${gumroadInfo}${colors.reset}`
+            `  ${status}${colors.reset} ${colors.bright}${localProduct.id}${colors.reset} → ${slug} ${colors.dim}${gumroadInfo}${colors.reset}`
         )
     }
 }
 
 /**
- * Get all local product IDs from product JSON files
- */
-function getLocalProductIds(): string[] {
-    const files = readdirSync(PRODUCTS_DIR)
-    // Match only main product files (exclude -faq, -media, -sales-copy, -stats, -testimonials)
-    const productFiles = files.filter((f) => {
-        if (!f.endsWith('.json')) return false
-        // Exclude auxiliary files
-        if (
-            f.includes('-faq.json') ||
-            f.includes('-media.json') ||
-            f.includes('-sales-copy-') ||
-            f.includes('-stats.json') ||
-            f.includes('-testimonials.json')
-        ) {
-            return false
-        }
-        return true
-    })
-    return productFiles.map((f) => f.replace('.json', ''))
-}
-
-/**
  * Check for missing products (Gumroad products not in local store)
  */
-function checkMissingProducts(gumroadProducts: GumroadProduct[], mappings: GumroadMapping[]): void {
+function checkMissingProducts(
+    gumroadProducts: GumroadProduct[],
+    localProducts: LocalGumroadProduct[]
+): void {
     showOperationHeader('MISSING PRODUCTS CHECK')
 
-    const localProductIds = getLocalProductIds()
-    const mappedGumroadSlugs = new Set(mappings.map((m) => m.gumroadSlug.toLowerCase()))
+    const localGumroadIds = new Set(localProducts.map((p) => p.gumroadId))
 
-    // Find Gumroad products that don't have a mapping in _redirects
+    // Find Gumroad products that don't have a local product with matching gumroadId
     const unmappedProducts: GumroadProduct[] = []
     const mappedProducts: GumroadProduct[] = []
 
     for (const gp of gumroadProducts) {
-        const slug = (gp.permalink || gp.custom_permalink || '').toLowerCase()
-        if (slug && mappedGumroadSlugs.has(slug)) {
+        if (localGumroadIds.has(gp.id)) {
             mappedProducts.push(gp)
         } else {
             unmappedProducts.push(gp)
         }
     }
 
-    // Check mapped products to see if local file exists
-    const missingLocalFiles: Array<{ gumroadProduct: GumroadProduct; mappedTo: string }> = []
-    for (const gp of mappedProducts) {
-        const slug = (gp.permalink || gp.custom_permalink || '').toLowerCase()
-        const mapping = mappings.find((m) => m.gumroadSlug.toLowerCase() === slug)
-        if (mapping && !localProductIds.includes(mapping.localProductId)) {
-            missingLocalFiles.push({ gumroadProduct: gp, mappedTo: mapping.localProductId })
-        }
-    }
-
-    // Display unmapped Gumroad products
+    // Display unmapped Gumroad products (products on Gumroad without local gumroadId)
     if (unmappedProducts.length > 0) {
-        showSectionHeader('Gumroad products without _redirects mapping')
+        showSectionHeader('Gumroad products without local mapping')
         for (const gp of unmappedProducts) {
             const slug = gp.permalink || gp.custom_permalink || 'no-slug'
             const priceDisplay = gp.price === 0 ? 'Free' : `€${(gp.price / 100).toFixed(2)}`
@@ -823,29 +829,11 @@ function checkMissingProducts(gumroadProducts: GumroadProduct[], mappings: Gumro
                 `  ${colors.yellow}⚠️${colors.reset} ${colors.bright}${gp.name}${colors.reset}`
             )
             console.log(
-                `     ${colors.dim}Slug: ${slug} | Price: ${priceDisplay} | Sales: ${gp.sales_count}${colors.reset}`
+                `     ${colors.dim}Slug: ${slug} | ID: ${gp.id} | Price: ${priceDisplay} | Sales: ${gp.sales_count}${colors.reset}`
             )
         }
     } else {
-        console.log(
-            `  ${colors.green}✓${colors.reset} All Gumroad products have _redirects mappings`
-        )
-    }
-
-    // Display products with mappings but missing local files
-    if (missingLocalFiles.length > 0) {
-        showSectionHeader('Mapped products missing local JSON files')
-        for (const { gumroadProduct, mappedTo } of missingLocalFiles) {
-            const slug = gumroadProduct.permalink || gumroadProduct.custom_permalink || 'no-slug'
-            console.log(
-                `  ${colors.red}✗${colors.reset} ${colors.bright}${gumroadProduct.name}${colors.reset}`
-            )
-            console.log(
-                `     ${colors.dim}Slug: ${slug} → ${mappedTo}.json (missing)${colors.reset}`
-            )
-        }
-    } else if (mappedProducts.length > 0) {
-        console.log(`  ${colors.green}✓${colors.reset} All mapped products have local JSON files`)
+        console.log(`  ${colors.green}✓${colors.reset} All Gumroad products have local mappings`)
     }
 
     // Summary
@@ -853,12 +841,9 @@ function checkMissingProducts(gumroadProducts: GumroadProduct[], mappings: Gumro
     console.log(`  Total Gumroad products: ${gumroadProducts.length}`)
     console.log(`  Mapped to local store: ${mappedProducts.length}`)
     console.log(
-        `  ${colors.yellow}Missing _redirects mapping: ${unmappedProducts.length}${colors.reset}`
+        `  ${colors.yellow}Missing local mapping: ${unmappedProducts.length}${colors.reset}`
     )
-    console.log(
-        `  ${colors.red}Missing local JSON files: ${missingLocalFiles.length}${colors.reset}`
-    )
-    console.log(`  Local product files: ${localProductIds.length}`)
+    console.log(`  Local Gumroad products: ${localProducts.length}`)
 }
 
 /**
@@ -883,11 +868,10 @@ async function runSync(options: {
     // Initialize client
     const client = new GumroadApiClient({ accessToken })
 
-    // Load mappings from _redirects
-    showInfo('Loading product mappings from _redirects...')
-    const mappings = loadRedirectsMappings()
-    const uniqueLocalIds = getUniqueLocalProductIds(mappings)
-    showInfo(`Found ${uniqueLocalIds.length} local products with Gumroad mappings`)
+    // Load local Gumroad products (products with isGumroadProduct=true)
+    showInfo('Loading local Gumroad products...')
+    const localProducts = loadGumroadProducts()
+    showInfo(`Found ${localProducts.length} local products with Gumroad IDs`)
 
     // Fetch Gumroad products
     showInfo('Fetching products from Gumroad API...')
@@ -919,27 +903,19 @@ async function runSync(options: {
 
     // Determine which products to sync
     const productsToSync = options.productFilter
-        ? uniqueLocalIds.filter((id) => id === options.productFilter)
-        : uniqueLocalIds
+        ? localProducts.filter((p) => p.id === options.productFilter)
+        : localProducts
 
-    for (const localProductId of productsToSync) {
+    for (const localProduct of productsToSync) {
         summary.totalProducts++
 
-        // Find Gumroad slugs for this local product
-        const slugsForProduct = mappings
-            .filter((m) => m.localProductId === localProductId)
-            .map((m) => m.gumroadSlug)
-
-        // Find matching Gumroad product (use permalink or custom_permalink)
-        const gumroadProduct = gumroadProducts.find((gp) => {
-            const slug = gp.permalink || gp.custom_permalink
-            return slug && slugsForProduct.some((s) => s.toLowerCase() === slug.toLowerCase())
-        })
+        // Find matching Gumroad product by gumroadId
+        const gumroadProduct = gumroadProducts.find((gp) => gp.id === localProduct.gumroadId)
 
         if (!gumroadProduct) {
             results.push({
-                localProductId,
-                gumroadPermalink: slugsForProduct[0] || 'unknown',
+                localProductId: localProduct.id,
+                gumroadPermalink: localProduct.gumroadId,
                 status: 'skipped',
                 message: 'No matching Gumroad product found'
             })
@@ -947,7 +923,7 @@ async function runSync(options: {
             continue
         }
 
-        const result = await syncProduct(localProductId, gumroadProduct, client, {
+        const result = await syncProduct(localProduct.id, gumroadProduct, client, {
             ...options,
             debug: options.debug
         })
@@ -1065,12 +1041,12 @@ async function interactiveMenu(): Promise<void> {
             }
 
             const client = new GumroadApiClient({ accessToken })
-            const mappings = loadRedirectsMappings()
+            const localProducts = loadGumroadProducts()
 
             showInfo('Fetching products from Gumroad API...')
             try {
                 const gumroadProducts = await client.getProducts()
-                displayMappings(mappings, gumroadProducts)
+                displayMappings(localProducts, gumroadProducts)
             } catch (error) {
                 showError(`Failed to fetch Gumroad products: ${error}`)
             }
@@ -1085,12 +1061,12 @@ async function interactiveMenu(): Promise<void> {
             }
 
             const client = new GumroadApiClient({ accessToken })
-            const mappings = loadRedirectsMappings()
+            const localProducts = loadGumroadProducts()
 
             showInfo('Fetching products from Gumroad API...')
             try {
                 const gumroadProducts = await client.getProducts()
-                checkMissingProducts(gumroadProducts, mappings)
+                checkMissingProducts(gumroadProducts, localProducts)
             } catch (error) {
                 showError(`Failed to fetch Gumroad products: ${error}`)
             }
@@ -1232,9 +1208,9 @@ async function main(): Promise<void> {
             }
 
             const client = new GumroadApiClient({ accessToken })
-            const mappings = loadRedirectsMappings()
+            const localProducts = loadGumroadProducts()
             const gumroadProducts = await client.getProducts()
-            displayMappings(mappings, gumroadProducts)
+            displayMappings(localProducts, gumroadProducts)
             return
         }
 
@@ -1246,9 +1222,9 @@ async function main(): Promise<void> {
             }
 
             const client = new GumroadApiClient({ accessToken })
-            const mappings = loadRedirectsMappings()
+            const localProducts = loadGumroadProducts()
             const gumroadProducts = await client.getProducts()
-            checkMissingProducts(gumroadProducts, mappings)
+            checkMissingProducts(gumroadProducts, localProducts)
             return
         }
 

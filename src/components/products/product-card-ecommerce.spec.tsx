@@ -9,6 +9,8 @@ import * as wishlistUtils from '@/lib/wishlist'
 const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     id: 'test-product',
     name: 'Test Product',
+    gumroadId: null,
+    isGumroadProduct: false,
     price: 99.99,
     priceDisplay: '€99.99',
     priceTier: 'standard',
@@ -141,6 +143,8 @@ describe('ProductCardEcommerce Component', () => {
     it('should display cover image when provided', () => {
         const product = createMockProduct({
             name: 'Test Product',
+            gumroadId: null,
+            isGumroadProduct: false,
             media: [
                 {
                     id: 'cover-1',

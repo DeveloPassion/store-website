@@ -1,6 +1,8 @@
 {
     "id": "dev-concepts-volume-01",
     "name": "Dev Concepts Volume 1 - Software Craft",
+    "gumroadId": "OteLhSjAY9OKyqu8cyrp6g==",
+    "isGumroadProduct": true,
     "price": 9.99,
     "priceDisplay": "€9.99",
     "priceTier": "budget",

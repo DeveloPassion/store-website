@@ -1,6 +1,8 @@
 {
     "id": "clarity-101",
     "name": "Knowii Clarity 101 Workshop",
+    "gumroadId": "kVur9PvVZV93SdSvFTA1LA==",
+    "isGumroadProduct": true,
     "price": 19.99,
     "priceDisplay": "€19.99",
     "priceTier": "budget",

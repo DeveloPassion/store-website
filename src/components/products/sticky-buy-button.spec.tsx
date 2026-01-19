@@ -16,6 +16,8 @@ mock.module('framer-motion', () => ({
 const mockProduct: Product = {
     id: 'test-product',
     name: 'Test Product',
+    gumroadId: null,
+    isGumroadProduct: false,
     price: 49,
     priceDisplay: '$49',
     priceTier: 'standard',

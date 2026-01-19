@@ -14,6 +14,8 @@ describe('Product Schema Validation', () => {
     const validProduct = {
         id: 'test-product',
         name: 'Test Product',
+        gumroadId: null,
+        isGumroadProduct: false,
         price: 99.99,
         priceDisplay: '€99.99',
         priceTier: 'standard' as const,

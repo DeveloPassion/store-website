@@ -1,6 +1,8 @@
 {
     "id": "ai-master-prompt",
     "name": "Knowii AI Master Prompt Workshop",
+    "gumroadId": "B2Y38adfoGkJRD5yf4PEYw==",
+    "isGumroadProduct": true,
     "price": 19.99,
     "priceDisplay": "€19.99",
     "priceTier": "budget",

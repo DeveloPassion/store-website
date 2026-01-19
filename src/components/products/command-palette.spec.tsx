@@ -18,6 +18,8 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
     ({
         id: 'test-product',
         name: 'Test Product',
+        gumroadId: null,
+        isGumroadProduct: false,
         tagline: 'A test product',
         description: 'Test description',
         price: 99,

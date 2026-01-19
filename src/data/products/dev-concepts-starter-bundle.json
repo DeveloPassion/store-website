@@ -1,6 +1,8 @@
 {
     "id": "dev-concepts-starter-bundle",
     "name": "Dev Concepts Starter Bundle",
+    "gumroadId": "_jCbo8O66sm1nAwPCbYYGQ==",
+    "isGumroadProduct": true,
     "price": 14.99,
     "priceDisplay": "€14.99",
     "priceTier": "budget",

@@ -212,6 +212,8 @@ describe('buildGumroadUrlFromProduct', () => {
     const baseProduct: Product = {
         id: 'test-product',
         name: 'Test Product',
+        gumroadId: null,
+        isGumroadProduct: false,
         price: 99,
         priceDisplay: '€99',
         priceTier: 'standard',

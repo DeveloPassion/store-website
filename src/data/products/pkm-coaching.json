@@ -1,6 +1,8 @@
 {
     "id": "pkm-coaching",
     "name": "Personal Knowledge Management Coaching",
+    "gumroadId": "DO8FZlkoJxpgLrbasqvGFQ==",
+    "isGumroadProduct": true,
     "price": 99.99,
     "priceDisplay": "€99.99 per session",
     "priceTier": "premium",
