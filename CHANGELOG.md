@@ -1,3 +1,10 @@
+## [0.8.7](https://github.com/DeveloPassion/store-website/compare/0.8.6...0.8.7) (2026-01-19)
+
+### Features
+
+* **all:** updated ([3e4fb2e](https://github.com/DeveloPassion/store-website/commit/3e4fb2e3f5a1ca27be30671e81acfbec5845da70))
+* **all:** updated KWK ([6d504ba](https://github.com/DeveloPassion/store-website/commit/6d504ba297b7b4f8c056ec16e790d74fea54472b))
+* **all:** updated stats ([1e584d2](https://github.com/DeveloPassion/store-website/commit/1e584d2310ba81417f0d7082af3ba6f035913ab2))
 ## [0.8.6](https://github.com/DeveloPassion/store-website/compare/0.8.5...0.8.6) (2026-01-19)
 
 ### Features
