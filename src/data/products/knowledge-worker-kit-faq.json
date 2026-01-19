@@ -3,7 +3,7 @@
         {
             "id": "faq-32",
             "question": "What exactly do I get?",
-            "answer": "**Private community access**, a comprehensive Notion guide covering **13 topic areas**, all the bonuses (**€340+** worth including [Obsidian Starter Kit](/product/obsidian-starter-kit), courses, workshops), and **lifetime access** to everything I add in the future."
+            "answer": "**Private community access**, **55+ in-depth articles** covering clarity, PKM, journaling, personal organization, career management, and habits. Plus all the bonuses (**€340+** worth including [Obsidian Starter Kit](/product/obsidian-starter-kit), courses, workshops), and **lifetime access** to everything I add in the future."
         },
         {
             "id": "faq-33",
@@ -11,9 +11,19 @@
             "answer": "Yes. Pay **€149.99 once** and you own it forever. **No subscriptions**, no recurring fees. All future updates included."
         },
         {
+            "id": "faq-42",
+            "question": "Is all the content complete?",
+            "answer": "The core foundations are deep and ready: **Clarity (22 pages)**, **PKM & Journaling (15 pages)**, and **Personal Organization (18 pages)**. Other sections like learning, projects, planning, and task management are actively being expanded. Lifetime access means you get everything—now and in the future."
+        },
+        {
             "id": "faq-34",
             "question": "How is this different from your other products?",
-            "answer": "This is **everything in one place**. The [Obsidian Starter Kit](/product/obsidian-starter-kit) focuses on `Obsidian` specifically. [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) teaches PKM theory. The Knowledge Worker Kit covers all of it: career, learning, projects, tasks, focus, personal development, and more. Plus you get **community access** and all the bonuses."
+            "answer": "This is **everything in one place**. The [Obsidian Starter Kit](/product/obsidian-starter-kit) focuses on Obsidian specifically. [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) teaches PKM theory. The Knowledge Worker Kit covers all of it plus something most products skip: **clarity on your values, principles, and goals**. That foundation is why the tactics actually stick."
+        },
+        {
+            "id": "faq-43",
+            "question": "What makes this different from other productivity products?",
+            "answer": "Most products give you tactics without foundation. They skip the most important part. This starts with **WHO YOU ARE**—your values, principles, and goals—before teaching systems. 22 pages on clarity before we even touch productivity. That's why it works when other approaches didn't."
         },
         {
             "id": "faq-35",
@@ -21,9 +31,14 @@
             "answer": "No. The guide covers universal principles that work with any tools. The Obsidian bonuses are included if you want them, but the core systems are tool-agnostic."
         },
         {
+            "id": "faq-44",
+            "question": "What frameworks will I learn?",
+            "answer": "You'll learn **PARA** for life organization, **Johnny Decimal** for scalable structure, **LIFT** principle, **KISS** principle, **DRY** principle, **Smart Goals**, atomic note methodology, mental context management, and values-based decision making. All battle-tested over 20+ years."
+        },
+        {
             "id": "faq-36",
             "question": "How much time does this take to implement?",
-            "answer": "That's up to you. The guide is modular. Focus on what's useful right now. Each section stands on its own, so you can implement at whatever pace works for your life."
+            "answer": "That's up to you. The guide is modular. Focus on what's useful right now. I recommend starting with the Clarity section—it takes about a week to work through and creates the foundation for everything else."
         },
         {
             "id": "faq-37",
@@ -33,7 +48,7 @@
         {
             "id": "faq-38",
             "question": "Will this really help me with AI?",
-            "answer": "Yes. The kit covers both sides: developing skills that AI can't replicate (creativity, critical thinking, human insight) and learning how to use AI tools as part of your workflow."
+            "answer": "Yes. The kit covers both sides: developing skills that AI can't replicate (creativity, critical thinking, human connection) and learning how to use AI tools as part of your workflow."
         },
         {
             "id": "faq-39",
@@ -48,7 +63,7 @@
         {
             "id": "faq-41",
             "question": "What if the content becomes outdated?",
-            "answer": "It won't. This is an evergreen project that I continuously update. Lifetime access means you always get the latest version."
+            "answer": "It won't. This is a living system that I continuously update based on my own practice. Lifetime access means you always get the latest version."
         }
     ]
 }

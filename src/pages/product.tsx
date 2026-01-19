@@ -17,6 +17,7 @@ import ProductTestimonials from '@/components/products/product-testimonials'
 import ProductFAQ from '@/components/products/product-faq'
 import ProductVision from '@/components/products/product-vision'
 import ProductCTA from '@/components/products/product-cta'
+import ProductRelated from '@/components/products/product-related'
 import StickyBuyButton from '@/components/products/sticky-buy-button'
 import HowItWorksSection from '@/components/products/how-it-works-section'
 import productsData from '@/data/products.json'
@@ -173,6 +174,7 @@ const ProductPage: React.FC = () => {
                 heading='Bonus Content'
                 description='Additional resources and insights'
             />
+            <ProductRelated product={product} />
             <StickyBuyButton
                 product={product}
                 heroButtonRef={heroBuyButtonRef}
