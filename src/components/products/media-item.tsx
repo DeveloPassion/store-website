@@ -58,7 +58,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
     return (
         <div className='flex flex-col gap-2'>
             {/* Media Container */}
-            <div className='group relative aspect-video max-h-[500px] overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-2xl'>
+            <div className='group relative aspect-video overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-2xl'>
                 {item.type === 'image' ? (
                     <>
                         {/* Image */}

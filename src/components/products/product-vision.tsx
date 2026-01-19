@@ -62,7 +62,7 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                 {vision.values && vision.values.length > 0 && (
                     <motion.div variants={itemVariants} className='mb-8'>
                         <h3 className='text-primary/80 mb-4 text-center text-lg font-semibold'>
-                            Our Values
+                            Key Values
                         </h3>
                         <div className='grid gap-4 sm:grid-cols-2'>
                             {vision.values.map((value, idx) => (

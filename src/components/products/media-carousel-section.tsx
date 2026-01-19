@@ -84,7 +84,7 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
     // If no media but show is true, display heading only
     if (groupMedia.length === 0 && sectionConfig?.show === true) {
         return (
-            <section className='bg-background/50 py-16 sm:py-20'>
+            <section className='bg-background/50 w-full py-16 sm:py-20'>
                 <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
 
     return (
         <>
-            <section className='bg-background/50 py-16 sm:py-20'>
+            <section className='bg-background/50 w-full py-16 sm:py-20'>
                 <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

@@ -135,32 +135,34 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
                     </button>
                 )}
 
-                {/* Carousel content */}
+                {/* Carousel content - aspect-video container prevents layout shift */}
                 <div className='relative min-w-0 flex-1 overflow-hidden'>
-                    <AnimatePresence initial={false} custom={direction} mode='wait'>
-                        <motion.div
-                            key={currentIndex}
-                            custom={direction}
-                            variants={slideVariants}
-                            initial='enter'
-                            animate='center'
-                            exit='exit'
-                            transition={{
-                                x: { type: 'spring', stiffness: 300, damping: 30 },
-                                opacity: { duration: 0.2 }
-                            }}
-                            className='flex justify-center'
-                        >
-                            <div className='w-full max-w-3xl'>
-                                <MediaItem
-                                    item={currentMedia}
-                                    showCaption={showCaptions}
-                                    onMediaClick={handleMediaClick}
-                                    priority={currentIndex === 0} // First item eager loads
-                                />
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
+                    <div className='mx-auto aspect-video w-full max-w-3xl'>
+                        <AnimatePresence initial={false} custom={direction}>
+                            <motion.div
+                                key={currentIndex}
+                                custom={direction}
+                                variants={slideVariants}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{
+                                    x: { type: 'spring', stiffness: 300, damping: 30 },
+                                    opacity: { duration: 0.2 }
+                                }}
+                                className='absolute inset-0 flex items-center justify-center'
+                            >
+                                <div className='h-full w-full'>
+                                    <MediaItem
+                                        item={currentMedia}
+                                        showCaption={showCaptions}
+                                        onMediaClick={handleMediaClick}
+                                        priority={currentIndex === 0} // First item eager loads
+                                    />
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
 
                 {/* Next button */}
