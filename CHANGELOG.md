@@ -1,3 +1,8 @@
+## [0.8.4](https://github.com/DeveloPassion/store-website/compare/0.8.3...0.8.4) (2026-01-19)
+
+### Features
+
+* **all:** updates sales copy ([1641a36](https://github.com/DeveloPassion/store-website/commit/1641a366d08a98ced7222a69fc78c2fbc96b173b))
 ## [0.8.3](https://github.com/DeveloPassion/store-website/compare/0.8.2...0.8.3) (2026-01-19)
 
 ### Features
