@@ -30,6 +30,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
         mainCategory: 'courses',
         secondaryCategories: [],
         tags: ['knowledge-management'],
+        testimonialsCount: 0,
         ...overrides
     }) as Product
 

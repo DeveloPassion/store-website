@@ -38,6 +38,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     activeSalesCopyId: 'default',
     ratingsCount: null,
     averageRating: null,
+    testimonialsCount: 0,
     salesCopy: {
         tagline: 'This is a test product tagline',
         secondaryTagline: null,

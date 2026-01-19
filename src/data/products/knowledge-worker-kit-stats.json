@@ -1,6 +1,9 @@
 {
     "data": {
-        "userCount": "400+ Knowledge Workers",
+        "userCount": {
+            "value": "400+",
+            "label": "Knowledge Workers"
+        },
         "timeSaved": null,
         "ratings": {
             "gumroad": [

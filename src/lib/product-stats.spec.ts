@@ -182,6 +182,7 @@ describe('calculateProductStats', () => {
             stats: null,
             ratingsCount: null,
             averageRating: null,
+            testimonialsCount: 0,
             ...overrides
         }) as Product
 
@@ -237,7 +238,8 @@ describe('calculateProductStats', () => {
                 testimonials: [
                     createTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
                     createTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
-                ]
+                ],
+                testimonialsCount: 2
             }),
             createMockProduct({
                 testimonials: [
@@ -247,7 +249,8 @@ describe('calculateProductStats', () => {
                         quote: 'Love it!',
                         featured: true
                     })
-                ]
+                ],
+                testimonialsCount: 1
             })
         ]
         const result = calculateProductStats(products)
@@ -297,6 +300,7 @@ describe('calculateProductStats', () => {
                     createTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
                     createTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
                 ],
+                testimonialsCount: 2,
                 averageRating: 4.8
             }),
             createMockProduct({
@@ -315,6 +319,7 @@ describe('calculateProductStats', () => {
                         featured: true
                     })
                 ],
+                testimonialsCount: 1,
                 averageRating: 5.0
             })
         ]

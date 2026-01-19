@@ -71,10 +71,8 @@ export function calculateProductStats(products: Product[]): ProductStats {
             totalCustomers += parseUserCount(product.stats.userCount)
         }
 
-        // Count testimonials
-        if (product.testimonials) {
-            totalTestimonials += product.testimonials.length
-        }
+        // Count testimonials (use pre-computed testimonialsCount)
+        totalTestimonials += product.testimonialsCount
 
         // Calculate average rating from product.averageRating (computed from stats)
         if (product.averageRating) {

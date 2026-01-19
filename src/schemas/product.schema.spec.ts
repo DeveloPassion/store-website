@@ -43,6 +43,7 @@ describe('Product Schema Validation', () => {
         activeSalesCopyId: 'default',
         ratingsCount: null,
         averageRating: null,
+        testimonialsCount: 0,
         salesCopy: {
             tagline: 'Test tagline',
             secondaryTagline: null,

@@ -45,6 +45,7 @@ const mockProduct: Product = {
     activeSalesCopyId: 'default',
     ratingsCount: null,
     averageRating: null,
+    testimonialsCount: 0,
     salesCopy: {
         tagline: 'A test product',
         secondaryTagline: null,

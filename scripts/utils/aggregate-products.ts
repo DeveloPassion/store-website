@@ -9,7 +9,7 @@
  *
  * Additionally, it loads content from product-specific files:
  * - {product-id}-faq.json -> product.faqs[] (required array, empty if file missing)
- * - {product-id}-testimonials.json -> product.testimonials[] (required array, empty if file missing)
+ * - {product-id}-testimonials.json -> product.testimonials[], product.testimonialsCount (required array, empty if file missing)
  * - {product-id}-media.json -> product.media[] (required array, empty if file missing)
  * - {product-id}-sales-copy-{variant}.json -> product.salesCopy.* (nested object: tagline, problem, features, etc.)
  * - {product-id}-stats.json -> product.stats, product.ratingsCount, product.averageRating (computed)
@@ -467,6 +467,8 @@ function main() {
             // salesCopy is a nested object (not spread into product)
             // stats is loaded from -stats.json file (null if missing)
             // ratingsCount and averageRating are computed from stats + testimonials
+            // testimonialsCount is pre-computed for efficient access
+            const testimonialsCount = testimonials.length
             const aggregatedProduct: AggregatedProduct = {
                 ...product,
                 faqs,
@@ -475,7 +477,8 @@ function main() {
                 stats,
                 salesCopy,
                 ratingsCount,
-                averageRating
+                averageRating,
+                testimonialsCount
             }
 
             // Validate the aggregated product

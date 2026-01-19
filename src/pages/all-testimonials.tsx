@@ -216,8 +216,7 @@ const AllTestimonialsPage: React.FC = () => {
     // Determine the display mode
     const isProductMode = productIdParam !== null
     const isValidProduct = filteredProduct !== undefined && filteredProduct !== null
-    const hasProductTestimonials =
-        isValidProduct && filteredProduct.testimonials && filteredProduct.testimonials.length > 0
+    const hasProductTestimonials = isValidProduct && filteredProduct.testimonialsCount > 0
 
     // Set breadcrumbs based on mode
     useSetBreadcrumbs(
@@ -233,7 +232,7 @@ const AllTestimonialsPage: React.FC = () => {
     // Filter products with testimonials and sort (featured first within each product, randomize product order)
     const productsWithTestimonials = useMemo(() => {
         const productsWithTestimonialsData = products
-            .filter((product) => product.testimonials && product.testimonials.length > 0)
+            .filter((product) => product.testimonialsCount > 0)
             .map((product) => ({
                 product,
                 testimonials: sortFeaturedFirst(product.testimonials || [])

@@ -145,7 +145,10 @@ export const AggregatedProductSchema = BaseProductSchema.extend({
 
     // Computed rating fields (calculated from stats.ratings + testimonials during aggregation)
     ratingsCount: z.number().int().nonnegative().nullable(),
-    averageRating: z.number().min(0).max(5).nullable()
+    averageRating: z.number().min(0).max(5).nullable(),
+
+    // Computed testimonial count (calculated during aggregation from testimonials array length)
+    testimonialsCount: z.number().int().nonnegative()
 })
 
 // Array schemas

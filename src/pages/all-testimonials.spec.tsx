@@ -46,6 +46,7 @@ mock.module('@/data/products.json', () => ({
                     company: 'Tech Corp'
                 }
             ],
+            testimonialsCount: 2,
             faqs: [],
             targetAudience: [],
             perfectFor: [],
@@ -88,6 +89,7 @@ mock.module('@/data/products.json', () => ({
                     featured: true
                 }
             ],
+            testimonialsCount: 1,
             faqs: [],
             targetAudience: [],
             perfectFor: [],
@@ -122,6 +124,7 @@ mock.module('@/data/products.json', () => ({
             benefits: { immediate: ['Benefit 1'] },
             included: ['Item 1'],
             testimonials: [],
+            testimonialsCount: 0,
             faqs: [],
             targetAudience: [],
             perfectFor: [],

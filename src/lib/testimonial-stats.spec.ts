@@ -52,6 +52,7 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     activeSalesCopyId: 'default',
     ratingsCount: null,
     averageRating: null,
+    testimonialsCount: testimonials.length,
     salesCopy: {
         tagline: 'Test tagline',
         secondaryTagline: null,

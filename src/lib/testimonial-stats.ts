@@ -27,15 +27,15 @@ export function calculateTestimonialStats(
     let productsWithTestimonials = 0
 
     if (isProductArray) {
-        // Handle Product[]
+        // Handle Product[] - use pre-computed testimonialsCount
         const products = input as Product[]
         products.forEach((product) => {
-            const testimonials = product.testimonials || []
-            if (testimonials.length > 0) {
+            const count = product.testimonialsCount
+            if (count > 0) {
                 productsWithTestimonials++
-                totalTestimonials += testimonials.length
+                totalTestimonials += count
                 // All testimonials are assumed to be 5-star
-                totalRatingSum += testimonials.length * 5
+                totalRatingSum += count * 5
             }
         })
     } else {

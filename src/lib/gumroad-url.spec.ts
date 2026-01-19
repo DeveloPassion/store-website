@@ -241,6 +241,7 @@ describe('buildGumroadUrlFromProduct', () => {
         activeSalesCopyId: 'default',
         ratingsCount: null,
         averageRating: null,
+        testimonialsCount: 0,
         salesCopy: {
             tagline: 'Test',
             secondaryTagline: null,
