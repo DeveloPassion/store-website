@@ -109,6 +109,10 @@ if [[ $REPLY =~ ^[Nn]$ ]]; then
     exit 1
 fi
 
+# Push any local commits to ensure remote is up to date
+print_step "Pushing to origin..."
+git push origin "$CURRENT_BRANCH"
+
 # Trigger GitHub workflow
 print_step "Triggering release workflow on GitHub..."
 gh workflow run release.yml -f tag="$TAG"
