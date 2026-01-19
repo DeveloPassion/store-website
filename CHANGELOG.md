@@ -1,3 +1,15 @@
+## [0.8.5](https://github.com/DeveloPassion/store-website/compare/0.8.4...0.8.5) (2026-01-19)
+
+### Features
+
+* **all:** push before triggering the release pipeline ([6d11e05](https://github.com/DeveloPassion/store-website/commit/6d11e059a7f7097b2e4a689fa36b606478f2596c))
+* **all:** updated ([c961f8b](https://github.com/DeveloPassion/store-website/commit/c961f8b1d73e032a62bcbf7ab41a27efcdd8f5f3))
+* **all:** updated stats ([215fc84](https://github.com/DeveloPassion/store-website/commit/215fc841b4f2ef2fe5088356df3fe856a4b695f0))
+
+### Bug Fixes
+
+* **all:** fixed missing icon ([867d703](https://github.com/DeveloPassion/store-website/commit/867d703ff0c5267b0bd5feff15e6b9f98b918895))
+* **all:** fixed refresh issue when switching pages via the command palette ([4c4fdb2](https://github.com/DeveloPassion/store-website/commit/4c4fdb204efb6bcda2f3231e9f12743b55030400))
 ## [0.8.4](https://github.com/DeveloPassion/store-website/compare/0.8.3...0.8.4) (2026-01-19)
 
 ### Features
