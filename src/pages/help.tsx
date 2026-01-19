@@ -169,7 +169,7 @@ const HelpPage: React.FC = () => {
                                             <a
                                                 href='https://knowii.net'
                                                 target='_blank'
-                                                rel='noopener noreferrer'
+                                                rel='noopener'
                                                 className='text-secondary hover:text-secondary-text underline transition-colors'
                                             >
                                                 Knowii Community channels
@@ -215,7 +215,7 @@ const HelpPage: React.FC = () => {
                                     <a
                                         href='https://www.dsebastien.net'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-secondary hover:text-secondary-text transition-colors'
                                     >
                                         → Visit my main website
@@ -225,7 +225,7 @@ const HelpPage: React.FC = () => {
                                     <a
                                         href='https://www.dsebastien.net/newsletter'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-secondary hover:text-secondary-text transition-colors'
                                     >
                                         → Subscribe to my newsletter

@@ -103,7 +103,7 @@ const FAQItem: React.FC<{ faq: GlobalFAQ }> = ({ faq }) => {
                                     key={index}
                                     href={link.url}
                                     target={link.external ? '_blank' : undefined}
-                                    rel={link.external ? 'noopener noreferrer' : undefined}
+                                    rel={link.external ? 'noopener' : undefined}
                                     className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 font-semibold transition-colors ${
                                         link.primary
                                             ? 'bg-secondary hover:bg-secondary/90 text-white'

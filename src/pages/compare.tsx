@@ -619,7 +619,7 @@ const ComparePage: React.FC = () => {
                                                     <a
                                                         href={buildGumroadUrl(product.gumroadUrl)}
                                                         target='_blank'
-                                                        rel='noopener noreferrer'
+                                                        rel='noopener'
                                                         className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-white transition-colors'
                                                     >
                                                         <FaShoppingCart className='h-3 w-3' />
@@ -953,7 +953,7 @@ const ComparePage: React.FC = () => {
                                                                 product.gumroadUrl
                                                             )}
                                                             target='_blank'
-                                                            rel='noopener noreferrer'
+                                                            rel='noopener'
                                                             className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                                                         >
                                                             <FaShoppingCart className='h-3 w-3' />

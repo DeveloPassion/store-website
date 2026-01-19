@@ -107,7 +107,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             subtitle: 'See items in your cart (opens in new tab)',
             icon: <FaShoppingCart className='text-secondary h-5 w-5' />,
             action: () => {
-                window.open('https://gumroad.com/checkout', '_blank', 'noopener,noreferrer')
+                window.open('https://gumroad.com/checkout', '_blank', 'noopener')
                 onClose()
             }
         })

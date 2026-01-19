@@ -326,7 +326,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             <a
                                 href='https://www.dsebastien.net'
                                 target='_blank'
-                                rel='noopener noreferrer'
+                                rel='noopener'
                                 className='bg-primary/10 hover:bg-primary/20 hidden h-10 items-center gap-2 rounded-lg px-3 transition-colors md:flex lg:h-11 xl:h-12 xl:px-4'
                                 title='DeveloPassion Website'
                             >
@@ -388,7 +388,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                     key={link.to}
                                     href={link.to}
                                     target='_blank'
-                                    rel='noopener noreferrer'
+                                    rel='noopener'
                                     className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color} ${link.hideOnDesktop ? 'md:hidden' : ''}`}
                                 >
                                     <span className='text-lg sm:text-xl md:text-3xl'>

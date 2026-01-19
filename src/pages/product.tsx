@@ -148,7 +148,7 @@ const ProductPage: React.FC = () => {
                             <a
                                 href={product.landingPageUrl}
                                 target='_blank'
-                                rel='noopener noreferrer'
+                                rel='noopener'
                                 className='text-secondary hover:text-secondary-text underline'
                             >
                                 Learn more on the product page

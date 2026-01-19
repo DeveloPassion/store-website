@@ -318,7 +318,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://www.buymeacoffee.com/dsebastien'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <SiBuymeacoffee className='h-4 w-4' />
@@ -336,7 +336,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://www.dsebastien.net/about/'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <FaUser className='h-4 w-4' />
@@ -347,7 +347,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://www.dsebastien.net/newsletter/'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <FaEnvelope className='h-4 w-4' />
@@ -358,7 +358,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://notes.dsebastien.net/'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <FaStickyNote className='h-4 w-4' />
@@ -369,7 +369,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://www.dsebastien.net/join-the-knowii-community-and-fix-your-information-overload-problem/'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <FaUsers className='h-4 w-4' />
@@ -380,7 +380,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://tools.dsebastien.net'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <FaWrench className='h-4 w-4' />
@@ -391,7 +391,7 @@ const Footer: React.FC = () => {
                                     <a
                                         href='https://www.dsebastien.net/knowii-affiliate-program/'
                                         target='_blank'
-                                        rel='noopener noreferrer'
+                                        rel='noopener'
                                         className='text-primary/70 hover:text-secondary flex items-center gap-2 transition-colors'
                                     >
                                         <FaHandshake className='h-4 w-4' />
@@ -456,7 +456,7 @@ const Footer: React.FC = () => {
                             <a
                                 href='https://www.dsebastien.net'
                                 target='_blank'
-                                rel='noopener noreferrer'
+                                rel='noopener'
                                 className='hover:text-secondary transition-colors'
                             >
                                 Knowledge Forge
@@ -468,7 +468,7 @@ const Footer: React.FC = () => {
                             <a
                                 href='https://www.dsebastien.net'
                                 target='_blank'
-                                rel='noopener noreferrer'
+                                rel='noopener'
                                 className='hover:text-secondary transition-colors'
                             >
                                 Sébastien Dubois
