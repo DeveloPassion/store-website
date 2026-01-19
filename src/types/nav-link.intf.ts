@@ -6,4 +6,5 @@ export interface NavLink {
     icon: ReactNode
     color: string
     external?: boolean
+    hideOnDesktop?: boolean
 }

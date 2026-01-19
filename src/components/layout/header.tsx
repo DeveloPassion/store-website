@@ -180,7 +180,8 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             label: 'Official Website',
             icon: <FaGlobe className='h-5 w-5' />,
             color: 'text-purple-300 bg-gradient-to-br from-purple-500/25 to-fuchsia-600/15 border border-purple-500/25 hover:from-purple-500/35 hover:to-fuchsia-600/25 hover:border-purple-400/35',
-            external: true
+            external: true,
+            hideOnDesktop: true
         }
 
         return [
@@ -312,7 +313,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                             <a
                                 href='https://gumroad.com/checkout'
                                 target='_blank'
-                                rel='noopener noreferrer'
+                                rel='noopener'
                                 className='bg-primary/10 hover:bg-primary/20 focus-visible:ring-secondary relative flex h-10 w-10 items-center justify-center rounded-lg transition-colors focus-visible:ring-2 focus-visible:outline-none lg:h-11 lg:w-11 xl:h-12 xl:w-12'
                                 title='View Shopping Cart (opens in new tab)'
                                 aria-label='View Shopping Cart (opens in new tab)'
@@ -388,7 +389,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                     href={link.to}
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color}`}
+                                    className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color} ${link.hideOnDesktop ? 'md:hidden' : ''}`}
                                 >
                                     <span className='text-lg sm:text-xl md:text-3xl'>
                                         {link.icon}
@@ -401,7 +402,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 <Link
                                     key={link.to}
                                     to={link.to}
-                                    className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color}`}
+                                    className={`flex flex-col items-center justify-center gap-1.5 rounded-xl p-2.5 text-center transition-all hover:scale-105 sm:gap-2 sm:p-4 md:p-6 ${link.color} ${link.hideOnDesktop ? 'md:hidden' : ''}`}
                                 >
                                     <span className='text-lg sm:text-xl md:text-3xl'>
                                         {link.icon}

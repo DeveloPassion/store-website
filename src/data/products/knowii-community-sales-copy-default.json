@@ -3,104 +3,97 @@
     "salesCopy": {
         "tagline": "Everything You Need to Master Information and AI",
         "secondaryTagline": "Community + Courses + Tools = One System That Actually Works",
-        "problem": "You're drowning. **Hundreds of browser tabs**. Notes scattered across **five different apps**. That brilliant idea from last week's meeting? *Gone.* You spend more time **searching** for things than actually using them.",
+        "problem": "Two skills separate top performers from everyone else: **managing information** and **using AI effectively**. Most people have neither. They're scattered across apps, forgetting what they read, and using AI like beginners while others pull ahead.",
         "problemPoints": [
-            "Hundreds of browser tabs open, and you still can't find what you need when you need it",
-            "Notes everywhere: Notion, Apple Notes, random text files, paper notebooks, your phone",
-            "You read great content but remember almost none of it. All those highlights? Forgotten.",
-            "Constant context switching kills your focus. You never get into deep work anymore.",
-            "Your best ideas slip away before you can capture them. Probably 60% or more.",
-            "Hours spent looking for 'that thing I saved somewhere' instead of doing actual work"
+            "Information scattered across apps, tabs, and notebooks. Nothing connects.",
+            "You read, highlight, take notes... and remember almost none of it",
+            "AI gives you generic slop. You know it could do more, but you don't know HOW",
+            "Hours spent searching for things you KNOW you saved somewhere",
+            "Your best ideas slip away before you can capture and develop them",
+            "Everyone talks about AI—but you're not sure you're using it right"
         ],
-        "agitate": "This isn't just annoying. Research shows **41% of knowledge workers** feel overwhelmed by information every single day. It's hurting your work, your creativity, and honestly, **your peace of mind**.",
+        "agitate": "Here's what's happening: **41% of knowledge workers** feel overwhelmed by information daily. Meanwhile, AI is changing everything—and people who master it are pulling ahead. You're stuck in the middle: too much information, not enough system, and AI tools you can't quite figure out.",
         "agitatePoints": [
-            "That breakthrough thought from last week? Gone forever. You'll never get it back.",
-            "Books read, courses taken, but nothing sticks. Your learning doesn't compound.",
-            "You can't synthesize information fast enough to make confident decisions",
+            "That breakthrough thought from last week? Gone. You'll never get it back.",
+            "AI could save you hours weekly, but your prompts get generic, useless output",
             "Your expertise stays locked in your head instead of advancing your career",
-            "Too much mental noise to hear your own original thoughts",
-            "The exhausting cycle: try to remember everything, find nothing, start over"
+            "Others are using AI to create content, make decisions, and move faster. You're not.",
+            "The gap between what's possible and what you're doing keeps growing",
+            "Too much noise to think clearly, too little AI skill to work smarter"
         ],
-        "solution": "Knowii is a complete system: supportive community, courses worth hundreds of euros, and professional tools. All designed to work together. Not just another tool to manage. A system.",
+        "solution": "Knowii is a **complete system** for mastering BOTH skills: **Knowledge Management** (capture, organize, and use information) AND **AI Mastery** (use AI like an expert, not a tourist). Community support, courses worth hundreds of euros, professional tools, and direct expert access. All integrated. All evolving.",
         "solutionPoints": [
-            "Find anything instantly. No more endless hunting through folders and apps.",
-            "Actually remember what you read. Turn passive consumption into lasting knowledge.",
-            "Reduce mental load. Let your system hold information so your mind can think.",
-            "Make better decisions by connecting ideas across different areas and time.",
-            "Use AI effectively without losing your own perspective and voice.",
-            "Create content consistently through systems, not willpower.",
-            "Build systems that grow with you instead of becoming maintenance nightmares."
+            "Build a knowledge system that actually works. Find anything in seconds.",
+            "Master AI tools: ChatGPT, Claude, MCP, and workflows that get real results",
+            "Create content consistently through systems, not willpower",
+            "Transform scattered information into insights and competitive advantage",
+            "Get direct access to experts who use these systems daily",
+            "Join 340+ members already building their knowledge + AI advantage"
         ],
-        "description": "Knowii brings together hundreds of knowledge workers, creators, and lifelong learners who are done with information overload. It's not a generic productivity community. You get community support, courses, tools, and direct expert guidance. All integrated. Whether you're drowning in tabs or building sophisticated knowledge systems, Knowii meets you where you are.",
+        "description": "Knowii brings together knowledge workers, creators, and lifelong learners who want to master BOTH information management AND AI. It's not a generic productivity community. You get community support, courses, tools, AI mastery training, and direct expert guidance. All integrated. Whether you're struggling with scattered notes or want to use AI like a pro, Knowii meets you where you are and takes you further.",
         "features": [
-            "**3 Membership Tiers**: Explorer (**€4.99**/month), Knowledge Builder (**€19.99**/month), Knowledge Master (**€39.99**/month)",
-            "**Private community spaces** with expert-led discussions and peer support",
-            "**Live events**: masterclasses, workshops, Q&As, knowledge-sharing sessions, and live streams",
-            "**Video recordings** of all past events for Knowledge Builder and Master tiers",
-            "**Professional templates**, workflows, and guides ready to use on day one",
-            "**Direct access** to multiple Knowledge Management experts",
-            "**Monthly community challenges** to build momentum and accountability",
-            "Explorer tier bonuses: Knowledge base of **1,800+ concepts**, KM System Checklist, Database of KM tools, [Beginner's Guide to Obsidian](/product/beginners-guide-obsidian)",
-            "[Obsidian Starter Kit](/product/obsidian-starter-kit) (**€129.99** value) included for Knowledge Builder+",
-            "[Obsidian Starter Course](/product/obsidian-starter-course) (**€69.99** value) included for Knowledge Builder+",
-            "[Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course (**€69.99** value) for Knowledge Master",
-            "Knowledge Master tools: [Knowledge Worker Kit](/product/knowledge-worker-kit), [PKM Library](/product/pkm-library), [AI Ghostwriter Guide](/product/ai-ghostwriter-guide), [AI Master Prompt](/product/ai-master-prompt), and all future tools",
-            "All workshops included: [Journaling Deep Dive](/product/journaling-deep-dive), [Personal Organization 101](/product/personal-organization-101), [Clarity 101](/product/clarity-101), [AI Master Prompt](/product/ai-master-prompt), [MCP](/product/model-context-protocol), and more",
-            "DeveloPassion's Newsletter Archives: **200+ editions** of curated insights"
+            "**3 Tiers**: Explorer (€4.99/mo), Knowledge Builder (€19.99/mo), Knowledge Master (€39.99/mo)",
+            "**All Tiers**: Private community, live events, expert access, monthly challenges, 1,800+ concept knowledge base",
+            "**Knowledge Builder+**: All workshops included ([Journaling Deep Dive](/product/journaling-deep-dive), [Personal Organization 101](/product/personal-organization-101), [Clarity 101](/product/clarity-101), [AI Master Prompt](/product/ai-master-prompt), [MCP](/product/model-context-protocol), and more)",
+            "**Knowledge Builder+**: [Obsidian Starter Kit](/product/obsidian-starter-kit) (€129.99 value) + [Obsidian Starter Course](/product/obsidian-starter-course) (€69.99 value) = **€199.98 included**",
+            "**Knowledge Builder+**: Full video archive of all past events",
+            "**Knowledge Master**: [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course (€69.99 value)",
+            "**Knowledge Master**: Complete AI Mastery Stack: [AI Ghostwriter Guide](/product/ai-ghostwriter-guide), [AI Master Prompt](/product/ai-master-prompt), [MCP Workshop](/product/model-context-protocol)",
+            "**Knowledge Master**: [Knowledge Worker Kit](/product/knowledge-worker-kit) + [PKM Library](/product/pkm-library) = **€500+ total value**",
+            "**Knowledge Master**: ALL future courses, tools, and workshops—automatically included",
+            "**Flagship Offer**: Everything keeps growing. Join now, get everything added later."
         ],
         "benefits": {
             "immediate": [
-                "Stop wasting hours searching. Get proven systems you can implement on day one.",
-                "Access ready-made templates and workflows. No need to build from scratch.",
-                "Connect with people solving the same problems. You're not alone in this.",
-                "Get expert guidance when stuck. Direct access to knowledge management specialists."
+                "Stop searching. Start finding. Proven systems you can implement today.",
+                "AI that actually works: get templates and workflows that get real results",
+                "Connect with 340+ people solving the same problems. You're not alone.",
+                "Expert access when stuck. Real answers, not forum guesses."
             ],
             "systematic": [
-                "Complete integrated system. Community + Courses + Tools working together.",
-                "Proven approaches from 20+ years of practice. Learn what actually works.",
-                "Implementation support. Guidance through the journey, not just theory.",
-                "Continuous learning. Regular events, new content, and evolving best practices.",
-                "AI integration strategies. Modern workflows that use AI without losing your edge.",
-                "Scalable systems. Solutions that grow with your expertise and responsibilities."
+                "Complete integrated system: Community + Courses + Tools + AI Mastery",
+                "Master AI workflows for writing, research, learning, and decision-making",
+                "Build knowledge systems that scale with your career and responsibilities",
+                "Continuous learning: new workshops, tools, and content added regularly",
+                "Implementation support. This isn't self-paced courses—it's guided change."
             ],
             "longTerm": [
-                "Sustainable knowledge management for life. Skills that compound over decades.",
-                "Professional advancement through documented expertise and better decision-making",
-                "Mental clarity and reduced overwhelm. Peace of mind from knowing where everything is.",
-                "Creative freedom. Reliable systems that turn knowledge into consistent content without burnout.",
-                "Compound growth. Each insight builds on the last, creating exponential returns on learning."
+                "Knowledge + AI skills that compound over decades",
+                "Professional advantage: you'll think, create, and decide faster than peers",
+                "Mental clarity from systems that handle the noise",
+                "Creative freedom: reliable output without burnout",
+                "Future-proof: as AI evolves, you evolve with it inside Knowii"
             ]
         },
         "targetAudience": [
-            "Knowledge Workers: keeping up with AI while delivering real-world impact",
-            "Overwhelmed Professionals: drowning in tabs, emails, Slack messages, and scattered notes",
-            "Career Builders: documenting expertise to advance professionally and stand out",
-            "Content Creators: producing consistent quality without burning out or running dry",
-            "Founders and Entrepreneurs: juggling investor decks, customer feedback, market research, and strategy",
-            "Consultants and Freelancers: managing multiple client projects and building reusable knowledge assets",
-            "Researchers and Students: turning highlights, papers, and notes into lasting, connected knowledge",
-            "Team Leaders and Executives: synthesizing complex information to make confident decisions fast"
+            "Knowledge Workers: staying ahead in the AI era while delivering real impact",
+            "Content Creators: producing consistently without burnout, using AI that sounds like YOU",
+            "Professionals Using AI: frustrated with generic output, ready to master it properly",
+            "Career Builders: documenting expertise and using AI to accelerate growth",
+            "Founders and Entrepreneurs: managing information chaos AND leveraging AI for decisions",
+            "Researchers and Students: turning reading into lasting knowledge with AI assistance",
+            "Team Leaders: synthesizing complex information and using AI to lead smarter"
         ],
         "perfectFor": [
-            "You feel overwhelmed by information and want a system that actually reduces the noise",
-            "You value systematic approaches and believe good systems create good outcomes",
-            "You want a supportive community that understands the struggle, not just another forum",
-            "You're ready to invest in yourself. Time, energy, and a modest membership.",
-            "You want both immediate tools and long-term change, not just quick fixes"
+            "You want a COMPLETE system for managing information AND mastering AI",
+            "You've tried AI tools but aren't getting results that match the hype",
+            "You're tired of scattered notes, forgotten ideas, and wasted time searching",
+            "You want community support, not just another course to watch alone",
+            "You're ready to invest in skills that compound: monthly membership, real results"
         ],
         "notForYou": [
             "You prefer working completely alone and don't value community learning or support",
-            "You don't struggle with information overload. Your current system works perfectly.",
+            "You're not interested in AI and don't see the need to learn it",
             "You want only tools without understanding why they work or how to use them effectively"
         ],
         "trustBadges": [
-            "**Complete System**: Community + Courses + Tools in one package",
-            "**$150-500+ in Bonuses**: depending on tier, immediate access to premium resources",
-            "**Expert-Led**: 20+ years of knowledge management expertise, not just theory",
-            "**Growing Community**: 340+ members actively sharing and learning together",
-            "**Live Events**: regular masterclasses, workshops, and Q&A sessions",
-            "**Flexible Membership**: upgrade, downgrade, or cancel anytime",
-            "**Proven Track Record**: 2,000+ products sold, 10,000+ hours saved"
+            "**Complete System**: Knowledge Management + AI Mastery in one place",
+            "**€500+ Value**: Knowledge Master includes everything—courses, tools, future additions",
+            "**340+ Members**: Active community learning and building together",
+            "**Expert-Led**: 20+ years of IT and KM expertise, hundreds of hours mastering AI",
+            "**Always Growing**: New workshops, tools, and content added regularly",
+            "**Flexible**: Upgrade, downgrade, or cancel anytime",
+            "**Proven**: 2,000+ products sold, 10,000+ hours saved for customers"
         ],
         "guarantees": [
             "Flexible membership. Upgrade, downgrade, or cancel at any time.",
@@ -108,34 +101,34 @@
             "Continuous value. New content, events, and resources added regularly.",
             "Annual plan protection. Maintain access through end of billing period if you cancel."
         ],
-        "metaTitle": "Knowii Community - Turn Information Chaos Into Clarity | Community + Courses + Tools",
-        "metaDescription": "Join Knowii: Complete knowledge system with community, premium courses, and professional tools. From €4.99/month. Stop drowning in information. Start thriving.",
+        "metaTitle": "Knowii Community - Master Knowledge Management + AI | Complete System from €4.99/month",
+        "metaDescription": "Join 340+ members mastering Knowledge Management AND AI. Community + Courses + Tools integrated. €500+ value in Knowledge Master tier. Stop struggling. Start thriving.",
         "keywords": [
             "knowledge management community",
-            "pkm community",
-            "information overload solution",
-            "second brain",
+            "ai mastery course",
+            "pkm ai integration",
             "obsidian community",
-            "knowledge system",
+            "ai workflow training",
             "personal knowledge management",
-            "note-taking community",
-            "zettelkasten community",
-            "creator knowledge system",
-            "systematic creator"
+            "chatgpt mastery",
+            "claude ai training",
+            "second brain ai",
+            "systematic creator",
+            "knowledge worker ai"
         ],
         "storytelling": {
             "originStory": {
                 "title": "Why Knowii Exists",
                 "subtitle": "More than knowledge management. A complete system for thriving.",
-                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost **200k€** and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. **Burnout** from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising **three kids** while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a **complete system** for clarity, learning, organization, and execution. Not just a place to store notes, but systems that help us know what matters, manage our careers, learn effectively, stay organized, and actually get things done. That's what Knowii delivers: a **community of practice** where we share not just knowledge management techniques, but the full toolkit for thriving as a modern knowledge worker.",
-                "inspirationPoint": "Knowledge management is the foundation. But clarity, habits, career management, learning, and execution are what make the difference between surviving and thriving.",
+                "story": "I didn't build Knowii just because I was overwhelmed by information. I built it because I needed systems that worked through everything life threw at me: a failed startup that cost **200k€** and two years. Crushing shyness that made me terrified of communication. The painful transition from introverted engineer to leader and manager. **Burnout** from trying to do everything through willpower. Losing loved ones and questioning what really matters. Raising **three kids** while building a business alongside a demanding corporate career. Through all of this, I realized that information overload was just one symptom of a deeper problem. What I actually needed, what we all need, is a **complete system** for clarity, learning, organization, and execution—PLUS the AI skills to amplify everything. That's what Knowii delivers: a **community of practice** where we share Knowledge Management techniques, AI mastery, and the full toolkit for thriving as a modern knowledge worker.",
+                "inspirationPoint": "Knowledge management is the foundation. AI mastery is the accelerator. Together, they create an unfair advantage.",
                 "icon": "💡",
                 "genesisDate": null
             },
             "creatorJourney": {
-                "title": "20+ Years Building Systems for Everything",
-                "subtitle": "Not just PKM. The complete knowledge worker toolkit.",
-                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly **10,000 notes** in my personal knowledge system. I've published **3 books**, written **400+ articles** and newsletters, created courses, and built products used by thousands. But here's what matters: I didn't just build systems for managing information. I built systems for **everything**. Clarity on values and priorities, habits that make productivity automatic, career management, effective learning, project organization, task management, focus and attention, and personal development. The Knowii Community is where I share ALL of it. Not just PKM, but the **complete framework** for becoming a top-tier knowledge worker.",
+                "title": "20+ Years Building Systems. Hundreds of Hours Mastering AI.",
+                "subtitle": "Not just theory. Battle-tested systems I use daily.",
+                "story": "I've been coding since age 8 and writing almost as long. In my IT career, I've been a software developer, technical lead, software architect, solution architect, infrastructure architect, IT security expert, team leader, project manager, CTO, and founder. Today, I work half-time as an IT Solution Architect for a major financial organization while running DeveloPassion, raising 3 kids, and maintaining nearly **10,000 notes** in my personal knowledge system. I've published **3 books**, written **400+ articles** and newsletters, created courses, and built products used by thousands. When AI exploded, I didn't just dabble—I spent **hundreds of hours** mastering it. I built systems for AI ghostwriting, MCP integration, and workflows that actually work. The Knowii Community is where I share ALL of it: Knowledge Management + AI Mastery + the complete framework for becoming a top-tier knowledge worker.",
                 "struggles": [
                     "Crushing shyness and introversion that made communication terrifying",
                     "A failed startup that cost 200k€ and 2 years",
@@ -148,50 +141,50 @@
                     "Nearly **10,000 notes** in personal knowledge vault",
                     "Published **3 books** including *Learn TypeScript*",
                     "Written **400+ articles** and newsletters",
-                    "Created the [Knowledge Worker Kit](/product/knowledge-worker-kit) covering **13 topics**",
+                    "**Hundreds of hours** mastering AI tools and workflows",
                     "Built the Knowii community from scratch",
                     "Transitioned from shy introvert to **leader and entrepreneur**",
                     "**2,000+ products** sold, **340+ community members**"
                 ],
-                "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3. Dedicated to helping knowledge workers build complete systems for clarity, learning, organization, and execution.",
+                "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3. Dedicated to helping knowledge workers master both information management AND AI.",
                 "icon": "🛤️"
             },
             "transformationArc": {
-                "title": "From Chaos to Clarity",
-                "subtitle": "The journey every Knowii member experiences",
+                "title": "From Chaos to Mastery",
+                "subtitle": "The path every Knowii member takes",
                 "before": {
                     "title": "Before Knowii",
-                    "description": "Drowning in information with no system to make sense of it. Tabs piling up, notes scattered everywhere, brilliant ideas slipping away. Spending more time searching than thinking. Feeling like you're always behind, never quite in control.",
+                    "description": "Information scattered everywhere. AI tools that give generic output. Spending more time searching than thinking. Watching others use AI effectively while you struggle to get results.",
                     "points": [
-                        "2,000+ bookmarks you can't find when you need them",
                         "Notes scattered across multiple apps and paper notebooks",
                         "Reading great content but retaining almost nothing",
+                        "AI prompts that return generic, useless responses",
                         "Hours lost searching for 'that thing I saved somewhere'",
-                        "Mental exhaustion from trying to remember everything"
+                        "Falling behind as others master AI faster than you"
                     ],
                     "icon": "⚠️"
                 },
                 "during": {
-                    "title": "The Transformation",
-                    "description": "Learning proven systems through courses, implementing them with professional templates and tools, and getting unstuck with community support. Building your personal knowledge command center step by step, with expert guidance when you need it.",
+                    "title": "The Shift",
+                    "description": "Learning proven systems through courses, implementing them with professional templates and tools, mastering AI workflows, and getting unstuck with community support. Building your knowledge + AI command center step by step.",
                     "points": [
-                        "Courses teach you the frameworks and methodologies",
+                        "Courses teach you KM frameworks AND AI mastery",
                         "Templates and tools let you implement immediately",
+                        "AI workflows that actually produce useful output",
                         "Community helps you troubleshoot and stay motivated",
-                        "Live events provide ongoing learning and accountability",
                         "Expert access ensures you never stay stuck for long"
                     ],
                     "icon": "🔄"
                 },
                 "after": {
                     "title": "After Implementing the System",
-                    "description": "One central knowledge hub where everything is connected and accessible. Ready-made structures you can use on day one. The confidence that comes from knowing exactly where your information lives and how to use it.",
+                    "description": "One central knowledge hub where everything connects. AI tools that understand you and produce real results. The confidence that comes from mastering both skills while others struggle.",
                     "points": [
-                        "Find any piece of information in seconds, not hours",
-                        "Ideas connect and compound over time automatically",
+                        "Find any piece of information in seconds",
+                        "AI that produces output you can actually use",
                         "Mental clarity from offloading storage to your system",
                         "Consistent content creation without burning out",
-                        "Professional advancement through better thinking and decisions"
+                        "Competitive advantage from mastering KM + AI together"
                     ],
                     "icon": "✅"
                 },
@@ -203,48 +196,48 @@
                 "steps": [
                     {
                         "title": "Break Free From Information Chaos",
-                        "description": "Discover proven systems to capture, organize, and use what truly matters. Learn to eliminate mental clutter by externalizing knowledge into reliable systems instead of trying to hold everything in your head.",
+                        "description": "Discover proven systems to capture, organize, and use what truly matters. Learn to eliminate mental clutter by externalizing knowledge into reliable systems.",
                         "icon": "🔒",
                         "order": 0
                     },
                     {
                         "title": "Build Your Knowledge Command Center",
-                        "description": "Create your personal knowledge ecosystem with the right tools and workflows. Get set up with professional templates that evolve with your needs. No need to build from scratch or reinvent the wheel.",
+                        "description": "Create your personal knowledge ecosystem with the right tools and workflows. Get set up with professional templates that evolve with your needs.",
                         "icon": "🗄️",
                         "order": 1
                     },
                     {
-                        "title": "Turn Information Into Insights",
-                        "description": "Master techniques to connect ideas, generate insights, and unlock creativity that would otherwise remain hidden. Learn to see patterns across domains and turn scattered information into actionable knowledge.",
-                        "icon": "🧠",
+                        "title": "Master AI Tools and Workflows",
+                        "description": "Learn to use ChatGPT, Claude, and MCP like an expert. Build AI workflows that understand your context and produce real results, not generic slop.",
+                        "icon": "🤖",
                         "order": 2
                     },
                     {
-                        "title": "Apply Systems to Real-World Challenges",
-                        "description": "Implement your knowledge framework in professional scenarios. Use your system to make better decisions, advance your career, and demonstrate expertise through documented, connected knowledge.",
-                        "icon": "💼",
+                        "title": "Turn Information Into Insights",
+                        "description": "Master techniques to connect ideas, generate insights, and use AI to accelerate your thinking. See patterns across domains others miss.",
+                        "icon": "🧠",
                         "order": 3
                     },
                     {
-                        "title": "Achieve Zen Productivity",
-                        "description": "Integrate knowledge management into a holistic approach prioritizing clarity, focus, and mental wellbeing. Experience the peace that comes from sustainable systems instead of constant heroic effort.",
-                        "icon": "☯️",
+                        "title": "Apply Systems to Real-World Challenges",
+                        "description": "Implement your knowledge + AI framework in professional scenarios. Make better decisions, advance your career, and demonstrate expertise.",
+                        "icon": "💼",
                         "order": 4
                     },
                     {
-                        "title": "Create Content With Confidence",
-                        "description": "Build reliable systems to turn your knowledge into valuable content consistently and efficiently. Turn your accumulated expertise into articles, courses, products, and thought leadership. Without burnout.",
-                        "icon": "✏️",
+                        "title": "Build for the Long Term",
+                        "description": "Integrate knowledge management and AI into your daily life. Experience the peace that comes from systems that work, not constant heroic effort.",
+                        "icon": "☯️",
                         "order": 5
                     }
                 ],
                 "philosophy": "Start small, stay practical, and build systems that compound. The best system is the one you'll actually use. Small tweaks add up to big results over time.",
-                "differentiation": "Unlike generic productivity forums that offer only theory, tool-specific communities that focus on software instead of your actual problems, or courses alone that leave you stuck implementing: Knowii delivers Community + Courses + Tools integrated to work together as one cohesive system."
+                "differentiation": "Generic productivity communities offer theory. Tool-specific forums focus on software, not your problems. AI courses teach prompts without systems. Knowii delivers the integration: Knowledge Management + AI Mastery + Community + Implementation Support. One system that actually works."
             },
             "vision": {
                 "title": "Building Top 1% Knowledge Workers",
                 "subtitle": "Our mission and where we're headed",
-                "mission": "I want people to grow and thrive. Knowii exists to help knowledge workers build complete systems. Not just for managing information, but for everything: clarity on what matters, habits that make success automatic, career management, effective learning, project organization, task management, focus, and personal development. The goal is Zen Productivity: staying calm and organized no matter how much you're juggling, achieving consistent output without burnout, and becoming the kind of knowledge worker others look up to.",
+                "mission": "Two skills define the future of work: managing information and using AI. Knowii exists to help you master both. Not just for managing notes, but for everything: clarity on what matters, systems that scale, AI workflows that actually work, and the support to implement it all. The goal is becoming the kind of knowledge worker who thinks, creates, and decides faster than everyone else—without burning out.",
                 "values": [
                     {
                         "title": "Curiosity",
@@ -253,7 +246,7 @@
                     },
                     {
                         "title": "Practical Simplicity",
-                        "description": "Clarity over complexity. If it's too complicated, it won't stick. We build systems that actually get used, not impressive frameworks that collect dust.",
+                        "description": "Clarity over complexity. If it's too complicated, it won't stick. We build systems that actually get used.",
                         "icon": "🍃"
                     },
                     {
@@ -268,56 +261,56 @@
                     }
                 ],
                 "futureGoals": [
-                    "Expand the community to help thousands of creators build sustainable knowledge systems",
-                    "Develop BuilderOS. A complete creator operating system for systematic content creation.",
+                    "Expand the community to help thousands master KM + AI together",
+                    "Develop BuilderOS: A complete creator operating system for systematic content creation",
                     "Create deeper integration between knowledge management and AI-powered workflows",
-                    "Build a movement of systematic creators who prove sustainable success is possible"
+                    "Build a movement of knowledge workers who prove sustainable excellence is possible"
                 ],
-                "biggerPicture": "We believe knowledge is the ultimate competitive advantage in the age of AI. Those who can capture, organize, connect, and use information systematically will thrive. Not by working harder, but by working smarter with systems that compound over time.",
+                "biggerPicture": "Two skills define the future: managing information and using AI. Those who master both will have an unfair advantage. Knowii exists to help you become one of them. Not through theory, but through systems that work, community that supports, and expertise proven over 20+ years of practice and hundreds of hours of AI mastery.",
                 "icon": "🚀"
             },
             "successStories": null
         },
         "timeline": {
-            "title": "Your Journey",
+            "title": "Your Path Forward",
             "subtitle": "What you'll achieve as a Knowii member",
             "milestones": [
                 {
                     "id": "week-1",
                     "timeframe": "Week 1",
                     "title": "Foundation Set",
-                    "description": "Get your tools configured and templates installed. Experience your first 'aha' moment when you capture and find information effortlessly. Join the community and introduce yourself.",
+                    "description": "Get your tools configured and templates installed. Experience your first 'aha' moment when you capture and find information effortlessly. Start exploring the AI workshops.",
                     "highlights": [
                         "Install and configure your knowledge management tool",
                         "Import the [Obsidian Starter Kit](/product/obsidian-starter-kit) templates",
-                        "Capture your first ideas using the system",
-                        "Join the community and connect with peers"
+                        "Join the community and connect with peers",
+                        "Access your first AI mastery content"
                     ],
                     "icon": "🚀"
                 },
                 {
                     "id": "month-1",
                     "timeframe": "Month 1",
-                    "title": "System Established",
-                    "description": "Your capture workflows become second nature. You start building your personal knowledge command center. Information stops slipping through the cracks, and you feel noticeably more in control.",
+                    "title": "Systems Established",
+                    "description": "Your capture workflows become second nature. You've started implementing AI workflows. Information stops slipping through the cracks, and AI starts producing useful output.",
                     "highlights": [
                         "Reliable capture system running automatically",
-                        "Basic workflows established for daily use",
-                        "First connections between ideas emerging",
-                        "Significant reduction in 'where did I save that?' moments"
+                        "First AI workflows producing real results",
+                        "Significant reduction in 'where did I save that?' moments",
+                        "AI prompts that understand your context"
                     ],
                     "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
                     "timeframe": "Month 3",
-                    "title": "Insights Emerging",
-                    "description": "Your knowledge starts connecting in surprising ways. You notice patterns across domains. Decision-making feels clearer because you can see the full picture. The mental load lifts.",
+                    "title": "Mastery Emerging",
+                    "description": "Your knowledge starts connecting in surprising ways. AI has become a real tool, not a frustration. Decision-making feels clearer because you have both organized information and AI assistance.",
                     "highlights": [
                         "Ideas connecting across different areas of your life",
+                        "AI workflows you use daily without thinking",
                         "Clear improvement in decision-making confidence",
-                        "Noticeable reduction in mental clutter and overwhelm",
-                        "Starting to create content from your knowledge base"
+                        "Creating content faster with AI assistance"
                     ],
                     "icon": "🧠"
                 },
@@ -325,25 +318,25 @@
                     "id": "month-6",
                     "timeframe": "Month 6",
                     "title": "Professional Impact",
-                    "description": "Your system becomes a genuine professional asset. Colleagues notice your recall and insight. You're producing content consistently without the old stress. Knowledge compounds into real career advancement.",
+                    "description": "Your KM + AI system becomes a genuine professional asset. Colleagues notice your recall, insight, and AI fluency. You're producing content consistently without the old stress.",
                     "highlights": [
                         "Knowledge system actively advancing your career",
+                        "AI mastery that sets you apart from peers",
                         "Consistent content creation without burnout",
-                        "Recognition as someone who 'has their act together'",
-                        "System running smoothly with minimal maintenance"
+                        "Recognition as someone who 'has their act together'"
                     ],
                     "icon": "💼"
                 },
                 {
                     "id": "year-1",
                     "timeframe": "Year 1",
-                    "title": "Systematic Creator",
-                    "description": "You've gone from overwhelmed to in control. Your knowledge compounds automatically. You create prolifically through reliable systems, not heroic effort. Information chaos is a distant memory.",
+                    "title": "The New Normal",
+                    "description": "You've mastered both skills. Your knowledge compounds automatically. AI is a genuine thinking partner. Information chaos and AI frustration are distant memories.",
                     "highlights": [
-                        "Complete change in how you work with knowledge",
-                        "Sustainable system that maintains itself",
+                        "Complete change in how you work with knowledge and AI",
+                        "Sustainable systems that maintain themselves",
                         "Creative output you never thought possible",
-                        "Mental clarity and peace that comes from mastery"
+                        "Mental clarity and confidence that comes from mastery"
                     ],
                     "icon": "🏆"
                 }
