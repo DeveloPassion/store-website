@@ -1,3 +1,12 @@
+## [0.8.0](https://github.com/DeveloPassion/store-website/compare/0.7.6...0.8.0) (2026-01-19)
+
+### Features
+
+* **all:** added testimonialsCount and avoid counting needlessly ([cbd8ee8](https://github.com/DeveloPassion/store-website/commit/cbd8ee8fa07ee9f8e3994cb3e3722decb880be4d))
+
+### Bug Fixes
+
+* **all:** removed the index html redirect ([5490981](https://github.com/DeveloPassion/store-website/commit/5490981a8cf921adf050852a184102226485c333))
 ## [0.7.6](https://github.com/DeveloPassion/store-website/compare/0.7.4...0.7.6) (2026-01-19)
 
 ### Features
