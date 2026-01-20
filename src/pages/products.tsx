@@ -7,6 +7,7 @@ import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
 import type { Product, ProductCategory, PriceTier } from '@/schemas/product.schema'
 import { sortProductsIntelligently } from '@/lib/product-sort'
+import { searchProducts } from '@/lib/product-search'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
@@ -32,20 +33,11 @@ const ProductsPage: React.FC = () => {
 
     // Filter products
     const filteredProducts = useMemo(() => {
-        return products.filter((product) => {
-            // Search query
-            if (searchQuery) {
-                const query = searchQuery.toLowerCase()
-                const matchesSearch =
-                    product.name.toLowerCase().includes(query) ||
-                    (product.salesCopy?.tagline &&
-                        product.salesCopy.tagline.toLowerCase().includes(query)) ||
-                    (product.salesCopy?.description &&
-                        product.salesCopy.description.toLowerCase().includes(query)) ||
-                    product.tags.some((tag) => tag.toLowerCase().includes(query))
-                if (!matchesSearch) return false
-            }
+        // Apply fuzzy search if there's a query, otherwise use all products
+        const searchedProducts = searchQuery ? searchProducts(products, searchQuery) : products
 
+        // Apply additional filters
+        return searchedProducts.filter((product) => {
             // Category filter (matches mainCategory or any secondaryCategory)
             if (selectedCategory !== 'all') {
                 const allCategories = [

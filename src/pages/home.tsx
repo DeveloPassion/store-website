@@ -28,6 +28,7 @@ import {
     sortFeaturedProducts,
     sortBestValueProducts
 } from '@/lib/product-sort'
+import { searchProducts } from '@/lib/product-search'
 import { getFeaturedSorted } from '@/lib/collection-utils'
 import { CategoryCard } from '@/components/categories/category-card'
 import CompactNewsletter from '@/components/ui/compact-newsletter'
@@ -63,15 +64,9 @@ const HomeEcommerce: React.FC = () => {
     const filteredProducts = useMemo(() => {
         let products = productsData as Product[]
 
-        // Apply search filter
+        // Apply search filter using fuzzy search
         if (searchQuery) {
-            const query = searchQuery.toLowerCase()
-            products = products.filter(
-                (p) =>
-                    p.name.toLowerCase().includes(query) ||
-                    (p.salesCopy.tagline && p.salesCopy.tagline.toLowerCase().includes(query)) ||
-                    p.tags.some((t) => t.toLowerCase().includes(query))
-            )
+            products = searchProducts(products, searchQuery)
         }
 
         // Apply tag filter (from URL route)

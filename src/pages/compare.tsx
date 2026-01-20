@@ -21,6 +21,7 @@ import type { Category } from '@/schemas/category.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { searchProducts } from '@/lib/product-search'
 import type { MediaItem } from '@/schemas/media.schema'
 import { MarkdownContent } from '@/components/ui/markdown-content'
 
@@ -136,17 +137,9 @@ const ComparePage: React.FC = () => {
     }, [selectedIds, products])
 
     const availableProducts = useMemo(() => {
-        return products
-            .filter((p) => !selectedIds.includes(p.id))
-            .filter((p) => {
-                if (!searchQuery) return true
-                const query = searchQuery.toLowerCase()
-                return (
-                    p.name.toLowerCase().includes(query) ||
-                    p.salesCopy?.tagline?.toLowerCase().includes(query) ||
-                    p.mainCategory.toLowerCase().includes(query)
-                )
-            })
+        const notSelected = products.filter((p) => !selectedIds.includes(p.id))
+        if (!searchQuery) return notSelected
+        return searchProducts(notSelected, searchQuery)
     }, [products, selectedIds, searchQuery])
 
     const addProduct = (productId: string) => {
@@ -288,7 +281,7 @@ const ComparePage: React.FC = () => {
                                     className='border-primary/20 bg-background mb-4 w-full rounded-lg border px-3 py-2 text-sm focus:outline-none'
                                     autoFocus
                                 />
-                                <div className='grid max-h-64 grid-cols-1 gap-2 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3'>
+                                <div className='grid max-h-64 grid-cols-1 gap-2 overflow-y-auto md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'>
                                     {availableProducts.slice(0, 12).map((product) => (
                                         <button
                                             key={product.id}
