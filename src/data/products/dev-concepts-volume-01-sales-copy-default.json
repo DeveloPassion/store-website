@@ -2,7 +2,7 @@
     "id": "default",
     "salesCopy": {
         "tagline": "The mindset that separates software craftspeople from coders",
-        "secondaryTagline": "First principles and psychology for developers who want to thrive, not just survive",
+        "secondaryTagline": "First principles and psychology for developers who want real careers",
         "problem": "You know how to code, but something's missing. You're stuck, overwhelmed, and not sure which skills actually matter for your career.",
         "problemPoints": [
             "Too many programming languages, frameworks, and conflicting advice. Where do you even start?",
@@ -11,7 +11,7 @@
             "Nobody taught you how professionals actually think about their work",
             "AI tools are everywhere now. Will they replace you if you only know syntax?"
         ],
-        "agitate": "Without the right mindset, you'll keep grinding while others build the careers you want",
+        "agitate": "Without the right foundation, you'll keep grinding while others build the careers you want",
         "agitatePoints": [
             "Watching peers get promoted while you stay stuck at the same level",
             "Jumping from tutorial to tutorial without building real competence",
@@ -19,23 +19,22 @@
             "Working harder instead of smarter because nobody showed you another way",
             "Worrying AI will make you obsolete because you focus on code, not principles"
         ],
-        "solution": "Learn the mindset, habits, and first principles that define true software craftsmanship",
+        "solution": "Learn the habits and first principles that define professional software development",
         "solutionPoints": [
             "Understand what separates software developers, engineers, and craftspeople",
             "Develop the traits that make developers productive and valued",
             "Build habits that compound over your entire career",
             "Learn from **30+ years** of real experience distilled into practical guidance",
-            "Thrive in the AI age by mastering principles that tools can't replace"
+            "Master principles that AI tools can't replace"
         ],
-        "description": "Dev Concepts Volume 1 teaches the mindset and first principles that separate software craftspeople from coders. This **100-page** e-book draws from my **30+ years** of experience (about **20 years** professionally) to help you develop the traits, habits, and professional attitude that drive real career success. Here's the thing most people miss: being a software crafter is much less about technology than about personality traits and psychology. This volume shows you what that means and how to develop it. Part of a **12-volume series** covering all aspects of software development.",
+        "description": "Dev Concepts Volume 1 teaches the first principles that separate software craftspeople from coders. This **100-page** e-book draws from **30+ years** of experience to help you develop the traits, habits, and professional attitude that drive career success. Here's the thing most people miss: being a software crafter is much less about technology than about personality traits and psychology. This volume shows you what that means and how to develop it. Part of a **12-volume series**.",
         "features": [
-            "**100-page** e-book on software craftsmanship fundamentals",
+            "**100-page** e-book covering software craftsmanship fundamentals",
             "First principles approach that builds lasting understanding",
             "Clear distinction between software development, engineering, and craftsmanship",
-            "**25+ essential skills** and practical advice sections",
+            "**25+ essential skills** with practical advice for each",
             "Career progression pathways and professional development strategies",
-            "Focus on mindset, productivity, and psychology of effective developers",
-            "Written from **30+ years** of hands-on experience",
+            "Focus on productivity and the psychology of effective developers",
             "Part of a **12-book series** covering software development end-to-end",
             "**PDF format** for easy reference",
             "**Lifetime access** to all future updates"
@@ -53,10 +52,10 @@
                 "Better decisions about where to focus your learning"
             ],
             "longTerm": [
-                "Becoming the kind of developer who thrives regardless of technology changes",
-                "An AI-proof career because you understand principles, not just syntax",
+                "Becoming the kind of developer who adapts to technology changes",
+                "A career built on principles that remain valuable regardless of tools",
                 "The professional reputation that leads to better opportunities",
-                "Joining the ranks of true software craftspeople"
+                "Joining the ranks of software craftspeople"
             ]
         },
         "targetAudience": [
@@ -71,7 +70,7 @@
             "You can code but don't feel like a 'real' professional yet",
             "You want to understand the 'why' behind professional practices",
             "You want to build a career, not just write code",
-            "You're preparing for the AI age and want to stay valuable"
+            "You want skills that remain valuable as tools evolve"
         ],
         "notForYou": [
             "Senior developers already confident in their professional mindset",
@@ -81,15 +80,10 @@
         ],
         "trustBadges": [
             "**30+ years** hands-on experience",
-            "**~20 years** professional industry work",
             "Part of **12-volume series**",
             "**Lifetime updates** included"
         ],
-        "guarantees": [
-            "**14-day** money-back guarantee",
-            "**Lifetime access** to content",
-            "**Free updates** forever"
-        ],
+        "guarantees": ["**14-day** money-back guarantee", "**Lifetime access** and updates"],
         "metaTitle": "Dev Concepts Volume 1 - Software Craft | The Mindset That Makes Great Developers",
         "metaDescription": "Learn the mindset and first principles that separate software craftspeople from coders. 100-page e-book from 30+ years of experience covering professional psychology, habits, and career growth.",
         "keywords": [
@@ -107,27 +101,25 @@
             "originStory": {
                 "title": "Why I Wrote This Book",
                 "subtitle": "**30+ years** of lessons I wish someone had shared with me",
-                "story": "Software development has been my passion since I was **10 years old**. I've spent over **30 years** exploring, tinkering, learning, and enjoying every aspect of this craft. Throughout my career, I've seen countless talented people struggle. Not because they lacked intelligence or coding ability, but because nobody taught them how professionals actually think.\n\nI believe first principles and concepts are at the core of building a solid practice. I consider myself a software craftsperson, and I want apprentices. I want to help people grow. I want to see the 'Aha' moment in their eyes when concepts finally click.\n\nWith AI everywhere now, understanding these fundamentals matters more than ever. I want you to thrive, fully understanding what you're doing, what AI is doing for you, and how to use both effectively. This book is my way of sharing everything I wish someone had told me when I started.",
+                "story": "Software development has been my passion since I was **10 years old**. Throughout my career, I've seen countless talented people struggle. Not because they lacked intelligence or coding ability, but because nobody taught them how professionals actually think.\n\nI believe first principles are at the core of building a solid practice. I consider myself a software craftsperson, and I want apprentices. I want to help people grow. I want to see the 'Aha' moment when concepts finally click.\n\nThis book is my way of sharing everything I wish someone had told me when I started.",
                 "inspirationPoint": "I want to see the 'Aha' moment when concepts finally click",
                 "genesisDate": null,
                 "icon": "💡"
             },
             "creatorJourney": {
                 "title": "From Curious Kid to Software Craftsperson",
-                "subtitle": "**30+ years** of learning distilled into guidance for you",
-                "story": "My journey began at age **10** when I first discovered programming and fell in love with building things with code. In **2006**, I started my professional career and learned the hard way what separates good developers from great ones. Over the following years, I worked as developer, tech lead, solutions architect, and founded companies. I kept learning and refining my understanding of what makes software professionals truly effective.",
+                "subtitle": "Learning distilled into guidance for you",
+                "story": "My journey began at age **10** when I first discovered programming and fell in love with building things with code. In **2006**, I started my professional career and learned the hard way what separates good developers from great ones. Over the following years, I worked as developer, tech lead, solutions architect, and founded companies.",
                 "struggles": [
                     "Learning the hard way what separates good developers from great ones",
                     "Discovering that technical skills alone aren't enough for career success",
                     "Realizing most resources teach syntax, not professional thinking"
                 ],
                 "achievements": [
-                    "**30+ years** of hands-on coding experience",
-                    "**~20 years** of professional industry work",
                     "Roles spanning developer, tech lead, solutions architect, and founder",
                     "Mentored dozens of junior developers"
                 ],
-                "credentials": "Software craftsperson with **30+ years** of coding experience and **~20 years** in professional industry roles",
+                "credentials": "Software craftsperson with decades of experience across professional industry roles",
                 "icon": "🛤️"
             },
             "transformationArc": null,
@@ -150,7 +142,7 @@
                     },
                     {
                         "title": "Mindset Over Syntax",
-                        "description": "Develop the traits that make you valuable regardless of technology",
+                        "description": "Develop traits that make you valuable regardless of technology",
                         "icon": "🧠",
                         "order": 2
                     },
@@ -166,8 +158,8 @@
             },
             "vision": {
                 "title": "Creating Software Craftspeople",
-                "subtitle": "Building developers who thrive in the age of AI",
-                "mission": "I want more people to enjoy IT and software development. I want to help you thrive in the AI age, fully understanding what you're doing and what AI is doing for you.",
+                "subtitle": "Building developers who understand what they're doing",
+                "mission": "I want more people to enjoy IT and software development. I want to help you understand what you're doing and work effectively with modern tools.",
                 "values": [
                     {
                         "title": "Principles over patterns",
@@ -176,7 +168,7 @@
                     },
                     {
                         "title": "Understanding over memorization",
-                        "description": "Building deep comprehension that lets you adapt to any technology or situation",
+                        "description": "Building comprehension that lets you adapt to any technology or situation",
                         "icon": "🧠"
                     },
                     {
@@ -192,10 +184,9 @@
                 ],
                 "futureGoals": [
                     "Complete the **12-volume** Dev Concepts series",
-                    "Help thousands of developers build fulfilling careers",
-                    "Create a new generation of software craftspeople"
+                    "Help developers build fulfilling careers"
                 ],
-                "biggerPicture": "The world needs developers who understand principles, not just syntax. Developers who can think critically, communicate effectively, and build software that truly serves users. This book is my contribution to creating more of them.",
+                "biggerPicture": "This book is my contribution to creating more developers who understand principles, think critically, and communicate effectively.",
                 "icon": "🎯"
             }
         },

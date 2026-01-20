@@ -3,7 +3,7 @@
         {
             "id": "faq-89",
             "question": "What is MCP in simple terms?",
-            "answer": "MCP lets AI access your files, databases, and tools directly instead of you copy-pasting everything. Like giving AI \"hands\" to reach your data."
+            "answer": "MCP lets AI access your files, databases, and tools directly instead of you copy-pasting everything. Like giving AI 'hands' to reach and manipulate your data."
         },
         {
             "id": "faq-90",
@@ -48,7 +48,7 @@
         {
             "id": "faq-98",
             "question": "Will MCP work with future AI tools?",
-            "answer": "Yes. MCP is an open standard created by Anthropic. OpenAI adopted it for ChatGPT and their AI Agents SDK in 2025. It's becoming THE integration standard for AI."
+            "answer": "Yes. MCP is an open standard created by Anthropic. OpenAI adopted it for ChatGPT and their AI Agents SDK in 2025. It's now an industry standard for AI integrations."
         },
         {
             "id": "faq-99",
@@ -58,22 +58,22 @@
         {
             "id": "faq-100",
             "question": "Is this still relevant? MCP is from November 2024.",
-            "answer": "Very relevant! MCP is the BEGINNING of a major shift. OpenAI's adoption in 2025 validated it as the industry standard. The ecosystem grows monthly with new servers and clients. Early adopters are building compound advantages."
+            "answer": "Very relevant. MCP is part of a major shift. OpenAI's adoption in 2025 validated it as an industry standard. The ecosystem grows monthly with new servers and clients."
         },
         {
             "id": "faq-101",
             "question": "Why pay €19.99 when there are free YouTube tutorials?",
-            "answer": "Most free tutorials are written by developers, for developers. This masterclass is designed for **knowledge workers** who want results without technical overhead. You get a **curated path** (I tested dozens of servers), GUI-focused installation, security guidance most tutorials skip, and PKM-specific use cases like `Obsidian` and `Notion` integration."
+            "answer": "Most free tutorials are written by developers, for developers. This masterclass is designed for knowledge workers who want results without technical overhead. You get a structured path (I tested dozens of servers), GUI-focused installation, security guidance most tutorials skip, and PKM-specific use cases like `Obsidian` and `Notion` integration."
         },
         {
             "id": "faq-102",
             "question": "I'm overwhelmed. There are hundreds of MCP servers. Where do I start?",
-            "answer": "That's exactly why this masterclass exists. Instead of a scavenger hunt through documentation, you get a curated path: which servers are reliable, which clients work best, which tools make installation painless. I've done the testing so you don't have to."
+            "answer": "That's exactly why this masterclass exists. Instead of a scavenger hunt through documentation, you get clear guidance: which servers are reliable, which clients work best, which tools make installation painless. I've done the testing so you don't have to."
         },
         {
             "id": "faq-103",
             "question": "What's the main use case for knowledge workers?",
-            "answer": "**Breaking down knowledge silos**. AI can read your `Obsidian` notes, query your `Notion` databases, search the web, and control your browser, all from a **single prompt**. No more being the middleman copy-pasting context between tools."
+            "answer": "Connecting your scattered tools. AI can read your `Obsidian` notes, query your `Notion` databases, search the web, and control your browser. No more copy-pasting context between tools."
         }
     ]
 }

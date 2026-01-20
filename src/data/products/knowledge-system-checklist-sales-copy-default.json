@@ -2,7 +2,7 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Stop Guessing. Start Building.",
-        "secondaryTagline": "The **FREE** step-by-step checklist that transforms information chaos into a knowledge system you can actually use",
+        "secondaryTagline": "The **FREE** step-by-step checklist to build a knowledge system you'll actually use",
         "problem": "You know you need a knowledge management system. You've probably tried building one before. But without a clear roadmap, most people make the same costly mistakes: picking tools before understanding their needs, building systems too complex to maintain, and forgetting critical components that make everything fall apart later.",
         "problemPoints": [
             "Jumping into tools without knowing what you actually need",
@@ -12,48 +12,42 @@
             "Starting and abandoning systems over and over again",
             "No clear process to follow - just random note-taking"
         ],
-        "agitate": "The frustration compounds. You set up a new system, feel excited for a week, then slowly stop using it. Your notes become another graveyard of good intentions. Worse: you might lose everything because you never thought about backups. Or your system grows stale because you forgot to build the habits that keep it alive. Without a complete picture of what a working system needs, you're building on sand.",
+        "agitate": "The frustration compounds. You set up a new system, feel excited for a week, then slowly stop using it. Worse: you might lose everything because you never thought about backups. Or your system grows stale because you never built the habits that keep it alive. Without knowing what a working system actually requires, the cycle repeats.",
         "agitatePoints": [
             "Systems that feel great at first but get abandoned within weeks",
-            "The sinking realization that you forgot something critical - like backups",
+            "Realizing too late that you forgot something critical; like backups",
             "Notes scattered everywhere because you skipped the planning phase",
-            "No consistent habits to keep your system alive and useful",
-            "Starting from scratch again and again, never making real progress",
-            "That nagging feeling: 'What am I missing?'"
+            "No consistent habits to keep your system useful",
+            "Starting from scratch again and again",
+            "Constantly wondering: 'What am I missing?'"
         ],
-        "solution": "This **FREE** checklist gives you the complete picture. All **8 phases**. Every essential component. From foundation and planning (the phase most people skip) to continuous improvement (the phase most people forget). Use it to build your first system right, or audit your existing one to find the gaps.",
+        "solution": "This **FREE** checklist covers everything: **8 phases** from foundation and planning to continuous improvement. Use it to build your first system correctly, or audit an existing one to find the gaps.",
         "solutionPoints": [
-            "**Complete 8-phase roadmap** from planning to optimization",
             "Know exactly what components your system needs",
             "**Identify gaps** in your current setup",
-            "**Build habits** that make your system sustainable",
-            "**Avoid the mistakes** that kill most knowledge systems",
+            "**Avoid the mistakes** that derail most knowledge systems",
             "Understand where you stand and what to focus on next"
         ],
-        "description": "The Knowledge Management System Checklist is a **FREE** comprehensive resource distilled from years of building systems, coaching professionals, and learning from real-world failures. This isn't just a list of features to check off - it's a **complete roadmap** for building a knowledge system that actually works.\n\nCovering **8 essential phases** - from Foundation & Planning to Continuous Improvement - this checklist helps you understand where you stand and what you should think about for your own system. Whether you're starting from scratch or auditing an existing setup, you'll finally have clarity on what a complete system looks like.",
+        "description": "This **FREE** checklist distills years of building systems and coaching professionals into a practical reference. It covers everything from Foundation & Planning to Continuous Improvement, helping you understand where you stand and what to consider for your own system. Whether you're starting fresh or auditing an existing setup, you'll have clarity on what a working system requires.",
         "features": [
-            "**8 Essential Phases** covering the complete system lifecycle",
+            "**8 phases** covering the full system lifecycle",
             "**Actionable steps** you can follow immediately",
-            "**Gap analysis** to identify what's missing in your current setup",
-            "**Habit-building framework** for sustainable daily use",
-            "**Pro tips** integrated throughout from real coaching experience",
+            "**Pro tips** from real coaching experience",
             "**Links to deeper resources** when you're ready to go further"
         ],
         "benefits": {
             "immediate": [
-                "Know exactly what components a complete system needs",
-                "Identify the gaps in your current setup",
-                "Stop second-guessing your approach",
-                "Have a clear roadmap to follow"
+                "Know what components a working system needs",
+                "Identify gaps in your current setup",
+                "Stop second-guessing your approach"
             ],
             "systematic": [
                 "Build sustainable habits from day one",
-                "Avoid the planning mistakes that kill most systems",
-                "Create a system designed for long-term use",
-                "Find anything in seconds, not hours"
+                "Avoid the planning mistakes that derail most systems",
+                "Create a system designed for long-term use"
             ],
             "longTerm": [
-                "A knowledge system that runs on autopilot",
+                "A knowledge system that requires minimal maintenance",
                 "Connected ideas that surface when you need them",
                 "Confidence that you're not missing anything critical"
             ]
@@ -75,15 +69,14 @@
             "You're not willing to invest time in planning before building"
         ],
         "trustBadges": [
-            "**100% FREE** - No credit card required",
-            "**8 Comprehensive Phases**",
-            "**Battle-Tested** - From real coaching experience",
-            "**Instant Access** - Start immediately"
+            "**100% FREE**; no credit card required",
+            "**Tested in practice** through real coaching",
+            "**Instant Access**; start immediately"
         ],
         "guarantees": [
-            "**Completely free** - no strings attached",
-            "**Comprehensive coverage** of all essential components",
-            "Based on **real-world experience**, not just theory"
+            "**Completely free**; no strings attached",
+            "Covers all essential components",
+            "Based on **practical experience**, not just theory"
         ],
         "metaTitle": "FREE Knowledge Management System Checklist | Complete PKM Roadmap",
         "metaDescription": "FREE checklist covering all 8 phases of building a knowledge management system. Stop guessing what you need. Identify gaps. Build a system that actually works.",
@@ -101,7 +94,7 @@
             "originStory": {
                 "title": "Why This Checklist Exists",
                 "subtitle": "From years of building and coaching",
-                "story": "After years of building my own systems and coaching professionals on knowledge management, I kept seeing the same patterns. People would jump into tools without planning. They'd forget about backups until disaster struck. They'd set up elaborate systems but never build the habits to maintain them.\n\nThis checklist is everything I wish I had when I started. And everything my coaching clients wish they'd had before making costly mistakes. It's the complete picture, distilled into actionable steps.",
+                "story": "After years of building my own systems and coaching professionals, I kept seeing the same patterns. People would jump into tools without planning. They'd forget about backups until disaster struck. They'd set up elaborate systems but never build the habits to maintain them.\n\nThis checklist is everything I wish I had when I started; distilled into actionable steps.",
                 "icon": "📋",
                 "inspirationPoint": null,
                 "genesisDate": null
@@ -109,11 +102,11 @@
             "creatorJourney": null,
             "methodology": {
                 "title": "The 8-Phase Approach",
-                "subtitle": "A complete roadmap, not just a feature list",
+                "subtitle": "A structured roadmap, not just a feature list",
                 "steps": [
                     {
                         "title": "Phase 1: Foundation and Planning",
-                        "description": "The phase most people skip. And the reason most systems fail. Define your goals, understand your needs, then choose your tools.",
+                        "description": "The phase most people skip. Define your goals, understand your needs, then choose your tools.",
                         "icon": "🏗️",
                         "order": 0
                     },
@@ -125,19 +118,19 @@
                     },
                     {
                         "title": "Phase 6: Habits and Maintenance",
-                        "description": "The most overlooked phase. Systems without habits become graveyards. Build the routines that keep your system alive.",
+                        "description": "The most overlooked phase. Build the routines that keep your system alive and useful.",
                         "icon": "🔄",
                         "order": 2
                     },
                     {
                         "title": "Phases 7-8: Optimize and Evolve",
-                        "description": "Advanced optimization including AI integration, and continuous improvement strategies for long-term success.",
+                        "description": "Advanced optimization including AI integration, and continuous improvement strategies.",
                         "icon": "🚀",
                         "order": 3
                     }
                 ],
-                "philosophy": "A knowledge system isn't a one-time setup. It's a living system that needs planning, habits, and continuous evolution. This checklist covers all of it.",
-                "differentiation": "Most resources focus on tools and features. This checklist focuses on the complete system lifecycle - including the phases people forget about until it's too late."
+                "philosophy": "A knowledge system isn't a one-time setup. It needs planning, habits, and continuous evolution.",
+                "differentiation": "Most resources focus on tools and features. This checklist covers the full system lifecycle; including the phases people forget about."
             },
             "transformationArc": null,
             "successStories": null,

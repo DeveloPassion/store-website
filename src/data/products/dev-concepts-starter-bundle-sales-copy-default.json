@@ -21,38 +21,34 @@
         ],
         "solution": "Get both foundations in one bundle: professional mindset + client understanding",
         "solutionPoints": [
-            "[Volume 1](/product/dev-concepts-volume-01) (**100 pages**): Software craftsmanship, mindset, how to think like a pro",
+            "[Volume 1](/product/dev-concepts-volume-01) (**100 pages**): Software craftsmanship, mindset, thinking like a pro",
             "[Volume 2](/product/dev-concepts-volume-02) (**50 pages**): Understanding clients, UX basics, requirements discovery",
-            "**30+ years** of real experience packed into **150 pages**",
-            "Save **25%** compared to buying volumes separately",
-            "The foundation I wish someone had given me when I started"
+            "Lessons from **30+ years** of real projects",
+            "**25% off** compared to buying separately"
         ],
-        "description": "I've been coding for **30+ years**, and I've seen the same pattern countless times: junior developers who can code but struggle to advance. Why? Two gaps. First, they don't think like professionals. Second, they don't understand what clients actually need. This bundle addresses both. [Volume 1](/product/dev-concepts-volume-01) (**100 pages**) covers the software craft mindset. [Volume 2](/product/dev-concepts-volume-02) (**50 pages**) teaches you how to understand client needs before you write a single line of code. Together, they give you the foundation that separates developers who advance from those who stay stuck. And you save **25%** compared to buying them separately.",
+        "description": "After coding for **30+ years**, I've seen the same pattern: junior developers who can code but struggle to advance. Two gaps hold them back. First, they don't think like professionals. Second, they don't understand what clients actually need. This bundle addresses both. [Volume 1](/product/dev-concepts-volume-01) covers the software craft mindset. [Volume 2](/product/dev-concepts-volume-02) teaches client needs before you write code. Together, they give you the foundation that separates developers who advance from those who stay stuck.",
         "features": [
             "**[Dev Concepts Volume 1](/product/dev-concepts-volume-01)**: Software Craft (**100 pages**)",
             "**[Dev Concepts Volume 2](/product/dev-concepts-volume-02)**: What Clients Need (**50 pages**)",
-            "**150 pages** total, no fluff",
-            "**25% off** compared to buying individually",
-            "All future updates to both volumes included",
             "Part of a **12-volume series** covering the full developer journey",
-            "**PDF format**, read anywhere",
-            "**Lifetime access**"
+            "**PDF format**; read anywhere",
+            "All future updates included"
         ],
         "benefits": {
             "immediate": [
                 "Save **25%** vs buying volumes separately",
-                "Start reading **150 pages** of practical content today",
-                "Get clarity on what's actually holding you back"
+                "Start reading practical content today",
+                "Get clarity on what's holding you back"
             ],
             "systematic": [
-                "Build the complete foundation: mindset + client understanding",
-                "Apply lessons from **30+ years** of real projects",
-                "Stop guessing and start progressing systematically"
+                "Build both foundations: mindset + client understanding",
+                "Apply lessons from real projects",
+                "Follow a structured learning path"
             ],
             "longTerm": [
-                "Advance your career with the right foundations",
-                "Stop building things nobody uses",
-                "Become the developer who actually delivers value"
+                "Advance your career with proper foundations",
+                "Build things people actually use",
+                "Deliver real value to clients and employers"
             ]
         },
         "targetAudience": [
@@ -65,7 +61,7 @@
             "You're a junior developer who wants both technical craft and business understanding",
             "You're a career-changer who needs solid foundations fast",
             "You're self-taught and filling in the gaps",
-            "You want to save **25%** while getting both volumes"
+            "You want both volumes together at a discount"
         ],
         "notForYou": [
             "Senior developers who already have these foundations",
@@ -75,14 +71,11 @@
         "trustBadges": [
             "**30+ years** of hands-on experience",
             "**150 pages** of practical content",
-            "**25%** bundle savings",
-            "Part of **12-volume series**",
-            "**Lifetime updates**"
+            "Part of **12-volume series**"
         ],
         "guarantees": [
-            "**14-day** money-back guarantee, no hassle",
-            "**Lifetime access**",
-            "**Free updates** forever"
+            "**14-day** money-back guarantee; no hassle",
+            "**Lifetime access** with free updates"
         ],
         "metaTitle": "Dev Concepts Starter Bundle | Software Craft + Client Needs at 25% Off",
         "metaDescription": "Learn to think like a professional developer AND understand client needs. Volumes 1 & 2 bundled at 25% off. 150 pages from 30+ years of real experience.",
@@ -147,29 +140,29 @@
                 "values": [
                     {
                         "title": "Complete foundations",
-                        "description": "Both mindset and client understanding, not just one or the other",
+                        "description": "Both mindset and client understanding; not just one or the other",
                         "icon": "🏗️"
                     },
                     {
-                        "title": "Skills that compound",
-                        "description": "The two skills that multiply each other for career success",
+                        "title": "Reinforcing skills",
+                        "description": "Professional mindset makes client understanding actionable; client focus gives purpose to professionalism",
                         "icon": "📈"
                     },
                     {
-                        "title": "Coherent learning",
-                        "description": "A clear path, not scattered tutorials",
+                        "title": "Structured learning",
+                        "description": "A clear path; not scattered tutorials",
                         "icon": "🛤️"
                     },
                     {
                         "title": "Good value",
-                        "description": "Complete foundation at **25% off**",
+                        "description": "Both volumes at a discount",
                         "icon": "💰"
                     }
                 ],
                 "futureGoals": [
                     "Help developers build proper foundations",
                     "Create more professionals who think AND understand clients",
-                    "Bridge the gap between technical skills and business value"
+                    "Connect technical skills to business outcomes"
                 ],
                 "biggerPicture": "The best developers I've worked with share two traits: they approach work with professional discipline, and they genuinely understand the people they're building for. This bundle helps you develop both.",
                 "icon": "🎯"
@@ -182,10 +175,10 @@
                 {
                     "id": "day-1",
                     "timeframe": "Day 1",
-                    "title": "See the Full Picture",
-                    "description": "Understand what software craftsmanship actually means and why client understanding matters. See the foundation you need to build.",
+                    "title": "Understand the Gaps",
+                    "description": "Learn what software craftsmanship means and why client understanding matters. See the foundation you need to build.",
                     "highlights": [
-                        "Clarity on the professional developer path",
+                        "Clarity on professional development",
                         "Understanding the client-developer gap",
                         "A roadmap for your growth"
                     ],
@@ -218,8 +211,8 @@
                 {
                     "id": "month-3",
                     "timeframe": "Month 3",
-                    "title": "Real Progress",
-                    "description": "You're thinking and working like a professional who understands clients. Both skill sets are working together.",
+                    "title": "Skills Working Together",
+                    "description": "You're thinking and working like a professional who understands clients. Both skill sets reinforce each other.",
                     "highlights": [
                         "Professional reputation growing",
                         "Clients trust your understanding",

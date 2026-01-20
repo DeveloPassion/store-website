@@ -1,79 +1,79 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "One Hour That Saves You Months of Trial and Error",
-        "secondaryTagline": "Get Expert PKM Guidance From Someone Who's Lived It for **20+ Years**",
+        "tagline": "One Hour That Saves You Months of Experimentation",
+        "secondaryTagline": "Get Expert PKM Guidance From Someone Who's Practiced It for **20+ Years**",
         "problem": "You've bought the courses. Read the articles. Watched the videos. Yet your knowledge system is still a mess. The problem isn't lack of information. It's that generic advice doesn't fit YOUR unique situation, challenges, and goals.",
         "problemPoints": [
-            "Generic courses teach theory but can't diagnose YOUR specific situation",
+            "Generic courses teach theory but can't diagnose YOUR unique challenges",
             "You've accumulated tools and techniques but can't see how they fit together",
-            "You're paralyzed by options; afraid to commit without expert validation",
-            "You're stuck in trial-and-error loops that waste weeks or months",
-            "A deadline or life change is approaching and you can't afford more experimentation",
+            "You're paralyzed by options; afraid to commit without guidance",
+            "You're stuck experimenting with no clear direction",
+            "A deadline or life change is approaching and you need answers now",
             "You need someone who understands system design, not just tool features"
         ],
-        "agitate": "Every week spent struggling alone is a week of lost clarity, missed ideas, and mounting frustration. The courses you've taken? They taught you what worked for someone else. The articles you've read? They're scattered puzzle pieces with no one to help you assemble YOUR picture. Meanwhile, information keeps piling up, important ideas slip through the cracks, and that nagging feeling of being overwhelmed never quite goes away.",
+        "agitate": "Every week spent struggling alone is a week of lost ideas and mounting frustration. The courses you've taken taught you what worked for someone else. The articles you've read are scattered puzzle pieces with no one to help you assemble YOUR picture. Meanwhile, information keeps piling up and important ideas slip through the cracks.",
         "agitatePoints": [
-            "Tools don't solve problems; they just move chaos to a different app",
-            "Copying someone else's system never works because YOUR needs are different",
-            "Complexity worship leads to systems that collapse under their own weight",
+            "Switching tools won't fix the problem; it just moves the mess",
+            "Copying someone else's system doesn't work because your needs are different",
+            "Overly complex systems collapse under their own weight",
             "Perfectionism keeps you planning instead of making progress",
             "Self-study takes months to discover what an expert spots in minutes"
         ],
-        "solution": "Skip the trial-and-error. In a single focused session, get personalized guidance from someone who's practiced PKM for over two decades. As an author, entrepreneur, IT architect, and content creator with a busy family life. I'll diagnose your specific challenges, help you think from first principles, and give you a clear action plan. Not a copy of my system. YOUR system, designed for YOUR reality.",
+        "solution": "Skip the guesswork. In a single focused session, get personalized guidance from someone who's practiced PKM for over two decades as an author, entrepreneur, IT architect, and content creator with a busy family life. I'll diagnose your challenges, help you think from first principles, and give you a clear path forward. Not a copy of my system; your system, designed for your reality.",
         "solutionPoints": [
-            "**Expert diagnosis** of YOUR specific situation and challenges",
-            "**First-principles thinking**. Understand WHY, not just what to do",
+            "**Expert diagnosis** of your situation and challenges",
+            "**Understand WHY**, not just what to do",
             "**System design guidance** that works regardless of which tool you use",
-            "**Clear, actionable plan** you can implement immediately",
+            "**Clear plan** you can implement immediately",
             "**Continued support** after the session for follow-up questions",
-            "**20+ years** of real-world experience distilled into focused guidance"
+            "**Real-world experience** distilled into focused guidance"
         ],
-        "description": "Personal **1-on-1 coaching session** with a Knowledge Management expert with **20+ years** of hands-on practice, author of multiple books, creator of the [Obsidian Starter Kit](/product/obsidian-starter-kit), [Knowledge Worker Kit](/product/knowledge-worker-kit), and founder of the [Knowii Community](/product/knowii-community). Not theory. Real experience from someone who manages an enormous knowledge base while running a business, creating content, and raising three kids. Available in English or French.",
+        "description": "Personal **1-on-1 coaching session** with a Knowledge Management practitioner. Not theory; real experience from someone who manages 10,000+ notes while running a business, creating content, and raising three kids. Available in English or French.",
         "features": [
             "**1-on-1 video session** tailored to your needs",
-            "**Deep-dive** into your specific PKM challenges",
-            "**First-principles** system design guidance",
+            "**Deep-dive** into your PKM challenges",
+            "**System design guidance** based on first principles",
             "**Workflow analysis** and optimization",
             "**Tool-agnostic** advice that works anywhere",
             "**Post-session follow-up** support included"
         ],
         "benefits": {
             "immediate": [
-                "Leave with mental clarity and a specific action plan",
-                "Understand WHY certain approaches will work for YOU",
-                "Get expert validation of your ideas and direction",
-                "Immediate answers to questions that have been blocking you"
+                "Leave with clarity and a specific plan",
+                "Understand WHY certain approaches will work for you",
+                "Get validation of your ideas and direction",
+                "Answers to questions that have been blocking you"
             ],
             "systematic": [
-                "Build YOUR system based on proven principles, not copy-paste",
+                "Build your system based on proven principles",
                 "Gain confidence to make decisions without second-guessing",
                 "See how scattered pieces fit together into a coherent whole",
                 "Develop a framework for continuous improvement"
             ],
             "longTerm": [
                 "A sustainable PKM practice that scales with your life",
-                "Compound returns as your system matures over months and years",
+                "Growing returns as your system matures over time",
                 "Skills and principles that transfer across tools and contexts",
-                "Freedom from information overwhelm. Permanently"
+                "Freedom from information overload"
             ]
         },
         "targetAudience": [
             "Creators who need systems that turn knowledge into content",
-            "Knowledge workers drowning in information overload",
+            "Knowledge workers struggling with information overload",
             "Professionals facing career or life transitions",
             "Self-learners stuck after trying courses and articles"
         ],
         "perfectFor": [
-            "You've tried courses but still feel stuck on YOUR situation",
-            "You need expert validation before committing to an approach",
-            "A deadline or life change makes trial-and-error unacceptable",
+            "You've tried courses but still feel stuck on your situation",
+            "You need guidance before committing to an approach",
+            "A deadline or life change means you need answers now",
             "You want to understand systems, not just copy someone's setup"
         ],
         "notForYou": [
             "You haven't tried any self-directed learning yet",
-            "You're looking for someone to build your system FOR you",
-            "You believe the 'right tool' will magically solve everything"
+            "You're looking for someone to build your system for you",
+            "You believe the right tool will solve everything"
         ],
         "trustBadges": [
             "**20+ Years** Real PKM Practice",
@@ -83,12 +83,12 @@
         ],
         "guarantees": [
             "**Personalized guidance**, not generic advice",
-            "**Actionable plan** you can implement immediately",
-            "**First-principles approach** that works with any tool",
+            "**Clear plan** you can implement immediately",
+            "**Principles-based approach** that works with any tool",
             "**Post-session support** for follow-up questions"
         ],
-        "metaTitle": "PKM Coaching - Skip Months of Trial and Error with Expert Guidance",
-        "metaDescription": "1-on-1 PKM coaching with Sébastien Dubois. 20+ years experience, 100+ clients, 5-star rating. Get personalized system design guidance that courses can't provide. €99.99/session.",
+        "metaTitle": "PKM Coaching - Get Personalized System Design Guidance",
+        "metaDescription": "1-on-1 PKM coaching with Sébastien Dubois. 20+ years experience, 100+ clients, 5-star rating. Personalized guidance that courses can't provide. €99.99/session.",
         "keywords": [
             "pkm coaching",
             "personal knowledge management coaching",
@@ -102,7 +102,7 @@
             "originStory": {
                 "title": "Why I Started Coaching",
                 "subtitle": null,
-                "story": "After years of creating courses, kits, and communities, I kept receiving the same message: 'Your content is great, but I'm still stuck on MY specific situation.' I realized that even the best courses can't diagnose individual challenges. Some people don't need more information; they need someone to look at THEIR mess and help them see the patterns. Someone who's actually lived this for decades, not just theorized about it. That's why I started coaching. Not to replace self-learning, but to accelerate it. One focused hour with an expert can shortcut months of trial-and-error.",
+                "story": "After years of creating courses and kits, I kept receiving the same message: 'Your content is great, but I'm still stuck on my specific situation.' I realized that even the best courses can't diagnose individual challenges. Some people don't need more information; they need someone to look at their mess and help them see the patterns. Someone who's actually practiced this for decades. That's why I started coaching: not to replace self-learning, but to accelerate it.",
                 "inspirationPoint": null,
                 "genesisDate": null,
                 "icon": "💡"
@@ -110,10 +110,10 @@
             "creatorJourney": {
                 "title": "20+ Years of Real Practice",
                 "subtitle": "Not Theory. Lived Experience.",
-                "story": "I've been passionate about Knowledge Management since the early 2000s. As a software architect, author, content creator, and entrepreneur, all while raising three kids, I needed systems that actually work under pressure. I've used dozens of tools, tested countless methods, and refined my approach through real-world chaos. I created the [Obsidian Starter Kit](/product/obsidian-starter-kit), the [Knowledge Worker Kit](/product/knowledge-worker-kit), the [PKM Library](/product/pkm-library), and the [Knowii Community](/product/knowii-community). I've published **10,000+ notes**, written books, and helped **hundreds of people** build their own systems. This isn't academic knowledge. It's battle-tested practice.",
+                "story": "I've been passionate about Knowledge Management since the early 2000s. As a software architect, author, content creator, and entrepreneur, all while raising three kids, I needed systems that actually work under pressure. I've used dozens of tools, tested many methods, and refined my approach through practice. I've published **10,000+ notes**, written books, and helped hundreds of people build their own systems.",
                 "struggles": [
                     "Started with scattered notes across dozens of tools",
-                    "Spent years in trial-and-error before finding what works",
+                    "Spent years experimenting before finding what works",
                     "Had to build systems that work with a busy family life"
                 ],
                 "achievements": [
@@ -121,7 +121,7 @@
                     "**10,000+** published notes",
                     "Multiple books and courses published",
                     "**100+ coaching clients** with **5-star ratings**",
-                    "Created [Obsidian Starter Kit](/product/obsidian-starter-kit), [Knowledge Worker Kit](/product/knowledge-worker-kit), [Knowii](/product/knowii-community)"
+                    "Created the [Obsidian Starter Kit](/product/obsidian-starter-kit) and [Knowii](/product/knowii-community)"
                 ],
                 "credentials": null,
                 "icon": "🛤️"
@@ -131,34 +131,34 @@
                 "subtitle": null,
                 "before": {
                     "title": "Before Coaching",
-                    "description": "Overwhelmed, stuck, and frustrated with your knowledge management.",
+                    "description": "Stuck and frustrated with your knowledge management.",
                     "points": [
-                        "Drowning in information with no clear organization",
+                        "Struggling with information and no clear organization",
                         "Paralyzed by too many options and conflicting advice",
-                        "Wasting time on trial-and-error that leads nowhere",
+                        "Wasting time experimenting with no progress",
                         "Feeling like everyone else 'gets it' except you"
                     ],
                     "icon": "😰"
                 },
                 "during": {
                     "title": "During Our Session",
-                    "description": "Experience diagnosis, clarity, and direction in a focused session.",
+                    "description": "Diagnosis, clarity, and direction in a focused session.",
                     "points": [
-                        "Expert analysis of YOUR specific situation",
-                        "First-principles thinking applied to YOUR challenges",
+                        "Analysis of your specific situation",
+                        "First-principles thinking applied to your challenges",
                         "Clear explanation of WHY certain approaches will work",
-                        "Collaborative design of YOUR personalized system"
+                        "Collaborative design of your personalized system"
                     ],
                     "icon": "🔧"
                 },
                 "after": {
                     "title": "After Coaching",
-                    "description": "Leave feeling clear, confident, and energized about your system.",
+                    "description": "Leave feeling clear and confident about your system.",
                     "points": [
-                        "Mental fog replaced by crystal-clear direction",
+                        "Confusion replaced by clear direction",
                         "Confidence to implement without second-guessing",
-                        "A system designed for YOUR life, not someone else's",
-                        "Excitement to finally make real progress"
+                        "A system designed for your life, not someone else's",
+                        "Ready to make real progress"
                     ],
                     "icon": "✨"
                 },
@@ -167,50 +167,50 @@
             "successStories": null,
             "methodology": {
                 "title": "How I Coach",
-                "subtitle": "First Principles, Not Copy-Paste",
+                "subtitle": "Principles, Not Copy-Paste",
                 "steps": [
                     {
                         "title": "Listen and Diagnose",
-                        "description": "I start by understanding YOUR situation. Your work, your goals, your challenges, and what you've already tried. No assumptions.",
+                        "description": "I start by understanding your situation: your work, your goals, your challenges, and what you've already tried. No assumptions.",
                         "icon": "👂",
                         "order": 0
                     },
                     {
                         "title": "Apply First Principles",
-                        "description": "Instead of prescribing my system, I help you understand WHY certain approaches work. This lets you build something that fits YOUR reality.",
+                        "description": "Instead of prescribing my system, I help you understand WHY certain approaches work. This lets you build something that fits your reality.",
                         "icon": "🧱",
                         "order": 1
                     },
                     {
                         "title": "Design Your System",
-                        "description": "Together, we sketch out YOUR system. Not a copy of mine. **Tool-agnostic principles** that work whether you use `Obsidian`, `Notion`, or anything else.",
+                        "description": "Together, we sketch out your system. Not a copy of mine. Principles that work whether you use `Obsidian`, `Notion`, or anything else.",
                         "icon": "✏️",
                         "order": 2
                     },
                     {
                         "title": "Create Action Plan",
-                        "description": "You leave with specific, immediate next steps. Not vague advice. Concrete actions you can take today.",
+                        "description": "You leave with specific next steps. Not vague advice. Concrete actions you can take today.",
                         "icon": "📋",
                         "order": 3
                     }
                 ],
-                "philosophy": "I don't believe in one-size-fits-all solutions. The best PKM system is one designed for YOUR life, built on proven principles, and simple enough that you'll actually use it.",
+                "philosophy": "I don't believe in one-size-fits-all solutions. The best PKM system is one designed for your life, built on proven principles, and simple enough that you'll actually use it.",
                 "differentiation": null
             },
             "vision": null
         },
         "timeline": {
-            "title": "Your Transformation Journey",
-            "subtitle": "What to expect after coaching",
+            "title": "Your Journey After Coaching",
+            "subtitle": "What to expect",
             "milestones": [
                 {
                     "id": "day-1",
                     "timeframe": "Day 1",
                     "title": "Immediate Clarity",
-                    "description": "You leave the session with mental fog lifted. You understand not just what to do, but why it will work for your specific situation. The overwhelm is replaced by a clear path forward.",
+                    "description": "You leave the session with clarity. You understand not just what to do, but why it will work for your situation. The confusion is replaced by a clear path forward.",
                     "highlights": [
                         "Clear understanding of your core PKM challenges",
-                        "Actionable plan with specific next steps",
+                        "Plan with specific next steps",
                         "Confidence to start implementing immediately"
                     ],
                     "icon": "💡"
@@ -219,7 +219,7 @@
                     "id": "week-1",
                     "timeframe": "Week 1",
                     "title": "First Wins",
-                    "description": "You implement the quick wins from our session and feel momentum building. Things that felt impossible now feel manageable. You're making real progress.",
+                    "description": "You implement the quick wins from our session and feel momentum building. Things that felt difficult now feel manageable. You're making real progress.",
                     "highlights": [
                         "Initial system components in place",
                         "Early wins building confidence",
@@ -231,23 +231,23 @@
                     "id": "month-1",
                     "timeframe": "Month 1",
                     "title": "System Confidence",
-                    "description": "Your new system is working. You trust it. You're capturing ideas without anxiety, finding things when you need them, and feeling genuinely in control of your knowledge.",
+                    "description": "Your new system is working. You trust it. You're capturing ideas without stress, finding things when you need them, and feeling in control of your knowledge.",
                     "highlights": [
                         "System running smoothly day-to-day",
                         "Trust in your approach replacing doubt",
-                        "Noticeable reduction in information anxiety"
+                        "Reduced stress around information"
                     ],
                     "icon": "⚙️"
                 },
                 {
                     "id": "month-3",
                     "timeframe": "Month 3+",
-                    "title": "Compounding Returns",
-                    "description": "Your system becomes second nature. You're creating more, stressed less, and your knowledge base is becoming a genuine asset. The investment keeps paying dividends.",
+                    "title": "Growing Returns",
+                    "description": "Your system becomes automatic. You're creating more, stressed less, and your knowledge base is becoming a real asset.",
                     "highlights": [
-                        "System feels effortless and automatic",
+                        "System feels effortless",
                         "Creating and publishing with less friction",
-                        "Knowledge compounds into real advantage"
+                        "Knowledge grows into real value"
                     ],
                     "icon": "🚀"
                 }

@@ -16,8 +16,8 @@
             "Watching weeks of solid work get shelved because it missed what users actually needed",
             "Expensive rewrites when the real requirements finally surface",
             "Client trust eroding because your deliverables keep missing the mark",
-            "Staying stuck as 'just the coder' instead of someone who drives outcomes",
-            "That frustration when your best technical work doesn't move the needle"
+            "Staying stuck as 'just the coder' instead of someone who shapes product direction",
+            "That frustration when your best technical work doesn't make a difference"
         ],
         "solution": "Learn to figure out what clients actually need before you write a line of code",
         "solutionPoints": [
@@ -27,18 +27,16 @@
             "*Minimum Lovable Products* and *Design Sprints* to validate before you commit",
             "Specifications that keep everyone aligned and prevent scope creep"
         ],
-        "description": "Dev Concepts Volume 2 is about understanding what clients truly need so you stop wasting time building the wrong things. This **50-page** e-book comes from my **30+ years** of coding experience, about **20 years** professionally. I've seen too much great code go to waste because it solved the wrong problem. Here's what I learned about requirements discovery, *User-Centered Design*, *Jobs-To-Be-Done*, UX fundamentals, and writing specs that actually work. Part of a **12-volume series** covering everything developers need to know.",
+        "description": "Dev Concepts Volume 2 is about understanding what clients truly need so you stop wasting time on misaligned features. This **50-page** e-book distills **30+ years** of coding experience into practical guidance. I've watched too much great code go to waste because it solved the wrong problem. Here's what I learned about requirements discovery, *User-Centered Design*, *Jobs-To-Be-Done*, UX fundamentals, and writing specs that actually work.",
         "features": [
-            "**50-page** e-book focused on understanding client needs",
             "Requirements discovery techniques from real projects",
             "*User-Centered Design* and *Jobs-To-Be-Done* explained clearly",
             "UX basics you can use right away: research, personas, design patterns",
             "*Minimum Lovable Products* and *Design Sprints* approaches",
             "How to write specs that prevent misunderstandings",
-            "Based on **30+ years** of hands-on experience",
-            "Part of a **12-volume series** covering software development end-to-end",
+            "Part of a **12-volume series** covering software development",
             "**PDF format** for easy reference",
-            "**Free updates** forever"
+            "**Free updates** included"
         ],
         "benefits": {
             "immediate": [
@@ -53,10 +51,10 @@
                 "Use *Design Sprints* and MVP thinking to validate early"
             ],
             "longTerm": [
-                "Stop wasting time on misaligned development",
-                "Build stronger client relationships because you get what they need",
+                "Reduce wasted effort on features that miss the mark",
+                "Build stronger client relationships through better understanding",
                 "Open doors to business analyst and functional analyst roles",
-                "Become the developer who consistently ships features people use"
+                "Become the developer who ships features people actually use"
             ]
         },
         "targetAudience": [
@@ -80,15 +78,10 @@
         ],
         "trustBadges": [
             "**30+ years** hands-on experience",
-            "**~20 years** professional industry work",
             "Part of **12-volume series**",
             "**Lifetime updates** included"
         ],
-        "guarantees": [
-            "**14-day** money-back guarantee",
-            "**Lifetime access** to content",
-            "**Free updates** forever"
-        ],
+        "guarantees": ["**14-day** money-back guarantee", "**Lifetime access** and updates"],
         "metaTitle": "Dev Concepts Volume 2 - What Clients Need | Requirements & UX for Developers",
         "metaDescription": "Stop building features nobody uses. Learn requirements discovery, User-Centered Design, and UX fundamentals from 30+ years of experience. 50-page e-book for developers.",
         "keywords": [
@@ -106,15 +99,15 @@
             "originStory": {
                 "title": "Why Client Understanding Matters",
                 "subtitle": "Lessons from watching brilliant code go to waste",
-                "story": "In my **30+ years** of building software, I've seen too much brilliant code go to waste. Features that took weeks to build, never used. Perfect implementations of the wrong solution. I've been on both sides of that frustration.\n\nThe hard truth? Technical skills alone aren't enough. You can write beautiful code, but if it doesn't solve what clients actually need, you've wasted everyone's time. Including your own.\n\nThis book exists because I want you to stop building the wrong things. I want you to understand how to discover what users truly need, how to think about design, and how to create specifications that lead to success. These are the skills that separate developers who ship features from developers who ship value.",
-                "inspirationPoint": "Stop building the wrong things. Start delivering real value.",
+                "story": "I've watched features that took weeks to build go unused. Perfect implementations of the wrong solution. I've been on both sides of that frustration.\n\nTechnical skills alone aren't enough. Beautiful code that doesn't solve what clients need wastes everyone's time.\n\nThis book exists because I want you to discover what users truly need, think about design, and create specifications that lead to success. These skills separate developers who ship features from developers who ship value.",
+                "inspirationPoint": "Start delivering real value.",
                 "genesisDate": null,
                 "icon": "💡"
             },
             "creatorJourney": {
                 "title": "Lessons from Building Real Products",
                 "subtitle": "From painful failures to systematic success",
-                "story": "Early in my career, I learned the hard way that clients don't always know what they need. And neither did I. Projects failed not because of bad code, but because we built the wrong things. Everything changed when I discovered *User-Centered Design* and *Jobs-To-Be-Done* theory. Now I teach developers to ask the right questions before writing code.",
+                "story": "Early in my career, I learned the hard way that clients don't always know what they need. And neither did I. Projects failed not because of bad code, but because we built the wrong things. Everything changed when I discovered *User-Centered Design* and *Jobs-To-Be-Done* theory.",
                 "struggles": [
                     "Building features that clients never used",
                     "Discovering requirements too late in the project",
@@ -123,9 +116,9 @@
                 "achievements": [
                     "Built products for clients across multiple industries",
                     "Learned requirements discovery through real project successes and failures",
-                    "Applied UX principles to ship software users actually love"
+                    "Applied UX principles to ship software users love"
                 ],
-                "credentials": "Software craftsperson with **30+ years** of coding experience and deep understanding of user-centered development",
+                "credentials": "Software craftsperson with deep understanding of user-centered development",
                 "icon": "🛤️"
             },
             "transformationArc": null,
@@ -165,11 +158,11 @@
             "vision": {
                 "title": "Developers Who Deliver Value",
                 "subtitle": "Building the right things, not just building things right",
-                "mission": "I want you to become the developer who consistently builds the right things. The one clients trust because you understand their needs. The one who ships features that actually get used.",
+                "mission": "I want you to become the developer clients trust because you understand their needs. The one who ships features that actually get used.",
                 "values": [
                     {
                         "title": "Understanding before implementation",
-                        "description": "Take time to discover real needs before committing to solutions",
+                        "description": "Discover real needs before committing to solutions",
                         "icon": "🔍"
                     },
                     {
@@ -189,11 +182,11 @@
                     }
                 ],
                 "futureGoals": [
-                    "Help developers stop wasting time on features nobody needs",
+                    "Help developers stop wasting time on misaligned features",
                     "Bridge the gap between technical teams and business stakeholders",
-                    "Create developers who consistently deliver what users actually want"
+                    "Create developers who deliver what users actually want"
                 ],
-                "biggerPicture": "The software industry wastes enormous amounts of time and money building features nobody needs. By teaching developers to understand client needs, we can change that. One developer at a time.",
+                "biggerPicture": "The software industry wastes enormous resources building features nobody needs. By teaching developers to understand client needs, we can change that.",
                 "icon": "🎯"
             }
         },
@@ -241,7 +234,7 @@
                     "id": "month-3",
                     "timeframe": "Month 3",
                     "title": "Deliver What Clients Need",
-                    "description": "Consistently deliver features clients love because you understand what they truly need. Build a reputation as the developer who gets it right.",
+                    "description": "Deliver features clients love because you understand what they truly need. Build a reputation as the developer who gets it right.",
                     "highlights": [
                         "Ship features that users actually adopt",
                         "Less rework and misalignment",

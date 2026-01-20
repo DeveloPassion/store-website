@@ -1,9 +1,9 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Give AI Superpowers: Connect to Any Data Source or Tool",
-        "secondaryTagline": "Stop Being the Middleman Between AI and Your Knowledge. Let AI Access What It Needs Automatically.",
-        "problem": "You're watching others use AI in ways that seem magical. They're automating research, querying databases, controlling browsers. Meanwhile, you're still copy-pasting notes into `Claude` like it's 2023.",
+        "tagline": "Connect AI Directly to Your Data and Tools",
+        "secondaryTagline": "Stop copy-pasting context into every prompt. Let AI access your notes, files, and databases automatically.",
+        "problem": "Some people automate research with AI, query databases, and control browsers from a single prompt. Meanwhile, you're still copy-pasting notes into `Claude` like it's 2023.",
         "problemPoints": [
             "Endless copy-paste from `Obsidian`, `Notion`, and files",
             "AI can't see your **10,000+ notes** without you feeding each one",
@@ -11,7 +11,7 @@
             "Websites without APIs are completely off-limits",
             "Your knowledge is scattered in silos AI can't reach"
         ],
-        "agitate": "Every prompt starts the same way: copy context, paste, wait, realize you missed something, copy more. You've become AI's personal assistant instead of the other way around. The tools that should save you hours? They're stuck behind walls you manually breach, one clipboard at a time.",
+        "agitate": "Every prompt starts the same way: copy context, paste, wait, realize you missed something, copy more. You've become AI's personal assistant instead of the other way around. The tools that should save you hours are stuck behind walls you breach one clipboard at a time.",
         "agitatePoints": [
             "FOMO watching power users leverage AI for automation",
             "MCP sounds technical and intimidating",
@@ -20,62 +20,52 @@
             "Fear of the command line holding you back",
             "No clear path for non-developers"
         ],
-        "solution": "Model Context Protocol (`MCP`) is the open standard created by Anthropic that lets AI connect directly to your data and tools. **No more middleman. No more copy-paste.** Your AI finally gets hands to reach your knowledge.",
+        "solution": "Model Context Protocol (`MCP`) is the open standard created by Anthropic that lets AI connect directly to your data and tools. No more copy-pasting context. AI accesses your notes, searches the web, and interacts with tools on its own.",
         "solutionPoints": [
-            "AI reads your `Obsidian` vault directly (demo included)",
-            "AI searches the web without you switching tabs",
-            "AI controls your browser for sites without APIs",
-            "AI queries databases and integrates tools automatically",
-            "**GUI installation tools** mean zero command line required",
-            "You think strategically while AI does the fetching"
+            "AI searches the web without switching tabs",
+            "AI controls browsers for sites without APIs",
+            "AI queries databases and integrates tools",
+            "AI reads your `Obsidian` vault directly",
+            "GUI installation tools; no command line required"
         ],
-        "description": "A complete masterclass on Model Context Protocol (`MCP`) designed for **knowledge workers**, not developers. Learn what `MCP` is, why it's becoming THE standard (OpenAI adopted it in 2025), and how to set it up using simple GUI tools. Includes **5 live demonstrations** showing real workflows with `Obsidian`, `Notion`, web search, and browser automation.",
+        "description": "A complete masterclass on Model Context Protocol (`MCP`) designed for knowledge workers. Learn what `MCP` is, why OpenAI adopted it in 2025, and how to set it up using GUI tools. Includes 5 live demonstrations with `Obsidian`, `Notion`, web search, and browser automation.",
         "features": [
-            "**Complete Video Masterclass**",
-            "What LLMs Are Missing (And How `MCP` Fixes It)",
-            "`MCP` Explained in Plain Language",
-            "How the Protocol Actually Works",
-            "Where to Find Reliable `MCP` Servers",
-            "Which `MCP` Clients to Use (`Claude`, `Cursor`, `VSCode`, etc.)",
-            "**GUI Installation Tools** (No Command Line)",
-            "**Security & Privacy** Considerations",
-            "**5 Live Demonstrations** with Real Use Cases"
+            "What LLMs are missing and how `MCP` fixes it",
+            "`MCP` explained in plain language",
+            "How the protocol actually works",
+            "Where to find reliable `MCP` servers",
+            "Which `MCP` clients to use (`Claude`, `Cursor`, `VSCode`, etc.)",
+            "GUI installation methods",
+            "Security and privacy considerations",
+            "5 live demonstrations with real use cases"
         ],
         "benefits": {
             "immediate": [
-                "**Stop copy-pasting** context into every prompt",
                 "AI reads your `Obsidian` notes directly",
-                "Automate web searches without switching tabs",
-                "Control browsers for sites without APIs"
+                "AI searches the web without switching tabs",
+                "AI controls browsers for sites without APIs"
             ],
             "systematic": [
-                "Break down knowledge silos across all your tools",
-                "Integrate tools that don't support AI natively",
-                "Build compound workflows that save hours daily",
+                "Connect tools that don't support AI natively",
                 "Automate research across multiple data sources",
-                "Scale your AI usage without scaling your effort",
-                "Connect your entire digital ecosystem to AI"
+                "Build multi-step workflows that save hours daily"
             ],
             "longTerm": [
-                "Transform from AI user to AI orchestrator",
                 "Build sustainable automation workflows",
-                "Stay ahead as MCP becomes the industry standard",
-                "Compound productivity gains over months"
+                "Stay ahead as MCP becomes an industry standard"
             ]
         },
         "targetAudience": [
-            "**Knowledge Workers** who use `Obsidian`, `Notion`, or similar tools",
-            "**AI Power Users** who want to go beyond basic chat",
-            "**PKM Enthusiasts** with large note collections",
-            "**Automation Seekers** frustrated by manual workflows",
-            "**Non-Technical Users** who feel left behind by AI advances"
+            "Knowledge workers who use `Obsidian`, `Notion`, or similar tools",
+            "AI users who want to go beyond basic chat",
+            "PKM enthusiasts with large note collections",
+            "Non-technical users who feel left behind by AI advances"
         ],
         "perfectFor": [
             "You use AI daily but feel you're barely scratching the surface",
-            "You have thousands of notes AI can't access without copy-paste",
+            "You have thousands of notes AI can't access without manual work",
             "You want AI to search the web and control your browser",
-            "You love building systems but not writing code",
-            "You see others automating with AI and want to catch up"
+            "You prefer building systems over writing code"
         ],
         "notForYou": [
             "You don't use AI tools at all",
@@ -84,22 +74,19 @@
             "You're not interested in productivity improvements"
         ],
         "trustBadges": [
-            "**Complete Video Masterclass**",
-            "**5 Live Demonstrations**",
-            "**Real-World Examples**",
-            "**GUI Tools** (No Code)",
-            "**Security Deep-Dive**",
-            "**Future-Proof Knowledge**",
-            "**Lifetime Access**"
+            "Video Masterclass",
+            "5 Live Demos",
+            "GUI Installation",
+            "Security Guidance",
+            "Lifetime Access"
         ],
         "guarantees": [
-            "**Full video masterclass** with clear explanations",
-            "**5 demonstrations** you can follow along",
-            "Technical concepts explained for **non-developers**",
-            "**Security considerations** covered in depth",
-            "**Lifetime access** to all materials"
+            "Clear explanations for non-developers",
+            "5 demonstrations you can follow along",
+            "Security considerations covered",
+            "Lifetime access to all materials"
         ],
-        "metaTitle": "Model Context Protocol (MCP) Masterclass - Give AI Superpowers",
+        "metaTitle": "Model Context Protocol (MCP) Masterclass - Connect AI to Your Data",
         "metaDescription": "€19.99 masterclass on MCP for knowledge workers. Connect AI to Obsidian, Notion, web search, browsers. 5 demos. GUI tools, no coding required.",
         "keywords": [
             "model context protocol",
@@ -117,7 +104,7 @@
             "originStory": {
                 "title": "Why I Created This Masterclass",
                 "icon": "💡",
-                "story": "When Anthropic released the Model Context Protocol in late 2024, I immediately saw its potential. With **10,000+ notes** in my `Obsidian` vault and a **20-year** IT career behind me, I understood exactly what this meant: AI was finally getting the integration layer it desperately needed. No more copy-pasting context. No more being the middleman between AI and my knowledge. I dove deep into `MCP`, tested dozens of servers, figured out what works (and what doesn't), and realized most tutorials were written for developers. Knowledge workers, the people who would benefit most, were being left behind. This masterclass bridges that gap.",
+                "story": "When Anthropic released the Model Context Protocol in late 2024, I immediately saw its potential. With **10,000+ notes** in my `Obsidian` vault and a **20-year** IT career behind me, I understood what this meant: AI was finally getting a proper integration layer. I dove deep into `MCP`, tested dozens of servers, figured out what works and what doesn't, and realized most tutorials were written for developers. Knowledge workers were being left behind. This masterclass bridges that gap.",
                 "subtitle": null,
                 "inspirationPoint": null,
                 "genesisDate": null
@@ -125,7 +112,7 @@
             "creatorJourney": {
                 "title": "Built by a Knowledge Management Expert",
                 "icon": "🎯",
-                "story": "I've spent **20+ years** in IT as a Solution Architect and Systems Engineer. But my real passion is knowledge management. I've published **10,000+ notes** publicly, built the [Obsidian Starter Kit](/product/obsidian-starter-kit) used by thousands, and created courses teaching people how to organize their digital lives. When `MCP` emerged, I was an early adopter. I've tested the ecosystem extensively, identified the reliable servers, discovered the GUI tools that make setup painless, and mapped out the security considerations most people miss. This masterclass distills months of exploration into a clear path for knowledge workers who want AI superpowers without touching a command line.",
+                "story": "I've spent **20+ years** in IT as a Solution Architect and Systems Engineer. My passion is knowledge management; I've published **10,000+ notes** publicly and built the [Obsidian Starter Kit](/product/obsidian-starter-kit). When `MCP` emerged, I was an early adopter. I've tested the ecosystem extensively, identified the reliable servers, discovered the GUI tools that make setup painless, and mapped out the security considerations most people miss. This masterclass distills months of exploration into a clear path for knowledge workers.",
                 "achievements": [
                     "**20+ years** IT experience (Solution Architect, Systems Engineer)",
                     "**10,000+ public notes** in personal knowledge base",
@@ -154,7 +141,7 @@
                 "after": {
                     "title": "After Mastery",
                     "icon": "🚀",
-                    "description": "AI becomes your research assistant, workflow automator, and knowledge navigator. You orchestrate cross-tool workflows: AI reads your `Obsidian` notes, searches the web for context, fills forms on sites without APIs. All from a **single prompt**. You think strategically while AI handles the fetching.",
+                    "description": "AI becomes your research assistant and workflow automator. You set up cross-tool workflows: AI reads your `Obsidian` notes, searches the web, fills forms on sites without APIs. You focus on thinking while AI handles data retrieval.",
                     "points": null
                 },
                 "subtitle": null,
@@ -196,18 +183,17 @@
                         "icon": "🔒"
                     }
                 ],
-                "differentiation": "I've done the hard work of testing servers, identifying what's reliable, and mapping out the knowledge-worker use cases. You get a curated path, not a scavenger hunt through documentation.",
+                "differentiation": "I've done the hard work of testing servers, identifying what's reliable, and mapping out the knowledge-worker use cases. You get a clear path, not a scavenger hunt through documentation.",
                 "subtitle": null
             },
             "vision": {
                 "title": "The Future of AI Integration",
                 "icon": "🔮",
-                "mission": "MCP is becoming the standard for AI integrations. OpenAI adopted it in March 2025. The ecosystem is growing monthly. Learning now means you're building on a foundation that will compound. Every new server, every new client, every new capability adds to what you can do.",
-                "biggerPicture": "We're moving from 'AI as chatbot' to 'AI as operating system for knowledge work.' MCP is the integration layer that makes this possible. Early adopters aren't just saving time today. They're positioning themselves for a future where AI orchestration is a core professional skill.",
+                "mission": "MCP is becoming a standard for AI integrations. OpenAI adopted it in March 2025. The ecosystem is growing monthly. Learning now means you're building on a foundation that grows with the ecosystem. Every new server, every new client, every new capability adds to what you can do.",
+                "biggerPicture": "We're moving from 'AI as chatbot' to 'AI as operating system for knowledge work.' MCP is the integration layer that makes this possible. Early adopters aren't just saving time today; they're positioning themselves for a future where AI automation is a core professional skill.",
                 "futureGoals": [
                     "Stay ahead of the AI integration curve",
-                    "Build workflows that compound over time",
-                    "Transform from AI user to AI orchestrator"
+                    "Build workflows that grow with the ecosystem"
                 ],
                 "subtitle": null,
                 "values": null

@@ -3,22 +3,22 @@
         {
             "id": "unmotivated-frustrated",
             "question": "I'm frustrated by lack of progress, not laziness. Will this actually help?",
-            "answer": "Look, a book won't magically fix everything. But it gives you the foundational mindset that makes real progress possible. This bundle covers both the professional thinking and client understanding that junior developers typically lack. These are the gaps that keep people stuck."
+            "answer": "A book alone won't fix everything, but it gives you the foundational mindset that makes real progress possible. This bundle covers both the professional thinking and client understanding that junior developers typically lack; the gaps that keep people stuck."
         },
         {
             "id": "no-time-to-read",
-            "question": "I don't have time to read **150 pages**...",
-            "answer": "Fair enough. The volumes are designed so you can jump to specific topics when you need them. Each chapter stands alone. You don't have to read cover to cover. Grab what you need, when you need it."
+            "question": "I don't have time to read 150 pages",
+            "answer": "Fair enough. The volumes are designed so you can jump to specific topics when you need them. Each chapter stands alone. You don't have to read cover to cover; grab what you need, when you need it."
         },
         {
             "id": "technical-teaching",
             "question": "Will this teach me technical skills?",
-            "answer": "There are code examples and practical techniques, but this isn't a coding tutorial. It's about the mindset, principles, and approaches that make you a better developer. The stuff that separates professionals from people who just write code."
+            "answer": "There are code examples and practical techniques, but this isn't a coding tutorial. It's about the mindset, principles, and approaches that make you a better developer; the things that separate professionals from people who just write code."
         },
         {
             "id": "why-bundle",
             "question": "Why get the bundle instead of buying volumes separately?",
-            "answer": "Two reasons. First, you save **25%** (**€14.99** instead of €19.98). Second, these volumes are designed to work together. [Dev Concepts Volume 1](/product/dev-concepts-volume-01) builds the professional mindset, [Dev Concepts Volume 2](/product/dev-concepts-volume-02) teaches client understanding. One without the other leaves gaps."
+            "answer": "Two reasons. First, you save **25%** (**€14.99** instead of €19.98). Second, these volumes work together. [Volume 1](/product/dev-concepts-volume-01) builds the professional mindset; [Volume 2](/product/dev-concepts-volume-02) teaches client understanding. One without the other leaves gaps."
         },
         {
             "id": "money-back-guarantee",
@@ -33,12 +33,12 @@
         {
             "id": "volume-contents",
             "question": "What exactly is in each volume?",
-            "answer": "[Dev Concepts Volume 1](/product/dev-concepts-volume-01) (**100 pages**): software craftsmanship, mindset, how to think like a professional developer. [Dev Concepts Volume 2](/product/dev-concepts-volume-02) (**50 pages**): understanding client needs, UX basics, requirements discovery. These are the two biggest gaps I've seen hold junior developers back. Check [dev-concepts.dev](https://dev-concepts.dev) for detailed chapter breakdowns and free samples."
+            "answer": "[Volume 1](/product/dev-concepts-volume-01) (**100 pages**): software craftsmanship, mindset, thinking like a professional. [Volume 2](/product/dev-concepts-volume-02) (**50 pages**): understanding client needs, UX basics, requirements discovery. Check [dev-concepts.dev](https://dev-concepts.dev) for detailed chapter breakdowns and free samples."
         },
         {
             "id": "single-volume-option",
             "question": "Can I just buy one volume?",
-            "answer": "Yes, they're available separately. But the bundle saves you **25%**, and honestly, the two topics work together. Professional mindset without client understanding (or vice versa) only gets you halfway there."
+            "answer": "Yes, they're available separately. But the bundle saves you **25%**, and the two topics work together. Professional mindset without client understanding (or vice versa) only gets you halfway there."
         },
         {
             "id": "cant-afford",
@@ -48,7 +48,7 @@
         {
             "id": "group-purchase",
             "question": "Can I buy this for my team?",
-            "answer": "Absolutely. Contact me for group pricing. It's a solid way to level up junior developers or establish shared foundations across your team."
+            "answer": "Yes. Contact me for group pricing. It's a good way to level up junior developers or establish shared foundations across your team."
         }
     ]
 }

@@ -1,106 +1,102 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "From Obsidian Newbie to Confident User in 2.5 Hours",
-        "secondaryTagline": "Stop guessing. A complete video course that shows how everything actually works together.",
-        "problem": "You know `Obsidian` is powerful, but figuring out how to actually use it takes **months** of trial and error. You've watched random YouTube tutorials, read scattered forum posts, and still feel lost. The features are overwhelming, the plugins confusing, and you're worried you'll create a messy system that falls apart at scale.",
+        "tagline": "Master Obsidian in One Weekend",
+        "secondaryTagline": "A complete video course showing how everything works together.",
+        "problem": "You know `Obsidian` is powerful, but figuring it out takes months of scattered learning. Random YouTube tutorials, forum posts, conflicting advice. Features overwhelm you. Plugins confuse you. You worry you'll build a system that falls apart at scale.",
         "problemPoints": [
-            "Watched random tutorials but still don't know how to organize notes properly",
+            "Watched tutorials but still don't know how to organize notes properly",
             "Overwhelmed by features, plugins, and conflicting advice",
             "Worried about building a system that won't scale past **100 notes**",
-            "Can't figure out how *PARA*, *Zettelkasten*, and *Johnny Decimal* actually fit together",
-            "Spent **weeks** reading articles and still feel like you're missing something fundamental",
-            "Starting to wonder if `Obsidian` is even the right tool for you"
+            "Can't figure out how *PARA*, *Zettelkasten*, and *Johnny Decimal* fit together",
+            "Spent **weeks** reading articles; still feel like you're missing something",
+            "Starting to wonder if `Obsidian` is even the right tool"
         ],
-        "agitate": "Every week of confusion is a week of **lost insights**. Your ideas stay scattered. Your knowledge remains disorganized. You keep starting over, trying new approaches, never finding the one that sticks. Meanwhile, the gap between what `Obsidian` could do for you and what you're actually getting widens.",
+        "agitate": "Every week of confusion means **lost insights**. Ideas stay scattered. Knowledge stays disorganized. You keep starting over, trying new approaches, never finding one that sticks.",
         "agitatePoints": [
             "**Weeks wasted** rebuilding your system from scratch",
-            "Important ideas **lost** in the chaos of disorganization",
+            "Important ideas **lost** in disorganization",
             "The sinking feeling that you're 'doing it wrong'",
-            "Watching others build second brains while yours stays a mess",
-            "Confusion about which methods are compatible and which conflict",
-            "Ready to give up before experiencing what `Obsidian` can really do"
+            "Others build second brains while yours stays a mess",
+            "No clarity about which methods work together",
+            "Ready to give up before seeing what `Obsidian` can really do"
         ],
-        "solution": "The Obsidian Starter Course is **2.5 hours** of hands-on video training that takes you from confused beginner to **confident user**. No theory dumps. No conflicting advice. Just clear, step-by-step instruction showing exactly how each piece works and how everything connects into one unified system.",
+        "solution": "The Obsidian Starter Course is **2h20** of hands-on video training. No theory dumps. No conflicting advice. Clear instruction showing how each piece works and how everything connects.",
         "solutionPoints": [
-            "**Complete training**: **2.5 hours** of practical, step-by-step video instruction",
-            "**Integration emphasis**: see how *PARA* + *Zettelkasten* + *Johnny Decimal* work together",
-            "**Real vault demonstrations**: watch actual workflows, not sanitized demos",
-            "**Simplicity first**: learn that the best systems are surprisingly simple",
-            "**Mindset shifts**: understand the 'why' behind every choice",
-            "**Skip months** of trial and error: start with a system that scales"
+            "**11 modules** covering fundamentals through advanced features",
+            "**Integration focus**: see *PARA*, *Zettelkasten*, and *Johnny Decimal* work as one system",
+            "**Real vault demos**: actual workflows from a **10,000+ note** vault",
+            "**Simplicity emphasis**: the best systems are surprisingly simple",
+            "**The why behind choices**: understand reasoning, not just steps",
+            "**Immediate application**: start with a system that scales"
         ],
-        "description": "This course was born from a simple reality: after selling **hundreds of copies** of the [Obsidian Starter Kit](/product/obsidian-starter-kit), I kept receiving the same question over and over. 'How do I actually use this?' The Obsidian Starter Course is my answer: **2.5 hours** of video training that shows you exactly how to use `Obsidian`, understand proven PKM methods, and build a system that works. Whether you're brand new to note-taking, recently switched to `Obsidian`, or bought the [Obsidian Starter Kit](/product/obsidian-starter-kit) and want video guidance, this course gives you the complete foundation you need.",
+        "description": "After selling **hundreds of copies** of the [Obsidian Starter Kit](/product/obsidian-starter-kit), I kept receiving the same question: 'How do I actually use this?' This course is my answer. **2h20** of video training showing exactly how to use `Obsidian`, understand proven PKM methods, and build a system that works.",
         "features": [
-            "**2.5 Hours** of Video Content: hands-on training you can complete in a weekend",
-            "`Obsidian` Fundamentals: installation, interface mastery, key features, essential plugins",
-            "`Markdown` Complete Guide: all the syntax you need to format notes effectively",
-            "YAML Metadata Mastery: organize and query notes like a pro",
-            "*PARA* Method Explained: Projects, Areas, Resources, Archives in practice",
-            "*Johnny Decimal* System: number-based organization that scales",
-            "*Zettelkasten* Method: build a network of connected thinking",
-            "*LIFT* Principle: make notes findable and accessible",
-            "Atomic Notes: one concept, one note for maximum reuse",
+            "**11 modules** organized into clear learning progression",
+            "`Obsidian` fundamentals: installation, interface, navigation, plugins",
+            "`Markdown` complete guide: all syntax for effective note formatting",
+            "YAML metadata: organize and query notes systematically",
+            "*PARA* method in practice: Projects, Areas, Resources, Archives",
+            "*Johnny Decimal* numbering: organization that scales",
+            "*Zettelkasten* principles: fleeting, literature, and permanent notes",
+            "*LIFT* principle: make notes findable and accessible",
+            "Atomic notes: one concept per note for maximum reuse",
             "Maps of Content (MoCs): navigate your growing knowledge base",
-            "Templating and Automation: speed up note creation with `Templater`",
-            "Daily Notes and Journaling: time-based organization that captures your thinking",
-            "Periodic Reviews: weekly, monthly, yearly reflection systems",
-            "Task Management: `Kanban` boards and todo tracking in `Obsidian`",
-            "`Canvas` and `Excalidraw`: visual thinking and diagramming tools",
-            "Plugin Configuration: essential plugins explained and configured"
+            "`Templater` automation: speed up note creation",
+            "Daily notes and journaling: time-based organization",
+            "Periodic reviews: weekly, monthly, yearly reflection",
+            "Task management: `Kanban` boards and todo tracking",
+            "`Canvas` and `Excalidraw`: visual thinking tools"
         ],
         "benefits": {
             "immediate": [
-                "Understand `Obsidian`'s **full potential** in one focused session",
-                "See exactly how PKM methods work together (not competing)",
-                "Build proper foundations from your **very first note**",
-                "Gain **confidence** that you're doing it right"
+                "Understand `Obsidian`'s full potential in one focused session",
+                "See how PKM methods work together; not compete",
+                "Build proper foundations from your first note",
+                "Confidence that you're doing it right"
             ],
             "systematic": [
-                "Complete knowledge of all key `Obsidian` features",
-                "Multiple proven frameworks working as **one unified system**",
-                "Practical skills from real demonstrations, not abstract theory",
-                "A mindset shift: **simplicity beats complexity**",
-                "Foundation that scales from **10 notes to 10,000+ notes**",
-                "Time savings: **2.5 hours** to learn what takes months alone"
+                "Complete knowledge of key `Obsidian` features",
+                "Multiple frameworks working as one unified system",
+                "Practical skills from real demonstrations",
+                "Simplicity over complexity mindset",
+                "Foundation that scales to **10,000+ notes**"
             ],
             "longTerm": [
-                "A solid note-taking system that serves you **for life**",
-                "Foundation for knowledge work excellence",
-                "Sustainable organizational practices that don't break",
-                "Continuous improvement mindset for **lifelong learning**"
+                "Note-taking system that serves you for years",
+                "Sustainable practices that don't break at scale",
+                "Foundation for knowledge work excellence"
             ]
         },
         "targetAudience": [
             "`Obsidian` beginners who want to start right",
-            "Note-takers who recently switched from another tool",
+            "Note-takers recently switched from another tool",
             "[Obsidian Starter Kit](/product/obsidian-starter-kit) owners wanting video guidance",
             "Knowledge workers building their second brain",
-            "Time-conscious learners who prefer structured learning over random tutorials"
+            "Learners who prefer structured courses over scattered tutorials"
         ],
         "perfectFor": [
-            "Just getting started with `Obsidian` or note-taking",
+            "Getting started with `Obsidian` or note-taking",
             "Recently switched to `Obsidian` and feel lost",
-            "Bought the [Obsidian Starter Kit](/product/obsidian-starter-kit) and want video training",
-            "Want a solid system that scales with your knowledge",
-            "Curious about *Zettelkasten*, *PARA*, and *Johnny Decimal* working together"
+            "Own the [Obsidian Starter Kit](/product/obsidian-starter-kit) and want video training",
+            "Want a system that scales with your knowledge",
+            "Interested in *Zettelkasten*, *PARA*, and *Johnny Decimal* integration"
         ],
         "notForYou": [
             "Already an `Obsidian` power user with years of experience",
-            "Prefer figuring everything out through trial and error",
+            "Prefer figuring things out through trial and error",
             "Not willing to invest **2h20** in focused learning"
         ],
         "trustBadges": [
             "**100+ students** enrolled",
-            "Created by PKM expert with **10,000+ personal notes**",
-            "Multiple proven methods integrated (*PARA*, *Zettelkasten*, *Johnny Decimal*)",
-            "**Lifetime access** - pay once, learn forever",
-            "Hands-on demonstrations throughout"
+            "Created by PKM practitioner with **10,000+ notes**",
+            "**Lifetime access**; pay once, learn forever",
+            "Real vault demonstrations throughout"
         ],
         "guarantees": [
             "**Lifetime access** to the complete video course",
-            "Training from a Knowledge Management expert who uses this system **daily**",
-            "Multiple proven frameworks explained and integrated"
+            "Training from someone who uses this system **daily**",
+            "Proven frameworks explained and integrated"
         ],
         "metaTitle": "Obsidian Starter Course: Master Obsidian in 2.5 Hours | Complete Video Training",
         "metaDescription": "2.5-hour video course teaching Obsidian, PKM methods (Zettelkasten, PARA, Johnny Decimal), templates, and automation. From confused beginner to confident user.",
@@ -122,8 +118,8 @@
             "originStory": {
                 "title": "Born From Real Questions",
                 "subtitle": "Why I created this course",
-                "story": "After selling **hundreds of copies** of the [Obsidian Starter Kit](/product/obsidian-starter-kit), I noticed a pattern. The same question kept appearing in my inbox, over and over: 'This looks amazing, but how do I actually use it?' People had the templates, the folder structure, the plugins. But they needed to see it in action. They needed someone to walk them through it, step by step, explaining not just what to do but why. That's why I created this course. It's the video companion I wish I had when I started. **2.5 hours** of clear, practical instruction that shows exactly how everything works together.",
-                "inspirationPoint": "The question that launched a thousand notes: 'How do I actually use this?'",
+                "story": "After selling **hundreds of copies** of the [Obsidian Starter Kit](/product/obsidian-starter-kit), the same question kept appearing: 'How do I actually use this?' People had the templates and plugins, but needed to see it in action. This course is the video companion I wished existed when I started.",
+                "inspirationPoint": "The question that started it all: 'How do I actually use this?'",
                 "icon": "💡",
                 "genesisDate": null
             },
@@ -132,174 +128,118 @@
                 "subtitle": "How everything works together",
                 "steps": [
                     {
-                        "title": "See the Big Picture First",
-                        "description": "Before diving into features, understand how Obsidian fits into your knowledge work. No tool exists in isolation.",
+                        "title": "Big Picture First",
+                        "description": "Understand how Obsidian fits your knowledge work before diving into features.",
                         "icon": "🎯",
                         "order": 0
                     },
                     {
-                        "title": "Learn Methods as Partners, Not Competitors",
-                        "description": "*PARA* for organization. *Zettelkasten* for thinking. *Johnny Decimal* for navigation. They're not competing systems. They complement each other.",
+                        "title": "Methods as Partners",
+                        "description": "*PARA* for organization. *Zettelkasten* for thinking. *Johnny Decimal* for navigation. They complement each other.",
                         "icon": "🤝",
                         "order": 1
                     },
                     {
-                        "title": "Watch Real Usage, Not Sanitized Demos",
-                        "description": "Every demonstration uses actual notes, real workflows, and practical examples from a vault with **10,000+ notes**.",
+                        "title": "Real Usage",
+                        "description": "Every demonstration uses actual notes and workflows from a **10,000+ note** vault.",
                         "icon": "👀",
                         "order": 2
                     },
                     {
-                        "title": "Understand Why, Then How",
-                        "description": "For every technique, I explain the reasoning behind it. When you understand why, the how becomes obvious.",
+                        "title": "Why Before How",
+                        "description": "For every technique, I explain the reasoning. When you understand why, the how becomes obvious.",
                         "icon": "🧠",
                         "order": 3
                     },
                     {
-                        "title": "Build Simple Systems That Scale",
-                        "description": "The best PKM systems are surprisingly simple. Complexity is the enemy of consistency. Start simple, stay simple.",
+                        "title": "Simple Systems",
+                        "description": "The best PKM systems are surprisingly simple. Complexity is the enemy of consistency.",
                         "icon": "📈",
                         "order": 4
                     }
                 ],
-                "philosophy": "Great tools don't create great systems. Understanding creates great systems. This course gives you both the tools AND the understanding.",
-                "differentiation": "Unlike fragmented YouTube tutorials or dense documentation, this course shows how all the pieces work together as one unified system. No conflicting advice. No missing context. Just clarity."
+                "philosophy": "Understanding creates great systems. This course gives you tools AND understanding.",
+                "differentiation": "Unlike scattered tutorials or dense documentation, this course shows how all pieces work together as one system."
             },
-            "transformationArc": {
-                "title": "Your Learning Journey",
-                "subtitle": "From confusion to confidence",
-                "before": {
-                    "title": "Before the Course",
-                    "description": "Overwhelmed by Obsidian's possibilities. Confused about which methods to use. Worried about building the wrong system.",
-                    "points": [
-                        "Scattered notes across multiple tools",
-                        "No clear organizational strategy",
-                        "Frustrated by conflicting advice",
-                        "Uncertain if you're doing it right"
-                    ],
-                    "icon": "😰"
-                },
-                "during": {
-                    "title": "During the Course",
-                    "description": "Each section builds on the last. Concepts click into place. The fog lifts as you see how everything connects.",
-                    "points": [
-                        "Clear, step-by-step instruction",
-                        "Real demonstrations you can follow",
-                        "Methods explained as integrated system",
-                        "Simplicity emerging from apparent complexity"
-                    ],
-                    "icon": "🎓"
-                },
-                "after": {
-                    "title": "After Completing",
-                    "description": "Confident in your Obsidian setup. Clear on which methods to use and when. Ready to build a knowledge system that scales.",
-                    "points": [
-                        "Working system you understand deeply",
-                        "Confidence to customize and extend",
-                        "Foundation that grows with you",
-                        "Mindset shift: simplicity over complexity"
-                    ],
-                    "icon": "🚀"
-                },
-                "timeline": "2.5 hours of focused learning"
-            },
+            "transformationArc": null,
             "creatorJourney": null,
             "successStories": null,
             "vision": null
         },
         "timeline": {
-            "title": "Your Learning Progress",
-            "subtitle": "What you'll master as you move through the course",
+            "title": "Course Progress",
+            "subtitle": "What you'll learn at each stage",
             "milestones": [
                 {
                     "id": "milestone-1",
-                    "timeframe": "First 20 minutes",
+                    "timeframe": "First 20 min",
                     "title": "Interface Mastery",
-                    "description": "Obsidian installed, configured, and demystified. You'll understand the interface, navigation, and core concepts.",
+                    "description": "Obsidian installed, configured, and understood. Navigation, sidebars, settings.",
                     "highlights": [
-                        "Installation complete and working",
-                        "Interface fully understood",
-                        "Basic navigation confident",
-                        "Know where everything lives"
+                        "Installation complete",
+                        "Interface understood",
+                        "Navigation confident"
                     ],
                     "icon": "⚙️"
                 },
                 {
                     "id": "milestone-2",
-                    "timeframe": "By minute 40",
-                    "title": "Linking and Graph Views",
-                    "description": "Markdown mastered. Links created. Graph views understood. Your notes start connecting into a network.",
+                    "timeframe": "By 40 min",
+                    "title": "Links and Graphs",
+                    "description": "Markdown syntax, internal links, graph views. Notes start connecting.",
                     "highlights": [
-                        "Markdown syntax comfortable",
-                        "Links between notes created",
-                        "Local and global graph views understood",
-                        "Backlinks make sense"
+                        "Markdown comfortable",
+                        "Links created",
+                        "Graph views understood"
                     ],
                     "icon": "🔗"
                 },
                 {
                     "id": "milestone-3",
-                    "timeframe": "By hour 1",
-                    "title": "Organization Systems Covered",
-                    "description": "PARA, Johnny Decimal, and folder structure explained. You understand how to organize anything.",
-                    "highlights": [
-                        "Johnny Decimal numbering understood",
-                        "PARA method applied",
-                        "Folder structure designed",
-                        "Tags working for you"
-                    ],
+                    "timeframe": "By 1 hour",
+                    "title": "Organization",
+                    "description": "*PARA*, *Johnny Decimal*, folder structure, and tags explained.",
+                    "highlights": ["Numbering understood", "PARA applied", "Tags working"],
                     "icon": "📁"
                 },
                 {
                     "id": "milestone-4",
-                    "timeframe": "By hour 1:30",
+                    "timeframe": "By 1h30",
                     "title": "Zettelkasten and Templates",
-                    "description": "Zettelkasten method demystified. Templates configured. Automation reducing friction.",
-                    "highlights": [
-                        "Fleeting, literature, permanent notes clear",
-                        "Templater plugin configured",
-                        "YAML metadata understood",
-                        "Auto Note Mover working"
-                    ],
+                    "description": "Note types clear. `Templater` configured. Automation reducing friction.",
+                    "highlights": ["Note types clear", "Templates configured", "YAML understood"],
                     "icon": "🗃️"
                 },
                 {
                     "id": "milestone-5",
-                    "timeframe": "By hour 2",
-                    "title": "Daily Practice Established",
-                    "description": "Daily notes, journaling, and periodic reviews set up. Your PKM practice has a sustainable rhythm.",
+                    "timeframe": "By 2 hours",
+                    "title": "Daily Practice",
+                    "description": "Daily notes, journaling, periodic reviews set up.",
                     "highlights": [
-                        "Daily note workflow ready",
-                        "Journaling system in place",
-                        "Weekly/monthly reviews understood",
-                        "Knowledge extraction flowing"
+                        "Daily workflow ready",
+                        "Reviews understood",
+                        "Extraction flowing"
                     ],
                     "icon": "📝"
                 },
                 {
                     "id": "milestone-6",
-                    "timeframe": "Course Complete",
-                    "title": "Confident Obsidian User",
-                    "description": "Task management, Canvas, Excalidraw, and advanced features mastered. You're ready to build your second brain.",
-                    "highlights": [
-                        "Kanban task management active",
-                        "Canvas for visual thinking",
-                        "Complete system understanding",
-                        "Ready to scale to 10,000+ notes"
-                    ],
+                    "timeframe": "Complete",
+                    "title": "Full System",
+                    "description": "Task management, Canvas, Excalidraw mastered. Ready to scale.",
+                    "highlights": ["Kanban active", "Visual tools ready", "System complete"],
                     "icon": "🏆"
                 }
             ]
         },
         "courseContent": {
-            "sectionTitle": "Complete Course Curriculum",
-            "sectionDescription": "Hands-on video training organized into clear learning modules",
+            "sectionTitle": "Course Curriculum",
+            "sectionDescription": "**11 modules** of hands-on video training",
             "sectionIcon": "🎓",
-            "totalDuration": "2.5 hours",
+            "totalDuration": "2h20",
             "difficulty": "beginner",
             "prerequisites": [
                 "A computer (Mac, Windows, or Linux)",
-                "Willingness to learn",
                 "No prior Obsidian experience required"
             ],
             "modules": [
@@ -1011,7 +951,7 @@
         },
         "howItWorks": {
             "title": "Course Preview",
-            "description": "See the quality content that awaits you",
+            "description": "Sample videos from the course",
             "mediaIds": ["cover-video-001", "cover-video-003"]
         },
         "mediaSections": null
