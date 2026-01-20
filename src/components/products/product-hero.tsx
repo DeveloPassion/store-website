@@ -12,6 +12,7 @@ import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { ShareButton } from '@/components/ui/share-button'
 import MediaCarousel from './media-carousel'
 import MediaLightbox from './media-lightbox'
 
@@ -145,6 +146,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                     <FaRegHeart className='h-5 w-5 sm:h-6 sm:w-6' />
                                 )}
                             </button>
+                            <ShareButton
+                                url={`/product/${product.id}`}
+                                title={product.name}
+                                description={product.salesCopy?.tagline}
+                                variant='dropdown'
+                                size='md'
+                            />
                         </div>
 
                         {/* Tagline */}

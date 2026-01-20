@@ -8,6 +8,7 @@ import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { ShareButton } from '@/components/ui/share-button'
 import { useSyncedState } from '@/hooks/use-synced-state'
 
 interface ProductCardEcommerceProps {
@@ -153,20 +154,28 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                     )}
                 </div>
 
-                {/* Wishlist Button */}
-                <button
-                    onClick={handleWishlist}
-                    className={`absolute top-3 right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/90 transition-all hover:bg-white ${
-                        isWishlisted ? 'text-secondary' : 'hover:text-secondary text-gray-600'
-                    }`}
-                    aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-                >
-                    {isWishlisted ? (
-                        <FaHeart className='h-4 w-4' />
-                    ) : (
-                        <FaRegHeart className='h-4 w-4' />
-                    )}
-                </button>
+                {/* Wishlist and Share Buttons */}
+                <div className='absolute top-3 right-3 flex flex-col gap-2'>
+                    <button
+                        onClick={handleWishlist}
+                        className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/90 transition-all hover:bg-white ${
+                            isWishlisted ? 'text-secondary' : 'hover:text-secondary text-gray-600'
+                        }`}
+                        aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+                    >
+                        {isWishlisted ? (
+                            <FaHeart className='h-4 w-4' />
+                        ) : (
+                            <FaRegHeart className='h-4 w-4' />
+                        )}
+                    </button>
+                    <ShareButton
+                        url={`/product/${product.id}`}
+                        title={product.name}
+                        variant='icon'
+                        size='sm'
+                    />
+                </div>
             </div>
 
             {/* Content */}

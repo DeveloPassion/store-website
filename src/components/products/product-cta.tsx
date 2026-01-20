@@ -7,6 +7,7 @@ import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { resolveStatItem } from '@/lib/stats-helpers'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { ShareButton } from '@/components/ui/share-button'
 
 interface ProductCTAProps {
     product: Product
@@ -53,10 +54,20 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                         href={buildGumroadUrlFromProduct(product)}
                         data-gumroad-overlay-checkout='true'
                         size='lg'
-                        className='mb-8 shadow-xl hover:shadow-2xl sm:px-12 sm:text-xl'
+                        className='mb-4 shadow-xl hover:shadow-2xl sm:px-12 sm:text-xl'
                     >
                         {isFree ? 'Get Now' : product.isSubscription ? 'Subscribe Now' : 'Buy Now'}
                     </Button>
+
+                    {/* Share Link */}
+                    <div className='mb-8 flex justify-center'>
+                        <ShareButton
+                            url={`/product/${product.id}`}
+                            title={product.name}
+                            variant='text'
+                            size='sm'
+                        />
+                    </div>
 
                     {/* Guarantees */}
                     {product.salesCopy?.guarantees && product.salesCopy.guarantees.length > 0 && (
