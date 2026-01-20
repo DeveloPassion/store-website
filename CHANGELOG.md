@@ -1,3 +1,12 @@
+## [1.0.0](https://github.com/DeveloPassion/store-website/compare/0.8.7...1.0.0) (2026-01-20)
+
+### Features
+
+* **all:** refactored structure ([9d1238d](https://github.com/DeveloPassion/store-website/commit/9d1238de3d2dd2f4325bc7b56a3c0d26b24cf824))
+* **all:** updated ([c40b934](https://github.com/DeveloPassion/store-website/commit/c40b934a5388213c483f00b6d2f1d75536d6ad1a))
+* **all:** updated sales copies ([bc0f7b8](https://github.com/DeveloPassion/store-website/commit/bc0f7b81a536c715815b0d8bfb5cd19e58b9bcf0))
+* **all:** updated sales copy ([9135035](https://github.com/DeveloPassion/store-website/commit/9135035198f1deed7a8456beab6f0eb5521ee3ba))
+* **all:** updated sales copy and global FAQ ([6d83aa4](https://github.com/DeveloPassion/store-website/commit/6d83aa4b97600bddb002408a6783a7372a332d06))
 ## [0.8.7](https://github.com/DeveloPassion/store-website/compare/0.8.6...0.8.7) (2026-01-19)
 
 ### Features
