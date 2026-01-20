@@ -40,6 +40,35 @@ const getCoverImage = (media: MediaItem[] | undefined): MediaItem | undefined =>
 
 const MAX_COMPARE = 4
 
+// Reusable card wrapper for mobile
+const CompareCard: React.FC<{ title: string; children: React.ReactNode }> = ({
+    title,
+    children
+}) => (
+    <div className='border-primary/10 overflow-hidden rounded-xl border'>
+        <div className='border-primary/10 bg-primary/5 border-b px-4 py-2'>
+            <h3 className='text-primary/70 text-xs font-semibold tracking-wide uppercase'>
+                {title}
+            </h3>
+        </div>
+        <div className='p-4'>{children}</div>
+    </div>
+)
+
+// Reusable row for mobile cards with label and value
+const CompareRow: React.FC<{
+    label: string
+    value: React.ReactNode
+    isLast?: boolean
+}> = ({ label, value, isLast = false }) => (
+    <div
+        className={`flex items-center justify-between gap-2 overflow-hidden py-2 ${!isLast ? 'border-primary/10 border-b' : ''}`}
+    >
+        <span className='min-w-0 flex-1 truncate text-sm'>{label}</span>
+        <div className='flex-shrink-0'>{value}</div>
+    </div>
+)
+
 const ComparePage: React.FC = () => {
     const products = productsData as Product[]
     const categories = categoriesData as Category[]
@@ -54,7 +83,6 @@ const ComparePage: React.FC = () => {
         if (!productsParam) return []
 
         const ids = productsParam.split(',').map((id) => id.trim())
-        // Filter to only valid product IDs and limit to MAX_COMPARE
         const validIds = ids.filter((id) => products.some((p) => p.id === id))
         return validIds.slice(0, MAX_COMPARE)
     }, [searchParams, products])
@@ -137,13 +165,11 @@ const ComparePage: React.FC = () => {
         updateSelectedIds([])
     }
 
-    // Generate shareable URL
     const generateShareableUrl = useCallback(() => {
         const baseUrl = window.location.origin
         return `${baseUrl}/compare?products=${encodeURIComponent(selectedIds.join(','))}`
     }, [selectedIds])
 
-    // Copy shareable URL to clipboard
     const handleShareComparison = async () => {
         try {
             const shareUrl = generateShareableUrl()
@@ -152,7 +178,6 @@ const ComparePage: React.FC = () => {
             setTimeout(() => setCopySuccess(false), 3000)
         } catch (error) {
             console.error('Failed to copy to clipboard:', error)
-            // Fallback: show the URL in an alert
             alert(`Share this link: ${generateShareableUrl()}`)
         }
     }
@@ -189,7 +214,8 @@ const ComparePage: React.FC = () => {
     }
 
     return (
-        <>
+        <div className='w-full overflow-x-hidden'>
+            {/* Header Section */}
             <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
                 <div className='mx-auto max-w-[1400px] text-center'>
                     <Breadcrumb className='mb-6 flex justify-center' />
@@ -204,10 +230,11 @@ const ComparePage: React.FC = () => {
                 </div>
             </Section>
 
+            {/* Main Content Section */}
             <Section className='pb-16'>
-                <div className='mx-auto max-w-7xl'>
+                <div className='mx-auto w-full max-w-7xl'>
                     {/* Action Bar */}
-                    <div className='mb-8 flex flex-wrap items-center justify-between gap-4'>
+                    <div className='mb-6 flex flex-wrap items-center justify-between gap-3'>
                         <div className='text-primary/60 text-sm'>
                             {selectedIds.length} of {MAX_COMPARE} products selected
                         </div>
@@ -215,7 +242,7 @@ const ComparePage: React.FC = () => {
                             {selectedIds.length > 0 && (
                                 <button
                                     onClick={clearAll}
-                                    className='text-primary/60 hover:text-primary flex items-center gap-2 text-sm transition-colors'
+                                    className='text-primary/60 hover:text-primary flex cursor-pointer items-center gap-2 text-sm transition-colors'
                                 >
                                     <FaTrash className='h-3 w-3' />
                                     Clear All
@@ -224,7 +251,7 @@ const ComparePage: React.FC = () => {
                             {selectedIds.length < MAX_COMPARE && (
                                 <button
                                     onClick={() => setShowSelector(!showSelector)}
-                                    className='bg-secondary hover:bg-secondary/90 flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                                    className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                                 >
                                     <FaPlus className='h-3 w-3' />
                                     Add Product
@@ -240,7 +267,7 @@ const ComparePage: React.FC = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className='border-primary/10 bg-background/95 mb-8 overflow-hidden rounded-xl border p-4 backdrop-blur-sm sm:p-6'
+                                className='border-primary/10 bg-background/95 mb-6 overflow-hidden rounded-xl border p-4 backdrop-blur-sm'
                             >
                                 <div className='mb-4 flex items-center justify-between gap-2'>
                                     <h3 className='min-w-0 truncate font-semibold'>
@@ -248,7 +275,7 @@ const ComparePage: React.FC = () => {
                                     </h3>
                                     <button
                                         onClick={() => setShowSelector(false)}
-                                        className='text-primary/60 hover:text-primary flex-shrink-0'
+                                        className='text-primary/60 hover:text-primary flex-shrink-0 cursor-pointer p-1'
                                     >
                                         <FaTimes />
                                     </button>
@@ -258,15 +285,15 @@ const ComparePage: React.FC = () => {
                                     placeholder='Search products...'
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className='border-primary/20 bg-background mb-4 w-full rounded-lg border px-3 py-2 text-sm focus:outline-none sm:px-4 sm:text-base'
+                                    className='border-primary/20 bg-background mb-4 w-full rounded-lg border px-3 py-2 text-sm focus:outline-none'
                                     autoFocus
                                 />
-                                <div className='grid max-h-80 grid-cols-1 gap-2 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3'>
+                                <div className='grid max-h-64 grid-cols-1 gap-2 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3'>
                                     {availableProducts.slice(0, 12).map((product) => (
                                         <button
                                             key={product.id}
                                             onClick={() => addProduct(product.id)}
-                                            className='border-primary/10 hover:border-secondary/50 hover:bg-secondary/5 flex items-center gap-2 rounded-lg border p-2 text-left transition-colors sm:gap-3 sm:p-3'
+                                            className='border-primary/10 hover:border-secondary/50 hover:bg-secondary/5 flex cursor-pointer items-center gap-2 overflow-hidden rounded-lg border p-2 text-left transition-colors'
                                         >
                                             <div className='bg-primary/10 h-10 w-10 flex-shrink-0 overflow-hidden rounded'>
                                                 {getCoverImage(product.media) ? (
@@ -298,16 +325,15 @@ const ComparePage: React.FC = () => {
 
                     {/* Empty State */}
                     {selectedProducts.length === 0 ? (
-                        <div className='border-primary/10 rounded-xl border border-dashed py-20 text-center'>
-                            <FaExchangeAlt className='text-primary/30 mx-auto mb-4 h-16 w-16' />
+                        <div className='border-primary/10 rounded-xl border border-dashed py-16 text-center'>
+                            <FaExchangeAlt className='text-primary/30 mx-auto mb-4 h-12 w-12' />
                             <h3 className='mb-2 text-xl font-semibold'>No products selected</h3>
-                            <p className='text-primary/60 mb-6'>
-                                Add products to compare their contents, pricing, and benefits
-                                side-by-side.
+                            <p className='text-primary/60 mb-6 px-4'>
+                                Add products to compare their contents, pricing, and benefits.
                             </p>
                             <button
                                 onClick={() => setShowSelector(true)}
-                                className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white transition-colors'
+                                className='bg-secondary hover:bg-secondary/90 inline-flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white transition-colors'
                             >
                                 <FaPlus className='h-4 w-4' />
                                 Add Your First Product
@@ -315,22 +341,19 @@ const ComparePage: React.FC = () => {
                         </div>
                     ) : (
                         <>
-                            {/* Mobile Card Layout */}
+                            {/* ==================== MOBILE LAYOUT ==================== */}
                             <div className='space-y-4 md:hidden'>
-                                {/* Product Headers Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Comparing
-                                    </h3>
+                                {/* Selected Products Card */}
+                                <CompareCard title='Comparing'>
                                     <div className='space-y-3'>
                                         {selectedProducts.map((product) => (
                                             <div
                                                 key={product.id}
-                                                className='flex items-center gap-3'
+                                                className='flex items-center gap-3 overflow-hidden'
                                             >
                                                 <Link
                                                     to={`/product/${product.id}`}
-                                                    className='bg-primary/10 h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg'
+                                                    className='bg-primary/10 h-12 w-12 flex-shrink-0 cursor-pointer overflow-hidden rounded-lg'
                                                 >
                                                     {getCoverImage(product.media) ? (
                                                         <img
@@ -344,10 +367,10 @@ const ComparePage: React.FC = () => {
                                                         </div>
                                                     )}
                                                 </Link>
-                                                <div className='min-w-0 flex-1'>
+                                                <div className='min-w-0 flex-1 overflow-hidden'>
                                                     <Link
                                                         to={`/product/${product.id}`}
-                                                        className='hover:text-secondary block truncate text-sm font-semibold transition-colors'
+                                                        className='hover:text-secondary block cursor-pointer truncate text-sm font-semibold transition-colors'
                                                     >
                                                         {product.name}
                                                     </Link>
@@ -357,7 +380,7 @@ const ComparePage: React.FC = () => {
                                                 </div>
                                                 <button
                                                     onClick={() => removeProduct(product.id)}
-                                                    className='text-primary/40 hover:text-secondary flex-shrink-0 p-1 transition-colors'
+                                                    className='text-primary/40 hover:text-secondary flex-shrink-0 cursor-pointer p-1 transition-colors'
                                                     title='Remove'
                                                 >
                                                     <FaTimes className='h-4 w-4' />
@@ -367,7 +390,7 @@ const ComparePage: React.FC = () => {
                                         {selectedProducts.length < MAX_COMPARE && (
                                             <button
                                                 onClick={() => setShowSelector(true)}
-                                                className='border-primary/20 hover:border-secondary/50 hover:bg-secondary/5 flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed py-3 transition-colors'
+                                                className='border-primary/20 hover:border-secondary/50 hover:bg-secondary/5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed py-3 transition-colors'
                                             >
                                                 <FaPlus className='text-primary/40 h-4 w-4' />
                                                 <span className='text-primary/60 text-sm'>
@@ -376,27 +399,21 @@ const ComparePage: React.FC = () => {
                                             </button>
                                         )}
                                     </div>
-                                </div>
+                                </CompareCard>
 
                                 {/* Category Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Category
-                                    </h3>
-                                    <div className='divide-primary/10 divide-y'>
-                                        {selectedProducts.map((product) => {
-                                            const category = categories.find(
-                                                (c) => c.id === product.mainCategory
-                                            )
-                                            return (
-                                                <div
-                                                    key={product.id}
-                                                    className='flex items-center justify-between py-2 first:pt-0 last:pb-0'
-                                                >
-                                                    <span className='text-primary/70 truncate text-sm'>
-                                                        {product.name}
-                                                    </span>
-                                                    <div className='flex flex-shrink-0 items-center gap-1.5'>
+                                <CompareCard title='Category'>
+                                    {selectedProducts.map((product, idx) => {
+                                        const category = categories.find(
+                                            (c) => c.id === product.mainCategory
+                                        )
+                                        return (
+                                            <CompareRow
+                                                key={product.id}
+                                                label={product.name}
+                                                isLast={idx === selectedProducts.length - 1}
+                                                value={
+                                                    <div className='flex items-center gap-1.5'>
                                                         {category?.icon && (
                                                             <DynamicIcon
                                                                 iconName={category.icon}
@@ -407,60 +424,51 @@ const ComparePage: React.FC = () => {
                                                             {getCategoryName(product.mainCategory)}
                                                         </span>
                                                     </div>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                </div>
+                                                }
+                                            />
+                                        )
+                                    })}
+                                </CompareCard>
 
                                 {/* Rating Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Rating
-                                    </h3>
-                                    <div className='divide-primary/10 divide-y'>
-                                        {selectedProducts.map((product) => (
-                                            <div
-                                                key={product.id}
-                                                className='flex items-center justify-between py-2 first:pt-0 last:pb-0'
-                                            >
-                                                <span className='text-primary/70 truncate text-sm'>
-                                                    {product.name}
-                                                </span>
-                                                {product.averageRating ? (
-                                                    <div className='flex flex-shrink-0 items-center gap-1'>
-                                                        <FaStar className='h-4 w-4 text-yellow-400' />
-                                                        <span className='font-medium'>
-                                                            {product.averageRating.toFixed(1)}
-                                                        </span>
-                                                        {product.ratingsCount && (
-                                                            <span className='text-primary/50 text-xs'>
-                                                                ({product.ratingsCount})
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                ) : (
-                                                    <span className='text-primary/40 text-sm'>
-                                                        No ratings
+                                <CompareCard title='Rating'>
+                                    {selectedProducts.map((product, idx) => (
+                                        <CompareRow
+                                            key={product.id}
+                                            label={product.name}
+                                            isLast={idx === selectedProducts.length - 1}
+                                            value={
+                                                <div className='flex items-center gap-1'>
+                                                    <FaStar
+                                                        className={`h-4 w-4 flex-shrink-0 ${product.averageRating ? 'text-yellow-400' : 'text-primary/20'}`}
+                                                    />
+                                                    <span
+                                                        className={`w-7 text-right font-medium tabular-nums ${!product.averageRating ? 'text-primary/40' : ''}`}
+                                                    >
+                                                        {product.averageRating
+                                                            ? product.averageRating.toFixed(1)
+                                                            : '—'}
                                                     </span>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                                    <span className='text-primary/50 w-10 text-right text-xs tabular-nums'>
+                                                        {product.ratingsCount
+                                                            ? `(${product.ratingsCount})`
+                                                            : ''}
+                                                    </span>
+                                                </div>
+                                            }
+                                        />
+                                    ))}
+                                </CompareCard>
 
                                 {/* Contents Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        What's Included
-                                    </h3>
+                                <CompareCard title="What's Included">
                                     <div className='divide-primary/10 divide-y'>
                                         {selectedProducts.map((product) => (
                                             <div
                                                 key={product.id}
                                                 className='py-3 first:pt-0 last:pb-0'
                                             >
-                                                <div className='mb-2 text-sm font-semibold'>
+                                                <div className='mb-2 truncate text-sm font-semibold'>
                                                     {product.name}
                                                 </div>
                                                 <ul className='space-y-1.5'>
@@ -473,7 +481,7 @@ const ComparePage: React.FC = () => {
                                                                 <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-green-400' />
                                                                 <MarkdownContent
                                                                     content={contentItem}
-                                                                    className='text-primary/80'
+                                                                    className='text-primary/80 min-w-0'
                                                                     inline
                                                                 />
                                                             </li>
@@ -483,20 +491,17 @@ const ComparePage: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
+                                </CompareCard>
 
                                 {/* Benefits Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Benefits
-                                    </h3>
+                                <CompareCard title='Benefits'>
                                     <div className='divide-primary/10 divide-y'>
                                         {selectedProducts.map((product) => (
                                             <div
                                                 key={product.id}
                                                 className='py-3 first:pt-0 last:pb-0'
                                             >
-                                                <div className='mb-2 text-sm font-semibold'>
+                                                <div className='mb-2 truncate text-sm font-semibold'>
                                                     {product.name}
                                                 </div>
                                                 <ul className='space-y-1.5'>
@@ -508,7 +513,7 @@ const ComparePage: React.FC = () => {
                                                             <FaStar className='text-secondary mt-0.5 h-3 w-3 flex-shrink-0' />
                                                             <MarkdownContent
                                                                 content={benefit}
-                                                                className='text-primary/80'
+                                                                className='text-primary/80 min-w-0'
                                                                 inline
                                                             />
                                                         </li>
@@ -517,20 +522,17 @@ const ComparePage: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
+                                </CompareCard>
 
                                 {/* Best For Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Best For
-                                    </h3>
+                                <CompareCard title='Best For'>
                                     <div className='divide-primary/10 divide-y'>
                                         {selectedProducts.map((product) => (
                                             <div
                                                 key={product.id}
                                                 className='py-3 first:pt-0 last:pb-0'
                                             >
-                                                <div className='mb-2 text-sm font-semibold'>
+                                                <div className='mb-2 truncate text-sm font-semibold'>
                                                     {product.name}
                                                 </div>
                                                 <ul className='space-y-1'>
@@ -541,9 +543,12 @@ const ComparePage: React.FC = () => {
                                                                 key={idx}
                                                                 className='text-primary/70 flex items-start gap-1 text-sm'
                                                             >
-                                                                <span>•</span>
+                                                                <span className='flex-shrink-0'>
+                                                                    •
+                                                                </span>
                                                                 <MarkdownContent
                                                                     content={item}
+                                                                    className='min-w-0'
                                                                     inline
                                                                 />
                                                             </li>
@@ -552,23 +557,17 @@ const ComparePage: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
+                                </CompareCard>
 
                                 {/* Badges Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Badges
-                                    </h3>
-                                    <div className='divide-primary/10 divide-y'>
-                                        {selectedProducts.map((product) => (
-                                            <div
-                                                key={product.id}
-                                                className='flex items-center justify-between gap-2 py-2 first:pt-0 last:pb-0'
-                                            >
-                                                <span className='text-primary/70 truncate text-sm'>
-                                                    {product.name}
-                                                </span>
-                                                <div className='flex flex-shrink-0 flex-wrap justify-end gap-1'>
+                                <CompareCard title='Badges'>
+                                    {selectedProducts.map((product, idx) => (
+                                        <CompareRow
+                                            key={product.id}
+                                            label={product.name}
+                                            isLast={idx === selectedProducts.length - 1}
+                                            value={
+                                                <div className='flex flex-wrap justify-end gap-1'>
                                                     {product.featured && (
                                                         <span className='bg-secondary/20 text-secondary rounded-full px-2 py-0.5 text-xs font-medium'>
                                                             Featured
@@ -598,23 +597,20 @@ const ComparePage: React.FC = () => {
                                                             </span>
                                                         )}
                                                 </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                            }
+                                        />
+                                    ))}
+                                </CompareCard>
 
                                 {/* Action Card */}
-                                <div className='border-primary/10 rounded-xl border p-4'>
-                                    <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Action
-                                    </h3>
+                                <CompareCard title='Action'>
                                     <div className='divide-primary/10 divide-y'>
                                         {selectedProducts.map((product) => (
                                             <div
                                                 key={product.id}
-                                                className='flex items-center justify-between gap-3 py-2.5 first:pt-0 last:pb-0'
+                                                className='flex items-center justify-between gap-2 overflow-hidden py-2.5 first:pt-0 last:pb-0'
                                             >
-                                                <span className='min-w-0 truncate text-sm font-semibold'>
+                                                <span className='min-w-0 flex-1 truncate text-sm font-semibold'>
                                                     {product.name}
                                                 </span>
                                                 <div className='flex flex-shrink-0 items-center gap-2'>
@@ -622,7 +618,7 @@ const ComparePage: React.FC = () => {
                                                         href={buildGumroadUrl(product.gumroadUrl)}
                                                         target='_blank'
                                                         rel='noopener'
-                                                        className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-white transition-colors'
+                                                        className='bg-secondary hover:bg-secondary/90 inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-white transition-colors'
                                                     >
                                                         <FaShoppingCart className='h-3 w-3' />
                                                         {product.priceTier === 'free'
@@ -631,7 +627,7 @@ const ComparePage: React.FC = () => {
                                                     </a>
                                                     <Link
                                                         to={`/product/${product.id}`}
-                                                        className='text-secondary hover:text-secondary/80 text-xs transition-colors'
+                                                        className='text-secondary hover:text-secondary/80 cursor-pointer text-xs transition-colors'
                                                     >
                                                         Details
                                                     </Link>
@@ -639,10 +635,10 @@ const ComparePage: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
+                                </CompareCard>
                             </div>
 
-                            {/* Desktop Table Layout */}
+                            {/* ==================== DESKTOP TABLE LAYOUT ==================== */}
                             <div className='hidden overflow-x-auto rounded-xl md:block'>
                                 <table className='w-full border-collapse'>
                                     <thead>
@@ -660,14 +656,14 @@ const ComparePage: React.FC = () => {
                                                             onClick={() =>
                                                                 removeProduct(product.id)
                                                             }
-                                                            className='text-primary/40 hover:text-secondary absolute -top-1 -right-1 rounded-full p-1 transition-colors'
+                                                            className='text-primary/40 hover:text-secondary absolute -top-1 -right-1 cursor-pointer rounded-full p-1 transition-colors'
                                                             title='Remove from comparison'
                                                         >
                                                             <FaTimes className='h-3 w-3' />
                                                         </button>
                                                         <Link
                                                             to={`/product/${product.id}`}
-                                                            className='group block'
+                                                            className='group block cursor-pointer'
                                                         >
                                                             <div className='bg-primary/10 mx-auto mb-3 h-20 w-20 overflow-hidden rounded-lg'>
                                                                 {getCoverImage(product.media) ? (
@@ -697,7 +693,7 @@ const ComparePage: React.FC = () => {
                                                 <th className='border-primary/10 border-b p-4'>
                                                     <button
                                                         onClick={() => setShowSelector(true)}
-                                                        className='border-primary/20 hover:border-secondary/50 hover:bg-secondary/5 mx-auto flex h-20 w-20 items-center justify-center rounded-lg border-2 border-dashed transition-colors'
+                                                        className='border-primary/20 hover:border-secondary/50 hover:bg-secondary/5 mx-auto flex h-20 w-20 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed transition-colors'
                                                     >
                                                         <FaPlus className='text-primary/40 h-6 w-6' />
                                                     </button>
@@ -956,7 +952,7 @@ const ComparePage: React.FC = () => {
                                                             )}
                                                             target='_blank'
                                                             rel='noopener'
-                                                            className='bg-secondary hover:bg-secondary/90 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
+                                                            className='bg-secondary hover:bg-secondary/90 inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors'
                                                         >
                                                             <FaShoppingCart className='h-3 w-3' />
                                                             {product.priceTier === 'free'
@@ -965,7 +961,7 @@ const ComparePage: React.FC = () => {
                                                         </a>
                                                         <Link
                                                             to={`/product/${product.id}`}
-                                                            className='text-secondary hover:text-secondary/80 text-sm transition-colors'
+                                                            className='text-secondary hover:text-secondary/80 cursor-pointer text-sm transition-colors'
                                                         >
                                                             Details →
                                                         </Link>
@@ -982,8 +978,8 @@ const ComparePage: React.FC = () => {
 
                     {/* Suggestion Section - show when only 1 product */}
                     {selectedProducts.length === 1 && (
-                        <div className='bg-secondary/5 border-secondary/20 mt-8 rounded-xl border p-6 text-center'>
-                            <p className='text-primary/70'>
+                        <div className='bg-secondary/5 border-secondary/20 mt-6 rounded-xl border p-4 text-center'>
+                            <p className='text-primary/70 text-sm'>
                                 💡 <strong>Tip:</strong> Add more products to see a meaningful
                                 comparison. Try comparing products in the same category!
                             </p>
@@ -992,13 +988,13 @@ const ComparePage: React.FC = () => {
 
                     {/* Share Section - show when 2+ products */}
                     {selectedProducts.length >= 2 && (
-                        <div className='border-primary/10 mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border p-6 sm:flex-row'>
+                        <div className='border-primary/10 mt-6 flex flex-col items-center justify-between gap-4 rounded-xl border p-4 sm:flex-row sm:p-6'>
                             <p className='text-primary/70 text-center text-sm sm:text-left'>
                                 Found a helpful comparison? Share it with others!
                             </p>
                             <button
                                 onClick={handleShareComparison}
-                                className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold text-white transition-colors'
+                                className='bg-secondary hover:bg-secondary/90 flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2 text-sm font-semibold text-white transition-colors'
                             >
                                 <FaShare className='h-4 w-4' />
                                 {copySuccess ? 'Link Copied!' : 'Share Comparison'}
@@ -1007,7 +1003,7 @@ const ComparePage: React.FC = () => {
                     )}
                 </div>
             </Section>
-        </>
+        </div>
     )
 }
 
