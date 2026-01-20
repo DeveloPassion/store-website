@@ -227,6 +227,45 @@
                 }
             ],
             "additionalText": "If you need help with your subscription or want to request a refund, email [sebastien@developassion.be](mailto:sebastien@developassion.be)."
+        },
+        {
+            "id": "leave-review",
+            "question": "How do I leave a rating or review?",
+            "answer": "Your feedback helps other customers make informed decisions and helps me improve my products. Leaving a rating or review is simple:",
+            "icon": "FaStar",
+            "order": 10,
+            "style": "default",
+            "features": null,
+            "steps": [
+                {
+                    "title": "Go to Gumroad Reviews",
+                    "description": "Visit [gumroad.com/reviews](https://gumroad.com/reviews) while logged into your Gumroad account"
+                },
+                {
+                    "title": "Find your purchase",
+                    "description": "You'll see a list of products you've purchased that are eligible for review"
+                },
+                {
+                    "title": "Leave your feedback",
+                    "description": "Select a star rating (1-5) and optionally write a review sharing your experience"
+                }
+            ],
+            "bullets": null,
+            "links": [
+                {
+                    "label": "Leave a Review",
+                    "url": "https://gumroad.com/reviews",
+                    "external": true,
+                    "primary": true
+                },
+                {
+                    "label": "Gumroad Help Article",
+                    "url": "https://gumroad.com/help/article/344-rate-and-review-your-purchase",
+                    "external": true,
+                    "primary": false
+                }
+            ],
+            "additionalText": "You can only review products you've purchased. Your review will be visible on the product page after submission."
         }
     ]
 }

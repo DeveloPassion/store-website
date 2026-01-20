@@ -1,7 +1,7 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "Skip Years of PKM Research. Start With **2,000+** Curated Resources.",
+        "tagline": "Skip Years of Knowledge Management Research. Start With **2,000+** Curated Resources.",
         "secondaryTagline": "The Most Comprehensive Personal Knowledge Management Directory, Built From **12+ Months** of Startup Research",
         "problem": "You're curious about PKM, *Second Brain*, *Zettelkasten*, Evergreen notes... but finding quality resources takes forever. **Hours disappear** into Google searches. You keep finding the same mediocre articles. The best tools, communities, and experts are hard to discover.",
         "problemPoints": [
@@ -170,7 +170,7 @@
         "courseContent": null,
         "howItWorks": {
             "title": "Explore the Library",
-            "description": "See the wealth of PKM resources at your fingertips",
+            "description": "See the wealth of Knowledge Management resources at your fingertips",
             "mediaIds": ["cover-video-001"]
         },
         "mediaSections": {

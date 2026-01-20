@@ -9,7 +9,9 @@
             "Trying **dozens of plugins** without knowing which actually matter",
             "Building templates from scratch that **break after 50 notes**",
             "Reading contradictory PKM advice that makes you *more confused*",
-            "Watching your vault become **messier as it grows**"
+            "Watching your vault become **messier as it grows**",
+            "Reading books about *Zettelkasten*, *PARA*, *GTD* but **struggling to implement** them in practice",
+            "**Juggling multiple apps**: task managers, journaling apps, contact tools, note apps—none of them talk to each other"
         ],
         "agitate": "The real cost isn't the setup time. It's the **constant anxiety** that important ideas are slipping through the cracks. It's the **creative blocks** when you can't find your own notes. It's feeling less capable than you should because your *'second brain'* is a disorganized mess. I spent years organizing information at scale, and mastered the art. I applied it to my Obsidian vault as well.",
         "agitatePoints": [
@@ -17,25 +19,32 @@
             "**Creative blocks** because your thinking is disconnected",
             "**Analysis paralysis** from too many options and no clear path",
             "Starting from scratch feels like reinventing the wheel. *Because it is.*",
-            "Your brain becomes the **only connection point** between scattered tools"
+            "Your brain becomes the **only connection point** between scattered tools",
+            "**Lost connections**: You can't remember who introduced that idea, who you discussed it with, or what you learned from whom"
         ],
-        "solution": "OSK is **20+ years** of PKM trial and error distilled into a system that works **from day one**. Not tips and tricks. A complete system of how you capture, organize, and use your knowledge. Every decision has been made, but everything stays customizable as you grow.",
+        "solution": "OSK is **20+ years** of Knowledge Management trial and error distilled into a system that works **from day one**. Not tips and tricks. A complete system with integrated workflows for journaling, task management, learning, and creation that all work together. Every decision has been made, but everything stays customizable as you grow.",
         "solutionPoints": [
             "**Ready in 30 minutes**. Not weeks. Not months.",
             "**40+ templates** that auto-file notes so you stop thinking about organization",
             "**Pre-configured plugins** that actually work together",
             "*Zettelkasten*, *PARA*, *Johnny Decimal*, *GTD* built in and explained",
             "Scales from **10 notes to 10,000+** without breaking down",
-            "**AI-ready** with full compatibility with `ChatGPT`, `Codex`, `Claude`, `Claude Code`, `Gemini`, `MCP`, and more. Perfect for modern knowledge work"
+            "**AI-ready** with full compatibility with `ChatGPT`, `Codex`, `Claude`, `Claude Code`, `Gemini`, `MCP`, and more. Perfect for modern knowledge work",
+            "**Deep user guide** covering foundations, integrated systems, theory, step-by-step tutorials, and reference materials. Never get stuck.",
+            "**One system replaces many tools**: journaling, task management, contact management, meeting notes, and content creation—all connected",
+            "**Visual thinking built in**: Canvas and Excalidraw integration for non-linear thinking and spatial reasoning"
         ],
         "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books.",
         "highlights": [
             "**Battle-Tested System**: From a 10,000+ note personal vault",
             "**Productive Day One**: Skip months of setup and configuration",
             "**Methods That Work Together**: *Zettelkasten*, *PARA*, *GTD*, and journaling integrated",
+            "**Integrated Systems**: Journaling, task management, learning pipelines, and creation workflows that work together seamlessly",
+            "**People System**: Track relationships, interactions, and knowledge connections with contacts, authors, and collaborators",
+            "**Meeting Notes System**: Structured capture with agendas, decisions, action items, and participant linking",
             "**Scales Forever**: From 10 notes to 10,000+ without breaking down",
             "**AI-Ready Architecture**: Full compatibility with `ChatGPT`, `Claude`, `MCP`, and more",
-            "**Expert-Led**: 20+ years of PKM expertise distilled into one system",
+            "**Expert-Led**: 20+ years of Information and Knowledge Management expertise distilled into one system",
             "**1,000+ Users**: Join a proven, active community",
             "**Lifetime Updates**: All future improvements included free",
             "**Knowii Ecosystem**: Included in [Knowledge Worker Kit](/product/knowledge-worker-kit) & [Everything Bundle](/product/everything-knowledge-bundle)"
@@ -46,7 +55,8 @@
                 "**No analysis paralysis**. Every decision has been made for you.",
                 "**Workflows that actually work** in the real world",
                 "**Instant clarity** on where everything goes and how to find it",
-                "**Confidence** that you're building on a solid foundation"
+                "**Confidence** that you're building on a solid foundation",
+                "**Replace multiple apps** with one integrated system that actually connects your information"
             ],
             "systematic": [
                 "**Find any note in 3 seconds** with hierarchical tags and multiple discovery methods",
@@ -54,7 +64,9 @@
                 "**Automated organization** that reduces decision fatigue to zero",
                 "**Clear workflows** for every type of information you capture",
                 "**AI-ready structure** so tools like `ChatGPT`, `Claude`, `Claude Code`, `Gemini` and many others can actually help you",
-                "**Sustainable habits** with built-in journaling and review systems"
+                "**Sustainable habits** with built-in journaling and review systems",
+                "**Progressive adoption roadmap** guiding you from beginner to power user at your own pace",
+                "**Visual thinking tools** with Canvas and Excalidraw for brainstorming, mapping, and spatial reasoning"
             ],
             "longTerm": [
                 "**Knowledge that compounds**. Every note makes you more capable.",
@@ -79,6 +91,7 @@
             "You're a content creator turning knowledge into articles, courses, and products",
             "You're a researcher processing literature and creating insights",
             "You're a lifelong learner committed to continuous growth",
+            "You're a networker or consultant tracking relationships, conversations, and who knows what",
             "You're ready to turn scattered notes into a real second brain"
         ],
         "notForYou": [
@@ -97,6 +110,7 @@
         "guarantees": [
             "**30-day money-back guarantee**. Full refund, no questions asked.",
             "**Free lifetime updates**. All future versions included at no cost.",
+            "**Living documentation** that grows with new tutorials, guides, and best practices",
             "**Lifetime community access** for support and learning",
             "**Priority email support** with personal responses"
         ],
@@ -260,7 +274,7 @@
             },
             "methodology": {
                 "title": "The OSK Philosophy",
-                "subtitle": "Four Principles That Make Knowledge Work",
+                "subtitle": "Six Principles That Make Knowledge Work",
                 "steps": [
                     {
                         "title": "Systems Over Willpower",
@@ -285,6 +299,18 @@
                         "description": "Every note should make you more capable, not just more organized. OSK is built around connecting ideas across time, projects, and domains. Your second brain should make your first brain smarter.",
                         "icon": "🔗",
                         "order": 3
+                    },
+                    {
+                        "title": "Documentation-Driven",
+                        "description": "A deep user guide covers foundations, integrated systems, theory, step-by-step tutorials, and reference materials. You're never stuck wondering how something works or what to do next.",
+                        "icon": "📚",
+                        "order": 4
+                    },
+                    {
+                        "title": "One System, Many Tools",
+                        "description": "OSK replaces fragmented apps with one integrated system. Your journaling connects to your tasks connects to your contacts connects to your knowledge. Information flows instead of getting stuck in silos.",
+                        "icon": "🔄",
+                        "order": 5
                     }
                 ],
                 "philosophy": "Most PKM systems fail because they require constant effort to maintain. OSK works because the system works for you, freeing your energy for what actually matters: thinking, creating, growing.",
@@ -334,12 +360,12 @@
                     "id": "week-1",
                     "timeframe": "Week 1",
                     "title": "Foundation Built",
-                    "description": "Your vault is installed, configured, and working. You've created your first 20+ notes using templates that auto-file. Your daily note habit has started. The anxiety of 'where does this go?' is already gone.",
+                    "description": "Your vault is installed, configured, and working. You've created your first notes using templates that auto-file. Your daily note habit has started. The anxiety of 'where does this go?' is already gone.",
                     "highlights": [
-                        "Vault installed and configured in 30 minutes",
-                        "First 20+ notes captured and organized",
+                        "Vault installed and configured following the quick start guide",
+                        "First notes captured and organized automatically",
                         "Daily note routine established",
-                        "Core PKM concepts understood through hands-on use"
+                        "Progressive adoption roadmap guiding your next steps"
                     ],
                     "icon": "🏗️"
                 },
@@ -347,11 +373,12 @@
                     "id": "month-1",
                     "timeframe": "Month 1",
                     "title": "System Working",
-                    "description": "You have 100+ notes organized without thinking about organization. You're creating permanent notes from your reading. Goals, projects, and tasks are connected. You've found your personal workflow within the system.",
+                    "description": "Your notes are organized without thinking about organization. You're creating permanent notes from your reading. Goals, projects, and tasks are connected. You've found your personal workflow within the system.",
                     "highlights": [
-                        "100+ notes captured and automatically organized",
+                        "Notes captured and automatically organized",
                         "First permanent notes created from literature notes",
                         "Goals, projects, tasks workflow established",
+                        "People and meeting systems capturing your professional network",
                         "Personal customizations added to match your style"
                     ],
                     "icon": "⚙️"

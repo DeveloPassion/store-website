@@ -2,7 +2,7 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Everything I Know About Being a Knowledge Worker, In One Place",
-        "secondaryTagline": "20+ years of systems. A living system that keeps growing.",
+        "secondaryTagline": "20+ years in the making. A living system that keeps growing.",
         "problem": "Being a knowledge worker is hard. Information is everywhere. AI is changing the rules faster than we can keep up. You're juggling more than seems humanly possible. And no matter how hard you work, you can't seem to get ahead. I get it. I've been there. You've probably tried productivity hacks that faded after a week. Bought courses that are now gathering digital dust. The problem? Most of them skip the most important part: knowing who you are, what you value, and where you're actually going.",
         "problemPoints": [
             "Information overload drowning your ability to think clearly",
@@ -20,7 +20,7 @@
             "Burnout from working harder instead of working smarter",
             "Projects failing due to poor organization, not poor skills"
         ],
-        "solution": "The Knowledge Worker Kit is a living system I've built over **20+ years**. It starts with clarity: your values, principles, goals, and priorities. Then it builds practical systems for PKM, journaling, and personal organization. This isn't theory from someone who read about productivity. I built this while dealing with burnout, career transitions, and real life. Knowing what matters to you isn't optional; it's where everything else starts.",
+        "solution": "The Knowledge Worker Kit is a living system I've built for myself over **20+ years**. It starts with clarity: your values, principles, goals, and priorities. Then it builds practical systems for PKM, journaling, and personal organization. This isn't theory from someone who read about productivity. I built this while dealing with burnout, career transitions, and real life. Knowing what matters to you isn't optional; it's where everything else starts.",
         "solutionPoints": [
             "**Clarity System**: Values, principles, manifesto, purpose, goals, and priorities",
             "**PKM & Journaling System**: Writing, note-taking, note-making, and idea connection",
@@ -51,7 +51,7 @@
             "immediate": [
                 "**Clarity** on your values, principles, goals, and priorities",
                 "**In-depth content** across all core foundations",
-                "**€340+ in bonuses** ([Obsidian Starter Kit](/product/obsidian-starter-kit), courses, workshops)",
+                "**€350+ in bonuses** ([Obsidian Starter Kit](/product/obsidian-starter-kit), courses, workshops)",
                 "**Connection** to a community facing the same challenges"
             ],
             "systematic": [
@@ -92,7 +92,7 @@
         ],
         "trustBadges": [
             "**One-Time Payment**: €149.99, own forever",
-            "**€340+ in Bonuses**: Immediate access",
+            "**€350+ in Bonuses**: Immediate access",
             "**Lifetime Access**: All future content included",
             "**20+ Years Experience**: Battle-tested systems",
             "**[~10K Published Notes](https://notes.dsebastien.net/)**: Proof these systems scale",
@@ -131,7 +131,7 @@
             "originStory": {
                 "title": "Why I Built This",
                 "subtitle": "From drowning to systems that actually work",
-                "story": "I didn't create the Knowledge Worker Kit because I'm naturally organized. I created it because I was drowning. As a shy, introverted teenager, I found refuge in writing and building websites. Decades later, I was still struggling. A failed startup cost me 200k euros. Burnout from trying to do everything through sheer willpower. The transition from introverted engineer to leader was painful. Losing loved ones and questioning what really matters. These experiences forced me to build systems that actually work. Practical systems I use every day. Today, I manage nearly 10,000 notes in my personal vault and I'm almost always calm, despite a demanding life. The Knowledge Worker Kit is everything I wish I had when I started.",
+                "story": "I didn't create the Knowledge Worker Kit because I'm naturally organized. I created it because I know what it's like to feel disorganized and overwhelmed. As a shy, introverted teenager, I found refuge in writing, building websites, learning IT and organizing information. Decades later, I was constantly struggling. A failed startup cost me 200k euros. Burnout from trying to do everything through sheer willpower. The transition from introverted engineer to leader was painful. Losing loved ones and questioning what really matters. These experiences forced me to build systems that actually work and protect my physical and mental health. Practical systems I use every day. Today, I'm almost always calm, despite a demanding life. I have 3 kids, work part-time as an employee, run a company on the side, build products, manage communities, write articles, newsletters, publish videos and courses, ... And I still feel ZEN.. The Knowledge Worker Kit is everything I wish I knew and had when I started.",
                 "inspirationPoint": "The moment I realized you need clarity on what matters before any system can work",
                 "icon": "🔥",
                 "genesisDate": null
@@ -148,8 +148,8 @@
                     "Managing chaos with 3 kids and a demanding career"
                 ],
                 "achievements": [
-                    "Published 3 books including Learn TypeScript",
-                    "Written 400+ articles and newsletters",
+                    "Published 3 books",
+                    "Written 400+ articles and 200+ newsletters",
                     "Nearly 10,000 notes in my personal vault",
                     "Built the Knowii community from scratch",
                     "Went from shy introvert to leader and entrepreneur",
