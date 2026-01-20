@@ -28,20 +28,12 @@
             "A clear path to deeper learning when ready"
         ],
         "description": "A **50+ page** guide covering what makes `Obsidian` different from other note apps: linked notes (connecting ideas across your vault) and true data ownership (plain `Markdown` files you control). Learn the core concepts, avoid common mistakes, and build a solid foundation for your knowledge system.",
-        "features": [
-            "What `Obsidian` is and why it's more than just a note-taking app",
-            "Core concepts explained: vaults, the `.obsidian` folder, and `Markdown` format",
-            "Complete interface walkthrough: left sidebar, editor view, right sidebar, tabs",
-            "Essential tools mastered: Quick Switcher, Command Palette, Search view",
-            "Links, backlinks, and the Graph view explained",
-            "Organization methods explained: *PARA*, *Zettelkasten*, *Johnny Decimal*, *LIFT* principle",
-            "Tags and hierarchical tag support for flexible organization",
-            "Canvas feature for visual thinking and infinite whiteboards",
-            "Plugin ecosystem: core plugins vs community plugins and what to install first",
-            "Templates basics for consistent note-taking from day one",
-            "Sync and backup options: `Obsidian Sync` vs free alternatives",
-            "Keyboard shortcuts that save hours",
-            "Common beginner mistakes mapped out so you avoid them"
+        "highlights": [
+            "**100% Free**: No strings attached, instant download",
+            "**Get Started Fast**: From zero to productive in under an hour",
+            "**Avoid Mistakes**: Learn the pitfalls that trip up most beginners",
+            "**Clear Path Forward**: Know exactly what to learn next",
+            "**Gateway to Mastery**: Foundation for [Obsidian Starter Kit](/product/obsidian-starter-kit)"
         ],
         "benefits": {
             "immediate": [

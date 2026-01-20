@@ -41,7 +41,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
             solution: 'Test solution',
             solutionPoints: ['Solution 1'],
             description: 'Test description',
-            features: [{ title: 'Feature', description: 'Desc', icon: null }],
+            highlights: [{ title: 'Feature', description: 'Desc', icon: null }],
             benefits: {
                 immediate: [{ title: 'Benefit', description: 'Desc', icon: null }],
                 systematic: [{ title: 'Benefit', description: 'Desc', icon: null }],

@@ -26,7 +26,7 @@ const mockProduct: Product = {
     mainCategory: 'productivity',
     secondaryCategories: [],
     tags: [],
-    included: [],
+    contents: [],
     media: [],
     testimonials: [],
     faqs: [],
@@ -56,7 +56,7 @@ const mockProduct: Product = {
         solution: '',
         solutionPoints: [],
         description: 'Test description',
-        features: [],
+        highlights: [],
         benefits: {
             immediate: [],
             systematic: [],

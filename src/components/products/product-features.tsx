@@ -41,7 +41,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                 {/* Header */}
                 <SectionHeader title="What's Included" subtitle={product.salesCopy?.description} />
 
-                {/* Features Grid */}
+                {/* Contents Grid - What's literally included in the product */}
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
@@ -49,7 +49,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                     variants={containerVariants}
                     className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'
                 >
-                    {product.salesCopy?.features?.map((feature, idx) => {
+                    {product.contents?.map((contentItem, idx) => {
                         const IconComponent = icons[idx % icons.length] as IconType
                         return (
                             <motion.div
@@ -63,7 +63,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                                 </div>
                                 {/* Text */}
                                 <MarkdownContent
-                                    content={feature}
+                                    content={contentItem}
                                     inline
                                     className='text-primary/80'
                                 />
@@ -72,8 +72,8 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                     })}
                 </motion.div>
 
-                {/* What You Get Section */}
-                {product.included.length > 0 && (
+                {/* Highlights Section - Value propositions from sales copy */}
+                {product.salesCopy?.highlights && product.salesCopy.highlights.length > 0 && (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -81,10 +81,10 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ product }) => {
                         className='mt-16'
                     >
                         <h3 className='mb-6 text-center text-2xl font-bold sm:text-3xl'>
-                            Everything You Get
+                            Why Choose This
                         </h3>
                         <div className='mx-auto grid max-w-4xl grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3'>
-                            {product.included.map((item, idx) => (
+                            {product.salesCopy.highlights.map((item, idx) => (
                                 <div
                                     key={idx}
                                     className='border-secondary/20 bg-secondary/5 grid grid-cols-[auto_1fr] items-center gap-2.5 rounded-lg border p-2.5 sm:gap-3 sm:p-4'

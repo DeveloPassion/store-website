@@ -18,12 +18,17 @@
         "routines",
         "gtd"
     ],
-    "included": [
-        "**90-minute video**",
-        "**Visual overview**",
-        "**100+ resources**",
-        "**Practical techniques**",
-        "**Real examples**"
+    "contents": [
+        "**90-Minute Workshop Video**",
+        "**Complete 3-Pillar System** Framework",
+        "**Self-Assessment Questions** to evaluate your current level",
+        "**Clarity System**: Goals, priorities, time horizons",
+        "**Information Management** strategies beyond basic file organization",
+        "**Productivity techniques** that don't rely on willpower",
+        "Time management methods (*time blocking*, *Pomodoro*, periodic reviews)",
+        "**Attention & focus** strategies for deep work",
+        "**Visual overview** of the complete system",
+        "Curated resources and guides for deeper exploration"
     ],
     "featured": false,
     "bestValue": false,

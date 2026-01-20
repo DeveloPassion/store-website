@@ -9,13 +9,13 @@
     "priceTier": "premium",
     "gumroadUrl": "https://developassion.gumroad.com/l/pkm-coaching",
     "tags": ["pkm", "coaching", "knowledge-management"],
-    "included": [
-        "**1-on-1 coaching session**",
-        "**Review** of your current system",
-        "**Diagnosis** of your specific challenges",
-        "**System design guidance** from a practitioner",
-        "**Clear plan** you can start immediately",
-        "**Follow-up support** for questions after the session"
+    "contents": [
+        "**1-on-1 video session** tailored to your needs",
+        "**Deep-dive** into your PKM challenges",
+        "**System design guidance** based on first principles",
+        "**Workflow analysis** and optimization",
+        "**Tool-agnostic** advice that works anywhere",
+        "**Post-session follow-up** support included"
     ],
     "featured": false,
     "bestValue": false,

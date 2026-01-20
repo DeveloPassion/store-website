@@ -23,12 +23,16 @@
         "concepts",
         "beginners"
     ],
-    "included": [
-        "**100-page** digital e-book (**PDF format**)",
-        "**Lifetime access** to all future updates",
-        "Definitions, pros/cons, and practical tips for each concept",
-        "Lessons from actual professional experience",
-        "External resource links for deeper learning"
+    "contents": [
+        "**100-page** e-book covering software craftsmanship fundamentals",
+        "First principles approach that builds lasting understanding",
+        "Clear distinction between software development, engineering, and craftsmanship",
+        "**25+ essential skills** with practical advice for each",
+        "Career progression pathways and professional development strategies",
+        "Focus on productivity and the psychology of effective developers",
+        "Part of a **12-book series** covering software development end-to-end",
+        "**PDF format** for easy reference",
+        "**Lifetime access** to all future updates"
     ],
     "landingPageUrl": "https://dev-concepts.dev",
     "dsebastienUrl": "",

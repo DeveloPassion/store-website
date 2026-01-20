@@ -11,7 +11,7 @@
  * - {product-id}-faq.json -> product.faqs[] (required array, empty if file missing)
  * - {product-id}-testimonials.json -> product.testimonials[], product.testimonialsCount (required array, empty if file missing)
  * - {product-id}-media.json -> product.media[] (required array, empty if file missing)
- * - {product-id}-sales-copy-{variant}.json -> product.salesCopy.* (nested object: tagline, problem, features, etc.)
+ * - {product-id}-sales-copy-{variant}.json -> product.salesCopy.* (nested object: tagline, problem, contents, etc.)
  * - {product-id}-stats.json -> product.stats, product.ratingsCount, product.averageRating (computed)
  *
  * Sales copy is strictly required and loaded based on product.activeSalesCopyId (e.g., "default", "holiday-2026").

@@ -32,19 +32,13 @@
             "Evolves and improves over time with you"
         ],
         "description": "A step-by-step guide showing exactly how to create a personal AI ghostwriter that captures your unique voice, understands your expertise, and produces content that sounds like you. Built by someone who uses this system daily. Learn the proven process to train AI on your writing style, create content templates for every format, and build an intelligent assistant that knows your products, audience, and brand inside out.",
-        "features": [
-            "**Clear Step-by-Step System**: a complete ecosystem, not just prompts",
-            "**Personality Description**: profile of your unique voice",
-            "**Writing Style Analysis**: exact patterns, quirks, and preferences",
-            "**Content Strategy Integration**: what you create, who for, and why",
-            "**Content Types Templates**: for every format you use",
-            "**Business Context**: products, services, audience understanding",
-            "**Evolution System**: improves over time as you use it",
-            "**Ready-to-Use Prompts**: all included and tested",
-            "**Multi-Platform Support**: `ChatGPT`, `Claude`, `Gemini`, `DeepSeek`, `NotebookLM`",
-            "**Beyond Writing**: podcasts, branding, marketing, ads",
-            "**Advanced `MCP` Techniques**: power user options for deeper integration",
-            "**Private Community Access**: questions, updates, knowledge sharing"
+        "highlights": [
+            "**AI That Sounds Like You**: Train AI to write in your authentic voice",
+            "**Works Everywhere**: Framework applies to ChatGPT, Claude, and any LLM",
+            "**Proven System**: Real examples from the creator's daily content production",
+            "**MCP-Ready**: Advanced integration with [Model Context Protocol](/product/model-context-protocol)",
+            "**Community Access**: Join fellow creators in [Knowii Community](/product/knowii-community)",
+            "**Knowii Ecosystem**: Included in [Knowii Community](/product/knowii-community) (Knowledge Master), [Knowledge Worker Kit](/product/knowledge-worker-kit) & [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
         "benefits": {
             "immediate": [

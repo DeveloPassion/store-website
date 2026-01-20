@@ -28,7 +28,7 @@ describe('Product Schema Validation', () => {
         mainCategory: 'guides' as const,
         secondaryCategories: [],
         tags: ['ai' as TagId],
-        included: ['Item 1', 'Item 2'],
+        contents: ['Item 1', 'Item 2'],
         stats: null,
         landingPageUrl: null,
         dsebastienUrl: null,
@@ -54,7 +54,7 @@ describe('Product Schema Validation', () => {
             solution: 'Test solution',
             solutionPoints: ['Solution 1', 'Solution 2'],
             description: 'Test description',
-            features: ['Feature 1', 'Feature 2'],
+            highlights: ['Feature 1', 'Feature 2'],
             benefits: {
                 immediate: [],
                 systematic: [],
@@ -460,8 +460,8 @@ describe('Product Schema Validation', () => {
             expect(result.success).toBe(false)
         })
 
-        it('should reject product without included items', () => {
-            const invalid = { ...validProduct, included: [] }
+        it('should reject product without highlights', () => {
+            const invalid = { ...validProduct, contents: [] }
             const result = AggregatedProductSchema.safeParse(invalid)
             expect(result.success).toBe(false)
         })
@@ -558,7 +558,7 @@ describe('Product Schema Validation', () => {
                     solution: 'Test solution',
                     solutionPoints: ['Solution 1'],
                     description: 'Test description',
-                    features: ['Feature 1'],
+                    highlights: ['Feature 1'],
                     benefits: {
                         immediate: [],
                         systematic: [],

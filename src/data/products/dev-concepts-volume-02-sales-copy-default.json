@@ -28,15 +28,12 @@
             "Specifications that keep everyone aligned and prevent scope creep"
         ],
         "description": "Dev Concepts Volume 2 is about understanding what clients truly need so you stop wasting time on misaligned features. This **50-page** e-book distills **30+ years** of coding experience into practical guidance. I've watched too much great code go to waste because it solved the wrong problem. Here's what I learned about requirements discovery, *User-Centered Design*, *Jobs-To-Be-Done*, UX fundamentals, and writing specs that actually work.",
-        "features": [
-            "Requirements discovery techniques from real projects",
-            "*User-Centered Design* and *Jobs-To-Be-Done* explained clearly",
-            "UX basics you can use right away: research, personas, design patterns",
-            "*Minimum Lovable Products* and *Design Sprints* approaches",
-            "How to write specs that prevent misunderstandings",
-            "Part of a **12-volume series** covering software development",
-            "**PDF format** for easy reference",
-            "**Free updates** included"
+        "highlights": [
+            "**Client-Focused**: Understand what clients actually need from developers",
+            "**Bridge the Gap**: Connect technical skills with business value",
+            "**Real-World Wisdom**: Lessons from 20+ years working with clients",
+            "**Lifetime Updates**: All future improvements included free",
+            "**Save with Bundle**: Get both volumes in [Dev Concepts Starter Bundle](/product/dev-concepts-starter-bundle)"
         ],
         "benefits": {
             "immediate": [

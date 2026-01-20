@@ -71,7 +71,7 @@ const createValidSalesCopyData = () => ({
     solution: 'Our product solves this',
     solutionPoints: ['Unified workspace', 'AI-powered organization'],
     description: 'A comprehensive solution for productivity.',
-    features: ['Feature 1', 'Feature 2'],
+    highlights: ['Feature 1', 'Feature 2'],
     benefits: {
         immediate: ['Quick win 1'],
         systematic: ['Process improvement 1'],
@@ -668,7 +668,7 @@ describe('loadActiveSalesCopy', () => {
         expect(result).not.toBeNull()
         expect(result?.tagline).toBe('Transform your workflow')
         expect(result?.problem).toBe('People struggle with productivity')
-        expect(result?.features).toHaveLength(2)
+        expect(result?.highlights).toHaveLength(2)
     })
 
     it('should return null when activeSalesCopyId is not provided', () => {
@@ -816,7 +816,7 @@ describe('loadActiveSalesCopy', () => {
         expect(result?.solution).toBe(salesCopyData.solution)
         expect(result?.solutionPoints).toEqual(salesCopyData.solutionPoints)
         expect(result?.description).toBe(salesCopyData.description)
-        expect(result?.features).toEqual(salesCopyData.features)
+        expect(result?.highlights).toEqual(salesCopyData.highlights)
         expect(result?.benefits).toEqual(salesCopyData.benefits)
         expect(result?.targetAudience).toEqual(salesCopyData.targetAudience)
         expect(result?.perfectFor).toEqual(salesCopyData.perfectFor)

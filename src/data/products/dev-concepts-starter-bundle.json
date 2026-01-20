@@ -28,13 +28,11 @@
         "beginners",
         "bundle"
     ],
-    "included": [
-        "**Dev Concepts Volume 1**: Software Craft (**100 pages**)",
-        "**Dev Concepts Volume 2**: What Clients Need (**50 pages**)",
-        "**25% off** compared to buying separately",
-        "Definitions, pros/cons, and practical tips for each concept",
-        "Real-world lessons from actual projects",
-        "External resource links for deeper learning",
+    "contents": [
+        "**[Dev Concepts Volume 1](/product/dev-concepts-volume-01)**: Software Craft (**100 pages**)",
+        "**[Dev Concepts Volume 2](/product/dev-concepts-volume-02)**: What Clients Need (**50 pages**)",
+        "Part of a **12-volume series** covering the full developer journey",
+        "**PDF format**; read anywhere",
         "All future updates included"
     ],
     "landingPageUrl": "https://dev-concepts.dev",

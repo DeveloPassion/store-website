@@ -19,12 +19,20 @@
         "knowledge-management",
         "getting-started"
     ],
-    "included": [
-        "**Complete Beginner's Guide**",
-        "**Step-by-step instructions**",
-        "**Essential concepts**",
-        "**Common pitfalls**",
-        "**Next steps**"
+    "contents": [
+        "What `Obsidian` is and why it's more than just a note-taking app",
+        "Core concepts explained: vaults, the `.obsidian` folder, and `Markdown` format",
+        "Complete interface walkthrough: left sidebar, editor view, right sidebar, tabs",
+        "Essential tools mastered: Quick Switcher, Command Palette, Search view",
+        "Links, backlinks, and the Graph view explained",
+        "Organization methods explained: *PARA*, *Zettelkasten*, *Johnny Decimal*, *LIFT* principle",
+        "Tags and hierarchical tag support for flexible organization",
+        "Canvas feature for visual thinking and infinite whiteboards",
+        "Plugin ecosystem: core plugins vs community plugins and what to install first",
+        "Templates basics for consistent note-taking from day one",
+        "Sync and backup options: `Obsidian Sync` vs free alternatives",
+        "Keyboard shortcuts that save hours",
+        "Common beginner mistakes mapped out so you avoid them"
     ],
     "featured": false,
     "bestValue": false,

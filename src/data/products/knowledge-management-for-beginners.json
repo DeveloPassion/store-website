@@ -20,16 +20,19 @@
         "zettelkasten",
         "para-method"
     ],
-    "included": [
-        "**127 lessons** across **10+ hours** of comprehensive video content",
-        "Expert explanations built from **20+ years** of real-world practice",
-        "Advanced topics coverage including PKM + AI integration (`ChatGPT`, `Claude`, `DeepSeek`, `Gemini`, `NotebookLM`, `MCP`)",
-        "Complete course slides for easy reference",
-        "Example `Obsidian` Vault with solid structure and automation",
-        "`Obsidian` Templates Pack to get started immediately",
-        "**2K+ Concepts** Knowledge Base - frameworks, mental models, techniques",
-        "Private community access. Meet fellow knowledge workers",
-        "Ongoing support & discussions to help you succeed"
+    "contents": [
+        "**10+ hours** of video content across **9 comprehensive modules**",
+        "**Systems-first approach**: build sustainable systems, not quick hacks",
+        "**Tool-agnostic principles** that work with any software you choose",
+        "Built from **20+ years** of real-world practice",
+        "Native AI integration (`ChatGPT`, `Claude`, `DeepSeek`, `Gemini`, `NotebookLM`, `MCP`)",
+        "Complete PKM Process: Explore, Curate, Consume & Capture, Distill, Organize & Connect, Develop, Create, Share",
+        "Start simple, build gradually; no need to change everything at once",
+        "Deep dive into methods: *PARA*, *Johnny Decimal*, *Zettelkasten*, and more",
+        "Real-world examples with detailed walkthrough of creator's own system",
+        "Practical `Obsidian` demonstrations and automation workflows",
+        "**Lifetime access** with all future updates included",
+        "**Community support** to connect with fellow learners"
     ],
     "landingPageUrl": "https://knowledge-management-for-beginners.com",
     "featured": true,

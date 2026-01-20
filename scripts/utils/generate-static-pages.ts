@@ -771,7 +771,7 @@ function generateProductNoscript(product: Product): string {
             <p>${escapeHtml(product.salesCopy.description)}</p>
             <p><strong>Price:</strong> ${escapeHtml(product.priceDisplay)}</p>
             ${product.tags.length > 0 ? `<p><strong>Tags:</strong> ${product.tags.map(escapeHtml).join(', ')}</p>` : ''}
-            ${product.salesCopy.features.length > 0 ? `<h2>Features</h2><ul>${product.salesCopy.features.map((f) => `<li>${escapeHtml(f)}</li>`).join('')}</ul>` : ''}
+            ${product.contents.length > 0 ? `<h2>What's Included</h2><ul>${product.contents.map((c) => `<li>${escapeHtml(c)}</li>`).join('')}</ul>` : ''}
             <p><a href="/">← Back to store</a></p>
         </article>
     </noscript>`

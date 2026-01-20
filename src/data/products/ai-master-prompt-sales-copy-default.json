@@ -29,16 +29,12 @@
             "Foundation for building AI assistants and agents"
         ],
         "description": "This workshop shares the **complete framework** for building AI Master Prompts that change how you work with LLMs. You'll learn the fundamentals of how large language models actually work, why context is everything, and exactly how to structure prompts that make AI understand **YOU**. Includes a **live demo** showing my actual AI writing assistant in action, creating content that matches my voice. Plus, you'll discover how to connect your prompts with your knowledge base using [Model Context Protocol (MCP)](/product/model-context-protocol) for truly dynamic, context-aware AI interactions.",
-        "features": [
-            "**Complete AI Master Prompt Framework**",
-            "**LLM Fundamentals**: How AI Actually Works",
-            "**AI Prompts & Prompt Engineering** Basics",
-            "**Creating Personal Master Prompts**",
-            "**Creating Business Master Prompts**",
-            "**PKM System Integration** Strategies",
-            "[Model Context Protocol (MCP)](/product/model-context-protocol) Introduction",
-            "**Multi-Role AI Assistant** Configuration",
-            "**Live Demo**: AI Writing Assistant in Action"
+        "highlights": [
+            "**Better AI Output**: Transform generic responses into personalized results",
+            "**Works Everywhere**: Framework applies to ChatGPT, Claude, and any LLM",
+            "**Implement Today**: Create your master prompt during the workshop",
+            "**Expert-Led**: Practical AI techniques from daily professional use",
+            "**Knowii Ecosystem**: Included in [Knowii Community](/product/knowii-community), [Knowledge Worker Kit](/product/knowledge-worker-kit) & [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
         "benefits": {
             "immediate": [

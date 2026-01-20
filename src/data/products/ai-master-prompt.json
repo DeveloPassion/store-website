@@ -18,13 +18,16 @@
         "claude",
         "chatgpt"
     ],
-    "included": [
-        "**Video workshop**",
-        "**Live demo**",
-        "**Complete framework**",
-        "Practical examples",
-        "Knowledge base",
-        "Implementation strategies"
+    "contents": [
+        "**Complete AI Master Prompt Framework**",
+        "**LLM Fundamentals**: How AI Actually Works",
+        "**AI Prompts & Prompt Engineering** Basics",
+        "**Creating Personal Master Prompts**",
+        "**Creating Business Master Prompts**",
+        "**PKM System Integration** Strategies",
+        "[Model Context Protocol (MCP)](/product/model-context-protocol) Introduction",
+        "**Multi-Role AI Assistant** Configuration",
+        "**Live Demo**: AI Writing Assistant in Action"
     ],
     "featured": false,
     "bestValue": false,

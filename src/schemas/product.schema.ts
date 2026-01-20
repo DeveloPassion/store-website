@@ -93,8 +93,8 @@ const BaseProductSchema = z.object({
     secondaryCategories: z.array(SecondaryCategorySchema), // Empty array if no secondary categories
     tags: z.array(TagIdSchema).min(1, 'At least one tag is required'),
 
-    // Content - Strictly required
-    included: z.array(z.string()).min(1, 'At least one included item is required'),
+    // Content - Strictly required (what's literally included in the product)
+    contents: z.array(z.string()).min(1, 'At least one content item is required'),
 
     // Links - Required but nullable (or empty string)
     landingPageUrl: z.string().url().nullable().or(z.literal('')),

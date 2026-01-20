@@ -71,7 +71,7 @@ export const MediaSectionsSchema = z.object({
  * Fields include:
  * - Identity: tagline, secondaryTagline
  * - PAS: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints
- * - Content: description, features, benefits
+ * - Content: description, highlights, benefits
  * - Audience: targetAudience, perfectFor, notForYou
  * - Trust: trustBadges, guarantees
  * - SEO: metaTitle, metaDescription, keywords
@@ -94,9 +94,9 @@ export const SalesCopyDataSchema = z.object({
     solution: z.string().min(1, 'Solution statement is required'),
     solutionPoints: z.array(z.string()).min(1, 'At least one solution point is required'),
 
-    // Features & Benefits - All strictly required
+    // Highlights & Benefits - All strictly required
     description: z.string().min(1, 'Description is required'),
-    features: z.array(z.string()).min(1, 'At least one feature is required'),
+    highlights: z.array(z.string()).min(1, 'At least one highlight is required'),
     benefits: ProductBenefitsSchema, // All three benefit categories strictly required
 
     // Audience - All strictly required (empty arrays allowed)

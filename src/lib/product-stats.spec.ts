@@ -136,7 +136,7 @@ describe('calculateProductStats', () => {
                 tagline: 'Test tagline',
                 secondaryTagline: null,
                 description: '',
-                features: [],
+                highlights: [],
                 benefits: { immediate: [], systematic: [], longTerm: [] },
                 targetAudience: [],
                 perfectFor: [],

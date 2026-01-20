@@ -98,7 +98,7 @@
  *     --sales-copy-agitate-points <string>      Agitate points (JSON array or comma-separated)
  *     --sales-copy-solution <string>            Solution statement (PAS)
  *     --sales-copy-solution-points <string>     Solution points (JSON array or comma-separated)
- *     --sales-copy-features <string>            Features (JSON array or comma-separated)
+ *     --sales-copy-highlights <string>            Contents (JSON array or comma-separated)
  *     --sales-copy-benefits-immediate <string>  Immediate benefits (JSON array or comma-separated)
  *     --sales-copy-benefits-systematic <string> Systematic benefits (JSON array or comma-separated)
  *     --sales-copy-benefits-long-term <string>  Long-term benefits (JSON array or comma-separated)
@@ -233,7 +233,7 @@ interface CliArgs {
     'sales-copy-agitate-points'?: string // JSON array or comma-separated
     'sales-copy-solution'?: string
     'sales-copy-solution-points'?: string // JSON array or comma-separated
-    'sales-copy-features'?: string // JSON array or comma-separated
+    'sales-copy-highlights'?: string // JSON array or comma-separated
     'sales-copy-benefits-immediate'?: string // JSON array or comma-separated
     'sales-copy-benefits-systematic'?: string // JSON array or comma-separated
     'sales-copy-benefits-long-term'?: string // JSON array or comma-separated
@@ -1833,13 +1833,13 @@ async function operationAdd(args: CliArgs): Promise<void> {
         solution,
         solutionPoints: ['Placeholder - edit this product file to add real solution points'],
         description: '',
-        features: ['Placeholder - edit this product file to add real features'],
+        contents: ['Placeholder - edit this product file to add real contents'],
         benefits: {
             immediate: ['Placeholder - edit this product file'],
             systematic: [],
             longTerm: []
         },
-        included: ['Placeholder - edit this product file to add real included items'],
+        highlights: ['Placeholder - edit this product file to add real highlights'],
         targetAudience: [],
         perfectFor: [],
         notForYou: [],
@@ -1873,7 +1873,7 @@ async function operationAdd(args: CliArgs): Promise<void> {
         `  ${colors.dim}1.${colors.reset} ${colors.yellow}Edit the product file${colors.reset} to replace all placeholder text in:`
     )
     console.log(`     - problemPoints, agitatePoints, solutionPoints`)
-    console.log(`     - features, benefits, included`)
+    console.log(`     - contents, benefits, highlights`)
     console.log(
         `  ${colors.dim}2.${colors.reset} Run: ${colors.green}npm run validate:products${colors.reset}`
     )
@@ -3852,7 +3852,7 @@ async function addSalesCopyVariant(product: Product): Promise<void> {
             solution: 'Solution statement',
             solutionPoints: ['Benefit 1'],
             description: 'Product description',
-            features: ['Feature 1'],
+            contents: ['Feature 1'],
             benefits: {
                 immediate: [],
                 systematic: [],
@@ -3898,7 +3898,7 @@ async function editSalesCopyVariant(productId: string, variants: string[]): Prom
             choices: [
                 { name: '📝 Basic Info (Tagline, Description)', value: 'basic' },
                 { name: '⚡ PAS Framework (Problem, Agitate, Solution)', value: 'pas' },
-                { name: '✨ Features & Benefits', value: 'features' },
+                { name: '✨ Contents & Benefits', value: 'contents' },
                 { name: '🎯 Target Audience', value: 'audience' },
                 { name: '🛡️ Trust & Guarantees', value: 'trust' },
                 { name: '🔍 SEO Metadata', value: 'seo' },
@@ -3915,8 +3915,8 @@ async function editSalesCopyVariant(productId: string, variants: string[]): Prom
             case 'pas':
                 await editPASFramework(file.salesCopy)
                 break
-            case 'features':
-                await editFeaturesAndBenefits(file.salesCopy)
+            case 'contents':
+                await editContentsAndBenefits(file.salesCopy)
                 break
             case 'audience':
                 await editTargetAudience(file.salesCopy)
@@ -4021,13 +4021,13 @@ async function editPASFramework(salesCopy: SalesCopyData): Promise<void> {
     showSuccess('PAS framework updated')
 }
 
-async function editFeaturesAndBenefits(salesCopy: SalesCopyData): Promise<void> {
+async function editContentsAndBenefits(salesCopy: SalesCopyData): Promise<void> {
     const answers = await inquirer.prompt([
         {
             type: 'input',
-            name: 'features',
-            message: 'Features (comma-separated):',
-            default: salesCopy.features.join(', ')
+            name: 'contents',
+            message: 'Contents (comma-separated):',
+            default: salesCopy.highlights.join(', ')
         },
         {
             type: 'input',
@@ -4049,7 +4049,7 @@ async function editFeaturesAndBenefits(salesCopy: SalesCopyData): Promise<void> 
         }
     ])
 
-    salesCopy.features = answers.features
+    salesCopy.highlights = answers.contents
         .split(',')
         .map((s: string) => s.trim())
         .filter((s: string) => s)
@@ -4067,7 +4067,7 @@ async function editFeaturesAndBenefits(salesCopy: SalesCopyData): Promise<void> 
             .map((s: string) => s.trim())
             .filter((s: string) => s)
     }
-    showSuccess('Features and benefits updated')
+    showSuccess('Contents and benefits updated')
 }
 
 async function editTargetAudience(salesCopy: SalesCopyData): Promise<void> {
@@ -4607,7 +4607,9 @@ async function viewSalesCopyVariant(productId: string, variants: string[]): Prom
     console.log(`${colors.bright}Description:${colors.reset} ${file.salesCopy.description}`)
     console.log(`${colors.bright}Problem:${colors.reset} ${file.salesCopy.problem}`)
     console.log(`${colors.bright}Solution:${colors.reset} ${file.salesCopy.solution}`)
-    console.log(`${colors.bright}Features:${colors.reset} ${file.salesCopy.features.length} items`)
+    console.log(
+        `${colors.bright}Contents:${colors.reset} ${file.salesCopy.highlights.length} items`
+    )
     console.log(
         `${colors.bright}Problem Points:${colors.reset} ${file.salesCopy.problemPoints.length} items`
     )
@@ -4821,7 +4823,7 @@ async function operationSalesCopyAdd(args: CliArgs, product: Product): Promise<v
         solution: args['sales-copy-solution'] || 'Solution statement',
         solutionPoints: ['Benefit 1'],
         description: args['sales-copy-description'] || 'Product description',
-        features: ['Feature 1'],
+        contents: ['Feature 1'],
         benefits: { immediate: [], systematic: [], longTerm: [] },
         targetAudience: [],
         perfectFor: [],
@@ -4869,8 +4871,8 @@ async function operationSalesCopyEdit(args: CliArgs, product: Product): Promise<
     if (solutionPoints) file.salesCopy.solutionPoints = solutionPoints
 
     // Content Arrays
-    const features = parseArrayInput(args['sales-copy-features'])
-    if (features) file.salesCopy.features = features
+    const features = parseArrayInput(args['sales-copy-highlights'])
+    if (features) file.salesCopy.highlights = features
 
     const targetAudience = parseArrayInput(args['sales-copy-target-audience'])
     if (targetAudience) file.salesCopy.targetAudience = targetAudience

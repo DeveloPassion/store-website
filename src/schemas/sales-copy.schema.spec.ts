@@ -24,7 +24,7 @@ describe('SalesCopyDataSchema', () => {
         solution: 'Knowii brings everything together',
         solutionPoints: ['Unified knowledge workspace', 'AI-powered organization'],
         description: 'A comprehensive knowledge management solution.',
-        features: ['Voice-to-text capture', 'AI categorization'],
+        highlights: ['Voice-to-text capture', 'AI categorization'],
         benefits: {
             immediate: ['Start capturing knowledge today'],
             systematic: ['Build a lasting knowledge base'],
@@ -64,7 +64,7 @@ describe('SalesCopyDataSchema', () => {
             solution: 'We solve it',
             solutionPoints: ['Benefit 1'],
             description: 'Product description here.',
-            features: ['Feature 1'],
+            highlights: ['Feature 1'],
             benefits: {
                 immediate: [],
                 systematic: [],
@@ -177,10 +177,10 @@ describe('SalesCopyDataSchema', () => {
         expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
     })
 
-    it('should reject empty features array', () => {
+    it('should reject empty highlights array', () => {
         const invalidData = {
             ...validSalesCopyData,
-            features: []
+            highlights: []
         }
         expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
     })
@@ -309,7 +309,7 @@ describe('SalesCopyFileSchema', () => {
             solution: 'Knowii brings everything together',
             solutionPoints: ['Unified workspace'],
             description: 'A comprehensive solution.',
-            features: ['Voice capture'],
+            highlights: ['Voice capture'],
             benefits: {
                 immediate: [],
                 systematic: [],

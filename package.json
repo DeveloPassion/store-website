@@ -35,7 +35,6 @@
         "update:products": "bun scripts/update-products.ts",
         "update:taglines": "bun scripts/update-taglines.ts",
         "update:animated-hero-texts": "bun scripts/update-animated-hero-texts.ts",
-        "migrate:sales-copy": "bun scripts/migrate-to-sales-copy.ts",
         "sync:gumroad": "bun scripts/sync-gumroad.ts",
         "generate:redirects": "bun scripts/generate-redirects.ts",
         "ghost:stats": "bun scripts/ghost-stats.ts",

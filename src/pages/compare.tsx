@@ -173,8 +173,8 @@ const ComparePage: React.FC = () => {
         return product.priceDisplay
     }
 
-    const getFeatures = (product: Product): string[] => {
-        return product.salesCopy?.features?.slice(0, 6) || []
+    const getContents = (product: Product): string[] => {
+        return product.contents?.slice(0, 6) || []
     }
 
     const getBenefits = (product: Product): string[] => {
@@ -302,7 +302,7 @@ const ComparePage: React.FC = () => {
                             <FaExchangeAlt className='text-primary/30 mx-auto mb-4 h-16 w-16' />
                             <h3 className='mb-2 text-xl font-semibold'>No products selected</h3>
                             <p className='text-primary/60 mb-6'>
-                                Add products to compare their features, pricing, and benefits
+                                Add products to compare their contents, pricing, and benefits
                                 side-by-side.
                             </p>
                             <button
@@ -449,10 +449,10 @@ const ComparePage: React.FC = () => {
                                     </div>
                                 </div>
 
-                                {/* Features Card */}
+                                {/* Contents Card */}
                                 <div className='border-primary/10 rounded-xl border p-4'>
                                     <h3 className='text-primary/60 mb-3 text-xs font-semibold tracking-wide uppercase'>
-                                        Features
+                                        What's Included
                                     </h3>
                                     <div className='divide-primary/10 divide-y'>
                                         {selectedProducts.map((product) => (
@@ -464,19 +464,21 @@ const ComparePage: React.FC = () => {
                                                     {product.name}
                                                 </div>
                                                 <ul className='space-y-1.5'>
-                                                    {getFeatures(product).map((feature, idx) => (
-                                                        <li
-                                                            key={idx}
-                                                            className='flex items-start gap-2 text-sm'
-                                                        >
-                                                            <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-green-400' />
-                                                            <MarkdownContent
-                                                                content={feature}
-                                                                className='text-primary/80'
-                                                                inline
-                                                            />
-                                                        </li>
-                                                    ))}
+                                                    {getContents(product).map(
+                                                        (contentItem, idx) => (
+                                                            <li
+                                                                key={idx}
+                                                                className='flex items-start gap-2 text-sm'
+                                                            >
+                                                                <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-green-400' />
+                                                                <MarkdownContent
+                                                                    content={contentItem}
+                                                                    className='text-primary/80'
+                                                                    inline
+                                                                />
+                                                            </li>
+                                                        )
+                                                    )}
                                                 </ul>
                                             </div>
                                         ))}
@@ -800,10 +802,10 @@ const ComparePage: React.FC = () => {
                                             )}
                                         </tr>
 
-                                        {/* Features Row */}
+                                        {/* Contents Row */}
                                         <tr>
                                             <td className='border-primary/10 bg-primary/5 border-b p-4 align-top text-sm font-medium'>
-                                                Features
+                                                What's Included
                                             </td>
                                             {selectedProducts.map((product) => (
                                                 <td
@@ -811,15 +813,15 @@ const ComparePage: React.FC = () => {
                                                     className='border-primary/10 border-b p-4 align-top'
                                                 >
                                                     <ul className='space-y-2'>
-                                                        {getFeatures(product).map(
-                                                            (feature, idx) => (
+                                                        {getContents(product).map(
+                                                            (contentItem, idx) => (
                                                                 <li
                                                                     key={idx}
                                                                     className='flex items-start gap-2 text-sm'
                                                                 >
                                                                     <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-green-400' />
                                                                     <MarkdownContent
-                                                                        content={feature}
+                                                                        content={contentItem}
                                                                         className='line-clamp-2'
                                                                         inline
                                                                     />

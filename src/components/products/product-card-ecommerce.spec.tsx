@@ -19,7 +19,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     mainCategory: 'guides',
     secondaryCategories: [],
     tags: ['ai'], // Use valid tag ID from TagIdSchema
-    included: ['Item 1'],
+    contents: ['Item 1'],
     testimonials: [],
     faqs: [],
     crossSellIds: [],
@@ -49,7 +49,7 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
         solution: 'Test solution',
         solutionPoints: ['Solution point 1'],
         description: 'Test description',
-        features: ['Feature 1'],
+        highlights: ['Feature 1'],
         benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
         targetAudience: [],
         perfectFor: [],

@@ -29,15 +29,12 @@
             "GUI installation tools; no command line required"
         ],
         "description": "A complete masterclass on Model Context Protocol (`MCP`) designed for knowledge workers. Learn what `MCP` is, why OpenAI adopted it in 2025, and how to set it up using GUI tools. Includes 5 live demonstrations with `Obsidian`, `Notion`, web search, and browser automation.",
-        "features": [
-            "What LLMs are missing and how `MCP` fixes it",
-            "`MCP` explained in plain language",
-            "How the protocol actually works",
-            "Where to find reliable `MCP` servers",
-            "Which `MCP` clients to use (`Claude`, `Cursor`, `VSCode`, etc.)",
-            "GUI installation methods",
-            "Security and privacy considerations",
-            "5 live demonstrations with real use cases"
+        "highlights": [
+            "**Cutting-Edge AI Skill**: Master the protocol that's changing how AI tools work together",
+            "**Non-Technical Friendly**: Complex concepts explained without developer jargon",
+            "**Practical Automation**: Connect Obsidian, Notion, web search, and browsers to AI",
+            "**Expert-Led**: From someone using MCP in production daily",
+            "**Knowii Ecosystem**: Included in [Knowii Community](/product/knowii-community), [Knowledge Worker Kit](/product/knowledge-worker-kit) & [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
         "benefits": {
             "immediate": [

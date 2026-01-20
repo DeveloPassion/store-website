@@ -22,12 +22,14 @@
         "focus",
         "clarity"
     ],
-    "included": [
-        "**80-Minute Video Recording**",
-        "**System Visualization Diagram**",
-        "**Show Notes & Agenda**",
-        "**40+ Knowledge Base Notes**",
-        "**Real Journal Examples**"
+    "contents": [
+        "**80-minute video recording** of the complete system",
+        "**Comprehensive system visualization diagram** (days to create)",
+        "Complete show notes with agenda and key takeaways",
+        "**40+ interconnected knowledge base notes**",
+        "**Real examples** from my actual daily/weekly notes",
+        "Brain science behind why this works",
+        "**Practical workflows** you can implement today"
     ],
     "featured": false,
     "bestValue": false,

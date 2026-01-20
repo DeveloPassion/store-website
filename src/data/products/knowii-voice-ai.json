@@ -9,16 +9,16 @@
     "priceTier": "standard",
     "gumroadUrl": "https://developassion.gumroad.com/l/knowii-voice-ai",
     "tags": ["voice-to-text", "speech-recognition", "ai", "productivity", "privacy", "offline"],
-    "included": [
-        "**Full access** to Knowii Voice AI (Windows version)",
-        "Buy, download, use today. **No account creation** needed",
-        "**Commercial license** included",
-        "**All future updates** free forever",
-        "Every new feature included (no upgrade fees)",
-        "All roadmap items included in purchase",
-        "**Direct support** from creator (email, no ticket system)",
-        "[Knowii Community](/product/knowii-community) membership",
-        "**30-day guarantee**. Not satisfied? Email for refund, no questions asked"
+    "contents": [
+        "**Press-speak-release** in any application. Works in `Gmail`, `Notion`, `Teams`, `VS Code`, terminal; literally everywhere",
+        "Multiple AI models: `Whisper`, `Parakeet`, `Moonshine`, `Omnilingual`. Choose speed vs accuracy",
+        "**99+ languages** supported with automatic language detection",
+        "**Searchable transcription history**. Find what you said weeks ago",
+        "**GPU acceleration** for near-instant results (`NVIDIA`, `AMD`, `Intel`)",
+        "**Custom keyboard shortcuts**. Configure to your preference",
+        "**Word replacements**. Auto-correct commonly misrecognized words",
+        "**Clipboard preservation**. Your copied content stays safe",
+        "**Model auto-unload**. Frees memory when not in use"
     ],
     "landingPageUrl": "https://voice-ai.knowii.net",
     "featured": true,

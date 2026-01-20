@@ -9,10 +9,11 @@
     "priceTier": "budget",
     "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall",
     "tags": ["it-fundamentals", "programming", "concepts", "reference"],
-    "included": [
-        "Access to the `Trello` board",
-        "**200+** curated IT resources",
-        "Future updates included"
+    "contents": [
+        "Covers Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project Management",
+        "`Trello` board format; easy to browse",
+        "Updated when I find quality resources",
+        "Lifetime access included"
     ],
     "featured": false,
     "bestValue": false,

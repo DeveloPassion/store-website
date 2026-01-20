@@ -9,11 +9,15 @@
     "priceTier": "budget",
     "gumroadUrl": "https://developassion.gumroad.com/l/knowii-model-context-protocol-mcp",
     "tags": ["mcp", "model-context-protocol", "ai", "llms", "claude", "obsidian", "automation"],
-    "included": [
-        "**Video masterclass** covering MCP fundamentals",
-        "**5 Live Demos** with `Obsidian`, `Notion`, web search, and browser automation",
-        "Technical guide written for non-developers",
-        "Curated directories of MCP servers and clients"
+    "contents": [
+        "What LLMs are missing and how `MCP` fixes it",
+        "`MCP` explained in plain language",
+        "How the protocol actually works",
+        "Where to find reliable `MCP` servers",
+        "Which `MCP` clients to use (`Claude`, `Cursor`, `VSCode`, etc.)",
+        "GUI installation methods",
+        "Security and privacy considerations",
+        "5 live demonstrations with real use cases"
     ],
     "featured": false,
     "bestValue": false,
