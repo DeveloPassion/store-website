@@ -72,6 +72,29 @@ All entities: JSON in `/src/data/`, Zod schemas in `/src/schemas/`, types in `/s
 
 **NOT in individual files**: faqs, testimonials, media, inline sales copy
 
+### contents vs highlights (CRITICAL)
+
+Two fields describe product contents—they MUST NOT overlap:
+
+| Field        | Location                 | Displays As       | Purpose                                                                                         |
+| ------------ | ------------------------ | ----------------- | ----------------------------------------------------------------------------------------------- |
+| `contents`   | `{id}.json`              | "What's Included" | **Content details**: specific items, formats, durations (stays same across sales copy variants) |
+| `highlights` | `{id}-sales-copy-*.json` | "Highlights"      | **Value propositions**: outcomes, unique selling points, ecosystem links (can vary per variant) |
+
+**`contents` should contain:**
+
+- Format details (e.g., "**80-minute video** recording", "**100-page** PDF guide")
+- Specific items (e.g., "**40+ templates**", "**11 modules**")
+- Concrete deliverables that stay the same regardless of marketing angle
+
+**`highlights` should contain:**
+
+- Outcomes and benefits (e.g., "**Battle-Tested System**: From a 10,000+ note vault")
+- Value props (e.g., "**€500+ Value**: Courses and tools included")
+- Social proof (e.g., "**340+ Members**: Active community")
+- Expertise markers (e.g., "**Expert-Led**: 20+ years experience")
+- Ecosystem links (e.g., "**Knowii Ecosystem**: Included in [Knowii Community](/product/knowii-community), [Knowledge Worker Kit](/product/knowledge-worker-kit) & [Everything Bundle](/product/everything-knowledge-bundle)")
+
 **Priority**: 100 (flagship), 90-95 (featured), 80-85 (premium), 70-79 (standard), 60-69 (workshops), 50-59 (coaching), 40-49 (free), 20-29 (archived)
 
 ### Subscription Products
@@ -138,7 +161,7 @@ Auto-added params: `wanted=true`, `quantity=1`, `variant={id}`, `monthly/yearly/
 
 **CLI**: `bun run update:products` (list/add/edit/enable/duplicate/remove)
 
-**Required**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints, tagline, secondaryTagline (nullable), description, features, benefits, targetAudience, perfectFor, notForYou, trustBadges, guarantees, metaTitle, metaDescription, keywords, storytelling (nullable), timeline (nullable), courseContent (nullable), howItWorks (nullable), mediaSections (nullable)
+**Required**: problem, problemPoints, agitate, agitatePoints, solution, solutionPoints, tagline, secondaryTagline (nullable), description, highlights, benefits, targetAudience, perfectFor, notForYou, trustBadges, guarantees, metaTitle, metaDescription, keywords, storytelling (nullable), timeline (nullable), courseContent (nullable), howItWorks (nullable), mediaSections (nullable)
 
 ### Storytelling (all optional)
 
