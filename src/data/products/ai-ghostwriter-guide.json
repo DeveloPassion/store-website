@@ -18,17 +18,17 @@
         "chatgpt"
     ],
     "included": [
-        "**Complete System Blueprint** - Step-by-step implementation",
-        "**Personality Profiling** - How to analyze and document your voice",
-        "**Writing Style Extraction** - Techniques to capture your patterns",
-        "**Content Strategy Documentation** - Framework for all content types",
-        "**AI Training Process** - How to teach AI your voice",
-        "**Ready-to-Use Prompts** - For analyzing, creating, training",
-        "**Document Templates** - All components needed",
-        "**Real Examples** - From creator's implementation",
-        "`Model Context Protocol (MCP)` Integration - Advanced techniques",
-        "Private Community Access - Part of [Knowii](/product/knowii-community)",
-        "**Updates and Improvements** - As guide evolves"
+        "**Complete System Blueprint**: step-by-step implementation",
+        "**Personality Profiling**: how to analyze and document your voice",
+        "**Writing Style Extraction**: techniques to capture your patterns",
+        "**Content Strategy Documentation**: framework for all content types",
+        "**AI Training Process**: how to teach AI your voice",
+        "**Ready-to-Use Prompts**: for analyzing, creating, training",
+        "**Document Templates**: all components needed",
+        "**Real Examples**: from the creator's implementation",
+        "`Model Context Protocol (MCP)` Integration: advanced techniques",
+        "Private Community Access: part of [Knowii](/product/knowii-community)",
+        "**Updates and Improvements**: as the guide evolves"
     ],
     "featured": true,
     "bestValue": false,

@@ -2,8 +2,8 @@
     "id": "default",
     "salesCopy": {
         "tagline": "My Personal IT Research Collection",
-        "secondaryTagline": "Quality IT resources I've already vetted for you.",
-        "problem": "The Internet has no shortage of IT tutorials and articles. Finding the good stuff? That's the hard part. For every well-written explanation, there are dozens of outdated tutorials, shallow blog posts, and content that just gets things wrong.",
+        "secondaryTagline": "Quality IT resources I vetted so you don't have to.",
+        "problem": "The Internet has no shortage of IT tutorials and articles. Finding the good stuff is the hard part. For every well-written explanation, there are dozens of outdated tutorials, shallow blog posts, and content that just gets things wrong.",
         "problemPoints": [
             "Most IT content online is mediocre at best",
             "Outdated tutorials still rank high in search results",
@@ -14,65 +14,62 @@
         "agitatePoints": [
             "Good resources are scattered everywhere",
             "Proper curation eats up hours you don't have",
-            "Without a filter, you'll miss the gems buried under the noise"
+            "Without a filter, you miss the gems buried under the noise"
         ],
-        "solution": "The IT Concepts Wall is the research I did for my [Dev Concepts](/product/dev-concepts-starter-bundle) books, organized into a `Trello` board you can browse. **200+** resources that passed my quality filters. I rejected most of what I found. What's left is the stuff actually worth reading.",
+        "solution": "The IT Concepts Wall is the research I did for my [Dev Concepts](/product/dev-concepts-starter-bundle) books, organized into a `Trello` board. **200+** resources that passed my quality filters. I rejected most of what I found; what's left is worth reading.",
         "solutionPoints": [
             "**200+** resources I personally vetted",
-            "Organized by topic so you can find what you need",
-            "Most content I reviewed didn't make it in",
-            "I add new resources when I find good ones"
+            "Organized by topic for easy browsing",
+            "Most content I reviewed didn't make the cut",
+            "Updated when I find something worth adding"
         ],
         "description": "A `Trello` board with **200+** IT and software development resources I collected while writing the [Dev Concepts](/product/dev-concepts-starter-bundle) book series. Covers Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project/Product Management.",
         "features": [
-            "**200+** hand-picked IT resources",
-            "Covers Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project/Product Management",
-            "`Trello` board format, easy to browse",
-            "I add new resources as I find them",
-            "**Lifetime access**"
+            "Covers Architecture, Design, Coding, Front-end, Back-end, Security, Infrastructure, and Project Management",
+            "`Trello` board format; easy to browse",
+            "Updated when I find quality resources",
+            "Lifetime access included"
         ],
         "benefits": {
             "immediate": [
                 "Skip the curation work I already did",
-                "Explore topics across different IT domains",
-                "Get solid starting points for concepts you want to learn"
+                "Find starting points for topics you want to learn",
+                "Browse resources by domain"
             ],
             "systematic": [
                 "See how different areas of IT connect",
-                "Build broader knowledge piece by piece"
+                "Build broader knowledge over time"
             ],
             "longTerm": [
                 "Expand beyond your current specialty",
-                "Have a reference you can come back to"
+                "A reference you can return to anytime"
             ]
         },
         "targetAudience": [
-            "Developers curious about IT beyond their daily work",
+            "Developers curious about IT beyond their daily stack",
             "Self-taught devs looking for quality learning material",
             "Junior developers wanting to level up",
-            "CS students who want practical supplements to theory",
-            "Anyone interested in exploring IT topics"
+            "CS students who want practical supplements to theory"
         ],
         "perfectFor": [
-            "Curious developers who want to explore new areas",
-            "Self-learners tired of wading through mediocre content",
-            "People who appreciate curation over random Google results"
+            "People who value curation over random Google results",
+            "Those exploring IT topics outside their specialty",
+            "Learners tired of wading through mediocre content"
         ],
         "notForYou": [
-            "You want step-by-step courses (this is a resource collection)",
+            "You want step-by-step courses; this is a resource collection",
             "You only care about one specific technology",
             "You're not interested in learning IT concepts"
         ],
         "trustBadges": [
             "**20+ Years** IT Experience",
             "**200+** Resources",
-            "**One-Time Purchase**",
-            "**Lifetime Access**"
+            "**One-Time** Purchase"
         ],
         "guarantees": [
-            "Every resource **personally vetted** by me",
-            "**Lifetime access** with future updates included",
-            "**One-time payment**, no subscriptions"
+            "Every resource personally vetted by me",
+            "Lifetime access with future updates",
+            "One-time payment; no subscriptions"
         ],
         "metaTitle": "IT Concepts Wall - 200+ Curated IT & Development Resources",
         "metaDescription": "200+ curated IT resources from 20+ years in the industry. Architecture, Security, Development & more. €9.99 one-time purchase.",
