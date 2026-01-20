@@ -151,7 +151,7 @@
                 "steps": [
                     {
                         "title": "Understand the Foundation",
-                        "description": "Learn what LLMs are missing and why MCP changes everything",
+                        "description": "Learn what LLMs are missing and why MCP is important to master",
                         "order": 0,
                         "icon": "🧱"
                     },

@@ -112,11 +112,17 @@
             "knowledge graph",
             "information management",
             "lifelong learning",
-            "ai knowledge management"
+            "ai knowledge management",
+            "journaling",
+            "daily notes",
+            "atomic notes",
+            "templates",
+            "life os",
+            "capture system"
         ],
         "courseContent": {
             "sectionTitle": "What's Inside the Course",
-            "sectionDescription": "A comprehensive curriculum of **127 lessons**, taking you from information chaos to systematic knowledge mastery. **10+ hours** of practical, actionable content built from **20+ years** of real-world experience.",
+            "sectionDescription": "A comprehensive curriculum taking you from information chaos to systematic knowledge mastery. **10+ hours** of practical, actionable content built from **20+ years** of real-world experience.",
             "sectionIcon": "🎓",
             "totalDuration": "10+ hours",
             "difficulty": "beginner",
@@ -283,7 +289,7 @@
                         },
                         {
                             "name": "Note-Taking vs Note-Making",
-                            "description": "The critical difference that changes everything about how you learn",
+                            "description": "The critical difference that changes how you learn",
                             "url": null,
                             "duration": null,
                             "icon": "✍️"
@@ -324,21 +330,21 @@
                             "icon": "📂"
                         },
                         {
-                            "name": "The *PARA* Method",
+                            "name": "The PARA Method",
                             "description": "Projects, Areas, Resources, Archives - a proven organization system",
                             "url": null,
                             "duration": null,
                             "icon": "📊"
                         },
                         {
-                            "name": "The *Johnny Decimal* System",
+                            "name": "The Johnny Decimal System",
                             "description": "A systematic approach to categorization that scales",
                             "url": null,
                             "duration": null,
                             "icon": "🔢"
                         },
                         {
-                            "name": "*Zettelkasten* Method Deep Dive",
+                            "name": "Zettelkasten Method Deep Dive",
                             "description": "The slip-box system for connected thinking - theory, method, and process",
                             "url": null,
                             "duration": null,
@@ -363,7 +369,7 @@
                 },
                 {
                     "name": "Module 6: PKM Recommendations",
-                    "description": "Practical lessons on building habits, capture systems, journaling, templates, and organization strategies that work.",
+                    "description": "Comprehensive lessons on building habits, capture systems, journaling, templates, and organization strategies that work.",
                     "icon": "✅",
                     "sections": [
                         {
@@ -381,8 +387,8 @@
                             "icon": "📥"
                         },
                         {
-                            "name": "Capture Scenarios & The Capture Habit",
-                            "description": "Different situations, different approaches - making capture automatic",
+                            "name": "Capture Scenarios & Tools",
+                            "description": "`Readwise`, `Obsidian Web Clipper`, `Zotero`, `Instapaper`, `Voicenotes AI`, `Snipd`",
                             "url": "https://www.youtube.com/watch?v=_sigcgludUE",
                             "duration": null,
                             "icon": "📸"
@@ -402,57 +408,92 @@
                             "icon": "📱"
                         },
                         {
+                            "name": "Analog to Digital Transition",
+                            "description": "Converting text and audio notes using AI and tools like `ChatGPT`, `Gemini`, `Voicenotes AI`",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🔄"
+                        },
+                        {
                             "name": "Journaling & Daily Notes",
-                            "description": "Templates, capture examples, and using journaling as your operations center",
+                            "description": "Your knowledge inbox and operations center - templates and structure",
                             "url": null,
                             "duration": null,
                             "icon": "📔"
                         },
                         {
+                            "name": "Daily Note Structure",
+                            "description": "Plan, notes, done, discovered, interesting links, challenges, gratitude",
+                            "url": null,
+                            "duration": null,
+                            "icon": "📋"
+                        },
+                        {
                             "name": "Periodic Reviews",
-                            "description": "Weekly, monthly, and annual reflection practices",
+                            "description": "Weekly, monthly, quarterly, and yearly reviews - productivity and knowledge ingestion",
                             "url": null,
                             "duration": null,
                             "icon": "📅"
                         },
                         {
                             "name": "Knowledge Ingestion Process",
-                            "description": "From capture to your knowledge base - with live demonstrations",
+                            "description": "Breaking down ideas, extracting atomic notes, adding metadata - with live demos",
                             "url": null,
                             "duration": null,
-                            "icon": "🔄"
+                            "icon": "⚙️"
                         },
                         {
-                            "name": "Finding & Organizing Notes",
-                            "description": "Search strategies, single vs multiple knowledge bases, folder structure",
+                            "name": "Finding Notes",
+                            "description": "Basic search, full-text search, constrained search, AI-powered search",
                             "url": null,
                             "duration": null,
                             "icon": "🔍"
                         },
                         {
-                            "name": "Tags, Links & Note Names",
-                            "description": "Flexible categorization, connections, and naming conventions that work",
+                            "name": "Single vs Multiple Knowledge Bases",
+                            "description": "Pros and cons of each approach - when to split and when to keep unified",
+                            "url": null,
+                            "duration": null,
+                            "icon": "📚"
+                        },
+                        {
+                            "name": "Folder Structure",
+                            "description": "FILE approach, PARA at top level, limiting depth, consistent naming",
+                            "url": null,
+                            "duration": null,
+                            "icon": "📁"
+                        },
+                        {
+                            "name": "Tagging Best Practices",
+                            "description": "Tags as pathways, tag types, hierarchies, avoiding over-tagging",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🏷️"
+                        },
+                        {
+                            "name": "Linking Best Practices",
+                            "description": "Purposeful links, inline vs references, leveraging AI integrations",
                             "url": null,
                             "duration": null,
                             "icon": "🔗"
                         },
                         {
-                            "name": "Chronological & Special Notes",
-                            "description": "Time-based organization and special note types with examples",
+                            "name": "Note Naming Conventions",
+                            "description": "Core principles, what to avoid, chronological naming, special cases",
                             "url": null,
                             "duration": null,
-                            "icon": "📆"
+                            "icon": "✏️"
                         },
                         {
                             "name": "Templates & Templating",
-                            "description": "Template examples, usage patterns, and best practices",
+                            "description": "Meeting notes, daily notes, templates with `Templater` - create once, reuse many",
                             "url": null,
                             "duration": null,
                             "icon": "📄"
                         },
                         {
-                            "name": "Brain Dumps & Conclusion",
-                            "description": "Getting everything out of your head and wrapping up recommendations",
+                            "name": "Brain Dumps",
+                            "description": "Top of mind notes, brainstorming, dumping mental contexts at end of day",
                             "url": null,
                             "duration": null,
                             "icon": "🧠"
@@ -466,184 +507,268 @@
                     "icon": "🏗️",
                     "sections": [
                         {
-                            "name": "System Foundations",
-                            "description": "Key reminders, overview, and characteristics of a solid system",
+                            "name": "Reminders & Overview",
+                            "description": "Don't waste time early on - reach critical mass first, then evolve",
+                            "url": null,
+                            "duration": null,
+                            "icon": "📝"
+                        },
+                        {
+                            "name": "Characteristics of a Solid System",
+                            "description": "Safe, holistic, integrated, simple, and agile",
                             "url": null,
                             "duration": null,
                             "icon": "🏛️"
                         },
                         {
-                            "name": "Core Parts & Tools",
-                            "description": "What you need, tool dimensions, bare minimum requirements",
+                            "name": "Core Parts You Need",
+                            "description": "Principles, content types, conventions, folders, tags, metadata, templates, workflows",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🧱"
+                        },
+                        {
+                            "name": "Tools You Need",
+                            "description": "Tool for Thought, read-it-later, highlighting, browser extensions, mobile apps, hardware",
                             "url": null,
                             "duration": null,
                             "icon": "🛠️"
                         },
                         {
-                            "name": "Tool Selection & What I Use",
-                            "description": "How to pick your tools and a tour of the instructor's current stack",
+                            "name": "What I Currently Use",
+                            "description": "Complete tour of instructor's current tool stack across all PKM phases",
                             "url": null,
                             "duration": null,
                             "icon": "🔧"
                         },
                         {
-                            "name": "System Design & Documentation",
-                            "description": "Planning and documenting your approach with system overview",
+                            "name": "How to Pick Your Tools",
+                            "description": "Data privacy, portability, integration possibilities - less is more",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🎯"
+                        },
+                        {
+                            "name": "Design & Document Your System",
+                            "description": "PKM Handbook template: principles, content types, conventions, workflows, habits",
                             "url": null,
                             "duration": null,
                             "icon": "📐"
                         },
                         {
-                            "name": "Tool Setup & Configuration",
-                            "description": "Setting up and configuring your chosen tools for success",
+                            "name": "Overview of My PKM System",
+                            "description": "Real-world tour of a working PKM system documentation",
+                            "url": null,
+                            "duration": null,
+                            "icon": "👀"
+                        },
+                        {
+                            "name": "Setup & Configure Your Tools",
+                            "description": "Install, learn basics, folder structure, templates, automation, journal",
                             "url": null,
                             "duration": null,
                             "icon": "⚙️"
                         },
                         {
                             "name": "`Readwise` Demo",
-                            "description": "Deep dive into `Readwise` for seamless highlight capture",
+                            "description": "Curate, consume, capture highlights, chat with notes, export to your vault",
                             "url": null,
                             "duration": null,
                             "icon": "📖"
                         },
                         {
                             "name": "`Obsidian` Web Clipper Deep Dive",
-                            "description": "Capturing web content directly into your knowledge base",
+                            "description": "Free, open source web clipping with AI post-processing",
                             "url": "https://www.youtube.com/watch?v=_sigcgludUE",
                             "duration": null,
                             "icon": "🌐"
                         },
                         {
-                            "name": "Backups & Data Protection",
-                            "description": "Protecting your knowledge investment with reliable backups",
+                            "name": "Configure Your Backups",
+                            "description": "3-2-1 approach: 3 copies, 2 mediums, 1 offsite location",
                             "url": null,
                             "duration": null,
                             "icon": "💾"
                         },
                         {
-                            "name": "Workflow Development",
-                            "description": "Creating efficient, repeatable processes",
+                            "name": "Develop Your Workflows",
+                            "description": "Iterative approach, document as you go, map to PKM Process",
                             "url": null,
                             "duration": null,
                             "icon": "🔄"
                         },
                         {
-                            "name": "Advanced Topics",
-                            "description": "Vendor lock-in avoidance, removing busywork, data synchronization",
+                            "name": "Avoid Vendor Lock-in",
+                            "description": "Tools, platforms, data formats, data handling - favor open solutions",
                             "url": null,
                             "duration": null,
-                            "icon": "🔬"
+                            "icon": "🔓"
+                        },
+                        {
+                            "name": "Remove Busywork",
+                            "description": "Track friction points, focus on value, automate what you can",
+                            "url": null,
+                            "duration": null,
+                            "icon": "✂️"
+                        },
+                        {
+                            "name": "Synchronize Your Data",
+                            "description": "Transparent vs manual sync, avoiding conflicts, read-only replicas",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🔄"
                         }
                     ],
                     "duration": null
                 },
                 {
                     "name": "Module 8: Going Further",
-                    "description": "Advanced lessons including AI integration, visual knowledge management, and building your Life OS.",
+                    "description": "Advanced lessons including comprehensive AI integration, visual knowledge management, and building your Life OS.",
                     "icon": "🤖",
                     "sections": [
                         {
                             "name": "Advanced Knowledge Base Usage",
-                            "description": "Power-user techniques for getting more from your system",
+                            "description": "Power-user techniques: search, quick open, command palette, keyboard shortcuts, bookmarks",
                             "url": null,
                             "duration": null,
                             "icon": "🚀"
                         },
                         {
                             "name": "Live Queries",
-                            "description": "Dynamic, auto-updating views of your knowledge",
+                            "description": "Dynamic, auto-updating views using `Dataview` and query serialization",
                             "url": "https://www.youtube.com/watch?v=j2q6OF5XFUc",
                             "duration": null,
                             "icon": "📊"
                         },
                         {
                             "name": "Leveraging GenAI & LLMs",
-                            "description": "Overview of using AI to supercharge your PKM",
+                            "description": "Overview of using AI inside and outside your Tool for Thought",
                             "url": null,
                             "duration": null,
                             "icon": "🤖"
                         },
                         {
-                            "name": "AI: `ChatGPT` & `Claude`",
-                            "description": "Using conversational AI with your PKM system",
+                            "name": "AI: `ChatGPT`",
+                            "description": "Using OpenAI's ChatGPT with your PKM system",
                             "url": null,
                             "duration": null,
                             "icon": "💬"
                         },
                         {
-                            "name": "AI: `NotebookLM`, `Gemini` & Google AI Studio",
-                            "description": "Google's AI tools for knowledge work",
+                            "name": "AI: `Claude`",
+                            "description": "Using Anthropic's Claude for knowledge work",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🧠"
+                        },
+                        {
+                            "name": "AI: `NotebookLM`",
+                            "description": "Google's NotebookLM for document analysis and AI podcasts",
+                            "url": null,
+                            "duration": null,
+                            "icon": "📓"
+                        },
+                        {
+                            "name": "AI: `Gemini` & Google AI Studio",
+                            "description": "Google's Gemini models and AI Studio for knowledge work",
                             "url": null,
                             "duration": null,
                             "icon": "🔮"
                         },
                         {
-                            "name": "AI: `DeepSeek` & `Perplexity`",
-                            "description": "Alternative AI tools for research and knowledge work",
+                            "name": "AI: `DeepSeek`",
+                            "description": "Using DeepSeek for research and reasoning",
                             "url": null,
                             "duration": null,
                             "icon": "🔎"
                         },
                         {
+                            "name": "AI: `Perplexity`",
+                            "description": "AI-powered research with Perplexity",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🔍"
+                        },
+                        {
                             "name": "AI: Local with `LM Studio` & `Ollama`",
-                            "description": "Running AI privately on your own machine",
+                            "description": "Running AI privately on your own machine - no cloud required",
                             "url": "https://www.youtube.com/watch?v=af6DrWJ4Ek0",
                             "duration": null,
                             "icon": "💻"
                         },
                         {
-                            "name": "AI: Mega Prompts & `MCP`",
-                            "description": "Creating powerful prompts and using [Model Context Protocol](/product/model-context-protocol)",
+                            "name": "AI: Creating & Using Mega Prompts",
+                            "description": "Creating powerful, reusable prompts for your PKM workflows",
                             "url": null,
                             "duration": null,
                             "icon": "⚡"
                         },
                         {
-                            "name": "AI: Writing with AI & `Obsidian` Copilot",
+                            "name": "AI: Model Context Protocol (`MCP`)",
+                            "description": "Connecting AI directly to your knowledge base with [MCP](/product/model-context-protocol)",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🔗"
+                        },
+                        {
+                            "name": "AI: Writing with AI & `MCP`",
                             "description": "Integrating AI directly into your writing workflow",
                             "url": null,
                             "duration": null,
                             "icon": "✍️"
                         },
                         {
+                            "name": "AI: `Obsidian` Copilot",
+                            "description": "Using the Obsidian Copilot plugin for AI-powered knowledge work",
+                            "url": null,
+                            "duration": null,
+                            "icon": "🤝"
+                        },
+                        {
                             "name": "Visual Knowledge Management",
-                            "description": "Canvas, mind maps, and visual thinking techniques",
+                            "description": "Infinite canvas, mind maps, schemas, and visual thinking techniques",
                             "url": null,
                             "duration": null,
                             "icon": "🎨"
                         },
                         {
                             "name": "Exploiting Serendipity",
-                            "description": "Finding unexpected connections in your knowledge",
+                            "description": "Random exploration and resurfacing forgotten ideas",
                             "url": null,
                             "duration": null,
                             "icon": "✨"
                         },
                         {
-                            "name": "Project Management & Habit Tracking",
-                            "description": "Connecting PKM to your work and building good habits",
+                            "name": "Project Management",
+                            "description": "Kanban boards, project tracking, and leveraging metadata",
                             "url": null,
                             "duration": null,
                             "icon": "📋"
                         },
                         {
+                            "name": "Habit Tracking",
+                            "description": "Integrating habit tracking with daily notes and visualizing progress",
+                            "url": null,
+                            "duration": null,
+                            "icon": "📈"
+                        },
+                        {
                             "name": "Create Your Life OS",
-                            "description": "A comprehensive system for your entire life",
+                            "description": "Command center for goals, projects, plans, tasks, priorities, and accountability",
                             "url": null,
                             "duration": null,
                             "icon": "🎯"
                         },
                         {
                             "name": "Sharing Your Work",
-                            "description": "Publishing and contributing your knowledge to the world",
+                            "description": "Using your Tool for Thought as content creation engine and publishing",
                             "url": null,
                             "duration": null,
                             "icon": "📤"
                         },
                         {
                             "name": "To Infinity and Beyond",
-                            "description": "Future possibilities and where PKM is headed",
+                            "description": "Future possibilities and next steps in your PKM journey",
                             "url": null,
                             "duration": null,
                             "icon": "🌟"
@@ -721,7 +846,7 @@
                 "genesisDate": null
             },
             "creatorJourney": {
-                "title": "**20+ Years** in the Making",
+                "title": "20+ Years in the Making",
                 "subtitle": "From Information Chaos to Systems Mastery",
                 "story": "My journey with knowledge management spans over **two decades** of working in IT and software development. I've worn many hats: Software Developer, Technical Lead, Software Architect, Solution Architect, Infrastructure Architect. Through it all, I've been obsessed with one question: how do we organize and leverage what we know?\n\nI've explored countless systems, learned from the best minds in the field, and gradually refined my approach through daily practice. This isn't theory from a book. It's my actual system, the one I use every single day to manage a complex business, create content, coach clients, and maintain a knowledge base of over **10,000 notes**.\n\nNow, as a Knowledge Management coach who has helped **hundreds of professionals**, I've distilled everything I've learned into this course. The principles that took me years to discover are now available to you in a clear, actionable format.",
                 "struggles": [

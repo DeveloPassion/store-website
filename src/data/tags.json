@@ -341,6 +341,15 @@
         "featured": false,
         "priority": 57
     },
+    "life-os": {
+        "id": "life-os",
+        "name": "Life OS",
+        "description": "Build a complete operating system for your life, goals, and projects",
+        "icon": "FaRocket",
+        "color": "purple-500",
+        "featured": false,
+        "priority": 86
+    },
     "llms": {
         "id": "llms",
         "name": "LLMs",

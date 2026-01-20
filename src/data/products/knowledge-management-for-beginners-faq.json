@@ -1,6 +1,11 @@
 {
     "data": [
         {
+            "id": "faq-22",
+            "question": "What AI tools does the course cover?",
+            "answer": "The course includes comprehensive AI integration lessons covering `ChatGPT`, `Claude`, `NotebookLM`, `Gemini`, Google AI Studio, `DeepSeek`, `Perplexity`, local AI with `LM Studio` and `Ollama`, mega prompts, Model Context Protocol (`MCP`), and `Obsidian` Copilot. You'll learn to use AI inside and outside your Tool for Thought for writing, thinking, learning, processing, organizing, and connecting knowledge."
+        },
+        {
             "id": "faq-23",
             "question": "How is this different from other note-taking courses?",
             "answer": "This isn't just about taking notes; it's about building a complete system for professional knowledge management. You'll learn not just what to do, but why and how to adapt it to your needs. The course starts with fundamentals but progresses to advanced techniques, making it valuable whether you're just starting or looking to enhance your existing system."
@@ -44,6 +49,41 @@
             "id": "faq-31",
             "question": "Will this be updated?",
             "answer": "Yes. **Evergreen content** means regular updates to keep material fresh and relevant. **Lifetime access** includes all future updates."
+        },
+        {
+            "id": "faq-32",
+            "question": "What methods and frameworks are covered?",
+            "answer": "The course covers multiple proven approaches including the **PARA method** (Projects, Areas, Resources, Archives), **Johnny Decimal** system, **Zettelkasten** method, **LIFT** principle, and **FILE** framework. You'll also learn about atomic notes, evergreen notes, Maps of Content (MoCs), and the complete PKM Process: Explore → Curate → Consume & Capture → Distill, Organize & Connect → Develop → Create → Share."
+        },
+        {
+            "id": "faq-33",
+            "question": "What's the PKM Proficiency Ladder?",
+            "answer": "The course introduces the **PKM Proficiency Ladder**; 9 levels from basic note-taking to AI-powered knowledge mastery. Level 1: Take notes. Level 2: Go digital. Level 3: Centralize in a Tool for Thought. Level 4: Organize with metadata. Level 5: Curate your inputs mindfully. Level 6: Develop a capture system and habit. Level 7: Create smart, atomic, connected notes. Level 8: Journal daily and review regularly. Level 9: Leverage AI and automate. You can use this to assess where you are and what to focus on next."
+        },
+        {
+            "id": "faq-34",
+            "question": "Do I have to use Obsidian?",
+            "answer": "No. The course teaches **tool-agnostic principles** that work with any software. While practical demonstrations use `Obsidian` (because it's free, powerful, and respects your data), everything you learn applies to `Notion`, `Roam Research`, `Logseq`, or even plain text files. The focus is on principles, processes, and habits, not a specific tool."
+        },
+        {
+            "id": "faq-35",
+            "question": "What bonus resources are included?",
+            "answer": "The course includes: **Example `Obsidian` vault** with a solid structure and automation, **Templates pack** ready to use, **Complete course slides** in PDF format, **2K+ concept knowledge base** of frameworks, mental models, and techniques. All downloadable and yours to keep forever."
+        },
+        {
+            "id": "faq-36",
+            "question": "Does the course cover journaling and daily notes?",
+            "answer": "Yes, extensively. The course covers journaling as a **knowledge inbox** and **operations center**. You'll learn a practical daily note structure (Plan, Notes, Done, Discovered, Interesting links, Challenges, Gratitude), how to link knowledge with time, and how to use **periodic reviews** (weekly, monthly, quarterly, yearly) to ingest and connect your knowledge systematically."
+        },
+        {
+            "id": "faq-37",
+            "question": "Is there hands-on practical content?",
+            "answer": "Yes. This isn't theory; it's practical. You'll see the instructor's actual **10,000+ note** vault, watch **live demonstrations** of capture workflows, knowledge ingestion, `Readwise` integration, `Obsidian Web Clipper`, `Dataview` queries, and AI tools. The course includes **walkthroughs** of real systems, not just slides."
+        },
+        {
+            "id": "faq-38",
+            "question": "How is the course structured?",
+            "answer": "The course has **9 comprehensive modules**: (1) Introduction; problems and solutions, (2) Knowledge Management Overview, (3) Getting Started; basics and conventions, (4) The PKM Process, (5) PKM Concepts and methods, (6) PKM Recommendations, (7) Building Your PKM System, (8) Going Further; AI, visual PKM, LifeOS, (9) Conclusion. Plus a **Bonus** section with downloadable resources. Each module builds on the previous one, taking you from beginner to proficient."
         }
     ]
 }

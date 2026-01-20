@@ -48,6 +48,7 @@ export const TagIdSchema = z.enum([
     'lead-magnet',
     'learning',
     'life-design',
+    'life-os',
     'lifetime-access',
     'llms',
     'markdown',
