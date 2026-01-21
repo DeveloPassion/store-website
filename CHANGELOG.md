@@ -1,3 +1,12 @@
+## [1.1.0](https://github.com/DeveloPassion/store-website/compare/1.0.0...1.1.0) (2026-01-21)
+
+### Features
+
+* **all:** added fuzzy search to more pages ([0773fd4](https://github.com/DeveloPassion/store-website/commit/0773fd4250259ac6db459065b0e4194e00846ec0))
+* **all:** added security headers ([98b1286](https://github.com/DeveloPassion/store-website/commit/98b128651fd5eff90a6d280c89b0b5a140f90d39))
+* **all:** added share links ([590bf83](https://github.com/DeveloPassion/store-website/commit/590bf83d9fa2c4d5d16e51582a3701f8fead88ed))
+* **all:** improved compare page on mobile ([d20a116](https://github.com/DeveloPassion/store-website/commit/d20a116902eafd51cdd1191a6fdee54281f8a471))
+* **all:** improved JSON-LD schemas for pages ([3cf763b](https://github.com/DeveloPassion/store-website/commit/3cf763bac1c3af32c048c6666a2bd5386e11a286))
 ## [1.0.0](https://github.com/DeveloPassion/store-website/compare/0.8.7...1.0.0) (2026-01-20)
 
 ### Features
