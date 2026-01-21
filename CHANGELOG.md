@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/DeveloPassion/store-website/compare/1.1.2...1.1.3) (2026-01-21)
+
+### Features
+
+* **all:** improved display of categories on the homepage ([2178aa6](https://github.com/DeveloPassion/store-website/commit/2178aa67ee1f48c56b80f140c832eefc50f54f6f))
+* **all:** improved sec headers ([06dc73c](https://github.com/DeveloPassion/store-website/commit/06dc73c08b04a78df3093f8438494a3e8348f2db))
 ## [1.1.2](https://github.com/DeveloPassion/store-website/compare/1.1.1...1.1.2) (2026-01-21)
 
 ### Features
