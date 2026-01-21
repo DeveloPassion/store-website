@@ -198,6 +198,48 @@ const brandSchema = {
     'name': 'Knowledge Forge'
 }
 
+// Merchant return policy schema for digital products
+const merchantReturnPolicySchema = {
+    '@type': 'MerchantReturnPolicy',
+    '@id': `${BASE_URL}/#returnpolicy`,
+    'name': 'Digital Product Return Policy',
+    'applicableCountry': 'WORLD',
+    'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    'merchantReturnDays': 30,
+    'returnFees': 'https://schema.org/FreeReturn',
+    'returnMethod': 'https://schema.org/ReturnByMail'
+}
+
+// Shipping details schema for digital products (no physical shipping)
+const digitalShippingDetailsSchema = {
+    '@type': 'OfferShippingDetails',
+    '@id': `${BASE_URL}/#shippingdetails`,
+    'shippingRate': {
+        '@type': 'MonetaryAmount',
+        'value': 0,
+        'currency': 'EUR'
+    },
+    'shippingDestination': {
+        '@type': 'DefinedRegion',
+        'addressCountry': 'WORLD'
+    },
+    'deliveryTime': {
+        '@type': 'ShippingDeliveryTime',
+        'handlingTime': {
+            '@type': 'QuantitativeValue',
+            'minValue': 0,
+            'maxValue': 0,
+            'unitCode': 'DAY'
+        },
+        'transitTime': {
+            '@type': 'QuantitativeValue',
+            'minValue': 0,
+            'maxValue': 0,
+            'unitCode': 'DAY'
+        }
+    }
+}
+
 /**
  * Generate AggregateRating schema for a product
  * Returns null if product has no ratings
@@ -546,7 +588,9 @@ function generateProductSchema(product: Product): string {
             'priceCurrency': 'EUR',
             'availability': 'https://schema.org/InStock',
             'url': productUrl,
-            'seller': { '@id': `${BASE_URL}/#organization` }
+            'seller': { '@id': `${BASE_URL}/#organization` },
+            'hasMerchantReturnPolicy': { '@id': `${BASE_URL}/#returnpolicy` },
+            'shippingDetails': { '@id': `${BASE_URL}/#shippingdetails` }
         },
         'author': { '@id': `${BASE_URL}/#person` },
         'publisher': { '@id': `${BASE_URL}/#organization` },
@@ -582,6 +626,8 @@ function generateProductSchema(product: Product): string {
         productSchema,
         authorSchema,
         publisherSchema,
+        merchantReturnPolicySchema,
+        digitalShippingDetailsSchema,
         {
             '@type': 'BreadcrumbList',
             '@id': `${productUrl}#breadcrumb`,
