@@ -1,3 +1,8 @@
+## [1.1.1](https://github.com/DeveloPassion/store-website/compare/1.1.0...1.1.1) (2026-01-21)
+
+### Features
+
+* **all:** added google fonts to the csp ([7fec926](https://github.com/DeveloPassion/store-website/commit/7fec926121ab6e3b4fd96f604bdc277a1f674f3f))
 ## [1.1.0](https://github.com/DeveloPassion/store-website/compare/1.0.0...1.1.0) (2026-01-21)
 
 ### Features
