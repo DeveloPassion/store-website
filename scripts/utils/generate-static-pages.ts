@@ -10,6 +10,7 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import type { Product } from '../../src/schemas/product.schema.js'
 import type { Category } from '../../src/schemas/category.schema.js'
+import type { GlobalFAQFile } from '../../src/schemas/global-faq.schema.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const BASE_URL = 'https://store.dsebastien.net'
@@ -24,6 +25,10 @@ const categoriesData: Category[] = JSON.parse(readFileSync(categoriesJsonPath, '
 
 // Extract all unique tags
 const allTags = Array.from(new Set(productsData.flatMap((product) => product.tags))).sort()
+
+// Load global FAQ data
+const globalFAQJsonPath = join(__dirname, '../../src/data/faq-global.json')
+const globalFAQData: GlobalFAQFile = JSON.parse(readFileSync(globalFAQJsonPath, 'utf-8'))
 
 const distDir = join(__dirname, '../../dist')
 
@@ -40,6 +45,78 @@ function escapeHtml(text: string): string {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;')
+}
+
+/**
+ * Strip markdown formatting from text for plain text output
+ * Used for FAQ answers in JSON-LD schema
+ */
+function stripMarkdown(text: string): string {
+    return (
+        text
+            // Remove markdown links [text](url) → text
+            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+            // Remove bold **text** or __text__
+            .replace(/(\*\*|__)(.*?)\1/g, '$2')
+            // Remove italic *text* or _text_
+            .replace(/(\*|_)(.*?)\1/g, '$2')
+            // Remove inline code `code`
+            .replace(/`([^`]+)`/g, '$1')
+            // Remove headers # ## ### etc
+            .replace(/^#{1,6}\s+/gm, '')
+            // Remove blockquotes
+            .replace(/^>\s+/gm, '')
+            // Remove horizontal rules
+            .replace(/^[-*_]{3,}\s*$/gm, '')
+            // Remove list markers
+            .replace(/^\s*[-*+]\s+/gm, '')
+            .replace(/^\s*\d+\.\s+/gm, '')
+            // Normalize whitespace
+            .replace(/\s+/g, ' ')
+            .trim()
+    )
+}
+
+/**
+ * Format duration string to ISO 8601 duration format
+ * e.g., "2h 20m" → "PT2H20M", "12 hours" → "PT12H"
+ */
+function formatDuration(duration: string): string {
+    const hours = duration.match(/(\d+)\s*h(?:ours?)?/i)
+    const minutes = duration.match(/(\d+)\s*m(?:in(?:utes?)?)?/i)
+
+    let result = 'PT'
+    if (hours) result += `${hours[1]}H`
+    if (minutes) result += `${minutes[1]}M`
+
+    return result === 'PT' ? 'PT1H' : result // Default to 1 hour if no duration parsed
+}
+
+/**
+ * Get all product image URLs for schema (cover, main, secondary images)
+ * Returns array of absolute URLs, prioritizing cover images
+ */
+function getProductImageUrls(product: Product): string[] {
+    const defaultImage = `${BASE_URL}/assets/images/social-card.png`
+
+    if (!product.media || product.media.length === 0) {
+        return [defaultImage]
+    }
+
+    const images = product.media
+        .filter((item) => item.type === 'image')
+        .sort((a, b) => {
+            // Priority: cover > main > secondary > bonus
+            const groupOrder: Record<string, number> = { cover: 0, main: 1, secondary: 2, bonus: 3 }
+            const aOrder = groupOrder[a.group] ?? 4
+            const bOrder = groupOrder[b.group] ?? 4
+            if (aOrder !== bOrder) return aOrder - bOrder
+            return (a.order ?? 0) - (b.order ?? 0)
+        })
+        .slice(0, 5) // Limit to 5 images
+        .map((item) => (item.url.startsWith('http') ? item.url : `${BASE_URL}${item.url}`))
+
+    return images.length > 0 ? images : [defaultImage]
 }
 
 /**
@@ -115,53 +192,223 @@ const publisherSchema = {
     }
 }
 
+// Brand schema for products
+const brandSchema = {
+    '@type': 'Brand',
+    'name': 'Knowledge Forge'
+}
+
 /**
- * Generate Product JSON-LD schema for a product
+ * Generate AggregateRating schema for a product
+ * Returns null if product has no ratings
  */
-function generateProductSchema(product: Product): string {
-    const productUrl = `${BASE_URL}/product/${product.id}`
-    const today = new Date().toISOString().split('T')[0]
+function generateAggregateRatingSchema(product: Product): Record<string, string | number> | null {
+    if (!product.averageRating || !product.ratingsCount || product.ratingsCount === 0) {
+        return null
+    }
+
+    return {
+        '@type': 'AggregateRating',
+        'ratingValue': product.averageRating.toString(),
+        'bestRating': '5',
+        'worstRating': '1',
+        'ratingCount': product.ratingsCount,
+        'reviewCount': product.testimonialsCount
+    }
+}
+
+/**
+ * Generate Review schemas from product testimonials
+ * Limits to 5 featured testimonials for schema.org
+ */
+function generateReviewsSchema(product: Product): Array<Record<string, unknown>> {
+    if (!product.testimonials || product.testimonials.length === 0) {
+        return []
+    }
+
+    // Prioritize featured testimonials, then take first 5
+    const testimonialsToUse = [...product.testimonials]
+        .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
+        .slice(0, 5)
+
+    return testimonialsToUse.map((testimonial) => ({
+        '@type': 'Review',
+        'author': {
+            '@type': 'Person',
+            'name': testimonial.author,
+            ...(testimonial.role && { jobTitle: testimonial.role }),
+            ...(testimonial.company && {
+                worksFor: { '@type': 'Organization', 'name': testimonial.company }
+            })
+        },
+        'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': '5',
+            'bestRating': '5'
+        },
+        'reviewBody': testimonial.quote
+    }))
+}
+
+/**
+ * Generate FAQPage schema for product FAQs
+ * Returns null if product has no FAQs
+ */
+function generateProductFAQPageSchema(
+    product: Product,
+    productUrl: string
+): Record<string, unknown> | null {
+    if (!product.faqs || product.faqs.length === 0) {
+        return null
+    }
+
+    return {
+        '@type': 'FAQPage',
+        '@id': `${productUrl}#faq`,
+        'mainEntity': product.faqs.map((faq) => ({
+            '@type': 'Question',
+            'name': faq.question,
+            'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': stripMarkdown(faq.answer)
+            }
+        }))
+    }
+}
+
+/**
+ * Generate Course schema for course products
+ * Returns null if product is not a course (mainCategory !== 'courses')
+ * Uses courseContent for additional details when available
+ */
+function generateCourseSchema(
+    product: Product,
+    productUrl: string
+): Record<string, unknown> | null {
+    // Determine if product is a course based on mainCategory
+    if (product.mainCategory !== 'courses') {
+        return null
+    }
+
+    const courseContent = product.salesCopy.courseContent
+
+    const courseSchema: Record<string, unknown> = {
+        '@type': 'Course',
+        '@id': `${productUrl}#course`,
+        'name': product.name,
+        'description': product.salesCopy.description,
+        'provider': { '@id': `${BASE_URL}/#organization` },
+        'creator': { '@id': `${BASE_URL}/#person` },
+        'inLanguage': 'en',
+        'url': productUrl
+    }
+
+    // Add courseContent details if available
+    if (courseContent) {
+        if (courseContent.difficulty) {
+            courseSchema['educationalLevel'] = courseContent.difficulty
+        }
+
+        if (courseContent.totalDuration) {
+            courseSchema['timeRequired'] = formatDuration(courseContent.totalDuration)
+        }
+
+        if (courseContent.prerequisites && courseContent.prerequisites.length > 0) {
+            courseSchema['coursePrerequisites'] = courseContent.prerequisites.join(', ')
+        }
+
+        // Add course instance with duration from courseContent
+        courseSchema['hasCourseInstance'] = {
+            '@type': 'CourseInstance',
+            'courseMode': 'Online',
+            'courseWorkload': courseContent.totalDuration || 'Self-paced'
+        }
+    } else {
+        // Default course instance for courses without detailed content
+        courseSchema['hasCourseInstance'] = {
+            '@type': 'CourseInstance',
+            'courseMode': 'Online',
+            'courseWorkload': 'Self-paced'
+        }
+    }
+
+    return courseSchema
+}
+
+/**
+ * Generate ItemList schema for collection pages
+ */
+function generateItemListSchema(products: Product[], pageUrl: string): Record<string, unknown> {
+    return {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#itemlist`,
+        'numberOfItems': products.length,
+        'itemListElement': products.map((product, index) => ({
+            '@type': 'ListItem',
+            'position': index + 1,
+            'item': {
+                '@type': 'Product',
+                '@id': `${BASE_URL}/product/${product.id}#product`,
+                'name': product.name,
+                'url': `${BASE_URL}/product/${product.id}`
+            }
+        }))
+    }
+}
+
+/**
+ * Get main category name for a product
+ */
+function getCategoryName(product: Product): string {
+    const category = categoriesData.find((c) => c.id === product.mainCategory)
+    return category?.name || product.mainCategory
+}
+
+/**
+ * Generate FAQPage JSON-LD schema for the global FAQ page
+ */
+function generateGlobalFAQPageSchema(): string {
+    const faqUrl = `${BASE_URL}/faq`
 
     const schema = {
         '@context': 'https://schema.org',
         '@graph': [
             {
-                '@type': 'Product',
-                '@id': `${productUrl}#product`,
-                'name': product.name,
-                'description': product.salesCopy.description,
-                'url': productUrl,
-                'sku': product.id,
-                'offers': {
-                    '@type': 'Offer',
-                    'price': product.price.toString(),
-                    'priceCurrency': 'EUR',
-                    'availability': 'https://schema.org/InStock',
-                    'url': productUrl
-                },
-                'author': { '@id': `${BASE_URL}/#person` },
+                '@type': 'FAQPage',
+                '@id': `${faqUrl}#faqpage`,
+                'mainEntity': globalFAQData.data
+                    .sort((a, b) => a.order - b.order)
+                    .map((faq) => ({
+                        '@type': 'Question',
+                        'name': faq.question,
+                        'acceptedAnswer': {
+                            '@type': 'Answer',
+                            'text': stripMarkdown(faq.answer)
+                        }
+                    }))
+            },
+            {
+                '@type': 'WebPage',
+                '@id': `${faqUrl}#webpage`,
+                'name': 'FAQ - Knowledge Forge',
+                'description':
+                    'Frequently asked questions about purchasing and using Knowledge Forge products',
+                'url': faqUrl,
+                'creator': { '@id': `${BASE_URL}/#person` },
                 'publisher': { '@id': `${BASE_URL}/#organization` },
-                'provider': {
-                    '@type': 'Organization',
-                    'name': 'Knowledge Forge',
-                    'url': BASE_URL
-                },
-                'datePublished': today,
-                'dateModified': today,
-                'inLanguage': 'en',
-                'keywords': product.tags.join(', '),
                 'isPartOf': {
                     '@type': 'WebSite',
                     '@id': `${BASE_URL}/#website`,
                     'name': 'Knowledge Forge',
                     'url': BASE_URL
-                }
+                },
+                'inLanguage': 'en'
             },
             authorSchema,
             publisherSchema,
             {
                 '@type': 'BreadcrumbList',
-                '@id': `${productUrl}#breadcrumb`,
+                '@id': `${faqUrl}#breadcrumb`,
                 'itemListElement': [
                     {
                         '@type': 'ListItem',
@@ -172,8 +419,8 @@ function generateProductSchema(product: Product): string {
                     {
                         '@type': 'ListItem',
                         'position': 2,
-                        'name': product.name,
-                        'item': productUrl
+                        'name': 'FAQ',
+                        'item': faqUrl
                     }
                 ]
             }
@@ -184,10 +431,204 @@ function generateProductSchema(product: Product): string {
 }
 
 /**
+ * Generate noscript content for the global FAQ page
+ */
+function generateGlobalFAQNoscript(): string {
+    return `
+    <noscript>
+        <article class="noscript-content" style="max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif;">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Knowledge Forge products and services.</p>
+            ${globalFAQData.data
+                .sort((a, b) => a.order - b.order)
+                .map(
+                    (faq) => `
+                <details>
+                    <summary><strong>${escapeHtml(faq.question)}</strong></summary>
+                    <p>${escapeHtml(stripMarkdown(faq.answer))}</p>
+                </details>`
+                )
+                .join('\n')}
+            <p><a href="/">← Back to store</a></p>
+        </article>
+    </noscript>`
+}
+
+/**
+ * Generate customized HTML for the global FAQ page with FAQPage schema
+ */
+function generateGlobalFAQPageHtml(): string {
+    const faqUrl = `${BASE_URL}/faq`
+    const title = 'FAQ - Knowledge Forge'
+    const description =
+        'Frequently asked questions about purchasing and using Knowledge Forge products'
+
+    let html = indexHtml
+
+    // Update <title>
+    html = html.replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
+
+    // Update canonical URL
+    html = html.replace(
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+        `<link rel="canonical" href="${faqUrl}" />`
+    )
+
+    // Update meta description
+    html = html.replace(
+        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update Open Graph tags
+    html = html.replace(
+        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:url" content="${faqUrl}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta property="og:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Update Twitter tags
+    html = html.replace(
+        /<meta\s+name="twitter:url"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:url" content="${faqUrl}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:title" content="${escapeHtml(title)}" />`
+    )
+    html = html.replace(
+        /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:description" content="${escapeHtml(description)}" />`
+    )
+
+    // Replace JSON-LD schema with FAQPage schema
+    const faqPageSchema = generateGlobalFAQPageSchema()
+    html = html.replace(
+        /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+        `<script type="application/ld+json">\n${faqPageSchema}\n        </script>`
+    )
+
+    // Add noscript content before </body>
+    const noscriptContent = generateGlobalFAQNoscript()
+    html = html.replace('</body>', `${noscriptContent}\n    </body>`)
+
+    return html
+}
+
+/**
+ * Generate Product JSON-LD schema for a product
+ * Includes: Product, AggregateRating, Reviews, FAQPage, Course (when applicable)
+ */
+function generateProductSchema(product: Product): string {
+    const productUrl = `${BASE_URL}/product/${product.id}`
+
+    // Build the Product schema object with enhanced fields
+    const productSchema: Record<string, unknown> = {
+        '@type': 'Product',
+        '@id': `${productUrl}#product`,
+        'name': product.name,
+        'description': product.salesCopy.description,
+        'url': productUrl,
+        'sku': product.id,
+        'brand': brandSchema,
+        'category': getCategoryName(product),
+        'image': getProductImageUrls(product),
+        'offers': {
+            '@type': 'Offer',
+            'price': product.price.toString(),
+            'priceCurrency': 'EUR',
+            'availability': 'https://schema.org/InStock',
+            'url': productUrl,
+            'seller': { '@id': `${BASE_URL}/#organization` }
+        },
+        'author': { '@id': `${BASE_URL}/#person` },
+        'publisher': { '@id': `${BASE_URL}/#organization` },
+        'provider': {
+            '@type': 'Organization',
+            'name': 'Knowledge Forge',
+            'url': BASE_URL
+        },
+        'inLanguage': 'en',
+        'keywords': product.tags.join(', '),
+        'isPartOf': {
+            '@type': 'WebSite',
+            '@id': `${BASE_URL}/#website`,
+            'name': 'Knowledge Forge',
+            'url': BASE_URL
+        }
+    }
+
+    // Add AggregateRating if product has ratings
+    const aggregateRating = generateAggregateRatingSchema(product)
+    if (aggregateRating) {
+        productSchema['aggregateRating'] = aggregateRating
+    }
+
+    // Add Reviews from testimonials
+    const reviews = generateReviewsSchema(product)
+    if (reviews.length > 0) {
+        productSchema['review'] = reviews
+    }
+
+    // Build the @graph array with all schemas
+    const graph: Array<Record<string, unknown>> = [
+        productSchema,
+        authorSchema,
+        publisherSchema,
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${productUrl}#breadcrumb`,
+            'itemListElement': [
+                {
+                    '@type': 'ListItem',
+                    'position': 1,
+                    'name': 'Home',
+                    'item': BASE_URL
+                },
+                {
+                    '@type': 'ListItem',
+                    'position': 2,
+                    'name': product.name,
+                    'item': productUrl
+                }
+            ]
+        }
+    ]
+
+    // Add FAQPage schema if product has FAQs
+    const faqPageSchema = generateProductFAQPageSchema(product, productUrl)
+    if (faqPageSchema) {
+        graph.push(faqPageSchema)
+    }
+
+    // Add Course schema if product has course content
+    const courseSchema = generateCourseSchema(product, productUrl)
+    if (courseSchema) {
+        graph.push(courseSchema)
+    }
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@graph': graph
+    }
+
+    return JSON.stringify(schema, null, 12)
+}
+
+/**
  * Generate CollectionPage JSON-LD schema for a tag page
+ * Includes ItemList of products with this tag
  */
 function generateTagSchema(tag: string, encodedTag: string): string {
     const tagUrl = `${BASE_URL}/tags/${encodedTag}`
+    const taggedProducts = productsData.filter((p) => p.tags.includes(tag))
 
     const schema = {
         '@context': 'https://schema.org',
@@ -231,7 +672,8 @@ function generateTagSchema(tag: string, encodedTag: string): string {
                         'item': tagUrl
                     }
                 ]
-            }
+            },
+            generateItemListSchema(taggedProducts, tagUrl)
         ]
     }
 
@@ -475,9 +917,14 @@ function generateTagsIndexPageHtml(): string {
 
 /**
  * Generate CollectionPage JSON-LD schema for a category page
+ * Includes ItemList of products in this category
  */
 function generateCategorySchema(category: Category): string {
     const categoryUrl = `${BASE_URL}/categories/${category.id}`
+    const categoryProducts = productsData.filter((p) => {
+        const allCategories = [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)]
+        return allCategories.includes(category.id)
+    })
 
     const schema = {
         '@context': 'https://schema.org',
@@ -521,7 +968,8 @@ function generateCategorySchema(category: Category): string {
                         'item': categoryUrl
                     }
                 ]
-            }
+            },
+            generateItemListSchema(categoryProducts, categoryUrl)
         ]
     }
 
@@ -963,7 +1411,7 @@ function generateSimplePageHtml(path: string, title: string, description: string
     return html
 }
 
-// Define simple pages to generate
+// Define simple pages to generate (note: /faq is generated separately with FAQPage schema)
 const simplePages = [
     { path: '/products', title: 'Products - Knowledge Forge', description: 'Browse all products' },
     {
@@ -978,7 +1426,6 @@ const simplePages = [
     },
     { path: '/featured', title: 'Featured - Knowledge Forge', description: 'Featured products' },
     { path: '/help', title: 'Help - Knowledge Forge', description: 'Get help and support' },
-    { path: '/faq', title: 'FAQ - Knowledge Forge', description: 'Frequently asked questions' },
     {
         path: '/testimonials',
         title: 'Testimonials - Knowledge Forge',
@@ -1013,6 +1460,14 @@ for (const page of simplePages) {
     simplePageCount++
 }
 console.log(`  ✓ Created ${simplePageCount} app route pages`)
+
+// Generate global FAQ page with FAQPage schema
+console.log('Generating static page for global FAQ...')
+const faqDir = join(distDir, 'faq')
+mkdirSync(faqDir, { recursive: true })
+const faqPageHtml = generateGlobalFAQPageHtml()
+writeFileSync(join(faqDir, 'index.html'), faqPageHtml)
+console.log('  ✓ Created global FAQ page with FAQPage schema')
 
 // Create directory and generate customized HTML for the tags index page
 console.log('Generating static page for tags index...')
@@ -1076,10 +1531,11 @@ console.log(`  ✓ Created ${productCount} product pages`)
 // Unknown routes are handled by React Router's catch-all route which shows NotFoundPage
 
 console.log(
-    `\n✓ Static pages generated: ${simplePageCount + tagCount + categoryCount + productCount + 3} total`
+    `\n✓ Static pages generated: ${simplePageCount + tagCount + categoryCount + productCount + 4} total`
 )
 console.log(`  - Homepage: 1`)
 console.log(`  - App route pages: ${simplePageCount}`)
+console.log(`  - Global FAQ page: 1`)
 console.log(`  - Tags index: 1`)
 console.log(`  - Individual tag pages: ${tagCount}`)
 console.log(`  - Categories index: 1`)
