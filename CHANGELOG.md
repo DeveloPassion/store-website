@@ -1,3 +1,8 @@
+## [1.1.4](https://github.com/DeveloPassion/store-website/compare/1.1.3...1.1.4) (2026-01-21)
+
+### Features
+
+* **all:** improved CSP ([b066077](https://github.com/DeveloPassion/store-website/commit/b0660776aa997b9c97eb256c0991614e3da02b05))
 ## [1.1.3](https://github.com/DeveloPassion/store-website/compare/1.1.2...1.1.3) (2026-01-21)
 
 ### Features
