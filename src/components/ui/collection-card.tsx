@@ -85,7 +85,9 @@ export const CollectionCard = <T extends CollectionItem>({
                         />
                     </div>
                 )}
-                <div className='group-hover:text-secondary text-lg font-bold'>{item.name}</div>
+                <div className='group-hover:text-secondary text-center text-lg font-bold'>
+                    {item.name}
+                </div>
             </Link>
         )
     }
