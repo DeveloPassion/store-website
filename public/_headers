@@ -1,28 +1,39 @@
-# Cache static assets aggressively
+# Global security headers for all responses
+/*
+  # HSTS - enforce HTTPS for 2 years, include subdomains, preload-ready
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Clickjacking protection
+  X-Frame-Options: SAMEORIGIN
+
+  # Referrer policy - send origin for cross-origin, full URL for same-origin
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions Policy - disable unused browser features
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://gumroad.com https://*.gumroad.com https://blue-bar-dsebastien-19fd.developassion.workers.dev; style-src 'self' 'unsafe-inline' https://*.gumroad.com; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://www.dsebastien.net https://blue-bar-dsebastien-19fd.developassion.workers.dev https://*.gumroad.com; frame-src https://www.youtube-nocookie.com https://*.gumroad.com; object-src 'none'; base-uri 'self'; form-action 'self' https://www.dsebastien.net https://*.gumroad.com; frame-ancestors 'self'; upgrade-insecure-requests
+
+# Static assets - aggressive caching
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
 
 /*.css
   Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
 
 /*.js
   Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
 
-# Images
 /assets/images/*
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML pages - no cache, always revalidate
+# HTML pages - no cache
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
 
-# Root index
 /
   Cache-Control: public, max-age=0, must-revalidate
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
