@@ -1,3 +1,8 @@
+## [1.1.2](https://github.com/DeveloPassion/store-website/compare/1.1.1...1.1.2) (2026-01-21)
+
+### Features
+
+* **all:** added csp exceptions for Gumroad ([2a0fec9](https://github.com/DeveloPassion/store-website/commit/2a0fec9076a658d9c1549d84afc0de20f29925c9))
 ## [1.1.1](https://github.com/DeveloPassion/store-website/compare/1.1.0...1.1.1) (2026-01-21)
 
 ### Features
