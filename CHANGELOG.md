@@ -1,3 +1,8 @@
+## [1.1.5](https://github.com/DeveloPassion/store-website/compare/1.1.4...1.1.5) (2026-01-21)
+
+### Features
+
+* **all:** added missing JSON-LD props for products ([7b68826](https://github.com/DeveloPassion/store-website/commit/7b6882634ac860dcfae1c745572fda4f83f522a9))
 ## [1.1.4](https://github.com/DeveloPassion/store-website/compare/1.1.3...1.1.4) (2026-01-21)
 
 ### Features
