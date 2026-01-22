@@ -5404,6 +5404,176 @@ async function operationSalesCopyRemove(args: CliArgs, product: Product): Promis
 }
 
 // ============================================================================
+// Priority Management
+// ============================================================================
+
+/**
+ * Rearrange product priorities interactively
+ */
+async function operationRearrangePriorities(): Promise<void> {
+    showOperationHeader('Rearrange Product Priorities')
+
+    const products = loadAllProducts()
+    if (products.length === 0) {
+        showWarning('No products found')
+        return
+    }
+
+    // Track changes for saving
+    const changedProducts = new Map<string, Product>()
+
+    let managing = true
+    while (managing) {
+        // Display current order
+        console.log(`\n${colors.bright}${colors.cyan}Current Priority Order:${colors.reset}\n`)
+        const sortedProducts = [...products].sort((a, b) => (b.priority || 0) - (a.priority || 0))
+
+        sortedProducts.forEach((product, index) => {
+            const priority = product.priority || 0
+            const changed = changedProducts.has(product.id)
+                ? ` ${colors.yellow}(modified)${colors.reset}`
+                : ''
+            const status = product.status === 'active' ? colors.green : colors.dim
+            console.log(
+                `  ${colors.dim}${String(index + 1).padStart(2, ' ')}.${colors.reset} ` +
+                    `${colors.bright}[${priority}]${colors.reset} ` +
+                    `${status}${product.name}${colors.reset}` +
+                    `${colors.dim} (${product.id})${colors.reset}${changed}`
+            )
+        })
+
+        console.log('')
+
+        // Build choices for product selection
+        const productChoices = sortedProducts.map((product, index) => ({
+            name: `${String(index + 1).padStart(2, ' ')}. [${product.priority || 0}] ${product.name}`,
+            value: product.id,
+            description: `Current priority: ${product.priority || 0}`
+        }))
+
+        const action = await select({
+            message: 'Select a product to move (or choose an action):',
+            choices: [
+                ...productChoices,
+                { name: '─────────────────────', value: 'separator', disabled: true },
+                { name: '💾 Save changes', value: 'save' },
+                { name: '↩️ Discard changes', value: 'discard' },
+                { name: '← Back to main menu', value: 'back' }
+            ],
+            pageSize: Math.min(products.length + 5, 20)
+        })
+
+        if (action === 'back') {
+            if (changedProducts.size > 0) {
+                const confirmExit = await select({
+                    message: `You have ${changedProducts.size} unsaved change(s). Discard them?`,
+                    choices: [
+                        { name: 'Yes, discard changes', value: true },
+                        { name: 'No, go back', value: false }
+                    ]
+                })
+                if (!confirmExit) continue
+            }
+            managing = false
+            continue
+        }
+
+        if (action === 'discard') {
+            if (changedProducts.size > 0) {
+                // Reload products to discard changes
+                const freshProducts = loadAllProducts()
+                products.length = 0
+                products.push(...freshProducts)
+                changedProducts.clear()
+                showInfo('Changes discarded')
+            } else {
+                showInfo('No changes to discard')
+            }
+            continue
+        }
+
+        if (action === 'save') {
+            if (changedProducts.size === 0) {
+                showInfo('No changes to save')
+                continue
+            }
+
+            // Save all changed products
+            for (const product of changedProducts.values()) {
+                saveProduct(product)
+            }
+            showSuccess(`Saved ${changedProducts.size} product(s)`)
+            changedProducts.clear()
+            continue
+        }
+
+        if (action === 'separator') continue
+
+        // Find the selected product
+        const selectedProduct = products.find((p) => p.id === action)
+        if (!selectedProduct) continue
+
+        const currentPriority = selectedProduct.priority || 0
+
+        // Ask what to do with this product - supports direct input (+, -, number) or menu selection
+        const answer = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'action',
+                message: `"${selectedProduct.name}" [${currentPriority}] - Enter +, -, number (0-100), or c to cancel:`,
+                validate: (input: string) => {
+                    const trimmed = input.trim().toLowerCase()
+                    if (trimmed === '+' || trimmed === '-' || trimmed === 'c' || trimmed === '') {
+                        return true
+                    }
+                    const num = parseInt(trimmed, 10)
+                    if (!isNaN(num) && num >= 0 && num <= 100) {
+                        return true
+                    }
+                    return 'Enter +, -, a number (0-100), or c to cancel'
+                }
+            }
+        ])
+
+        const actionInput = answer.action.trim().toLowerCase()
+
+        if (actionInput === 'c' || actionInput === '') continue
+
+        // Handle direct number input
+        const numericValue = parseInt(actionInput, 10)
+        if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 100) {
+            if (numericValue !== currentPriority) {
+                selectedProduct.priority = numericValue
+                changedProducts.set(selectedProduct.id, selectedProduct)
+                showSuccess(`Set priority of "${selectedProduct.name}" to ${numericValue}`)
+            }
+            continue
+        }
+
+        // Handle increase/decrease priority
+        if (actionInput === '+' && currentPriority < 100) {
+            const newPriority = Math.min(100, currentPriority + 1)
+            selectedProduct.priority = newPriority
+            changedProducts.set(selectedProduct.id, selectedProduct)
+            showSuccess(
+                `Increased priority of "${selectedProduct.name}" (${currentPriority} → ${newPriority})`
+            )
+        } else if (actionInput === '-' && currentPriority > 0) {
+            const newPriority = Math.max(0, currentPriority - 1)
+            selectedProduct.priority = newPriority
+            changedProducts.set(selectedProduct.id, selectedProduct)
+            showSuccess(
+                `Decreased priority of "${selectedProduct.name}" (${currentPriority} → ${newPriority})`
+            )
+        } else if (actionInput === '+' && currentPriority >= 100) {
+            showWarning('Priority is already at maximum (100)')
+        } else if (actionInput === '-' && currentPriority <= 0) {
+            showWarning('Priority is already at minimum (0)')
+        }
+    }
+}
+
+// ============================================================================
 // Main
 // ============================================================================
 
@@ -5420,6 +5590,7 @@ async function mainMenu(): Promise<void> {
                 { name: '📋 List products', value: 'list' },
                 { name: '➕ Add new product', value: 'add' },
                 { name: '✏️ Edit existing product', value: 'edit' },
+                { name: '🔀 Rearrange priorities', value: 'priorities' },
                 { name: '🗑️ Remove product', value: 'remove' },
                 { name: '👋 Exit', value: 'exit' }
             ],
@@ -5446,6 +5617,9 @@ async function mainMenu(): Promise<void> {
                     break
                 case 'edit':
                     await operationEdit(args)
+                    break
+                case 'priorities':
+                    await operationRearrangePriorities()
                     break
                 case 'remove':
                     await operationRemove(args)
