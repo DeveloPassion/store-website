@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductHero from '@/components/products/product-hero'
@@ -22,9 +22,9 @@ import ProductRelated from '@/components/products/product-related'
 import StickyBuyButton from '@/components/products/sticky-buy-button'
 import HowItWorksSection from '@/components/products/how-it-works-section'
 import productsData from '@/data/products.json'
-import type { Product, ProductVariant } from '@/schemas/product.schema'
-import type { PaymentFrequency } from '@/schemas/product.schema'
+import type { Product } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
+import { useProductUrlState } from '@/hooks/use-product-url-state'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 
 /**
@@ -48,14 +48,10 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
     // Find product by slug (id field in JSON)
     const product = (productsData as Product[]).find((p) => p.id === productSlug)
 
-    // Lifted state for variant and payment frequency selection (shared with ProductHero and StickyBuyButton)
-    // Initialize with product data - state will be properly set when product loads
-    const [selectedVariant, setSelectedVariant] = useState<ProductVariant | undefined>(
-        () => product?.variants?.[0]
-    )
-    const [selectedFrequency, setSelectedFrequency] = useState<PaymentFrequency>(
-        () => product?.defaultPaymentFrequency || 'monthly'
-    )
+    // State for variant and payment frequency selection with URL synchronization
+    // Reads initial values from URL params and updates URL when selections change
+    const { selectedVariant, setSelectedVariant, selectedFrequency, setSelectedFrequency } =
+        useProductUrlState({ product })
 
     // Set breadcrumbs
     useSetBreadcrumbs(
