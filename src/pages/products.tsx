@@ -1,276 +1,265 @@
-import { useState, useMemo, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { FaFilter, FaTimes, FaTrophy } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { FaFilter } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import productsData from '@/data/products.json'
-import type { Product, ProductCategory, PriceTier } from '@/schemas/product.schema'
-import { sortProductsIntelligently } from '@/lib/product-sort'
-import { searchProducts } from '@/lib/product-search'
+import type { Product } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { useProductsFilterState } from '@/hooks/use-products-filter-state'
+import { useProductsFilterLogic } from '@/hooks/use-products-filter-logic'
+import {
+    FilterSidebar,
+    FilterDrawer,
+    SortDropdown,
+    ActiveFilterChips
+} from '@/components/products/filters'
 
 const ProductsPage: React.FC = () => {
-    const [searchQuery, setSearchQuery] = useState('')
-    const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
-    const [selectedTier, setSelectedTier] = useState<PriceTier | 'all'>('all')
-    const [showBestValueOnly, setShowBestValueOnly] = useState(false)
-    const [showFilters, setShowFilters] = useState(false)
-
     const products = productsData as Product[]
+    const [filterDrawerOpen, setFilterDrawerOpen] = useState(false)
+
+    // URL-synced filter state
+    const filterState = useProductsFilterState()
+    const {
+        searchQuery,
+        selectedCategories,
+        selectedTags,
+        selectedTiers,
+        minPrice,
+        maxPrice,
+        showBestValueOnly,
+        showBestsellerOnly,
+        showFeaturedOnly,
+        sortBy,
+        hasActiveFilters,
+        setSearchQuery,
+        setPriceRange,
+        setSortBy,
+        setShowBestValueOnly,
+        setShowBestsellerOnly,
+        setShowFeaturedOnly,
+        clearAllFilters,
+        removeFilter,
+        setSelectedCategories,
+        setSelectedTags,
+        setSelectedTiers
+    } = filterState
+
+    // Filter logic
+    const {
+        sortedProducts,
+        priceRange,
+        activeFilters,
+        categoriesWithCounts,
+        tagsWithCounts,
+        tiersWithCounts
+    } = useProductsFilterLogic({
+        products,
+        filterState: {
+            searchQuery,
+            selectedCategories,
+            selectedTags,
+            selectedTiers,
+            minPrice,
+            maxPrice,
+            showBestValueOnly,
+            showBestsellerOnly,
+            showFeaturedOnly,
+            sortBy
+        }
+    })
 
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Products' }])
 
-    // Get unique values for filters
-    const categories = Array.from(
-        new Set(
-            products.flatMap((p) => [p.mainCategory, ...p.secondaryCategories.map((sc) => sc.id)])
-        )
-    ).sort()
-    const tiers = Array.from(new Set(products.map((p) => p.priceTier))).sort()
-
-    // Filter products
-    const filteredProducts = useMemo(() => {
-        // Apply fuzzy search if there's a query, otherwise use all products
-        const searchedProducts = searchQuery ? searchProducts(products, searchQuery) : products
-
-        // Apply additional filters
-        return searchedProducts.filter((product) => {
-            // Category filter (matches mainCategory or any secondaryCategory)
-            if (selectedCategory !== 'all') {
-                const allCategories = [
-                    product.mainCategory,
-                    ...product.secondaryCategories.map((sc) => sc.id)
-                ]
-                if (!allCategories.includes(selectedCategory)) {
-                    return false
-                }
-            }
-
-            // Price tier filter
-            if (selectedTier !== 'all' && product.priceTier !== selectedTier) {
-                return false
-            }
-
-            // Best Value filter
-            if (showBestValueOnly && !product.bestValue) {
-                return false
-            }
-
-            return true
-        })
-    }, [products, searchQuery, selectedCategory, selectedTier, showBestValueOnly])
-
-    // Sort intelligently: Featured + Best Value first, Featured next, rest alphabetically by mainCategory
-    const sortedProducts = useMemo(() => {
-        return sortProductsIntelligently(filteredProducts)
-    }, [filteredProducts])
-
     // Update document title and meta tags
     useEffect(() => {
+        // Build URL with current params
+        const params = new URLSearchParams(window.location.search)
+        const urlWithParams = params.toString()
+            ? `https://store.dsebastien.net/products?${params.toString()}`
+            : 'https://store.dsebastien.net/products'
+
         updateAllMetaTags({
             title: 'Products - Knowledge Forge',
             description:
                 'Browse all products. Discover courses, kits, templates, and tools to enhance your knowledge management and productivity.',
-            url: 'https://store.dsebastien.net/products'
+            url: urlWithParams
         })
-    }, [])
-
-    const clearFilters = () => {
-        setSearchQuery('')
-        setSelectedCategory('all')
-        setSelectedTier('all')
-        setShowBestValueOnly(false)
-    }
-
-    const hasActiveFilters =
-        searchQuery || selectedCategory !== 'all' || selectedTier !== 'all' || showBestValueOnly
+    }, [searchQuery, selectedCategories, selectedTags, selectedTiers, sortBy])
 
     return (
         <>
-            {/* Hero Section */}
-            <Section className='pt-16 pb-8 sm:pt-24 sm:pb-12'>
+            {/* Hero Section - mobile-first responsive */}
+            <Section className='pt-12 pb-6 sm:pt-16 sm:pb-8 md:pt-24 md:pb-12'>
                 <div className='mx-auto max-w-[1400px] text-center'>
-                    <Breadcrumb className='mb-6 flex justify-center' />
-                    <h1 className='mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl'>
+                    <Breadcrumb className='mb-4 flex justify-center sm:mb-6' />
+                    <h1 className='mb-4 text-3xl font-bold tracking-tight sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl'>
                         Products & Resources
                     </h1>
-                    <p className='text-primary/70 mx-auto mb-8 max-w-2xl text-lg sm:text-xl md:text-2xl'>
+                    <p className='text-primary/70 mx-auto mb-6 max-w-2xl text-base sm:mb-8 sm:text-lg md:text-xl lg:text-2xl'>
                         Tools, courses, and resources to help you work smarter, not harder.
                     </p>
 
-                    {/* Stats */}
-                    <div className='mb-10 flex flex-wrap justify-center gap-6 sm:gap-10'>
+                    {/* Stats - responsive sizing */}
+                    <div className='mb-8 flex flex-wrap justify-center gap-4 sm:mb-10 sm:gap-6 md:gap-10'>
                         <div className='text-center'>
-                            <div className='text-secondary text-3xl font-bold sm:text-4xl'>
+                            <div className='text-secondary text-2xl font-bold sm:text-3xl md:text-4xl'>
                                 {products.length}
                             </div>
-                            <div className='text-primary/60 text-sm'>Products</div>
+                            <div className='text-primary/60 text-xs sm:text-sm'>Products</div>
                         </div>
                         <div className='text-center'>
-                            <div className='text-3xl font-bold text-green-400 sm:text-4xl'>
+                            <div className='text-2xl font-bold text-green-400 sm:text-3xl md:text-4xl'>
                                 {products.filter((p) => p.priceTier === 'free').length}
                             </div>
-                            <div className='text-primary/60 text-sm'>Free Resources</div>
+                            <div className='text-primary/60 text-xs sm:text-sm'>Free Resources</div>
                         </div>
                         <div className='text-center'>
-                            <div className='text-3xl font-bold text-blue-400 sm:text-4xl'>
+                            <div className='text-2xl font-bold text-blue-400 sm:text-3xl md:text-4xl'>
                                 {products.filter((p) => p.featured).length}
                             </div>
-                            <div className='text-primary/60 text-sm'>Featured</div>
+                            <div className='text-primary/60 text-xs sm:text-sm'>Featured</div>
                         </div>
                     </div>
                 </div>
             </Section>
 
-            {/* Products Section */}
-            <Section className='py-8 sm:py-12'>
-                <div className='w-full'>
-                    {/* Search and Filter Toggle */}
-                    <div className='mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
-                        <input
-                            type='text'
-                            placeholder='Search products...'
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className='border-primary/20 bg-background/50 focus:border-secondary focus:ring-secondary flex-1 rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none'
-                        />
-                        <button
-                            onClick={() => setShowFilters(!showFilters)}
-                            className='bg-primary/10 hover:bg-primary/20 flex items-center gap-2 rounded-lg px-4 py-3 transition-colors'
-                        >
-                            <FaFilter className='h-4 w-4' />
-                            {showFilters ? 'Hide Filters' : 'Show Filters'}
-                        </button>
-                    </div>
+            {/* Products Section with Sidebar Layout - mobile-first */}
+            <Section className='py-6 sm:py-8 md:py-12'>
+                <div className='flex gap-4 md:gap-6 lg:gap-8'>
+                    {/* Desktop Sidebar - hidden on mobile, shown at md+ */}
+                    <FilterSidebar
+                        categoriesWithCounts={categoriesWithCounts}
+                        selectedCategories={selectedCategories}
+                        onCategoriesChange={setSelectedCategories}
+                        tagsWithCounts={tagsWithCounts}
+                        selectedTags={selectedTags}
+                        onTagsChange={setSelectedTags}
+                        tiersWithCounts={tiersWithCounts}
+                        selectedTiers={selectedTiers}
+                        onTiersChange={setSelectedTiers}
+                        priceRange={priceRange}
+                        currentMinPrice={minPrice}
+                        currentMaxPrice={maxPrice}
+                        onPriceRangeChange={setPriceRange}
+                        showBestValueOnly={showBestValueOnly}
+                        onBestValueChange={setShowBestValueOnly}
+                        showBestsellerOnly={showBestsellerOnly}
+                        onBestsellerChange={setShowBestsellerOnly}
+                        showFeaturedOnly={showFeaturedOnly}
+                        onFeaturedChange={setShowFeaturedOnly}
+                        hasActiveFilters={hasActiveFilters}
+                        onClearAll={clearAllFilters}
+                    />
 
-                    {/* Filters */}
-                    {showFilters && (
-                        <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className='border-primary/10 bg-background/50 mb-6 overflow-hidden rounded-lg border p-6'
-                        >
-                            <div className='mb-4 flex items-center justify-between'>
-                                <h3 className='font-semibold'>Filters</h3>
+                    {/* Main Content */}
+                    <main className='min-w-0 flex-1'>
+                        {/* Toolbar: Search + Sort + Mobile Filter Button */}
+                        <div className='mb-4 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4'>
+                            <input
+                                type='text'
+                                placeholder='Search products...'
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className='border-primary/20 bg-background/50 focus:border-secondary focus:ring-secondary flex-1 rounded-xl border px-4 py-3.5 text-base transition-colors focus:ring-2 focus:outline-none sm:rounded-lg sm:py-3 sm:text-sm'
+                            />
+
+                            <div className='flex items-center gap-2 sm:gap-3'>
+                                <SortDropdown value={sortBy} onChange={setSortBy} />
+
+                                {/* Mobile filter button - hidden at md+ (sidebar visible) */}
+                                <button
+                                    onClick={() => setFilterDrawerOpen(true)}
+                                    className='bg-primary/10 hover:bg-primary/20 active:bg-primary/30 flex cursor-pointer items-center gap-2 rounded-xl px-4 py-3.5 text-base transition-colors sm:rounded-lg sm:py-3 sm:text-sm md:hidden'
+                                >
+                                    <FaFilter className='h-4 w-4' />
+                                    <span className='sm:inline'>Filters</span>
+                                    {hasActiveFilters && (
+                                        <span className='bg-secondary flex h-5 w-5 items-center justify-center rounded-full text-xs text-white'>
+                                            {activeFilters.length}
+                                        </span>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Active Filter Chips */}
+                        {hasActiveFilters && (
+                            <div className='mb-3 sm:mb-4'>
+                                <ActiveFilterChips
+                                    filters={activeFilters}
+                                    onRemove={removeFilter}
+                                    onClearAll={clearAllFilters}
+                                />
+                            </div>
+                        )}
+
+                        {/* Results count */}
+                        <div className='text-primary/60 mb-4 text-xs sm:mb-6 sm:text-sm'>
+                            Showing {sortedProducts.length} of {products.length} products
+                            {searchQuery && ` matching "${searchQuery}"`}
+                        </div>
+
+                        {/* Products Grid - Mobile-first responsive with sidebar adjustment */}
+                        {sortedProducts.length > 0 ? (
+                            <div className='xg:grid-cols-3 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
+                                {sortedProducts.map((product) => (
+                                    <ProductCardEcommerce key={product.id} product={product} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className='py-12 text-center sm:py-16'>
+                                <div className='mb-3 text-4xl sm:mb-4 sm:text-5xl'>🔍</div>
+                                <h3 className='mb-2 text-lg font-semibold sm:text-xl'>
+                                    No products found
+                                </h3>
+                                <p className='text-primary/60 mb-4 text-sm sm:text-base'>
+                                    Try adjusting your search or filters.
+                                </p>
                                 {hasActiveFilters && (
                                     <button
-                                        onClick={clearFilters}
-                                        className='text-secondary hover:text-secondary/80 flex items-center gap-2 text-sm transition-colors'
+                                        onClick={clearAllFilters}
+                                        className='bg-secondary hover:bg-secondary/90 active:bg-secondary/80 cursor-pointer rounded-xl px-6 py-3.5 text-base font-semibold text-white transition-colors sm:rounded-lg sm:py-3'
                                     >
-                                        <FaTimes className='h-3 w-3' />
-                                        Clear All
+                                        Clear Filters
                                     </button>
                                 )}
                             </div>
-                            <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-                                {/* Category Filter */}
-                                <div>
-                                    <label className='text-primary/70 mb-2 block text-sm font-medium'>
-                                        Category
-                                    </label>
-                                    <select
-                                        value={selectedCategory}
-                                        onChange={(e) =>
-                                            setSelectedCategory(
-                                                e.target.value as ProductCategory | 'all'
-                                            )
-                                        }
-                                        className='border-primary/20 bg-background focus:border-secondary focus:ring-secondary w-full rounded-lg border px-3 py-2 transition-colors focus:ring-2 focus:outline-none'
-                                    >
-                                        <option value='all'>All Categories</option>
-                                        {categories.map((category) => (
-                                            <option key={category} value={category}>
-                                                {category
-                                                    .split('-')
-                                                    .map(
-                                                        (word: string) =>
-                                                            word.charAt(0).toUpperCase() +
-                                                            word.slice(1)
-                                                    )
-                                                    .join(' ')}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                {/* Price Tier Filter */}
-                                <div>
-                                    <label className='text-primary/70 mb-2 block text-sm font-medium'>
-                                        Price
-                                    </label>
-                                    <select
-                                        value={selectedTier}
-                                        onChange={(e) =>
-                                            setSelectedTier(e.target.value as PriceTier | 'all')
-                                        }
-                                        className='border-primary/20 bg-background focus:border-secondary focus:ring-secondary w-full rounded-lg border px-3 py-2 transition-colors focus:ring-2 focus:outline-none'
-                                    >
-                                        <option value='all'>All Prices</option>
-                                        {tiers.map((tier) => (
-                                            <option key={tier} value={tier}>
-                                                {tier.charAt(0).toUpperCase() + tier.slice(1)}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                {/* Best Value Filter */}
-                                <div className='flex items-center'>
-                                    <label className='flex cursor-pointer items-center gap-3'>
-                                        <input
-                                            type='checkbox'
-                                            checked={showBestValueOnly}
-                                            onChange={(e) => setShowBestValueOnly(e.target.checked)}
-                                            className='border-primary/20 bg-background h-5 w-5 rounded transition-colors checked:bg-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none'
-                                        />
-                                        <div className='flex items-center gap-2'>
-                                            <FaTrophy className='h-4 w-4 text-blue-500' />
-                                            <span className='text-primary/70 text-sm font-medium'>
-                                                Show Best Value Only
-                                            </span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
-
-                    {/* Results count */}
-                    <div className='text-primary/60 mb-6 text-sm'>
-                        Showing {sortedProducts.length} of {products.length} products
-                        {searchQuery && ` matching "${searchQuery}"`}
-                    </div>
-
-                    {/* Products Grid */}
-                    {sortedProducts.length > 0 ? (
-                        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
-                            {sortedProducts.map((product) => (
-                                <ProductCardEcommerce key={product.id} product={product} />
-                            ))}
-                        </div>
-                    ) : (
-                        <div className='py-16 text-center'>
-                            <div className='mb-4 text-5xl'>🔍</div>
-                            <h3 className='mb-2 text-xl font-semibold'>No products found</h3>
-                            <p className='text-primary/60 mb-4'>
-                                Try adjusting your search or filters.
-                            </p>
-                            {hasActiveFilters && (
-                                <button
-                                    onClick={clearFilters}
-                                    className='bg-secondary hover:bg-secondary/90 rounded-lg px-6 py-3 font-semibold text-white transition-colors'
-                                >
-                                    Clear Filters
-                                </button>
-                            )}
-                        </div>
-                    )}
+                        )}
+                    </main>
                 </div>
             </Section>
+
+            {/* Mobile Filter Drawer - only shown on mobile (< md) */}
+            <FilterDrawer
+                isOpen={filterDrawerOpen}
+                onClose={() => setFilterDrawerOpen(false)}
+                categoriesWithCounts={categoriesWithCounts}
+                selectedCategories={selectedCategories}
+                onCategoriesChange={setSelectedCategories}
+                tagsWithCounts={tagsWithCounts}
+                selectedTags={selectedTags}
+                onTagsChange={setSelectedTags}
+                tiersWithCounts={tiersWithCounts}
+                selectedTiers={selectedTiers}
+                onTiersChange={setSelectedTiers}
+                priceRange={priceRange}
+                currentMinPrice={minPrice}
+                currentMaxPrice={maxPrice}
+                onPriceRangeChange={setPriceRange}
+                showBestValueOnly={showBestValueOnly}
+                onBestValueChange={setShowBestValueOnly}
+                showBestsellerOnly={showBestsellerOnly}
+                onBestsellerChange={setShowBestsellerOnly}
+                showFeaturedOnly={showFeaturedOnly}
+                onFeaturedChange={setShowFeaturedOnly}
+                hasActiveFilters={hasActiveFilters}
+                onClearAll={clearAllFilters}
+                resultsCount={sortedProducts.length}
+            />
         </>
     )
 }

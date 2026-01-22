@@ -1,4 +1,5 @@
 import type { Product } from '@/schemas/product.schema'
+import type { SortOption } from '@/types/products-filter'
 
 /**
  * Fisher-Yates shuffle algorithm for randomizing arrays
@@ -186,4 +187,63 @@ export function sortFeaturedProducts(products: Product[]): Product[] {
 
     // Combine all tiers in order
     return [...sortedTier1, ...sortedTier2, ...sortedTier3, ...sortedTier4]
+}
+
+/**
+ * Sort products by price (lowest first)
+ * @param products - Array of products to sort
+ * @returns Sorted array by price ascending
+ */
+export function sortByPriceAsc(products: Product[]): Product[] {
+    return [...products].sort((a, b) => a.price - b.price)
+}
+
+/**
+ * Sort products by price (highest first)
+ * @param products - Array of products to sort
+ * @returns Sorted array by price descending
+ */
+export function sortByPriceDesc(products: Product[]): Product[] {
+    return [...products].sort((a, b) => b.price - a.price)
+}
+
+/**
+ * Sort products by name (alphabetically A-Z)
+ * @param products - Array of products to sort
+ * @returns Sorted array by name ascending
+ */
+export function sortByNameAsc(products: Product[]): Product[] {
+    return [...products].sort((a, b) => a.name.localeCompare(b.name))
+}
+
+/**
+ * Sort products by creation date (newest first)
+ * Uses priority as a proxy since there's no createdAt field in the schema
+ * Higher priority products are considered "newer" for display purposes
+ * @param products - Array of products to sort
+ * @returns Sorted array by priority descending
+ */
+export function sortByCreatedAtDesc(products: Product[]): Product[] {
+    return [...products].sort((a, b) => b.priority - a.priority)
+}
+
+/**
+ * Dispatcher function to sort products based on sort option
+ * @param products - Array of products to sort
+ * @param sortBy - The sort option to apply
+ * @returns Sorted array based on the specified option
+ */
+export function sortProducts(products: Product[], sortBy: SortOption): Product[] {
+    switch (sortBy) {
+        case 'featured':
+            return sortProductsIntelligently(products)
+        case 'price-asc':
+            return sortByPriceAsc(products)
+        case 'price-desc':
+            return sortByPriceDesc(products)
+        case 'name':
+            return sortByNameAsc(products)
+        default:
+            return sortProductsIntelligently(products)
+    }
 }

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router'
+import { useSearchParams, useLocation, useNavigate } from 'react-router'
 import type { Product, ProductVariant, PaymentFrequency } from '@/schemas/product.schema'
 
 // URL parameter names
@@ -29,7 +29,9 @@ interface UseProductUrlStateReturn {
 export function useProductUrlState({
     product
 }: UseProductUrlStateOptions): UseProductUrlStateReturn {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
+    const location = useLocation()
+    const navigate = useNavigate()
 
     // Get initial values from URL or fall back to product defaults
     const getInitialVariant = useCallback((): ProductVariant | undefined => {
@@ -69,7 +71,7 @@ export function useProductUrlState({
     const [selectedFrequency, setSelectedFrequencyState] =
         useState<PaymentFrequency>(getInitialFrequency)
 
-    // Update URL when selections change
+    // Update URL when selections change (preserving hash)
     const updateUrl = useCallback(
         (variant: ProductVariant | undefined, frequency: PaymentFrequency) => {
             const newParams = new URLSearchParams(searchParams)
@@ -92,10 +94,13 @@ export function useProductUrlState({
 
             // Only update if params actually changed
             if (newParams.toString() !== searchParams.toString()) {
-                setSearchParams(newParams, { replace: true })
+                // Preserve the hash when updating URL
+                const paramsString = newParams.toString()
+                const newUrl = `${location.pathname}${paramsString ? `?${paramsString}` : ''}${location.hash}`
+                navigate(newUrl, { replace: true })
             }
         },
-        [product, searchParams, setSearchParams]
+        [product, searchParams, location.pathname, location.hash, navigate]
     )
 
     // Wrapped setters that also update URL
