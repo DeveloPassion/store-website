@@ -235,9 +235,16 @@ function validateProductLinks(): {
     const productIds = loadProductIds()
     console.log(`📦 Found ${productIds.size} valid product ID(s)\n`)
 
-    // Get all source files, excluding products.json (aggregated file) and media files
+    // Get all source files, excluding products.json (aggregated file), media files, and test files
     const extensions = ['.ts', '.tsx', '.json']
-    const excludePatterns = ['products.json', '-media.json']
+    const excludePatterns = [
+        'products.json',
+        '-media.json',
+        '.spec.ts',
+        '.spec.tsx',
+        '.test.ts',
+        '.test.tsx'
+    ]
     const files = getFilesRecursively(SRC_DIR, extensions, excludePatterns)
 
     console.log(`📂 Scanning ${files.length} file(s)...\n`)
