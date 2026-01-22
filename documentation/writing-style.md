@@ -39,3 +39,21 @@ Join our thriving community of knowledge workers committed to continuous growth 
 ```
 Join the community of knowledge workers.
 ```
+
+## Dynamic Values
+
+Use placeholders instead of hardcoding values that change (user counts, prices, ratings):
+
+**Bad:**
+
+```json
+"highlights": ["**1,000+ Users**: Join our community"]
+```
+
+**Good:**
+
+```json
+"highlights": ["**${stats.userCount} Users**: Join our community"]
+```
+
+Placeholders are resolved at build time. See AGENTS.md for complete syntax and available sources.

@@ -38,7 +38,7 @@
         {
             "id": "faq-8",
             "question": "What's the difference between Essentials and Premium?",
-            "answer": "**Essentials** (**€129.99**) includes the complete vault and the **100+ page** user guide. **Premium** (**€198.99**) adds a **2h20m video course** covering `Obsidian` and PKM fundamentals. Both include **lifetime updates** and community access."
+            "answer": "**Essentials** (**${product.variants.0.price|currency}**) includes the complete vault and the **100+ page** user guide. **Premium** (**${product.variants.1.price|currency}**) adds a **2h20m video course** covering `Obsidian` and PKM fundamentals. Both include **lifetime updates** and community access."
         }
     ]
 }

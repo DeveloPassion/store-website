@@ -40,6 +40,13 @@ import type { FAQ } from '../../src/schemas/faq.schema.js'
 import type { Testimonial } from '../../src/schemas/testimonial.schema.js'
 import type { MediaItem } from '../../src/schemas/media.schema.js'
 import { StatsFileSchema, type Stats } from '../../src/schemas/stats.schema.js'
+import {
+    createPlaceholderContext,
+    validatePlaceholders,
+    formatValidationErrors,
+    hasBlockingErrors,
+    processObject
+} from './placeholder/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -514,6 +521,39 @@ function main() {
         const stats = loadStats(product.id)
         const { ratingsCount, averageRating } = computeRatings(stats, testimonials.length)
 
+        // Get includedIn from the computed map (needed for placeholder context)
+        const includedIn = includedInMap.get(product.id) || []
+
+        // Create placeholder context for validation and processing
+        const placeholderContext = createPlaceholderContext(
+            product as unknown as Record<string, unknown>,
+            stats as unknown as Record<string, unknown> | null,
+            salesCopy as unknown as Record<string, unknown> | null,
+            {
+                ratingsCount,
+                averageRating,
+                testimonialsCount: testimonials.length,
+                includedIn
+            }
+        )
+
+        // Validate placeholders in sales copy (main source of placeholders)
+        if (salesCopy) {
+            const placeholderErrors = validatePlaceholders(product.id, placeholderContext)
+            if (placeholderErrors.length > 0) {
+                const formattedErrors = formatValidationErrors(placeholderErrors, product.id)
+                console.warn(formattedErrors)
+
+                // In strict mode, blocking errors (invalid syntax/path/formatter) fail aggregation
+                if (isStrictMode() && hasBlockingErrors(placeholderErrors)) {
+                    errors.push(
+                        `  ❌ ${file}: ${placeholderErrors.length} invalid placeholder(s) (strict mode)`
+                    )
+                    continue
+                }
+            }
+        }
+
         // Sales copy is strictly required in aggregated schema
         if (!salesCopy) {
             const message = `Missing or invalid sales copy for product ${product.id} (activeSalesCopyId: ${product.activeSalesCopyId})`
@@ -525,8 +565,10 @@ function main() {
         // Validate mediaIds references in howItWorks and mediaSections
         validateMediaIdsReferences(product.id, salesCopy, media)
 
-        // Get includedIn from the computed map
-        const includedIn = includedInMap.get(product.id) || []
+        // Process placeholders in FAQs and sales copy
+        // Note: We update the context with salesCopy before processing for cross-references
+        const processedFaqs = processObject(faqs, placeholderContext)
+        const processedSalesCopy = processObject(salesCopy, placeholderContext)
 
         // Create aggregated product with proper structure
         // salesCopy is a nested object (not spread into product)
@@ -534,14 +576,15 @@ function main() {
         // ratingsCount and averageRating are computed from stats + testimonials
         // testimonialsCount is pre-computed for efficient access
         // includedIn is computed from scanning all products' includedProducts
+        // Placeholders in FAQs and salesCopy are replaced with actual values
         const testimonialsCount = testimonials.length
         const aggregatedProduct: AggregatedProduct = {
             ...product,
-            faqs,
+            faqs: processedFaqs,
             testimonials,
             media,
             stats,
-            salesCopy,
+            salesCopy: processedSalesCopy,
             ratingsCount,
             averageRating,
             testimonialsCount,

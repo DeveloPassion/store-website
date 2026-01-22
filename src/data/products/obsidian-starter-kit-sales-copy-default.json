@@ -34,7 +34,7 @@
             "**One system replaces many tools**: journaling, task management, contact management, meeting notes, and content creation—all connected",
             "**Visual thinking built in**: Canvas and Excalidraw integration for non-linear thinking and spatial reasoning"
         ],
-        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **1,000+ people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books. If you want to learn the foundations and build your own personalized system, I highly recommend my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
+        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **${stats.userCount} people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books. If you want to learn the foundations and build your own personalized system, I highly recommend my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
         "highlights": [
             "**Battle-Tested System**: From a 10,000+ note personal vault",
             "**Productive Day One**: Skip months of setup and configuration",
@@ -45,7 +45,7 @@
             "**Scales Forever**: From 10 notes to 10,000+ without breaking down",
             "**AI-Ready Architecture**: Full compatibility with `ChatGPT`, `Claude`, `MCP`, and more",
             "**Expert-Led**: 20+ years of Information and Knowledge Management expertise distilled into one system",
-            "**1,000+ Users**: Join a proven, active community",
+            "**${stats.userCount} Users**: Join a proven, active community",
             "**Lifetime Updates**: All future improvements included free",
             "**Knowii Ecosystem**: Included in [Knowledge Worker Kit](/product/knowledge-worker-kit) & [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
@@ -102,8 +102,8 @@
         "trustBadges": [
             "**30-Day Money-Back Guarantee**",
             "**Lifetime Updates Included**",
-            "**1,000+ Users** Worldwide",
-            "**4.9/5 Average Rating**",
+            "**${stats.userCount} Users** Worldwide",
+            "**${computed.averageRating|round:1}/5 Average Rating**",
             "**20+ Years** PKM Expertise",
             "**Beginner Friendly**"
         ],
@@ -115,7 +115,7 @@
             "**Priority email support** with personal responses"
         ],
         "metaTitle": "Obsidian Starter Kit - Stop Configuring, Start Thinking | Knowledge Forge",
-        "metaDescription": "Complete Obsidian vault with 40+ auto-filing templates, pre-configured plugins, and PKM methodology. 1,000+ users. 20+ years expertise. 30-day guarantee.",
+        "metaDescription": "Complete Obsidian vault with 40+ auto-filing templates, pre-configured plugins, and PKM methodology. ${stats.userCount} users. 20+ years expertise. 30-day guarantee.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -155,7 +155,7 @@
                     "Built a vault that scales to tens of thousands of notes without chaos",
                     "Author, blogger, and entrepreneur using this system daily",
                     "Created a system that works well with AI tools",
-                    "Helped 1,000+ knowledge workers change their workflows",
+                    "Helped ${stats.userCount} knowledge workers change their workflows",
                     "Published a free public knowledge base at notes.dsebastien.net: a goldmine of knowledge management insights built with OSK"
                 ],
                 "credentials": "20+ years of Knowledge Management expertise as an author, blogger, entrepreneur, and IT professional",

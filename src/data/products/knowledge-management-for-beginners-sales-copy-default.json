@@ -31,7 +31,7 @@
             "AI becomes dramatically more effective with organized knowledge",
             "One system that grows with you for the rest of your life"
         ],
-        "description": "Knowledge Management for Beginners is a comprehensive video course (**10+ hours**) built from years of real-world Information and Knowledge Management practice. This isn't another note-taking tutorial or productivity hack. It's a complete blueprint for building a Personal Knowledge Management system using systems-first thinking and tool-agnostic principles that work anywhere.\n\nAt its core, this course is about turning chaos into order, complexity into simplicity, and information into actionable knowledge. You'll learn a clear, proven process that takes you from information overload to systematic knowledge building. Native AI integration (`ChatGPT`, `Claude`, `DeepSeek`, `Gemini`, `NotebookLM`, `MCP`) that others simply don't cover.\n\nJoin **200+ professionals** who have transformed their workflows with this system.",
+        "description": "Knowledge Management for Beginners is a comprehensive video course (**10+ hours**) built from years of real-world Information and Knowledge Management practice. This isn't another note-taking tutorial or productivity hack. It's a complete blueprint for building a Personal Knowledge Management system using systems-first thinking and tool-agnostic principles that work anywhere.\n\nAt its core, this course is about turning chaos into order, complexity into simplicity, and information into actionable knowledge. You'll learn a clear, proven process that takes you from information overload to systematic knowledge building. Native AI integration (`ChatGPT`, `Claude`, `DeepSeek`, `Gemini`, `NotebookLM`, `MCP`) that others simply don't cover.\n\nJoin **${stats.userCount} professionals** who have transformed their workflows with this system.",
         "highlights": [
             "**Complete System**: From chaos to clarity with a proven knowledge management framework",
             "**Expert-Led**: 20+ years of real-world practice distilled into actionable lessons",
@@ -87,7 +87,7 @@
             "**Full Refund Policy**: Not satisfied? No questions asked",
             "**Lifetime Access**: All future updates included free",
             "**10+ Hours** of Content: Comprehensive video curriculum",
-            "**200+ Professionals** have transformed their workflows",
+            "**${stats.userCount} Professionals** have transformed their workflows",
             "**2K+ Concepts**: Bonus knowledge base included",
             "**Tool-Agnostic**: Works with whatever you already use",
             "**AI-Ready**: Native integration with `ChatGPT`, `Claude`, `DeepSeek`, `Gemini`, `NotebookLM`, `MCP`"
@@ -99,7 +99,7 @@
             "**Community support** included"
         ],
         "metaTitle": "Knowledge Management for Beginners - Stop Drowning in Information | Transform How You Learn",
-        "metaDescription": "10+ hour video course teaching Personal Knowledge Management. Build a second brain that helps you think better, learn faster, and actually use what you know. 200+ students. Lifetime access.",
+        "metaDescription": "10+ hour video course teaching Personal Knowledge Management. Build a second brain that helps you think better, learn faster, and actually use what you know. ${stats.userCount} students. Lifetime access.",
         "keywords": [
             "knowledge management course",
             "personal knowledge management",

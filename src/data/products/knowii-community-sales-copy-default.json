@@ -28,13 +28,13 @@
             "Create content consistently through systems, not willpower",
             "Turn scattered information into usable insights",
             "Get direct access to experts who use these systems daily",
-            "Join 350+ members building their knowledge + AI skills"
+            "Join ${stats.userCount} members building their knowledge + AI skills"
         ],
         "description": "Knowii brings together knowledge workers, creators, and lifelong learners who want to get better at information management AND AI. It's not a generic productivity community. You get community support, courses, tools, AI training, and direct expert guidance. Whether you're struggling with scattered notes or want to use AI effectively, Knowii meets you where you are.",
         "highlights": [
             "**Integrated System**: Knowledge Management + AI skills in one place",
             "**€500+ Value**: Courses, tools, and workshops included in higher tiers",
-            "**350+ Members**: Active community learning together",
+            "**${stats.userCount} Members**: Active community learning together",
             "**Expert-Led**: 20+ years of IT and Knowledge Management expertise",
             "**Always Growing**: New workshops, tools, and content added regularly",
             "**Future-Proof**: All future courses & tools included automatically"
@@ -85,7 +85,7 @@
         "trustBadges": [
             "**Integrated System**: Knowledge Management + AI in one place",
             "**€500+ Value**: Knowledge Master includes courses, tools, and future additions",
-            "**350+ Members**: Active community learning together",
+            "**${stats.userCount} Members**: Active community learning together",
             "**Expert-Led**: 20+ years of IT and KM expertise",
             "**Always Growing**: New workshops, tools, and content added regularly",
             "**Proven**: 2,000+ products sold; 10,000+ hours saved for customers"
@@ -97,7 +97,7 @@
             "Annual plan protection; maintain access through end of billing period if you cancel"
         ],
         "metaTitle": "Knowii Community - Master Knowledge Management + AI | From €4.99/month",
-        "metaDescription": "Join 350+ members mastering Knowledge Management AND AI. Community + Courses + Tools integrated. €500+ value in Knowledge Master tier.",
+        "metaDescription": "Join ${stats.userCount} members mastering Knowledge Management AND AI. Community + Courses + Tools integrated. €500+ value in Knowledge Master tier.",
         "keywords": [
             "knowledge management community",
             "ai mastery course",
@@ -139,7 +139,7 @@
                     "Deep expertise in AI tools and workflows",
                     "Built the Knowii community from scratch",
                     "Transitioned from shy introvert to **leader and entrepreneur**",
-                    "**2,000+ products** sold, **350+ community members**"
+                    "**2,000+ products** sold, **${stats.userCount} community members**"
                 ],
                 "credentials": "Author, IT Solution Architect, Coach, Entrepreneur, Father of 3. Helping knowledge workers get better at information management AND AI.",
                 "icon": "🛤️"

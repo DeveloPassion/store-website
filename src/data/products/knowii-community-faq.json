@@ -8,7 +8,7 @@
         {
             "id": "faq-111",
             "question": "I'm already overwhelmed. Will joining another platform help or just add more noise?",
-            "answer": "Unlike most platforms that add to your digital noise, Knowii is designed to **reduce overwhelm** by giving you systems to organize your existing information sources. Start with the **Explorer tier (€4.99/month)** to see for yourself."
+            "answer": "Unlike most platforms that add to your digital noise, Knowii is designed to **reduce overwhelm** by giving you systems to organize your existing information sources. Start with the **Explorer tier (${product.variants.0.prices.monthly|currency}/month)** to see for yourself."
         },
         {
             "id": "faq-112",
@@ -18,7 +18,7 @@
         {
             "id": "faq-113",
             "question": "What if I'm not sure which tier is right for me?",
-            "answer": "Start with the Explorer tier (€4.99/month) or Knowledge Builder (€19.99/month). You can always upgrade if you find value."
+            "answer": "Start with the Explorer tier (${product.variants.0.prices.monthly|currency}/month) or Knowledge Builder (${product.variants.1.prices.monthly|currency}/month). You can always upgrade if you find value."
         },
         {
             "id": "faq-114",
@@ -38,7 +38,7 @@
         {
             "id": "faq-117",
             "question": "What if I'm skeptical about knowledge management?",
-            "answer": "Start with the **Explorer tier (€4.99/month)**. It's an affordable way to see if the community and resources resonate with you before committing to higher tiers."
+            "answer": "Start with the **Explorer tier (${product.variants.0.prices.monthly|currency}/month)**. It's an affordable way to see if the community and resources resonate with you before committing to higher tiers."
         },
         {
             "id": "faq-118",

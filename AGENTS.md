@@ -58,7 +58,90 @@ All entities: JSON in `/src/data/`, Zod schemas in `/src/schemas/`, types in `/s
 - `{id}-sales-copy-{variant}.json` - marketing
 - `{id}-faq.json`, `{id}-testimonials.json`, `{id}-media.json`, `{id}-stats.json`
 
-**Aggregation**: Individual files → validate → merge external → compute ratings → `products.json` (gitignored)
+**Aggregation**: Individual files → validate → process placeholders → merge external → compute ratings → `products.json` (gitignored)
+
+## Placeholder System
+
+Build-time placeholder replacement for dynamic values in product JSON files. Placeholders are resolved during aggregation with zero runtime cost.
+
+### Syntax
+
+```
+${source.path}              // Basic: ${stats.userCount}
+${source.path.nested}       // Nested: ${product.variants.0.price}
+${source.path|formatter}    // Formatted: ${product.price|currency}
+${source.path|f1|f2:arg}    // Chained: ${product.price|currency|prefix:From }
+```
+
+### Sources
+
+| Source      | Data From             | Example Paths                                        |
+| ----------- | --------------------- | ---------------------------------------------------- |
+| `stats`     | `{id}-stats.json`     | `userCount`, `timeSaved`, `ratings`                  |
+| `product`   | `{id}.json`           | `price`, `name`, `variants.0.price`                  |
+| `salesCopy` | Active sales copy     | `tagline` (for cross-references)                     |
+| `computed`  | Build-time calculated | `ratingsCount`, `averageRating`, `testimonialsCount` |
+
+### Formatters
+
+| Formatter  | Example                                    | Result         |
+| ---------- | ------------------------------------------ | -------------- |
+| `currency` | `${product.price\|currency}`               | `€129.99`      |
+| `number`   | `${computed.ratingsCount\|number}`         | `1,234`        |
+| `round`    | `${computed.averageRating\|round:1}`       | `4.9`          |
+| `suffix`   | `${stats.userCount\|suffix: users}`        | `1,000+ users` |
+| `prefix`   | `${product.price\|currency\|prefix:Only }` | `Only €129.99` |
+| `default`  | `${stats.timeSaved\|default:N/A}`          | Value or `N/A` |
+
+### Usage Examples
+
+**Before (hardcoded, error-prone):**
+
+```json
+{
+    "highlights": ["**1,000+ Users**: Join our community"],
+    "trustBadges": ["**1,000+ Users** Worldwide"]
+}
+```
+
+**After (with placeholders):**
+
+```json
+{
+    "highlights": ["**${stats.userCount} Users**: Join our community"],
+    "trustBadges": ["**${stats.userCount} Users** Worldwide"]
+}
+```
+
+**Complex examples:**
+
+```json
+"**${product.variants.0.price|currency}** for Essentials"
+"${computed.averageRating|round:1}/5 from ${computed.ratingsCount|number} reviews"
+"${stats.timeSaved|default:Significant time savings}"
+```
+
+### Where Placeholders Work
+
+- Sales copy files (`{id}-sales-copy-*.json`): All string fields
+- FAQ files (`{id}-faq.json`): Question and answer text
+
+### Validation
+
+Placeholders are validated during aggregation. Invalid placeholders (bad syntax, unknown paths, null without default) are reported:
+
+```
+❌ my-product: 2 invalid placeholder(s)
+   - sales-copy-default.json:highlights[0]: Path "nonExistent" not found in source "stats"
+   - faq.json:data[7].answer: Unknown formatter "format"
+```
+
+In strict mode (`STRICT_VALIDATION=true`), blocking errors fail aggregation.
+
+### Implementation
+
+Files: `scripts/utils/placeholder/` (parser, resolver, formatter, processor, validator)
+Schema: `src/schemas/placeholder.schema.ts`
 
 ## Managing Products
 

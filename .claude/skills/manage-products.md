@@ -380,6 +380,66 @@ bun run validate:products
 
 See [documentation/writing-style.md](/documentation/writing-style.md) for sales copy, FAQs, and descriptions.
 
+## Using Placeholders in Product Files
+
+Product files support build-time placeholders for dynamic values that are resolved during aggregation. This eliminates hardcoded values and ensures consistency.
+
+### Where to Use Placeholders
+
+- **Sales copy files** (`{id}-sales-copy-*.json`): All string fields (taglines, descriptions, highlights, etc.)
+- **FAQ files** (`{id}-faq.json`): Question and answer text
+
+### Placeholder Syntax
+
+```
+${source.path}              // Basic: ${stats.userCount}
+${source.path.nested}       // Nested: ${product.variants.0.price}
+${source.path|formatter}    // Formatted: ${product.price|currency}
+```
+
+### Available Sources
+
+| Source      | Data From             | Common Paths                           |
+| ----------- | --------------------- | -------------------------------------- |
+| `stats`     | `{id}-stats.json`     | `userCount`, `timeSaved`               |
+| `product`   | `{id}.json`           | `price`, `variants.0.price`            |
+| `computed`  | Build-time values     | `ratingsCount`, `averageRating`        |
+
+### Formatters
+
+| Formatter | Example                              | Result         |
+| --------- | ------------------------------------ | -------------- |
+| `currency`| `${product.price\|currency}`         | `€129.99`      |
+| `number`  | `${computed.ratingsCount\|number}`   | `1,234`        |
+| `round`   | `${computed.averageRating\|round:1}` | `4.9`          |
+| `default` | `${stats.timeSaved\|default:N/A}`    | Value or `N/A` |
+
+### Examples
+
+**User counts (in sales copy):**
+```json
+"highlights": ["**${stats.userCount} Users**: Join our community"]
+```
+
+**Product prices (in FAQs):**
+```json
+"answer": "**Essentials** costs **${product.variants.0.price|currency}**"
+```
+
+**Ratings (in sales copy):**
+```json
+"trustBadges": ["${computed.averageRating|round:1}/5 from ${computed.ratingsCount} reviews"]
+```
+
+### Validation
+
+Placeholders are validated during aggregation. Invalid placeholders produce errors:
+```
+❌ my-product: Invalid path "nonExistent" not found in source "stats"
+```
+
+See AGENTS.md for complete placeholder documentation.
+
 ## Important Notes
 
 - **Source of Truth**: `src/schemas/product.schema.ts` defines all fields and validation rules

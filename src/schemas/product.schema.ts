@@ -130,6 +130,24 @@ const BaseProductSchema = z.object({
 export const IndividualProductSchema = BaseProductSchema
 
 /**
+ * Computed Values Schema - Values calculated during aggregation
+ * Shared with placeholder system for build-time resolution
+ * These values are not stored in files but computed from loaded data
+ */
+export const ComputedValuesSchema = z.object({
+    // Computed rating fields (calculated from stats.ratings + testimonials during aggregation)
+    ratingsCount: z.number().int().nonnegative().nullable(),
+    averageRating: z.number().min(0).max(5).nullable(),
+
+    // Computed testimonial count (calculated during aggregation from testimonials array length)
+    testimonialsCount: z.number().int().nonnegative(),
+
+    // Computed reverse lookup: which products/bundles include this product
+    // Calculated during aggregation by scanning all products' includedProducts fields
+    includedIn: z.array(z.string())
+})
+
+/**
  * Aggregated Product Schema - For products.json
  * Includes auto-loaded content from separate files:
  * - faqs: Loaded from {product-id}-faq.json
@@ -148,19 +166,8 @@ export const AggregatedProductSchema = BaseProductSchema.extend({
 
     // Sales Copy Data - Loaded from sales copy file during aggregation
     // Strictly required (non-nullable) - aggregation fails if sales copy file is missing
-    salesCopy: SalesCopyDataSchema,
-
-    // Computed rating fields (calculated from stats.ratings + testimonials during aggregation)
-    ratingsCount: z.number().int().nonnegative().nullable(),
-    averageRating: z.number().min(0).max(5).nullable(),
-
-    // Computed testimonial count (calculated during aggregation from testimonials array length)
-    testimonialsCount: z.number().int().nonnegative(),
-
-    // Computed reverse lookup: which products/bundles include this product
-    // Calculated during aggregation by scanning all products' includedProducts fields
-    includedIn: z.array(z.string())
-})
+    salesCopy: SalesCopyDataSchema
+}).merge(ComputedValuesSchema)
 
 // Array schemas
 export const IndividualProductsArraySchema = z.array(IndividualProductSchema)
@@ -173,6 +180,7 @@ export type ProductCategory = z.infer<typeof ProductCategorySchema>
 export type SecondaryCategory = z.infer<typeof SecondaryCategorySchema>
 export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
+export type ComputedValues = z.infer<typeof ComputedValuesSchema>
 
 // Product types
 export type IndividualProduct = z.infer<typeof IndividualProductSchema>
