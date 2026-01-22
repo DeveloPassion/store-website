@@ -83,7 +83,7 @@ const ProductIncludedIn: React.FC<ProductIncludedInProps> = ({ product }) => {
     }
 
     return (
-        <Section className='bg-secondary/5 border-secondary/20 border-y'>
+        <Section id='included-in' className='bg-secondary/5 border-secondary/20 border-y'>
             <div className='mx-auto max-w-4xl'>
                 {/* Header */}
                 <motion.div

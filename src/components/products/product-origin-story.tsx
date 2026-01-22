@@ -26,7 +26,7 @@ const ProductOriginStory: React.FC<ProductOriginStoryProps> = ({ product }) => {
     }
 
     return (
-        <Section className='bg-secondary/[0.03]'>
+        <Section id='origin-story' className='bg-secondary/[0.03]'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

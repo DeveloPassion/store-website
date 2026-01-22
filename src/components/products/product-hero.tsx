@@ -106,7 +106,10 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     const { isOpen, selectedIndex, open, close } = useMediaLightbox()
 
     return (
-        <section className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'>
+        <section
+            id='hero'
+            className='from-background to-background/80 relative overflow-hidden bg-gradient-to-b py-8 sm:py-12 md:py-16 lg:py-20'
+        >
             <div className='relative z-10 container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                 <div className='grid gap-8 overflow-hidden lg:grid-cols-2 lg:items-start lg:gap-12'>
                     {/* Left Column: Content */}

@@ -22,7 +22,7 @@ const ProductTimeline: React.FC<ProductTimelineProps> = ({ product }) => {
     const subtitle = timeline.subtitle || "See what you'll achieve over time"
 
     return (
-        <Section className='bg-solution/[0.03]'>
+        <Section id='timeline' className='bg-solution/[0.03]'>
             <div className='mx-auto max-w-4xl'>
                 <SectionHeader title={title} subtitle={subtitle} />
 

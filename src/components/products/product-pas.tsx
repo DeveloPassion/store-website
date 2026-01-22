@@ -18,7 +18,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
     return (
         <>
             {/* Problem Section */}
-            <Section className='border-primary/10 bg-problem/[0.03] border-t'>
+            <Section id='problem' className='border-primary/10 bg-problem/[0.03] border-t'>
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
@@ -53,7 +53,7 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
             </Section>
 
             {/* Agitate Section */}
-            <Section className='bg-agitate/[0.03]'>
+            <Section id='agitate' className='bg-agitate/[0.03]'>
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
@@ -88,7 +88,10 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
             </Section>
 
             {/* Solution Section */}
-            <Section className='border-primary/10 from-background to-solution/10 border-t bg-gradient-to-b'>
+            <Section
+                id='solution'
+                className='border-primary/10 from-background to-solution/10 border-t bg-gradient-to-b'
+            >
                 <motion.div
                     initial='hidden'
                     whileInView='visible'

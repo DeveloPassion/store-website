@@ -48,7 +48,7 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
     )
 
     return (
-        <Section className='border-primary/10 border-t'>
+        <Section id='course-content' className='border-primary/10 border-t'>
             <div className='mx-auto max-w-4xl'>
                 {/* Header */}
                 <SectionHeader

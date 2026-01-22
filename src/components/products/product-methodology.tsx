@@ -22,7 +22,7 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
     const sortedSteps = [...methodology.steps].sort((a, b) => a.order - b.order)
 
     return (
-        <Section className='bg-secondary/[0.03]'>
+        <Section id='methodology' className='bg-secondary/[0.03]'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

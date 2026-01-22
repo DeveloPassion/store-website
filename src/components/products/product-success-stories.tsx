@@ -19,7 +19,7 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
     if (!successStories || !successStories.stories?.length) return null
 
     return (
-        <Section className='bg-solution/[0.03]'>
+        <Section id='success-stories' className='bg-solution/[0.03]'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

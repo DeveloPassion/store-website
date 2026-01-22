@@ -17,7 +17,10 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
     const isFree = product.price === 0 || product.priceTier === 'free'
 
     return (
-        <Section className='border-primary/10 from-background to-solution/10 border-t bg-gradient-to-b'>
+        <Section
+            id='cta'
+            className='border-primary/10 from-background to-solution/10 border-t bg-gradient-to-b'
+        >
             <div className='mx-auto max-w-5xl'>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

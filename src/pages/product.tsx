@@ -151,6 +151,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
                 heading='See It In Action'
                 description={`Explore screenshots and videos to see exactly what you'll get with ${product.name}`}
                 includeAllVideos={true}
+                id='media'
             />
             <ProductBenefits product={product} />
             {/* Transformation Arc & Timeline: Visualize the journey after benefits */}
@@ -178,6 +179,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
                         'Take a closer look at the details and features'
                     )
                 }
+                id='media-secondary'
             />
             {/* Success Stories & Testimonials: Social proof cluster */}
             <ProductSuccessStories product={product} />
@@ -193,6 +195,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
                 group='bonus'
                 heading='Bonus Content'
                 description='Additional resources and insights'
+                id='media-bonus'
             />
             <ProductRelated product={product} />
             <StickyBuyButton

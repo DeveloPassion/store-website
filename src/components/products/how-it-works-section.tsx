@@ -68,7 +68,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
     // If no media, show heading only
     if (mediaItems.length === 0) {
         return (
-            <section className='bg-background/30 w-full py-12 sm:py-16'>
+            <section id='how-it-works' className='bg-background/30 w-full py-12 sm:py-16'>
                 <div className='container mx-auto max-w-4xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
             }
 
             return (
-                <section className='bg-background/30 w-full py-12 sm:py-16'>
+                <section id='how-it-works' className='bg-background/30 w-full py-12 sm:py-16'>
                     <div className='container mx-auto max-w-4xl px-6 sm:px-10 md:px-16'>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -197,7 +197,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
 
         // Single image
         return (
-            <section className='bg-background/30 w-full py-12 sm:py-16'>
+            <section id='how-it-works' className='bg-background/30 w-full py-12 sm:py-16'>
                 <div className='container mx-auto max-w-4xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -253,7 +253,7 @@ const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ product }) => {
     // Multiple media items - use carousel
     return (
         <>
-            <section className='bg-background/30 w-full py-12 sm:py-16'>
+            <section id='how-it-works' className='bg-background/30 w-full py-12 sm:py-16'>
                 <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

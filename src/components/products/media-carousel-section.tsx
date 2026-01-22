@@ -13,6 +13,8 @@ interface MediaCarouselSectionProps {
     description?: React.ReactNode
     /** When true, includes all videos from the product regardless of their group */
     includeAllVideos?: boolean
+    /** Optional section ID for anchor linking */
+    id?: string
 }
 
 /**
@@ -29,7 +31,8 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
     group,
     heading,
     description,
-    includeAllVideos = false
+    includeAllVideos = false,
+    id
 }) => {
     const { isOpen, selectedIndex, open, close } = useMediaLightbox()
 
@@ -84,7 +87,7 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
     // If no media but show is true, display heading only
     if (groupMedia.length === 0 && sectionConfig?.show === true) {
         return (
-            <section className='bg-background/50 w-full py-16 sm:py-20'>
+            <section id={id} className='bg-background/50 w-full py-16 sm:py-20'>
                 <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -108,7 +111,7 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
 
     return (
         <>
-            <section className='bg-background/50 w-full py-16 sm:py-20'>
+            <section id={id} className='bg-background/50 w-full py-16 sm:py-20'>
                 <div className='container mx-auto max-w-6xl px-6 sm:px-10 md:px-16'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

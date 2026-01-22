@@ -107,7 +107,7 @@ const ProductTransformationArc: React.FC<ProductTransformationArcProps> = ({ pro
     if (!transformationArc) return null
 
     return (
-        <Section className='bg-gradient-to-b from-transparent to-white/[0.02]'>
+        <Section id='transformation' className='bg-gradient-to-b from-transparent to-white/[0.02]'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

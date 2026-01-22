@@ -27,7 +27,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
     }
 
     return (
-        <Section className='bg-primary/[0.03]'>
+        <Section id='faq' className='bg-primary/[0.03]'>
             <div className='mx-auto w-full max-w-2xl sm:max-w-3xl lg:max-w-4xl'>
                 {/* Header */}
                 <SectionHeader

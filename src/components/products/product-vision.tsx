@@ -19,7 +19,7 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
     if (!vision) return null
 
     return (
-        <Section className='to-secondary/[0.05] bg-gradient-to-b from-transparent'>
+        <Section id='vision' className='to-secondary/[0.05] bg-gradient-to-b from-transparent'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

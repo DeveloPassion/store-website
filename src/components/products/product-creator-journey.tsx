@@ -19,7 +19,7 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
     if (!creatorJourney) return null
 
     return (
-        <Section className='bg-white/[0.02]'>
+        <Section id='creator-journey' className='bg-white/[0.02]'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'

@@ -265,7 +265,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
     const variantLabel = product.isSubscription ? 'Plan' : 'Tier'
 
     return (
-        <Section className='border-primary/10 bg-background border-t'>
+        <Section id='features' className='border-primary/10 bg-background border-t'>
             <div className='mx-auto max-w-6xl'>
                 {/* Header */}
                 <SectionHeader title="What's Included" subtitle={product.salesCopy?.description} />

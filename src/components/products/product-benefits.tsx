@@ -41,7 +41,7 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
     }
 
     return (
-        <Section className='bg-solution/[0.03]'>
+        <Section id='benefits' className='bg-solution/[0.03]'>
             <div className='mx-auto max-w-6xl'>
                 {/* Header */}
                 <SectionHeader
