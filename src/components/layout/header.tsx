@@ -185,10 +185,10 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
         }
 
         return [
-            allProductsLink,
             featuredLink,
             bestValueLink,
             bestSellersLink,
+            allProductsLink,
             successStoriesLink,
             compareLink,
             ...categoryLinks,
