@@ -346,6 +346,7 @@ bun run ci:local           # Full CI
 11. Branding changes: update `index.html`, `generate-static-pages.ts`, `generate-llms-txt.ts`
 12. Zod: prefer `.nullable()` over `.optional()`
 13. New pages: add navigation action to command palette (`src/components/products/command-palette.tsx`)
+14. All major sections on pages must have stable `id` attributes for deep linking (see `documentation/page-anchors.md`)
 
 ## Writing Style
 

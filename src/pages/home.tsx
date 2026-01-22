@@ -210,7 +210,10 @@ const HomeEcommerce: React.FC = () => {
     return (
         <>
             {/* Hero Section */}
-            <Section className='from-secondary/10 to-background bg-gradient-to-br via-purple-500/10 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20'>
+            <Section
+                id='hero'
+                className='from-secondary/10 to-background bg-gradient-to-br via-purple-500/10 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20'
+            >
                 <div className='mx-auto grid max-w-[1600px] gap-8 lg:grid-cols-2 lg:gap-12'>
                     {/* Hero Content */}
                     <div className='flex flex-col justify-center'>
@@ -323,7 +326,7 @@ const HomeEcommerce: React.FC = () => {
             </Section>
 
             {/* Trust Badges */}
-            <Section className='border-primary/10 border-b py-8'>
+            <Section id='trust-badges' className='border-primary/10 border-b py-8'>
                 <div className='mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-8 sm:gap-12'>
                     <div className='flex items-center gap-3'>
                         <FaShieldAlt className='text-secondary h-8 w-8' />
@@ -371,7 +374,7 @@ const HomeEcommerce: React.FC = () => {
 
             {/* Best Value Products Section */}
             {!categoryFilter && !searchQuery && !decodedTagName && bestValueProducts.length > 0 && (
-                <Section className='py-12 sm:py-16'>
+                <Section id='best-value' className='py-12 sm:py-16'>
                     <div className='mb-8 flex items-center justify-between'>
                         <div className='flex items-center gap-3'>
                             <div className='flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10'>
@@ -399,7 +402,7 @@ const HomeEcommerce: React.FC = () => {
 
             {/* Compare Products CTA - positioned after best value products */}
             {!categoryFilter && !searchQuery && !decodedTagName && (
-                <Section className='py-8'>
+                <Section id='compare' className='py-8'>
                     <Link
                         to='/compare'
                         className='bg-primary/5 hover:bg-primary/10 mx-auto flex max-w-2xl items-center justify-between gap-4 rounded-xl p-6 transition-all hover:scale-[1.02]'
@@ -423,7 +426,7 @@ const HomeEcommerce: React.FC = () => {
             )}
 
             {/* Categories Section */}
-            <Section className='py-12 sm:py-16'>
+            <Section id='categories' className='py-12 sm:py-16'>
                 <h2 className='mb-8 text-center text-3xl font-bold sm:text-4xl'>
                     Shop by Category
                 </h2>
@@ -435,7 +438,7 @@ const HomeEcommerce: React.FC = () => {
             </Section>
 
             {/* All Products Section */}
-            <Section className='py-12 sm:py-16'>
+            <Section id='products' className='py-12 sm:py-16'>
                 <div className='mb-8'>
                     <h2 className='mb-2 text-3xl font-bold sm:text-4xl'>
                         {decodedTagName
@@ -475,7 +478,10 @@ const HomeEcommerce: React.FC = () => {
             </Section>
 
             {/* Social Proof Section */}
-            <Section className='border-primary/10 bg-secondary/5 border-y py-12 sm:py-16'>
+            <Section
+                id='social-proof'
+                className='border-primary/10 bg-secondary/5 border-y py-12 sm:py-16'
+            >
                 <div className='mx-auto max-w-4xl text-center'>
                     <h2 className='mb-8 text-3xl font-bold sm:text-4xl'>
                         Trusted by Knowledge Workers Worldwide

@@ -1,3 +1,34 @@
+# Deep Linking Guide
+
+This document describes deep linking support for pages, including anchor IDs and URL parameters.
+
+---
+
+# Homepage Anchors
+
+Link directly to specific sections on the homepage:
+
+```
+/#{anchor-id}
+```
+
+Example: `/#featured`
+
+## Available Homepage Anchors
+
+| Section      | Anchor ID       | Description                        |
+| ------------ | --------------- | ---------------------------------- |
+| Hero         | `#hero`         | Main hero with stats and CTA       |
+| Trust Badges | `#trust-badges` | Guarantee, lifetime access, expert |
+| Featured     | `#featured`     | Featured products section          |
+| Best Value   | `#best-value`   | Best value products section        |
+| Compare      | `#compare`      | Compare products CTA               |
+| Categories   | `#categories`   | Shop by category grid              |
+| Products     | `#products`     | All products listing               |
+| Social Proof | `#social-proof` | Customer stats and testimonials    |
+
+---
+
 # Product Page Deep Linking
 
 This document describes deep linking support for product pages, including anchor IDs and URL parameters.
