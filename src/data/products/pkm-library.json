@@ -51,7 +51,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=mG87np3DF6rYFzEEyzSlNQ%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         },
         {
             "name": "Commercial License",
@@ -61,7 +62,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/PersonalKnowledgeManagementLibrary?option=2xsspQa0UQroFmHQwUTNmg%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         }
     ],
     "priority": 70,
@@ -81,5 +83,6 @@
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
     "landingPageUrl": null,
-    "dsebastienUrl": null
+    "dsebastienUrl": null,
+    "includedProducts": []
 }

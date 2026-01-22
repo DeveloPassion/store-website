@@ -45,7 +45,8 @@ const ProductHero: React.FC<ProductHeroProps> = ({
         gumroadUrl: product.gumroadUrl,
         gumroadVariantId: null,
         paymentFrequency: null,
-        prices: null
+        prices: null,
+        includedProducts: []
     }
 
     const selectedVariant = controlledVariant || defaultVariant

@@ -63,5 +63,6 @@
     "variants": null,
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
-    "dsebastienUrl": null
+    "dsebastienUrl": null,
+    "includedProducts": []
 }

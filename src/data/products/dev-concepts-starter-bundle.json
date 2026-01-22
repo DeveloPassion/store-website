@@ -51,7 +51,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=mh1dCYM0cYuLJojqJNYE8w%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         },
         {
             "name": "The e-books + 1 hour of coaching",
@@ -61,12 +62,14 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/DevConceptsStarter?option=FdLcHOSaa-iP0HkA8HES0w%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         }
     ],
     "activeSalesCopyId": "default",
     "isSubscription": false,
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
-    "stats": null
+    "stats": null,
+    "includedProducts": ["dev-concepts-volume-01", "dev-concepts-volume-02"]
 }

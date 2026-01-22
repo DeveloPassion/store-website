@@ -13,6 +13,8 @@ Two schemas: `IndividualProductSchema` (individual JSON files) and `AggregatedPr
 | `activeSalesCopyId`             | Required          | Required                       |
 | `salesCopy`                     | Not present       | Required object                |
 | `faqs`, `testimonials`, `media` | Not present       | Required arrays (can be empty) |
+| `includedProducts`              | Required array    | Required array                 |
+| `includedIn`                    | Not present       | Required array (computed)      |
 
 ```typescript
 // Build scripts: IndividualProduct | React components: AggregatedProduct (or Product alias)
@@ -62,7 +64,7 @@ All entities: JSON in `/src/data/`, Zod schemas in `/src/schemas/`, types in `/s
 
 **CLI**: `bun run update:products` | **Validate**: `bun run validate:products`
 
-**Individual fields**: id, name, gumroadId, isGumroadProduct, gumroadProductSlugs, activeSalesCopyId, price, priceDisplay, priceTier, currency, discount, isSubscription, paymentFrequencies, defaultPaymentFrequency, mainCategory, secondaryCategories, tags, variants, gumroadUrl, websiteUrl, demoUrl, documentationUrl, githubUrl, status, featured, bestValue, bestseller, priority, createdAt, updatedAt
+**Individual fields**: id, name, gumroadId, isGumroadProduct, gumroadProductSlugs, activeSalesCopyId, price, priceDisplay, priceTier, currency, discount, isSubscription, paymentFrequencies, defaultPaymentFrequency, mainCategory, secondaryCategories, tags, variants, gumroadUrl, websiteUrl, demoUrl, documentationUrl, githubUrl, status, featured, bestValue, bestseller, priority, includedProducts, createdAt, updatedAt
 
 ### Gumroad Integration Fields
 
@@ -110,7 +112,8 @@ Two fields describe product contents—they MUST NOT overlap:
             "name": "Explorer",
             "price": 4.99,
             "gumroadVariantId": "explorer",
-            "prices": { "monthly": 4.99, "yearly": 49.99, "biennial": 89.99 }
+            "prices": { "monthly": 4.99, "yearly": 49.99, "biennial": 89.99 },
+            "includedProducts": []
         }
     ]
 }
@@ -119,6 +122,38 @@ Two fields describe product contents—they MUST NOT overlap:
 ### Gumroad URLs
 
 Auto-added params: `wanted=true`, `quantity=1`, `variant={id}`, `monthly/yearly/every_two_years=true`. See `/src/lib/gumroad-url.ts`.
+
+### Included Products (Bundles)
+
+For bundles/subscriptions that include other products:
+
+```json
+{
+    "includedProducts": ["obsidian-starter-kit", "pkm-library"],
+    "variants": [
+        {
+            "name": "Knowledge Builder",
+            "gumroadVariantId": "knowledge-builder",
+            "includedProducts": ["obsidian-starter-course"]
+        },
+        {
+            "name": "Knowledge Master",
+            "gumroadVariantId": "knowledge-master",
+            "includedProducts": ["knowledge-management-for-beginners", "ai-ghostwriter-guide"]
+        }
+    ]
+}
+```
+
+- Root `includedProducts`: Products included in ALL variants (or base product if no variants)
+- `variant.includedProducts`: Additional products for that specific variant only
+- Both are required arrays (can be empty)
+
+**Computed field** (aggregated only): `includedIn: string[]` - reverse lookup showing which bundles include this product
+
+**CLI**: `bun run update:products` → Edit → Manage Included Products
+
+**UI Components**: `ProductFeatures` shows included products in the "Bonuses" collapsible drawer
 
 ### howItWorks (in sales copy)
 

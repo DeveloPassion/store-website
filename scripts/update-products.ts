@@ -2022,12 +2022,13 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     { name: '🖼️ Manage Media', value: 'media' },
                     { name: '📝 Manage Content (FAQs & Testimonials)', value: 'content' },
                     { name: '💬 Manage Sales Copy', value: 'sales-copy' },
+                    { name: '📦 Manage Included Products', value: 'included-products' },
                     { name: '🔍 View Current Details', value: 'view' },
                     { name: '📊 View Changes Summary', value: 'changes' },
                     { name: '💾 Save and Exit', value: 'save' },
                     { name: '❌ Cancel (Discard Changes)', value: 'cancel' }
                 ],
-                pageSize: 14
+                pageSize: 15
             })
 
             switch (action) {
@@ -2051,6 +2052,9 @@ async function operationEdit(args: CliArgs): Promise<void> {
                     break
                 case 'sales-copy':
                     await manageProductSalesCopy(product)
+                    break
+                case 'included-products':
+                    await manageIncludedProducts(product)
                     break
                 case 'view':
                     showProductDetails(product)
@@ -4650,6 +4654,424 @@ function hasAnyEditArgs(args: CliArgs): boolean {
         args.agitate ||
         args.solution
     )
+}
+
+// ============================================================================
+// Manage Included Products
+// ============================================================================
+
+/**
+ * Manage included products for bundles/subscriptions
+ * Allows configuring which products are included in this product
+ *
+ * Structure:
+ * - product.includedProducts: string[] (always included products)
+ * - product.variants[].includedProducts: string[] (variant-specific products)
+ */
+async function manageIncludedProducts(product: Product): Promise<void> {
+    let managing = true
+
+    while (managing) {
+        // Display current state
+        const rootCount = product.includedProducts?.length || 0
+        const hasVariants = product.variants && product.variants.length > 0
+        const variantCounts = (product.variants || [])
+            .filter((v) => v.includedProducts && v.includedProducts.length > 0)
+            .map((v) => `${v.name}: ${v.includedProducts.length}`)
+
+        const action = await select({
+            message: `Included Products Management (${rootCount} always included${variantCounts.length > 0 ? ', ' + variantCounts.join(', ') : ''}):`,
+            choices: [
+                { name: `📋 View current included products`, value: 'view' },
+                { name: '➕ Add products (always included)', value: 'add-root' },
+                { name: '➖ Remove products (always included)', value: 'remove-root' },
+                ...(hasVariants
+                    ? [
+                          { name: '🔧 Add products to specific variant', value: 'add-variant' },
+                          {
+                              name: '🔧 Remove products from specific variant',
+                              value: 'remove-variant'
+                          }
+                      ]
+                    : []),
+                { name: '🗑️ Clear all included products', value: 'clear' },
+                { name: '← Back to edit menu', value: 'back' }
+            ],
+            pageSize: 10
+        })
+
+        if (action === 'back') {
+            managing = false
+            continue
+        }
+
+        try {
+            switch (action) {
+                case 'view':
+                    displayIncludedProducts(product)
+                    await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+                    break
+                case 'add-root':
+                    await addToRootIncludedProducts(product)
+                    break
+                case 'remove-root':
+                    await removeFromRootIncludedProducts(product)
+                    break
+                case 'add-variant':
+                    await addToVariantIncludedProducts(product)
+                    break
+                case 'remove-variant':
+                    await removeFromVariantIncludedProducts(product)
+                    break
+                case 'clear':
+                    await clearIncludedProducts(product)
+                    break
+            }
+        } catch (error) {
+            const message = error instanceof Error ? error.message : String(error)
+            showError(message)
+            await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)
+        }
+    }
+}
+
+/**
+ * Display current included products with product names
+ */
+function displayIncludedProducts(product: Product): void {
+    console.log(
+        `\n${colors.bright}${colors.cyan}Included Products for: ${product.name}${colors.reset}\n`
+    )
+
+    // Display root includedProducts (always included)
+    const rootProducts = product.includedProducts || []
+    console.log(`${colors.bright}Always Included (${rootProducts.length}):${colors.reset}`)
+    if (rootProducts.length === 0) {
+        console.log(`  ${colors.dim}(none)${colors.reset}`)
+    } else {
+        for (const productId of rootProducts) {
+            const refProduct = loadProduct(productId)
+            if (refProduct) {
+                console.log(
+                    `  ${colors.green}✓${colors.reset} ${refProduct.name} ${colors.dim}(${productId})${colors.reset}`
+                )
+            } else {
+                console.log(
+                    `  ${colors.red}✗${colors.reset} ${productId} ${colors.dim}(not found)${colors.reset}`
+                )
+            }
+        }
+    }
+
+    // Display variant-level includedProducts
+    const variants = product.variants || []
+    if (variants.length > 0) {
+        console.log(`\n${colors.bright}Variant-Specific:${colors.reset}`)
+        for (const variant of variants) {
+            const variantProducts = variant.includedProducts || []
+            const variantName = variant.name
+            const variantId = variant.gumroadVariantId || '(no id)'
+            console.log(
+                `  ${colors.cyan}${variantName}${colors.reset} ${colors.dim}(${variantId})${colors.reset} - ${variantProducts.length} products:`
+            )
+            if (variantProducts.length === 0) {
+                console.log(`    ${colors.dim}(none)${colors.reset}`)
+            } else {
+                for (const productId of variantProducts) {
+                    const refProduct = loadProduct(productId)
+                    if (refProduct) {
+                        console.log(
+                            `    ${colors.green}✓${colors.reset} ${refProduct.name} ${colors.dim}(${productId})${colors.reset}`
+                        )
+                    } else {
+                        console.log(
+                            `    ${colors.red}✗${colors.reset} ${productId} ${colors.dim}(not found)${colors.reset}`
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Get list of all available products (excluding the current product)
+ */
+function getAvailableProducts(excludeId: string): { id: string; name: string }[] {
+    const files = readdirSync(PRODUCTS_DIR).filter(
+        (f) =>
+            f.endsWith('.json') &&
+            !f.endsWith('-faq.json') &&
+            !f.endsWith('-testimonials.json') &&
+            !f.endsWith('-media.json') &&
+            !f.endsWith('-stats.json') &&
+            !f.includes('-sales-copy-')
+    )
+
+    const products: { id: string; name: string }[] = []
+    for (const file of files) {
+        const id = file.replace('.json', '')
+        if (id === excludeId) continue
+        const product = loadProduct(id)
+        if (product) {
+            products.push({ id: product.id, name: product.name })
+        }
+    }
+
+    return products.sort((a, b) => a.name.localeCompare(b.name))
+}
+
+/**
+ * Clear all included products (root and all variants)
+ */
+async function clearIncludedProducts(product: Product): Promise<void> {
+    const hasRootProducts = product.includedProducts && product.includedProducts.length > 0
+    const hasVariantProducts = (product.variants || []).some(
+        (v) => v.includedProducts && v.includedProducts.length > 0
+    )
+
+    if (!hasRootProducts && !hasVariantProducts) {
+        showWarning('No included products to clear')
+        return
+    }
+
+    const confirmClear = await select({
+        message: 'Are you sure you want to clear all included products (root and all variants)?',
+        choices: [
+            { name: 'Yes', value: true },
+            { name: 'No', value: false }
+        ]
+    })
+
+    if (confirmClear) {
+        // Clear root includedProducts
+        if (hasRootProducts) {
+            trackChange('includedProducts', product.includedProducts, [])
+            product.includedProducts = []
+        }
+
+        // Clear variant includedProducts
+        for (const variant of product.variants || []) {
+            if (variant.includedProducts && variant.includedProducts.length > 0) {
+                trackChange(
+                    `variants.${variant.name}.includedProducts`,
+                    variant.includedProducts,
+                    []
+                )
+                variant.includedProducts = []
+            }
+        }
+
+        showSuccess('Cleared all included products')
+    }
+}
+
+/**
+ * Add products to root includedProducts (always included)
+ */
+async function addToRootIncludedProducts(product: Product): Promise<void> {
+    // Initialize if needed
+    if (!product.includedProducts) {
+        product.includedProducts = []
+    }
+
+    const availableProducts = getAvailableProducts(product.id)
+    const currentIds = new Set(product.includedProducts)
+
+    // Filter out already included products
+    const selectableProducts = availableProducts.filter((p) => !currentIds.has(p.id))
+
+    if (selectableProducts.length === 0) {
+        showWarning('All available products are already included')
+        return
+    }
+
+    const { selected } = await inquirer.prompt([
+        {
+            type: 'checkbox',
+            name: 'selected',
+            message: 'Select products to add (always included):',
+            choices: selectableProducts.map((p) => ({
+                name: `${p.name} (${p.id})`,
+                value: p.id
+            })),
+            pageSize: 15
+        }
+    ])
+
+    if (selected.length === 0) {
+        showWarning('No products selected')
+        return
+    }
+
+    const oldValue = [...product.includedProducts]
+    product.includedProducts.push(...selected)
+    trackChange('includedProducts', oldValue, product.includedProducts)
+    showSuccess(`Added ${selected.length} product(s) to always included`)
+}
+
+/**
+ * Remove products from root includedProducts (always included)
+ */
+async function removeFromRootIncludedProducts(product: Product): Promise<void> {
+    if (!product.includedProducts || product.includedProducts.length === 0) {
+        showWarning('No products to remove')
+        return
+    }
+
+    const currentProducts = product.includedProducts.map((id) => {
+        const p = loadProduct(id)
+        return { id, name: p?.name || id }
+    })
+
+    const { selected } = await inquirer.prompt([
+        {
+            type: 'checkbox',
+            name: 'selected',
+            message: 'Select products to remove:',
+            choices: currentProducts.map((p) => ({
+                name: `${p.name} (${p.id})`,
+                value: p.id
+            })),
+            pageSize: 15
+        }
+    ])
+
+    if (selected.length === 0) {
+        showWarning('No products selected')
+        return
+    }
+
+    const oldValue = [...product.includedProducts]
+    product.includedProducts = product.includedProducts.filter((id) => !selected.includes(id))
+    trackChange('includedProducts', oldValue, product.includedProducts)
+    showSuccess(`Removed ${selected.length} product(s) from always included`)
+}
+
+/**
+ * Add products to a specific variant's includedProducts
+ */
+async function addToVariantIncludedProducts(product: Product): Promise<void> {
+    if (!product.variants || product.variants.length === 0) {
+        showError('This product has no variants')
+        return
+    }
+
+    // Select variant
+    const variantChoices = product.variants.map((v, index) => ({
+        name: `${v.name}${v.gumroadVariantId ? ` (${v.gumroadVariantId})` : ''} - ${v.includedProducts?.length || 0} products`,
+        value: index
+    }))
+
+    const variantIndex = await select({
+        message: 'Select variant:',
+        choices: variantChoices
+    })
+
+    const variant = product.variants[variantIndex]
+
+    // Initialize if needed
+    if (!variant.includedProducts) {
+        variant.includedProducts = []
+    }
+
+    // Get already included products (root + this variant)
+    const currentIds = new Set([...(product.includedProducts || []), ...variant.includedProducts])
+
+    const availableProducts = getAvailableProducts(product.id)
+    const selectableProducts = availableProducts.filter((p) => !currentIds.has(p.id))
+
+    if (selectableProducts.length === 0) {
+        showWarning('All available products are already included for this variant')
+        return
+    }
+
+    const { selected } = await inquirer.prompt([
+        {
+            type: 'checkbox',
+            name: 'selected',
+            message: `Select products to add to "${variant.name}":`,
+            choices: selectableProducts.map((p) => ({
+                name: `${p.name} (${p.id})`,
+                value: p.id
+            })),
+            pageSize: 15
+        }
+    ])
+
+    if (selected.length === 0) {
+        showWarning('No products selected')
+        return
+    }
+
+    const oldValue = [...variant.includedProducts]
+    variant.includedProducts.push(...selected)
+
+    trackChange(`variants.${variant.name}.includedProducts`, oldValue, variant.includedProducts)
+    showSuccess(`Added ${selected.length} product(s) to variant "${variant.name}"`)
+}
+
+/**
+ * Remove products from a specific variant's includedProducts
+ */
+async function removeFromVariantIncludedProducts(product: Product): Promise<void> {
+    if (!product.variants || product.variants.length === 0) {
+        showError('This product has no variants')
+        return
+    }
+
+    // Find variants with products
+    const variantsWithProducts = product.variants
+        .map((v, index) => ({ variant: v, index }))
+        .filter(({ variant }) => variant.includedProducts && variant.includedProducts.length > 0)
+
+    if (variantsWithProducts.length === 0) {
+        showWarning('No variant-specific products to remove')
+        return
+    }
+
+    // Build variant choices with names
+    const variantChoices = variantsWithProducts.map(({ variant, index }) => ({
+        name: `${variant.name}${variant.gumroadVariantId ? ` (${variant.gumroadVariantId})` : ''} - ${variant.includedProducts?.length || 0} products`,
+        value: index
+    }))
+
+    const variantIndex = await select({
+        message: 'Select variant:',
+        choices: variantChoices
+    })
+
+    const variant = product.variants[variantIndex]
+    const currentProducts = (variant.includedProducts || []).map((id) => {
+        const p = loadProduct(id)
+        return { id, name: p?.name || id }
+    })
+
+    const { selected } = await inquirer.prompt([
+        {
+            type: 'checkbox',
+            name: 'selected',
+            message: `Select products to remove from "${variant.name}":`,
+            choices: currentProducts.map((p) => ({
+                name: `${p.name} (${p.id})`,
+                value: p.id
+            })),
+            pageSize: 15
+        }
+    ])
+
+    if (selected.length === 0) {
+        showWarning('No products selected')
+        return
+    }
+
+    const oldValue = [...(variant.includedProducts || [])]
+    variant.includedProducts = (variant.includedProducts || []).filter(
+        (id) => !selected.includes(id)
+    )
+
+    trackChange(`variants.${variant.name}.includedProducts`, oldValue, variant.includedProducts)
+    showSuccess(`Removed ${selected.length} product(s) from variant "${variant.name}"`)
 }
 
 // ============================================================================

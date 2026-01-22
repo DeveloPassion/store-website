@@ -17,7 +17,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=jFE4eFptU6WcQb1yvpgZHQ%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         },
         {
             "name": "Premium",
@@ -27,7 +28,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-starter-kit?option=Hv2ZxE5Spo1zjbvmr-aRQg%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": ["obsidian-starter-course"]
         }
     ],
     "tags": [
@@ -96,5 +98,6 @@
     "activeSalesCopyId": "default",
     "isSubscription": false,
     "paymentFrequencies": null,
-    "defaultPaymentFrequency": null
+    "defaultPaymentFrequency": null,
+    "includedProducts": []
 }

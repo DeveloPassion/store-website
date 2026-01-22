@@ -59,7 +59,9 @@ export const ProductVariantSchema = z.object({
     gumroadUrl: z.string().url(),
     gumroadVariantId: z.string().nullable(),
     paymentFrequency: PaymentFrequencySchema.nullable(),
-    prices: VariantPricingSchema.nullable() // Per-frequency pricing for accurate savings calculation
+    prices: VariantPricingSchema.nullable(), // Per-frequency pricing for accurate savings calculation
+    // Products included in this specific variant (in addition to root includedProducts)
+    includedProducts: z.array(z.string())
 })
 
 /**
@@ -109,6 +111,11 @@ const BaseProductSchema = z.object({
     // Cross-sell - Strictly required (empty array if no cross-sell products)
     crossSellIds: z.array(z.string()),
 
+    // Included Products - Products always included with this product (for bundles/subscriptions)
+    // Required array, can be empty if no products are always included
+    // Variant-specific inclusions are in each variant's includedProducts field
+    includedProducts: z.array(z.string()),
+
     // Sales Copy Reference - Strictly required (non-nullable)
     // MUST reference a valid sales copy variant file
     activeSalesCopyId: z.string().min(1, 'Active sales copy ID is required')
@@ -148,7 +155,11 @@ export const AggregatedProductSchema = BaseProductSchema.extend({
     averageRating: z.number().min(0).max(5).nullable(),
 
     // Computed testimonial count (calculated during aggregation from testimonials array length)
-    testimonialsCount: z.number().int().nonnegative()
+    testimonialsCount: z.number().int().nonnegative(),
+
+    // Computed reverse lookup: which products/bundles include this product
+    // Calculated during aggregation by scanning all products' includedProducts fields
+    includedIn: z.array(z.string())
 })
 
 // Array schemas

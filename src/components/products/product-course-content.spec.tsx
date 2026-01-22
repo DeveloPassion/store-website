@@ -48,6 +48,8 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
     ratingsCount: null,
     averageRating: null,
     testimonialsCount: 0,
+    includedProducts: [],
+    includedIn: [],
     salesCopy: {
         tagline: 'Test tagline',
         secondaryTagline: null,

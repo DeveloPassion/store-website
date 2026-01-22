@@ -78,5 +78,15 @@
     "variants": null,
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
-    "dsebastienUrl": null
+    "dsebastienUrl": null,
+    "includedProducts": [
+        "obsidian-starter-kit",
+        "obsidian-starter-course",
+        "pkm-library",
+        "journaling-deep-dive",
+        "personal-organization-101",
+        "clarity-101",
+        "ai-master-prompt",
+        "model-context-protocol"
+    ]
 }

@@ -374,6 +374,51 @@ export function loadActiveSalesCopy(
     }
 }
 
+/**
+ * Compute the reverse lookup map for includedIn field
+ * Scans all products' includedProducts fields (root and variant level) and builds a map of
+ * productId -> parentProductIds[] (products/bundles that include this product)
+ * @internal - Exported for testing purposes only
+ */
+export function computeIncludedIn(products: IndividualProduct[]): Map<string, string[]> {
+    const includedInMap = new Map<string, string[]>()
+
+    // Initialize all products with empty arrays
+    for (const product of products) {
+        if (!includedInMap.has(product.id)) {
+            includedInMap.set(product.id, [])
+        }
+    }
+
+    // Scan all products for includedProducts references
+    for (const product of products) {
+        // Add parent reference for all products in root includedProducts
+        const rootIncludedProducts = product.includedProducts || []
+        for (const includedId of rootIncludedProducts) {
+            const parents = includedInMap.get(includedId) || []
+            if (!parents.includes(product.id)) {
+                parents.push(product.id)
+                includedInMap.set(includedId, parents)
+            }
+        }
+
+        // Add parent reference for all products in variant-level includedProducts
+        const variants = product.variants || []
+        for (const variant of variants) {
+            const variantIncludedProducts = variant.includedProducts || []
+            for (const includedId of variantIncludedProducts) {
+                const parents = includedInMap.get(includedId) || []
+                if (!parents.includes(product.id)) {
+                    parents.push(product.id)
+                    includedInMap.set(includedId, parents)
+                }
+            }
+        }
+    }
+
+    return includedInMap
+}
+
 function main() {
     const PRODUCTS_DIR = getProductsDir()
     console.log('🔄 Aggregating product files...\n')
@@ -414,8 +459,8 @@ function main() {
 
     console.log(`Found ${files.length} product file(s):\n`)
 
-    // Parse all product files
-    const products: AggregatedProduct[] = []
+    // Phase 1: Load and validate all individual product files
+    const individualProducts: IndividualProduct[] = []
     const errors: string[] = []
 
     for (const file of files) {
@@ -442,72 +487,90 @@ function main() {
                 continue
             }
 
-            // Load FAQs, testimonials, media, stats, and sales copy for this product
-            const faqs = loadFAQs(product.id)
-            const testimonials = loadTestimonials(product.id)
-            const media = loadMedia(product.id)
-            const salesCopy = loadActiveSalesCopy(product.id, product.activeSalesCopyId)
-
-            // Load stats and compute ratings (testimonials count as 5-star ratings)
-            const stats = loadStats(product.id)
-            const { ratingsCount, averageRating } = computeRatings(stats, testimonials.length)
-
-            // Sales copy is strictly required in aggregated schema
-            if (!salesCopy) {
-                const message = `Missing or invalid sales copy for product ${product.id} (activeSalesCopyId: ${product.activeSalesCopyId})`
-                console.error(`  ❌ ${file}: ${message}`)
-                errors.push(`  ❌ ${file}: ${message}`)
-                continue
-            }
-
-            // Validate mediaIds references in howItWorks and mediaSections
-            validateMediaIdsReferences(product.id, salesCopy, media)
-
-            // Create aggregated product with proper structure
-            // salesCopy is a nested object (not spread into product)
-            // stats is loaded from -stats.json file (null if missing)
-            // ratingsCount and averageRating are computed from stats + testimonials
-            // testimonialsCount is pre-computed for efficient access
-            const testimonialsCount = testimonials.length
-            const aggregatedProduct: AggregatedProduct = {
-                ...product,
-                faqs,
-                testimonials,
-                media,
-                stats,
-                salesCopy,
-                ratingsCount,
-                averageRating,
-                testimonialsCount
-            }
-
-            // Validate the aggregated product
-            const aggregatedValidation = AggregatedProductSchema.safeParse(aggregatedProduct)
-            if (!aggregatedValidation.success) {
-                console.error(
-                    `  ❌ ${file}: Invalid aggregated product after adding FAQs/media/salesCopy`
-                )
-                aggregatedValidation.error.issues.forEach((err) => {
-                    console.error(`     - ${err.path.join('.')}: ${err.message}`)
-                })
-                errors.push(`  ❌ ${file}: Invalid aggregated product structure`)
-                continue
-            }
-
-            products.push(aggregatedValidation.data)
-            const salesCopyInfo = product.activeSalesCopyId
-                ? `sales-copy: ${product.activeSalesCopyId}`
-                : 'no sales-copy'
-            const ratingsInfo =
-                ratingsCount !== null ? `${ratingsCount} ratings (avg: ${averageRating})` : ''
-            console.log(
-                `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media, ${salesCopyInfo}${ratingsInfo ? ', ' + ratingsInfo : ''})`
-            )
+            individualProducts.push(product)
         } catch (error) {
             const errorMsg = error instanceof Error ? error.message : String(error)
             errors.push(`  ❌ ${file}: ${errorMsg}`)
             console.error(`  ❌ ${file}: Failed to parse`)
         }
+    }
+
+    // Phase 2: Compute includedIn reverse lookup map
+    const includedInMap = computeIncludedIn(individualProducts)
+
+    // Phase 3: Create aggregated products with all loaded content
+    const products: AggregatedProduct[] = []
+
+    for (const product of individualProducts) {
+        const file = `${product.id}.json`
+
+        // Load FAQs, testimonials, media, stats, and sales copy for this product
+        const faqs = loadFAQs(product.id)
+        const testimonials = loadTestimonials(product.id)
+        const media = loadMedia(product.id)
+        const salesCopy = loadActiveSalesCopy(product.id, product.activeSalesCopyId)
+
+        // Load stats and compute ratings (testimonials count as 5-star ratings)
+        const stats = loadStats(product.id)
+        const { ratingsCount, averageRating } = computeRatings(stats, testimonials.length)
+
+        // Sales copy is strictly required in aggregated schema
+        if (!salesCopy) {
+            const message = `Missing or invalid sales copy for product ${product.id} (activeSalesCopyId: ${product.activeSalesCopyId})`
+            console.error(`  ❌ ${file}: ${message}`)
+            errors.push(`  ❌ ${file}: ${message}`)
+            continue
+        }
+
+        // Validate mediaIds references in howItWorks and mediaSections
+        validateMediaIdsReferences(product.id, salesCopy, media)
+
+        // Get includedIn from the computed map
+        const includedIn = includedInMap.get(product.id) || []
+
+        // Create aggregated product with proper structure
+        // salesCopy is a nested object (not spread into product)
+        // stats is loaded from -stats.json file (null if missing)
+        // ratingsCount and averageRating are computed from stats + testimonials
+        // testimonialsCount is pre-computed for efficient access
+        // includedIn is computed from scanning all products' includedProducts
+        const testimonialsCount = testimonials.length
+        const aggregatedProduct: AggregatedProduct = {
+            ...product,
+            faqs,
+            testimonials,
+            media,
+            stats,
+            salesCopy,
+            ratingsCount,
+            averageRating,
+            testimonialsCount,
+            includedIn
+        }
+
+        // Validate the aggregated product
+        const aggregatedValidation = AggregatedProductSchema.safeParse(aggregatedProduct)
+        if (!aggregatedValidation.success) {
+            console.error(
+                `  ❌ ${file}: Invalid aggregated product after adding FAQs/media/salesCopy`
+            )
+            aggregatedValidation.error.issues.forEach((err) => {
+                console.error(`     - ${err.path.join('.')}: ${err.message}`)
+            })
+            errors.push(`  ❌ ${file}: Invalid aggregated product structure`)
+            continue
+        }
+
+        products.push(aggregatedValidation.data)
+        const salesCopyInfo = product.activeSalesCopyId
+            ? `sales-copy: ${product.activeSalesCopyId}`
+            : 'no sales-copy'
+        const ratingsInfo =
+            ratingsCount !== null ? `${ratingsCount} ratings (avg: ${averageRating})` : ''
+        const includedInInfo = includedIn.length > 0 ? `, includedIn: ${includedIn.length}` : ''
+        console.log(
+            `  ✅ ${file} (id: ${product.id}, ${faqs.length} FAQs, ${testimonials.length} testimonials, ${media.length} media, ${salesCopyInfo}${ratingsInfo ? ', ' + ratingsInfo : ''}${includedInInfo})`
+        )
     }
 
     console.log('')

@@ -46,6 +46,8 @@ const mockProduct: Product = {
     ratingsCount: null,
     averageRating: null,
     testimonialsCount: 0,
+    includedProducts: [],
+    includedIn: [],
     salesCopy: {
         tagline: 'A test product',
         secondaryTagline: null,
@@ -89,7 +91,8 @@ const mockProductWithVariants: Product = {
             gumroadUrl: 'https://gumroad.com/test-basic',
             gumroadVariantId: null,
             paymentFrequency: null,
-            prices: null
+            prices: null,
+            includedProducts: []
         },
         {
             name: 'Pro',
@@ -99,7 +102,8 @@ const mockProductWithVariants: Product = {
             gumroadUrl: 'https://gumroad.com/test-pro',
             gumroadVariantId: null,
             paymentFrequency: null,
-            prices: null
+            prices: null,
+            includedProducts: []
         }
     ]
 }

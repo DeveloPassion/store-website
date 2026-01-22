@@ -44,6 +44,8 @@ describe('Product Schema Validation', () => {
         ratingsCount: null,
         averageRating: null,
         testimonialsCount: 0,
+        includedProducts: [],
+        includedIn: [],
         salesCopy: {
             tagline: 'Test tagline',
             secondaryTagline: null,
@@ -141,7 +143,8 @@ describe('Product Schema Validation', () => {
                 gumroadUrl: 'https://gumroad.com/pro',
                 gumroadVariantId: null,
                 paymentFrequency: null,
-                prices: null
+                prices: null,
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -155,7 +158,8 @@ describe('Product Schema Validation', () => {
                 gumroadUrl: 'https://gumroad.com/pro',
                 gumroadVariantId: 'pro-version',
                 paymentFrequency: null,
-                prices: null
+                prices: null,
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -169,7 +173,8 @@ describe('Product Schema Validation', () => {
                 gumroadUrl: 'https://gumroad.com/monthly',
                 gumroadVariantId: null,
                 paymentFrequency: 'monthly',
-                prices: null
+                prices: null,
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -188,7 +193,8 @@ describe('Product Schema Validation', () => {
                     yearly: 99.99,
                     biennial: null,
                     oneTime: null
-                }
+                },
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(valid)).not.toThrow()
         })
@@ -202,7 +208,8 @@ describe('Product Schema Validation', () => {
                 gumroadUrl: 'not-a-url',
                 gumroadVariantId: null,
                 paymentFrequency: null,
-                prices: null
+                prices: null,
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(invalid)).toThrow()
         })
@@ -216,7 +223,8 @@ describe('Product Schema Validation', () => {
                 gumroadUrl: 'https://gumroad.com/pro',
                 gumroadVariantId: null,
                 paymentFrequency: 'weekly',
-                prices: null
+                prices: null,
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(invalid)).toThrow()
         })
@@ -229,7 +237,8 @@ describe('Product Schema Validation', () => {
                 description: 'Pro features',
                 gumroadUrl: 'https://gumroad.com/pro',
                 paymentFrequency: null,
-                prices: null
+                prices: null,
+                includedProducts: []
             }
             expect(() => ProductVariantSchema.parse(invalid)).toThrow()
         })

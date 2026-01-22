@@ -28,7 +28,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall?option=i01m7TZl5IAMpDh_90bnYQ%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         },
         {
             "name": "The Board + 1 Hour of Coaching",
@@ -38,7 +39,8 @@
             "gumroadUrl": "https://developassion.gumroad.com/l/it-concepts-wall?option=_ZZ5jzXKv0uv_UQesVwAvA%3D%3D",
             "gumroadVariantId": null,
             "paymentFrequency": null,
-            "prices": null
+            "prices": null,
+            "includedProducts": []
         }
     ],
     "priority": 50,
@@ -54,5 +56,6 @@
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
     "landingPageUrl": null,
-    "dsebastienUrl": null
+    "dsebastienUrl": null,
+    "includedProducts": []
 }

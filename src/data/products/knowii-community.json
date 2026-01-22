@@ -22,16 +22,10 @@
         "second-brain"
     ],
     "contents": [
-        "**3 Tiers**: Explorer (€4.99/mo), Knowledge Builder (€19.99/mo), Knowledge Master (€39.99/mo)",
+        "**Flagship Offer**: Everything keeps growing; join now, get everything added later",
         "**All Tiers**: Private community, live events, expert access, monthly challenges, 2K+ concept knowledge base, [~10K published notes](https://notes.dsebastien.net/)",
-        "**Knowledge Builder+**: All workshops included ([Journaling Deep Dive](/product/journaling-deep-dive), [Personal Organization 101](/product/personal-organization-101), [Clarity 101](/product/clarity-101), [AI Master Prompt](/product/ai-master-prompt), [MCP](/product/model-context-protocol), and more)",
-        "**Knowledge Builder+**: [Obsidian Starter Kit](/product/obsidian-starter-kit) (€129.99 value) + [Obsidian Starter Course](/product/obsidian-starter-course) (€69.99 value) = **€199.98 included**",
-        "**Knowledge Builder+**: Full video archive of all past events",
-        "**Knowledge Master**: [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course (€69.99 value)",
-        "**Knowledge Master**: AI Stack: [AI Ghostwriter Guide](/product/ai-ghostwriter-guide), [AI Master Prompt](/product/ai-master-prompt), [MCP Workshop](/product/model-context-protocol)",
-        "**Knowledge Master**: [Knowledge Worker Kit](/product/knowledge-worker-kit) + [PKM Library](/product/pkm-library) = **€500+ total value**",
-        "**Knowledge Master**: ALL future courses, tools, and workshops included automatically",
-        "**Flagship Offer**: Everything keeps growing; join now, get everything added later"
+        "**Knowledge Builder**: Access to premium spaces + Regular Workshops & Deep Dives",
+        "**Knowledge Master**: Access to ALL past & future courses, products and tools, exclusive events (e.g., AMAs, group coaching, masterminds, etc) . Best value for serious knowledge workers"
     ],
     "featured": true,
     "bestValue": true,
@@ -55,7 +49,8 @@
                 "yearly": 49.99,
                 "biennial": 89.99,
                 "oneTime": null
-            }
+            },
+            "includedProducts": []
         },
         {
             "name": "Knowledge Builder",
@@ -70,7 +65,16 @@
                 "yearly": 199.99,
                 "biennial": 379.99,
                 "oneTime": null
-            }
+            },
+            "includedProducts": [
+                "journaling-deep-dive",
+                "personal-organization-101",
+                "clarity-101",
+                "ai-master-prompt",
+                "model-context-protocol",
+                "obsidian-starter-kit",
+                "obsidian-starter-course"
+            ]
         },
         {
             "name": "Knowledge Master",
@@ -85,7 +89,13 @@
                 "yearly": 399.99,
                 "biennial": 699.99,
                 "oneTime": null
-            }
+            },
+            "includedProducts": [
+                "knowledge-worker-kit",
+                "knowledge-management-for-beginners",
+                "ai-ghostwriter-guide",
+                "pkm-library"
+            ]
         }
     ],
     "priority": 100,
@@ -98,5 +108,6 @@
     ],
     "activeSalesCopyId": "default",
     "landingPageUrl": null,
-    "dsebastienUrl": null
+    "dsebastienUrl": null,
+    "includedProducts": ["knowledge-system-checklist", "beginners-guide-obsidian"]
 }

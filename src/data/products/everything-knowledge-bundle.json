@@ -39,5 +39,21 @@
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
     "landingPageUrl": null,
-    "dsebastienUrl": null
+    "dsebastienUrl": null,
+    "includedProducts": [
+        "knowledge-worker-kit",
+        "knowledge-management-for-beginners",
+        "obsidian-starter-kit",
+        "obsidian-starter-course",
+        "ai-ghostwriter-guide",
+        "pkm-library",
+        "knowii-voice-ai",
+        "clarity-101",
+        "personal-organization-101",
+        "journaling-deep-dive",
+        "ai-master-prompt",
+        "model-context-protocol",
+        "beginners-guide-obsidian",
+        "knowledge-system-checklist"
+    ]
 }

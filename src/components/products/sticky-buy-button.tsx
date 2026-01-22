@@ -34,7 +34,8 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
         gumroadUrl: product.gumroadUrl,
         gumroadVariantId: null,
         paymentFrequency: null,
-        prices: null
+        prices: null,
+        includedProducts: []
     }
     const selectedVariant = controlledVariant || defaultVariant
 

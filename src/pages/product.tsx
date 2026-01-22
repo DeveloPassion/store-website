@@ -6,6 +6,7 @@ import ProductPAS from '@/components/products/product-pas'
 import ProductOriginStory from '@/components/products/product-origin-story'
 import ProductCreatorJourney from '@/components/products/product-creator-journey'
 import ProductFeatures from '@/components/products/product-features'
+import ProductIncludedIn from '@/components/products/product-included-in'
 import ProductCourseContent from '@/components/products/product-course-content'
 import ProductMethodology from '@/components/products/product-methodology'
 import MediaCarouselSection from '@/components/products/media-carousel-section'
@@ -135,7 +136,11 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
             <ProductOriginStory product={product} />
             <ProductCreatorJourney product={product} />
             <HowItWorksSection product={product} />
-            <ProductFeatures product={product} />
+            <ProductFeatures
+                product={product}
+                selectedVariant={selectedVariant}
+                setSelectedVariant={setSelectedVariant}
+            />
             {/* Course Content: For course products, show module structure after features */}
             <ProductCourseContent product={product} />
             {/* Methodology: Explain HOW it works after showing WHAT's included */}
@@ -180,6 +185,8 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
             <ProductFAQ product={product} />
             {/* Vision: Reinforce mission alignment before final CTA */}
             <ProductVision product={product} />
+            {/* Included In: Show bundles that include this product (upsell opportunity) */}
+            <ProductIncludedIn product={product} />
             <ProductCTA product={product} />
             <MediaCarouselSection
                 product={product}

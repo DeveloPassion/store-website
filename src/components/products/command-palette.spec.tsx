@@ -31,6 +31,8 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
         secondaryCategories: [],
         tags: ['knowledge-management'],
         testimonialsCount: 0,
+        includedProducts: [],
+        includedIn: [],
         salesCopy: {
             tagline: 'A test product tagline',
             secondaryTagline: null,

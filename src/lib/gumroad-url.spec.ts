@@ -242,6 +242,8 @@ describe('buildGumroadUrlFromProduct', () => {
         ratingsCount: null,
         averageRating: null,
         testimonialsCount: 0,
+        includedProducts: [],
+        includedIn: [],
         salesCopy: {
             tagline: 'Test',
             secondaryTagline: null,
@@ -295,7 +297,8 @@ describe('buildGumroadUrlFromProduct', () => {
                     gumroadUrl: 'https://gumroad.com/l/test-product',
                     gumroadVariantId: 'basic',
                     paymentFrequency: null,
-                    prices: null
+                    prices: null,
+                    includedProducts: []
                 },
                 {
                     name: 'Premium',
@@ -305,7 +308,8 @@ describe('buildGumroadUrlFromProduct', () => {
                     gumroadUrl: 'https://gumroad.com/l/test-product',
                     gumroadVariantId: 'premium',
                     paymentFrequency: null,
-                    prices: null
+                    prices: null,
+                    includedProducts: []
                 }
             ]
         }
@@ -332,7 +336,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         gumroadUrl: 'https://gumroad.com/l/test-premium',
                         gumroadVariantId: 'premium',
                         paymentFrequency: null,
-                        prices: null
+                        prices: null,
+                        includedProducts: []
                     }
                 ]
             }
@@ -372,7 +377,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         gumroadUrl: 'https://gumroad.com/l/test-product',
                         gumroadVariantId: 'monthly-plan',
                         paymentFrequency: 'monthly',
-                        prices: null
+                        prices: null,
+                        includedProducts: []
                     }
                 ]
             }
@@ -394,7 +400,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         gumroadUrl: 'https://gumroad.com/l/test',
                         gumroadVariantId: null,
                         paymentFrequency: 'monthly',
-                        prices: null
+                        prices: null,
+                        includedProducts: []
                     }
                 ]
             }
@@ -424,7 +431,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         gumroadUrl: 'https://gumroad.com/l/test',
                         gumroadVariantId: 'explorer',
                         paymentFrequency: 'monthly',
-                        prices: null
+                        prices: null,
+                        includedProducts: []
                     },
                     {
                         name: 'Pro',
@@ -434,7 +442,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         gumroadUrl: 'https://gumroad.com/l/test',
                         gumroadVariantId: 'pro',
                         paymentFrequency: 'monthly',
-                        prices: null
+                        prices: null,
+                        includedProducts: []
                     }
                 ]
             }
@@ -463,7 +472,8 @@ describe('buildGumroadUrlFromProduct', () => {
                         gumroadUrl: 'https://gumroad.com/l/test',
                         gumroadVariantId: null,
                         paymentFrequency: null,
-                        prices: null
+                        prices: null,
+                        includedProducts: []
                     }
                 ]
             }
