@@ -32,13 +32,17 @@ const WishlistPage: React.FC = () => {
     }, [])
 
     // Get wishlist product IDs and filter products
-    const wishlistProducts = useMemo(() => {
-        const wishlistIds = getWishlist()
-        const filtered = products.filter((p) => wishlistIds.includes(p.id))
-        // Sort by priority (highest first) to match other pages
-        return filtered.sort((a, b) => b.priority - a.priority)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [products, wishlistUpdateTrigger])
+    // wishlistUpdateTrigger signals external localStorage changes that require recomputation
+    const wishlistProducts = useMemo(
+        () => {
+            const wishlistIds = getWishlist()
+            const filtered = products.filter((p) => wishlistIds.includes(p.id))
+            // Sort by priority (highest first) to match other pages
+            return filtered.sort((a, b) => b.priority - a.priority)
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps -- wishlistUpdateTrigger signals external state changes
+        [products, wishlistUpdateTrigger]
+    )
 
     const wishlistCount = wishlistProducts.length
 

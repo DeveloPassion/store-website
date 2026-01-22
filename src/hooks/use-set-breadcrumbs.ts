@@ -22,6 +22,8 @@ export const useSetBreadcrumbs = (items: BreadcrumbItem[]) => {
 
         // Clear breadcrumbs on unmount
         return () => setBreadcrumbs([])
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // Using JSON.stringify for deep comparison since items is typically an inline array
+        // that changes reference on every render but rarely changes content
+        // eslint-disable-next-line react-hooks/exhaustive-deps -- JSON.stringify provides deep comparison for array items
     }, [JSON.stringify(items), setBreadcrumbs])
 }

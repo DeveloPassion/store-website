@@ -4,15 +4,26 @@ import HowItWorksSection from './how-it-works-section'
 import type { Product } from '@/schemas/product.schema'
 import type { MediaItem } from '@/schemas/media.schema'
 
-// Mock framer-motion
+// Mock framer-motion - filter out animation props that React DOM doesn't understand
+const filterMotionProps = (props: Record<string, unknown>) => {
+    const motionKeys = [
+        'initial',
+        'whileInView',
+        'whileHover',
+        'viewport',
+        'transition',
+        'animate',
+        'exit',
+        'variants'
+    ]
+    return Object.fromEntries(Object.entries(props).filter(([key]) => !motionKeys.includes(key)))
+}
+
 mock.module('framer-motion', () => ({
     motion: {
-        div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const { initial, whileInView, whileHover, viewport, transition, ...domProps } =
-                props as Record<string, unknown>
-            return <div {...domProps}>{children}</div>
-        }
+        div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => (
+            <div {...filterMotionProps(props)}>{children}</div>
+        )
     }
 }))
 

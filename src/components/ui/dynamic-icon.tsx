@@ -1,7 +1,10 @@
 /**
- * DynamicIcon component - Renders icons dynamically
- * This component intentionally creates icons dynamically as its core purpose.
- * The ESLint rule is disabled for this utility component.
+ * DynamicIcon component - Renders icons dynamically based on string name.
+ *
+ * This component intentionally looks up and renders icon components at runtime.
+ * The react-hooks/static-components rule is disabled because dynamic component
+ * lookup is the core purpose of this utility - it receives icon names as strings
+ * and renders the corresponding React icon component from a registry.
  *
  * Supports:
  * - Emojis (e.g., "🚀", "💡") - rendered as span
@@ -85,7 +88,7 @@ const emojiSizeClasses = {
     xl: 'text-3xl' // 30px
 }
 
-/* eslint-disable react-hooks/static-components */
+/* eslint-disable react-hooks/static-components -- Dynamic component lookup is intentional */
 export const DynamicIcon: React.FC<DynamicIconProps> = ({
     iconName,
     className = '',

@@ -246,8 +246,11 @@ describe('SalesCopyDataSchema', () => {
     })
 
     it('should require SEO fields (even if empty)', () => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { metaTitle, metaDescription, keywords, ...invalidData } = validSalesCopyData
+        // Remove SEO fields to test they are required
+        const invalidData = { ...validSalesCopyData } as Record<string, unknown>
+        delete invalidData['metaTitle']
+        delete invalidData['metaDescription']
+        delete invalidData['keywords']
         expect(() => SalesCopyDataSchema.parse(invalidData)).toThrow()
     })
 

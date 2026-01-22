@@ -4,15 +4,26 @@ import { BrowserRouter } from 'react-router'
 import ProductCTA from './product-cta'
 import type { Product } from '@/schemas/product.schema'
 
-// Mock framer-motion - Bun will handle motion components automatically
+// Mock framer-motion - filter out animation props that React DOM doesn't understand
+const filterMotionProps = (props: Record<string, unknown>) => {
+    const motionKeys = [
+        'initial',
+        'whileInView',
+        'whileHover',
+        'viewport',
+        'transition',
+        'animate',
+        'exit',
+        'variants'
+    ]
+    return Object.fromEntries(Object.entries(props).filter(([key]) => !motionKeys.includes(key)))
+}
+
 mock.module('framer-motion', () => ({
     motion: {
-        div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
-            // Filter out framer-motion specific props
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const { initial, whileInView, viewport, ...domProps } = props as Record<string, unknown>
-            return <div {...domProps}>{children}</div>
-        }
+        div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => (
+            <div {...filterMotionProps(props)}>{children}</div>
+        )
     }
 }))
 
