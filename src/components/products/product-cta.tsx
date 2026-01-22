@@ -80,7 +80,10 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                                     key={idx}
                                     className='bg-solution/10 text-solution flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium'
                                 >
-                                    <FaCheckCircle className='h-4 w-4 shrink-0' />
+                                    <FaCheckCircle
+                                        className='h-4 w-4 shrink-0'
+                                        aria-hidden='true'
+                                    />
                                     <MarkdownContent content={guarantee} inline />
                                 </div>
                             ))}
@@ -91,25 +94,28 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     <div className='border-primary/10 grid gap-4 border-t pt-8 sm:grid-cols-2 md:grid-cols-4'>
                         <div className='flex flex-col items-center gap-2'>
                             <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaShieldAlt className='text-solution h-6 w-6' />
+                                <FaShieldAlt className='text-solution h-6 w-6' aria-hidden='true' />
                             </div>
                             <div className='text-sm font-medium'>Secure Checkout</div>
                         </div>
                         <div className='flex flex-col items-center gap-2'>
                             <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaLock className='text-solution h-6 w-6' />
+                                <FaLock className='text-solution h-6 w-6' aria-hidden='true' />
                             </div>
                             <div className='text-sm font-medium'>Safe Payment</div>
                         </div>
                         <div className='flex flex-col items-center gap-2'>
                             <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaCreditCard className='text-solution h-6 w-6' />
+                                <FaCreditCard
+                                    className='text-solution h-6 w-6'
+                                    aria-hidden='true'
+                                />
                             </div>
                             <div className='text-sm font-medium'>All Cards Accepted</div>
                         </div>
                         <div className='flex flex-col items-center gap-2'>
                             <div className='bg-solution/10 flex h-12 w-12 items-center justify-center rounded-full'>
-                                <FaUndo className='text-solution h-6 w-6' />
+                                <FaUndo className='text-solution h-6 w-6' aria-hidden='true' />
                             </div>
                             <div className='text-sm font-medium'>Money-Back Guarantee</div>
                         </div>
@@ -181,7 +187,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                                     >
                                         <div className='mb-1 flex items-center justify-center gap-2 text-2xl font-bold text-yellow-400'>
                                             {product.averageRating.toFixed(1)}
-                                            <FaStar className='h-5 w-5' />
+                                            <FaStar className='h-5 w-5' aria-hidden='true' />
                                         </div>
                                         <div className='text-primary/60 group-hover:text-secondary text-sm transition-colors'>
                                             {product.ratingsCount}{' '}

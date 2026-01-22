@@ -122,7 +122,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         {/* Featured Badge */}
                         {product.featured && (
                             <div className='from-secondary to-secondary/80 mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r px-4 py-1.5 text-sm font-medium text-white shadow-md'>
-                                <FaStar className='h-3.5 w-3.5' />
+                                <FaStar className='h-3.5 w-3.5' aria-hidden='true' />
                                 Featured Product
                             </div>
                         )}
@@ -145,9 +145,12 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                 title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
                             >
                                 {isWishlisted ? (
-                                    <FaHeart className='h-5 w-5 sm:h-6 sm:w-6' />
+                                    <FaHeart className='h-5 w-5 sm:h-6 sm:w-6' aria-hidden='true' />
                                 ) : (
-                                    <FaRegHeart className='h-5 w-5 sm:h-6 sm:w-6' />
+                                    <FaRegHeart
+                                        className='h-5 w-5 sm:h-6 sm:w-6'
+                                        aria-hidden='true'
+                                    />
                                 )}
                             </button>
                             <ShareButton
@@ -245,7 +248,10 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                         >
                                             <div className='flex items-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl'>
                                                 {product.averageRating.toFixed(1)}
-                                                <FaStar className='h-5 w-5 sm:h-6 sm:w-6' />
+                                                <FaStar
+                                                    className='h-5 w-5 sm:h-6 sm:w-6'
+                                                    aria-hidden='true'
+                                                />
                                             </div>
                                             <div className='text-primary/60 group-hover:text-secondary text-sm transition-colors'>
                                                 {product.ratingsCount}{' '}
@@ -279,6 +285,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                         <button
                                             key={variant.name}
                                             onClick={() => setSelectedVariant(variant)}
+                                            aria-pressed={selectedVariant.name === variant.name}
                                             className={`group cursor-pointer rounded-lg border-2 p-4 text-left transition-all ${
                                                 selectedVariant.name === variant.name
                                                     ? 'border-secondary bg-secondary/10'
@@ -308,6 +315,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                                                 ? 'text-secondary'
                                                                 : 'invisible'
                                                         }`}
+                                                        aria-hidden='true'
                                                     />
                                                     <div className='text-secondary text-xl font-bold'>
                                                         {variant.priceDisplay}
@@ -369,7 +377,10 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                                 key={idx}
                                                 className='bg-primary/5 text-primary/70 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm'
                                             >
-                                                <FaCheckCircle className='text-secondary h-4 w-4 shrink-0' />
+                                                <FaCheckCircle
+                                                    className='text-secondary h-4 w-4 shrink-0'
+                                                    aria-hidden='true'
+                                                />
                                                 <MarkdownContent content={guarantee} inline />
                                             </div>
                                         ))}

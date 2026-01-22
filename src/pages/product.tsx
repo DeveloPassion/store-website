@@ -96,9 +96,15 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
     // Handle 404
     if (!product) {
         return (
-            <div className='container mx-auto flex min-h-screen items-center justify-center px-6'>
+            <main
+                className='container mx-auto flex min-h-screen items-center justify-center px-6'
+                role='alert'
+                aria-labelledby='not-found-title'
+            >
                 <div className='text-center'>
-                    <h1 className='mb-4 text-6xl font-bold'>404</h1>
+                    <h1 id='not-found-title' className='mb-4 text-6xl font-bold'>
+                        404
+                    </h1>
                     <h2 className='mb-4 text-2xl font-semibold'>Product Not Found</h2>
                     <p className='text-primary/70 mb-8'>
                         The product you're looking for doesn't exist or has been moved.
@@ -110,12 +116,12 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
                         View All Products
                     </button>
                 </div>
-            </div>
+            </main>
         )
     }
 
     return (
-        <>
+        <main>
             <div className='mx-auto max-w-[1800px] px-6 pt-8 sm:px-10 sm:pt-12 md:px-16 md:pt-16 lg:px-20 xl:px-32 2xl:max-w-[2200px]'>
                 <Breadcrumb className='mb-6 flex justify-center' />
             </div>
@@ -200,7 +206,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
                 selectedVariant={selectedVariant}
                 selectedFrequency={selectedFrequency}
             />
-        </>
+        </main>
     )
 }
 

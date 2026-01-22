@@ -70,6 +70,7 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                                     'h-5 w-5',
                                                     selected ? 'text-solution' : 'text-primary/60'
                                                 )}
+                                                aria-hidden='true'
                                             />
                                             <div className='text-left'>
                                                 <div
@@ -108,7 +109,10 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                             transition={{ delay: benefitIdx * 0.05 }}
                                             className='border-solution/20 bg-solution/5 flex h-full items-center gap-3 rounded-lg border p-4'
                                         >
-                                            <FaCheckCircle className='text-solution h-5 w-5 shrink-0' />
+                                            <FaCheckCircle
+                                                className='text-solution h-5 w-5 shrink-0'
+                                                aria-hidden='true'
+                                            />
                                             <MarkdownContent
                                                 content={benefit}
                                                 inline

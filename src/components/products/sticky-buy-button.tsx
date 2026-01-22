@@ -93,6 +93,8 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
+                    role='complementary'
+                    aria-label={`Quick purchase: ${product.name}`}
                     className='border-primary/10 bg-background/95 fixed inset-x-0 bottom-0 z-50 w-full border-t shadow-2xl backdrop-blur-lg'
                 >
                     <div className='flex w-full items-center justify-between gap-4 px-4 py-3'>
@@ -138,7 +140,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                 href={gumroadUrl}
                                 data-gumroad-overlay-checkout='true'
                                 size='md'
-                                leftIcon={<FaShoppingCart className='h-4 w-4' />}
+                                leftIcon={<FaShoppingCart className='h-4 w-4' aria-hidden='true' />}
                                 className='whitespace-nowrap hover:!scale-100'
                             >
                                 {/* Very small screens: show price in button */}

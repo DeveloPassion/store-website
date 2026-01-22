@@ -30,7 +30,12 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         <SectionHeader
                             title='The Problem'
                             subtitle={product.salesCopy?.problem}
-                            icon={<FaTimesCircle className='text-problem h-12 w-12' />}
+                            icon={
+                                <FaTimesCircle
+                                    className='text-problem h-12 w-12'
+                                    aria-hidden='true'
+                                />
+                            }
                         />
                     </motion.div>
 
@@ -40,7 +45,10 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                                 key={idx}
                                 className='border-problem/20 bg-problem/5 flex gap-4 rounded-lg border p-4'
                             >
-                                <FaTimesCircle className='text-problem mt-1 h-5 w-5 shrink-0' />
+                                <FaTimesCircle
+                                    className='text-problem mt-1 h-5 w-5 shrink-0'
+                                    aria-hidden='true'
+                                />
                                 <MarkdownContent
                                     content={point}
                                     inline
@@ -65,7 +73,12 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         <SectionHeader
                             title='Why This Matters'
                             subtitle={product.salesCopy?.agitate}
-                            icon={<FaExclamationTriangle className='text-agitate h-12 w-12' />}
+                            icon={
+                                <FaExclamationTriangle
+                                    className='text-agitate h-12 w-12'
+                                    aria-hidden='true'
+                                />
+                            }
                         />
                     </motion.div>
 
@@ -75,7 +88,10 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                                 key={idx}
                                 className='border-agitate/20 bg-agitate/5 flex gap-4 rounded-lg border p-4'
                             >
-                                <FaExclamationTriangle className='text-agitate mt-1 h-5 w-5 shrink-0' />
+                                <FaExclamationTriangle
+                                    className='text-agitate mt-1 h-5 w-5 shrink-0'
+                                    aria-hidden='true'
+                                />
                                 <MarkdownContent
                                     content={point}
                                     inline
@@ -103,7 +119,12 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                         <SectionHeader
                             title='The Solution'
                             subtitle={product.salesCopy?.solution}
-                            icon={<FaCheckCircle className='text-solution h-12 w-12' />}
+                            icon={
+                                <FaCheckCircle
+                                    className='text-solution h-12 w-12'
+                                    aria-hidden='true'
+                                />
+                            }
                         />
                     </motion.div>
 
@@ -113,7 +134,10 @@ const ProductPAS: React.FC<ProductPASProps> = ({ product }) => {
                                 key={idx}
                                 className='border-solution/20 bg-solution/5 flex gap-4 rounded-lg border p-4'
                             >
-                                <FaCheckCircle className='text-solution mt-1 h-5 w-5 shrink-0' />
+                                <FaCheckCircle
+                                    className='text-solution mt-1 h-5 w-5 shrink-0'
+                                    aria-hidden='true'
+                                />
                                 <MarkdownContent
                                     content={point}
                                     inline

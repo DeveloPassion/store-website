@@ -64,6 +64,7 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                                     'text-secondary h-5 w-5 shrink-0 transition-transform duration-200',
                                                     open && 'rotate-180'
                                                 )}
+                                                aria-hidden='true'
                                             />
                                         </Disclosure.Button>
                                         <Disclosure.Panel className='border-primary/10 border-t px-6 py-4'>

@@ -288,7 +288,10 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                             >
                                 {/* Icon */}
                                 <div className='bg-secondary/10 group-hover:bg-secondary/20 inline-flex shrink-0 rounded-lg p-2 transition-colors sm:p-3'>
-                                    <IconComponent className='text-secondary h-5 w-5 sm:h-6 sm:w-6' />
+                                    <IconComponent
+                                        className='text-secondary h-5 w-5 sm:h-6 sm:w-6'
+                                        aria-hidden='true'
+                                    />
                                 </div>
                                 {/* Text */}
                                 <MarkdownContent
@@ -334,6 +337,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                 <button
                                                     key={variant.gumroadVariantId || variant.name}
                                                     onClick={() => setSelectedVariant(variant)}
+                                                    aria-pressed={isSelected}
                                                     className={cn(
                                                         'group cursor-pointer rounded-lg border-2 p-3 text-left transition-all',
                                                         isSelected
@@ -351,6 +355,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                                         ? 'text-secondary'
                                                                         : 'invisible'
                                                                 )}
+                                                                aria-hidden='true'
                                                             />
                                                             <span className='truncate font-semibold'>
                                                                 {variant.name}
@@ -371,6 +376,8 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                         {/* Drawer Toggle Button */}
                         <button
                             onClick={() => setIsProductsDrawerOpen(!isProductsDrawerOpen)}
+                            aria-expanded={isProductsDrawerOpen}
+                            aria-controls='bonuses-drawer'
                             className={cn(
                                 'w-full cursor-pointer rounded-xl border-2 p-4 transition-all',
                                 totalProductsCount >= 1
@@ -399,6 +406,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                     ? 'text-green-500'
                                                     : 'text-secondary'
                                             )}
+                                            aria-hidden='true'
                                         />
                                     </div>
                                     <div className='min-w-0 text-left'>
@@ -423,6 +431,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                             : 'text-secondary',
                                         isProductsDrawerOpen && 'rotate-180'
                                     )}
+                                    aria-hidden='true'
                                 />
                             </div>
                         </button>
@@ -431,6 +440,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                         <AnimatePresence>
                             {isProductsDrawerOpen && (
                                 <motion.div
+                                    id='bonuses-drawer'
                                     initial={{ height: 0, opacity: 0 }}
                                     animate={{ height: 'auto', opacity: 1 }}
                                     exit={{ height: 0, opacity: 0 }}
@@ -446,7 +456,10 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                     <div>
                                                         <div className='mb-4 flex items-center justify-between gap-4'>
                                                             <div className='flex items-center gap-2'>
-                                                                <FaUnlock className='text-secondary h-4 w-4' />
+                                                                <FaUnlock
+                                                                    className='text-secondary h-4 w-4'
+                                                                    aria-hidden='true'
+                                                                />
                                                                 <h4 className='text-secondary font-semibold'>
                                                                     Always Included
                                                                 </h4>
@@ -491,9 +504,15 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                             <div className='mb-4 flex flex-wrap items-center justify-between gap-3'>
                                                                 <div className='flex items-center gap-2'>
                                                                     {isSelected ? (
-                                                                        <FaUnlock className='text-secondary h-4 w-4' />
+                                                                        <FaUnlock
+                                                                            className='text-secondary h-4 w-4'
+                                                                            aria-hidden='true'
+                                                                        />
                                                                     ) : (
-                                                                        <FaLock className='text-primary/40 h-4 w-4' />
+                                                                        <FaLock
+                                                                            className='text-primary/40 h-4 w-4'
+                                                                            aria-hidden='true'
+                                                                        />
                                                                     )}
                                                                     <h4
                                                                         className={cn(
@@ -586,7 +605,10 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                     className='border-secondary/20 bg-secondary/5 grid grid-cols-[auto_1fr] items-center gap-2.5 rounded-lg border p-2.5 sm:gap-3 sm:p-4'
                                 >
                                     {/* Icon */}
-                                    <FaCheckCircle className='text-secondary h-4 w-4 shrink-0 sm:h-5 sm:w-5' />
+                                    <FaCheckCircle
+                                        className='text-secondary h-4 w-4 shrink-0 sm:h-5 sm:w-5'
+                                        aria-hidden='true'
+                                    />
                                     {/* Text */}
                                     <MarkdownContent
                                         content={item}
@@ -622,7 +644,10 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                 className='grid grid-cols-[auto_1fr] items-center gap-3'
                                             >
                                                 {/* Icon */}
-                                                <FaCheckCircle className='text-secondary h-4 w-4 shrink-0' />
+                                                <FaCheckCircle
+                                                    className='text-secondary h-4 w-4 shrink-0'
+                                                    aria-hidden='true'
+                                                />
                                                 {/* Text */}
                                                 <MarkdownContent
                                                     content={item}
@@ -728,7 +753,10 @@ const IncludedProductCard: React.FC<IncludedProductCardProps> = ({
                 </div>
 
                 {/* External link indicator */}
-                <FaExternalLinkAlt className='text-primary/40 group-hover:text-secondary h-4 w-4 shrink-0 transition-colors' />
+                <FaExternalLinkAlt
+                    className='text-primary/40 group-hover:text-secondary h-4 w-4 shrink-0 transition-colors'
+                    aria-hidden='true'
+                />
             </Link>
         </motion.div>
     )

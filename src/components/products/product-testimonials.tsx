@@ -35,14 +35,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
         className='border-primary/10 bg-background/50 relative flex flex-col rounded-xl border p-4 shadow-md transition-all hover:shadow-lg md:p-4 xl:p-5'
     >
         {/* Quote Icon */}
-        <FaQuoteLeft className='text-secondary/20 mb-2 h-5 w-5 md:mb-2.5 md:h-5 md:w-5 xl:mb-3 xl:h-6 xl:w-6' />
+        <FaQuoteLeft
+            className='text-secondary/20 mb-2 h-5 w-5 md:mb-2.5 md:h-5 md:w-5 xl:mb-3 xl:h-6 xl:w-6'
+            aria-hidden='true'
+        />
 
         {/* Rating - Always 5 stars (all testimonials are 5-star) */}
-        <div className='mb-2 flex gap-1 md:mb-2 xl:mb-3'>
+        <div className='mb-2 flex gap-1 md:mb-2 xl:mb-3' role='img' aria-label='5 out of 5 stars'>
             {Array.from({ length: 5 }).map((_, i) => (
                 <FaStar
                     key={i}
                     className='text-secondary h-3 w-3 md:h-3 md:w-3 xl:h-3.5 xl:w-3.5'
+                    aria-hidden='true'
                 />
             ))}
         </div>
@@ -184,7 +188,12 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                 </motion.div>
 
                 {/* Mobile Carousel (< md) */}
-                <div className='relative overflow-hidden md:hidden'>
+                <div
+                    className='relative overflow-hidden md:hidden'
+                    role='region'
+                    aria-roledescription='carousel'
+                    aria-label='Customer testimonials'
+                >
                     <div className='px-10 sm:px-14'>
                         {currentTestimonial && (
                             <AnimatePresence initial={false} custom={direction} mode='wait'>
@@ -214,14 +223,20 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                                 className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer rounded-full border-2 p-1.5 transition-all hover:scale-110 hover:text-white sm:left-2 sm:p-2'
                                 aria-label='Previous testimonial'
                             >
-                                <FaChevronLeft className='h-3.5 w-3.5 sm:h-4 sm:w-4' />
+                                <FaChevronLeft
+                                    className='h-3.5 w-3.5 sm:h-4 sm:w-4'
+                                    aria-hidden='true'
+                                />
                             </button>
                             <button
                                 onClick={goToNext}
                                 className='bg-background/80 hover:bg-secondary text-primary/60 border-primary/20 hover:border-secondary absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer rounded-full border-2 p-1.5 transition-all hover:scale-110 hover:text-white sm:right-2 sm:p-2'
                                 aria-label='Next testimonial'
                             >
-                                <FaChevronRight className='h-3.5 w-3.5 sm:h-4 sm:w-4' />
+                                <FaChevronRight
+                                    className='h-3.5 w-3.5 sm:h-4 sm:w-4'
+                                    aria-hidden='true'
+                                />
                             </button>
                         </>
                     )}
@@ -248,11 +263,17 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                                                 : 'bg-primary/20 hover:bg-primary/40 w-2'
                                         }`}
                                         aria-label={`Go to testimonial ${idx + 1}`}
+                                        aria-current={idx === currentIndex ? 'true' : undefined}
                                     />
                                 ))}
                             </div>
                         </div>
                     )}
+                    {/* Screen reader: Current slide info */}
+                    <div className='sr-only' aria-live='polite' aria-atomic='true'>
+                        {currentTestimonial &&
+                            `Showing testimonial ${currentIndex + 1} of ${visibleTestimonials.length} from ${currentTestimonial.author}`}
+                    </div>
                 </div>
 
                 {/* Desktop Grid (>= md) */}
@@ -292,7 +313,7 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                             className='border-primary/20 hover:border-primary/40 hover:bg-primary/5 inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 bg-transparent px-8 py-4 text-lg font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
                         >
                             <span>See All Reviews</span>
-                            <FaExternalLinkAlt className='h-3 w-3' />
+                            <FaExternalLinkAlt className='h-3 w-3' aria-hidden='true' />
                         </Link>
                     </div>
                 </div>
