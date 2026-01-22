@@ -1,3 +1,13 @@
+## [1.3.0](https://github.com/DeveloPassion/store-website/compare/1.2.0...1.3.0) (2026-01-22)
+
+### Features
+
+* **all:** added advanced filtering/sorting/search on all products page ([b443737](https://github.com/DeveloPassion/store-website/commit/b443737f1d4fb0d2ac62d3f3e5549a58313499cb))
+* **all:** added stable ids to homepage ([13f5198](https://github.com/DeveloPassion/store-website/commit/13f51983324926a7edc790e2da5d7ff5813d4c56))
+* **all:** added support for changing product priorities in product cli ([daaa62c](https://github.com/DeveloPassion/store-website/commit/daaa62cec7b9b869fef72888ec02c79d0a065471))
+* **all:** updated product priorities ([d279800](https://github.com/DeveloPassion/store-website/commit/d279800c299d4c9aca599cd25755bf33db7c4f47))
+* **all:** updated sales ([23366aa](https://github.com/DeveloPassion/store-website/commit/23366aae59d541672ccb92ef8ca2eed1b7b78e5a))
+* **all:** updated the command palette (removed bogus entryà ([66a1d14](https://github.com/DeveloPassion/store-website/commit/66a1d149878c9f0e0a0d398d2bdd1e27f77f87c1))
 ## [1.2.0](https://github.com/DeveloPassion/store-website/compare/1.1.5...1.2.0) (2026-01-22)
 
 ### Features
