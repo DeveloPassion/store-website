@@ -75,7 +75,7 @@
     "bestValue": false,
     "bestseller": true,
     "crossSellIds": ["knowledge-management-for-beginners", "everything-knowledge-bundle"],
-    "priority": 100,
+    "priority": 95,
     "mainCategory": "kits-and-templates",
     "secondaryCategories": [
         {

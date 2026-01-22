@@ -25,7 +25,7 @@
     "bestValue": false,
     "bestseller": false,
     "crossSellIds": ["knowledge-worker-kit", "knowii-community"],
-    "priority": 60,
+    "priority": 90,
     "mainCategory": "ai-tools",
     "secondaryCategories": [
         {

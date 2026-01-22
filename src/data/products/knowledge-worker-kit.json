@@ -49,7 +49,7 @@
     "bestseller": true,
     "crossSellIds": ["obsidian-starter-kit", "knowledge-management-for-beginners", "pkm-library"],
     "landingPageUrl": "https://www.dsebastien.net",
-    "priority": 90,
+    "priority": 95,
     "mainCategory": "knowledge-work",
     "secondaryCategories": [
         {

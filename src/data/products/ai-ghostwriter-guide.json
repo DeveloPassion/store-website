@@ -35,7 +35,7 @@
     "bestValue": false,
     "bestseller": false,
     "crossSellIds": ["knowledge-management-for-beginners", "knowledge-worker-kit"],
-    "priority": 75,
+    "priority": 80,
     "mainCategory": "guides",
     "secondaryCategories": [
         {

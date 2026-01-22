@@ -21,7 +21,7 @@
     "bestValue": false,
     "bestseller": false,
     "crossSellIds": ["knowledge-management-for-beginners", "knowii-community"],
-    "priority": 55,
+    "priority": 65,
     "mainCategory": "coaching",
     "secondaryCategories": [
         {

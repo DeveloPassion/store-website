@@ -23,7 +23,7 @@
     "bestValue": false,
     "bestseller": false,
     "crossSellIds": ["ai-master-prompt", "obsidian-starter-kit", "knowledge-worker-kit"],
-    "priority": 65,
+    "priority": 75,
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

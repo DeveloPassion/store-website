@@ -40,7 +40,7 @@
     "featured": false,
     "bestValue": false,
     "bestseller": false,
-    "priority": 30,
+    "priority": 60,
     "crossSellIds": ["dev-concepts-volume-01", "dev-concepts-volume-02"],
     "variants": [
         {

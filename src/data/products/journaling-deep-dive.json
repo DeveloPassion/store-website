@@ -35,7 +35,7 @@
     "bestValue": false,
     "bestseller": false,
     "crossSellIds": ["personal-organization-101", "clarity-101", "knowledge-worker-kit"],
-    "priority": 65,
+    "priority": 80,
     "mainCategory": "workshops",
     "secondaryCategories": [
         {

@@ -33,7 +33,7 @@
     "bestValue": false,
     "bestseller": false,
     "crossSellIds": ["model-context-protocol", "ai-ghostwriter-guide", "knowledge-worker-kit"],
-    "priority": 65,
+    "priority": 80,
     "mainCategory": "workshops",
     "secondaryCategories": [
         {
