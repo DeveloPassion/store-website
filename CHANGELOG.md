@@ -1,3 +1,19 @@
+## [1.2.0](https://github.com/DeveloPassion/store-website/compare/1.1.5...1.2.0) (2026-01-22)
+
+### Features
+
+* **all:** added deep product linking (save chosen tier/variant etc in url) ([a16ca08](https://github.com/DeveloPassion/store-website/commit/a16ca0835b246332a4758affe9797e35257b4b75))
+* **all:** added stable ids for all product page parts ([5e9025c](https://github.com/DeveloPassion/store-website/commit/5e9025c1da1df6191f541361180c504e03ab3d97))
+* **all:** added stable ids to all product page components ([0e2f01c](https://github.com/DeveloPassion/store-website/commit/0e2f01c920f78c3bc7aaed579aba0b49fcbb25dd))
+* **all:** added support for included products ([5540429](https://github.com/DeveloPassion/store-website/commit/55404294a7d762af68675d88e66f0d90bea4d707))
+* **all:** improved product benefit tab sizes consistency ([a9639e0](https://github.com/DeveloPassion/store-website/commit/a9639e054380348948d3cf1fbff0d2cb62100274))
+* **all:** improved the sticky buy button ([468bc46](https://github.com/DeveloPassion/store-website/commit/468bc46d286ab8eedf10bbbed141794b992348ab))
+* **all:** moved all products link in hamburger menu ([46446ed](https://github.com/DeveloPassion/store-website/commit/46446ed77e0184d31b441b4c9fefa2d2394584c9))
+* **all:** updated tests ([8609234](https://github.com/DeveloPassion/store-website/commit/860923473a65a98a3ade523dcb657aa3534e9acf))
+
+### Bug Fixes
+
+* **all:** fixed incorrect test ([6098755](https://github.com/DeveloPassion/store-website/commit/6098755f145b72c6de796e3c7eb53df69bd5e38c))
 ## [1.1.5](https://github.com/DeveloPassion/store-website/compare/1.1.4...1.1.5) (2026-01-21)
 
 ### Features
