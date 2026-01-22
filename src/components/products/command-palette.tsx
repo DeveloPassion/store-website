@@ -273,19 +273,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             .slice()
             .sort((a, b) => a.priority - b.priority)
 
-        // Add "All Products" category first
-        cmds.push({
-            id: 'category-all',
-            type: 'category',
-            title: 'All Products',
-            subtitle: 'Browse all products',
-            icon: <FaFilter className='text-secondary h-5 w-5' />,
-            action: () => {
-                navigate('/')
-                onClose()
-            }
-        })
-
         // Add all categories
         sortedCategories.forEach((category) => {
             cmds.push({
@@ -329,8 +316,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                     return true
                 }
                 if (c.type === 'category') {
-                    // Show "All Products" or featured categories
-                    return c.id === 'category-all' || (c.category?.featured ?? false)
+                    // Show featured categories
+                    return c.category?.featured ?? false
                 }
                 return false
             })
