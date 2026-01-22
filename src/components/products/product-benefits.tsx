@@ -51,15 +51,15 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
 
                 {/* Tabs */}
                 <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
-                    <Tab.List className='mb-8 flex flex-col gap-2 sm:flex-row sm:justify-center'>
+                    <Tab.List className='mb-8 flex flex-col gap-2 sm:flex-row sm:items-stretch'>
                         {tabs.map((tab, idx) => (
-                            <Tab key={idx} className='focus:outline-none'>
+                            <Tab key={idx} className='focus:outline-none sm:flex-1'>
                                 {({ selected }) => {
                                     const Icon = tab.icon
                                     return (
                                         <div
                                             className={cn(
-                                                'flex cursor-pointer items-center gap-3 rounded-lg border-2 px-6 py-4 transition-all',
+                                                'flex h-full w-full cursor-pointer items-center gap-3 rounded-lg border-2 px-6 py-4 transition-all',
                                                 selected
                                                     ? 'border-solution bg-solution/10'
                                                     : 'border-primary/20 hover:border-primary/40'
@@ -106,7 +106,7 @@ const ProductBenefits: React.FC<ProductBenefitsProps> = ({ product }) => {
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: benefitIdx * 0.05 }}
-                                            className='border-solution/20 bg-solution/5 flex items-center gap-3 rounded-lg border p-4'
+                                            className='border-solution/20 bg-solution/5 flex h-full items-center gap-3 rounded-lg border p-4'
                                         >
                                             <FaCheckCircle className='text-solution h-5 w-5 shrink-0' />
                                             <MarkdownContent
