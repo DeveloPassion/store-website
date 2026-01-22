@@ -138,28 +138,22 @@ describe('StickyBuyButton', () => {
 
     it('should render with product name and price', async () => {
         window.scrollY = 600 // Trigger visibility
-        const { getAllByText } = render(<StickyBuyButton product={mockProduct} />)
+        const { getByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            // Product name appears twice (mobile and desktop layouts)
-            const productNames = getAllByText('Test Product')
-            expect(productNames.length).toBeGreaterThanOrEqual(1)
-            // Price appears twice (mobile and desktop layouts)
-            const prices = getAllByText('$49')
-            expect(prices.length).toBeGreaterThanOrEqual(1)
+            expect(getByText('Test Product')).toBeInTheDocument()
+            expect(getByText('$49')).toBeInTheDocument()
         })
     })
 
     it('should render buy button with correct link', async () => {
         window.scrollY = 600
-        const { getAllByText } = render(<StickyBuyButton product={mockProduct} />)
+        const { getByRole } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            const buyButtons = getAllByText(/Buy Now/i)
-            expect(buyButtons.length).toBeGreaterThan(0)
-            const firstButton = buyButtons[0]!.closest('a')
-            expect(firstButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
-            expect(firstButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
+            const buyButton = getByRole('link')
+            expect(buyButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
+            expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
         })
     })
 
@@ -183,16 +177,14 @@ describe('StickyBuyButton', () => {
 
     it('should use first variant when variants are provided', async () => {
         window.scrollY = 600
-        const { getAllByText } = render(<StickyBuyButton product={mockProductWithVariants} />)
+        const { getByText, getByRole } = render(
+            <StickyBuyButton product={mockProductWithVariants} />
+        )
 
         await waitFor(() => {
-            // Price appears in both mobile and desktop layouts
-            const prices = getAllByText('$29')
-            expect(prices.length).toBeGreaterThanOrEqual(1)
-            const buyButtons = getAllByText(/Buy Now/i)
-            expect(buyButtons.length).toBeGreaterThan(0)
-            const firstButton = buyButtons[0]!.closest('a')
-            expect(firstButton).toHaveAttribute(
+            expect(getByText('$29')).toBeInTheDocument()
+            const buyButton = getByRole('link')
+            expect(buyButton).toHaveAttribute(
                 'href',
                 expect.stringContaining('gumroad.com/test-basic')
             )
@@ -211,14 +203,12 @@ describe('StickyBuyButton', () => {
 
     it('should have proper accessibility attributes', async () => {
         window.scrollY = 600
-        const { getAllByText } = render(<StickyBuyButton product={mockProduct} />)
+        const { getByRole } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            const buyButtons = getAllByText(/Buy Now/i)
-            expect(buyButtons.length).toBeGreaterThan(0)
-            const firstButton = buyButtons[0]!.closest('a')
-            expect(firstButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
-            expect(firstButton).toHaveClass('bg-secondary')
+            const buyButton = getByRole('link')
+            expect(buyButton).toHaveAttribute('data-gumroad-overlay-checkout', 'true')
+            expect(buyButton).toHaveClass('bg-secondary')
         })
     })
 
@@ -242,37 +232,30 @@ describe('StickyBuyButton', () => {
         await waitFor(() => {
             const stickyContainer = container.querySelector('.fixed')
             expect(stickyContainer).toBeInTheDocument()
-            expect(stickyContainer).toHaveClass('bottom-0', 'left-0', 'right-0', 'z-50')
+            expect(stickyContainer).toHaveClass('bottom-0', 'inset-x-0', 'z-50')
         })
     })
 
-    it('should show both mobile and desktop layouts', async () => {
+    it('should show Buy Now button text', async () => {
         window.scrollY = 600
         const { getAllByText } = render(<StickyBuyButton product={mockProduct} />)
 
         await waitFor(() => {
-            // Both mobile and desktop layouts have "Buy Now" buttons
-            const buyButtons = getAllByText(/Buy Now/i)
-            expect(buyButtons.length).toBe(2) // One for mobile, one for desktop
-            buyButtons.forEach((button) => {
-                expect(button).toBeInTheDocument()
-            })
+            // Button has two spans for responsive text (one with price for small screens)
+            const buyButtons = getAllByText(/Buy/i)
+            expect(buyButtons.length).toBeGreaterThan(0)
         })
     })
 
     it('should use default variant when no variants provided', async () => {
         window.scrollY = 600
         const productNoVariants = { ...mockProduct, variants: null }
-        const { getAllByText } = render(<StickyBuyButton product={productNoVariants} />)
+        const { getByText, getByRole } = render(<StickyBuyButton product={productNoVariants} />)
 
         await waitFor(() => {
-            // Price appears in both mobile and desktop layouts
-            const prices = getAllByText('$49')
-            expect(prices.length).toBeGreaterThanOrEqual(1)
-            const buyButtons = getAllByText(/Buy Now/i)
-            expect(buyButtons.length).toBeGreaterThanOrEqual(1)
-            const firstButton = buyButtons[0]!.closest('a')
-            expect(firstButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
+            expect(getByText('$49')).toBeInTheDocument()
+            const buyButton = getByRole('link')
+            expect(buyButton).toHaveAttribute('href', expect.stringContaining('gumroad.com/test'))
         })
     })
 
@@ -282,8 +265,9 @@ describe('StickyBuyButton', () => {
         const { getAllByText } = render(<StickyBuyButton product={freeProduct} />)
 
         await waitFor(() => {
+            // Both responsive spans show "Get Now" for free products
             const getButtons = getAllByText(/Get Now/i)
-            expect(getButtons.length).toBe(2) // One for mobile, one for desktop
+            expect(getButtons.length).toBe(2)
         })
     })
 })
