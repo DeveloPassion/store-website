@@ -1,7 +1,7 @@
 import { describe, it, expect, mock } from 'bun:test'
 import { render } from '@testing-library/react'
 import ProductCourseContent from './product-course-content'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct } from '@/test-utils/mock-product'
 
 // Mock framer-motion - filter out animation props that React DOM doesn't understand
 const filterMotionProps = (props: Record<string, unknown>) => {
@@ -25,72 +25,6 @@ mock.module('framer-motion', () => ({
         )
     }
 }))
-
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'courses',
-    secondaryCategories: [],
-    tags: ['ai'],
-    contents: ['Item 1'],
-    testimonials: [],
-    faqs: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    media: [],
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem point 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate point 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution point 1'],
-        description: 'Test description',
-        highlights: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    },
-    ...overrides
-})
 
 // Helper to create section with all nullable fields
 const createSection = (

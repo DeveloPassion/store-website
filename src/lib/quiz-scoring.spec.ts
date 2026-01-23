@@ -5,77 +5,8 @@ import {
     matchProducts,
     applyResultOverrides
 } from './quiz-scoring'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct } from '@/test-utils/mock-product'
 import type { QuizFilters, QuizResultOverride } from '@/schemas/quiz.schema'
-
-// Create a minimal mock product for testing
-function createMockProduct(overrides: Partial<Product>): Product {
-    return {
-        id: 'test-product',
-        name: 'Test Product',
-        gumroadId: null,
-        isGumroadProduct: true,
-        gumroadProductSlugs: null,
-        price: 29,
-        priceDisplay: '€29',
-        priceTier: 'budget',
-        gumroadUrl: 'https://gumroad.com/test',
-        variants: null,
-        isSubscription: false,
-        paymentFrequencies: null,
-        defaultPaymentFrequency: null,
-        mainCategory: 'knowledge-management',
-        secondaryCategories: [],
-        tags: ['knowledge-management'],
-        contents: ['Test content'],
-        landingPageUrl: null,
-        dsebastienUrl: null,
-        featured: false,
-        bestValue: false,
-        bestseller: false,
-        priority: 50,
-        crossSellIds: [],
-        targetExperienceLevel: 'all-levels',
-        deliveryStyle: 'hybrid',
-        includedProducts: [],
-        activeSalesCopyId: 'default',
-        faqs: [],
-        testimonials: [],
-        media: [],
-        stats: null,
-        salesCopy: {
-            problem: 'Test problem',
-            problemPoints: ['Point 1'],
-            agitate: 'Test agitate',
-            agitatePoints: ['Point 1'],
-            solution: 'Test solution',
-            solutionPoints: ['Point 1'],
-            tagline: 'Test tagline',
-            secondaryTagline: null,
-            description: 'Test description',
-            highlights: ['Highlight 1'],
-            benefits: [{ icon: '✓', title: 'Benefit', description: 'Desc' }],
-            targetAudience: 'Test audience',
-            perfectFor: ['Person 1'],
-            notForYou: ['Person 2'],
-            trustBadges: ['Badge 1'],
-            guarantees: ['Guarantee 1'],
-            metaTitle: 'Test Meta Title',
-            metaDescription: 'Test meta description',
-            keywords: ['keyword'],
-            storytelling: null,
-            timeline: null,
-            courseContent: null,
-            howItWorks: null,
-            mediaSections: null
-        },
-        ratingsCount: null,
-        averageRating: null,
-        testimonialsCount: 0,
-        includedIn: [],
-        ...overrides
-    } as Product
-}
 
 describe('createEmptyFilters', () => {
     it('should create filters with empty arrays and null values', () => {

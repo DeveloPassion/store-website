@@ -1,7 +1,7 @@
 import { describe, it, expect, mock } from 'bun:test'
 import { render } from '@testing-library/react'
 import MediaCarouselSection from './media-carousel-section'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct, createMockMediaItem } from '@/test-utils/mock-product'
 import type { MediaItem } from '@/schemas/media.schema'
 
 // Mock framer-motion - filter out animation props that React DOM doesn't understand
@@ -54,89 +54,6 @@ mock.module('@/hooks/use-media-lightbox', () => ({
         close: () => {}
     })
 }))
-
-const createMockMediaItem = (overrides: Partial<MediaItem> = {}): MediaItem => ({
-    id: 'image-1',
-    type: 'image',
-    url: '/test-image.png',
-    title: 'Test Image',
-    description: null,
-    altText: 'Test image alt text',
-    caption: null,
-    order: 0,
-    group: 'main',
-    youtubeId: null,
-    thumbnailUrl: null,
-    width: 800,
-    height: 600,
-    ...overrides
-})
-
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides',
-    secondaryCategories: [],
-    tags: ['ai'],
-    contents: ['Item 1'],
-    testimonials: [],
-    faqs: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    media: [],
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem point 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate point 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution point 1'],
-        description: 'Test description',
-        highlights: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    },
-    ...overrides
-})
 
 describe('MediaCarouselSection Component', () => {
     describe('default behavior (no mediaSections config)', () => {

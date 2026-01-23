@@ -4,94 +4,41 @@ import {
     formatAverageRating,
     type ProductWithTestimonials
 } from './testimonial-stats'
+import {
+    createMockProduct as createBaseMockProduct,
+    createMockTestimonial as createBaseTestimonial
+} from '@/test-utils/mock-product'
 import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
-// All testimonials are assumed to be 5-star
-const createMockTestimonial = (id: string): Testimonial => ({
-    id,
-    author: `Author ${id}`,
-    quote: `Quote ${id}`,
-    featured: false,
-    role: null,
-    company: null,
-    avatarUrl: null,
-    twitterHandle: null,
-    twitterUrl: null
-})
+// Helper for this test file - creates products with specific testimonials
+const createProductWithTestimonials = (id: string, testimonials: Testimonial[]): Product =>
+    createBaseMockProduct({
+        id,
+        name: `Product ${id}`,
+        testimonials,
+        testimonialsCount: testimonials.length,
+        priority: 100
+    })
 
-const createMockProduct = (id: string, testimonials: Testimonial[]): Product => ({
-    id,
-    name: `Product ${id}`,
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides',
-    secondaryCategories: [],
-    tags: ['ai'],
-    contents: ['Item 1'],
-    testimonials,
-    faqs: [],
-    media: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 100,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: testimonials.length,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution 1'],
-        description: 'Test description',
-        highlights: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    }
-})
+// Helper to create testimonials with sequential IDs
+const createTestimonialWithId = (id: string): Testimonial =>
+    createBaseTestimonial({
+        id,
+        author: `Author ${id}`,
+        quote: `Quote ${id}`
+    })
 
 describe('calculateTestimonialStats', () => {
     describe('with Product[] input', () => {
         it('should calculate stats correctly for products with testimonials', () => {
             const products: Product[] = [
-                createMockProduct('1', [createMockTestimonial('t1'), createMockTestimonial('t2')]),
-                createMockProduct('2', [createMockTestimonial('t3')]),
-                createMockProduct('3', []) // No testimonials
+                createProductWithTestimonials('1', [
+                    createTestimonialWithId('t1'),
+                    createTestimonialWithId('t2')
+                ]),
+                createProductWithTestimonials('2', [createTestimonialWithId('t3')]),
+                createProductWithTestimonials('3', []) // No testimonials
             ]
 
             const stats = calculateTestimonialStats(products)
@@ -102,7 +49,10 @@ describe('calculateTestimonialStats', () => {
         })
 
         it('should handle products with no testimonials', () => {
-            const products: Product[] = [createMockProduct('1', []), createMockProduct('2', [])]
+            const products: Product[] = [
+                createProductWithTestimonials('1', []),
+                createProductWithTestimonials('2', [])
+            ]
 
             const stats = calculateTestimonialStats(products)
 
@@ -122,7 +72,7 @@ describe('calculateTestimonialStats', () => {
         })
 
         it('should handle products with empty testimonials', () => {
-            const products: Product[] = [createMockProduct('1', [])]
+            const products: Product[] = [createProductWithTestimonials('1', [])]
 
             const stats = calculateTestimonialStats(products)
 
@@ -133,10 +83,10 @@ describe('calculateTestimonialStats', () => {
 
         it('should calculate correct stats for single product with multiple testimonials', () => {
             const products: Product[] = [
-                createMockProduct('1', [
-                    createMockTestimonial('t1'),
-                    createMockTestimonial('t2'),
-                    createMockTestimonial('t3')
+                createProductWithTestimonials('1', [
+                    createTestimonialWithId('t1'),
+                    createTestimonialWithId('t2'),
+                    createTestimonialWithId('t3')
                 ])
             ]
 
@@ -149,8 +99,11 @@ describe('calculateTestimonialStats', () => {
 
         it('should handle all testimonials as 5-star', () => {
             const products: Product[] = [
-                createMockProduct('1', [createMockTestimonial('t1'), createMockTestimonial('t2')]),
-                createMockProduct('2', [createMockTestimonial('t3')])
+                createProductWithTestimonials('1', [
+                    createTestimonialWithId('t1'),
+                    createTestimonialWithId('t2')
+                ]),
+                createProductWithTestimonials('2', [createTestimonialWithId('t3')])
             ]
 
             const stats = calculateTestimonialStats(products)
@@ -162,9 +115,15 @@ describe('calculateTestimonialStats', () => {
 
         it('should count testimonials across multiple products', () => {
             const products: Product[] = [
-                createMockProduct('1', [createMockTestimonial('t1'), createMockTestimonial('t2')]),
-                createMockProduct('2', [createMockTestimonial('t3')]),
-                createMockProduct('3', [createMockTestimonial('t4'), createMockTestimonial('t5')])
+                createProductWithTestimonials('1', [
+                    createTestimonialWithId('t1'),
+                    createTestimonialWithId('t2')
+                ]),
+                createProductWithTestimonials('2', [createTestimonialWithId('t3')]),
+                createProductWithTestimonials('3', [
+                    createTestimonialWithId('t4'),
+                    createTestimonialWithId('t5')
+                ])
             ]
 
             const stats = calculateTestimonialStats(products)
@@ -179,12 +138,12 @@ describe('calculateTestimonialStats', () => {
         it('should calculate stats correctly for ProductWithTestimonials', () => {
             const productsWithTestimonials: ProductWithTestimonials[] = [
                 {
-                    product: createMockProduct('1', []),
-                    testimonials: [createMockTestimonial('t1'), createMockTestimonial('t2')]
+                    product: createProductWithTestimonials('1', []),
+                    testimonials: [createTestimonialWithId('t1'), createTestimonialWithId('t2')]
                 },
                 {
-                    product: createMockProduct('2', []),
-                    testimonials: [createMockTestimonial('t3')]
+                    product: createProductWithTestimonials('2', []),
+                    testimonials: [createTestimonialWithId('t3')]
                 }
             ]
 
@@ -198,7 +157,7 @@ describe('calculateTestimonialStats', () => {
         it('should handle ProductWithTestimonials with no testimonials', () => {
             const productsWithTestimonials: ProductWithTestimonials[] = [
                 {
-                    product: createMockProduct('1', []),
+                    product: createProductWithTestimonials('1', []),
                     testimonials: []
                 }
             ]
@@ -223,11 +182,11 @@ describe('calculateTestimonialStats', () => {
         it('should calculate correct stats for single product with multiple testimonials', () => {
             const productsWithTestimonials: ProductWithTestimonials[] = [
                 {
-                    product: createMockProduct('1', []),
+                    product: createProductWithTestimonials('1', []),
                     testimonials: [
-                        createMockTestimonial('t1'),
-                        createMockTestimonial('t2'),
-                        createMockTestimonial('t3')
+                        createTestimonialWithId('t1'),
+                        createTestimonialWithId('t2'),
+                        createTestimonialWithId('t3')
                     ]
                 }
             ]

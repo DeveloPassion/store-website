@@ -5,74 +5,7 @@ import {
     sortBestValueProducts,
     sortFeaturedProducts
 } from './product-sort'
-import type { Product } from '@/schemas/product.schema'
-
-// Mock products for testing
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-id',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 100,
-    priceDisplay: '$100',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides', // Use valid category ID from CategoryIdSchema
-    secondaryCategories: [],
-    tags: ['ai'], // Use valid tag ID from TagIdSchema
-    contents: ['Item 1'],
-    testimonials: [],
-    faqs: [],
-    media: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem point 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate point 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution point 1'],
-        description: 'Test description',
-        highlights: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    },
-    ...overrides
-})
+import { createMockProduct } from '@/test-utils/mock-product'
 
 describe('sortProductsByPriority', () => {
     beforeEach(() => {

@@ -2,7 +2,8 @@ import { describe, it, expect, beforeEach, mock } from 'bun:test'
 import { render, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductFeatures from './product-features'
-import type { Product, ProductVariant } from '@/schemas/product.schema'
+import { createMockProduct, createMockVariant } from '@/test-utils/mock-product'
+import type { Product } from '@/schemas/product.schema'
 
 // Mock framer-motion
 mock.module('framer-motion', () => ({
@@ -80,84 +81,19 @@ mock.module('@/data/categories.json', () => ({
     ]
 }))
 
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides',
-    secondaryCategories: [],
-    tags: ['ai'],
-    contents: ['Content item 1', 'Content item 2'],
-    testimonials: [],
-    faqs: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    media: [],
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem point 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate point 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution point 1'],
-        description: 'Test description for the product',
-        highlights: ['Highlight 1', 'Highlight 2'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: ['Perfect for item 1', 'Perfect for item 2'],
-        notForYou: ['Not for you item 1'],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    },
-    ...overrides
-})
-
-const createMockVariant = (overrides: Partial<ProductVariant> = {}): ProductVariant => ({
-    name: 'Basic',
-    price: 49,
-    priceDisplay: '€49',
-    description: 'Basic package',
-    gumroadUrl: 'https://gumroad.com/test-basic',
-    gumroadVariantId: 'basic',
-    paymentFrequency: null,
-    prices: null,
-    includedProducts: [],
-    ...overrides
-})
+// Create product with test-specific defaults for this file
+const createTestProduct = (overrides: Partial<Product> = {}): Product =>
+    createMockProduct({
+        contents: ['Content item 1', 'Content item 2'],
+        salesCopy: {
+            ...createMockProduct().salesCopy,
+            description: 'Test description for the product',
+            highlights: ['Highlight 1', 'Highlight 2'],
+            perfectFor: ['Perfect for item 1', 'Perfect for item 2'],
+            notForYou: ['Not for you item 1']
+        },
+        ...overrides
+    })
 
 const renderWithRouter = (component: React.ReactElement) => {
     return render(<BrowserRouter>{component}</BrowserRouter>)
@@ -168,21 +104,21 @@ describe('ProductFeatures Component', () => {
 
     describe("What's Included Section", () => {
         it('should render section header with title', () => {
-            const product = createMockProduct()
+            const product = createTestProduct()
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
 
             expect(getByText("What's Included")).toBeInTheDocument()
         })
 
         it('should render product description in section header', () => {
-            const product = createMockProduct()
+            const product = createTestProduct()
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
 
             expect(getByText('Test description for the product')).toBeInTheDocument()
         })
 
         it('should render all content items', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 contents: ['**First content** item', 'Second content item', 'Third content item']
             })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
@@ -193,7 +129,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should render icons for each content item', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 contents: ['Item 1', 'Item 2']
             })
             const { container } = renderWithRouter(<ProductFeatures product={product} />)
@@ -204,7 +140,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should handle empty contents gracefully', () => {
-            const product = createMockProduct({ contents: [] })
+            const product = createTestProduct({ contents: [] })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
 
             // Section should still render with header
@@ -214,14 +150,14 @@ describe('ProductFeatures Component', () => {
 
     describe('Bonuses Section (Included Products)', () => {
         it('should not render bonuses section when no included products', () => {
-            const product = createMockProduct({ includedProducts: [] })
+            const product = createTestProduct({ includedProducts: [] })
             const { queryByText } = renderWithRouter(<ProductFeatures product={product} />)
 
             expect(queryByText('🎁 Bonuses')).not.toBeInTheDocument()
         })
 
         it('should render bonuses section when product has included products', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
@@ -230,7 +166,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should show correct count in drawer toggle button', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1', 'included-product-2']
             })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
@@ -239,7 +175,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should use singular form for single product', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
@@ -248,7 +184,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should show tap to see everything message', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
@@ -257,7 +193,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should toggle drawer open and closed', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText, queryByText } = renderWithRouter(
@@ -282,7 +218,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should display included product information correctly', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText, getByRole } = renderWithRouter(<ProductFeatures product={product} />)
@@ -301,7 +237,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should calculate and display total bonus value', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1', 'included-product-2']
             })
             const { getByText } = renderWithRouter(<ProductFeatures product={product} />)
@@ -311,7 +247,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should handle nested included products (bundles including other bundles)', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['bundle-product']
             })
             const { getByText, queryByText } = renderWithRouter(
@@ -331,14 +267,14 @@ describe('ProductFeatures Component', () => {
 
     describe('Variant Selector', () => {
         it('should not show variant selector when product has no variants', () => {
-            const product = createMockProduct({ variants: null })
+            const product = createTestProduct({ variants: null })
             const { queryByText } = renderWithRouter(<ProductFeatures product={product} />)
 
             expect(queryByText('Select Your Tier:')).not.toBeInTheDocument()
         })
 
         it('should not show variant selector for single variant', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 variants: [createMockVariant()],
                 includedProducts: ['included-product-1']
             })
@@ -358,7 +294,7 @@ describe('ProductFeatures Component', () => {
                 gumroadVariantId: 'pro',
                 includedProducts: ['included-product-2']
             })
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1'],
                 variants: [variant1, variant2]
             })
@@ -387,7 +323,7 @@ describe('ProductFeatures Component', () => {
                 gumroadVariantId: 'yearly',
                 includedProducts: ['included-product-2']
             })
-            const product = createMockProduct({
+            const product = createTestProduct({
                 isSubscription: true,
                 includedProducts: ['included-product-1'],
                 variants: [variant1, variant2]
@@ -412,7 +348,7 @@ describe('ProductFeatures Component', () => {
                 gumroadVariantId: 'pro',
                 includedProducts: ['included-product-2']
             })
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1'],
                 variants: [variant1, variant2]
             })
@@ -443,7 +379,7 @@ describe('ProductFeatures Component', () => {
                 gumroadVariantId: 'pro',
                 includedProducts: ['included-product-2']
             })
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1'],
                 variants: [variant1, variant2]
             })
@@ -471,7 +407,7 @@ describe('ProductFeatures Component', () => {
                 gumroadVariantId: 'pro',
                 includedProducts: ['included-product-2']
             })
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1'],
                 variants: [variant1, variant2]
             })
@@ -502,9 +438,9 @@ describe('ProductFeatures Component', () => {
 
     describe('Highlights Section', () => {
         it('should render highlights section when highlights exist', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     highlights: ['Highlight 1', 'Highlight 2']
                 }
             })
@@ -514,9 +450,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should render all highlight items', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     highlights: ['**Feature A**: Description A', '**Feature B**: Description B']
                 }
             })
@@ -527,8 +463,8 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should not render highlights section when highlights are empty', () => {
-            const product = createMockProduct({
-                salesCopy: { ...createMockProduct().salesCopy, highlights: [] }
+            const product = createTestProduct({
+                salesCopy: { ...createTestProduct().salesCopy, highlights: [] }
             })
             const { queryByText } = renderWithRouter(<ProductFeatures product={product} />)
 
@@ -536,9 +472,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should render check icons for each highlight', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     highlights: ['Highlight 1', 'Highlight 2']
                 }
             })
@@ -552,9 +488,9 @@ describe('ProductFeatures Component', () => {
 
     describe('Target Audience Section', () => {
         it('should render Perfect For section when perfectFor exists', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     perfectFor: ['Developers', 'Designers']
                 }
             })
@@ -566,9 +502,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should render Not For You section when notForYou exists', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     notForYou: ['Beginners', 'People who dislike learning']
                 }
             })
@@ -580,9 +516,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should render both sections when both exist', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     perfectFor: ['Item 1'],
                     notForYou: ['Item 2']
                 }
@@ -594,9 +530,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should not render target audience section when both are empty', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     perfectFor: [],
                     notForYou: []
                 }
@@ -608,9 +544,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should only render Perfect For when notForYou is empty', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     perfectFor: ['Developers'],
                     notForYou: []
                 }
@@ -624,9 +560,9 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should only render Not For You when perfectFor is empty', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createTestProduct().salesCopy,
                     perfectFor: [],
                     notForYou: ['Beginners']
                 }
@@ -642,7 +578,7 @@ describe('ProductFeatures Component', () => {
 
     describe('Styling and Layout', () => {
         it('should have proper section styling', () => {
-            const product = createMockProduct()
+            const product = createTestProduct()
             const { container } = renderWithRouter(<ProductFeatures product={product} />)
 
             const section = container.querySelector('section')
@@ -650,7 +586,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should have responsive grid for contents', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 contents: ['Item 1', 'Item 2', 'Item 3']
             })
             const { container } = renderWithRouter(<ProductFeatures product={product} />)
@@ -660,7 +596,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should have max width container', () => {
-            const product = createMockProduct()
+            const product = createTestProduct()
             const { container } = renderWithRouter(<ProductFeatures product={product} />)
 
             const maxWidthContainer = container.querySelector('.max-w-6xl')
@@ -670,7 +606,7 @@ describe('ProductFeatures Component', () => {
 
     describe('Edge Cases', () => {
         it('should handle product with null salesCopy gracefully', () => {
-            const product = createMockProduct()
+            const product = createTestProduct()
             // Force salesCopy to undefined to test edge case
             const productWithNoSalesCopy = {
                 ...product,
@@ -685,7 +621,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should handle product with missing included products in map', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['non-existent-product']
             })
             const { getByText, queryByText } = renderWithRouter(
@@ -700,7 +636,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should prevent self-reference in included products', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 id: 'included-product-1',
                 name: 'Self Product',
                 includedProducts: ['included-product-1', 'included-product-2']
@@ -725,7 +661,7 @@ describe('ProductFeatures Component', () => {
                 gumroadVariantId: null,
                 includedProducts: ['included-product-2']
             })
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1'],
                 variants: [variant1, variant2]
             })
@@ -748,7 +684,7 @@ describe('ProductFeatures Component', () => {
 
     describe('IncludedProductCard', () => {
         it('should render product link with correct attributes', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText, getByRole } = renderWithRouter(<ProductFeatures product={product} />)
@@ -763,7 +699,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should show external link icon', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText, container } = renderWithRouter(<ProductFeatures product={product} />)
@@ -777,7 +713,7 @@ describe('ProductFeatures Component', () => {
         })
 
         it('should apply unlocked styling when isUnlocked is true', () => {
-            const product = createMockProduct({
+            const product = createTestProduct({
                 includedProducts: ['included-product-1']
             })
             const { getByText, getByRole } = renderWithRouter(<ProductFeatures product={product} />)

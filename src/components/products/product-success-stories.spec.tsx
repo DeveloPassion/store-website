@@ -1,7 +1,7 @@
 import { describe, it, expect, mock } from 'bun:test'
 import { render } from '@testing-library/react'
 import ProductSuccessStories from './product-success-stories'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct } from '@/test-utils/mock-product'
 
 // Mock framer-motion - filter out animation props before passing to DOM
 mock.module('framer-motion', () => ({
@@ -15,72 +15,6 @@ mock.module('framer-motion', () => ({
         }
     }
 }))
-
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides',
-    secondaryCategories: [],
-    tags: ['ai'],
-    contents: ['Item 1'],
-    testimonials: [],
-    faqs: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    media: [],
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: [],
-        agitate: 'Test agitate',
-        agitatePoints: [],
-        solution: 'Test solution',
-        solutionPoints: [],
-        description: 'Test description',
-        highlights: [],
-        benefits: { immediate: [], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    },
-    ...overrides
-})
 
 describe('ProductSuccessStories Component', () => {
     it('should render nothing when successStories is undefined', () => {

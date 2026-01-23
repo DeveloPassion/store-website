@@ -1,8 +1,9 @@
 import { describe, it, expect, mock } from 'bun:test'
 import { render, fireEvent } from '@testing-library/react'
 import HowItWorksSection from './how-it-works-section'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct, createMockMediaItem } from '@/test-utils/mock-product'
 import type { MediaItem } from '@/schemas/media.schema'
+import type { Product } from '@/schemas/product.schema'
 
 // Mock framer-motion - filter out animation props that React DOM doesn't understand
 const filterMotionProps = (props: Record<string, unknown>) => {
@@ -55,99 +56,41 @@ mock.module('@/hooks/use-media-lightbox', () => ({
     })
 }))
 
-const createMockMediaItem = (overrides: Partial<MediaItem> = {}): MediaItem => ({
-    id: 'video-1',
-    type: 'video',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    title: 'Test Video',
-    description: null,
-    altText: 'Test video alt text',
-    caption: null,
-    order: 0,
-    group: 'cover',
-    youtubeId: 'dQw4w9WgXcQ',
-    thumbnailUrl: null,
-    width: null,
-    height: null,
-    ...overrides
-})
+// Create video media item helper for this test file
+const createVideoItem = (overrides: Partial<MediaItem> = {}): MediaItem =>
+    createMockMediaItem({
+        id: 'video-1',
+        type: 'video',
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        title: 'Test Video',
+        altText: 'Test video alt text',
+        group: 'cover',
+        youtubeId: 'dQw4w9WgXcQ',
+        width: null,
+        height: null,
+        ...overrides
+    })
 
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides',
-    secondaryCategories: [],
-    tags: ['ai'],
-    contents: ['Item 1'],
-    testimonials: [],
-    faqs: [],
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    media: [],
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'Test tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem point 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate point 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution point 1'],
-        description: 'Test description',
-        highlights: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: {
-            title: null,
-            description: null,
-            mediaIds: []
+// Create product with howItWorks defaults for this test file
+const createHowItWorksProduct = (overrides: Partial<Product> = {}): Product =>
+    createMockProduct({
+        salesCopy: {
+            ...createMockProduct().salesCopy,
+            howItWorks: {
+                title: null,
+                description: null,
+                mediaIds: []
+            }
         },
-        mediaSections: null
-    },
-    ...overrides
-})
+        ...overrides
+    })
 
 describe('HowItWorksSection Component', () => {
     describe('visibility control', () => {
         it('should render nothing when howItWorks is null', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: null
                 }
             })
@@ -157,9 +100,9 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should render section when howItWorks is defined', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -175,9 +118,9 @@ describe('HowItWorksSection Component', () => {
 
     describe('title and description', () => {
         it('should use default title when title is null', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -191,9 +134,9 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should use custom title when provided', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: 'Watch It In Action',
                         description: null,
@@ -207,9 +150,9 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should use default description when description is null', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -225,9 +168,9 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should use custom description when provided', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: 'Custom description text',
@@ -243,14 +186,14 @@ describe('HowItWorksSection Component', () => {
 
     describe('media lookup by ID', () => {
         it('should display media items from mediaIds array', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({ id: 'video-1', title: 'Video 1' }),
-                    createMockMediaItem({ id: 'video-2', title: 'Video 2' }),
-                    createMockMediaItem({ id: 'video-3', title: 'Video 3' })
+                    createVideoItem({ id: 'video-1', title: 'Video 1' }),
+                    createVideoItem({ id: 'video-2', title: 'Video 2' }),
+                    createVideoItem({ id: 'video-3', title: 'Video 3' })
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -268,14 +211,14 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should preserve order from mediaIds array', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({ id: 'video-1', title: 'Video 1' }),
-                    createMockMediaItem({ id: 'video-2', title: 'Video 2' }),
-                    createMockMediaItem({ id: 'video-3', title: 'Video 3' })
+                    createVideoItem({ id: 'video-1', title: 'Video 1' }),
+                    createVideoItem({ id: 'video-2', title: 'Video 2' }),
+                    createVideoItem({ id: 'video-3', title: 'Video 3' })
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -291,10 +234,10 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should skip invalid mediaIds', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', title: 'Video 1' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', title: 'Video 1' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -312,10 +255,10 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should show heading only when all mediaIds are invalid', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', title: 'Video 1' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', title: 'Video 1' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -334,10 +277,10 @@ describe('HowItWorksSection Component', () => {
 
     describe('empty mediaIds handling', () => {
         it('should show heading only when mediaIds is empty array', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: 'Custom Title',
                         description: 'Custom description',
@@ -357,10 +300,10 @@ describe('HowItWorksSection Component', () => {
 
     describe('single video display', () => {
         it('should display single video with thumbnail', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', youtubeId: 'test12345' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', youtubeId: 'test12345' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -376,10 +319,10 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should play video when clicked', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', youtubeId: 'test12345' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', youtubeId: 'test12345' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -398,15 +341,15 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should display caption when provided', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({
+                    createVideoItem({
                         id: 'video-1',
                         caption: 'Video caption text'
                     })
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -422,7 +365,7 @@ describe('HowItWorksSection Component', () => {
 
     describe('single image display', () => {
         it('should display single image', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
                     {
                         id: 'image-1',
@@ -441,7 +384,7 @@ describe('HowItWorksSection Component', () => {
                     }
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -458,7 +401,7 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should display image caption when provided', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
                     {
                         id: 'image-1',
@@ -477,7 +420,7 @@ describe('HowItWorksSection Component', () => {
                     }
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -493,13 +436,13 @@ describe('HowItWorksSection Component', () => {
 
     describe('multiple media items (carousel)', () => {
         it('should use carousel for multiple media items', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({ id: 'video-1', title: 'Video 1' }),
-                    createMockMediaItem({ id: 'video-2', title: 'Video 2' })
+                    createVideoItem({ id: 'video-1', title: 'Video 1' }),
+                    createVideoItem({ id: 'video-2', title: 'Video 2' })
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -513,14 +456,14 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should pass all media items to carousel in correct order', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({ id: 'video-1', title: 'Video 1' }),
-                    createMockMediaItem({ id: 'video-2', title: 'Video 2' }),
-                    createMockMediaItem({ id: 'video-3', title: 'Video 3' })
+                    createVideoItem({ id: 'video-1', title: 'Video 1' }),
+                    createVideoItem({ id: 'video-2', title: 'Video 2' }),
+                    createVideoItem({ id: 'video-3', title: 'Video 3' })
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -538,10 +481,10 @@ describe('HowItWorksSection Component', () => {
 
     describe('accessibility', () => {
         it('should have proper aria-label on video play button', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', title: 'Demo Video' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', title: 'Demo Video' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -556,10 +499,10 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should support keyboard activation with Enter', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', youtubeId: 'test12345' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', youtubeId: 'test12345' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -577,10 +520,10 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should support keyboard activation with Space', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', youtubeId: 'test12345' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', youtubeId: 'test12345' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -600,10 +543,10 @@ describe('HowItWorksSection Component', () => {
 
     describe('YouTube handling', () => {
         it('should use youtube-nocookie domain for privacy', () => {
-            const product = createMockProduct({
-                media: [createMockMediaItem({ id: 'video-1', youtubeId: 'test12345' })],
+            const product = createHowItWorksProduct({
+                media: [createVideoItem({ id: 'video-1', youtubeId: 'test12345' })],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -620,16 +563,16 @@ describe('HowItWorksSection Component', () => {
         })
 
         it('should use custom thumbnail when provided', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({
+                    createVideoItem({
                         id: 'video-1',
                         thumbnailUrl: 'https://custom.thumb.jpg',
                         youtubeId: 'test12345'
                     })
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,
@@ -646,10 +589,10 @@ describe('HowItWorksSection Component', () => {
 
     describe('cross-group media references', () => {
         it('should allow referencing media from any group', () => {
-            const product = createMockProduct({
+            const product = createHowItWorksProduct({
                 media: [
-                    createMockMediaItem({ id: 'cover-1', group: 'cover', title: 'Cover Video' }),
-                    createMockMediaItem({ id: 'main-1', group: 'main', title: 'Main Video' }),
+                    createVideoItem({ id: 'cover-1', group: 'cover', title: 'Cover Video' }),
+                    createVideoItem({ id: 'main-1', group: 'main', title: 'Main Video' }),
                     {
                         id: 'secondary-1',
                         type: 'image',
@@ -667,7 +610,7 @@ describe('HowItWorksSection Component', () => {
                     }
                 ],
                 salesCopy: {
-                    ...createMockProduct().salesCopy,
+                    ...createHowItWorksProduct().salesCopy,
                     howItWorks: {
                         title: null,
                         description: null,

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, mock } from 'bun:test'
 import { render, waitFor } from '@testing-library/react'
 import StickyBuyButton from './sticky-buy-button'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct, createMockVariant } from '@/test-utils/mock-product'
 
 // Mock framer-motion to avoid animation complexities in tests
 mock.module('framer-motion', () => ({
@@ -13,102 +13,48 @@ mock.module('framer-motion', () => ({
     AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>
 }))
 
-const mockProduct: Product = {
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
+const mockProduct = createMockProduct({
     price: 49,
     priceDisplay: '$49',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
     mainCategory: 'productivity',
-    secondaryCategories: [],
     tags: [],
     contents: [],
-    media: [],
-    testimonials: [],
-    faqs: [],
-    featured: false,
-    bestValue: false,
-    bestseller: false,
-    priority: 50,
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
     salesCopy: {
+        ...createMockProduct().salesCopy,
         tagline: 'A test product',
-        secondaryTagline: null,
         problem: '',
         problemPoints: [],
         agitate: '',
         agitatePoints: [],
         solution: '',
         solutionPoints: [],
-        description: 'Test description',
         highlights: [],
-        benefits: {
-            immediate: [],
-            systematic: [],
-            longTerm: []
-        },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: ['30-day money-back guarantee'],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
+        benefits: { immediate: [], systematic: [], longTerm: [] },
+        guarantees: ['30-day money-back guarantee']
     }
-}
+})
 
-const mockProductWithVariants: Product = {
+const mockProductWithVariants = createMockProduct({
     ...mockProduct,
     variants: [
-        {
+        createMockVariant({
             name: 'Basic',
             price: 29,
             priceDisplay: '$29',
             description: 'Basic package',
             gumroadUrl: 'https://gumroad.com/test-basic',
-            gumroadVariantId: null,
-            paymentFrequency: null,
-            prices: null,
-            includedProducts: []
-        },
-        {
+            gumroadVariantId: null
+        }),
+        createMockVariant({
             name: 'Pro',
             price: 49,
             priceDisplay: '$49',
             description: 'Pro package',
             gumroadUrl: 'https://gumroad.com/test-pro',
-            gumroadVariantId: null,
-            paymentFrequency: null,
-            prices: null,
-            includedProducts: []
-        }
+            gumroadVariantId: null
+        })
     ]
-}
+})
 
 describe('StickyBuyButton', () => {
     beforeEach(() => {

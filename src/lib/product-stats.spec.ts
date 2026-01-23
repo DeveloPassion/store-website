@@ -1,20 +1,10 @@
 import { describe, expect, it } from 'bun:test'
 import { parseUserCount, formatCustomerCount, calculateProductStats } from './product-stats'
+import {
+    createMockProduct as createBaseMockProduct,
+    createMockTestimonial
+} from '@/test-utils/mock-product'
 import type { Product } from '@/schemas/product.schema'
-import type { Testimonial } from '@/schemas/testimonial.schema'
-
-const createTestimonial = (overrides: Partial<Testimonial> = {}): Testimonial => ({
-    id: 'test-testimonial',
-    author: 'Test User',
-    role: null,
-    company: null,
-    avatarUrl: null,
-    twitterHandle: null,
-    twitterUrl: null,
-    quote: 'Great product!',
-    featured: false,
-    ...overrides
-})
 
 describe('parseUserCount', () => {
     it('should return 0 for undefined input', () => {
@@ -117,77 +107,16 @@ describe('formatCustomerCount', () => {
 })
 
 describe('calculateProductStats', () => {
+    // Use the shared mock with test-specific defaults
     const createMockProduct = (overrides: Partial<Product> = {}): Product =>
-        ({
-            id: 'test-product',
-            slug: 'test-product',
-            name: 'Test Product',
-            gumroadId: null,
-            isGumroadProduct: false,
-            gumroadProductSlugs: null,
-            activeSalesCopyId: 'default',
-            salesCopy: {
-                problem: '',
-                problemPoints: [],
-                agitate: '',
-                agitatePoints: [],
-                solution: '',
-                solutionPoints: [],
-                tagline: 'Test tagline',
-                secondaryTagline: null,
-                description: '',
-                highlights: [],
-                benefits: { immediate: [], systematic: [], longTerm: [] },
-                targetAudience: [],
-                perfectFor: [],
-                notForYou: [],
-                trustBadges: [],
-                guarantees: [],
-                metaTitle: '',
-                metaDescription: '',
-                keywords: [],
-                storytelling: null,
-                timeline: null,
-                courseContent: null,
-                howItWorks: null,
-                mediaSections: null
-            },
+        createBaseMockProduct({
+            priceTier: 'free',
             price: 0,
             priceDisplay: '$0',
-            priceTier: 'free',
-            currency: 'USD',
-            discount: null,
-            isSubscription: false,
-            paymentFrequencies: null,
-            defaultPaymentFrequency: null,
-            mainCategory: 'templates',
-            secondaryCategories: [],
+            mainCategory: 'kits-and-templates',
             tags: [],
-            variants: null,
-            gumroadUrl: null,
-            websiteUrl: null,
-            demoUrl: null,
-            documentationUrl: null,
-            githubUrl: null,
-            status: 'published',
-            featured: false,
-            bestValue: false,
-            bestseller: false,
-            priority: 50,
-            createdAt: '2024-01-01',
-            updatedAt: '2024-01-01',
-            faqs: [],
-            testimonials: [],
-            media: [],
-            stats: null,
-            ratingsCount: null,
-            averageRating: null,
-            testimonialsCount: 0,
-            crossSellIds: [],
-            targetExperienceLevel: 'all-levels',
-            deliveryStyle: 'hybrid',
             ...overrides
-        }) as Product
+        })
 
     it('should return zero stats for empty array', () => {
         const result = calculateProductStats([])
@@ -239,14 +168,14 @@ describe('calculateProductStats', () => {
         const products = [
             createMockProduct({
                 testimonials: [
-                    createTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
-                    createTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
+                    createMockTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
+                    createMockTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
                 ],
                 testimonialsCount: 2
             }),
             createMockProduct({
                 testimonials: [
-                    createTestimonial({
+                    createMockTestimonial({
                         id: '3',
                         author: 'User 3',
                         quote: 'Love it!',
@@ -300,8 +229,8 @@ describe('calculateProductStats', () => {
                     lastSale: null
                 },
                 testimonials: [
-                    createTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
-                    createTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
+                    createMockTestimonial({ id: '1', author: 'User 1', quote: 'Great!' }),
+                    createMockTestimonial({ id: '2', author: 'User 2', quote: 'Amazing!' })
                 ],
                 testimonialsCount: 2,
                 averageRating: 4.8
@@ -315,7 +244,7 @@ describe('calculateProductStats', () => {
                     lastSale: null
                 },
                 testimonials: [
-                    createTestimonial({
+                    createMockTestimonial({
                         id: '3',
                         author: 'User 3',
                         quote: 'Love it!',

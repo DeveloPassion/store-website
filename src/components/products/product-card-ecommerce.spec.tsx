@@ -2,75 +2,8 @@ import { describe, it, expect, beforeEach, afterEach, mock, spyOn } from 'bun:te
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCardEcommerce from './product-card-ecommerce'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct } from '@/test-utils/mock-product'
 import * as wishlistUtils from '@/lib/wishlist'
-
-// Mock product data
-const createMockProduct = (overrides: Partial<Product> = {}): Product => ({
-    id: 'test-product',
-    name: 'Test Product',
-    gumroadId: null,
-    isGumroadProduct: false,
-    gumroadProductSlugs: null,
-    price: 99.99,
-    priceDisplay: '€99.99',
-    priceTier: 'standard',
-    gumroadUrl: 'https://gumroad.com/test',
-    mainCategory: 'guides',
-    secondaryCategories: [],
-    tags: ['ai'], // Use valid tag ID from TagIdSchema
-    contents: ['Item 1'],
-    testimonials: [],
-    faqs: [],
-    crossSellIds: [],
-    targetExperienceLevel: 'all-levels',
-    deliveryStyle: 'hybrid',
-    featured: false,
-    bestseller: false,
-    bestValue: false,
-    priority: 50,
-    media: [],
-    landingPageUrl: null,
-    dsebastienUrl: null,
-    stats: null,
-    variants: null,
-    isSubscription: false,
-    paymentFrequencies: null,
-    defaultPaymentFrequency: null,
-    activeSalesCopyId: 'default',
-    ratingsCount: null,
-    averageRating: null,
-    testimonialsCount: 0,
-    includedProducts: [],
-    includedIn: [],
-    salesCopy: {
-        tagline: 'This is a test product tagline',
-        secondaryTagline: null,
-        problem: 'Test problem',
-        problemPoints: ['Problem point 1'],
-        agitate: 'Test agitate',
-        agitatePoints: ['Agitate point 1'],
-        solution: 'Test solution',
-        solutionPoints: ['Solution point 1'],
-        description: 'Test description',
-        highlights: ['Feature 1'],
-        benefits: { immediate: ['Benefit 1'], systematic: [], longTerm: [] },
-        targetAudience: [],
-        perfectFor: [],
-        notForYou: [],
-        trustBadges: [],
-        guarantees: [],
-        metaTitle: '',
-        metaDescription: '',
-        keywords: [],
-        storytelling: null,
-        timeline: null,
-        courseContent: null,
-        howItWorks: null,
-        mediaSections: null
-    },
-    ...overrides
-})
 
 const renderWithRouter = (component: React.ReactElement) => {
     return render(<BrowserRouter>{component}</BrowserRouter>)
@@ -90,7 +23,7 @@ describe('ProductCardEcommerce Component', () => {
         const { getByText } = renderWithRouter(<ProductCardEcommerce product={product} />)
 
         expect(getByText('Test Product')).toBeInTheDocument()
-        expect(getByText('This is a test product tagline')).toBeInTheDocument()
+        expect(getByText('Test tagline')).toBeInTheDocument()
     })
 
     it('should display price correctly', () => {

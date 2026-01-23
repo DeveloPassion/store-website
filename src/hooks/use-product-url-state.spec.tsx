@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'bun:test'
 import { renderHook, act } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { useProductUrlState } from './use-product-url-state'
-import type { Product, ProductVariant } from '@/schemas/product.schema'
+import { createMockProduct, createMockVariant } from '@/test-utils/mock-product'
 
 // Helper to create a wrapper with MemoryRouter
 const createWrapper = (initialEntries: string[] = ['/product/test']) => {
@@ -12,32 +12,6 @@ const createWrapper = (initialEntries: string[] = ['/product/test']) => {
     Wrapper.displayName = 'TestWrapper'
     return Wrapper
 }
-
-// Create minimal mock product with type assertion
-const createMockProduct = (overrides: Partial<Product> = {}): Product =>
-    ({
-        id: 'test-product',
-        name: 'Test Product',
-        isSubscription: false,
-        variants: null,
-        defaultPaymentFrequency: null,
-        paymentFrequencies: null,
-        crossSellIds: [],
-        targetExperienceLevel: 'all-levels',
-        deliveryStyle: 'hybrid',
-        ...overrides
-    }) as Product
-
-// Create minimal mock variant with type assertion
-const createMockVariant = (overrides: Partial<ProductVariant> = {}): ProductVariant =>
-    ({
-        name: 'Test Variant',
-        price: 99,
-        priceDisplay: '€99',
-        gumroadVariantId: 'test-variant',
-        includedProducts: [],
-        ...overrides
-    }) as ProductVariant
 
 describe('useProductUrlState', () => {
     beforeEach(() => {

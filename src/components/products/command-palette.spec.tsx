@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import * as ReactRouter from 'react-router'
 import { BrowserRouter } from 'react-router'
 import CommandPalette from './command-palette'
-import type { Product } from '@/schemas/product.schema'
+import { createMockProduct } from '@/test-utils/mock-product'
 
 const mockNavigate = mock(() => {})
 
@@ -13,61 +13,6 @@ mock.module('react-router', () => ({
     ...ReactRouter,
     useNavigate: () => mockNavigate
 }))
-
-const createMockProduct = (overrides: Partial<Product> = {}): Product =>
-    ({
-        id: 'test-product',
-        name: 'Test Product',
-        gumroadId: null,
-        isGumroadProduct: false,
-        gumroadProductSlugs: null,
-        tagline: 'A test product',
-        description: 'Test description',
-        price: 99,
-        priceDisplay: '$99',
-        priceTier: 'premium',
-        gumroadUrl: 'https://example.com',
-        mainCategory: 'courses',
-        secondaryCategories: [],
-        tags: ['knowledge-management'],
-        testimonialsCount: 0,
-        includedProducts: [],
-        includedIn: [],
-        crossSellIds: [],
-        targetExperienceLevel: 'all-levels',
-        deliveryStyle: 'hybrid',
-        salesCopy: {
-            tagline: 'A test product tagline',
-            secondaryTagline: null,
-            problem: 'Test problem',
-            problemPoints: ['Point 1'],
-            agitate: 'Test agitate',
-            agitatePoints: ['Agitate 1'],
-            solution: 'Test solution',
-            solutionPoints: ['Solution 1'],
-            description: 'Test description',
-            highlights: [{ title: 'Feature', description: 'Desc', icon: null }],
-            benefits: {
-                immediate: [{ title: 'Benefit', description: 'Desc', icon: null }],
-                systematic: [{ title: 'Benefit', description: 'Desc', icon: null }],
-                longTerm: [{ title: 'Benefit', description: 'Desc', icon: null }]
-            },
-            targetAudience: ['Audience 1'],
-            perfectFor: ['Person 1'],
-            notForYou: ['Not for 1'],
-            trustBadges: ['Badge 1'],
-            guarantees: ['Guarantee 1'],
-            metaTitle: 'Meta title',
-            metaDescription: 'Meta description',
-            keywords: ['keyword'],
-            storytelling: null,
-            timeline: null,
-            courseContent: null,
-            howItWorks: null,
-            mediaSections: null
-        },
-        ...overrides
-    }) as Product
 
 describe('CommandPalette - Keyboard Navigation', () => {
     const products = [
