@@ -1,3 +1,15 @@
+## [1.4.0](https://github.com/DeveloPassion/store-website/compare/1.3.0...1.4.0) (2026-01-23)
+
+### Features
+
+* **all:** added plan for event tracking through plausible analytics (privacy-preserving) ([455a692](https://github.com/DeveloPassion/store-website/commit/455a69270eda26a233d2a60767a0f70706d4571d))
+* **all:** added quizz ([e155f7c](https://github.com/DeveloPassion/store-website/commit/e155f7ce96541166fa9a61a5e3aec365cbcb59ce))
+* **all:** implemented support for placeholders in json files (processed during aggregation) ([15b0ba4](https://github.com/DeveloPassion/store-website/commit/15b0ba43aacd744b6b4296555cd5c4a56dcf2945))
+* **all:** improved a11y for product page ([c92daca](https://github.com/DeveloPassion/store-website/commit/c92dacac1fa56abc75d96cd30c59597140d105dc))
+* **all:** reviewed levels and delivery type for all ([7a0ab53](https://github.com/DeveloPassion/store-website/commit/7a0ab531afa46f5295b2686e72fbd404b41a66f4))
+* **all:** tried to fix JSON-LD product data ([1e47eb7](https://github.com/DeveloPassion/store-website/commit/1e47eb7e1e5926f800fd453bf258504cfc359e52))
+* **all:** updated ([6a4c52a](https://github.com/DeveloPassion/store-website/commit/6a4c52aa9dee0bc5b7335295f51a1a4460883f54))
+* **all:** updated stats ([66f031e](https://github.com/DeveloPassion/store-website/commit/66f031e74c24b9da25af1f46a1819abc1b427e1e))
 ## [1.3.0](https://github.com/DeveloPassion/store-website/compare/1.2.0...1.3.0) (2026-01-22)
 
 ### Features
