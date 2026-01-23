@@ -56,6 +56,6 @@
         "beginners-guide-obsidian",
         "knowledge-system-checklist"
     ],
-    "targetExperienceLevel": null,
-    "deliveryStyle": null
+    "targetExperienceLevel": "all-levels",
+    "deliveryStyle": "hybrid"
 }

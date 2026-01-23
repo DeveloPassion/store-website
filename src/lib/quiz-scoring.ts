@@ -91,11 +91,6 @@ function matchesExperienceLevel(product: Product, experienceLevel: string | null
 
     const productLevel = product.targetExperienceLevel
 
-    // No product level specified = match all
-    if (!productLevel) {
-        return true
-    }
-
     // 'all-levels' matches any filter
     if (productLevel === 'all-levels') {
         return true
@@ -141,11 +136,6 @@ function matchesDeliveryStyle(product: Product, deliveryStyle: string | null): b
     }
 
     const productStyle = product.deliveryStyle
-
-    // No product style specified = match all
-    if (!productStyle) {
-        return true
-    }
 
     // Exact match
     if (productStyle === deliveryStyle) {

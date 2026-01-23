@@ -85,6 +85,6 @@
     "landingPageUrl": null,
     "dsebastienUrl": null,
     "includedProducts": [],
-    "targetExperienceLevel": null,
-    "deliveryStyle": null
+    "targetExperienceLevel": "all-levels",
+    "deliveryStyle": "conceptual"
 }

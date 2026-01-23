@@ -23,8 +23,8 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
         defaultPaymentFrequency: null,
         paymentFrequencies: null,
         crossSellIds: [],
-        targetExperienceLevel: null,
-        deliveryStyle: null,
+        targetExperienceLevel: 'all-levels',
+        deliveryStyle: 'hybrid',
         ...overrides
     }) as Product
 

@@ -184,8 +184,8 @@ describe('calculateProductStats', () => {
             averageRating: null,
             testimonialsCount: 0,
             crossSellIds: [],
-            targetExperienceLevel: null,
-            deliveryStyle: null,
+            targetExperienceLevel: 'all-levels',
+            deliveryStyle: 'hybrid',
             ...overrides
         }) as Product
 

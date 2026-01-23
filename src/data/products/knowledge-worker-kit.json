@@ -89,6 +89,6 @@
         "ai-master-prompt",
         "model-context-protocol"
     ],
-    "targetExperienceLevel": null,
-    "deliveryStyle": null
+    "targetExperienceLevel": "all-levels",
+    "deliveryStyle": "hybrid"
 }

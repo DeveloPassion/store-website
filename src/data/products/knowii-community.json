@@ -110,6 +110,6 @@
     "landingPageUrl": null,
     "dsebastienUrl": null,
     "includedProducts": ["knowledge-system-checklist", "beginners-guide-obsidian"],
-    "targetExperienceLevel": null,
-    "deliveryStyle": null
+    "targetExperienceLevel": "all-levels",
+    "deliveryStyle": "hybrid"
 }

@@ -63,6 +63,6 @@
     "landingPageUrl": null,
     "dsebastienUrl": null,
     "includedProducts": [],
-    "targetExperienceLevel": null,
-    "deliveryStyle": null
+    "targetExperienceLevel": "beginner",
+    "deliveryStyle": "hands-on"
 }

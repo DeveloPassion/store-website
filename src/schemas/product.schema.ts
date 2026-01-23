@@ -125,10 +125,10 @@ const BaseProductSchema = z.object({
     // Cross-sell - Strictly required (empty array if no cross-sell products)
     crossSellIds: z.array(z.string()),
 
-    // Quiz targeting - Optional fields for automatic quiz score computation
+    // Quiz targeting - Required fields for automatic quiz score computation
     // These reduce the need for manual score overrides in quiz-product-scoring-overrides.json
-    targetExperienceLevel: TargetExperienceLevelSchema.nullable(), // Target audience experience level
-    deliveryStyle: DeliveryStyleSchema.nullable(), // How the product delivers value
+    targetExperienceLevel: TargetExperienceLevelSchema, // Target audience experience level
+    deliveryStyle: DeliveryStyleSchema, // How the product delivers value
 
     // Included Products - Products always included with this product (for bundles/subscriptions)
     // Required array, can be empty if no products are always included
