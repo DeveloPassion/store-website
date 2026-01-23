@@ -65,6 +65,20 @@ export const ProductVariantSchema = z.object({
 })
 
 /**
+ * Product targeting enums for quiz scoring
+ * These fields allow products to declare their target audience and approach,
+ * enabling automatic quiz score computation without manual overrides.
+ */
+export const TargetExperienceLevelSchema = z.enum([
+    'beginner',
+    'intermediate',
+    'advanced',
+    'all-levels'
+])
+
+export const DeliveryStyleSchema = z.enum(['hands-on', 'conceptual', 'hybrid'])
+
+/**
  * Base Product Schema - Common fields shared by both individual and aggregated schemas
  * These fields are present in both <product>.json files and the aggregated products.json
  */
@@ -110,6 +124,11 @@ const BaseProductSchema = z.object({
 
     // Cross-sell - Strictly required (empty array if no cross-sell products)
     crossSellIds: z.array(z.string()),
+
+    // Quiz targeting - Optional fields for automatic quiz score computation
+    // These reduce the need for manual score overrides in quiz-product-scoring-overrides.json
+    targetExperienceLevel: TargetExperienceLevelSchema.nullable(), // Target audience experience level
+    deliveryStyle: DeliveryStyleSchema.nullable(), // How the product delivers value
 
     // Included Products - Products always included with this product (for bundles/subscriptions)
     // Required array, can be empty if no products are always included
@@ -181,6 +200,8 @@ export type SecondaryCategory = z.infer<typeof SecondaryCategorySchema>
 export type VariantPricing = z.infer<typeof VariantPricingSchema>
 export type ProductVariant = z.infer<typeof ProductVariantSchema>
 export type ComputedValues = z.infer<typeof ComputedValuesSchema>
+export type TargetExperienceLevel = z.infer<typeof TargetExperienceLevelSchema>
+export type DeliveryStyle = z.infer<typeof DeliveryStyleSchema>
 
 // Product types
 export type IndividualProduct = z.infer<typeof IndividualProductSchema>

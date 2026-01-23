@@ -7,7 +7,7 @@ import {
     FaClock,
     FaGraduationCap,
     FaTrophy,
-    FaBalanceScale
+    FaLightbulb
 } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
@@ -296,6 +296,13 @@ const HomeEcommerce: React.FC = () => {
                                 </button>
                             )}
                             <Link
+                                to='/quiz'
+                                className='bg-primary/10 hover:bg-primary/20 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold transition-colors'
+                            >
+                                <FaLightbulb className='h-5 w-5' />
+                                Find Your Match
+                            </Link>
+                            <Link
                                 to='/categories/free'
                                 className='bg-primary/10 hover:bg-primary/20 inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 font-bold transition-colors'
                             >
@@ -400,28 +407,41 @@ const HomeEcommerce: React.FC = () => {
                 </Section>
             )}
 
-            {/* Compare Products CTA - positioned after best value products */}
+            {/* Decision Help CTA - Quiz and Compare options */}
             {!categoryFilter && !searchQuery && !decodedTagName && (
-                <Section id='compare' className='py-8'>
-                    <Link
-                        to='/compare'
-                        className='bg-primary/5 hover:bg-primary/10 mx-auto flex max-w-2xl items-center justify-between gap-4 rounded-xl p-6 transition-all hover:scale-[1.02]'
-                    >
-                        <div className='flex items-center gap-4'>
+                <Section id='decision-help' className='py-8'>
+                    <div className='mx-auto grid max-w-4xl gap-4 sm:grid-cols-2'>
+                        <Link
+                            to='/quiz'
+                            className='bg-primary/5 hover:bg-primary/10 flex items-center gap-4 rounded-xl p-6 transition-all hover:scale-[1.02]'
+                        >
                             <div className='bg-secondary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full'>
-                                <FaBalanceScale className='text-secondary h-6 w-6' />
+                                <FaLightbulb className='text-secondary h-6 w-6' />
                             </div>
-                            <div>
-                                <div className='font-semibold'>
-                                    Not sure which product to choose?
-                                </div>
+                            <div className='flex-1'>
+                                <div className='font-semibold'>Take the Quiz</div>
                                 <div className='text-primary/60 text-sm'>
-                                    Compare products side-by-side to find the perfect fit
+                                    Get personalized recommendations
                                 </div>
                             </div>
-                        </div>
-                        <div className='text-secondary shrink-0 font-semibold'>Compare →</div>
-                    </Link>
+                            <div className='text-secondary shrink-0 font-semibold'>→</div>
+                        </Link>
+                        <Link
+                            to='/compare'
+                            className='bg-primary/5 hover:bg-primary/10 flex items-center gap-4 rounded-xl p-6 transition-all hover:scale-[1.02]'
+                        >
+                            <div className='bg-secondary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full'>
+                                <FaRocket className='text-secondary h-6 w-6' />
+                            </div>
+                            <div className='flex-1'>
+                                <div className='font-semibold'>Compare Products</div>
+                                <div className='text-primary/60 text-sm'>
+                                    Side-by-side feature comparison
+                                </div>
+                            </div>
+                            <div className='text-secondary shrink-0 font-semibold'>→</div>
+                        </Link>
+                    </div>
                 </Section>
             )}
 

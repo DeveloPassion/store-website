@@ -71,5 +71,7 @@
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
     "stats": null,
-    "includedProducts": ["dev-concepts-volume-01", "dev-concepts-volume-02"]
+    "includedProducts": ["dev-concepts-volume-01", "dev-concepts-volume-02"],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

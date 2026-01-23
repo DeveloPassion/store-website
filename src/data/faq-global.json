@@ -1,11 +1,37 @@
 {
     "data": [
         {
+            "id": "where-to-start",
+            "question": "Where should I start?",
+            "answer": "Not sure which product is right for you? I've created a quick quiz that asks a few questions about your goals, experience level, and preferences to help you find the perfect match.",
+            "icon": "FaLightbulb",
+            "order": 0,
+            "style": "highlight",
+            "features": null,
+            "steps": null,
+            "bullets": null,
+            "links": [
+                {
+                    "label": "Take the Quiz",
+                    "url": "/quiz",
+                    "external": false,
+                    "primary": true
+                },
+                {
+                    "label": "Browse All Products",
+                    "url": "/products",
+                    "external": false,
+                    "primary": false
+                }
+            ],
+            "additionalText": "The quiz takes less than a minute and will give you personalized recommendations based on your answers."
+        },
+        {
             "id": "cart-new-tab",
             "question": "Why does the shopping cart open in a new tab?",
             "answer": "All products on this store are sold through [Gumroad](https://gumroad.com), a trusted e-commerce platform. When you click the shopping cart icon, it opens Gumroad's secure checkout page in a new tab. This happens because Gumroad handles all payment processing on their own secure servers, which cannot be embedded in an iframe for security reasons. This design protects your payment information and prevents malicious websites from intercepting your transactions.",
             "icon": "FaShoppingCart",
-            "order": 0,
+            "order": 1,
             "style": "default",
             "features": null,
             "steps": null,
@@ -18,7 +44,7 @@
             "question": "Why do we use Gumroad?",
             "answer": "Gumroad is a trusted platform used by thousands of creators worldwide. Here's why it's the perfect choice for this store:",
             "icon": "FaShieldAlt",
-            "order": 1,
+            "order": 2,
             "style": "default",
             "features": [
                 {
@@ -52,7 +78,7 @@
             "question": "How does shopping work?",
             "answer": "Here's how the shopping experience works:",
             "icon": "FaShoppingCart",
-            "order": 2,
+            "order": 3,
             "style": "default",
             "features": null,
             "steps": [
@@ -86,7 +112,7 @@
             "question": "Is my payment information secure?",
             "answer": "Absolutely. Your payment information is handled exclusively by Gumroad, Stripe, and PayPal - never by this website. These platforms use:",
             "icon": "FaLock",
-            "order": 3,
+            "order": 4,
             "style": "default",
             "features": null,
             "steps": null,
@@ -105,7 +131,7 @@
             "question": "Do I need a Gumroad account?",
             "answer": "No, you don't need to create a Gumroad account to make a purchase. However, creating a free Gumroad account offers several benefits:",
             "icon": "FaQuestionCircle",
-            "order": 4,
+            "order": 5,
             "style": "default",
             "features": null,
             "steps": null,
@@ -124,7 +150,7 @@
             "question": "Why do ratings and testimonials differ from Gumroad?",
             "answer": "You might notice that the number of ratings, stars, or testimonials shown on this website doesn't always match what appears on Gumroad. This is completely normal and here's why:",
             "icon": "FaStar",
-            "order": 5,
+            "order": 6,
             "style": "default",
             "features": null,
             "steps": null,
@@ -141,7 +167,7 @@
             "question": "What about refunds and guarantees?",
             "answer": "All products come with a 30-day money-back guarantee. If you're not satisfied with your purchase for any reason, simply contact me within 30 days and I'll process a full refund through Gumroad.",
             "icon": null,
-            "order": 6,
+            "order": 7,
             "style": "highlight",
             "features": null,
             "steps": null,
@@ -154,7 +180,7 @@
             "question": "What if I bought something by mistake?",
             "answer": "Mistakes happen, and I'm happy to help sort things out:",
             "icon": "FaUndo",
-            "order": 7,
+            "order": 8,
             "style": "default",
             "features": [
                 {
@@ -178,7 +204,7 @@
             "question": "I'm a student with limited financial means. Can I still access your products?",
             "answer": "Absolutely! I believe knowledge should be accessible to everyone, especially students who are investing in their future. If you're a student or facing financial constraints, please reach out to me directly.",
             "icon": "FaGraduationCap",
-            "order": 8,
+            "order": 9,
             "style": "default",
             "features": null,
             "steps": null,
@@ -198,7 +224,7 @@
             "question": "How do I change or cancel my subscription?",
             "answer": "All subscription management is handled through your Gumroad account. There are two ways to cancel:",
             "icon": "FaSync",
-            "order": 9,
+            "order": 10,
             "style": "default",
             "features": [
                 {
@@ -233,7 +259,7 @@
             "question": "How do I leave a rating or review?",
             "answer": "Your feedback helps other customers make informed decisions and helps me improve my products. Leaving a rating or review is simple:",
             "icon": "FaStar",
-            "order": 10,
+            "order": 11,
             "style": "default",
             "features": null,
             "steps": [

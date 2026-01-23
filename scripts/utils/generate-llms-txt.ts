@@ -53,6 +53,7 @@ const content = `# Knowledge Forge
 ## About
 Author: Sébastien Dubois
 Website: https://dsebastien.net
+Newsletter: https://dsebastien.net/newsletter
 Store: https://store.dsebastien.net
 
 ## Content Structure
@@ -65,6 +66,7 @@ Store: https://store.dsebastien.net
 - /testimonials - All customer testimonials from all products
 - /success-stories - Curated featured testimonials and success stories
 - /compare - Compare products side-by-side
+- /quiz - Product recommendation quiz to find the perfect match
 - /product/{id} - Individual product pages
 - /tags - Browse all tags
 - /tags/{name} - Tag pages showing related products

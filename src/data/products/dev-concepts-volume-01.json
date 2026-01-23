@@ -70,5 +70,7 @@
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
     "stats": null,
-    "includedProducts": []
+    "includedProducts": [],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

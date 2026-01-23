@@ -15,7 +15,8 @@ import {
     FaGlobe,
     FaQuestionCircle,
     FaComments,
-    FaBalanceScale
+    FaBalanceScale,
+    FaLightbulb
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
 import categoriesData from '@/data/categories.json'
@@ -121,6 +122,14 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             color: 'text-amber-300 bg-gradient-to-br from-amber-500/25 to-orange-600/15 border border-amber-500/25 hover:from-amber-500/35 hover:to-orange-600/25 hover:border-amber-400/35'
         }
 
+        // Static link: Product Quiz
+        const quizLink: NavLink = {
+            to: '/quiz',
+            label: 'Product Quiz',
+            icon: <FaLightbulb className='h-5 w-5' />,
+            color: 'text-pink-300 bg-gradient-to-br from-pink-500/25 to-fuchsia-600/15 border border-pink-500/25 hover:from-pink-500/35 hover:to-fuchsia-600/25 hover:border-pink-400/35'
+        }
+
         // Static link: Wishlist
         const wishlistLink: NavLink = {
             to: '/wishlist',
@@ -191,6 +200,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
             allProductsLink,
             successStoriesLink,
             compareLink,
+            quizLink,
             ...categoryLinks,
             ...staticLinks,
             wishlistLink,

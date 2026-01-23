@@ -55,5 +55,7 @@
         "model-context-protocol",
         "beginners-guide-obsidian",
         "knowledge-system-checklist"
-    ]
+    ],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

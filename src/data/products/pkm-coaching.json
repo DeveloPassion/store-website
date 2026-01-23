@@ -40,5 +40,7 @@
     "defaultPaymentFrequency": null,
     "landingPageUrl": null,
     "dsebastienUrl": null,
-    "includedProducts": []
+    "includedProducts": [],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

@@ -18,7 +18,8 @@ import {
     FaBalanceScale,
     FaQuoteLeft,
     FaQuestionCircle,
-    FaLifeRing
+    FaLifeRing,
+    FaLightbulb
 } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import { fuzzySearch, type FuzzySearchConfig } from '@/lib/fuzzy-search'
@@ -203,6 +204,18 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
             icon: <FaBalanceScale className='text-secondary h-5 w-5' />,
             action: () => {
                 navigate('/compare')
+                onClose()
+            }
+        })
+
+        cmds.push({
+            id: 'action-quiz',
+            type: 'action',
+            title: 'Product Quiz',
+            subtitle: 'Get personalized product recommendations',
+            icon: <FaLightbulb className='text-secondary h-5 w-5' />,
+            action: () => {
+                navigate('/quiz')
                 onClose()
             }
         })

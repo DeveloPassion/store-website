@@ -1,7 +1,15 @@
 import { useMemo, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaTrophy, FaStar, FaQuoteLeft, FaArrowRight, FaFilter, FaUser } from 'react-icons/fa'
+import {
+    FaTrophy,
+    FaStar,
+    FaQuoteLeft,
+    FaArrowRight,
+    FaFilter,
+    FaUser,
+    FaLightbulb
+} from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import productsData from '@/data/products.json'
@@ -498,6 +506,35 @@ const SuccessStoriesPage: React.FC = () => {
                     </Section>
                 )}
             </AnimatePresence>
+
+            {/* Quiz CTA */}
+            <Section className='pb-12 sm:pb-16'>
+                <motion.div
+                    className='mx-auto max-w-2xl text-center'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div className='bg-secondary/5 border-secondary/20 rounded-xl border p-6 sm:p-8'>
+                        <FaLightbulb className='text-secondary mx-auto mb-4 h-8 w-8' />
+                        <h3 className='mb-2 text-xl font-bold sm:text-2xl'>
+                            Want Similar Results?
+                        </h3>
+                        <p className='text-primary/70 mb-6'>
+                            Find your perfect match with our quick quiz and start your own success
+                            story.
+                        </p>
+                        <Link
+                            to='/quiz'
+                            className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold text-white transition-colors'
+                        >
+                            <FaLightbulb className='h-4 w-4' />
+                            Find Your Perfect Match
+                        </Link>
+                    </div>
+                </motion.div>
+            </Section>
 
             {/* Quick Navigation CTA */}
             <Section className='border-primary/10 bg-primary/5 border-t border-b py-0'>

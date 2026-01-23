@@ -109,5 +109,7 @@
     "activeSalesCopyId": "default",
     "landingPageUrl": null,
     "dsebastienUrl": null,
-    "includedProducts": ["knowledge-system-checklist", "beginners-guide-obsidian"]
+    "includedProducts": ["knowledge-system-checklist", "beginners-guide-obsidian"],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

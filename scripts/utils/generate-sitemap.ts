@@ -126,6 +126,14 @@ function generateSitemap(): string {
         priority: '0.7'
     })
 
+    // Add quiz page
+    urls.push({
+        loc: `${BASE_URL}/quiz`,
+        lastmod: today,
+        changefreq: 'monthly',
+        priority: '0.8'
+    })
+
     // Add tags page
     urls.push({
         loc: `${BASE_URL}/tags`,
@@ -216,13 +224,14 @@ function writeSitemap(): void {
     console.log(`  - Testimonials page: 1 URL`)
     console.log(`  - Success stories page: 1 URL`)
     console.log(`  - Compare page: 1 URL`)
+    console.log(`  - Quiz page: 1 URL`)
     console.log(`  - Tags page: 1 URL`)
     console.log(`  - Categories page: 1 URL`)
     console.log(`  - Products: ${productsData.length} URLs`)
     console.log(`  - Individual tag pages: ${allTags.length} URLs`)
     console.log(`  - Individual category pages: ${categoriesData.length} URLs`)
     console.log(
-        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 13} URLs`
+        `  - Total: ${productsData.length + allTags.length + categoriesData.length + 14} URLs`
     )
 }
 

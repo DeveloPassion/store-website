@@ -56,11 +56,19 @@ const QuickNavigation: React.FC<QuickNavigationProps> = ({
             <p className='text-primary/60 mb-8 text-base sm:text-lg'>{description}</p>
 
             {/* Quick Links Grid */}
-            <div className='mx-auto grid max-w-3xl gap-4 sm:grid-cols-2 md:grid-cols-4'>
+            <div className='mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 md:grid-cols-5'>
+                <ItemWrapper {...(animated ? { variants: itemVariants } : {})}>
+                    <Link
+                        to='/quiz'
+                        className='bg-secondary hover:bg-secondary/90 block rounded-lg px-6 py-4 font-semibold whitespace-nowrap text-white transition-all hover:scale-105'
+                    >
+                        💡 Take Quiz
+                    </Link>
+                </ItemWrapper>
                 <ItemWrapper {...(animated ? { variants: itemVariants } : {})}>
                     <Link
                         to='/featured'
-                        className='bg-secondary hover:bg-secondary/90 block rounded-lg px-6 py-4 font-semibold text-white transition-all hover:scale-105'
+                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold whitespace-nowrap transition-all hover:scale-105'
                     >
                         ⭐ Featured
                     </Link>
@@ -68,7 +76,7 @@ const QuickNavigation: React.FC<QuickNavigationProps> = ({
                 <ItemWrapper {...(animated ? { variants: itemVariants } : {})}>
                     <Link
                         to='/best-value'
-                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold transition-all hover:scale-105'
+                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold whitespace-nowrap transition-all hover:scale-105'
                     >
                         💎 Best Value
                     </Link>
@@ -76,7 +84,7 @@ const QuickNavigation: React.FC<QuickNavigationProps> = ({
                 <ItemWrapper {...(animated ? { variants: itemVariants } : {})}>
                     <Link
                         to='/best-sellers'
-                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold transition-all hover:scale-105'
+                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold whitespace-nowrap transition-all hover:scale-105'
                     >
                         🔥 Best Sellers
                     </Link>
@@ -84,7 +92,7 @@ const QuickNavigation: React.FC<QuickNavigationProps> = ({
                 <ItemWrapper {...(animated ? { variants: itemVariants } : {})}>
                     <Link
                         to='/products'
-                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold transition-all hover:scale-105'
+                        className='border-primary/20 hover:border-secondary/50 hover:bg-primary/5 block rounded-lg border bg-transparent px-6 py-4 font-semibold whitespace-nowrap transition-all hover:scale-105'
                     >
                         🛍️ All Products
                     </Link>

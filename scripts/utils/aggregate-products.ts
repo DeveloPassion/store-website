@@ -577,9 +577,12 @@ function main() {
         // testimonialsCount is pre-computed for efficient access
         // includedIn is computed from scanning all products' includedProducts
         // Placeholders in FAQs and salesCopy are replaced with actual values
+        // Quiz targeting fields default to null if not specified
         const testimonialsCount = testimonials.length
         const aggregatedProduct: AggregatedProduct = {
             ...product,
+            targetExperienceLevel: product.targetExperienceLevel,
+            deliveryStyle: product.deliveryStyle,
             faqs: processedFaqs,
             testimonials,
             media,

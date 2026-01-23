@@ -42,6 +42,8 @@ const createMockProduct = (id: string, testimonials: Testimonial[]): Product => 
     bestValue: false,
     priority: 100,
     crossSellIds: [],
+    targetExperienceLevel: null,
+    deliveryStyle: null,
     landingPageUrl: null,
     dsebastienUrl: null,
     stats: null,

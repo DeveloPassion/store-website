@@ -88,5 +88,7 @@
         "clarity-101",
         "ai-master-prompt",
         "model-context-protocol"
-    ]
+    ],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

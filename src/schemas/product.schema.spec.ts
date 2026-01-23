@@ -40,6 +40,8 @@ describe('Product Schema Validation', () => {
         bestValue: false,
         priority: 50,
         crossSellIds: [],
+        targetExperienceLevel: null,
+        deliveryStyle: null,
         activeSalesCopyId: 'default',
         ratingsCount: null,
         averageRating: null,

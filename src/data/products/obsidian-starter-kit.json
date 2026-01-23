@@ -99,5 +99,7 @@
     "isSubscription": false,
     "paymentFrequencies": null,
     "defaultPaymentFrequency": null,
-    "includedProducts": []
+    "includedProducts": [],
+    "targetExperienceLevel": null,
+    "deliveryStyle": null
 }

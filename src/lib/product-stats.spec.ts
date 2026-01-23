@@ -183,6 +183,9 @@ describe('calculateProductStats', () => {
             ratingsCount: null,
             averageRating: null,
             testimonialsCount: 0,
+            crossSellIds: [],
+            targetExperienceLevel: null,
+            deliveryStyle: null,
             ...overrides
         }) as Product
 

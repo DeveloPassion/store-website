@@ -1,0 +1,8 @@
+{
+    "excludedProductIds": [
+        "dev-concepts-vol-1",
+        "dev-concepts-vol-2",
+        "dev-concepts-starter-bundle",
+        "it-concepts-wall"
+    ]
+}

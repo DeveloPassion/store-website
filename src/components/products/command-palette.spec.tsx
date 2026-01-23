@@ -33,6 +33,9 @@ const createMockProduct = (overrides: Partial<Product> = {}): Product =>
         testimonialsCount: 0,
         includedProducts: [],
         includedIn: [],
+        crossSellIds: [],
+        targetExperienceLevel: null,
+        deliveryStyle: null,
         salesCopy: {
             tagline: 'A test product tagline',
             secondaryTagline: null,

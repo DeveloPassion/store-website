@@ -228,6 +228,8 @@ describe('buildGumroadUrlFromProduct', () => {
         bestValue: false,
         priority: 50,
         crossSellIds: [],
+        targetExperienceLevel: null,
+        deliveryStyle: null,
         media: [],
         testimonials: [],
         faqs: [],

@@ -1,5 +1,13 @@
 import { useEffect } from 'react'
-import { FaQuestionCircle, FaEnvelope, FaBook, FaUndo, FaFileInvoice } from 'react-icons/fa'
+import { Link } from 'react-router'
+import {
+    FaQuestionCircle,
+    FaEnvelope,
+    FaBook,
+    FaUndo,
+    FaFileInvoice,
+    FaLightbulb
+} from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import QuickNavigation from '@/components/navigation/quick-navigation'
@@ -44,6 +52,30 @@ const HelpPage: React.FC = () => {
             <Section className='pb-16 sm:pb-24'>
                 <div className='mx-auto max-w-4xl'>
                     <div className='space-y-8'>
+                        {/* Need Advice */}
+                        <div className='border-secondary/30 bg-secondary/5 rounded-lg border-2 p-6 sm:p-8'>
+                            <div className='mb-4 flex items-start gap-3'>
+                                <div className='bg-secondary/20 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg'>
+                                    <FaLightbulb className='text-secondary h-5 w-5' />
+                                </div>
+                                <div>
+                                    <h2 className='mb-2 text-xl font-semibold'>Need Advice?</h2>
+                                    <p className='text-primary/70 mb-4'>
+                                        Not sure which product is right for you? Take our quick quiz
+                                        to get personalized recommendations based on your goals and
+                                        learning style.
+                                    </p>
+                                    <Link
+                                        to='/quiz'
+                                        className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-4 py-2 font-semibold text-white transition-colors'
+                                    >
+                                        <FaLightbulb className='h-4 w-4' />
+                                        Take the Product Quiz
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Purchase Issues */}
                         <div className='border-primary/10 rounded-lg border p-6 sm:p-8'>
                             <div className='mb-4 flex items-start gap-3'>

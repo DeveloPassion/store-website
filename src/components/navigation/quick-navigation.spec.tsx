@@ -32,10 +32,17 @@ describe('QuickNavigation Component', () => {
         expect(getByText('Custom description')).toBeInTheDocument()
     })
 
-    it('should render all four navigation links', () => {
+    it('should render all five navigation links', () => {
         const { getAllByRole } = renderWithRouter(<QuickNavigation animated={false} />)
         const links = getAllByRole('link')
-        expect(links.length).toBe(4)
+        expect(links.length).toBe(5)
+    })
+
+    it('should render Take Quiz link', () => {
+        const { getByText } = renderWithRouter(<QuickNavigation animated={false} />)
+        const quizLink = getByText('💡 Take Quiz')
+        expect(quizLink).toBeInTheDocument()
+        expect(quizLink).toHaveAttribute('href', '/quiz')
     })
 
     it('should render Featured link', () => {
@@ -69,15 +76,20 @@ describe('QuickNavigation Component', () => {
     it('should apply correct styling classes to grid', () => {
         const { container } = renderWithRouter(<QuickNavigation animated={false} />)
         const grid = container.querySelector(
-            '.grid.max-w-3xl.gap-4.sm\\:grid-cols-2.md\\:grid-cols-4'
+            '.grid.max-w-4xl.gap-4.sm\\:grid-cols-2.md\\:grid-cols-5'
         )
         expect(grid).toBeInTheDocument()
     })
 
     it('should apply hover styles to links', () => {
         const { getByText } = renderWithRouter(<QuickNavigation animated={false} />)
+        // Quiz link has secondary background with hover
+        const quizLink = getByText('💡 Take Quiz')
+        expect(quizLink.className).toContain('hover:bg-secondary/90')
+        expect(quizLink.className).toContain('hover:scale-105')
+        // Other links have transparent background with hover
         const featuredLink = getByText('⭐ Featured')
-        expect(featuredLink.className).toContain('hover:bg-secondary/90')
+        expect(featuredLink.className).toContain('hover:bg-primary/5')
         expect(featuredLink.className).toContain('hover:scale-105')
     })
 

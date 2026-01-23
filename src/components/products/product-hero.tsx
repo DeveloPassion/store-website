@@ -343,7 +343,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         )}
 
                         {/* Price & CTA */}
-                        <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
+                        <div className='flex flex-col gap-4 px-3 sm:flex-row sm:items-center sm:px-0'>
                             <div>
                                 <div className='text-primary/60 text-sm'>Price</div>
                                 <div className='text-secondary text-3xl font-bold sm:text-4xl'>

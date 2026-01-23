@@ -9,7 +9,8 @@ import {
     FaStar,
     FaShoppingCart,
     FaTrash,
-    FaShare
+    FaShare,
+    FaLightbulb
 } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
@@ -994,6 +995,23 @@ const ComparePage: React.FC = () => {
                             </button>
                         </div>
                     )}
+
+                    {/* Quiz CTA Section */}
+                    <div className='bg-secondary/5 border-secondary/20 mt-6 rounded-xl border p-6 text-center'>
+                        <div className='flex flex-col items-center gap-3'>
+                            <FaLightbulb className='text-secondary h-6 w-6' />
+                            <p className='text-primary/80'>
+                                Still can't decide? Let us help you find the perfect match.
+                            </p>
+                            <Link
+                                to='/quiz'
+                                className='bg-secondary hover:bg-secondary/90 inline-flex items-center gap-2 rounded-lg px-5 py-2 font-semibold text-white transition-colors'
+                            >
+                                <FaLightbulb className='h-4 w-4' />
+                                Take Our Quiz
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </Section>
         </div>

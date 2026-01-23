@@ -1,0 +1,202 @@
+{
+    "questions": [
+        {
+            "id": "experience",
+            "question": "What's your experience with Personal Knowledge Management (PKM)?",
+            "options": [
+                {
+                    "label": "I'm just getting started",
+                    "icon": "🌱",
+                    "filters": {
+                        "experienceLevel": "beginner"
+                    },
+                    "matchReason": "Perfect for beginners"
+                },
+                {
+                    "label": "I have some experience",
+                    "icon": "🌿",
+                    "filters": {
+                        "experienceLevel": "intermediate"
+                    },
+                    "matchReason": "For intermediate users"
+                },
+                {
+                    "label": "I'm experienced and want advanced techniques",
+                    "icon": "🌳",
+                    "filters": {
+                        "experienceLevel": "advanced"
+                    },
+                    "matchReason": "For advanced practitioners"
+                }
+            ]
+        },
+        {
+            "id": "interest",
+            "question": "What are you most interested in?",
+            "options": [
+                {
+                    "label": "Obsidian (note-taking app)",
+                    "icon": "💎",
+                    "filters": {
+                        "categories": ["obsidian"]
+                    },
+                    "matchReason": "Obsidian-focused"
+                },
+                {
+                    "label": "AI tools and workflows",
+                    "icon": "🤖",
+                    "filters": {
+                        "categories": ["ai-mastery", "ai-tools"]
+                    },
+                    "matchReason": "AI-focused"
+                },
+                {
+                    "label": "Knowledge management in general",
+                    "icon": "🧠",
+                    "filters": {
+                        "categories": ["knowledge-management", "knowledge-work"]
+                    },
+                    "matchReason": "General PKM"
+                },
+                {
+                    "label": "Personal organization & productivity",
+                    "icon": "📋",
+                    "filters": {
+                        "categories": ["personal-organization", "productivity"]
+                    },
+                    "matchReason": "Organization-focused"
+                },
+                {
+                    "label": "Content creation & writing",
+                    "icon": "✍️",
+                    "filters": {
+                        "categories": ["content-creation", "journaling"]
+                    },
+                    "matchReason": "Content creation focused"
+                }
+            ]
+        },
+        {
+            "id": "learning-style",
+            "question": "How do you prefer to learn?",
+            "options": [
+                {
+                    "label": "Video courses with structured lessons",
+                    "icon": "🎬",
+                    "filters": {
+                        "categories": ["courses", "learning"]
+                    },
+                    "matchReason": "Course-based learning"
+                },
+                {
+                    "label": "Ready-to-use templates I can customize",
+                    "icon": "📦",
+                    "filters": {
+                        "categories": ["kits-and-templates", "tools"]
+                    },
+                    "matchReason": "Template-based"
+                },
+                {
+                    "label": "Guides and books I can read at my pace",
+                    "icon": "📚",
+                    "filters": {
+                        "categories": ["guides"]
+                    },
+                    "matchReason": "Self-paced reading"
+                },
+                {
+                    "label": "1-on-1 coaching and personalized guidance",
+                    "icon": "👤",
+                    "filters": {
+                        "categories": ["coaching", "services"]
+                    },
+                    "matchReason": "Personalized coaching"
+                },
+                {
+                    "label": "Community learning with others",
+                    "icon": "👥",
+                    "filters": {
+                        "categories": ["community"]
+                    },
+                    "matchReason": "Community-based"
+                }
+            ]
+        },
+        {
+            "id": "budget",
+            "question": "What's your budget preference?",
+            "options": [
+                {
+                    "label": "Free resources only",
+                    "icon": "🆓",
+                    "filters": {
+                        "priceTiers": ["free"]
+                    },
+                    "matchReason": "Free resources"
+                },
+                {
+                    "label": "Budget-friendly options (under €50)",
+                    "icon": "💰",
+                    "filters": {
+                        "priceTiers": ["free", "budget"]
+                    },
+                    "matchReason": "Budget-friendly"
+                },
+                {
+                    "label": "Standard investments (€50-150)",
+                    "icon": "💳",
+                    "filters": {
+                        "priceTiers": ["budget", "standard"]
+                    },
+                    "matchReason": "Standard pricing"
+                },
+                {
+                    "label": "Premium solutions for serious results",
+                    "icon": "💎",
+                    "filters": {
+                        "priceTiers": ["standard", "premium"]
+                    },
+                    "matchReason": "Premium quality"
+                },
+                {
+                    "label": "Ongoing subscription for continuous learning",
+                    "icon": "🔄",
+                    "filters": {
+                        "priceTiers": ["subscription"]
+                    },
+                    "matchReason": "Subscription-based"
+                }
+            ]
+        },
+        {
+            "id": "delivery-style",
+            "question": "How do you like to approach new knowledge?",
+            "options": [
+                {
+                    "label": "Hands-on: Give me tools and let me dive in",
+                    "icon": "🛠️",
+                    "filters": {
+                        "deliveryStyle": "hands-on"
+                    },
+                    "matchReason": "Action-oriented"
+                },
+                {
+                    "label": "Theory first: I want to understand concepts deeply",
+                    "icon": "📖",
+                    "filters": {
+                        "deliveryStyle": "conceptual"
+                    },
+                    "matchReason": "Conceptual learning"
+                },
+                {
+                    "label": "A mix of both theory and practice",
+                    "icon": "⚖️",
+                    "filters": {
+                        "deliveryStyle": "hybrid"
+                    },
+                    "matchReason": "Balanced approach"
+                }
+            ]
+        }
+    ]
+}
