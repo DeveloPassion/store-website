@@ -203,7 +203,6 @@ const merchantReturnPolicySchema = {
     '@type': 'MerchantReturnPolicy',
     '@id': `${BASE_URL}/#returnpolicy`,
     'name': 'Digital Product Return Policy',
-    'applicableCountry': 'WORLD',
     'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
     'merchantReturnDays': 30,
     'returnFees': 'https://schema.org/FreeReturn',
@@ -220,8 +219,7 @@ const digitalShippingDetailsSchema = {
         'currency': 'EUR'
     },
     'shippingDestination': {
-        '@type': 'DefinedRegion',
-        'addressCountry': 'WORLD'
+        '@type': 'DefinedRegion'
     },
     'deliveryTime': {
         '@type': 'ShippingDeliveryTime',
