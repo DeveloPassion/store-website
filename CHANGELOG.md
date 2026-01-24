@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/DeveloPassion/store-website/compare/1.5.1...1.5.3) (2026-01-24)
+
+### Bug Fixes
+
+* **all:** another fix ([33ee6b5](https://github.com/DeveloPassion/store-website/commit/33ee6b575cd441236778d2f6d644bd8700578997))
+* **all:** fix issue ([3c1dd86](https://github.com/DeveloPassion/store-website/commit/3c1dd86f299b55b71e5dbcbe8a38d7a90610c25e))
+* **all:** more fixes ([426db95](https://github.com/DeveloPassion/store-website/commit/426db95bac7e69b6a7f1b00b7e3c1e973426f7c9))
 ## [1.5.1](https://github.com/DeveloPassion/store-website/compare/1.5.0...1.5.1) (2026-01-24)
 ## [1.5.0](https://github.com/DeveloPassion/store-website/compare/1.4.0...1.5.0) (2026-01-24)
 
