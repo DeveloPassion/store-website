@@ -1,3 +1,8 @@
+## [1.5.0](https://github.com/DeveloPassion/store-website/compare/1.4.0...1.5.0) (2026-01-24)
+
+### Features
+
+* **all:** added plausible analytics ([9f363fd](https://github.com/DeveloPassion/store-website/commit/9f363fdbb70a960533b03930fbc894e2f5a41cd5))
 ## [1.4.0](https://github.com/DeveloPassion/store-website/compare/1.3.0...1.4.0) (2026-01-23)
 
 ### Features
