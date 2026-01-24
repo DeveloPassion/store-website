@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import { FaChevronDown } from 'react-icons/fa'
@@ -8,6 +9,7 @@ import { useAnimationVariants } from '@/hooks/use-animation-variants'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { trackFaqExpanded } from '@/lib/analytics'
 
 interface ProductFAQProps {
     product: Product
@@ -21,6 +23,22 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
         staggerDelay: 0.05,
         itemYOffset: 10
     })
+
+    // Track FAQ expansion (only when opening)
+    const handleFaqClick = useCallback(
+        (faqId: string, question: string, isOpen: boolean) => {
+            // Only track when opening (not when closing)
+            if (!isOpen) {
+                trackFaqExpanded({
+                    faqId,
+                    questionText: question,
+                    pageType: 'product',
+                    productId: product.id
+                })
+            }
+        },
+        [product.id]
+    )
 
     if (faqs.length === 0) {
         return null
@@ -53,7 +71,12 @@ const ProductFAQ: React.FC<ProductFAQProps> = ({ product }) => {
                                             open && 'ring-secondary/30 ring-2 ring-inset'
                                         )}
                                     >
-                                        <Disclosure.Button className='hover:bg-primary/5 flex w-full cursor-pointer items-center justify-between px-6 py-4 text-left transition-colors'>
+                                        <Disclosure.Button
+                                            className='hover:bg-primary/5 flex w-full cursor-pointer items-center justify-between px-6 py-4 text-left transition-colors'
+                                            onClick={() =>
+                                                handleFaqClick(faq.id, faq.question, open)
+                                            }
+                                        >
                                             <MarkdownContent
                                                 content={faq.question}
                                                 inline

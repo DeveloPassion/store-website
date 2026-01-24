@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -25,6 +25,12 @@ import { buildGumroadUrl } from '@/lib/gumroad-url'
 import { searchProducts } from '@/lib/product-search'
 import type { MediaItem } from '@/schemas/media.schema'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import {
+    trackCompareOpened,
+    trackCompareProductAdded,
+    trackCompareProductRemoved,
+    trackCompareShared
+} from '@/lib/analytics'
 
 // Get first cover image from media array
 const getCoverImage = (media: MediaItem[] | undefined): MediaItem | undefined => {
@@ -78,6 +84,7 @@ const ComparePage: React.FC = () => {
     const [showSelector, setShowSelector] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
     const [copySuccess, setCopySuccess] = useState(false)
+    const compareOpenedTrackedRef = useRef(false)
 
     // Initialize selected IDs from URL params
     const selectedIds = useMemo(() => {
@@ -137,6 +144,17 @@ const ComparePage: React.FC = () => {
             .filter(Boolean) as Product[]
     }, [selectedIds, products])
 
+    // Track compare page opened on initial load if products are selected
+    useEffect(() => {
+        if (selectedIds.length > 0 && !compareOpenedTrackedRef.current) {
+            trackCompareOpened({
+                productCount: selectedIds.length,
+                productIds: selectedIds
+            })
+            compareOpenedTrackedRef.current = true
+        }
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
     const availableProducts = useMemo(() => {
         const notSelected = products.filter((p) => !selectedIds.includes(p.id))
         if (!searchQuery) return notSelected
@@ -145,14 +163,30 @@ const ComparePage: React.FC = () => {
 
     const addProduct = (productId: string) => {
         if (selectedIds.length < MAX_COMPARE && !selectedIds.includes(productId)) {
-            updateSelectedIds([...selectedIds, productId])
+            const newIds = [...selectedIds, productId]
+            updateSelectedIds(newIds)
             setShowSelector(false)
             setSearchQuery('')
+
+            const product = products.find((p) => p.id === productId)
+            if (product) {
+                trackCompareProductAdded({
+                    productId,
+                    productName: product.name,
+                    totalCount: newIds.length
+                })
+            }
         }
     }
 
     const removeProduct = (productId: string) => {
-        updateSelectedIds(selectedIds.filter((id) => id !== productId))
+        const newIds = selectedIds.filter((id) => id !== productId)
+        updateSelectedIds(newIds)
+
+        trackCompareProductRemoved({
+            productId,
+            remainingCount: newIds.length
+        })
     }
 
     const clearAll = () => {
@@ -165,6 +199,11 @@ const ComparePage: React.FC = () => {
     }, [selectedIds])
 
     const handleShareComparison = async () => {
+        trackCompareShared({
+            productCount: selectedIds.length,
+            productIds: selectedIds
+        })
+
         try {
             const shareUrl = generateShareableUrl()
             await navigator.clipboard.writeText(shareUrl)

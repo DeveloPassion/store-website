@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState } from 'react'
+import { useMemo, useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router'
 import { FaHeart, FaShare } from 'react-icons/fa'
 import Section from '@/components/ui/section'
@@ -10,11 +10,13 @@ import type { Product } from '@/schemas/product.schema'
 import { getWishlist } from '@/lib/wishlist'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { trackWishlistViewed, trackWishlistShared } from '@/lib/analytics'
 
 const WishlistPage: React.FC = () => {
     const products = productsData as Product[]
     const [copySuccess, setCopySuccess] = useState(false)
     const [wishlistUpdateTrigger, setWishlistUpdateTrigger] = useState(0)
+    const viewTrackedRef = useRef(false)
 
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Wishlist' }])
@@ -46,6 +48,14 @@ const WishlistPage: React.FC = () => {
 
     const wishlistCount = wishlistProducts.length
 
+    // Track wishlist viewed on mount
+    useEffect(() => {
+        if (!viewTrackedRef.current) {
+            trackWishlistViewed(wishlistCount)
+            viewTrackedRef.current = true
+        }
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
     // Generate shareable URL
     const generateShareableUrl = () => {
         const productIds = wishlistProducts.map((p) => p.id).join(',')
@@ -55,6 +65,11 @@ const WishlistPage: React.FC = () => {
 
     // Copy shareable URL to clipboard
     const handleShareWishlist = async () => {
+        trackWishlistShared({
+            wishlistSize: wishlistProducts.length,
+            productIds: wishlistProducts.map((p) => p.id)
+        })
+
         try {
             const shareUrl = generateShareableUrl()
             await navigator.clipboard.writeText(shareUrl)
@@ -134,7 +149,11 @@ const WishlistPage: React.FC = () => {
                             </div>
                             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                 {wishlistProducts.map((product) => (
-                                    <ProductCardEcommerce key={product.id} product={product} />
+                                    <ProductCardEcommerce
+                                        key={product.id}
+                                        product={product}
+                                        source='wishlist'
+                                    />
                                 ))}
                             </div>
                         </>

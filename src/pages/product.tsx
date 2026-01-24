@@ -26,6 +26,9 @@ import type { Product } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { useProductUrlState } from '@/hooks/use-product-url-state'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { trackProductViewed } from '@/lib/analytics'
+import { useScrollTracking } from '@/hooks/use-scroll-tracking'
+import { useTimeOnPage } from '@/hooks/use-time-on-page'
 
 /**
  * Wrapper component that forces remount when productSlug changes.
@@ -52,6 +55,28 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
     // Reads initial values from URL params and updates URL when selections change
     const { selectedVariant, setSelectedVariant, selectedFrequency, setSelectedFrequency } =
         useProductUrlState({ product })
+
+    // Track product view
+    useEffect(() => {
+        if (product) {
+            trackProductViewed({
+                productId: product.id,
+                productName: product.name,
+                category: product.mainCategory,
+                price: product.price,
+                priceTier: product.priceTier,
+                isFeatured: product.featured,
+                isBestseller: product.bestseller,
+                isBestValue: product.bestValue
+            })
+        }
+    }, [product?.id]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Track scroll depth
+    useScrollTracking({ pageType: 'product', skip: !product })
+
+    // Track time on page
+    useTimeOnPage({ pageType: 'product', skip: !product })
 
     // Set breadcrumbs
     useSetBreadcrumbs(

@@ -9,6 +9,8 @@ import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { MarkdownContent } from '@/components/ui/markdown-content'
 import globalFaqData from '@/data/faq-global.json'
 import type { GlobalFAQ } from '@/schemas/global-faq.schema'
+import { useScrollTracking } from '@/hooks/use-scroll-tracking'
+import { useTimeOnPage } from '@/hooks/use-time-on-page'
 
 // FAQ Item component for rendering individual FAQ entries
 const FAQItem: React.FC<{ faq: GlobalFAQ }> = ({ faq }) => {
@@ -123,6 +125,10 @@ const FAQItem: React.FC<{ faq: GlobalFAQ }> = ({ faq }) => {
 }
 
 const FAQPage: React.FC = () => {
+    // Scroll and time tracking
+    useScrollTracking({ pageType: 'faq' })
+    useTimeOnPage({ pageType: 'faq' })
+
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'FAQ' }])
 

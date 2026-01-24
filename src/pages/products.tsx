@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { FaFilter } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
@@ -15,10 +15,19 @@ import {
     SortDropdown,
     ActiveFilterChips
 } from '@/components/products/filters'
+import { trackSearchPerformed, trackSortChanged } from '@/lib/analytics'
+import { useScrollTracking } from '@/hooks/use-scroll-tracking'
+import { useTimeOnPage } from '@/hooks/use-time-on-page'
 
 const ProductsPage: React.FC = () => {
     const products = productsData as Product[]
     const [filterDrawerOpen, setFilterDrawerOpen] = useState(false)
+    const searchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const previousSortRef = useRef<string | null>(null)
+
+    // Scroll and time tracking
+    useScrollTracking({ pageType: 'products' })
+    useTimeOnPage({ pageType: 'products' })
 
     // URL-synced filter state
     const filterState = useProductsFilterState()
@@ -73,6 +82,37 @@ const ProductsPage: React.FC = () => {
 
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Products' }])
+
+    // Track search with debounce
+    useEffect(() => {
+        if (searchDebounceRef.current) {
+            clearTimeout(searchDebounceRef.current)
+        }
+
+        if (searchQuery.trim().length > 0) {
+            searchDebounceRef.current = setTimeout(() => {
+                trackSearchPerformed({
+                    queryLength: searchQuery.length,
+                    resultCount: sortedProducts.length,
+                    pageType: 'products'
+                })
+            }, 500)
+        }
+
+        return () => {
+            if (searchDebounceRef.current) {
+                clearTimeout(searchDebounceRef.current)
+            }
+        }
+    }, [searchQuery, sortedProducts.length])
+
+    // Track sort changes
+    useEffect(() => {
+        if (previousSortRef.current !== null && previousSortRef.current !== sortBy) {
+            trackSortChanged(sortBy)
+        }
+        previousSortRef.current = sortBy
+    }, [sortBy])
 
     // Update document title and meta tags
     useEffect(() => {
@@ -207,7 +247,11 @@ const ProductsPage: React.FC = () => {
                         {sortedProducts.length > 0 ? (
                             <div className='xg:grid-cols-3 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
                                 {sortedProducts.map((product) => (
-                                    <ProductCardEcommerce key={product.id} product={product} />
+                                    <ProductCardEcommerce
+                                        key={product.id}
+                                        product={product}
+                                        source={searchQuery ? 'search' : 'products'}
+                                    />
                                 ))}
                             </div>
                         ) : (

@@ -1,10 +1,11 @@
-import { useMemo } from 'react'
+import { useMemo, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import MediaCarousel from '@/components/products/media-carousel'
 import MediaLightbox from '@/components/products/media-lightbox'
 import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 import type { Product } from '@/schemas/product.schema'
 import type { MediaGroup, MediaItem } from '@/schemas/media.schema'
+import { trackMediaViewed, trackLightboxOpened } from '@/lib/analytics'
 
 interface MediaCarouselSectionProps {
     product: Product
@@ -35,6 +36,29 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
     id
 }) => {
     const { isOpen, selectedIndex, open, close } = useMediaLightbox()
+
+    // Track media viewed and lightbox opened when user clicks on media
+    const handleMediaClick = useCallback(
+        (item: MediaItem, index: number) => {
+            // Track media viewed
+            trackMediaViewed({
+                mediaType: item.type as 'image' | 'video',
+                mediaIndex: index,
+                mediaGroup: group,
+                productId: product.id
+            })
+
+            // Track lightbox opened
+            trackLightboxOpened({
+                mediaType: item.type as 'image' | 'video',
+                productId: product.id
+            })
+
+            // Open the lightbox
+            open(item, index)
+        },
+        [group, product.id, open]
+    )
 
     // Get section config from sales copy (if defined)
     // Note: mediaSections only has main, secondary, bonus - not cover
@@ -134,7 +158,7 @@ const MediaCarouselSection: React.FC<MediaCarouselSectionProps> = ({
                             media={groupMedia}
                             group={group}
                             showCaptions={true}
-                            onMediaClick={open}
+                            onMediaClick={handleMediaClick}
                         />
                     </motion.div>
                 </div>

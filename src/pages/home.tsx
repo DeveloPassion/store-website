@@ -37,6 +37,8 @@ import { useProductStats } from '@/hooks/use-product-stats'
 import { getWeightedRandomTagline } from '@/lib/tagline-utils'
 import { getWeightedRandomAnimatedHeroText } from '@/lib/animated-hero-text-utils'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { useScrollTracking } from '@/hooks/use-scroll-tracking'
+import { useTimeOnPage } from '@/hooks/use-time-on-page'
 
 const HomeEcommerce: React.FC = () => {
     const [searchParams] = useSearchParams()
@@ -44,6 +46,10 @@ const HomeEcommerce: React.FC = () => {
     const decodedTagName = tagName ? decodeURIComponent(tagName) : null
     const categoryFilter = searchParams.get('category') || null
     const searchQuery = searchParams.get('q') || ''
+
+    // Scroll and time tracking
+    useScrollTracking({ pageType: 'home' })
+    useTimeOnPage({ pageType: 'home' })
 
     // Get product statistics (customers, testimonials, ratings)
     const { formattedCustomers, totalTestimonials, averageRating } = useProductStats()
@@ -373,7 +379,11 @@ const HomeEcommerce: React.FC = () => {
                     </div>
                     <div className='grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {featuredProducts.map((product) => (
-                            <ProductCardEcommerce key={product.id} product={product} />
+                            <ProductCardEcommerce
+                                key={product.id}
+                                product={product}
+                                source='featured'
+                            />
                         ))}
                     </div>
                 </Section>
@@ -401,7 +411,11 @@ const HomeEcommerce: React.FC = () => {
                     </p>
                     <div className='grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                         {bestValueProducts.map((product) => (
-                            <ProductCardEcommerce key={product.id} product={product} />
+                            <ProductCardEcommerce
+                                key={product.id}
+                                product={product}
+                                source='best_value'
+                            />
                         ))}
                     </div>
                 </Section>
@@ -477,7 +491,11 @@ const HomeEcommerce: React.FC = () => {
                 {filteredProducts.length > 0 ? (
                     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                         {filteredProducts.map((product) => (
-                            <ProductCardEcommerce key={product.id} product={product} />
+                            <ProductCardEcommerce
+                                key={product.id}
+                                product={product}
+                                source='home'
+                            />
                         ))}
                     </div>
                 ) : (

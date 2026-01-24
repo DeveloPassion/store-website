@@ -3,9 +3,11 @@ import { FaShare, FaCheck, FaLink, FaLinkedin } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { cn } from '@/lib/utils'
 import { copyToClipboard, canUseWebShare, webShare, openSocialShare } from '@/lib/share'
+import { trackShareClicked } from '@/lib/analytics'
 
 type ShareButtonVariant = 'icon' | 'text' | 'dropdown'
 type ShareButtonSize = 'sm' | 'md' | 'lg'
+type ShareType = 'product' | 'wishlist' | 'compare' | 'quiz_results'
 
 interface ShareButtonProps {
     /** URL to share (can be a path like /product/my-product or full URL) */
@@ -20,6 +22,10 @@ interface ShareButtonProps {
     size?: ShareButtonSize
     /** Additional CSS classes */
     className?: string
+    /** Type of content being shared (for analytics) */
+    shareType?: ShareType
+    /** Optional item ID (for analytics) */
+    itemId?: string
 }
 
 const sizeClasses: Record<ShareButtonSize, { button: string; icon: string; text: string }> = {
@@ -56,7 +62,9 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
     description,
     variant = 'dropdown',
     size = 'md',
-    className
+    className,
+    shareType = 'product',
+    itemId
 }) => {
     const [copied, setCopied] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
@@ -113,6 +121,11 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
 
         const success = await copyToClipboard(fullUrl)
         if (success) {
+            trackShareClicked({
+                shareType,
+                platform: 'copy',
+                itemId
+            })
             setCopied(true)
             setIsOpen(false)
         }
@@ -151,6 +164,12 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
     const handleSocialShare = (platform: 'twitter' | 'linkedin') => (e: React.MouseEvent) => {
         e.preventDefault()
         e.stopPropagation()
+
+        trackShareClicked({
+            shareType,
+            platform,
+            itemId
+        })
 
         const shareText = description ? `${title} - ${description}` : title
         openSocialShare(platform, fullUrl, shareText)

@@ -5,26 +5,43 @@ import type { Product } from '@/schemas/product.schema'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/schemas/category.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
-import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
+import { isInWishlist, toggleWishlist, getWishlist } from '@/lib/wishlist'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
 import { ShareButton } from '@/components/ui/share-button'
 import { useSyncedState } from '@/hooks/use-synced-state'
+import {
+    trackProductCardClicked,
+    trackBuyClicked,
+    trackWishlistToggled,
+    type TrafficSource
+} from '@/lib/analytics'
 
 interface ProductCardEcommerceProps {
     product: Product
+    source?: TrafficSource
     onAddToCart?: () => void
     compactBadges?: boolean
 }
 
 const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
     product,
+    source = 'direct',
     onAddToCart,
     compactBadges = false
 }) => {
     // Wishlist state - resets when product.id changes
     const getWishlistStatus = useCallback(() => isInWishlist(product.id), [product.id])
     const [isWishlisted, setIsWishlisted] = useSyncedState(product.id, getWishlistStatus)
+
+    const handleCardClick = () => {
+        trackProductCardClicked({
+            productId: product.id,
+            productName: product.name,
+            price: product.price,
+            source
+        })
+    }
 
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault()
@@ -33,11 +50,30 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
         }
     }
 
+    const handleBuyClick = () => {
+        trackBuyClicked({
+            productId: product.id,
+            productName: product.name,
+            variantName: null,
+            price: product.price,
+            isSubscription: product.isSubscription,
+            frequency: null,
+            source: 'card'
+        })
+    }
+
     const handleWishlist = (e: React.MouseEvent) => {
         e.preventDefault()
         e.stopPropagation()
         const newState = toggleWishlist(product.id)
         setIsWishlisted(newState)
+        trackWishlistToggled({
+            action: newState ? 'add' : 'remove',
+            productId: product.id,
+            productName: product.name,
+            source,
+            wishlistSize: getWishlist().length
+        })
     }
 
     // Get the display price
@@ -68,7 +104,11 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
         <div className='group border-primary/10 bg-primary/5 hover:border-secondary/30 hover:shadow-secondary/10 relative flex flex-col overflow-hidden rounded-xl border transition-all hover:shadow-xl'>
             {/* Image Container */}
             <div className='from-secondary/10 relative aspect-[16/9] overflow-hidden bg-gradient-to-br to-purple-500/10'>
-                <Link to={`/product/${product.id}`} className='block h-full w-full'>
+                <Link
+                    to={`/product/${product.id}`}
+                    className='block h-full w-full'
+                    onClick={handleCardClick}
+                >
                     {(() => {
                         // Get first image from media array (prioritize cover → main → secondary → bonus)
                         const firstImage = product.media
@@ -253,6 +293,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                             data-gumroad-overlay-checkout='true'
                             size='sm'
                             leftIcon={<FaShoppingCart className='h-4 w-4' />}
+                            onClick={handleBuyClick}
                         >
                             {isFree ? 'Get Now' : 'Buy'}
                         </Button>

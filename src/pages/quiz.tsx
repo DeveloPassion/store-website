@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -30,6 +30,13 @@ import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import { buildGumroadUrl } from '@/lib/gumroad-url'
 import type { MediaItem } from '@/schemas/media.schema'
+import {
+    trackQuizStarted,
+    trackQuizQuestionAnswered,
+    trackQuizCompleted,
+    trackQuizRecommendationClicked,
+    trackQuizResultsShared
+} from '@/lib/analytics'
 
 // Type assertions for JSON imports
 const quizQuestions = (quizQuestionsData as QuizQuestionsData).questions
@@ -138,6 +145,8 @@ const QuizPage: React.FC = () => {
     }, [])
     const [expandedAlternatives, setExpandedAlternatives] = useState(false)
     const [copySuccess, setCopySuccess] = useState(false)
+    const quizStartTrackedRef = useRef(false)
+    const quizCompletionTrackedRef = useRef(false)
 
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Product Quiz' }])
 
@@ -170,6 +179,24 @@ const QuizPage: React.FC = () => {
 
     const handleAnswer = (optionIndex: number) => {
         if (!currentQuestion) return
+
+        // Track quiz start only on first answer (not restored from URL)
+        if (Object.keys(answers).length === 0 && !quizStartTrackedRef.current) {
+            trackQuizStarted()
+            quizStartTrackedRef.current = true
+        }
+
+        // Track the answer
+        const selectedOption = currentQuestion.options[optionIndex]
+        if (selectedOption) {
+            trackQuizQuestionAnswered({
+                questionId: currentQuestion.id,
+                questionNumber: currentStep + 1,
+                answerIndex: optionIndex,
+                answerLabel: selectedOption.label
+            })
+        }
+
         setAnswers({ ...answers, [currentQuestion.id]: optionIndex })
 
         if (currentStep < quizQuestions.length - 1) {
@@ -193,6 +220,7 @@ const QuizPage: React.FC = () => {
     }, [setSearchParams])
 
     const shareResults = useCallback(async () => {
+        trackQuizResultsShared()
         const url = window.location.href
         try {
             await navigator.clipboard.writeText(url)
@@ -281,6 +309,30 @@ const QuizPage: React.FC = () => {
     const topRecommendation = recommendations[0]
     const alternativeRecommendations = recommendations.slice(1, 4)
     const moreAlternatives = recommendations.slice(4)
+
+    // Track quiz completion when results are shown
+    useEffect(() => {
+        const topRecommendation = recommendations[0]
+        if (showResults && topRecommendation && !quizCompletionTrackedRef.current) {
+            trackQuizCompleted({
+                totalQuestions: quizQuestions.length,
+                productsRecommended: recommendations.length,
+                topProductId: topRecommendation.product.id,
+                topProductName: topRecommendation.product.name
+            })
+            quizCompletionTrackedRef.current = true
+        }
+    }, [showResults, recommendations])
+
+    // Track recommendation click
+    const handleRecommendationClick = useCallback((product: Product, rank: number) => {
+        trackQuizRecommendationClicked({
+            productId: product.id,
+            productName: product.name,
+            rank,
+            isTopRecommendation: rank === 1
+        })
+    }, [])
 
     // Generate personalized explanation for top recommendation
     const getPersonalizedExplanation = useCallback(
@@ -473,6 +525,12 @@ const QuizPage: React.FC = () => {
                                         <div className='flex flex-col items-center gap-3 sm:flex-row sm:items-start sm:gap-4'>
                                             <Link
                                                 to={`/product/${topRecommendation.product.id}`}
+                                                onClick={() =>
+                                                    handleRecommendationClick(
+                                                        topRecommendation.product,
+                                                        1
+                                                    )
+                                                }
                                                 className='bg-primary/10 h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg sm:h-24 sm:w-24 sm:rounded-xl'
                                             >
                                                 {getCoverImage(topRecommendation.product.media) ? (
@@ -494,6 +552,12 @@ const QuizPage: React.FC = () => {
                                             <div className='w-full min-w-0 flex-1 text-center sm:text-left'>
                                                 <Link
                                                     to={`/product/${topRecommendation.product.id}`}
+                                                    onClick={() =>
+                                                        handleRecommendationClick(
+                                                            topRecommendation.product,
+                                                            1
+                                                        )
+                                                    }
                                                     className='hover:text-secondary block truncate text-base font-bold transition-colors sm:text-xl'
                                                 >
                                                     {topRecommendation.product.name}
@@ -562,6 +626,12 @@ const QuizPage: React.FC = () => {
                                             </a>
                                             <Link
                                                 to={`/product/${topRecommendation.product.id}`}
+                                                onClick={() =>
+                                                    handleRecommendationClick(
+                                                        topRecommendation.product,
+                                                        1
+                                                    )
+                                                }
                                                 className='border-secondary text-secondary hover:bg-secondary/10 inline-flex items-center justify-center gap-1.5 rounded-lg border px-4 py-2 text-xs font-semibold transition-colors sm:gap-2 sm:px-6 sm:py-3 sm:text-base'
                                             >
                                                 View Details
@@ -579,10 +649,19 @@ const QuizPage: React.FC = () => {
                                         </h3>
                                         <div className='space-y-2 sm:space-y-3'>
                                             {alternativeRecommendations.map(
-                                                ({ product, matchReasons }: ProductMatch) => (
+                                                (
+                                                    { product, matchReasons }: ProductMatch,
+                                                    index: number
+                                                ) => (
                                                     <Link
                                                         key={product.id}
                                                         to={`/product/${product.id}`}
+                                                        onClick={() =>
+                                                            handleRecommendationClick(
+                                                                product,
+                                                                index + 2
+                                                            )
+                                                        }
                                                         className='border-primary/10 hover:border-secondary/50 group flex min-w-0 items-center gap-2 overflow-hidden rounded-lg border p-2 transition-colors sm:gap-4 sm:rounded-xl sm:p-4'
                                                     >
                                                         <div className='bg-primary/10 h-10 w-10 flex-shrink-0 overflow-hidden rounded sm:h-16 sm:w-16 sm:rounded-lg'>
@@ -654,10 +733,19 @@ const QuizPage: React.FC = () => {
                                                     className='mt-2 space-y-2 overflow-hidden sm:mt-3 sm:space-y-3'
                                                 >
                                                     {moreAlternatives.map(
-                                                        ({ product }: ProductMatch) => (
+                                                        (
+                                                            { product }: ProductMatch,
+                                                            index: number
+                                                        ) => (
                                                             <Link
                                                                 key={product.id}
                                                                 to={`/product/${product.id}`}
+                                                                onClick={() =>
+                                                                    handleRecommendationClick(
+                                                                        product,
+                                                                        index + 5
+                                                                    )
+                                                                }
                                                                 className='border-primary/10 hover:border-secondary/50 group flex min-w-0 items-center gap-2 overflow-hidden rounded-lg border p-2 transition-colors sm:gap-3 sm:rounded-xl sm:p-3'
                                                             >
                                                                 <div className='bg-primary/10 h-8 w-8 flex-shrink-0 overflow-hidden rounded sm:h-12 sm:w-12 sm:rounded-lg'>

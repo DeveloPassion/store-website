@@ -6,6 +6,7 @@ import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { trackBuyClicked } from '@/lib/analytics'
 
 interface StickyBuyButtonProps {
     product: Product
@@ -68,6 +69,30 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
     const buttonText = isFree ? 'Get Now' : 'Buy Now'
     const buttonTextWithPrice = isFree ? 'Get Now' : `Buy (${displayPrice})`
     const gumroadUrl = buildGumroadUrlFromProduct(product, selectedVariant, selectedFrequency)
+
+    // Calculate current price for analytics
+    const getCurrentPrice = (): number => {
+        if (!product.isSubscription || !selectedVariant.prices) {
+            return selectedVariant.price
+        }
+        if (selectedFrequency === 'yearly')
+            return selectedVariant.prices.yearly || selectedVariant.price
+        if (selectedFrequency === 'biennial')
+            return selectedVariant.prices.biennial || selectedVariant.price
+        return selectedVariant.prices.monthly || selectedVariant.price
+    }
+
+    const handleBuyClick = () => {
+        trackBuyClicked({
+            productId: product.id,
+            productName: product.name,
+            variantName: selectedVariant.name,
+            price: getCurrentPrice(),
+            isSubscription: product.isSubscription,
+            frequency: product.isSubscription ? selectedFrequency : null,
+            source: 'sticky'
+        })
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -142,6 +167,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
                                 size='md'
                                 leftIcon={<FaShoppingCart className='h-4 w-4' aria-hidden='true' />}
                                 className='whitespace-nowrap hover:!scale-100'
+                                onClick={handleBuyClick}
                             >
                                 {/* Very small screens: show price in button */}
                                 <span className='hidden max-[400px]:inline'>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router'
 import {
     FaSearch,
@@ -26,6 +26,11 @@ import { fuzzySearch, type FuzzySearchConfig } from '@/lib/fuzzy-search'
 import type { Product } from '@/schemas/product.schema'
 import type { Category } from '@/schemas/category.schema'
 import categoriesData from '@/data/categories.json'
+import {
+    trackCommandPaletteOpened,
+    trackCommandPaletteSearch,
+    trackCommandPaletteSelected
+} from '@/lib/analytics'
 
 // Field weights for fuzzy search
 const SEARCH_CONFIG: FuzzySearchConfig<'title' | 'subtitle' | 'tags' | 'categories'> = {
@@ -41,6 +46,7 @@ interface CommandPaletteProps {
     isOpen: boolean
     onClose: () => void
     products: Product[]
+    trigger?: 'keyboard' | 'click'
 }
 
 type CommandType = 'product' | 'action' | 'category' | 'tag'
@@ -56,12 +62,19 @@ interface Command {
     category?: Category
 }
 
-const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, products }) => {
+const CommandPalette: React.FC<CommandPaletteProps> = ({
+    isOpen,
+    onClose,
+    products,
+    trigger = 'keyboard'
+}) => {
     const [query, setQuery] = useState('')
     const [selectedIndex, setSelectedIndex] = useState(0)
     const inputRef = useRef<HTMLInputElement>(null)
     const listRef = useRef<HTMLDivElement>(null)
     const navigate = useNavigate()
+    const openTrackedRef = useRef(false)
+    const searchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     // Get unique tags
     const uniqueTags = useMemo(() => {
@@ -382,18 +395,55 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
     // Reset selection when query changes (user is searching)
     useEffect(() => {
         setSelectedIndex(0)
-    }, [query])
+
+        // Debounced search tracking
+        if (searchDebounceRef.current) {
+            clearTimeout(searchDebounceRef.current)
+        }
+
+        if (query.trim().length > 0) {
+            searchDebounceRef.current = setTimeout(() => {
+                trackCommandPaletteSearch(query.length, filteredCommands.length)
+            }, 500) // 500ms debounce
+        }
+
+        return () => {
+            if (searchDebounceRef.current) {
+                clearTimeout(searchDebounceRef.current)
+            }
+        }
+    }, [query, filteredCommands.length])
 
     // Focus input when opened
     useEffect(() => {
         if (isOpen) {
             setQuery('')
             setSelectedIndex(0)
+
+            // Track palette opened (only once per open)
+            if (!openTrackedRef.current) {
+                trackCommandPaletteOpened(trigger)
+                openTrackedRef.current = true
+            }
+
             setTimeout(() => {
                 inputRef.current?.focus()
             }, 50)
+        } else {
+            // Reset tracking flag when closed
+            openTrackedRef.current = false
         }
-    }, [isOpen])
+    }, [isOpen, trigger])
+
+    // Handle command selection with analytics tracking
+    const handleCommandSelect = useCallback((command: Command) => {
+        trackCommandPaletteSelected({
+            type: command.type,
+            itemId: command.id,
+            itemName: command.title
+        })
+        command.action()
+    }, [])
 
     // Handle keyboard navigation
     useEffect(() => {
@@ -414,7 +464,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                 case 'Enter':
                     e.preventDefault()
                     if (displayedCommandsForNav[selectedIndex]) {
-                        displayedCommandsForNav[selectedIndex].action()
+                        handleCommandSelect(displayedCommandsForNav[selectedIndex])
                     } else {
                         // No command selected or index out of bounds
                         console.warn('No command selected or index out of bounds')
@@ -429,7 +479,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
 
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
-    }, [isOpen, displayedCommandsForNav, selectedIndex, onClose])
+    }, [isOpen, displayedCommandsForNav, selectedIndex, onClose, handleCommandSelect])
 
     // Scroll selected item into view
     useEffect(() => {
@@ -533,7 +583,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 command={cmd}
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
-                                                onClick={() => cmd.action()}
+                                                onClick={() => handleCommandSelect(cmd)}
                                                 itemIndex={idx}
                                             />
                                         )
@@ -555,7 +605,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 command={cmd}
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
-                                                onClick={() => cmd.action()}
+                                                onClick={() => handleCommandSelect(cmd)}
                                                 itemIndex={idx}
                                             />
                                         )
@@ -577,7 +627,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 command={cmd}
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
-                                                onClick={() => cmd.action()}
+                                                onClick={() => handleCommandSelect(cmd)}
                                                 itemIndex={idx}
                                             />
                                         )
@@ -599,7 +649,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 command={cmd}
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
-                                                onClick={() => cmd.action()}
+                                                onClick={() => handleCommandSelect(cmd)}
                                                 itemIndex={idx}
                                             />
                                         )
@@ -621,7 +671,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 command={cmd}
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
-                                                onClick={() => cmd.action()}
+                                                onClick={() => handleCommandSelect(cmd)}
                                                 itemIndex={idx}
                                             />
                                         )
@@ -643,7 +693,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, produc
                                                 command={cmd}
                                                 isSelected={selectedIndex === idx}
                                                 onSelect={() => setSelectedIndex(idx)}
-                                                onClick={() => cmd.action()}
+                                                onClick={() => handleCommandSelect(cmd)}
                                                 itemIndex={idx}
                                             />
                                         )

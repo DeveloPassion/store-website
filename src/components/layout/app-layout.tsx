@@ -13,6 +13,14 @@ const CommandPalette = lazy(() => import('@/components/products/command-palette'
 
 const AppLayout: React.FC = () => {
     const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
+    const [commandPaletteTrigger, setCommandPaletteTrigger] = useState<'keyboard' | 'click'>(
+        'keyboard'
+    )
+
+    const openCommandPalette = (trigger: 'keyboard' | 'click') => {
+        setCommandPaletteTrigger(trigger)
+        setIsCommandPaletteOpen(true)
+    }
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -29,7 +37,7 @@ const AppLayout: React.FC = () => {
                 }
 
                 e.preventDefault()
-                setIsCommandPaletteOpen(true)
+                openCommandPalette('keyboard')
             }
         }
 
@@ -41,7 +49,7 @@ const AppLayout: React.FC = () => {
         <>
             <SkipLinks />
             <ScrollToTop />
-            <Header onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
+            <Header onOpenCommandPalette={() => openCommandPalette('click')} />
             <main id='main-content' className='flex w-full flex-1 flex-col items-center'>
                 <Outlet />
             </main>
@@ -53,6 +61,7 @@ const AppLayout: React.FC = () => {
                         isOpen={isCommandPaletteOpen}
                         onClose={() => setIsCommandPaletteOpen(false)}
                         products={productsData as Product[]}
+                        trigger={commandPaletteTrigger}
                     />
                 </Suspense>
             )}

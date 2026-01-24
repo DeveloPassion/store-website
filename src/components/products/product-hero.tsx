@@ -6,7 +6,7 @@ import { formatDistanceToNow } from 'date-fns'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
-import { isInWishlist, toggleWishlist } from '@/lib/wishlist'
+import { isInWishlist, toggleWishlist, getWishlist } from '@/lib/wishlist'
 import { resolveStatItem } from '@/lib/stats-helpers'
 import { useMediaLightbox } from '@/hooks/use-media-lightbox'
 import { PaymentFrequencySelector } from './payment-frequency-selector'
@@ -15,6 +15,13 @@ import { MarkdownContent } from '@/components/ui/markdown-content'
 import { ShareButton } from '@/components/ui/share-button'
 import MediaCarousel from './media-carousel'
 import MediaLightbox from './media-lightbox'
+import {
+    trackVariantSelected,
+    trackFrequencySelected,
+    trackBuyClicked,
+    trackWishlistToggled,
+    getSource
+} from '@/lib/analytics'
 
 interface ProductHeroProps {
     product: Product
@@ -92,6 +99,64 @@ const ProductHero: React.FC<ProductHeroProps> = ({
         e.stopPropagation()
         const newState = toggleWishlist(product.id)
         setIsWishlisted(newState)
+        trackWishlistToggled({
+            action: newState ? 'add' : 'remove',
+            productId: product.id,
+            productName: product.name,
+            source: getSource(),
+            wishlistSize: getWishlist().length
+        })
+    }
+
+    // Calculate current price for analytics
+    const getCurrentPrice = (): number => {
+        if (!product.isSubscription || !selectedVariant.prices) {
+            return selectedVariant.price
+        }
+        if (selectedFrequency === 'yearly')
+            return selectedVariant.prices.yearly || selectedVariant.price
+        if (selectedFrequency === 'biennial')
+            return selectedVariant.prices.biennial || selectedVariant.price
+        return selectedVariant.prices.monthly || selectedVariant.price
+    }
+
+    const handleVariantChange = (variant: ProductVariant) => {
+        setSelectedVariant(variant)
+        trackVariantSelected({
+            productId: product.id,
+            variantId: variant.gumroadVariantId || variant.name,
+            variantName: variant.name,
+            price: variant.price
+        })
+    }
+
+    const handleFrequencyChange = (frequency: PaymentFrequency) => {
+        setSelectedFrequency(frequency)
+        // Defer tracking to ensure state is updated
+        const price =
+            frequency === 'yearly'
+                ? selectedVariant.prices?.yearly
+                : frequency === 'biennial'
+                  ? selectedVariant.prices?.biennial
+                  : selectedVariant.prices?.monthly
+        trackFrequencySelected({
+            productId: product.id,
+            variantId: selectedVariant.gumroadVariantId || null,
+            frequency,
+            price: price || selectedVariant.price
+        })
+    }
+
+    const handleBuyClick = () => {
+        trackBuyClicked({
+            productId: product.id,
+            productName: product.name,
+            variantName: selectedVariant.name,
+            price: getCurrentPrice(),
+            isSubscription: product.isSubscription,
+            frequency: product.isSubscription ? selectedFrequency : null,
+            source: 'hero'
+        })
     }
 
     // Extract cover images for carousel
@@ -284,7 +349,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                     {product.variants.map((variant) => (
                                         <button
                                             key={variant.name}
-                                            onClick={() => setSelectedVariant(variant)}
+                                            onClick={() => handleVariantChange(variant)}
                                             aria-pressed={selectedVariant.name === variant.name}
                                             className={`group cursor-pointer rounded-lg border-2 p-4 text-left transition-all ${
                                                 selectedVariant.name === variant.name
@@ -333,7 +398,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                             <PaymentFrequencySelector
                                 frequencies={product.paymentFrequencies}
                                 selected={selectedFrequency}
-                                onChange={setSelectedFrequency}
+                                onChange={handleFrequencyChange}
                                 monthlyPrice={
                                     selectedVariant.prices?.monthly || selectedVariant.price
                                 }
@@ -361,6 +426,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                 data-gumroad-overlay-checkout='true'
                                 size='lg'
                                 className='flex-1 sm:flex-none'
+                                onClick={handleBuyClick}
                             >
                                 {isFree ? 'Get Now' : 'Buy Now'}
                             </Button>

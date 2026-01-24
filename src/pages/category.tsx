@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 import { Link, useParams, useNavigate } from 'react-router'
 import { FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
@@ -14,16 +14,32 @@ import { DynamicIcon } from '@/components/ui/dynamic-icon'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import { getColorClasses, defaultColorClasses } from '@/lib/color-classes'
+import { trackCategoryBrowsed } from '@/lib/analytics'
+import { useScrollTracking } from '@/hooks/use-scroll-tracking'
+import { useTimeOnPage } from '@/hooks/use-time-on-page'
 
 const CategoryPage: React.FC = () => {
     const { categoryId } = useParams<{ categoryId: string }>()
     const navigate = useNavigate()
     const categories = categoriesData as Category[]
+    const browseTrackedRef = useRef(false)
 
     // Find the category
     const category = useMemo(() => {
         return categories.find((c) => c.id === categoryId)
     }, [categoryId, categories])
+
+    // Scroll and time tracking
+    useScrollTracking({ pageType: 'category', skip: !category })
+    useTimeOnPage({ pageType: 'category', skip: !category })
+
+    // Track category browsed
+    useEffect(() => {
+        if (category && !browseTrackedRef.current) {
+            trackCategoryBrowsed(category.id, category.name)
+            browseTrackedRef.current = true
+        }
+    }, [category])
 
     // Set breadcrumbs
     useSetBreadcrumbs(
@@ -145,7 +161,11 @@ const CategoryPage: React.FC = () => {
                         </div>
                         <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                             {featuredProducts.map((product) => (
-                                <ProductCardEcommerce key={product.id} product={product} />
+                                <ProductCardEcommerce
+                                    key={product.id}
+                                    product={product}
+                                    source='category'
+                                />
                             ))}
                         </div>
                     </div>
@@ -163,7 +183,11 @@ const CategoryPage: React.FC = () => {
                         </div>
                         <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                             {nonFeaturedProducts.map((product) => (
-                                <ProductCardEcommerce key={product.id} product={product} />
+                                <ProductCardEcommerce
+                                    key={product.id}
+                                    product={product}
+                                    source='category'
+                                />
                             ))}
                         </div>
                     </div>

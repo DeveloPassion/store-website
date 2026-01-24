@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 import { useSearchParams, useNavigate, Link } from 'react-router'
 import { FaHeart, FaGift } from 'react-icons/fa'
 import Section from '@/components/ui/section'
@@ -9,11 +9,13 @@ import productsData from '@/data/products.json'
 import type { Product } from '@/schemas/product.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
+import { trackSharedWishlistViewed } from '@/lib/analytics'
 
 const SharedWishlistPage: React.FC = () => {
     const products = productsData as Product[]
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
+    const viewTrackedRef = useRef(false)
 
     // Set breadcrumbs
     useSetBreadcrumbs([{ label: 'Home', href: '/' }, { label: 'Shared Wishlist' }])
@@ -41,6 +43,17 @@ const SharedWishlistPage: React.FC = () => {
     }, [productIdsParam, products])
 
     const productCount = sharedProducts.length
+
+    // Track shared wishlist viewed
+    useEffect(() => {
+        if (sharedProducts.length > 0 && !viewTrackedRef.current) {
+            trackSharedWishlistViewed({
+                productCount: sharedProducts.length,
+                productIds: sharedProducts.map((p) => p.id)
+            })
+            viewTrackedRef.current = true
+        }
+    }, [sharedProducts])
 
     useEffect(() => {
         updateAllMetaTags({
@@ -102,7 +115,11 @@ const SharedWishlistPage: React.FC = () => {
                             </h2>
                             <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
                                 {sharedProducts.map((product) => (
-                                    <ProductCardEcommerce key={product.id} product={product} />
+                                    <ProductCardEcommerce
+                                        key={product.id}
+                                        product={product}
+                                        source='shared_wishlist'
+                                    />
                                 ))}
                             </div>
                         </>
