@@ -116,7 +116,7 @@ export function trackEvent(
     revenue?: { currency: string; amount: number }
 ): void {
     // Debug logging in development
-    if (import.meta.env['DEV']) {
+    if (import.meta.env.DEV) {
         console.log('[Analytics]', eventName, props, revenue)
     }
 

@@ -61,6 +61,9 @@ Bun.serve({
                 sourcemap: 'inline',
                 minify: false,
                 define: {
+                    'import.meta.env.DEV': 'true',
+                    'import.meta.env.PROD': 'false',
+                    'import.meta.env.MODE': '"development"',
                     'process.env.NODE_ENV': '"development"'
                 }
             })
