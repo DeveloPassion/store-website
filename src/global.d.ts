@@ -4,16 +4,6 @@
 
 // Extend bun test matchers with jest-dom matchers
 declare global {
-    // Type definitions for import.meta.env (Bun bundler)
-    interface ImportMetaEnv {
-        readonly DEV: boolean
-        readonly PROD: boolean
-        readonly MODE: string
-    }
-
-    interface ImportMeta {
-        readonly env: ImportMetaEnv
-    }
     namespace jest {
         interface Matchers<R = void> {
             toBeInTheDocument(): R

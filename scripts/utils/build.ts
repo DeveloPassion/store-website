@@ -64,9 +64,6 @@ try {
         },
         external: [],
         define: {
-            'import.meta.env.DEV': 'false',
-            'import.meta.env.PROD': 'true',
-            'import.meta.env.MODE': '"production"',
             'process.env.NODE_ENV': '"production"'
         }
     })

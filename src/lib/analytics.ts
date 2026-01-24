@@ -115,11 +115,6 @@ export function trackEvent(
     props?: Record<string, string | number | boolean>,
     revenue?: { currency: string; amount: number }
 ): void {
-    // Debug logging in development
-    if (import.meta.env.DEV) {
-        console.log('[Analytics]', eventName, props, revenue)
-    }
-
     if (typeof window !== 'undefined' && window.plausible) {
         window.plausible(eventName, { props, revenue })
     }
