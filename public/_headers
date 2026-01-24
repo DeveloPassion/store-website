@@ -19,7 +19,7 @@
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
 
   # Content Security Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-EVERMvikcfyPg8CwBsbuosXe6AuFlxqrwwUUSyYDJQU=' 'sha256-PmjpIKfn0iFTp1lI/1lMayxRmHlhnU3I4kL9z2OkOBQ=' https://gumroad.com https://*.gumroad.com https://blue-bar-dsebastien-19fd.developassion.workers.dev; style-src 'self' 'unsafe-inline' https://*.gumroad.com https://fonts.googleapis.com; img-src 'self' https:; font-src 'self' https://fonts.gstatic.com https://*.gumroad.com; connect-src 'self' https://www.dsebastien.net https://blue-bar-dsebastien-19fd.developassion.workers.dev https://*.gumroad.com; frame-src https://www.youtube-nocookie.com https://*.gumroad.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://www.dsebastien.net https://*.gumroad.com; frame-ancestors 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://gumroad.com https://*.gumroad.com https://blue-bar-dsebastien-19fd.developassion.workers.dev; style-src 'self' 'unsafe-inline' https://*.gumroad.com https://fonts.googleapis.com; img-src 'self' https:; font-src 'self' https://fonts.gstatic.com https://*.gumroad.com; connect-src 'self' https://www.dsebastien.net https://blue-bar-dsebastien-19fd.developassion.workers.dev https://*.gumroad.com; frame-src https://www.youtube-nocookie.com https://*.gumroad.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://www.dsebastien.net https://*.gumroad.com; frame-ancestors 'self'; upgrade-insecure-requests
 
 # Static assets - aggressive caching
 /assets/*
