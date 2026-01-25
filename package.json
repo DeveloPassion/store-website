@@ -1,7 +1,7 @@
 {
     "name": "store-website",
     "private": true,
-    "version": "1.5.3",
+    "version": "1.5.4",
     "description": "Product store website for dSebastien",
     "author": "Sébastien Dubois",
     "type": "module",

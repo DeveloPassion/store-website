@@ -1,3 +1,8 @@
+## [1.5.4](https://github.com/DeveloPassion/store-website/compare/1.5.3...1.5.4) (2026-01-25)
+
+### Features
+
+* **all:** improved homepage look and feel ([7e5a0cd](https://github.com/DeveloPassion/store-website/commit/7e5a0cd2717c246fb0e577a6f201d6cae06cfb75))
 ## [1.5.3](https://github.com/DeveloPassion/store-website/compare/1.5.1...1.5.3) (2026-01-24)
 
 ### Bug Fixes
