@@ -1,3 +1,8 @@
+## [1.5.7](https://github.com/DeveloPassion/store-website/compare/1.5.6...1.5.7) (2026-01-25)
+
+### Features
+
+* **all:** updated anim on mobile ([5e3827f](https://github.com/DeveloPassion/store-website/commit/5e3827f3d9dfe9e9e91f897ea448b2f5bdf3ddd9))
 ## [1.5.6](https://github.com/DeveloPassion/store-website/compare/1.5.5...1.5.6) (2026-01-25)
 
 ### Bug Fixes
