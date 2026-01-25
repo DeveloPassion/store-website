@@ -359,6 +359,22 @@ File: `src/data/faq-global.json`. Fields: id, question, answer, icon, order, sty
 
 File: `{id}-stats.json`. Fields: userCount, timeSaved, ratings. Computed: ratingsCount, averageRating.
 
+## Managing Quiz
+
+**Validate**: `bun run validate:quiz`
+
+Files:
+
+- `src/data/quiz-questions.json`: Questions with options and filter mappings
+- `src/data/quiz-product-scoring-overrides.json`: Product exclusions and result overrides
+
+**Schema** (`src/schemas/quiz.schema.ts`):
+
+- `QuizQuestionsDataSchema`: Questions array with id, question text, and options (label, icon, filters, matchReason)
+- `QuizOverridesSchema`: `excludedProductIds` (array) and `resultOverrides` (array, can be empty)
+
+**Filter types**: categories, experienceLevel, priceTiers, deliveryStyle
+
 ## Managing Redirects
 
 **Generate**: `bun run generate:redirects`
