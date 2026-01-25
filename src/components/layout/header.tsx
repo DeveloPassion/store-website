@@ -268,7 +268,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                     <span className='text-base leading-tight font-bold sm:text-lg md:text-xl'>
                                         Knowledge Forge
                                     </span>
-                                    <span className='text-primary/60 text-xs leading-tight'>
+                                    <span className='text-primary/60 hidden text-xs leading-tight min-[400px]:block'>
                                         by Sébastien Dubois
                                     </span>
                                 </div>
