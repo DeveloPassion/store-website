@@ -1,13 +1,13 @@
 /**
  * Animated hero text component with multiple visual effects:
- * - Gradient sweep animation
- * - Character-by-character stagger reveal
+ * - Character-by-character stagger reveal with 3D transforms
+ * - Gradient shimmer overlay
  * - Pulsing glow effect
- * - Shimmer overlay
+ * - Particle effects (desktop only - hidden on mobile for cleaner look)
  * - Full accessibility support with reduced motion preference
  */
 
-// Fixed particle positions for consistent, deterministic animations
+// Fixed particle positions for consistent, deterministic animations (desktop only)
 // position: Tailwind classes, x/y: animation travel distance (px)
 const PARTICLE_POSITIONS = [
     { position: 'left-[5%] top-[20%]', x: 42, y: -75, delay: 0 },
@@ -27,7 +27,7 @@ const AnimatedKnowledgeSystem: React.FC<AnimatedKnowledgeSystemProps> = ({ text 
 
     return (
         <span className='relative inline' aria-label={text}>
-            {/* Main animated text */}
+            {/* Main animated text - same 3D animation on all devices */}
             <span className='relative inline'>
                 {chars.map((char, index) => (
                     <span
@@ -38,7 +38,7 @@ const AnimatedKnowledgeSystem: React.FC<AnimatedKnowledgeSystemProps> = ({ text 
                     </span>
                 ))}
 
-                {/* Animated gradient overlay */}
+                {/* Animated gradient overlay - shimmer on all devices */}
                 <span className='animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent'>
                     {text}
                 </span>
@@ -52,8 +52,8 @@ const AnimatedKnowledgeSystem: React.FC<AnimatedKnowledgeSystemProps> = ({ text 
                 {text}
             </span>
 
-            {/* Particle effects */}
-            <span className='absolute inset-0 overflow-visible' aria-hidden='true'>
+            {/* Particle effects - desktop only */}
+            <span className='absolute inset-0 hidden overflow-visible sm:block' aria-hidden='true'>
                 {PARTICLE_POSITIONS.map((pos, i) => (
                     <span
                         key={i}
