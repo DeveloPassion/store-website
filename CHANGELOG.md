@@ -1,3 +1,8 @@
+## [1.5.5](https://github.com/DeveloPassion/store-website/compare/1.5.4...1.5.5) (2026-01-25)
+
+### Features
+
+* **all:** improved header display ([1a203ff](https://github.com/DeveloPassion/store-website/commit/1a203ffa0398be1b7d16ace659965e4f7c7f7725))
 ## [1.5.4](https://github.com/DeveloPassion/store-website/compare/1.5.3...1.5.4) (2026-01-25)
 
 ### Features
