@@ -1,3 +1,8 @@
+## [1.5.6](https://github.com/DeveloPassion/store-website/compare/1.5.5...1.5.6) (2026-01-25)
+
+### Bug Fixes
+
+* **all:** fixed issue with quizz ([c9f6b7b](https://github.com/DeveloPassion/store-website/commit/c9f6b7b708889fa2e9a3bde435d458b16f0b4005))
 ## [1.5.5](https://github.com/DeveloPassion/store-website/compare/1.5.4...1.5.5) (2026-01-25)
 
 ### Features
