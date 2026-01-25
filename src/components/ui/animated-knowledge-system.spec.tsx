@@ -110,20 +110,20 @@ describe('AnimatedKnowledgeSystem', () => {
             expect(shimmer).toHaveClass('to-transparent')
         })
 
-        it('uses non-breaking space for space character', () => {
+        it('uses regular space for space character to allow text wrapping', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
             const chars = container.querySelectorAll('.animate-char-reveal')
             const spaceChar = chars[9] // Space is at index 9 in "Knowledge System"
 
             expect(spaceChar).toBeDefined()
-            expect(spaceChar?.textContent).toBe('\u00A0')
+            expect(spaceChar?.textContent).toBe(' ')
         })
     })
 
     describe('Component Structure', () => {
         it('wraps content in a span with relative positioning', () => {
             const { container } = render(<AnimatedKnowledgeSystem text={testText} />)
-            const wrapper = container.querySelector('.relative.inline-block')
+            const wrapper = container.querySelector('.relative.inline')
             expect(wrapper).toBeInTheDocument()
         })
 

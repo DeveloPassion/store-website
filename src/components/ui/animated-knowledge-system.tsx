@@ -26,15 +26,15 @@ const AnimatedKnowledgeSystem: React.FC<AnimatedKnowledgeSystemProps> = ({ text 
     const chars = text.split('')
 
     return (
-        <span className='relative inline-block' aria-label={text}>
+        <span className='relative inline' aria-label={text}>
             {/* Main animated text */}
-            <span className='relative inline-flex items-center'>
+            <span className='relative inline'>
                 {chars.map((char, index) => (
                     <span
                         key={index}
-                        className={`text-secondary animate-char-reveal relative inline-block [--animation-delay:${index * 0.05}s]`}
+                        className={`text-secondary animate-char-reveal relative inline [--animation-delay:${index * 0.05}s]`}
                     >
-                        {char === ' ' ? '\u00A0' : char}
+                        {char === ' ' ? ' ' : char}
                     </span>
                 ))}
 

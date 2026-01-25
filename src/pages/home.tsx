@@ -255,8 +255,8 @@ const HomeEcommerce: React.FC = () => {
                         </p>
 
                         {/* Stats */}
-                        <div className='mb-8 flex flex-row gap-12'>
-                            <div>
+                        <div className='mb-8 flex flex-wrap justify-center gap-4 sm:gap-8 md:justify-start lg:gap-12'>
+                            <div className='text-center md:text-left'>
                                 <div className='text-2xl font-bold text-green-400 sm:text-3xl'>
                                     {formattedCustomers}
                                 </div>
@@ -264,7 +264,7 @@ const HomeEcommerce: React.FC = () => {
                             </div>
                             <Link
                                 to='/success-stories'
-                                className='group transition-transform hover:scale-105'
+                                className='group text-center transition-transform hover:scale-105 md:text-left'
                             >
                                 <div className='text-secondary group-hover:text-secondary-text text-2xl font-bold transition-colors sm:text-3xl'>
                                     {totalTestimonials}+
@@ -273,8 +273,8 @@ const HomeEcommerce: React.FC = () => {
                                     Testimonials
                                 </div>
                             </Link>
-                            <div>
-                                <div className='flex items-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl'>
+                            <div className='text-center md:text-left'>
+                                <div className='flex items-center justify-center gap-2 text-2xl font-bold text-yellow-400 sm:text-3xl md:justify-start'>
                                     {formatAverageRating(averageRating)}
                                     <FaStar className='h-5 w-5 sm:h-6 sm:w-6' />
                                 </div>
@@ -283,7 +283,7 @@ const HomeEcommerce: React.FC = () => {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className='flex flex-wrap gap-4'>
+                        <div className='flex flex-wrap justify-center gap-4 lg:justify-start'>
                             {heroProduct && (
                                 <button
                                     onClick={() => {
@@ -316,9 +316,35 @@ const HomeEcommerce: React.FC = () => {
                             </Link>
                         </div>
 
-                        {/* Newsletter subscription */}
-                        <div className='mt-6'>
-                            <CompactNewsletter />
+                        {/* Trust Badges */}
+                        <div className='mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-6 xl:justify-start'>
+                            <div className='flex items-center gap-2'>
+                                <FaShieldAlt className='text-secondary h-5 w-5' />
+                                <div>
+                                    <div className='text-sm font-semibold'>30-Day Guarantee</div>
+                                    <div className='text-primary/60 text-xs'>
+                                        Risk-free purchase
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <FaClock className='text-secondary h-5 w-5' />
+                                <div>
+                                    <div className='text-sm font-semibold'>Lifetime Access</div>
+                                    <div className='text-primary/60 text-xs'>
+                                        Buy once, use forever
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <FaGraduationCap className='text-secondary h-5 w-5' />
+                                <div>
+                                    <div className='text-sm font-semibold'>Expert Created</div>
+                                    <div className='text-primary/60 text-xs'>
+                                        20+ years experience
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -338,31 +364,9 @@ const HomeEcommerce: React.FC = () => {
                 </div>
             </Section>
 
-            {/* Trust Badges */}
-            <Section id='trust-badges' className='border-primary/10 border-b py-8'>
-                <div className='mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-8 sm:gap-12'>
-                    <div className='flex items-center gap-3'>
-                        <FaShieldAlt className='text-secondary h-8 w-8' />
-                        <div>
-                            <div className='font-semibold'>30-Day Guarantee</div>
-                            <div className='text-primary/60 text-sm'>Risk-free purchase</div>
-                        </div>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                        <FaClock className='text-secondary h-8 w-8' />
-                        <div>
-                            <div className='font-semibold'>Lifetime Access</div>
-                            <div className='text-primary/60 text-sm'>Buy once, use forever</div>
-                        </div>
-                    </div>
-                    <div className='flex items-center gap-3'>
-                        <FaGraduationCap className='text-secondary h-8 w-8' />
-                        <div>
-                            <div className='font-semibold'>Expert Created</div>
-                            <div className='text-primary/60 text-sm'>20+ years experience</div>
-                        </div>
-                    </div>
-                </div>
+            {/* Newsletter Signup */}
+            <Section id='newsletter' className='border-primary/10 border-b py-8'>
+                <CompactNewsletter />
             </Section>
 
             {/* Featured Products Section */}
