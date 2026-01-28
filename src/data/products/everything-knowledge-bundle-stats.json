@@ -1,6 +1,6 @@
 {
     "data": {
-        "userCount": null,
+        "userCount": "10+",
         "timeSaved": null,
         "ratings": null,
         "additionalStats": [
@@ -10,6 +10,6 @@
                 "link": null
             }
         ],
-        "lastSale": "2026-01-23T15:34:10Z"
+        "lastSale": "2026-01-26T04:23:49Z"
     }
 }

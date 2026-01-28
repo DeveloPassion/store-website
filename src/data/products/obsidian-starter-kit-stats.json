@@ -5,6 +5,11 @@
         "ratings": {
             "gumroad": [
                 {
+                    "id": "HWdwuktGz-gLdG7yFDAmfg==",
+                    "rating": 5,
+                    "date": "2026-01-25"
+                },
+                {
                     "id": "E2DhlsJBWVOafLfFscUzkg==",
                     "rating": 5,
                     "date": "2025-11-28"
@@ -247,6 +252,6 @@
             ]
         },
         "additionalStats": [],
-        "lastSale": "2026-01-23T15:34:13Z"
+        "lastSale": "2026-01-28T05:32:47Z"
     }
 }
