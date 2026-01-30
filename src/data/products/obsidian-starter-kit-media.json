@@ -151,12 +151,27 @@
             "height": null
         },
         {
+            "id": "cover-video-010",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=1X0fi6j7nlQ",
+            "title": "Obsidian Starter Kit Cover Video",
+            "altText": "Obsidian Starter Kit - Introduction and Overview",
+            "description": "Introduction to the Obsidian Starter Kit",
+            "order": 10,
+            "group": "cover",
+            "youtubeId": "1X0fi6j7nlQ",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
+        },
+        {
             "id": "cover-002",
             "type": "image",
             "url": "/assets/images/products/osk/osk-books-base-cards.webp",
             "title": "Track Every Book You Read",
             "altText": "Beautiful card views for your reading list with progress tracking",
-            "order": 10,
+            "order": 11,
             "group": "cover",
             "description": null,
             "caption": null,
