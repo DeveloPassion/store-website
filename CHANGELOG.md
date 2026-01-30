@@ -1,3 +1,8 @@
+## [1.7.0](https://github.com/DeveloPassion/store-website/compare/1.6.0...1.7.0) (2026-01-30)
+
+### Features
+
+* **all:** improved release ([c0ec418](https://github.com/DeveloPassion/store-website/commit/c0ec41814880f24c81e44597658631c8e3f86c0e))
 ## [1.6.0](https://github.com/DeveloPassion/store-website/compare/1.5.9...1.6.0) (2026-01-30)
 
 ### Features
