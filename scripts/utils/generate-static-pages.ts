@@ -1328,6 +1328,16 @@ function generateProductPageHtml(product: Product): string {
         /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
         `<meta name="twitter:description" content="${escapeHtml(description)}" />`
     )
+    html = html.replace(
+        /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/,
+        `<meta name="twitter:image" content="${ogImageUrl}" />`
+    )
+
+    // Update image alt tags for accessibility (multiline format in HTML)
+    // Use capture groups to only replace the content value, not the entire tag structure
+    const imageAlt = escapeHtml(product.name)
+    html = html.replace(/(property="og:image:alt"[\s\n]+content=")[^"]*(")/, `$1${imageAlt}$2`)
+    html = html.replace(/(name="twitter:image:alt"[\s\n]+content=")[^"]*(")/, `$1${imageAlt}$2`)
 
     // Replace JSON-LD schema with Product schema
     const productSchema = generateProductSchema(product)
