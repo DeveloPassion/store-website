@@ -1,6 +1,6 @@
 /**
  * Generates or updates CHANGELOG.md using conventional-changelog.
- * Usage: npx tsx scripts/utils/generate-changelog.ts
+ * Usage: bun scripts/utils/generate-changelog.ts
  */
 
 import { execSync } from 'child_process'
