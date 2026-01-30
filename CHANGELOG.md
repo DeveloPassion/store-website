@@ -1,3 +1,8 @@
+## [1.9.0](https://github.com/DeveloPassion/store-website/compare/1.8.0...1.9.0) (2026-01-30)
+
+### Features
+
+* **all:** added rss feed ([9554da6](https://github.com/DeveloPassion/store-website/commit/9554da65344afaadca261b5e30bc666e117ea98c))
 ## [1.8.0](https://github.com/DeveloPassion/store-website/compare/1.7.0...1.8.0) (2026-01-30)
 
 ### Features
