@@ -1,3 +1,8 @@
+## [1.9.1](https://github.com/DeveloPassion/store-website/compare/1.9.0...1.9.1) (2026-01-30)
+
+### Bug Fixes
+
+* **all:** fixed og cards for x ([9ea3187](https://github.com/DeveloPassion/store-website/commit/9ea3187013337dddf33f546bac6e01c911999199))
 ## [1.9.0](https://github.com/DeveloPassion/store-website/compare/1.8.0...1.9.0) (2026-01-30)
 
 ### Features
