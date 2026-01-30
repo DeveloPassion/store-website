@@ -17,7 +17,7 @@
         "store": "bun scripts/store-cli.ts",
         "aggregate:products": "bun scripts/utils/aggregate-products.ts",
         "dev": "bun run aggregate:products && bun scripts/utils/dev.ts",
-        "build": "bun run aggregate:products && tsc && bun scripts/utils/build.ts && bun scripts/utils/generate-static-pages.ts && bun scripts/utils/generate-sitemap.ts && bun scripts/utils/generate-llms-txt.ts",
+        "build": "bun run aggregate:products && tsc && bun scripts/utils/build.ts && bun scripts/utils/generate-static-pages.ts && bun scripts/utils/generate-sitemap.ts && bun scripts/utils/generate-llms-txt.ts && bun scripts/utils/generate-rss-feed.ts",
         "preview": "bun --bun serve dist --port 4173",
         "preview:cloudflare": "wrangler pages dev dist",
         "prepare": "husky",
