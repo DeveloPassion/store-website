@@ -1,3 +1,8 @@
+## [1.6.0](https://github.com/DeveloPassion/store-website/compare/1.5.9...1.6.0) (2026-01-30)
+
+### Features
+
+* **all:** added osk video ([780d80b](https://github.com/DeveloPassion/store-website/commit/780d80ba95be4830a397402d0837aa64aeac9351))
 ## [1.5.9](https://github.com/DeveloPassion/store-website/compare/1.5.8...1.5.9) (2026-01-30)
 
 ### Features
