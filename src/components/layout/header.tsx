@@ -19,6 +19,7 @@ import {
     FaLightbulb
 } from 'react-icons/fa'
 import type { NavLink } from '@/types/nav-link.intf'
+import ThemeToggle from '@/components/ui/theme-toggle'
 import categoriesData from '@/data/categories.json'
 import type { Category } from '@/schemas/category.schema'
 import { getFeaturedSorted } from '@/lib/collection-utils'
@@ -347,6 +348,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette }) => {
                                 />
                                 <span className='hidden xl:inline'>Website</span>
                             </a>
+
+                            {/* Theme Toggle */}
+                            <ThemeToggle />
 
                             {/* Hamburger Menu Button - always visible */}
                             <button

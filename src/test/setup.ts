@@ -232,7 +232,11 @@ afterEach(() => {
     // Reset scroll position (use writable property we defined earlier)
     ;(happyWindow as { scrollY: number }).scrollY = 0
     ;(happyWindow as { scrollX: number }).scrollX = 0
-    // Clear storage
-    localStorage.clear()
-    sessionStorage.clear()
+    // Clear storage (check if exists - some tests may have deleted it)
+    if (typeof localStorage !== 'undefined') {
+        localStorage.clear()
+    }
+    if (typeof sessionStorage !== 'undefined') {
+        sessionStorage.clear()
+    }
 })
