@@ -1,3 +1,8 @@
+## [1.10.0](https://github.com/DeveloPassion/store-website/compare/1.9.1...1.10.0) (2026-02-01)
+
+### Features
+
+* add light theme and theme switcher ([cc45743](https://github.com/DeveloPassion/store-website/commit/cc457436d8d1735e96d20fbb6613af324598a7b7))
 ## [1.9.1](https://github.com/DeveloPassion/store-website/compare/1.9.0...1.9.1) (2026-01-30)
 
 ### Bug Fixes
