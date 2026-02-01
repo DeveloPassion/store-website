@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import './styles/index.css'
 
+import { ThemeProvider } from './contexts/theme-context'
 import { BreadcrumbProvider } from './contexts/breadcrumb-context'
 import ErrorBoundary from './components/error/error-boundary'
 import AppLayout from './components/layout/app-layout'
@@ -44,9 +45,10 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <ErrorBoundary>
-                <BreadcrumbProvider>
+        <ThemeProvider>
+            <BrowserRouter>
+                <ErrorBoundary>
+                    <BreadcrumbProvider>
                     <Routes>
                         <Route element={<AppLayout />} errorElement={<ErrorPage />}>
                             <Route path='/' element={<HomePage />} />
@@ -197,8 +199,9 @@ ReactDOM.createRoot(rootElement).render(
                             />
                         </Route>
                     </Routes>
-                </BreadcrumbProvider>
-            </ErrorBoundary>
-        </BrowserRouter>
+                    </BreadcrumbProvider>
+                </ErrorBoundary>
+            </BrowserRouter>
+        </ThemeProvider>
     </React.StrictMode>
 )
