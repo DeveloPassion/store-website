@@ -68,7 +68,7 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                             {vision.values.map((value, idx) => (
                                 <div
                                     key={idx}
-                                    className='border-primary/10 rounded-lg border bg-card-subtle p-4'
+                                    className='border-primary/10 bg-card-subtle rounded-lg border p-4'
                                 >
                                     <div className='mb-2 flex items-center gap-3'>
                                         <div className='bg-secondary/20 flex h-8 w-8 shrink-0 items-center justify-center rounded-full'>
@@ -89,7 +89,9 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                                                 </span>
                                             )}
                                         </div>
-                                        <h4 className='text-primary font-semibold'>{value.title}</h4>
+                                        <h4 className='text-primary font-semibold'>
+                                            {value.title}
+                                        </h4>
                                     </div>
                                     <MarkdownContent
                                         content={value.description}
@@ -112,7 +114,7 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                             {vision.futureGoals.map((goal, idx) => (
                                 <div
                                     key={idx}
-                                    className='border-solution/20 flex items-start gap-3 rounded-lg border bg-card-subtle p-3'
+                                    className='border-solution/20 bg-card-subtle flex items-start gap-3 rounded-lg border p-3'
                                 >
                                     <FaCheckCircle className='text-solution mt-0.5 h-5 w-5 shrink-0' />
                                     <MarkdownContent
@@ -129,7 +131,7 @@ const ProductVision: React.FC<ProductVisionProps> = ({ product }) => {
                 {/* Bigger picture */}
                 {vision.biggerPicture && (
                     <motion.div variants={itemVariants}>
-                        <div className='border-primary/10 rounded-lg border bg-card-subtle p-5 text-center'>
+                        <div className='border-primary/10 bg-card-subtle rounded-lg border p-5 text-center'>
                             <MarkdownContent
                                 content={`"${vision.biggerPicture}"`}
                                 inline

@@ -113,7 +113,7 @@ const CategoriesPage: React.FC = () => {
                         }`}
                     >
                         <div className='bg-primary/5 rounded-lg p-4'>
-                            <div className='text-3xl font-bold text-success'>
+                            <div className='text-success text-3xl font-bold'>
                                 {featuredCategories.length + nonFeaturedCategories.length}
                             </div>
                             <div className='text-primary/60 text-sm'>Total Categories</div>

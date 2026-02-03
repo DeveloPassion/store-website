@@ -257,7 +257,7 @@ const HomeEcommerce: React.FC = () => {
                         {/* Stats */}
                         <div className='mb-8 flex flex-wrap justify-center gap-4 sm:gap-8 md:justify-start lg:gap-12'>
                             <div className='text-center md:text-left'>
-                                <div className='text-2xl font-bold text-success sm:text-3xl'>
+                                <div className='text-success text-2xl font-bold sm:text-3xl'>
                                     {formattedCustomers}
                                 </div>
                                 <div className='text-primary/60 text-sm'>Happy Customers</div>

@@ -114,8 +114,8 @@ describe('CollectionCard', () => {
             const item = createMockItem({ color: undefined })
             const { container } = renderWithRouter(<CollectionCard item={item} basePath='/test' />)
             const iconContainer = container.querySelector('.h-12.w-12.flex-shrink-0') as HTMLElement
-            // Should fallback to default white/10 background
-            expect(iconContainer).toHaveClass('bg-white/10')
+            // Should fallback to default bg-card-subtle-hover background
+            expect(iconContainer).toHaveClass('bg-card-subtle-hover')
         })
     })
 

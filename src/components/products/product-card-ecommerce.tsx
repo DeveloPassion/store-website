@@ -273,7 +273,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                 <div className='flex items-center justify-between gap-2'>
                     <div>
                         {isFree ? (
-                            <span className='text-lg font-bold text-success'>FREE</span>
+                            <span className='text-success text-lg font-bold'>FREE</span>
                         ) : (
                             <span className='text-lg font-bold'>{displayPrice}</span>
                         )}
