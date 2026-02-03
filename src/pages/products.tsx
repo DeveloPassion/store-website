@@ -152,7 +152,7 @@ const ProductsPage: React.FC = () => {
                             <div className='text-primary/60 text-xs sm:text-sm'>Products</div>
                         </div>
                         <div className='text-center'>
-                            <div className='text-2xl font-bold text-green-400 sm:text-3xl md:text-4xl'>
+                            <div className='text-2xl font-bold text-success sm:text-3xl md:text-4xl'>
                                 {products.filter((p) => p.priceTier === 'free').length}
                             </div>
                             <div className='text-primary/60 text-xs sm:text-sm'>Free Resources</div>

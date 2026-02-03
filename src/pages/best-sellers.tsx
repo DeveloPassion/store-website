@@ -62,7 +62,7 @@ const BestSellersPage: React.FC = () => {
                             <div className='text-primary/60 text-sm'>Bestsellers</div>
                         </div>
                         <div className='text-center'>
-                            <div className='text-3xl font-bold text-green-500 sm:text-4xl'>
+                            <div className='text-3xl font-bold text-success-muted sm:text-4xl'>
                                 1,000+
                             </div>
                             <div className='text-primary/60 text-sm'>Happy Customers</div>

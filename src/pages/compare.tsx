@@ -511,7 +511,7 @@ const ComparePage: React.FC = () => {
                                                                 key={idx}
                                                                 className='flex items-start gap-2 text-sm'
                                                             >
-                                                                <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-green-400' />
+                                                                <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-success' />
                                                                 <MarkdownContent
                                                                     content={contentItem}
                                                                     className='text-primary/80 min-w-0'
@@ -617,7 +617,7 @@ const ComparePage: React.FC = () => {
                                                         </span>
                                                     )}
                                                     {product.priceTier === 'free' && (
-                                                        <span className='rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-400'>
+                                                        <span className='rounded-full bg-success px-2 py-0.5 text-xs font-medium text-success'>
                                                             Free
                                                         </span>
                                                     )}
@@ -848,7 +848,7 @@ const ComparePage: React.FC = () => {
                                                                     key={idx}
                                                                     className='flex items-start gap-2 text-sm'
                                                                 >
-                                                                    <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-green-400' />
+                                                                    <FaCheck className='mt-0.5 h-3 w-3 flex-shrink-0 text-success' />
                                                                     <MarkdownContent
                                                                         content={contentItem}
                                                                         className='line-clamp-2'
@@ -959,7 +959,7 @@ const ComparePage: React.FC = () => {
                                                             </span>
                                                         )}
                                                         {product.priceTier === 'free' && (
-                                                            <span className='rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-400'>
+                                                            <span className='rounded-full bg-success px-2 py-0.5 text-xs font-medium text-success'>
                                                                 Free
                                                             </span>
                                                         )}

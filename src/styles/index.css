@@ -42,6 +42,13 @@
     --color-surface-elevated: #475363;
     --color-border: rgba(255, 255, 255, 0.1);
     --color-text-muted: rgba(255, 255, 255, 0.6);
+
+    /* Success/status colors - WCAG AA compliant */
+    --color-success: #4ade80; /* green-400 - good contrast on dark */
+    --color-success-muted: #22c55e; /* green-500 */
+    --color-success-bg: rgba(34, 197, 94, 0.2); /* green-500/20 */
+    --color-success-bg-subtle: rgba(34, 197, 94, 0.1); /* green-500/10 */
+    --color-success-border: rgba(34, 197, 94, 0.3); /* green-500/30 */
 }
 
 /* Light theme */
@@ -57,6 +64,13 @@
     /* Card backgrounds for light mode - slightly tinted for depth */
     --color-card-subtle: rgba(0, 0, 0, 0.03);
     --color-card-subtle-hover: rgba(0, 0, 0, 0.06);
+
+    /* Success/status colors - WCAG AA compliant (darker for light backgrounds) */
+    --color-success: #15803d; /* green-700 - 4.5:1 contrast on white */
+    --color-success-muted: #16a34a; /* green-600 */
+    --color-success-bg: rgba(22, 163, 74, 0.15); /* green-600/15 */
+    --color-success-bg-subtle: rgba(22, 163, 74, 0.1); /* green-600/10 */
+    --color-success-border: rgba(22, 163, 74, 0.3); /* green-600/30 */
 }
 
 /* Dark theme card backgrounds */
@@ -92,6 +106,27 @@ a {
 
 .hover\:text-secondary:hover {
     color: var(--color-secondary-text) !important;
+}
+
+/* Success/status utilities - WCAG AA compliant */
+.text-success {
+    color: var(--color-success);
+}
+
+.text-success-muted {
+    color: var(--color-success-muted);
+}
+
+.bg-success {
+    background-color: var(--color-success-bg);
+}
+
+.bg-success-subtle {
+    background-color: var(--color-success-bg-subtle);
+}
+
+.border-success {
+    border-color: var(--color-success-border);
 }
 
 /* Custom scrollbar styles - Dark theme */

@@ -326,9 +326,9 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                                     )}
                                 {/* Last Sale - Social proof for recent purchases */}
                                 {product.stats?.lastSale && (
-                                    <div className='flex items-center gap-2 rounded-lg border border-green-500/20 bg-green-500/10 px-3 py-2'>
-                                        <div className='h-2 w-2 animate-pulse rounded-full bg-green-500' />
-                                        <span className='text-sm text-green-600 dark:text-green-400'>
+                                    <div className='flex items-center gap-2 rounded-lg border border-success bg-success-subtle px-3 py-2'>
+                                        <div className='h-2 w-2 animate-pulse rounded-full' style={{ backgroundColor: 'var(--color-success-muted)' }} />
+                                        <span className='text-sm text-success'>
                                             Last sale{' '}
                                             {formatDistanceToNow(new Date(product.stats.lastSale), {
                                                 addSuffix: true

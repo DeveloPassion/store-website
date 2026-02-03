@@ -109,7 +109,7 @@ const TagsPage: React.FC = () => {
                         }`}
                     >
                         <div className='bg-primary/5 rounded-lg p-4'>
-                            <div className='text-3xl font-bold text-green-400'>{allTagsCount}</div>
+                            <div className='text-3xl font-bold text-success'>{allTagsCount}</div>
                             <div className='text-primary/60 text-sm'>Total Tags</div>
                         </div>
                         <div className='bg-primary/5 rounded-lg p-4'>

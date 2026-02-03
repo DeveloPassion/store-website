@@ -185,7 +185,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
                 onClick={handleShare}
                 className={cn(
                     'flex cursor-pointer items-center justify-center rounded-full bg-white/90 transition-all hover:bg-white',
-                    copied ? 'text-green-500' : 'hover:text-secondary text-gray-600',
+                    copied ? 'text-success-muted' : 'hover:text-secondary text-gray-600',
                     sizeConfig.button,
                     className
                 )}
@@ -208,7 +208,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
                 onClick={handleShare}
                 className={cn(
                     'flex cursor-pointer items-center gap-2 transition-colors',
-                    copied ? 'text-green-500' : 'text-primary/60 hover:text-secondary',
+                    copied ? 'text-success-muted' : 'text-primary/60 hover:text-secondary',
                     sizeConfig.text,
                     className
                 )}
@@ -238,7 +238,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
                 className={cn(
                     'flex cursor-pointer items-center justify-center rounded-full transition-all hover:scale-110',
                     copied
-                        ? 'bg-green-500/10 text-green-500'
+                        ? 'bg-success-subtle text-success-muted'
                         : 'bg-primary/10 text-primary/60 hover:bg-primary/20 hover:text-secondary',
                     sizeConfig.button,
                     className

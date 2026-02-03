@@ -112,7 +112,7 @@ const PromotionBanner: React.FC = () => {
                         >
                             <span className='text-amber-600'>{config.discountCode}</span>
                             {isCopied ? (
-                                <FaCheck className='h-3 w-3 text-green-500' />
+                                <FaCheck className='h-3 w-3 text-success-muted' />
                             ) : (
                                 <FaCopy className='h-3 w-3 text-amber-600/70 hover:text-amber-600' />
                             )}
