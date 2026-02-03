@@ -22,9 +22,12 @@ interface ProductCourseContentProps {
 }
 
 const difficultyLabels: Record<string, { label: string; color: string }> = {
-    beginner: { label: 'Beginner', color: 'bg-green-500/20 text-green-400' },
-    intermediate: { label: 'Intermediate', color: 'bg-yellow-500/20 text-yellow-400' },
-    advanced: { label: 'Advanced', color: 'bg-red-500/20 text-red-400' }
+    beginner: { label: 'Beginner', color: 'bg-success text-success' },
+    intermediate: {
+        label: 'Intermediate',
+        color: 'bg-amber-500/20 text-amber-600 dark:text-amber-400'
+    },
+    advanced: { label: 'Advanced', color: 'bg-red-500/20 text-red-600 dark:text-red-400' }
 }
 
 const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) => {
@@ -123,7 +126,7 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
                                     key={index}
                                     className='text-primary/80 flex items-center gap-2 text-sm'
                                 >
-                                    <FaCheckCircle className='h-4 w-4 shrink-0 text-green-400' />
+                                    <FaCheckCircle className='text-success h-4 w-4 shrink-0' />
                                     <MarkdownContent content={prereq} inline />
                                 </li>
                             ))}
@@ -174,7 +177,7 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
 
                                             {/* Module info */}
                                             <div className='min-w-0 flex-1'>
-                                                <h3 className='font-semibold break-words text-white'>
+                                                <h3 className='text-primary font-semibold break-words'>
                                                     {module.name}
                                                 </h3>
                                                 <div className='text-primary/50 mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm'>

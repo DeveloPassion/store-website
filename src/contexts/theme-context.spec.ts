@@ -82,7 +82,7 @@ describe('ThemeContext (logic tests)', () => {
             expect(theme).toBe('dark')
         })
 
-        test('respects system preference for light theme when no stored value', () => {
+        test('defaults to dark regardless of system preference for light theme on initial load', () => {
             mockMatchMedia = mock(() => ({
                 matches: true, // prefers-color-scheme: light
                 addEventListener: mock(() => {}),
@@ -90,16 +90,10 @@ describe('ThemeContext (logic tests)', () => {
             }))
             globalThis.matchMedia = mockMatchMedia as unknown as typeof matchMedia
 
+            // Initial default is dark regardless of system preference
             const stored = localStorage.getItem(STORAGE_KEY)
-            let theme: 'light' | 'dark'
-            if (stored === 'light' || stored === 'dark') {
-                theme = stored
-            } else if (matchMedia('(prefers-color-scheme: light)').matches) {
-                theme = 'light'
-            } else {
-                theme = 'dark'
-            }
-            expect(theme).toBe('light')
+            const theme = stored === 'light' || stored === 'dark' ? stored : 'dark'
+            expect(theme).toBe('dark')
         })
     })
 

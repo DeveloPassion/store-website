@@ -62,7 +62,7 @@ const FeaturedPage: React.FC = () => {
                             <div className='text-primary/60 text-sm'>Featured Products</div>
                         </div>
                         <div className='text-center'>
-                            <div className='text-3xl font-bold text-green-500 sm:text-4xl'>
+                            <div className='text-success-muted text-3xl font-bold sm:text-4xl'>
                                 Expert
                             </div>
                             <div className='text-primary/60 text-sm'>Curated</div>

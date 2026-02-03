@@ -43,7 +43,7 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className='border-solution/20 rounded-xl border bg-white/5 p-6 backdrop-blur-sm'
+                            className='border-solution/20 bg-card-subtle rounded-xl border p-6 backdrop-blur-sm'
                         >
                             <div className='flex flex-col gap-6 lg:flex-row'>
                                 {/* Avatar and info */}
@@ -60,7 +60,7 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
                                         )}
                                     </div>
                                     <div>
-                                        <h4 className='font-semibold text-white'>{story.name}</h4>
+                                        <h4 className='text-primary font-semibold'>{story.name}</h4>
                                         {story.role && (
                                             <p className='text-primary/60 text-sm'>{story.role}</p>
                                         )}
@@ -117,7 +117,7 @@ const ProductSuccessStories: React.FC<ProductSuccessStoriesProps> = ({ product }
 
                                     {/* Quote */}
                                     {story.quote && (
-                                        <div className='border-solution/20 flex items-start gap-3 rounded-lg border bg-white/5 p-4'>
+                                        <div className='border-solution/20 bg-card-subtle flex items-start gap-3 rounded-lg border p-4'>
                                             <FaQuoteLeft className='text-solution/50 mt-1 h-4 w-4 shrink-0' />
                                             <MarkdownContent
                                                 content={story.quote}

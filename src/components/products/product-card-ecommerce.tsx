@@ -83,7 +83,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
     // Get badge text
     const getBadge = () => {
         if (product.featured) return { text: 'FEATURED', color: 'bg-secondary' }
-        if (isFree) return { text: 'FREE', color: 'bg-green-500' }
+        if (isFree) return { text: 'FREE', color: 'bg-success-muted' }
         if (product.mainCategory === 'bundles') return { text: 'BUNDLE', color: 'bg-purple-500' }
         return null
     }
@@ -273,7 +273,7 @@ const ProductCardEcommerce: React.FC<ProductCardEcommerceProps> = ({
                 <div className='flex items-center justify-between gap-2'>
                     <div>
                         {isFree ? (
-                            <span className='text-lg font-bold text-green-400'>FREE</span>
+                            <span className='text-success text-lg font-bold'>FREE</span>
                         ) : (
                             <span className='text-lg font-bold'>{displayPrice}</span>
                         )}

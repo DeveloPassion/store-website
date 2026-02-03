@@ -220,7 +220,7 @@ const SuccessStoriesPage: React.FC = () => {
                             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                         >
                             <Link to='/testimonials' className='group block text-center'>
-                                <div className='text-2xl font-bold text-green-400 transition-colors group-hover:text-green-300 sm:text-4xl'>
+                                <div className='text-success text-2xl font-bold transition-colors group-hover:opacity-80 sm:text-4xl'>
                                     {totalTestimonials}
                                 </div>
                                 <div className='text-primary/60 group-hover:text-primary text-xs transition-colors sm:text-sm'>

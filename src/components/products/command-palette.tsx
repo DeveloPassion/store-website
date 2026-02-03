@@ -100,7 +100,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({
                 icon: product.featured ? (
                     <FaStar className='text-secondary h-5 w-5' />
                 ) : isFree ? (
-                    <FaShoppingBag className='h-5 w-5 text-green-500' />
+                    <FaShoppingBag className='text-success-muted h-5 w-5' />
                 ) : (
                     <FaShoppingBag className='text-secondary h-5 w-5' />
                 ),

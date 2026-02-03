@@ -381,11 +381,11 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                             className={cn(
                                 'w-full cursor-pointer rounded-xl border-2 p-4 transition-all',
                                 totalProductsCount >= 1
-                                    ? 'border-green-500/30 bg-green-500/5 hover:bg-green-500/10'
+                                    ? 'border-success bg-success-subtle hover:bg-success'
                                     : 'border-secondary/30 bg-secondary/5 hover:bg-secondary/10',
                                 isProductsDrawerOpen &&
                                     (totalProductsCount >= 1
-                                        ? 'border-green-500 bg-green-500/10'
+                                        ? 'border-success bg-success'
                                         : 'border-secondary bg-secondary/10')
                             )}
                         >
@@ -395,7 +395,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                         className={cn(
                                             'shrink-0 rounded-lg p-2',
                                             totalProductsCount >= 1
-                                                ? 'bg-green-500/20'
+                                                ? 'bg-success'
                                                 : 'bg-secondary/20'
                                         )}
                                     >
@@ -403,7 +403,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                             className={cn(
                                                 'h-5 w-5',
                                                 totalProductsCount >= 1
-                                                    ? 'text-green-500'
+                                                    ? 'text-success-muted'
                                                     : 'text-secondary'
                                             )}
                                             aria-hidden='true'
@@ -427,7 +427,7 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                     className={cn(
                                         'h-5 w-5 shrink-0 transition-transform duration-300',
                                         totalProductsCount >= 1
-                                            ? 'text-green-500'
+                                            ? 'text-success-muted'
                                             : 'text-secondary',
                                         isProductsDrawerOpen && 'rotate-180'
                                     )}

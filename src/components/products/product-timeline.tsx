@@ -52,7 +52,7 @@ const ProductTimeline: React.FC<ProductTimelineProps> = ({ product }) => {
                                     {/* Content card - left side on even, right side on odd */}
                                     <div
                                         className={cn(
-                                            'border-solution/20 rounded-xl border bg-white/5 p-6 pr-16 backdrop-blur-sm',
+                                            'border-solution/20 bg-card-subtle rounded-xl border p-6 pr-16 backdrop-blur-sm',
                                             'lg:row-start-1 lg:pr-6',
                                             isEven
                                                 ? 'lg:col-start-1 lg:text-right'
@@ -67,7 +67,7 @@ const ProductTimeline: React.FC<ProductTimelineProps> = ({ product }) => {
                                         </div>
 
                                         {/* Title */}
-                                        <h3 className='mb-2 text-xl font-bold text-white'>
+                                        <h3 className='text-primary mb-2 text-xl font-bold'>
                                             {milestone.title}
                                         </h3>
 
