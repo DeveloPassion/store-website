@@ -108,6 +108,11 @@ a {
     color: var(--color-secondary-text) !important;
 }
 
+/* Ensure buttons with secondary background always have white text (both themes) */
+.bg-secondary {
+    color: #ffffff !important;
+}
+
 /* Success/status utilities - WCAG AA compliant */
 .text-success {
     color: var(--color-success);
