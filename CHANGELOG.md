@@ -1,3 +1,43 @@
+## [1.11.0](https://github.com/DeveloPassion/store-website/compare/1.10.0...1.11.0) (2026-02-03)
+
+### ⚠ BREAKING CHANGES
+
+* Adds new CSS variables for theme-aware card backgrounds
+
+Changes:
+- Add --color-card-subtle and --color-card-subtle-hover CSS variables
+  that adapt to light/dark themes
+- Replace hardcoded bg-white/5 and bg-white/10 with bg-card-subtle
+- Replace hardcoded text-white with text-primary in content areas
+- Keep text-white for buttons/badges on colored backgrounds (intentional)
+
+Affected components:
+- product-methodology.tsx
+- product-creator-journey.tsx
+- product-success-stories.tsx
+- product-course-content.tsx
+- product-timeline.tsx
+- product-origin-story.tsx
+- product-transformation-arc.tsx
+- product-vision.tsx
+- collection-card.tsx
+
+Light mode now has proper contrast for:
+- Card backgrounds (subtle gray tint instead of invisible white overlay)
+- Headings and titles (dark text on light backgrounds)
+- Content text in all product sections
+
+* Fix light mode readability across product pages ([f0565f4](https://github.com/DeveloPassion/store-website/commit/f0565f4284ec538bd682323a30f033f76161a626))
+
+### Features
+
+* **all:** improved accessibility ([aa8428e](https://github.com/DeveloPassion/store-website/commit/aa8428ed524ec316e825c0c8ee11162ec7774498))
+* **all:** improved accessibility further ([3d1439f](https://github.com/DeveloPassion/store-website/commit/3d1439f704f8548d5d1e1eec1978ce0e1c08aab6))
+* **all:** improved buy button in light mode ([591c08b](https://github.com/DeveloPassion/store-website/commit/591c08b55537109535a5f9540857aeb5838de834))
+
+### Bug Fixes
+
+* improve WCAG contrast for green/success colors ([a4d79ff](https://github.com/DeveloPassion/store-website/commit/a4d79ff9575b2b73a8e1a53cc72c463fc35b74f4))
 ## [1.10.0](https://github.com/DeveloPassion/store-website/compare/1.9.1...1.10.0) (2026-02-01)
 
 ### Features
