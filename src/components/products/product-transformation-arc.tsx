@@ -47,7 +47,7 @@ const PhaseCard: React.FC<{
             <div className='mb-4 flex justify-center'>
                 <div
                     className={cn(
-                        'flex h-14 w-14 items-center justify-center rounded-full bg-white/10',
+                        'bg-card-subtle-hover flex h-14 w-14 items-center justify-center rounded-full',
                         styles.iconColor
                     )}
                 >
@@ -71,7 +71,7 @@ const PhaseCard: React.FC<{
             </div>
 
             {/* Title */}
-            <h4 className='mb-2 text-center text-lg font-bold text-white'>{phase.title}</h4>
+            <h4 className='text-primary mb-2 text-center text-lg font-bold'>{phase.title}</h4>
 
             {/* Description */}
             <MarkdownContent

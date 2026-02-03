@@ -56,7 +56,7 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: idx * 0.1 }}
-                            className='border-secondary/20 group hover:border-secondary/40 rounded-xl border bg-white/5 p-5 backdrop-blur-sm transition-all hover:bg-white/10'
+                            className='border-secondary/20 group hover:border-secondary/40 bg-card-subtle hover:bg-card-subtle-hover rounded-xl border p-5 backdrop-blur-sm transition-all'
                         >
                             {/* Step number and icon */}
                             <div className='mb-4 flex items-center gap-3'>
@@ -76,7 +76,7 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                                         <span>{idx + 1}</span>
                                     )}
                                 </div>
-                                <h4 className='font-semibold text-white'>{step.title}</h4>
+                                <h4 className='text-primary font-semibold'>{step.title}</h4>
                             </div>
 
                             {/* Description */}
@@ -92,7 +92,7 @@ const ProductMethodology: React.FC<ProductMethodologyProps> = ({ product }) => {
                 {/* Philosophy */}
                 {methodology.philosophy && (
                     <motion.div variants={itemVariants} className='mt-8'>
-                        <div className='border-secondary/20 rounded-lg border bg-white/5 p-5 text-center'>
+                        <div className='border-secondary/20 bg-card-subtle rounded-lg border p-5 text-center'>
                             <MarkdownContent
                                 content={`"${methodology.philosophy}"`}
                                 inline

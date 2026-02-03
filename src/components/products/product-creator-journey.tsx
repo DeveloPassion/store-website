@@ -19,7 +19,7 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
     if (!creatorJourney) return null
 
     return (
-        <Section id='creator-journey' className='bg-white/[0.02]'>
+        <Section id='creator-journey' className='bg-card-subtle/50'>
             <motion.div
                 initial='hidden'
                 whileInView='visible'
@@ -49,7 +49,7 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
 
                 <motion.div variants={itemVariants} className='space-y-6'>
                     {/* Main story */}
-                    <div className='border-primary/10 rounded-xl border bg-white/5 p-6 backdrop-blur-sm'>
+                    <div className='border-primary/10 bg-card-subtle rounded-xl border p-6 backdrop-blur-sm'>
                         <MarkdownContent
                             content={creatorJourney.story}
                             autoDetect
@@ -62,7 +62,7 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                         <div className='grid gap-6 md:grid-cols-2'>
                             {/* Struggles */}
                             {creatorJourney.struggles && creatorJourney.struggles.length > 0 && (
-                                <div className='border-problem/20 rounded-xl border bg-white/5 p-5'>
+                                <div className='border-problem/20 bg-card-subtle rounded-xl border p-5'>
                                     <h4 className='text-problem mb-4 flex items-center gap-2 font-semibold'>
                                         <FaTimesCircle className='h-5 w-5' />
                                         Challenges Overcome
@@ -86,7 +86,7 @@ const ProductCreatorJourney: React.FC<ProductCreatorJourneyProps> = ({ product }
                             {/* Achievements */}
                             {creatorJourney.achievements &&
                                 creatorJourney.achievements.length > 0 && (
-                                    <div className='border-solution/20 rounded-xl border bg-white/5 p-5'>
+                                    <div className='border-solution/20 bg-card-subtle rounded-xl border p-5'>
                                         <h4 className='text-solution mb-4 flex items-center gap-2 font-semibold'>
                                             <FaTrophy className='h-5 w-5' />
                                             Achievements

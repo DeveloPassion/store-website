@@ -174,7 +174,7 @@ const ProductCourseContent: React.FC<ProductCourseContentProps> = ({ product }) 
 
                                             {/* Module info */}
                                             <div className='min-w-0 flex-1'>
-                                                <h3 className='font-semibold break-words text-white'>
+                                                <h3 className='text-primary font-semibold break-words'>
                                                     {module.name}
                                                 </h3>
                                                 <div className='text-primary/50 mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm'>

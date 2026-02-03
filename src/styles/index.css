@@ -11,6 +11,8 @@
     --color-secondary: #e5007d;
     --color-secondary-text: #ff1493;
     --color-background: #37404c;
+    --color-card-subtle: rgba(255, 255, 255, 0.05);
+    --color-card-subtle-hover: rgba(255, 255, 255, 0.1);
 
     /* PAS Framework semantic colors */
     --color-problem: #ef4444;
@@ -52,6 +54,16 @@
     --color-surface-elevated: #ffffff;
     --color-border: rgba(0, 0, 0, 0.1);
     --color-text-muted: rgba(26, 26, 46, 0.6);
+    /* Card backgrounds for light mode - slightly tinted for depth */
+    --color-card-subtle: rgba(0, 0, 0, 0.03);
+    --color-card-subtle-hover: rgba(0, 0, 0, 0.06);
+}
+
+/* Dark theme card backgrounds */
+:root,
+[data-theme='dark'] {
+    --color-card-subtle: rgba(255, 255, 255, 0.05);
+    --color-card-subtle-hover: rgba(255, 255, 255, 0.1);
 }
 
 /* Theme transition for smooth switching */

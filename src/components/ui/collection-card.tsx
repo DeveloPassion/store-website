@@ -110,7 +110,7 @@ export const CollectionCard = <T extends CollectionItem>({
             <div className='flex items-center gap-4'>
                 {item.icon && (
                     <div
-                        className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg ${item.color ? colorClasses.bgTint : 'bg-white/10'}`}
+                        className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg ${item.color ? colorClasses.bgTint : 'bg-card-subtle-hover'}`}
                     >
                         <DynamicIcon
                             iconName={item.icon}

@@ -55,7 +55,7 @@ const ProductOriginStory: React.FC<ProductOriginStoryProps> = ({ product }) => {
                 </motion.div>
 
                 <motion.div variants={itemVariants} className='space-y-6'>
-                    <div className='border-secondary/20 rounded-xl border bg-white/5 p-6 backdrop-blur-sm'>
+                    <div className='border-secondary/20 bg-card-subtle rounded-xl border p-6 backdrop-blur-sm'>
                         <MarkdownContent
                             content={originStory.story}
                             autoDetect
