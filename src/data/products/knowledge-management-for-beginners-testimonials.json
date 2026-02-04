@@ -76,6 +76,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-14",
+            "author": "Vicki Berg",
+            "quote": "Excellent breakdown of all this is needed to understand knowledge management and why it is so important to building a better understanding of your life.",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
