@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
+import { useSwipe } from '@/hooks/use-swipe'
 import MediaItem from '@/components/products/media-item'
 import type { MediaItem as MediaItemType, MediaGroup } from '@/schemas/media.schema'
 
@@ -113,11 +114,14 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
         }
     }
 
+    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
+
     return (
         <div
             className={cn('relative', className)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            {...swipeHandlers}
             role='region'
             aria-roledescription='carousel'
             aria-label={`${group} media carousel`}

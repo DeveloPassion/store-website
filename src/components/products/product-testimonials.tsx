@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSwipe } from '@/hooks/use-swipe'
 import {
     FaStar,
     FaChevronLeft,
@@ -137,17 +138,19 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
         return null
     }
 
-    const goToNext = () => {
+    const goToNext = useCallback(() => {
         setDirection(1)
         setCurrentIndex((prev) => (prev + 1) % visibleTestimonials.length)
-    }
+    }, [visibleTestimonials.length])
 
-    const goToPrevious = () => {
+    const goToPrevious = useCallback(() => {
         setDirection(-1)
         setCurrentIndex(
             (prev) => (prev - 1 + visibleTestimonials.length) % visibleTestimonials.length
         )
-    }
+    }, [visibleTestimonials.length])
+
+    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
 
     const currentTestimonial = visibleTestimonials[currentIndex]
 
@@ -193,6 +196,7 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
                     role='region'
                     aria-roledescription='carousel'
                     aria-label='Customer testimonials'
+                    {...swipeHandlers}
                 >
                     <div className='px-10 sm:px-14'>
                         {currentTestimonial && (
