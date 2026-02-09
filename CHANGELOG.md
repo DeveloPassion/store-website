@@ -1,3 +1,8 @@
+## [1.14.0](https://github.com/DeveloPassion/store-website/compare/1.13.0...1.14.0) (2026-02-09)
+
+### Features
+
+* **all:** added testimonial ([5816230](https://github.com/DeveloPassion/store-website/commit/5816230d2389aaa7ae0438da29961ee9036a2db4))
 ## [1.13.0](https://github.com/DeveloPassion/store-website/compare/1.12.0...1.13.0) (2026-02-09)
 
 ### Features
