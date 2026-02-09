@@ -10,6 +10,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-21",
+            "author": "Ronny Khalil",
+            "quote": "With Sebastien's plentiful offerings and resources, I feel like there is a light at the end of the tunnel, that I might actually one day soon feel comfortable, energized, inspired to actually dwell in Obsidian and build with more intention and understanding.",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
