@@ -620,9 +620,15 @@ const ComparePage: React.FC = () => {
                                                                             {baseIncluded.map(
                                                                                 (incProduct) => (
                                                                                     <IncludedProductItem
-                                                                                        key={incProduct.id}
-                                                                                        product={incProduct}
-                                                                                        isUnique={uniqueIds.has(incProduct.id)}
+                                                                                        key={
+                                                                                            incProduct.id
+                                                                                        }
+                                                                                        product={
+                                                                                            incProduct
+                                                                                        }
+                                                                                        isUnique={uniqueIds.has(
+                                                                                            incProduct.id
+                                                                                        )}
                                                                                     />
                                                                                 )
                                                                             )}
@@ -642,20 +648,26 @@ const ComparePage: React.FC = () => {
                                                                                 variant.includedProducts
                                                                             )
                                                                         return (
-                                                                            <div
-                                                                                key={variant.name}
-                                                                            >
+                                                                            <div key={variant.name}>
                                                                                 <div className='text-secondary/80 mb-1 text-xs font-medium uppercase'>
                                                                                     {variant.name}{' '}
                                                                                     tier
                                                                                 </div>
                                                                                 <ul className='space-y-1.5'>
                                                                                     {variantProducts.map(
-                                                                                        (incProduct) => (
+                                                                                        (
+                                                                                            incProduct
+                                                                                        ) => (
                                                                                             <IncludedProductItem
-                                                                                                key={incProduct.id}
-                                                                                                product={incProduct}
-                                                                                                isUnique={uniqueIds.has(incProduct.id)}
+                                                                                                key={
+                                                                                                    incProduct.id
+                                                                                                }
+                                                                                                product={
+                                                                                                    incProduct
+                                                                                                }
+                                                                                                isUnique={uniqueIds.has(
+                                                                                                    incProduct.id
+                                                                                                )}
                                                                                             />
                                                                                         )
                                                                                     )}
@@ -1030,9 +1042,7 @@ const ComparePage: React.FC = () => {
                                         </tr>
 
                                         {/* Included Products Row */}
-                                        {selectedProducts.some((p) =>
-                                            hasIncludedProducts(p)
-                                        ) && (
+                                        {selectedProducts.some((p) => hasIncludedProducts(p)) && (
                                             <tr>
                                                 <td className='border-primary/10 bg-primary/5 border-b p-4 align-top text-sm font-medium'>
                                                     Included Products
@@ -1069,11 +1079,19 @@ const ComparePage: React.FC = () => {
                                                                             )}
                                                                             <ul className='space-y-2'>
                                                                                 {baseIncluded.map(
-                                                                                    (incProduct) => (
+                                                                                    (
+                                                                                        incProduct
+                                                                                    ) => (
                                                                                         <IncludedProductItem
-                                                                                            key={incProduct.id}
-                                                                                            product={incProduct}
-                                                                                            isUnique={uniqueIds.has(incProduct.id)}
+                                                                                            key={
+                                                                                                incProduct.id
+                                                                                            }
+                                                                                            product={
+                                                                                                incProduct
+                                                                                            }
+                                                                                            isUnique={uniqueIds.has(
+                                                                                                incProduct.id
+                                                                                            )}
                                                                                         />
                                                                                     )
                                                                                 )}
@@ -1094,19 +1112,31 @@ const ComparePage: React.FC = () => {
                                                                                 )
                                                                             return (
                                                                                 <div
-                                                                                    key={variant.name}
+                                                                                    key={
+                                                                                        variant.name
+                                                                                    }
                                                                                 >
                                                                                     <div className='text-secondary/80 mb-1 text-xs font-medium uppercase'>
-                                                                                        {variant.name}{' '}
+                                                                                        {
+                                                                                            variant.name
+                                                                                        }{' '}
                                                                                         tier
                                                                                     </div>
                                                                                     <ul className='space-y-2'>
                                                                                         {variantProducts.map(
-                                                                                            (incProduct) => (
+                                                                                            (
+                                                                                                incProduct
+                                                                                            ) => (
                                                                                                 <IncludedProductItem
-                                                                                                    key={incProduct.id}
-                                                                                                    product={incProduct}
-                                                                                                    isUnique={uniqueIds.has(incProduct.id)}
+                                                                                                    key={
+                                                                                                        incProduct.id
+                                                                                                    }
+                                                                                                    product={
+                                                                                                        incProduct
+                                                                                                    }
+                                                                                                    isUnique={uniqueIds.has(
+                                                                                                        incProduct.id
+                                                                                                    )}
                                                                                                 />
                                                                                             )
                                                                                         )}
