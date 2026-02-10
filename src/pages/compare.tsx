@@ -231,11 +231,16 @@ const ComparePage: React.FC = () => {
         return product.priceDisplay
     }
 
-    const getIncludedProducts = (product: Product): Product[] => {
-        if (!product.includedProducts || product.includedProducts.length === 0) return []
-        return product.includedProducts
-            .map((id) => products.find((p) => p.id === id))
-            .filter(Boolean) as Product[]
+    const resolveProducts = (ids: string[]): Product[] => {
+        return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as Product[]
+    }
+
+    const hasIncludedProducts = (product: Product): boolean => {
+        if (product.includedProducts && product.includedProducts.length > 0) return true
+        if (product.variants) {
+            return product.variants.some((v) => v.includedProducts && v.includedProducts.length > 0)
+        }
+        return false
     }
 
     const getContents = (product: Product): string[] => {
@@ -534,13 +539,20 @@ const ComparePage: React.FC = () => {
                                 </CompareCard>
 
                                 {/* Included Products Card */}
-                                {selectedProducts.some(
-                                    (p) => getIncludedProducts(p).length > 0
-                                ) && (
+                                {selectedProducts.some((p) => hasIncludedProducts(p)) && (
                                     <CompareCard title='Included Products'>
                                         <div className='divide-primary/10 divide-y'>
                                             {selectedProducts.map((product) => {
-                                                const included = getIncludedProducts(product)
+                                                const baseIncluded = resolveProducts(
+                                                    product.includedProducts || []
+                                                )
+                                                const hasVariants =
+                                                    product.variants &&
+                                                    product.variants.some(
+                                                        (v) =>
+                                                            v.includedProducts &&
+                                                            v.includedProducts.length > 0
+                                                    )
                                                 return (
                                                     <div
                                                         key={product.id}
@@ -549,27 +561,91 @@ const ComparePage: React.FC = () => {
                                                         <div className='mb-2 truncate text-sm font-semibold'>
                                                             {product.name}
                                                         </div>
-                                                        {included.length > 0 ? (
-                                                            <ul className='space-y-1.5'>
-                                                                {included.map((incProduct) => (
-                                                                    <li
-                                                                        key={incProduct.id}
-                                                                        className='flex items-start gap-2 text-sm'
-                                                                    >
-                                                                        <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
-                                                                        <Link
-                                                                            to={`/product/${incProduct.id}`}
-                                                                            className='hover:text-secondary transition-colors'
-                                                                        >
-                                                                            {incProduct.name}
-                                                                        </Link>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        ) : (
+                                                        {!hasIncludedProducts(product) ? (
                                                             <span className='text-primary/40 text-sm'>
                                                                 Standalone product
                                                             </span>
+                                                        ) : (
+                                                            <div className='space-y-3'>
+                                                                {baseIncluded.length > 0 && (
+                                                                    <div>
+                                                                        {hasVariants && (
+                                                                            <div className='text-primary/50 mb-1 text-xs font-medium uppercase'>
+                                                                                All tiers
+                                                                            </div>
+                                                                        )}
+                                                                        <ul className='space-y-1.5'>
+                                                                            {baseIncluded.map(
+                                                                                (incProduct) => (
+                                                                                    <li
+                                                                                        key={
+                                                                                            incProduct.id
+                                                                                        }
+                                                                                        className='flex items-start gap-2 text-sm'
+                                                                                    >
+                                                                                        <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+                                                                                        <Link
+                                                                                            to={`/product/${incProduct.id}`}
+                                                                                            className='hover:text-secondary transition-colors'
+                                                                                        >
+                                                                                            {
+                                                                                                incProduct.name
+                                                                                            }
+                                                                                        </Link>
+                                                                                    </li>
+                                                                                )
+                                                                            )}
+                                                                        </ul>
+                                                                    </div>
+                                                                )}
+                                                                {product.variants
+                                                                    ?.filter(
+                                                                        (v) =>
+                                                                            v.includedProducts &&
+                                                                            v.includedProducts
+                                                                                .length > 0
+                                                                    )
+                                                                    .map((variant) => {
+                                                                        const variantProducts =
+                                                                            resolveProducts(
+                                                                                variant.includedProducts
+                                                                            )
+                                                                        return (
+                                                                            <div
+                                                                                key={variant.name}
+                                                                            >
+                                                                                <div className='text-secondary/80 mb-1 text-xs font-medium uppercase'>
+                                                                                    {variant.name}{' '}
+                                                                                    tier
+                                                                                </div>
+                                                                                <ul className='space-y-1.5'>
+                                                                                    {variantProducts.map(
+                                                                                        (
+                                                                                            incProduct
+                                                                                        ) => (
+                                                                                            <li
+                                                                                                key={
+                                                                                                    incProduct.id
+                                                                                                }
+                                                                                                className='flex items-start gap-2 text-sm'
+                                                                                            >
+                                                                                                <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+                                                                                                <Link
+                                                                                                    to={`/product/${incProduct.id}`}
+                                                                                                    className='hover:text-secondary transition-colors'
+                                                                                                >
+                                                                                                    {
+                                                                                                        incProduct.name
+                                                                                                    }
+                                                                                                </Link>
+                                                                                            </li>
+                                                                                        )
+                                                                                    )}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )
+                                                                    })}
+                                                            </div>
                                                         )}
                                                     </div>
                                                 )
@@ -797,15 +873,33 @@ const ComparePage: React.FC = () => {
                                                     key={product.id}
                                                     className='border-primary/10 border-b p-4 text-center'
                                                 >
-                                                    <div className='text-secondary text-xl font-bold'>
-                                                        {formatPrice(product)}
-                                                    </div>
-                                                    {product.priceTier !== 'free' && (
-                                                        <div className='text-primary/50 text-xs'>
-                                                            {product.isSubscription
-                                                                ? '/month'
-                                                                : 'one-time'}
+                                                    {product.variants &&
+                                                    product.variants.length > 1 ? (
+                                                        <div className='space-y-2'>
+                                                            {product.variants.map((variant) => (
+                                                                <div key={variant.name}>
+                                                                    <div className='text-secondary text-base font-bold'>
+                                                                        {variant.priceDisplay}
+                                                                    </div>
+                                                                    <div className='text-primary/50 text-xs'>
+                                                                        {variant.name}
+                                                                    </div>
+                                                                </div>
+                                                            ))}
                                                         </div>
+                                                    ) : (
+                                                        <>
+                                                            <div className='text-secondary text-xl font-bold'>
+                                                                {formatPrice(product)}
+                                                            </div>
+                                                            {product.priceTier !== 'free' && (
+                                                                <div className='text-primary/50 text-xs'>
+                                                                    {product.isSubscription
+                                                                        ? '/month'
+                                                                        : 'one-time'}
+                                                                </div>
+                                                            )}
+                                                        </>
                                                     )}
                                                 </td>
                                             ))}
@@ -918,41 +1012,120 @@ const ComparePage: React.FC = () => {
                                         </tr>
 
                                         {/* Included Products Row */}
-                                        {selectedProducts.some(
-                                            (p) => getIncludedProducts(p).length > 0
+                                        {selectedProducts.some((p) =>
+                                            hasIncludedProducts(p)
                                         ) && (
                                             <tr>
                                                 <td className='border-primary/10 bg-primary/5 border-b p-4 align-top text-sm font-medium'>
                                                     Included Products
                                                 </td>
                                                 {selectedProducts.map((product) => {
-                                                    const included = getIncludedProducts(product)
+                                                    const baseIncluded = resolveProducts(
+                                                        product.includedProducts || []
+                                                    )
+                                                    const hasVariants =
+                                                        product.variants &&
+                                                        product.variants.some(
+                                                            (v) =>
+                                                                v.includedProducts &&
+                                                                v.includedProducts.length > 0
+                                                        )
                                                     return (
                                                         <td
                                                             key={product.id}
                                                             className='border-primary/10 border-b p-4 align-top'
                                                         >
-                                                            {included.length > 0 ? (
-                                                                <ul className='space-y-2'>
-                                                                    {included.map((incProduct) => (
-                                                                        <li
-                                                                            key={incProduct.id}
-                                                                            className='flex items-start gap-2 text-sm'
-                                                                        >
-                                                                            <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
-                                                                            <Link
-                                                                                to={`/product/${incProduct.id}`}
-                                                                                className='hover:text-secondary transition-colors'
-                                                                            >
-                                                                                {incProduct.name}
-                                                                            </Link>
-                                                                        </li>
-                                                                    ))}
-                                                                </ul>
-                                                            ) : (
+                                                            {!hasIncludedProducts(product) ? (
                                                                 <span className='text-primary/40 text-sm'>
                                                                     Standalone product
                                                                 </span>
+                                                            ) : (
+                                                                <div className='space-y-3'>
+                                                                    {baseIncluded.length > 0 && (
+                                                                        <div>
+                                                                            {hasVariants && (
+                                                                                <div className='text-primary/50 mb-1 text-xs font-medium uppercase'>
+                                                                                    All tiers
+                                                                                </div>
+                                                                            )}
+                                                                            <ul className='space-y-2'>
+                                                                                {baseIncluded.map(
+                                                                                    (
+                                                                                        incProduct
+                                                                                    ) => (
+                                                                                        <li
+                                                                                            key={
+                                                                                                incProduct.id
+                                                                                            }
+                                                                                            className='flex items-start gap-2 text-sm'
+                                                                                        >
+                                                                                            <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+                                                                                            <Link
+                                                                                                to={`/product/${incProduct.id}`}
+                                                                                                className='hover:text-secondary transition-colors'
+                                                                                            >
+                                                                                                {
+                                                                                                    incProduct.name
+                                                                                                }
+                                                                                            </Link>
+                                                                                        </li>
+                                                                                    )
+                                                                                )}
+                                                                            </ul>
+                                                                        </div>
+                                                                    )}
+                                                                    {product.variants
+                                                                        ?.filter(
+                                                                            (v) =>
+                                                                                v.includedProducts &&
+                                                                                v.includedProducts
+                                                                                    .length > 0
+                                                                        )
+                                                                        .map((variant) => {
+                                                                            const variantProducts =
+                                                                                resolveProducts(
+                                                                                    variant.includedProducts
+                                                                                )
+                                                                            return (
+                                                                                <div
+                                                                                    key={
+                                                                                        variant.name
+                                                                                    }
+                                                                                >
+                                                                                    <div className='text-secondary/80 mb-1 text-xs font-medium uppercase'>
+                                                                                        {
+                                                                                            variant.name
+                                                                                        }{' '}
+                                                                                        tier
+                                                                                    </div>
+                                                                                    <ul className='space-y-2'>
+                                                                                        {variantProducts.map(
+                                                                                            (
+                                                                                                incProduct
+                                                                                            ) => (
+                                                                                                <li
+                                                                                                    key={
+                                                                                                        incProduct.id
+                                                                                                    }
+                                                                                                    className='flex items-start gap-2 text-sm'
+                                                                                                >
+                                                                                                    <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+                                                                                                    <Link
+                                                                                                        to={`/product/${incProduct.id}`}
+                                                                                                        className='hover:text-secondary transition-colors'
+                                                                                                    >
+                                                                                                        {
+                                                                                                            incProduct.name
+                                                                                                        }
+                                                                                                    </Link>
+                                                                                                </li>
+                                                                                            )
+                                                                                        )}
+                                                                                    </ul>
+                                                                                </div>
+                                                                            )
+                                                                        })}
+                                                                </div>
                                                             )}
                                                         </td>
                                                     )
