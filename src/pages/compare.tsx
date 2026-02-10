@@ -231,6 +231,13 @@ const ComparePage: React.FC = () => {
         return product.priceDisplay
     }
 
+    const getIncludedProducts = (product: Product): Product[] => {
+        if (!product.includedProducts || product.includedProducts.length === 0) return []
+        return product.includedProducts
+            .map((id) => products.find((p) => p.id === id))
+            .filter(Boolean) as Product[]
+    }
+
     const getContents = (product: Product): string[] => {
         return product.contents?.slice(0, 6) || []
     }
@@ -525,6 +532,51 @@ const ComparePage: React.FC = () => {
                                         ))}
                                     </div>
                                 </CompareCard>
+
+                                {/* Included Products Card */}
+                                {selectedProducts.some(
+                                    (p) => getIncludedProducts(p).length > 0
+                                ) && (
+                                    <CompareCard title='Included Products'>
+                                        <div className='divide-primary/10 divide-y'>
+                                            {selectedProducts.map((product) => {
+                                                const included = getIncludedProducts(product)
+                                                return (
+                                                    <div
+                                                        key={product.id}
+                                                        className='py-3 first:pt-0 last:pb-0'
+                                                    >
+                                                        <div className='mb-2 truncate text-sm font-semibold'>
+                                                            {product.name}
+                                                        </div>
+                                                        {included.length > 0 ? (
+                                                            <ul className='space-y-1.5'>
+                                                                {included.map((incProduct) => (
+                                                                    <li
+                                                                        key={incProduct.id}
+                                                                        className='flex items-start gap-2 text-sm'
+                                                                    >
+                                                                        <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+                                                                        <Link
+                                                                            to={`/product/${incProduct.id}`}
+                                                                            className='hover:text-secondary transition-colors'
+                                                                        >
+                                                                            {incProduct.name}
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        ) : (
+                                                            <span className='text-primary/40 text-sm'>
+                                                                Standalone product
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </CompareCard>
+                                )}
 
                                 {/* Benefits Card */}
                                 <CompareCard title='Benefits'>
@@ -864,6 +916,52 @@ const ComparePage: React.FC = () => {
                                                 <td className='border-primary/10 border-b' />
                                             )}
                                         </tr>
+
+                                        {/* Included Products Row */}
+                                        {selectedProducts.some(
+                                            (p) => getIncludedProducts(p).length > 0
+                                        ) && (
+                                            <tr>
+                                                <td className='border-primary/10 bg-primary/5 border-b p-4 align-top text-sm font-medium'>
+                                                    Included Products
+                                                </td>
+                                                {selectedProducts.map((product) => {
+                                                    const included = getIncludedProducts(product)
+                                                    return (
+                                                        <td
+                                                            key={product.id}
+                                                            className='border-primary/10 border-b p-4 align-top'
+                                                        >
+                                                            {included.length > 0 ? (
+                                                                <ul className='space-y-2'>
+                                                                    {included.map((incProduct) => (
+                                                                        <li
+                                                                            key={incProduct.id}
+                                                                            className='flex items-start gap-2 text-sm'
+                                                                        >
+                                                                            <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+                                                                            <Link
+                                                                                to={`/product/${incProduct.id}`}
+                                                                                className='hover:text-secondary transition-colors'
+                                                                            >
+                                                                                {incProduct.name}
+                                                                            </Link>
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            ) : (
+                                                                <span className='text-primary/40 text-sm'>
+                                                                    Standalone product
+                                                                </span>
+                                                            )}
+                                                        </td>
+                                                    )
+                                                })}
+                                                {selectedProducts.length < MAX_COMPARE && (
+                                                    <td className='border-primary/10 border-b' />
+                                                )}
+                                            </tr>
+                                        )}
 
                                         {/* Benefits Row */}
                                         <tr>
