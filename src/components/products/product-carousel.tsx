@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
+import { useSwipe } from '@/hooks/use-swipe'
 import ProductCardEcommerce from '@/components/products/product-card-ecommerce'
 import type { Product } from '@/schemas/product.schema'
 
@@ -86,6 +87,8 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         setCurrentIndex(index)
     }
 
+    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
+
     // Don't render if no products
     if (products.length === 0) {
         return null
@@ -118,7 +121,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
     return (
         <div className={cn('flex flex-col', className)}>
             {/* 3-column layout: prev button | carousel | next button */}
-            <div className='flex items-center gap-2 sm:gap-4'>
+            <div className='flex items-center gap-2 sm:gap-4' {...swipeHandlers}>
                 {/* Previous button */}
                 {showButtons ? (
                     <button
