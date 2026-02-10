@@ -81,6 +81,8 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
         setCurrentIndex(index)
     }
 
+    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
+
     // Don't render if no media
     if (sortedMedia.length === 0) {
         return null
@@ -113,8 +115,6 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({
             onMediaClick(currentMedia, currentIndex)
         }
     }
-
-    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
 
     return (
         <div

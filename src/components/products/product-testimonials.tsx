@@ -134,10 +134,6 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
         return () => clearInterval(interval)
     }, [visibleTestimonials.length])
 
-    if (sortedTestimonials.length === 0) {
-        return null
-    }
-
     const goToNext = useCallback(() => {
         setDirection(1)
         setCurrentIndex((prev) => (prev + 1) % visibleTestimonials.length)
@@ -151,6 +147,10 @@ const ProductTestimonials: React.FC<ProductTestimonialsProps> = ({ product }) =>
     }, [visibleTestimonials.length])
 
     const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
+
+    if (sortedTestimonials.length === 0) {
+        return null
+    }
 
     const currentTestimonial = visibleTestimonials[currentIndex]
 

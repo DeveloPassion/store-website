@@ -87,6 +87,8 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         setCurrentIndex(index)
     }
 
+    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
+
     // Don't render if no products
     if (products.length === 0) {
         return null
@@ -113,8 +115,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
             opacity: 0
         })
     }
-
-    const swipeHandlers = useSwipe({ onSwipeLeft: goToNext, onSwipeRight: goToPrevious })
 
     const showButtons = showNavigation && slideGroups.length > 1
 
