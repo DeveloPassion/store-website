@@ -8,7 +8,7 @@
         {
             "id": "faq-144",
             "question": "What about future products?",
-            "answer": "Included automatically at no extra cost. When new workshops, courses, guides, or tools are added to the Knowledge products catalog, they're added to your account."
+            "answer": "Included automatically at no extra cost. When new workshops, courses, guides, or tools are added to the Knowledge products catalog, they are added to your account. This applies to all products in the bundle. The same applies to the [Knowledge Worker Kit](/product/knowledge-worker-kit) for the products it includes."
         },
         {
             "id": "faq-145",
@@ -59,6 +59,11 @@
             "id": "faq-154",
             "question": "I don't want to join a community. Is this still for me?",
             "answer": "This bundle was created **specifically for people like you**. No community obligations, no live events you need to attend, no public learning. Just you and the complete knowledge system, learning at your own pace, in your own space. **That's the whole point**."
+        },
+        {
+            "id": "faq-155",
+            "question": "What is the difference between the Everything Knowledge Bundle and the Knowledge Worker Kit?",
+            "answer": "The [Knowledge Worker Kit](/product/knowledge-worker-kit) already includes many bonuses, so the pricing difference is relatively small. The Everything Knowledge Bundle adds [Knowii Voice AI](/product/knowii-voice-ai) and the [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course on top of everything in the Knowledge Worker Kit. Both include lifetime access and future updates to all included products. If you want the most complete package with a one-time purchase, the Everything Knowledge Bundle is the way to go. You can [compare both side-by-side](/compare?products=knowledge-worker-kit,everything-knowledge-bundle) to see exactly what each includes."
         }
     ]
 }
