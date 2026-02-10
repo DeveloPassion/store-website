@@ -1,3 +1,17 @@
+## [1.15.0](https://github.com/DeveloPassion/store-website/compare/1.14.0...1.15.0) (2026-02-10)
+
+### Features
+
+* add included products row to compare page ([63cda7e](https://github.com/DeveloPassion/store-website/commit/63cda7e8aaac2d59c0065f4a9fe7a30fcbebfd1e))
+* add swipe gestures to all carousels ([9ae8038](https://github.com/DeveloPassion/store-website/commit/9ae80381174d37ba8dd5aea4425b21e05e552d96))
+* **all:** update scripts ([f3c883d](https://github.com/DeveloPassion/store-website/commit/f3c883db2072bb232bc575454c0892285c0e86e7))
+* highlight unique included products with star emoji ([b799ffb](https://github.com/DeveloPassion/store-website/commit/b799ffbc9ba4d93721362945f287e89084a9f298))
+* show per-tier pricing and included products in compare page ([3d41b06](https://github.com/DeveloPassion/store-website/commit/3d41b0658c239f4776c53853d9634573fa692a7e))
+
+### Bug Fixes
+
+* make 'See What'\''s Inside' text readable in light mode ([291c351](https://github.com/DeveloPassion/store-website/commit/291c351eae769514ddf0f161d224811df1a27341))
+* resolve lint/type errors ([cd85af6](https://github.com/DeveloPassion/store-website/commit/cd85af6a5f3c25c67b393d97a4e2ca34a91978da))
 ## [1.14.0](https://github.com/DeveloPassion/store-website/compare/1.13.0...1.14.0) (2026-02-09)
 
 ### Features
