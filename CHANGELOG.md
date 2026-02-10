@@ -1,3 +1,8 @@
+## [1.16.0](https://github.com/DeveloPassion/store-website/compare/1.15.0...1.16.0) (2026-02-10)
+
+### Features
+
+* add KWK vs Everything Bundle FAQ to both products ([3f08f66](https://github.com/DeveloPassion/store-website/commit/3f08f66006191f8202208858fe98706afb6457e8))
 ## [1.15.0](https://github.com/DeveloPassion/store-website/compare/1.14.0...1.15.0) (2026-02-10)
 
 ### Features
