@@ -48,6 +48,26 @@ const getCoverImage = (media: MediaItem[] | undefined): MediaItem | undefined =>
 
 const MAX_COMPARE = 4
 
+// Included product list item with optional "unique" highlight
+const IncludedProductItem: React.FC<{
+    product: Product
+    isUnique: boolean
+}> = ({ product, isUnique }) => (
+    <li className='flex items-start gap-2 text-sm'>
+        {isUnique ? (
+            <span className='mt-0.5 h-3 w-3 flex-shrink-0 text-xs leading-3'>⭐</span>
+        ) : (
+            <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
+        )}
+        <Link
+            to={`/product/${product.id}`}
+            className={`hover:text-secondary transition-colors ${isUnique ? 'font-medium' : ''}`}
+        >
+            {product.name}
+        </Link>
+    </li>
+)
+
 // Reusable card wrapper for mobile
 const CompareCard: React.FC<{ title: string; children: React.ReactNode }> = ({
     title,
@@ -233,6 +253,27 @@ const ComparePage: React.FC = () => {
 
     const resolveProducts = (ids: string[]): Product[] => {
         return ids.map((id) => products.find((p) => p.id === id)).filter(Boolean) as Product[]
+    }
+
+    // Get ALL included product IDs for a product (base + all variants)
+    const getAllIncludedIds = (product: Product): Set<string> => {
+        const ids = new Set<string>(product.includedProducts || [])
+        product.variants?.forEach((v) => {
+            v.includedProducts?.forEach((id) => ids.add(id))
+        })
+        return ids
+    }
+
+    // Products unique to this product (not in any other compared product)
+    const getUniqueIncludedIds = (product: Product): Set<string> => {
+        const myIds = getAllIncludedIds(product)
+        const otherIds = new Set<string>()
+        selectedProducts.forEach((p) => {
+            if (p.id !== product.id) {
+                getAllIncludedIds(p).forEach((id) => otherIds.add(id))
+            }
+        })
+        return new Set([...myIds].filter((id) => !otherIds.has(id)))
     }
 
     const hasIncludedProducts = (product: Product): boolean => {
@@ -546,6 +587,7 @@ const ComparePage: React.FC = () => {
                                                 const baseIncluded = resolveProducts(
                                                     product.includedProducts || []
                                                 )
+                                                const uniqueIds = getUniqueIncludedIds(product)
                                                 const hasVariants =
                                                     product.variants &&
                                                     product.variants.some(
@@ -577,22 +619,11 @@ const ComparePage: React.FC = () => {
                                                                         <ul className='space-y-1.5'>
                                                                             {baseIncluded.map(
                                                                                 (incProduct) => (
-                                                                                    <li
-                                                                                        key={
-                                                                                            incProduct.id
-                                                                                        }
-                                                                                        className='flex items-start gap-2 text-sm'
-                                                                                    >
-                                                                                        <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
-                                                                                        <Link
-                                                                                            to={`/product/${incProduct.id}`}
-                                                                                            className='hover:text-secondary transition-colors'
-                                                                                        >
-                                                                                            {
-                                                                                                incProduct.name
-                                                                                            }
-                                                                                        </Link>
-                                                                                    </li>
+                                                                                    <IncludedProductItem
+                                                                                        key={incProduct.id}
+                                                                                        product={incProduct}
+                                                                                        isUnique={uniqueIds.has(incProduct.id)}
+                                                                                    />
                                                                                 )
                                                                             )}
                                                                         </ul>
@@ -620,25 +651,12 @@ const ComparePage: React.FC = () => {
                                                                                 </div>
                                                                                 <ul className='space-y-1.5'>
                                                                                     {variantProducts.map(
-                                                                                        (
-                                                                                            incProduct
-                                                                                        ) => (
-                                                                                            <li
-                                                                                                key={
-                                                                                                    incProduct.id
-                                                                                                }
-                                                                                                className='flex items-start gap-2 text-sm'
-                                                                                            >
-                                                                                                <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
-                                                                                                <Link
-                                                                                                    to={`/product/${incProduct.id}`}
-                                                                                                    className='hover:text-secondary transition-colors'
-                                                                                                >
-                                                                                                    {
-                                                                                                        incProduct.name
-                                                                                                    }
-                                                                                                </Link>
-                                                                                            </li>
+                                                                                        (incProduct) => (
+                                                                                            <IncludedProductItem
+                                                                                                key={incProduct.id}
+                                                                                                product={incProduct}
+                                                                                                isUnique={uniqueIds.has(incProduct.id)}
+                                                                                            />
                                                                                         )
                                                                                     )}
                                                                                 </ul>
@@ -1023,6 +1041,7 @@ const ComparePage: React.FC = () => {
                                                     const baseIncluded = resolveProducts(
                                                         product.includedProducts || []
                                                     )
+                                                    const uniqueIds = getUniqueIncludedIds(product)
                                                     const hasVariants =
                                                         product.variants &&
                                                         product.variants.some(
@@ -1050,25 +1069,12 @@ const ComparePage: React.FC = () => {
                                                                             )}
                                                                             <ul className='space-y-2'>
                                                                                 {baseIncluded.map(
-                                                                                    (
-                                                                                        incProduct
-                                                                                    ) => (
-                                                                                        <li
-                                                                                            key={
-                                                                                                incProduct.id
-                                                                                            }
-                                                                                            className='flex items-start gap-2 text-sm'
-                                                                                        >
-                                                                                            <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
-                                                                                            <Link
-                                                                                                to={`/product/${incProduct.id}`}
-                                                                                                className='hover:text-secondary transition-colors'
-                                                                                            >
-                                                                                                {
-                                                                                                    incProduct.name
-                                                                                                }
-                                                                                            </Link>
-                                                                                        </li>
+                                                                                    (incProduct) => (
+                                                                                        <IncludedProductItem
+                                                                                            key={incProduct.id}
+                                                                                            product={incProduct}
+                                                                                            isUnique={uniqueIds.has(incProduct.id)}
+                                                                                        />
                                                                                     )
                                                                                 )}
                                                                             </ul>
@@ -1088,37 +1094,20 @@ const ComparePage: React.FC = () => {
                                                                                 )
                                                                             return (
                                                                                 <div
-                                                                                    key={
-                                                                                        variant.name
-                                                                                    }
+                                                                                    key={variant.name}
                                                                                 >
                                                                                     <div className='text-secondary/80 mb-1 text-xs font-medium uppercase'>
-                                                                                        {
-                                                                                            variant.name
-                                                                                        }{' '}
+                                                                                        {variant.name}{' '}
                                                                                         tier
                                                                                     </div>
                                                                                     <ul className='space-y-2'>
                                                                                         {variantProducts.map(
-                                                                                            (
-                                                                                                incProduct
-                                                                                            ) => (
-                                                                                                <li
-                                                                                                    key={
-                                                                                                        incProduct.id
-                                                                                                    }
-                                                                                                    className='flex items-start gap-2 text-sm'
-                                                                                                >
-                                                                                                    <FaCheck className='text-success mt-0.5 h-3 w-3 flex-shrink-0' />
-                                                                                                    <Link
-                                                                                                        to={`/product/${incProduct.id}`}
-                                                                                                        className='hover:text-secondary transition-colors'
-                                                                                                    >
-                                                                                                        {
-                                                                                                            incProduct.name
-                                                                                                        }
-                                                                                                    </Link>
-                                                                                                </li>
+                                                                                            (incProduct) => (
+                                                                                                <IncludedProductItem
+                                                                                                    key={incProduct.id}
+                                                                                                    product={incProduct}
+                                                                                                    isUnique={uniqueIds.has(incProduct.id)}
+                                                                                                />
                                                                                             )
                                                                                         )}
                                                                                     </ul>
