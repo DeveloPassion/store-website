@@ -1,3 +1,8 @@
+## [1.17.0](https://github.com/DeveloPassion/store-website/compare/1.16.0...1.17.0) (2026-02-11)
+
+### Features
+
+* **all:** added osk testimonial ([f901569](https://github.com/DeveloPassion/store-website/commit/f90156950c2473a5d59a4194dc3be6ba2fca00be))
 ## [1.16.0](https://github.com/DeveloPassion/store-website/compare/1.15.0...1.16.0) (2026-02-10)
 
 ### Features
