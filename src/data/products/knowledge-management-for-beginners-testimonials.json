@@ -87,6 +87,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-15",
+            "author": "Jarret Trinador",
+            "quote": "I want to say how much I'm enjoying your PKM course. Even though I haven't come across anything entirely new so far (I've been following discussions on this topic for years), your explanations feel clearer, more open, engaging, and valuable than ever. It's been a fantastic and useful refresher on the principles and workings of PKM.",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
