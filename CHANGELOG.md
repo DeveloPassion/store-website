@@ -1,3 +1,9 @@
+## [1.18.0](https://github.com/DeveloPassion/store-website/compare/1.17.0...1.18.0) (2026-02-13)
+
+### Features
+
+* **all:** added more ([5f77755](https://github.com/DeveloPassion/store-website/commit/5f777550a0c213235e4268ef4455de84235129b4))
+* **all:** added testimonial ([8dadeb1](https://github.com/DeveloPassion/store-website/commit/8dadeb18fa6235c2b93ce44abee7a66c5c0a7686))
 ## [1.17.0](https://github.com/DeveloPassion/store-website/compare/1.16.0...1.17.0) (2026-02-11)
 
 ### Features
