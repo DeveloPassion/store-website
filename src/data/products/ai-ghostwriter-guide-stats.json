@@ -1,12 +1,9 @@
 {
     "data": {
-        "userCount": {
-            "value": "100+",
-            "label": "Ghostwriters"
-        },
+        "userCount": null,
         "timeSaved": "Hours weekly on content editing",
         "ratings": null,
         "additionalStats": [],
-        "lastSale": "2026-01-26T04:23:53Z"
+        "lastSale": "2026-02-15T13:21:46Z"
     }
 }
