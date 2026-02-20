@@ -1,3 +1,8 @@
+## [1.19.0](https://github.com/DeveloPassion/store-website/compare/1.18.0...1.19.0) (2026-02-20)
+
+### Features
+
+* **all:** updated stats ([b9263dc](https://github.com/DeveloPassion/store-website/commit/b9263dcdf67d5fbc3f2d7dc8c1879513553e7d0b))
 ## [1.18.0](https://github.com/DeveloPassion/store-website/compare/1.17.0...1.18.0) (2026-02-13)
 
 ### Features
