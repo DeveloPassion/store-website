@@ -1,3 +1,8 @@
+## [1.21.0](https://github.com/DeveloPassion/store-website/compare/1.20.0...1.21.0) (2026-02-27)
+
+### Features
+
+* **all:** added validate script ([f09ac65](https://github.com/DeveloPassion/store-website/commit/f09ac65175c1769da9054044666d5a74b6c18ec8))
 ## [1.20.0](https://github.com/DeveloPassion/store-website/compare/1.19.0...1.20.0) (2026-02-27)
 
 ### Features
