@@ -97,7 +97,7 @@ const ProductPageContent: React.FC<ProductPageContentProps> = ({ productSlug }) 
                 product.salesCopy?.metaDescription ||
                 product.salesCopy?.description ||
                 `${product.name} - Available at Knowledge Forge`
-            const url = `https://store.dsebastien.net/product/${product.id}`
+            const url = `https://store.dsebastien.net/product/${product.id}/`
 
             // Find cover image - use the primary one (lowest order = highest priority)
             const coverImage = product.media
