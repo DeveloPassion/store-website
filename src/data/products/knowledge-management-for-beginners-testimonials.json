@@ -98,6 +98,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-16",
+            "author": "Jarrett Trinador",
+            "quote": "I've finished your course a week ago, but I wanted to have time to put the words on how grateful am I! Your course was super useful for me, the way is gradually explained and organised helped me to clarify my black holes.",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
