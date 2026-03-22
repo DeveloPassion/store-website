@@ -17,7 +17,7 @@
         "store": "bun scripts/store-cli.ts",
         "aggregate:products": "bun scripts/utils/aggregate-products.ts",
         "dev": "bun run aggregate:products && bun scripts/utils/dev.ts",
-        "build": "bun run aggregate:products && tsc && bun scripts/utils/build.ts && bun run --parallel generate:static-pages generate:sitemap generate:llms-txt generate:rss-feed",
+        "build": "bun run aggregate:products && tsc && bun scripts/utils/build.ts && bun run generate:static-pages && bun run generate:sitemap && bun run generate:llms-txt && bun run generate:rss-feed",
         "generate:static-pages": "bun scripts/utils/generate-static-pages.ts",
         "generate:sitemap": "bun scripts/utils/generate-sitemap.ts",
         "generate:llms-txt": "bun scripts/utils/generate-llms-txt.ts",
