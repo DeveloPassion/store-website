@@ -109,6 +109,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-17",
+            "author": "Nirmal",
+            "quote": "I'm currently going through knowledge management course and the content is really good. Thanks for putting this together and this is matching really well with the Obsidian Starter Kit.",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
