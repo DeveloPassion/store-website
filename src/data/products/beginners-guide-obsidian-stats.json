@@ -2,8 +2,16 @@
     "data": {
         "userCount": "50+",
         "timeSaved": "Hours of aimless exploration",
-        "ratings": null,
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "_QrXu-ifqPbHIMf7TeSnzw==",
+                    "rating": 5,
+                    "date": "2026-01-17"
+                }
+            ]
+        },
         "additionalStats": [],
-        "lastSale": "2026-03-25T11:45:05Z"
+        "lastSale": "2026-03-26T22:02:18Z"
     }
 }
