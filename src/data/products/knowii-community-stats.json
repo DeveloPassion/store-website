@@ -5,8 +5,16 @@
             "label": "Members"
         },
         "timeSaved": null,
-        "ratings": null,
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "ePcSLCGvMVYZN6u8uuAJ-g==",
+                    "rating": 5,
+                    "date": "2025-09-20"
+                }
+            ]
+        },
         "additionalStats": [],
-        "lastSale": "2026-03-19T10:09:21Z"
+        "lastSale": "2026-03-28T20:23:44Z"
     }
 }
