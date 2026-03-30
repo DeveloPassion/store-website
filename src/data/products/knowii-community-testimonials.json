@@ -21,6 +21,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-22",
+            "author": "Jaelyn",
+            "quote": "Everything in this community feels friendly and approachable. I love it! And I can't express just how impressed I am with the PKM system you created. It is beautifully thought-out and crafted. This is exactly what I needed",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
