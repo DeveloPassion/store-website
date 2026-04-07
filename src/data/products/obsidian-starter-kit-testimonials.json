@@ -439,6 +439,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-41",
+            "author": "Michael Mindrum, MD",
+            "quote": "I am finding Sébastien as well as his obsidian starter kit extremely helpful. Claude is fantastic but it is the interface with obsidian that makes it so useful. Obsidian is like an external brain and Sébastien has figured out how to keep that brain organized. I feel such relief each time I figure out a way to organize another interest, project, or goal. With it you can do just about anything. Obsidian serves as a place to dump all of your knowledge. Sebastien's starter kit has the architecture to help organize it.",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
