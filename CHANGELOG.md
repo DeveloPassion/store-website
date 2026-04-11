@@ -1,3 +1,8 @@
+## [1.28.0](https://github.com/DeveloPassion/store-website/compare/1.27.0...1.28.0) (2026-04-11)
+
+### Features
+
+* **all:** updated and added testimonial ([e82576f](https://github.com/DeveloPassion/store-website/commit/e82576f9c397d072cabd58b0d58128f436280569))
 ## [1.27.0](https://github.com/DeveloPassion/store-website/compare/1.26.0...1.27.0) (2026-04-07)
 
 ### Features
