@@ -450,6 +450,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-42",
+            "author": "Thomas Moreau",
+            "quote": "Day 2 after the purchase of the Starter Kit. I already know that the 129.99+ € was really good invested. @Sebastien you made my day... no my month and probably my year!",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
