@@ -32,6 +32,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-23",
+            "author": "Jaelyn",
+            "quote": "What you are doing here is SO useful and helpful, and SO needed in the world. And it's not just the tools and resources you've created, which are amazing, but also that you have created this community for passionate people to come together",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
