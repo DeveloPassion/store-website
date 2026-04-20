@@ -1,3 +1,9 @@
+## [1.30.0](https://github.com/DeveloPassion/store-website/compare/1.29.0...1.30.0) (2026-04-20)
+
+### Features
+
+* **all:** updated pricing ([822963c](https://github.com/DeveloPassion/store-website/commit/822963cf39b39d4ac706109a6aafccbd54487852))
+* **all:** updated stats ([78955b8](https://github.com/DeveloPassion/store-website/commit/78955b82923dfa11f2adde3b72790517806a9285))
 ## [1.29.0](https://github.com/DeveloPassion/store-website/compare/1.28.0...1.29.0) (2026-04-11)
 
 ### Features
