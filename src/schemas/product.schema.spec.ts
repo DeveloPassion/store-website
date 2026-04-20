@@ -104,7 +104,7 @@ describe('Product Schema Validation', () => {
 
     describe('PaymentFrequencySchema', () => {
         it('should accept valid payment frequencies', () => {
-            const validFrequencies = ['monthly', 'yearly', 'biennial', 'one-time']
+            const validFrequencies = ['monthly', 'quarterly', 'yearly', 'biennial', 'one-time']
             validFrequencies.forEach((frequency) => {
                 expect(() => PaymentFrequencySchema.parse(frequency)).not.toThrow()
             })
@@ -192,6 +192,7 @@ describe('Product Schema Validation', () => {
                 paymentFrequency: 'yearly',
                 prices: {
                     monthly: 9.99,
+                    quarterly: null,
                     yearly: 99.99,
                     biennial: null,
                     oneTime: null

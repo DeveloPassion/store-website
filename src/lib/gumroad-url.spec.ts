@@ -90,6 +90,12 @@ describe('buildGumroadUrl', () => {
             expect(result).toContain('monthly=true')
         })
 
+        it('should add quarterly=true parameter for quarterly frequency', () => {
+            const url = 'https://gumroad.com/l/product'
+            const result = buildGumroadUrl(url, { paymentFrequency: 'quarterly' })
+            expect(result).toContain('quarterly=true')
+        })
+
         it('should add yearly=true parameter for yearly frequency', () => {
             const url = 'https://gumroad.com/l/product'
             const result = buildGumroadUrl(url, { paymentFrequency: 'yearly' })

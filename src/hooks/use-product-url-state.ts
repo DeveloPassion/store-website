@@ -24,7 +24,7 @@ interface UseProductUrlStateReturn {
  * - Updates URL when selections change
  * - Falls back to product defaults if URL params are invalid
  *
- * URL format: /product/{id}?variant={gumroadVariantId}&frequency={monthly|yearly|biennial}
+ * URL format: /product/{id}?variant={gumroadVariantId}&frequency={monthly|quarterly|yearly|biennial}
  */
 export function useProductUrlState({
     product
@@ -145,7 +145,7 @@ export function useProductUrlState({
  * Check if a frequency string is valid for the given product
  */
 function isValidFrequency(frequency: string, product: Product): boolean {
-    const validFrequencies: PaymentFrequency[] = ['monthly', 'yearly', 'biennial']
+    const validFrequencies: PaymentFrequency[] = ['monthly', 'quarterly', 'yearly', 'biennial']
     if (!validFrequencies.includes(frequency as PaymentFrequency)) {
         return false
     }

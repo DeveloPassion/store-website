@@ -45,10 +45,13 @@ export const buildGumroadUrl = (
 
     if (paymentFrequency && paymentFrequency !== 'one-time') {
         // Using Gumroad's boolean frequency parameters
-        // Confirmed working: yearly=true, monthly=true, every_two_years=true
+        // Confirmed working: monthly=true, quarterly=true, yearly=true, every_two_years=true
         switch (paymentFrequency) {
             case 'monthly':
                 params.set('monthly', 'true')
+                break
+            case 'quarterly':
+                params.set('quarterly', 'true')
                 break
             case 'yearly':
                 params.set('yearly', 'true')

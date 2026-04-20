@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { formatFrequencyPrice, getVariantPriceForFrequency } from '@/lib/variant-pricing'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
 import { trackBuyClicked } from '@/lib/analytics'
@@ -38,31 +39,18 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
         includedProducts: []
     }
     const selectedVariant = controlledVariant || defaultVariant
-    const selectedFrequency = controlledFrequency || product.defaultPaymentFrequency || 'monthly'
+    const selectedFrequency =
+        controlledFrequency ||
+        selectedVariant.paymentFrequency ||
+        product.defaultPaymentFrequency ||
+        'monthly'
     const isFree = product.price === 0 || product.priceTier === 'free'
 
     const getDisplayPrice = (): string => {
         if (!product.isSubscription || !selectedVariant.prices) {
             return selectedVariant.priceDisplay
         }
-
-        const price =
-            selectedFrequency === 'yearly'
-                ? selectedVariant.prices.yearly
-                : selectedFrequency === 'biennial'
-                  ? selectedVariant.prices.biennial
-                  : selectedVariant.prices.monthly
-
-        if (!price) return selectedVariant.priceDisplay
-
-        const frequencyLabel =
-            selectedFrequency === 'yearly'
-                ? '/year'
-                : selectedFrequency === 'biennial'
-                  ? '/2 years'
-                  : '/month'
-
-        return `€${price.toFixed(2)}${frequencyLabel}`
+        return formatFrequencyPrice(selectedVariant, selectedFrequency)
     }
 
     const displayPrice = getDisplayPrice()
@@ -75,11 +63,9 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
         if (!product.isSubscription || !selectedVariant.prices) {
             return selectedVariant.price
         }
-        if (selectedFrequency === 'yearly')
-            return selectedVariant.prices.yearly || selectedVariant.price
-        if (selectedFrequency === 'biennial')
-            return selectedVariant.prices.biennial || selectedVariant.price
-        return selectedVariant.prices.monthly || selectedVariant.price
+        return (
+            getVariantPriceForFrequency(selectedVariant, selectedFrequency) ?? selectedVariant.price
+        )
     }
 
     const handleBuyClick = () => {

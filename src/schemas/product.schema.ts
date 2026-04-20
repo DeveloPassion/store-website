@@ -32,7 +32,13 @@ export const PriceTierSchema = z.enum([
     'subscription'
 ])
 
-export const PaymentFrequencySchema = z.enum(['monthly', 'yearly', 'biennial', 'one-time'])
+export const PaymentFrequencySchema = z.enum([
+    'monthly',
+    'quarterly',
+    'yearly',
+    'biennial',
+    'one-time'
+])
 
 // Categories are now defined in category.schema.ts (single source of truth)
 export const ProductCategorySchema = CategoryIdSchema
@@ -46,6 +52,7 @@ export const SecondaryCategorySchema = z.object({
 // Pricing per payment frequency for subscription variants
 export const VariantPricingSchema = z.object({
     monthly: z.number().nullable(),
+    quarterly: z.number().nullable(),
     yearly: z.number().nullable(),
     biennial: z.number().nullable(),
     oneTime: z.number().nullable()

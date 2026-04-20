@@ -8,17 +8,27 @@
         {
             "id": "faq-111",
             "question": "I'm already overwhelmed. Will joining another platform help or just add more noise?",
-            "answer": "Unlike most platforms that add to your digital noise, Knowii is designed to **reduce overwhelm** by giving you systems to organize your existing information sources. Start with the **Explorer tier (${product.variants.0.prices.monthly|currency}/month)** to see for yourself."
+            "answer": "Unlike most platforms that add to your digital noise, Knowii is designed to **reduce overwhelm** by giving you systems to organize your existing information sources. Start with the **Explorer tier (${product.variants.0.prices.quarterly|currency}/quarter)** to see for yourself."
         },
         {
             "id": "faq-112",
             "question": "Can I change tiers or cancel if needed?",
-            "answer": "Yes. Upgrade, downgrade, or cancel at any time. For annual plans, you maintain access until the end of your billing period."
+            "answer": "Yes. Upgrade, downgrade, or cancel at any time. For quarterly, yearly, or biennial plans, you maintain access until the end of your billing period."
         },
         {
             "id": "faq-113",
             "question": "What if I'm not sure which tier is right for me?",
-            "answer": "Start with the Explorer tier (${product.variants.0.prices.monthly|currency}/month) or Knowledge Builder (${product.variants.1.prices.monthly|currency}/month). You can always upgrade if you find value."
+            "answer": "Start with the Explorer tier (${product.variants.0.prices.quarterly|currency}/quarter) — it's the low-commitment way to experience Knowii. You can upgrade to Knowledge Builder (${product.variants.1.prices.quarterly|currency}/quarter) or Knowledge Master (${product.variants.2.prices.quarterly|currency}/quarter) once you're ready."
+        },
+        {
+            "id": "faq-120",
+            "question": "Is there a free trial?",
+            "answer": "There's no free trial, but the **Explorer tier (${product.variants.0.prices.quarterly|currency}/quarter)** is designed exactly for that: a low-commitment way to experience Knowii, meet the community, and see the value before committing to a higher tier. You can cancel anytime."
+        },
+        {
+            "id": "faq-121",
+            "question": "Why is the minimum subscription 3 months?",
+            "answer": "**Real change doesn't happen in a weekend**, and the 3-month minimum (across all tiers) is fully intentional. Knowii is built for people who are **ready to show up, do the work, and actually transform how they learn, think, and create**. Three months is the minimum runway to implement what you learn, attend live events, build real relationships with other members, and see meaningful progress in your life and work. We'd rather serve a smaller group of **committed members** who participate, apply the ideas, and make a difference in their lives, than a larger crowd that drops in for a week and disappears. If you want to try Knowii first without committing to a higher tier, the **Explorer tier (${product.variants.0.prices.quarterly|currency}/quarter)** is designed exactly for that — low-commitment, fully flexible, and a great way to get a feel for the community before stepping up."
         },
         {
             "id": "faq-114",
@@ -38,7 +48,7 @@
         {
             "id": "faq-117",
             "question": "What if I'm skeptical about knowledge management?",
-            "answer": "Start with the **Explorer tier (${product.variants.0.prices.monthly|currency}/month)**. It's an affordable way to see if the community and resources resonate with you before committing to higher tiers."
+            "answer": "Start with the **Explorer tier (${product.variants.0.prices.quarterly|currency}/quarter)**. It's an affordable way to see if the community and resources resonate with you before committing to higher tiers."
         },
         {
             "id": "faq-118",

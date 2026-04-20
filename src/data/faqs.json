@@ -444,7 +444,7 @@
         "id": "faq-64",
         "productId": "journaling-deep-dive",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
         "order": 7
     },
     {
@@ -507,7 +507,7 @@
         "id": "faq-73",
         "productId": "personal-organization-101",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
         "order": 7
     },
     {
@@ -549,7 +549,7 @@
         "id": "faq-79",
         "productId": "clarity-101",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
         "order": 6
     },
     {
@@ -605,7 +605,7 @@
         "id": "faq-87",
         "productId": "ai-master-prompt",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
         "order": 8
     },
     {
@@ -689,7 +689,7 @@
         "id": "faq-99",
         "productId": "model-context-protocol",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€19.99/month), Knowii Community \"Knowledge Master\" tier (€39.99/month), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
         "order": 11
     },
     {
@@ -752,7 +752,7 @@
         "id": "faq-108",
         "productId": "obsidian-starter-course",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Master\" tier (starting at €39.99/month)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Master\" tier (starting at €119.99/quarter)",
         "order": 8
     },
     {
@@ -773,7 +773,7 @@
         "id": "faq-111",
         "productId": "knowii-community",
         "question": "I'm already overwhelmed. Will joining another platform help or just add more noise?",
-        "answer": "Unlike most platforms that add to your digital noise, Knowii is specifically designed to REDUCE overwhelm by giving you systems to organize all your existing information sources. Start with the Explorer tier (€4.99/month) to see.",
+        "answer": "Unlike most platforms that add to your digital noise, Knowii is specifically designed to REDUCE overwhelm by giving you systems to organize all your existing information sources. Start with the Explorer tier (€14.99/quarter) to see.",
         "order": 2
     },
     {
@@ -787,7 +787,7 @@
         "id": "faq-113",
         "productId": "knowii-community",
         "question": "What if I'm not sure which tier is right for me?",
-        "answer": "Start with the Explorer tier (€4.99/month) or Knowledge Builder (€19.99/month). You can always upgrade if you find value.",
+        "answer": "Start with the Explorer tier (€14.99/quarter) — it's the low-commitment way to experience Knowii. You can upgrade to Knowledge Builder (€59.99/quarter) or Knowledge Master (€119.99/quarter) once you're ready.",
         "order": 4
     },
     {
@@ -815,7 +815,7 @@
         "id": "faq-117",
         "productId": "knowii-community",
         "question": "What if I'm skeptical about knowledge management?",
-        "answer": "Start with the Explorer tier (€4.99/month). It's an affordable way to see if the community and resources resonate with you before committing to higher tiers.",
+        "answer": "Start with the Explorer tier (€14.99/quarter). It's an affordable way to see if the community and resources resonate with you before committing to higher tiers.",
         "order": 8
     },
     {

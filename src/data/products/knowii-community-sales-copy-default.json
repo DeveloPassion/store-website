@@ -75,7 +75,7 @@
             "You've tried AI tools but aren't getting results that match the hype",
             "You're tired of scattered notes, forgotten ideas, and wasted time searching",
             "You want community support, not just another course to watch alone",
-            "You're ready to invest in skills that grow: monthly membership, practical outcomes"
+            "You're ready to invest in skills that grow: flexible membership (quarterly, yearly, or 2-year on all tiers), practical outcomes"
         ],
         "notForYou": [
             "You prefer working alone and don't value community learning or support",
@@ -94,9 +94,9 @@
             "Flexible membership; upgrade, downgrade, or cancel at any time",
             "Immediate access; all courses and tools available as soon as you join",
             "Continuous value; new content, events, and resources added regularly",
-            "Annual plan protection; maintain access through end of billing period if you cancel"
+            "Billing period protection; maintain access through end of your quarterly, yearly, or 2-year plan if you cancel"
         ],
-        "metaTitle": "Knowii Community - Master Knowledge Management + AI | From €4.99/month",
+        "metaTitle": "Knowii Community - Master Knowledge Management + AI | From €14.99/quarter",
         "metaDescription": "Join ${stats.userCount} members mastering Knowledge Management AND AI. Community + Courses + Tools integrated. €500+ value in Knowledge Master tier.",
         "keywords": [
             "knowledge management community",

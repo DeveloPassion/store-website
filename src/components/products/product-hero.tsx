@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useCallback } from 'react'
 import { Link } from 'react-router'
 import { FaStar, FaCheckCircle, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -6,6 +6,11 @@ import { formatDistanceToNow } from 'date-fns'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
 import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import {
+    formatFrequencyPrice,
+    getVariantFrequencies,
+    getVariantPriceForFrequency
+} from '@/lib/variant-pricing'
 import { isInWishlist, toggleWishlist, getWishlist } from '@/lib/wishlist'
 import { resolveStatItem } from '@/lib/stats-helpers'
 import { useMediaLightbox } from '@/hooks/use-media-lightbox'
@@ -57,35 +62,47 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     }
 
     const selectedVariant = controlledVariant || defaultVariant
-    const setSelectedVariant = setControlledVariant || (() => {})
+    const noopVariant = useCallback(() => {}, [])
+    const noopFrequency = useCallback(() => {}, [])
+    const setSelectedVariant = setControlledVariant ?? noopVariant
 
-    const defaultFrequency = product.defaultPaymentFrequency || 'monthly'
+    const defaultFrequency =
+        selectedVariant.paymentFrequency || product.defaultPaymentFrequency || 'monthly'
     const selectedFrequency = controlledFrequency || defaultFrequency
-    const setSelectedFrequency = setControlledFrequency || (() => {})
+    const setSelectedFrequency = setControlledFrequency ?? noopFrequency
+
+    // Per-variant available frequencies (only show options this variant actually has)
+    const variantFrequencies = useMemo(
+        () => getVariantFrequencies(selectedVariant, product.paymentFrequencies),
+        [selectedVariant, product.paymentFrequencies]
+    )
+
+    // If selected frequency isn't supported by the current variant, switch to a sensible default.
+    useEffect(() => {
+        if (!product.isSubscription) return
+        if (variantFrequencies.length === 0) return
+        if (!variantFrequencies.includes(selectedFrequency)) {
+            const next =
+                selectedVariant.paymentFrequency &&
+                variantFrequencies.includes(selectedVariant.paymentFrequency)
+                    ? selectedVariant.paymentFrequency
+                    : variantFrequencies[0]
+            if (next) setSelectedFrequency(next)
+        }
+    }, [
+        product.isSubscription,
+        selectedVariant,
+        selectedFrequency,
+        variantFrequencies,
+        setSelectedFrequency
+    ])
 
     // Calculate display price based on selected frequency for subscription products
     const getDisplayPrice = (): string => {
         if (!product.isSubscription || !selectedVariant.prices) {
             return selectedVariant.priceDisplay
         }
-
-        const price =
-            selectedFrequency === 'yearly'
-                ? selectedVariant.prices.yearly
-                : selectedFrequency === 'biennial'
-                  ? selectedVariant.prices.biennial
-                  : selectedVariant.prices.monthly
-
-        if (!price) return selectedVariant.priceDisplay
-
-        const frequencyLabel =
-            selectedFrequency === 'yearly'
-                ? '/year'
-                : selectedFrequency === 'biennial'
-                  ? '/2 years'
-                  : '/month'
-
-        return `€${price.toFixed(2)}${frequencyLabel}`
+        return formatFrequencyPrice(selectedVariant, selectedFrequency)
     }
 
     const displayPrice = getDisplayPrice()
@@ -113,11 +130,9 @@ const ProductHero: React.FC<ProductHeroProps> = ({
         if (!product.isSubscription || !selectedVariant.prices) {
             return selectedVariant.price
         }
-        if (selectedFrequency === 'yearly')
-            return selectedVariant.prices.yearly || selectedVariant.price
-        if (selectedFrequency === 'biennial')
-            return selectedVariant.prices.biennial || selectedVariant.price
-        return selectedVariant.prices.monthly || selectedVariant.price
+        return (
+            getVariantPriceForFrequency(selectedVariant, selectedFrequency) ?? selectedVariant.price
+        )
     }
 
     const handleVariantChange = (variant: ProductVariant) => {
@@ -132,18 +147,12 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 
     const handleFrequencyChange = (frequency: PaymentFrequency) => {
         setSelectedFrequency(frequency)
-        // Defer tracking to ensure state is updated
-        const price =
-            frequency === 'yearly'
-                ? selectedVariant.prices?.yearly
-                : frequency === 'biennial'
-                  ? selectedVariant.prices?.biennial
-                  : selectedVariant.prices?.monthly
+        const price = getVariantPriceForFrequency(selectedVariant, frequency)
         trackFrequencySelected({
             productId: product.id,
             variantId: selectedVariant.gumroadVariantId || null,
             frequency,
-            price: price || selectedVariant.price
+            price: price ?? selectedVariant.price
         })
     }
 
@@ -399,14 +408,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                         )}
 
                         {/* Payment Frequency Selector (for subscriptions) */}
-                        {product.isSubscription && product.paymentFrequencies && (
+                        {product.isSubscription && variantFrequencies.length > 1 && (
                             <PaymentFrequencySelector
-                                frequencies={product.paymentFrequencies}
+                                frequencies={variantFrequencies}
                                 selected={selectedFrequency}
                                 onChange={handleFrequencyChange}
-                                monthlyPrice={
-                                    selectedVariant.prices?.monthly || selectedVariant.price
-                                }
+                                monthlyPrice={selectedVariant.prices?.monthly ?? undefined}
+                                quarterlyPrice={selectedVariant.prices?.quarterly ?? undefined}
                                 yearlyPrice={selectedVariant.prices?.yearly ?? undefined}
                                 biennialPrice={selectedVariant.prices?.biennial ?? undefined}
                             />

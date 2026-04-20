@@ -4,13 +4,13 @@
     "gumroadId": "zqViN83f6Nig49iQtiJmNw==",
     "isGumroadProduct": true,
     "gumroadProductSlugs": ["knowii", "xjpgo"],
-    "price": 4.99,
-    "priceDisplay": "From €4.99/month",
+    "price": 14.99,
+    "priceDisplay": "From €14.99/quarter",
     "priceTier": "subscription",
     "gumroadUrl": "https://developassion.gumroad.com/l/knowii",
     "isSubscription": true,
-    "paymentFrequencies": ["monthly", "yearly", "biennial"],
-    "defaultPaymentFrequency": "monthly",
+    "paymentFrequencies": ["quarterly", "yearly", "biennial"],
+    "defaultPaymentFrequency": "quarterly",
     "tags": [
         "pkm",
         "personal-knowledge-management",
@@ -23,7 +23,7 @@
     ],
     "contents": [
         "**Flagship Offer**: Everything keeps growing; join now, get everything added later",
-        "**All Tiers**: Private community, live events, expert access, monthly challenges, 2K+ concept knowledge base, [~10K published notes](https://notes.dsebastien.net/)",
+        "**All Tiers**: Private community, live events, expert access, monthly challenges, 3.8K+ concept knowledge base, [~10K published notes](https://notes.dsebastien.net/)",
         "**Knowledge Builder**: Access to premium spaces + Regular Workshops & Deep Dives",
         "**Knowledge Master**: Access to ALL past & future courses, products and tools, exclusive events (e.g., AMAs, group coaching, masterminds, etc) . Best value for serious knowledge workers"
     ],
@@ -38,14 +38,15 @@
     "variants": [
         {
             "name": "Explorer",
-            "price": 4.99,
-            "priceDisplay": "€4.99/month",
-            "description": "Community discussions, PKM guidance & tutorials, curated content, resource library, templates, community support. **Free bonuses:** 2K+ concepts Knowledge Base, [Knowledge System Checklist](/product/knowledge-system-checklist), PKM Tools Database.",
+            "price": 14.99,
+            "priceDisplay": "€14.99/quarter",
+            "description": "Community discussions, PKM guidance & tutorials, curated content, resource library, templates, community support. **Free bonuses:** 3.8K+ concepts Knowledge Base, [Knowledge System Checklist](/product/knowledge-system-checklist), PKM Tools Database.",
             "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=B-5SxWm3R40OYK4Hyu4yGg%3D%3D",
             "gumroadVariantId": "explorer",
-            "paymentFrequency": "monthly",
+            "paymentFrequency": "quarterly",
             "prices": {
-                "monthly": 4.99,
+                "monthly": null,
+                "quarterly": 14.99,
                 "yearly": 49.99,
                 "biennial": 89.99,
                 "oneTime": null
@@ -54,14 +55,15 @@
         },
         {
             "name": "Knowledge Builder",
-            "price": 19.99,
-            "priceDisplay": "€19.99/month",
+            "price": 59.99,
+            "priceDisplay": "€59.99/quarter",
             "description": "Everything from Explorer, plus: [Premium Workshops](/categories/workshops), [Obsidian Starter Kit](/product/obsidian-starter-kit) & [Course](/product/obsidian-starter-course), Expert Access, Monthly Challenges, Newsletter Archives, Early Access. **$150+ value included!**",
             "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=2cpXpMzvZlAoz_gYEiHCDg%3D%3D",
             "gumroadVariantId": "knowledge-builder",
-            "paymentFrequency": "monthly",
+            "paymentFrequency": "quarterly",
             "prices": {
-                "monthly": 19.99,
+                "monthly": null,
+                "quarterly": 59.99,
                 "yearly": 199.99,
                 "biennial": 379.99,
                 "oneTime": null
@@ -78,14 +80,15 @@
         },
         {
             "name": "Knowledge Master",
-            "price": 39.99,
-            "priceDisplay": "€39.99/month",
+            "price": 119.99,
+            "priceDisplay": "€119.99/quarter",
             "description": "Everything in Knowledge Builder, PLUS: Exclusive events (AMAs, group coaching, masterminds), **All Courses** ([KM for Beginners](/product/knowledge-management-for-beginners), [Obsidian Course](/product/obsidian-starter-course) + future), **All Tools** ([Knowledge Worker Kit](/product/knowledge-worker-kit), [Obsidian Starter Kit](/product/obsidian-starter-kit), [PKM Library](/product/pkm-library), [AI Ghostwriter Guide](/product/ai-ghostwriter-guide) + future), Implementation Support, Experimental Content. **~$500 value included!**",
             "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=NQw4Qu4xyj-5TPRpbbkOAQ%3D%3D",
             "gumroadVariantId": "knowledge-master",
-            "paymentFrequency": "monthly",
+            "paymentFrequency": "quarterly",
             "prices": {
-                "monthly": 39.99,
+                "monthly": null,
+                "quarterly": 119.99,
                 "yearly": 399.99,
                 "biennial": 699.99,
                 "oneTime": null
