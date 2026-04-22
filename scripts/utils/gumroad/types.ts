@@ -102,6 +102,8 @@ export interface CustomerWithoutReview {
 export interface GumroadProductsResponse {
     success: boolean
     products: GumroadProduct[]
+    next_page_url?: string | null
+    next_page_key?: string | null
 }
 
 /**

@@ -109,16 +109,40 @@ export class GumroadApiClient {
     }
 
     /**
-     * Get all products for the authenticated user
+     * Get all products for the authenticated user (handles pagination)
+     *
+     * Gumroad's /products endpoint paginates with a `page_key` cursor returned
+     * inside `next_page_url`. The `?page=N` parameter is silently ignored, so we
+     * must thread the cursor through until `next_page_url` is absent.
      */
     async getProducts(): Promise<GumroadProduct[]> {
-        const response = await this.request<GumroadProductsResponse>('/products')
+        const allProducts: GumroadProduct[] = []
+        const seenKeys = new Set<string>()
+        let pageKey: string | undefined
 
-        if (!response.success) {
-            throw new GumroadApiError('Failed to fetch products', 0)
+        while (true) {
+            const query = pageKey ? `?page_key=${encodeURIComponent(pageKey)}` : ''
+            const response = await this.request<GumroadProductsResponse>(`/products${query}`)
+
+            if (!response.success) {
+                throw new GumroadApiError('Failed to fetch products', 0)
+            }
+
+            allProducts.push(...response.products)
+
+            if (!response.next_page_url) {
+                break
+            }
+
+            const nextKey = extractPageKey(response.next_page_url)
+            if (!nextKey || seenKeys.has(nextKey)) {
+                break
+            }
+            seenKeys.add(nextKey)
+            pageKey = nextKey
         }
 
-        return response.products
+        return allProducts
     }
 
     /**
@@ -181,6 +205,20 @@ export class GumroadApiClient {
         }
 
         return allSales
+    }
+}
+
+/**
+ * Extract the `page_key` query parameter from a Gumroad next-page URL.
+ * Accepts both absolute and relative URLs.
+ */
+function extractPageKey(url: string): string | null {
+    const match = url.match(/[?&]page_key=([^&]+)/)
+    if (!match) return null
+    try {
+        return decodeURIComponent(match[1])
+    } catch {
+        return match[1]
     }
 }
 

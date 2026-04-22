@@ -117,6 +117,126 @@ describe('GumroadApiClient', () => {
 
             await expect(client.getProducts()).rejects.toThrow(GumroadApiError)
         })
+
+        it('should follow page_key pagination across multiple pages', async () => {
+            const baseProduct = {
+                preview_url: null,
+                description: '',
+                custom_permalink: null,
+                custom_receipt: null,
+                custom_summary: null,
+                price: 0,
+                currency: 'usd',
+                short_url: '',
+                formatted_price: 'Free',
+                published: true,
+                shown_on_profile: true,
+                sales_count: 0,
+                sales_usd_cents: 0,
+                variants: null,
+                tags: []
+            }
+
+            mockFetch.mockImplementation((url: string) => {
+                let response: GumroadProductsResponse
+                if (!url.includes('page_key=')) {
+                    response = {
+                        success: true,
+                        products: [
+                            { ...baseProduct, id: 'p1', name: 'Page 1 Product', permalink: 'p1' }
+                        ],
+                        next_page_url: '/v2/products?page_key=KEY-2'
+                    }
+                } else if (url.includes('page_key=KEY-2')) {
+                    response = {
+                        success: true,
+                        products: [
+                            { ...baseProduct, id: 'p2', name: 'Page 2 Product', permalink: 'p2' }
+                        ],
+                        next_page_url: '/v2/products?page_key=KEY-3'
+                    }
+                } else {
+                    response = {
+                        success: true,
+                        products: [
+                            { ...baseProduct, id: 'p3', name: 'Page 3 Product', permalink: 'p3' }
+                        ],
+                        next_page_url: null
+                    }
+                }
+
+                return Promise.resolve(
+                    new Response(JSON.stringify(response), {
+                        status: 200,
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                )
+            })
+
+            const client = new GumroadApiClient({ accessToken: 'test-token' })
+            const products = await client.getProducts()
+
+            expect(products).toHaveLength(3)
+            expect(products.map((p) => p.id)).toEqual(['p1', 'p2', 'p3'])
+            expect(mockFetch).toHaveBeenCalledTimes(3)
+
+            const firstUrl = mockFetch.mock.calls[0][0] as string
+            const secondUrl = mockFetch.mock.calls[1][0] as string
+            const thirdUrl = mockFetch.mock.calls[2][0] as string
+            expect(firstUrl).not.toContain('page_key')
+            expect(secondUrl).toContain('page_key=KEY-2')
+            expect(thirdUrl).toContain('page_key=KEY-3')
+        })
+
+        it('should stop paginating if the API repeats the same page_key', async () => {
+            const baseProduct = {
+                preview_url: null,
+                description: '',
+                custom_permalink: null,
+                custom_receipt: null,
+                custom_summary: null,
+                price: 0,
+                currency: 'usd',
+                short_url: '',
+                formatted_price: 'Free',
+                published: true,
+                shown_on_profile: true,
+                sales_count: 0,
+                sales_usd_cents: 0,
+                variants: null,
+                tags: []
+            }
+
+            mockFetch.mockImplementation(() =>
+                Promise.resolve(
+                    new Response(
+                        JSON.stringify({
+                            success: true,
+                            products: [
+                                {
+                                    ...baseProduct,
+                                    id: 'loop',
+                                    name: 'Looping Product',
+                                    permalink: 'loop'
+                                }
+                            ],
+                            next_page_url: '/v2/products?page_key=SAME'
+                        } satisfies GumroadProductsResponse),
+                        {
+                            status: 200,
+                            headers: { 'Content-Type': 'application/json' }
+                        }
+                    )
+                )
+            )
+
+            const client = new GumroadApiClient({ accessToken: 'test-token' })
+            const products = await client.getProducts()
+
+            // Two requests: initial (no key) + one with SAME key, then stop
+            expect(mockFetch).toHaveBeenCalledTimes(2)
+            expect(products).toHaveLength(2)
+        })
     })
 
     describe('getProductSales', () => {
