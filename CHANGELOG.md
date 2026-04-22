@@ -1,3 +1,9 @@
+## [1.31.0](https://github.com/DeveloPassion/store-website/compare/1.30.0...1.31.0) (2026-04-22)
+
+### Features
+
+* **all:** fixed pagination bug and updated stats ([ff0c1d3](https://github.com/DeveloPassion/store-website/commit/ff0c1d308026cd7708f8407f239753b49074e116))
+* **all:** updated stats ([668b818](https://github.com/DeveloPassion/store-website/commit/668b81856ac80b83fa8bd2d93323384cc8e8904f))
 ## [1.30.0](https://github.com/DeveloPassion/store-website/compare/1.29.0...1.30.0) (2026-04-20)
 
 ### Features
