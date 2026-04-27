@@ -43,6 +43,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-16",
+            "author": "Arlanna Pugh",
+            "quote": "I've barely scratched the surface of everything you've offered in the Knowledge Worker Kit and I've already received so much value!",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
