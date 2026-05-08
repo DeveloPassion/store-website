@@ -54,6 +54,17 @@
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null
+        },
+        {
+            "id": "testimonial-17",
+            "author": "Filip Colée",
+            "quote": "I've been reading and re-reading a lot of the content here… Clarity 101, the PKM library, the Knowledge Worker Kit and honestly it's a goldmine, thank you so much Sebastien 👏",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
         }
     ]
 }
