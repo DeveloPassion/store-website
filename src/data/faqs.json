@@ -206,7 +206,7 @@
         "id": "faq-30",
         "productId": "knowledge-management-for-beginners",
         "question": "Is this included in any bundles?",
-        "answer": "Yes. This course is included in: Knowledge Worker Kit (€149.99), Knowii Community \"Knowledge Master\" tier, Everything Knowledge Bundle (€299.99)",
+        "answer": "Yes. This course is included in: Knowledge Worker Kit (€249.99), Knowii Community \"Knowledge Master\" tier, Everything Knowledge Bundle (€399.99)",
         "order": 8
     },
     {
@@ -227,7 +227,7 @@
         "id": "faq-33",
         "productId": "knowledge-worker-kit",
         "question": "Is this a one-time payment?",
-        "answer": "Yes. Pay €149.99 once, get lifetime access. No subscriptions, no recurring fees. All future updates included.",
+        "answer": "Yes. Pay €249.99 once, get lifetime access. No subscriptions, no recurring fees. All future updates included.",
         "order": 2
     },
     {
@@ -381,7 +381,7 @@
         "id": "faq-55",
         "productId": "pkm-library",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included in: Knowii Community paid subscriptions, Knowledge Worker Kit (€149.99), Everything Knowledge Bundle (€299.99)",
+        "answer": "Yes - included in: Knowii Community paid subscriptions, Knowledge Worker Kit (€249.99), Everything Knowledge Bundle (€399.99)",
         "order": 6
     },
     {
@@ -444,7 +444,7 @@
         "id": "faq-64",
         "productId": "journaling-deep-dive",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€249.99 one-time)",
         "order": 7
     },
     {
@@ -507,7 +507,7 @@
         "id": "faq-73",
         "productId": "personal-organization-101",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€249.99 one-time)",
         "order": 7
     },
     {
@@ -549,7 +549,7 @@
         "id": "faq-79",
         "productId": "clarity-101",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€249.99 one-time)",
         "order": 6
     },
     {
@@ -605,7 +605,7 @@
         "id": "faq-87",
         "productId": "ai-master-prompt",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€249.99 one-time)",
         "order": 8
     },
     {
@@ -689,7 +689,7 @@
         "id": "faq-99",
         "productId": "model-context-protocol",
         "question": "Is this included in any bundles?",
-        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€149.99 one-time)",
+        "answer": "Yes - included free with: Knowii Community \"Knowledge Builder\" tier (€59.99/quarter), Knowii Community \"Knowledge Master\" tier (€119.99/quarter), Knowledge Worker Kit (€249.99 one-time)",
         "order": 11
     },
     {
