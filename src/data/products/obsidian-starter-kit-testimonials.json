@@ -421,7 +421,7 @@
         {
             "id": "testimonial-39",
             "author": "Nicolas",
-            "quote": "Started to analyze Obsidian Starter Kit this day. Reverse engineering such a product is a fantastic learning tool, I would recommend it to anyone. I thought initially that I had a good level with Obsidian, ah ah! \ud83d\ude43 Congrats S\u00e9bastien, it's an eye opener",
+            "quote": "Started to analyze Obsidian Starter Kit this day. Reverse engineering such a product is a fantastic learning tool, I would recommend it to anyone. I thought initially that I had a good level with Obsidian, ah ah! 🙃 Congrats Sébastien, it's an eye opener",
             "featured": false,
             "role": null,
             "company": null,
@@ -455,6 +455,17 @@
             "id": "testimonial-42",
             "author": "Thomas Moreau",
             "quote": "Day 2 after the purchase of the Starter Kit. I already know that the 129.99+ € was really good invested. @Sebastien you made my day... no my month and probably my year!",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null
+        },
+        {
+            "id": "testimonial-43",
+            "author": "Chris Flanagan",
+            "quote": "Your migration guide is phenomenal. Although I was tempted to feed it to Claude and have it do the file copying (flagging any data-loss risk), going through it manually gave me a much better feel for what is new.",
             "featured": true,
             "role": null,
             "company": null,
