@@ -16,6 +16,7 @@ const createMockTestimonial = (overrides: Partial<Testimonial> = {}): Testimonia
     avatarUrl: null,
     twitterHandle: null,
     twitterUrl: null,
+    sourceUrl: null,
     quote: 'This is an amazing product! It changed my life.',
     featured: true,
     ...overrides

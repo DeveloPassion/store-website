@@ -85,6 +85,7 @@
  *     --testimonial-featured <true|false> Featured status
  *     --testimonial-role <string>         Author role
  *     --testimonial-company <string>      Author company
+ *     --testimonial-sourceUrl <string>    Source URL (e.g. Medium, blog post)
  *
  *   Sales Copy:
  *     --sales-copy-id <string>                  Sales copy variant ID
@@ -220,6 +221,7 @@ interface CliArgs {
     'testimonial-twitterHandle'?: string
     'testimonial-twitterUrl'?: string
     'testimonial-avatarUrl'?: string
+    'testimonial-sourceUrl'?: string
 
     // Sales Copy arguments
     'sales-copy-id'?: string
@@ -826,7 +828,8 @@ function addTestimonialToProduct(
         company: testimonialData.company,
         avatarUrl: testimonialData.avatarUrl,
         twitterHandle: testimonialData.twitterHandle,
-        twitterUrl: testimonialData.twitterUrl
+        twitterUrl: testimonialData.twitterUrl,
+        sourceUrl: testimonialData.sourceUrl ?? null
     }
 
     testimonials.push(newTestimonial)
@@ -2951,6 +2954,11 @@ async function manageTestimonials(product: Product): Promise<void> {
                         },
                         {
                             type: 'input',
+                            name: 'sourceUrl',
+                            message: 'Source URL (optional, e.g. Medium post):'
+                        },
+                        {
+                            type: 'input',
                             name: 'quote',
                             message: 'Quote:',
                             validate: (input) => (input ? true : 'Quote is required')
@@ -2971,7 +2979,8 @@ async function manageTestimonials(product: Product): Promise<void> {
                         role: answers.role || undefined,
                         company: answers.company || undefined,
                         twitterHandle: answers.twitterHandle || undefined,
-                        twitterUrl: answers.twitterUrl || undefined
+                        twitterUrl: answers.twitterUrl || undefined,
+                        sourceUrl: answers.sourceUrl || null
                     })
 
                     showSuccess(`Testimonial added: ${newTestimonial.id}`)
@@ -3028,6 +3037,12 @@ async function manageTestimonials(product: Product): Promise<void> {
                         },
                         {
                             type: 'input',
+                            name: 'sourceUrl',
+                            message: 'Source URL (optional, e.g. Medium post):',
+                            default: currentTestimonial.sourceUrl || ''
+                        },
+                        {
+                            type: 'input',
                             name: 'quote',
                             message: 'Quote:',
                             default: currentTestimonial.quote
@@ -3047,7 +3062,8 @@ async function manageTestimonials(product: Product): Promise<void> {
                         role: answers.role || undefined,
                         company: answers.company || undefined,
                         twitterHandle: answers.twitterHandle || undefined,
-                        twitterUrl: answers.twitterUrl || undefined
+                        twitterUrl: answers.twitterUrl || undefined,
+                        sourceUrl: answers.sourceUrl || null
                     })
                     showSuccess(`Testimonial updated: ${testimonialId}`)
                     await prompt(`\n${colors.dim}Press Enter to continue...${colors.reset}`)

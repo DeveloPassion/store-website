@@ -150,6 +150,7 @@ export const createMockTestimonial = (overrides: Partial<Testimonial> = {}): Tes
     avatarUrl: null,
     twitterHandle: null,
     twitterUrl: null,
+    sourceUrl: null,
     quote: 'This is a great product!',
     featured: false,
     ...overrides

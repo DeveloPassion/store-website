@@ -24,6 +24,7 @@ export const TestimonialSchema = z.object({
     avatarUrl: z.string().min(1).nullable(),
     twitterHandle: z.string().nullable(),
     twitterUrl: z.string().min(1).nullable(),
+    sourceUrl: z.string().min(1).nullable(),
     quote: z
         .string()
         .min(1, 'Quote is required')

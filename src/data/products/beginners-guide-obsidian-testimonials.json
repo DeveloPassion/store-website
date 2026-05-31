@@ -9,7 +9,8 @@
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
-            "twitterUrl": null
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }

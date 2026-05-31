@@ -15,6 +15,7 @@ describe('Testimonial Schema Validation', () => {
         avatarUrl: 'https://example.com/avatar.jpg',
         twitterHandle: '@johndoe',
         twitterUrl: 'https://twitter.com/johndoe',
+        sourceUrl: 'https://medium.com/@johndoe/review-of-this-product',
         quote: 'This product changed my workflow completely!',
         featured: true
     }
@@ -169,9 +170,39 @@ describe('Testimonial Schema Validation', () => {
                 company: null,
                 avatarUrl: null,
                 twitterHandle: null,
-                twitterUrl: null
+                twitterUrl: null,
+                sourceUrl: null
             }
             const result = TestimonialSchema.safeParse(allNullable)
+            expect(result.success).toBe(true)
+        })
+
+        it('should accept testimonial with null sourceUrl', () => {
+            const valid = { ...validTestimonial, sourceUrl: null }
+            const result = TestimonialSchema.safeParse(valid)
+            expect(result.success).toBe(true)
+        })
+
+        it('should reject testimonial without sourceUrl field', () => {
+            const withoutSourceUrl = Object.fromEntries(
+                Object.entries(validTestimonial).filter(([key]) => key !== 'sourceUrl')
+            )
+            const result = TestimonialSchema.safeParse(withoutSourceUrl)
+            expect(result.success).toBe(false)
+        })
+
+        it('should reject empty string for sourceUrl', () => {
+            const invalid = { ...validTestimonial, sourceUrl: '' }
+            const result = TestimonialSchema.safeParse(invalid)
+            expect(result.success).toBe(false)
+        })
+
+        it('should accept Medium URL for sourceUrl', () => {
+            const valid = {
+                ...validTestimonial,
+                sourceUrl: 'https://medium.com/@user/post-id'
+            }
+            const result = TestimonialSchema.safeParse(valid)
             expect(result.success).toBe(true)
         })
     })

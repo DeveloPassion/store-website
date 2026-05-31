@@ -56,6 +56,7 @@ const createValidTestimonial = (overrides: Partial<Testimonial> = {}): Testimoni
     avatarUrl: null,
     twitterHandle: null,
     twitterUrl: null,
+    sourceUrl: null,
     ...overrides
 })
 

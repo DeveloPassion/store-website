@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
-import { FaStar, FaQuoteLeft } from 'react-icons/fa'
+import { FaStar, FaQuoteLeft, FaExternalLinkAlt } from 'react-icons/fa'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { getSourceLabel } from '@/lib/source-url'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
 interface TestimonialCardLinkedProps {
@@ -101,6 +102,18 @@ const TestimonialCardLinked: React.FC<TestimonialCardLinkedProps> = ({
                         className='text-secondary hover:text-secondary/80 mt-1 inline-block text-xs transition-colors'
                     >
                         @{testimonial.twitterHandle}
+                    </a>
+                )}
+                {testimonial.sourceUrl && (
+                    <a
+                        href={testimonial.sourceUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        onClick={(e) => e.stopPropagation()}
+                        className='text-secondary hover:text-secondary/80 mt-1 inline-flex items-center gap-1 text-xs transition-colors'
+                    >
+                        <span>{getSourceLabel(testimonial.sourceUrl)}</span>
+                        <FaExternalLinkAlt className='h-2.5 w-2.5' aria-hidden='true' />
                     </a>
                 )}
             </div>

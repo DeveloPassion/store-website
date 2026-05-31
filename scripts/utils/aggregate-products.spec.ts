@@ -41,6 +41,7 @@ const createValidTestimonial = (id: string = 'test-1') => ({
     avatarUrl: '/avatar.png',
     twitterHandle: '@johndoe',
     twitterUrl: 'https://twitter.com/johndoe',
+    sourceUrl: null,
     quote: 'Great product!',
     featured: true
 })
@@ -358,6 +359,7 @@ describe('loadTestimonials', () => {
             avatarUrl: '/avatars/jane.png',
             twitterHandle: '@janesmith',
             twitterUrl: 'https://twitter.com/janesmith',
+            sourceUrl: null,
             rating: 4,
             quote: 'Excellent product, highly recommended!',
             featured: false

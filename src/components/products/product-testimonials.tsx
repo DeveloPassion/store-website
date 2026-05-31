@@ -12,6 +12,7 @@ import {
 import Section from '@/components/ui/section'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
+import { getSourceLabel } from '@/lib/source-url'
 import type { Product } from '@/schemas/product.schema'
 import type { Testimonial } from '@/schemas/testimonial.schema'
 
@@ -75,6 +76,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
                     className='text-secondary hover:text-secondary/80 mt-1 inline-block text-xs transition-colors'
                 >
                     @{testimonial.twitterHandle}
+                </a>
+            )}
+            {testimonial.sourceUrl && (
+                <a
+                    href={testimonial.sourceUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-secondary hover:text-secondary/80 mt-1 inline-flex items-center gap-1 text-xs transition-colors'
+                >
+                    <span>{getSourceLabel(testimonial.sourceUrl)}</span>
+                    <FaExternalLinkAlt className='h-2.5 w-2.5' aria-hidden='true' />
                 </a>
             )}
         </div>

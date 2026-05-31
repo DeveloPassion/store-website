@@ -559,7 +559,8 @@ bun run update:products -- --operation testimonial:list --id product-id
 bun run update:products -- --operation testimonial:add --id product-id \
     --testimonial-author "John Doe" \
     --testimonial-quote "Amazing product!" \
-    --testimonial-featured true
+    --testimonial-featured true \
+    --testimonial-sourceUrl "https://medium.com/@johndoe/review-post"
 
 # Edit testimonial
 bun run update:products -- --operation testimonial:edit --id product-id \
