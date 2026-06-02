@@ -1,3 +1,9 @@
+## [1.39.0](https://github.com/DeveloPassion/store-website/compare/1.38.0...1.39.0) (2026-06-02)
+
+### Features
+
+* **all:** updated products-light.json ([fa22797](https://github.com/DeveloPassion/store-website/commit/fa227970812f2f068ee181f6857b71db1eca0a69))
+* **all:** updated status ([0a3e30e](https://github.com/DeveloPassion/store-website/commit/0a3e30e3d7830e0ab69f79ee7d95449d7bb2847f))
 ## [1.38.0](https://github.com/DeveloPassion/store-website/compare/1.37.0...1.38.0) (2026-06-02)
 
 ### Features
