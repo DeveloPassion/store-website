@@ -1,3 +1,8 @@
+## [1.38.0](https://github.com/DeveloPassion/store-website/compare/1.37.0...1.38.0) (2026-06-02)
+
+### Features
+
+* emit products-light.json for downstream wiki sites ([9c1e354](https://github.com/DeveloPassion/store-website/commit/9c1e354b24720774caff41219c7f240f07af8496))
 ## [1.37.0](https://github.com/DeveloPassion/store-website/compare/1.36.0...1.37.0) (2026-05-31)
 
 ### Features
