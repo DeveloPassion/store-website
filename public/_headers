@@ -40,3 +40,9 @@
 
 /
   Cache-Control: public, max-age=0, must-revalidate
+
+# Public products catalog — consumed by ai-wiki sites for CTA generation
+/products-light.json
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300, s-maxage=300, must-revalidate
+  Content-Type: application/json; charset=utf-8
