@@ -63,9 +63,16 @@ const hasRealPath = (u: string | null | undefined): u is string => {
 }
 
 const pickHref = (p: AggregatedProduct): string => {
-    const candidates = [p.dsebastienUrl, p.landingPageUrl, p.gumroadUrl].filter(hasRealPath)
-    if (candidates.length) return candidates[0] as string
-    return `${STORE_URL}/product/${p.id}`
+    // Priority: dedicated branded domain → store hub page → blog article → Gumroad.
+    // The store hub page exists for every product, so Gumroad is reached only
+    // when the store hub URL itself somehow fails validation (which it won't
+    // under normal conditions). Gumroad is intentionally last — it's a
+    // third-party checkout, not our branded surface.
+    const storeUrl = `${STORE_URL}/product/${p.id}`
+    const candidates = [p.landingPageUrl, storeUrl, p.dsebastienUrl, p.gumroadUrl].filter(
+        hasRealPath
+    )
+    return candidates[0] as string
 }
 
 const pickShortDescription = (p: AggregatedProduct): string | null => {
