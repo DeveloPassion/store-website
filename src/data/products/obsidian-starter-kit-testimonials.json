@@ -527,6 +527,18 @@
             "twitterHandle": null,
             "twitterUrl": null,
             "sourceUrl": "https://medium.com/@breanan650/this-is-incredible-0edb0fd6368d"
+        },
+        {
+            "id": "testimonial-45",
+            "author": "Joe Asante",
+            "quote": "I have been using the Obsidian Starter Kit v4 for the last couple of days, and I must admit I'm really enjoying it—especially the wiki feature. All the wiki skills are fantastic. I've started ingesting a lot of my copywriting and ghostwriting information into several wikis, and interacting with it via AI is working out extremely well. I am very impressed and look forward to your future updates.",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }
