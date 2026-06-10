@@ -1,3 +1,8 @@
+## [1.41.0](https://github.com/DeveloPassion/store-website/compare/1.40.0...1.41.0) (2026-06-10)
+
+### Features
+
+* **all:** updated osk landing page for v4 ([28052c5](https://github.com/DeveloPassion/store-website/commit/28052c50dd65cc932cc4c5b44ac8b0bd1f182d71))
 ## [1.40.0](https://github.com/DeveloPassion/store-website/compare/1.39.0...1.40.0) (2026-06-09)
 
 ### Features
