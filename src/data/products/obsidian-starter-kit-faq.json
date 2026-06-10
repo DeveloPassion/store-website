@@ -8,7 +8,7 @@
         {
             "id": "faq-2",
             "question": "I already have an Obsidian vault. Can I migrate?",
-            "answer": "Yes. I've included detailed migration guides for both v2 users and custom setups. The guide walks you through the process step-by-step, so you don't lose your existing work."
+            "answer": "Yes. I've included detailed migration guides for v2/v3 users and custom setups. The guide walks you through the process step-by-step, so you don't lose your existing work."
         },
         {
             "id": "faq-3",
@@ -39,6 +39,16 @@
             "id": "faq-8",
             "question": "What's the difference between Essentials and Premium?",
             "answer": "**Essentials** (**${product.variants.0.price|currency}**) includes the complete vault and the **100+ page** user guide. **Premium** (**${product.variants.1.price|currency}**) adds a **2h20m video course** covering `Obsidian` and PKM fundamentals. Both include **lifetime updates** and community access."
+        },
+        {
+            "id": "faq-9",
+            "question": "Do I need AI tools to use OSK?",
+            "answer": "No. OSK works great as a \"classic\" PKM system. But when you're ready for AI, **v4 gives you a massive head start**: dozens of AI agents, **~375 AI skills**, LLM Wikis, an identity layer, and the OSK plugin (CLI + `MCP` server) that lets tools like `Claude Code`, `Codex`, or `Gemini CLI` understand your whole vault. Everything is already wired."
+        },
+        {
+            "id": "faq-10",
+            "question": "What's new in v4?",
+            "answer": "v4 is the **AI-native release**: the new OSK plugin (strongly typed notes, CLI, `MCP` server), **~375 AI skills**, dozens of AI agents with persistent memory, LLM Wikis, a Personal Identity System, new plugins (`Journal Bases`, `Life Tracker`, `Time Machine`, `Graph Explorer`, `Expander`), a leaner plugin baseline, and **15+ new tutorials**. Existing customers get it free, like every update."
         }
     ]
 }

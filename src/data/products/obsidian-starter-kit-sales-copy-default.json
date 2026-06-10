@@ -2,7 +2,7 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Stop Configuring. Start Thinking.",
-        "secondaryTagline": "A Complete Obsidian System, Ready in 30 Minutes",
+        "secondaryTagline": "A Complete, AI-Native Obsidian System, Ready in 30 Minutes",
         "problem": "You've heard `Obsidian` is powerful. But every time you try to set it up, you hit the same wall: *where should notes go?* Which plugins matter? How do you structure this thing so it doesn't become another digital junk drawer? I've watched people spend **months** on this. Meanwhile, their ideas stay trapped in their heads or scattered across apps they'll never open again.",
         "problemPoints": [
             "**Weeks spent** on folder structure, only to scrap it when things don't fit",
@@ -29,12 +29,12 @@
             "**Pre-configured plugins** that actually work together",
             "*Zettelkasten*, *PARA*, *Johnny Decimal*, *GTD* built in and explained",
             "Scales from **10 notes to 10,000+** without breaking down",
-            "**AI-ready** with full compatibility with `ChatGPT`, `Codex`, `Claude`, `Claude Code`, `Gemini`, `MCP`, and more. Perfect for modern knowledge work",
+            "**AI-native since v4**: dozens of AI agents, **~375 AI skills**, LLM Wikis, and an identity layer—works with `Claude Code`, `Codex`, `Gemini`, and any `MCP`-capable tool",
             "**Deep user guide** covering foundations, integrated systems, theory, step-by-step tutorials, and reference materials. Never get stuck.",
             "**One system replaces many tools**: journaling, task management, contact management, meeting notes, and content creation—all connected",
             "**Visual thinking built in**: Canvas and Excalidraw integration for non-linear thinking and spatial reasoning"
         ],
-        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. **${stats.userCount} people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books. If you want to learn the foundations and build your own personalized system, I highly recommend my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
+        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. And since **v4**, it's **AI-native**: your vault becomes a full AI assistant with agents, skills, LLM Wikis, and an identity layer that teaches AI who you are. **${stats.userCount} people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books. If you want to learn the foundations and build your own personalized system, I highly recommend my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
         "highlights": [
             "**Battle-Tested System**: From a 10,000+ note personal vault",
             "**Productive Day One**: Skip months of setup and configuration",
@@ -43,7 +43,9 @@
             "**People System**: Track relationships, interactions, and knowledge connections with contacts, authors, and collaborators",
             "**Meeting Notes System**: Structured capture with agendas, decisions, action items, and participant linking",
             "**Scales Forever**: From 10 notes to 10,000+ without breaking down",
-            "**AI-Ready Architecture**: Full compatibility with `ChatGPT`, `Claude`, `MCP`, and more",
+            "**AI-Native (v4)**: AI agents with memory, **~375 AI skills**, and a receptionist that routes every request",
+            "**LLM Wikis & Identity Layer (v4)**: AI-maintained knowledge bases, plus notes about who you are so AI actually knows you",
+            "**The OSK Plugin (v4)**: strongly typed notes with a CLI and `MCP` server—`Claude Code`, `Codex`, `Gemini CLI`, and more understand your whole vault",
             "**Expert-Led**: 20+ years of Information and Knowledge Management expertise distilled into one system",
             "**${stats.userCount} Users**: Join a proven, active community",
             "**Lifetime Updates**: All future improvements included free",
@@ -63,7 +65,7 @@
                 "Scale from **10 notes to 10,000+** without your system breaking down",
                 "**Automated organization** that reduces decision fatigue to zero",
                 "**Clear workflows** for every type of information you capture",
-                "**AI-ready structure** so tools like `ChatGPT`, `Claude`, `Claude Code`, `Gemini` and many others can actually help you",
+                "**AI-native structure** with a built-in assistant: agents, skills, and LLM Wikis that `Claude Code`, `Codex`, `Gemini CLI`, and any `MCP`-capable tool can leverage",
                 "**Sustainable habits** with built-in journaling and review systems",
                 "**Progressive adoption roadmap** guiding you from beginner to power user at your own pace",
                 "**Visual thinking tools** with Canvas and Excalidraw for brainstorming, mapping, and spatial reasoning"
@@ -115,7 +117,7 @@
             "**Priority email support** with personal responses"
         ],
         "metaTitle": "Obsidian Starter Kit - Stop Configuring, Start Thinking | Knowledge Forge",
-        "metaDescription": "Complete Obsidian vault with 40+ auto-filing templates, pre-configured plugins, and PKM methodology. ${stats.userCount} users. 20+ years expertise. 30-day guarantee.",
+        "metaDescription": "AI-native Obsidian vault with AI agents, ~375 AI skills, LLM Wikis, 40+ auto-filing templates, and PKM methodology. ${stats.userCount} users. 30-day guarantee.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -129,7 +131,13 @@
             "obsidian plugins",
             "knowledge management system",
             "obsidian setup",
-            "osk"
+            "osk",
+            "obsidian ai",
+            "ai agents obsidian",
+            "llm wiki",
+            "obsidian mcp",
+            "ai-native pkm",
+            "claude code obsidian"
         ],
         "storytelling": {
             "originStory": {
@@ -190,7 +198,7 @@
                 },
                 "after": {
                     "title": "After OSK",
-                    "description": "Your knowledge compounds. Notes connect naturally across projects and years. You find anything in seconds. Writing and creating flows from your connected insights. AI tools like Claude work well with your organized knowledge. You've reclaimed hours every week and feel confident your system will grow with you.",
+                    "description": "Your knowledge compounds. Notes connect naturally across projects and years. You find anything in seconds. Writing and creating flows from your connected insights. Your built-in AI assistant knows your system and knows you—agents, skills, and wikis doing the plumbing while you do the thinking. You've reclaimed hours every week and feel confident your system will grow with you.",
                     "points": [
                         "10,000+ notes with zero chaos",
                         "10+ hours saved monthly on organization",
@@ -337,15 +345,15 @@
                         "icon": "⚡"
                     },
                     {
-                        "title": "Future-Ready",
-                        "description": "AI is changing knowledge work. OSK is built to use AI tools today and adapt to whatever comes tomorrow.",
+                        "title": "AI-Native",
+                        "description": "AI is changing knowledge work. Since v4, OSK ships a full AI assistant: agents, skills, LLM Wikis, and an identity layer. AI does the plumbing so you can do the thinking.",
                         "icon": "🤖"
                     }
                 ],
                 "futureGoals": [
                     "Help you reach 10,000+ notes with zero chaos",
                     "Let you write and create directly from your knowledge",
-                    "Make AI tools like ChatGPT and Claude genuinely useful for your workflow",
+                    "Give you a real AI assistant—agents, skills, and wikis that know your system and know you",
                     "Give you confidence that your system will serve you for life"
                 ],
                 "biggerPicture": "In a world of information overload, the people who thrive are those who can capture, connect, and use knowledge systematically. OSK is your foundation for becoming one of them.",
@@ -416,7 +424,7 @@
         "howItWorks": {
             "title": "See the Kit in Action",
             "description": "Watch how the Obsidian Starter Kit transforms your knowledge management",
-            "mediaIds": ["cover-video-001", "cover-video-002"]
+            "mediaIds": ["cover-video-011", "cover-video-001", "cover-video-002"]
         },
         "mediaSections": {
             "main": {
