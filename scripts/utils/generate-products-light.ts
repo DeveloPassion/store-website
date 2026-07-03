@@ -50,6 +50,8 @@ type LightProduct = {
     bestseller: boolean
     bestValue: boolean
     priority: number
+    image: string | null
+    imageAlt: string | null
 }
 
 const hasRealPath = (u: string | null | undefined): u is string => {
@@ -82,6 +84,18 @@ const pickShortDescription = (p: AggregatedProduct): string | null => {
     return sc?.tagline ?? sc?.secondaryTagline ?? null
 }
 
+const pickCover = (p: AggregatedProduct): { image: string | null; imageAlt: string | null } => {
+    const covers = (p.media ?? [])
+        .filter((m) => m.type === 'image' && m.group === 'cover' && m.url.trim().length > 0)
+        .sort((a, b) => a.order - b.order)
+    const cover = covers[0]
+    if (!cover) return { image: null, imageAlt: null }
+    const image = cover.url.startsWith('http')
+        ? cover.url
+        : `${STORE_URL}${cover.url.startsWith('/') ? '' : '/'}${cover.url}`
+    return { image, imageAlt: cover.altText ?? cover.title ?? null }
+}
+
 const pickBadge = (p: AggregatedProduct): LightProduct['badge'] => {
     if (p.bestValue) return 'flagship'
     if (p.bestseller) return 'bestseller'
@@ -104,7 +118,8 @@ const light: LightProduct[] = products
         featured: Boolean(p.featured),
         bestseller: Boolean(p.bestseller),
         bestValue: Boolean(p.bestValue),
-        priority: typeof p.priority === 'number' ? p.priority : 0
+        priority: typeof p.priority === 'number' ? p.priority : 0,
+        ...pickCover(p)
     }))
     .sort((a, b) => {
         const rank = (x: LightProduct) =>

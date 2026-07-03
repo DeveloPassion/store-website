@@ -41,8 +41,12 @@
 /
   Cache-Control: public, max-age=0, must-revalidate
 
-# Public products catalog — consumed by ai-wiki sites for CTA generation
+# Public products catalog — consumed by ai-wiki sites and notes.dsebastien.net for CTA generation.
+# The global /* rule already attaches a same-origin ACAO header; Cloudflare COMBINES headers from
+# all matching rules, which would produce the invalid "https://store.dsebastien.net, *" double
+# value that browsers reject. Detach the inherited header first, then set the single value.
 /products-light.json
+  ! Access-Control-Allow-Origin
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=300, s-maxage=300, must-revalidate
   Content-Type: application/json; charset=utf-8
