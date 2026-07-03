@@ -1,3 +1,8 @@
+## [1.42.0](https://github.com/DeveloPassion/store-website/compare/1.41.1...1.42.0) (2026-07-03)
+
+### Features
+
+* **all:** improved light products json ([8f09db8](https://github.com/DeveloPassion/store-website/commit/8f09db8c28c80410a205096c946b14a2e7425c81))
 ## [1.41.1](https://github.com/DeveloPassion/store-website/compare/1.41.0...1.41.1) (2026-07-02)
 ## [1.41.0](https://github.com/DeveloPassion/store-website/compare/1.40.0...1.41.0) (2026-06-10)
 
