@@ -901,6 +901,21 @@
             "height": null
         },
         {
+            "id": "main-019",
+            "type": "image",
+            "url": "/assets/images/products/osk/osk-ai-augmentation-philosophy.webp",
+            "title": "AI That Augments, Never Replaces",
+            "altText": "Illustration of the OSK AI Augmentation Philosophy: the thinking stays in the human head while a small AI assistant connects the notes around it",
+            "order": 0,
+            "group": "main",
+            "description": "The OSK philosophy: AI does the plumbing (filing, linking, research legwork); you do the thinking",
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null,
+            "width": 1600,
+            "height": 893
+        },
+        {
             "id": "main-011",
             "type": "image",
             "url": "/assets/images/products/osk/osk-ai-terminal.webp",
