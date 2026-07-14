@@ -62,6 +62,7 @@
         "**The OSK plugin** (v4): strongly typed notes with a CLI and `MCP` server so `Claude Code`, `Codex`, `Gemini CLI`, and more understand your whole vault",
         "**LLM Wikis** (v4): AI-maintained knowledge bases with source provenance and confidence tracking, plus the new `Graph Explorer` plugin",
         "**Personal Identity System** (v4): notes about who you are so AI actually knows you",
+        "**AI Augmentation Philosophy** (v4): a Foundation guide plus built-in guardrails (identity layer, source provenance, review panels) that keep AI output grounded in your notes and your voice",
         "**Clearly defined note types** with structured properties and automation",
         "**40+ specialized templates** for every content type that auto-file themselves",
         "**Powerful journaling system** with daily/weekly/monthly/quarterly/yearly reviews powered by the new `Journal Bases` plugin",

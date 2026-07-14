@@ -2,7 +2,7 @@
     "id": "default",
     "salesCopy": {
         "tagline": "Stop Configuring. Start Thinking.",
-        "secondaryTagline": "A Complete, AI-Native Obsidian System, Ready in 30 Minutes",
+        "secondaryTagline": "The AI-Native Obsidian System: A Complete Second Brain with a Built-In AI Assistant, Ready in 30 Minutes",
         "problem": "You've heard `Obsidian` is powerful. But every time you try to set it up, you hit the same wall: *where should notes go?* Which plugins matter? How do you structure this thing so it doesn't become another digital junk drawer? I've watched people spend **months** on this. Meanwhile, their ideas stay trapped in their heads or scattered across apps they'll never open again.",
         "problemPoints": [
             "**Weeks spent** on folder structure, only to scrap it when things don't fit",
@@ -11,7 +11,8 @@
             "Reading contradictory PKM advice that makes you *more confused*",
             "Watching your vault become **messier as it grows**",
             "Reading books about *Zettelkasten*, *PARA*, *GTD* but **struggling to implement** them in practice",
-            "**Juggling multiple apps**: task managers, journaling apps, contact tools, note apps—none of them talk to each other"
+            "**Juggling multiple apps**: task managers, journaling apps, contact tools, note apps—none of them talk to each other",
+            "**AI tools that don't know you**: generic chatbots producing generic output, disconnected from your notes, your projects, and your thinking"
         ],
         "agitate": "The real cost isn't the setup time. It's the **constant anxiety** that important ideas are slipping through the cracks. It's the **creative blocks** when you can't find your own notes. It's feeling less capable than you should because your *'second brain'* is a disorganized mess. I spent years organizing information at scale, and mastered the art. I applied it to my Obsidian vault as well.",
         "agitatePoints": [
@@ -20,22 +21,28 @@
             "**Analysis paralysis** from too many options and no clear path",
             "Starting from scratch feels like reinventing the wheel. *Because it is.*",
             "Your brain becomes the **only connection point** between scattered tools",
-            "**Lost connections**: You can't remember who introduced that idea, who you discussed it with, or what you learned from whom"
+            "**Lost connections**: You can't remember who introduced that idea, who you discussed it with, or what you learned from whom",
+            "**AI insights evaporating**: brilliant AI conversations lost the moment you close the tab, because they live outside your knowledge base"
         ],
-        "solution": "OSK is **20+ years** of Knowledge Management trial and error distilled into a system that works **from day one**. Not tips and tricks. A complete system with integrated workflows for journaling, task management, learning, and creation that all work together. Every decision has been made, but everything stays customizable as you grow.",
+        "solution": "OSK is **20+ years** of Knowledge Management trial and error distilled into a system that works **from day one**. Not tips and tricks. A complete system with integrated workflows for journaling, task management, learning, and creation that all work together. And since **v4**, your vault doubles as a **full AI assistant**, built on a clear philosophy: **AI augments your thinking; it never replaces it**. Every decision has been made, but everything stays customizable as you grow.",
         "solutionPoints": [
             "**Ready in 30 minutes**. Not weeks. Not months.",
+            "**A full AI assistant inside your vault (v4)**: dozens of AI agents with persistent memory, **~375 AI skills**, LLM Wikis, and a receptionist that routes every request; works with `Claude Code`, `Codex`, `Gemini`, and any `MCP`-capable tool",
+            "**AI with a philosophy, not AI slop**: an identity layer that teaches AI who you are, source provenance for every claim, and review panels that catch generic output. AI does the plumbing; you do the thinking",
             "**40+ templates** that auto-file notes so you stop thinking about organization",
             "**Pre-configured plugins** that actually work together",
             "*Zettelkasten*, *PARA*, *Johnny Decimal*, *GTD* built in and explained",
             "Scales from **10 notes to 10,000+** without breaking down",
-            "**AI-native since v4**: dozens of AI agents, **~375 AI skills**, LLM Wikis, and an identity layer—works with `Claude Code`, `Codex`, `Gemini`, and any `MCP`-capable tool",
             "**Deep user guide** covering foundations, integrated systems, theory, step-by-step tutorials, and reference materials. Never get stuck.",
             "**One system replaces many tools**: journaling, task management, contact management, meeting notes, and content creation—all connected",
             "**Visual thinking built in**: Canvas and Excalidraw integration for non-linear thinking and spatial reasoning"
         ],
-        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. And since **v4**, it's **AI-native**: your vault becomes a full AI assistant with agents, skills, LLM Wikis, and an identity layer that teaches AI who you are. **${stats.userCount} people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books. If you want to learn the foundations and build your own personalized system, I highly recommend my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
+        "description": "I've spent **20+ years** obsessing over how to capture, organize, and actually use knowledge without losing my mind. I've tried every tool, every methodology, every system. I've failed spectacularly and refined relentlessly. The Obsidian Starter Kit is what I actually use every day, packaged so you don't have to spend years figuring it out yourself. It combines proven methodologies (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*) with a structure that scales. And since **v4**, it's **AI-native**: your vault becomes a full AI assistant with agents, skills, LLM Wikis, and an identity layer that teaches AI who you are. All of it guided by a clear **AI Augmentation Philosophy**: AI augments your thinking; it never replaces it. You can outsource the busywork; you can't outsource your understanding. Your vault stays yours, your voice stays yours, and the system is designed to keep AI slop out. **${stats.userCount} people** use it. You can be **productive on day one**. Want proof? Check out my [free public notes](https://notes.dsebastien.net/). It's a **goldmine of knowledge management insights**, all built and shared using OSK, alongside hundreds of articles, newsletters, and multiple books. If you want to learn the foundations and build your own personalized system, I highly recommend my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
         "highlights": [
+            "**AI-Native (v4)**: AI agents with memory, **~375 AI skills**, and a receptionist that routes every request",
+            "**AI That Augments, Never Replaces**: a clear AI Augmentation Philosophy with real guardrails (identity layer, source provenance, review panels) that keep your thinking load-bearing and AI slop out",
+            "**LLM Wikis & Identity Layer (v4)**: AI-maintained knowledge bases, plus notes about who you are so AI actually knows you",
+            "**The OSK Plugin (v4)**: strongly typed notes with a CLI and `MCP` server—`Claude Code`, `Codex`, `Gemini CLI`, and more understand your whole vault",
             "**Battle-Tested System**: From a 10,000+ note personal vault",
             "**Productive Day One**: Skip months of setup and configuration",
             "**Methods That Work Together**: *Zettelkasten*, *PARA*, *GTD*, and journaling integrated",
@@ -43,9 +50,6 @@
             "**People System**: Track relationships, interactions, and knowledge connections with contacts, authors, and collaborators",
             "**Meeting Notes System**: Structured capture with agendas, decisions, action items, and participant linking",
             "**Scales Forever**: From 10 notes to 10,000+ without breaking down",
-            "**AI-Native (v4)**: AI agents with memory, **~375 AI skills**, and a receptionist that routes every request",
-            "**LLM Wikis & Identity Layer (v4)**: AI-maintained knowledge bases, plus notes about who you are so AI actually knows you",
-            "**The OSK Plugin (v4)**: strongly typed notes with a CLI and `MCP` server—`Claude Code`, `Codex`, `Gemini CLI`, and more understand your whole vault",
             "**Expert-Led**: 20+ years of Information and Knowledge Management expertise distilled into one system",
             "**${stats.userCount} Users**: Join a proven, active community",
             "**Lifetime Updates**: All future improvements included free",
@@ -58,7 +62,8 @@
                 "**Workflows that actually work** in the real world",
                 "**Instant clarity** on where everything goes and how to find it",
                 "**Confidence** that you're building on a solid foundation",
-                "**Replace multiple apps** with one integrated system that actually connects your information"
+                "**Replace multiple apps** with one integrated system that actually connects your information",
+                "**An AI assistant from day one**: agents, skills, and wikis pre-wired; no prompt engineering, no setup rabbit holes"
             ],
             "systematic": [
                 "**Find any note in 3 seconds** with hierarchical tags and multiple discovery methods",
@@ -76,7 +81,8 @@
                 "**Writing and creating** directly from your connected knowledge",
                 "**Hours reclaimed weekly** that were lost to searching and organizing",
                 "Confidence that your system will **grow with you**, not against you",
-                "**Future-proofed** for AI tools that will only get better"
+                "**Future-proofed** for AI tools that will only get better",
+                "**Your understanding compounds, not just your note count**: the AI Augmentation Philosophy keeps you the thinker while AI handles the busywork"
             ]
         },
         "targetAudience": [
@@ -117,7 +123,7 @@
             "**Priority email support** with personal responses"
         ],
         "metaTitle": "Obsidian Starter Kit - Stop Configuring, Start Thinking | Knowledge Forge",
-        "metaDescription": "AI-native Obsidian vault with AI agents, ~375 AI skills, LLM Wikis, 40+ auto-filing templates, and PKM methodology. ${stats.userCount} users. 30-day guarantee.",
+        "metaDescription": "AI-native Obsidian vault: AI agents, ~375 AI skills, LLM Wikis, and an identity layer. AI that augments your thinking, never replaces it. ${stats.userCount} users.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -137,7 +143,9 @@
             "llm wiki",
             "obsidian mcp",
             "ai-native pkm",
-            "claude code obsidian"
+            "claude code obsidian",
+            "ai augmentation",
+            "ai second brain"
         ],
         "storytelling": {
             "originStory": {
@@ -282,7 +290,7 @@
             },
             "methodology": {
                 "title": "The OSK Philosophy",
-                "subtitle": "Six Principles That Make Knowledge Work",
+                "subtitle": "Seven Principles That Make Knowledge Work",
                 "steps": [
                     {
                         "title": "Systems Over Willpower",
@@ -309,19 +317,25 @@
                         "order": 3
                     },
                     {
+                        "title": "AI Augments, Never Replaces",
+                        "description": "You stay the author, curator, and decision-maker. AI handles the busywork: filing, linking, research legwork, first drafts. The identity layer, source provenance, and review panels keep AI output grounded in your notes and your voice. You can outsource the labor; you can't outsource your understanding.",
+                        "icon": "🤖",
+                        "order": 4
+                    },
+                    {
                         "title": "Documentation-Driven",
                         "description": "A deep user guide covers foundations, integrated systems, theory, step-by-step tutorials, and reference materials. You're never stuck wondering how something works or what to do next.",
                         "icon": "📚",
-                        "order": 4
+                        "order": 5
                     },
                     {
                         "title": "One System, Many Tools",
                         "description": "OSK replaces fragmented apps with one integrated system. Your journaling connects to your tasks connects to your contacts connects to your knowledge. Information flows instead of getting stuck in silos.",
                         "icon": "🔄",
-                        "order": 5
+                        "order": 6
                     }
                 ],
-                "philosophy": "Most PKM systems fail because they require constant effort to maintain. OSK works because the system works for you, freeing your energy for what actually matters: thinking, creating, growing.",
+                "philosophy": "Most PKM systems fail because they require constant effort to maintain. OSK works because the system works for you, freeing your energy for what actually matters: thinking, creating, growing. The same stance drives the AI layer: AI removes the boring parts of knowledge work so your time goes to the parts that actually need a human. A vault written entirely by AI is a knowledge base with no knower; OSK is built to make sure that never happens to yours.",
                 "differentiation": "Unlike templates that give you empty structures or tutorials that leave you to figure out implementation, OSK is a complete, working and battle-tested system. It is based on techniques I've refined and mastered over 20+ years. It's not theory. It's what I actually use every single day."
             },
             "vision": {
@@ -345,8 +359,8 @@
                         "icon": "⚡"
                     },
                     {
-                        "title": "AI-Native",
-                        "description": "AI is changing knowledge work. Since v4, OSK ships a full AI assistant: agents, skills, LLM Wikis, and an identity layer. AI does the plumbing so you can do the thinking.",
+                        "title": "AI-Native, Human First",
+                        "description": "AI is changing knowledge work. Since v4, OSK ships a full AI assistant: agents, skills, LLM Wikis, and an identity layer. AI does the plumbing so you can do the thinking. Your vault stays yours; your thinking stays yours.",
                         "icon": "🤖"
                     }
                 ],
@@ -429,8 +443,8 @@
         "mediaSections": {
             "main": {
                 "show": true,
-                "title": null,
-                "description": null,
+                "title": "Your Vault, Now With a Built-In AI Assistant",
+                "description": "Agents, skills, LLM Wikis, and an identity layer that teaches AI who you are. AI that augments your thinking, never replaces it.",
                 "mediaIds": null
             },
             "secondary": {
