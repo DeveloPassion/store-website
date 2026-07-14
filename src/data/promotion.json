@@ -1,9 +1,9 @@
 {
     "bannerBehavior": "PROMOTIONS",
-    "promoText": "🎉 Store Launch Promo: -20% discount on ALL:",
+    "promoText": "🎉 Summar Sale: -30% on ALL products",
     "promoLink": null,
     "promoLinkText": null,
-    "discountCode": "MAY-THE-KNOWLEDGE-FORGE-BE-WITH-YOU",
-    "promotionStart": "2026-01-14T00:00:00Z",
-    "promotionEnd": "2026-01-20T23:59:59Z"
+    "discountCode": "SummerSale2026",
+    "promotionStart": "2026-07-01T00:00:00Z",
+    "promotionEnd": "2026-07-30T10:00:00Z"
 }
