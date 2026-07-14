@@ -1,3 +1,8 @@
+## [1.43.0](https://github.com/DeveloPassion/store-website/compare/1.42.0...1.43.0) (2026-07-14)
+
+### Features
+
+* **all:** update and launch summer promo ([cbb53f1](https://github.com/DeveloPassion/store-website/commit/cbb53f1c7dd03d75e1e4e1421d2caaf858a8ea5b))
 ## [1.42.0](https://github.com/DeveloPassion/store-website/compare/1.41.1...1.42.0) (2026-07-03)
 
 ### Features
