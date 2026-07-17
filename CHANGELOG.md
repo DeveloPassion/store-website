@@ -1,3 +1,10 @@
+## [1.44.0](https://github.com/DeveloPassion/store-website/compare/1.43.0...1.44.0) (2026-07-17)
+
+### Features
+
+* **all:** added ai augmentation philosophy image ([9e5a8bd](https://github.com/DeveloPassion/store-website/commit/9e5a8bdf2f134a3b46fb62ca94f0d843c80012d0))
+* **all:** updated OSK sales copy ([d708e1e](https://github.com/DeveloPassion/store-website/commit/d708e1e557bee1fd2488cb1218604b791cce0f13))
+* **tools:** include pricing block in products-light.json ([cd2fc85](https://github.com/DeveloPassion/store-website/commit/cd2fc8565a1f6e5648b51efdb9930bfca5feb16b))
 ## [1.43.0](https://github.com/DeveloPassion/store-website/compare/1.42.0...1.43.0) (2026-07-14)
 
 ### Features
