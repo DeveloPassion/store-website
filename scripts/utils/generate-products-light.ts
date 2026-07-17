@@ -7,11 +7,12 @@
  * Source: src/data/products.json (aggregated)
  * Output: dist/products-light.json
  *
- * The "light" payload intentionally omits prices in numeric form. Consumers
- * (e.g. the wiki sites) follow the policy "no prices in CTAs" and only need
- * tier + category + url to render a useful card. If a consumer wants the
- * current price they should fetch the full payload separately or link to
- * the store product page.
+ * The "light" payload includes a compact `pricing` block per product so
+ * downstream sites (the Ghost theme, wiki sites) can render always-fresh
+ * prices without parsing the full catalog: base price + ready-to-render
+ * `priceDisplay`, and per-variant prices (with the frequency matrix for
+ * subscriptions). Consumers that follow the "no prices in CTAs" policy can
+ * simply ignore the block.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs'
@@ -36,6 +37,30 @@ if (!existsSync(SRC)) {
 
 const products: AggregatedProduct[] = JSON.parse(readFileSync(SRC, 'utf-8'))
 
+type LightVariantPrices = {
+    monthly?: number
+    quarterly?: number
+    yearly?: number
+    biennial?: number
+    oneTime?: number
+}
+
+type LightVariant = {
+    name: string
+    price: number | null
+    priceDisplay: string | null
+    prices: LightVariantPrices | null
+}
+
+type LightPricing = {
+    currency: 'EUR'
+    price: number | null
+    priceDisplay: string | null
+    isSubscription: boolean
+    defaultPaymentFrequency: string | null
+    variants: LightVariant[] | null
+}
+
 type LightProduct = {
     id: string
     name: string
@@ -52,6 +77,7 @@ type LightProduct = {
     priority: number
     image: string | null
     imageAlt: string | null
+    pricing: LightPricing
 }
 
 const hasRealPath = (u: string | null | undefined): u is string => {
@@ -103,6 +129,45 @@ const pickBadge = (p: AggregatedProduct): LightProduct['badge'] => {
     return null
 }
 
+const compactPrices = (
+    prices: Record<string, number | null> | null | undefined
+): LightVariantPrices | null => {
+    if (!prices) return null
+    const entries = Object.entries(prices).filter(([, v]) => typeof v === 'number')
+    return entries.length ? (Object.fromEntries(entries) as LightVariantPrices) : null
+}
+
+const pickPricing = (p: AggregatedProduct): LightPricing => {
+    const raw = p as unknown as {
+        price?: number | null
+        priceDisplay?: string | null
+        isSubscription?: boolean
+        defaultPaymentFrequency?: string | null
+        variants?: Array<{
+            name?: string | null
+            price?: number | null
+            priceDisplay?: string | null
+            prices?: Record<string, number | null> | null
+        }> | null
+    }
+    const variants = (raw.variants ?? [])
+        .filter((v) => v.name)
+        .map((v) => ({
+            name: v.name as string,
+            price: typeof v.price === 'number' ? v.price : null,
+            priceDisplay: v.priceDisplay ?? null,
+            prices: compactPrices(v.prices)
+        }))
+    return {
+        currency: 'EUR',
+        price: typeof raw.price === 'number' ? raw.price : null,
+        priceDisplay: raw.priceDisplay ?? null,
+        isSubscription: Boolean(raw.isSubscription),
+        defaultPaymentFrequency: raw.defaultPaymentFrequency ?? null,
+        variants: variants.length ? variants : null
+    }
+}
+
 const light: LightProduct[] = products
     .filter((p) => p.id && p.name && Array.isArray(p.tags))
     .map((p) => ({
@@ -119,7 +184,8 @@ const light: LightProduct[] = products
         bestseller: Boolean(p.bestseller),
         bestValue: Boolean(p.bestValue),
         priority: typeof p.priority === 'number' ? p.priority : 0,
-        ...pickCover(p)
+        ...pickCover(p),
+        pricing: pickPricing(p)
     }))
     .sort((a, b) => {
         const rank = (x: LightProduct) =>
