@@ -131,6 +131,18 @@
             "twitterHandle": null,
             "twitterUrl": null,
             "sourceUrl": null
+        },
+        {
+            "id": "testimonial-18",
+            "author": "Christina Richards",
+            "quote": "I love the passion and rigor you bring to your work and PKM",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }
