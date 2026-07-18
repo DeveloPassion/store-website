@@ -1,3 +1,8 @@
+## [1.45.0](https://github.com/DeveloPassion/store-website/compare/1.44.0...1.45.0) (2026-07-18)
+
+### Features
+
+* **all:** updated stats and added testimonial ([0b15aff](https://github.com/DeveloPassion/store-website/commit/0b15aff8e6621acc3bf33b92391e6dc6f1a7a76d))
 ## [1.44.0](https://github.com/DeveloPassion/store-website/compare/1.43.0...1.44.0) (2026-07-17)
 
 ### Features
