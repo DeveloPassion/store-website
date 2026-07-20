@@ -1,3 +1,8 @@
+## [1.46.0](https://github.com/DeveloPassion/store-website/compare/1.45.0...1.46.0) (2026-07-20)
+
+### Features
+
+* **tools:** expose per-variant description, includedProducts, url in products-light ([b5cb3f3](https://github.com/DeveloPassion/store-website/commit/b5cb3f3d022d5398eaa6b3b7ce8d88fb029b9b54))
 ## [1.45.0](https://github.com/DeveloPassion/store-website/compare/1.44.0...1.45.0) (2026-07-18)
 
 ### Features
