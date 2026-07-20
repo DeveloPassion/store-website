@@ -50,6 +50,14 @@ type LightVariant = {
     price: number | null
     priceDisplay: string | null
     prices: LightVariantPrices | null
+    // Benefit copy + inclusions so downstream sites (Ghost theme subscription
+    // panel, wiki CTAs) can render tier cards without duplicating this data.
+    // includedProducts are ids that resolve against this same catalog.
+    description: string | null
+    includedProducts: string[] | null
+    // Ready-to-use store deep link for this variant (no hardcoded query strings
+    // in consumers).
+    url: string | null
 }
 
 type LightPricing = {
@@ -148,16 +156,36 @@ const pickPricing = (p: AggregatedProduct): LightPricing => {
             price?: number | null
             priceDisplay?: string | null
             prices?: Record<string, number | null> | null
+            description?: string | null
+            includedProducts?: string[] | null
+            paymentFrequency?: string | null
         }> | null
     }
+    const variantSlug = (name: string): string =>
+        name
+            .toLowerCase()
+            .normalize('NFKD')
+            .replace(/[^\w\s-]/g, '')
+            .trim()
+            .replace(/[\s_]+/g, '-')
+            .replace(/-+/g, '-')
     const variants = (raw.variants ?? [])
         .filter((v) => v.name)
-        .map((v) => ({
-            name: v.name as string,
-            price: typeof v.price === 'number' ? v.price : null,
-            priceDisplay: v.priceDisplay ?? null,
-            prices: compactPrices(v.prices)
-        }))
+        .map((v) => {
+            const freq = v.paymentFrequency ?? raw.defaultPaymentFrequency ?? 'quarterly'
+            return {
+                name: v.name as string,
+                price: typeof v.price === 'number' ? v.price : null,
+                priceDisplay: v.priceDisplay ?? null,
+                prices: compactPrices(v.prices),
+                description: v.description ?? null,
+                includedProducts:
+                    Array.isArray(v.includedProducts) && v.includedProducts.length
+                        ? v.includedProducts
+                        : null,
+                url: `${STORE_URL}/product/${p.id}?variant=${variantSlug(v.name as string)}&frequency=${freq}`
+            }
+        })
     return {
         currency: 'EUR',
         price: typeof raw.price === 'number' ? raw.price : null,
