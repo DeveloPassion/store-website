@@ -1,3 +1,8 @@
+## [1.47.0](https://github.com/DeveloPassion/store-website/compare/1.46.0...1.47.0) (2026-08-07)
+
+### Features
+
+* **website:** lead the KMFB media gallery with the new course promo video ([084cea5](https://github.com/DeveloPassion/store-website/commit/084cea5fe78ed638db258e156ca916e157a06808))
 ## [1.46.0](https://github.com/DeveloPassion/store-website/compare/1.45.0...1.46.0) (2026-07-20)
 
 ### Features
