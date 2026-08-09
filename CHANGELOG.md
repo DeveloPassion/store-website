@@ -1,3 +1,8 @@
+## [1.49.0](https://github.com/DeveloPassion/store-website/compare/1.48.0...1.49.0) (2026-08-09)
+
+### Features
+
+* **website:** lead the OSK media gallery with the new promo video ([0567266](https://github.com/DeveloPassion/store-website/commit/0567266a0a6ff57db885f3de8402f4ea064029e7))
 ## [1.48.0](https://github.com/DeveloPassion/store-website/compare/1.47.0...1.48.0) (2026-08-07)
 
 ### Features
