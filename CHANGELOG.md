@@ -1,3 +1,8 @@
+## [1.52.0](https://github.com/DeveloPassion/store-website/compare/1.51.0...1.52.0) (2026-08-19)
+
+### Features
+
+* **website:** add John Robison testimonial for Obsidian Starter Kit ([db89530](https://github.com/DeveloPassion/store-website/commit/db89530981b734a5abd7d723a4dfdd675fccfb1e))
 ## [1.51.0](https://github.com/DeveloPassion/store-website/compare/1.50.0...1.51.0) (2026-08-19)
 
 ### Features
