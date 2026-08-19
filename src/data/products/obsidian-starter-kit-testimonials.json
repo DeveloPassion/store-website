@@ -551,6 +551,18 @@
             "twitterHandle": null,
             "twitterUrl": null,
             "sourceUrl": null
+        },
+        {
+            "id": "testimonial-47",
+            "author": "Sofia Alfredsson",
+            "quote": "I really appreciate everything that OSK does for me in the current setup, it's definitely a cornerstone in my daily workflow",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }
