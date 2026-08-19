@@ -16,6 +16,9 @@
  *     bun run update:products -- --operation edit --id product-id [--name "..."] [--price 49.99] [--priority 95]
  *     bun run update:products -- --operation remove --id product-id [--force]
  *
+ *   Media and FAQ operations are currently available in interactive mode only;
+ *   the CLI flags below are not yet wired into the argument dispatcher.
+ *
  *   Media operations:
  *     bun run update:products -- --operation media:list --id product-id [--media-group cover]
  *     bun run update:products -- --operation media:add --id product-id --media-type image|video --media-url "..." --media-title "..." --media-altText "..." --media-group cover|main|secondary|bonus [--media-description "..."] [--media-caption "..."] [--media-order 0]
@@ -31,9 +34,12 @@
  *
  *   Testimonial operations:
  *     bun run update:products -- --operation testimonial:list --id product-id
- *     bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "..." --testimonial-quote "..."  [--testimonial-featured true] [--testimonial-role "..."] [--testimonial-company "..."] [--testimonial-id "custom-id"]
- *     bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "test-123" [--testimonial-author "..."] [--testimonial-quote "..."] [] [--testimonial-featured false]
- *     bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "test-123"]
+ *     bun run update:products -- --operation testimonial:add --id product-id --testimonial-author "..." --testimonial-quote "..." [--testimonial-featured true] [--testimonial-role "..."] [--testimonial-company "..."] [--testimonial-sourceUrl "..."] [--testimonial-id "custom-id"] [--force]
+ *     bun run update:products -- --operation testimonial:edit --id product-id --testimonial-id "testimonial-3" [--testimonial-author "..."] [--testimonial-quote "..."] [--testimonial-featured false]
+ *     bun run update:products -- --operation testimonial:remove --id product-id --testimonial-id "testimonial-3"
+ *
+ *     IDs are assigned sequentially (`testimonial-N`) unless --testimonial-id is given.
+ *     Adding a quote that already exists on the product is refused unless --force is passed.
  *
  *   Sales Copy operations:
  *     bun run update:products -- --operation sales-copy:list --id product-id
@@ -45,7 +51,7 @@
  *
  * Arguments:
  *   Product:
- *     --operation <list|add|edit|remove|media:*|faq:*|testimonial:*>
+ *     --operation <list|add|edit|remove|testimonial:*|sales-copy:*>
  *     --id <string>                       Product ID
  *     --name <string>                     Product name
  *     --tagline <string>                  Product tagline
@@ -58,7 +64,7 @@
  *     --featured <true|false>             Featured status
  *     --priority <number>                 Priority
  *     --status <string>                   Status
- *     --force                             Force removal
+ *     --force                             Force removal / bypass duplicate check
  *     --format <json|table|detailed>      Output format
  *
  *   Media:
@@ -631,10 +637,15 @@ function generateFaqId(productId: string): string {
 }
 
 /**
- * Generate testimonial ID with product prefix
+ * Generate the next sequential testimonial ID (`testimonial-N`) for a product.
+ * Matches the convention used across the existing testimonial data files.
  */
-function generateTestimonialId(productId: string): string {
-    return `${productId}-testimonial-${generateRandomString(8)}`
+function generateTestimonialId(existing: Testimonial[]): string {
+    const highest = existing.reduce((max, testimonial) => {
+        const match = /^testimonial-(\d+)$/.exec(testimonial.id)
+        return match ? Math.max(max, Number(match[1])) : max
+    }, 0)
+    return `testimonial-${highest + 1}`
 }
 
 function getFaqPath(productsDir: string, productId: string): string {
@@ -788,14 +799,10 @@ export function saveTestimonials(
 ): void {
     const testimonialPath = getTestimonialPath(productsDir, productId)
 
-    // Sort by featured (featured first), then by author name
-    const sorted = [...testimonials].sort((a, b) => {
-        if (a.featured !== b.featured) return a.featured ? -1 : 1
-        return a.author.localeCompare(b.author)
-    })
-
-    // Wrap in file format and validate
-    const fileData = { data: sorted }
+    // Insertion order is preserved on disk: both the product page and the
+    // all-testimonials page sort featured-first at render time, so re-sorting
+    // here would only churn the diff on every add.
+    const fileData = { data: testimonials }
     const result = TestimonialFileSchema.safeParse(fileData)
     if (!result.success) {
         throw new Error(`Validation failed: ${result.error.message}`)
@@ -805,14 +812,14 @@ export function saveTestimonials(
     writeFileSync(testimonialPath, json + '\n', 'utf-8')
 }
 
-function addTestimonialToProduct(
+export function addTestimonialToProduct(
     productsDir: string,
     productId: string,
     testimonialData: Omit<Testimonial, 'id'> & { id?: string }
 ): Testimonial {
     const testimonials = loadTestimonials(productsDir, productId)
 
-    const id = testimonialData.id || generateTestimonialId(productId)
+    const id = testimonialData.id || generateTestimonialId(testimonials)
 
     // Check if ID already exists
     if (testimonials.some((t) => t.id === id)) {
@@ -2918,7 +2925,7 @@ async function manageTestimonials(product: Product): Promise<void> {
                             type: 'input',
                             name: 'id',
                             message: 'Testimonial ID:',
-                            default: generateTestimonialId(product.id),
+                            default: generateTestimonialId(testimonials),
                             validate: (input) => {
                                 if (!input) return 'ID is required'
                                 if (testimonials.some((t) => t.id === input))
@@ -5420,6 +5427,137 @@ async function operationSalesCopyRemove(args: CliArgs, product: Product): Promis
 }
 
 // ============================================================================
+// Testimonial CLI Operations
+// ============================================================================
+
+async function handleTestimonialOperation(args: CliArgs): Promise<void> {
+    if (!args.id) {
+        showError('--id is required for testimonial operations')
+        process.exit(1)
+    }
+
+    const product = loadProduct(args.id)
+    if (!product) {
+        showError(`Product not found: ${args.id}`)
+        process.exit(1)
+    }
+
+    const subOp = args.operation!.split(':')[1]
+
+    switch (subOp) {
+        case 'list':
+            await operationTestimonialList(args, product)
+            break
+        case 'add':
+            await operationTestimonialAdd(args, product)
+            break
+        case 'edit':
+            await operationTestimonialEdit(args, product)
+            break
+        case 'remove':
+            await operationTestimonialRemove(args, product)
+            break
+        default:
+            showError(`Invalid testimonial operation: ${subOp}. Use: list, add, edit, or remove`)
+            process.exit(1)
+    }
+}
+
+async function operationTestimonialList(_args: CliArgs, product: Product): Promise<void> {
+    const testimonials = listTestimonialsInProduct(PRODUCTS_DIR, product.id)
+
+    console.log(`\nTestimonials for ${product.id}: ${testimonials.length}\n`)
+    console.log(formatTestimonialList(testimonials))
+}
+
+/** Normalise a quote for duplicate detection: case, whitespace and punctuation insensitive. */
+function normaliseQuote(quote: string): string {
+    return quote
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}]+/gu, ' ')
+        .trim()
+}
+
+async function operationTestimonialAdd(args: CliArgs, product: Product): Promise<void> {
+    const author = args['testimonial-author']
+    const quote = args['testimonial-quote']
+
+    if (!author || !quote) {
+        showError('--testimonial-author and --testimonial-quote are required')
+        process.exit(1)
+    }
+
+    const existing = loadTestimonials(PRODUCTS_DIR, product.id)
+    const duplicate = existing.find((t) => normaliseQuote(t.quote) === normaliseQuote(quote))
+    if (duplicate && !args.force) {
+        showError(
+            `This quote is already on ${product.id} as "${duplicate.id}" (${duplicate.author}). Use --force to add it anyway.`
+        )
+        process.exit(1)
+    }
+
+    const testimonial = addTestimonialToProduct(PRODUCTS_DIR, product.id, {
+        id: args['testimonial-id'],
+        author,
+        quote,
+        featured: args['testimonial-featured'] === 'true',
+        role: args['testimonial-role'] ?? null,
+        company: args['testimonial-company'] ?? null,
+        avatarUrl: args['testimonial-avatarUrl'] ?? null,
+        twitterHandle: args['testimonial-twitterHandle'] ?? null,
+        twitterUrl: args['testimonial-twitterUrl'] ?? null,
+        sourceUrl: args['testimonial-sourceUrl'] ?? null
+    })
+
+    showSuccess(
+        `Added testimonial "${testimonial.id}" for ${product.id} (${testimonial.author}${testimonial.featured ? ', featured' : ''})`
+    )
+}
+
+async function operationTestimonialEdit(args: CliArgs, product: Product): Promise<void> {
+    const testimonialId = args['testimonial-id']
+    if (!testimonialId) {
+        showError('--testimonial-id is required')
+        process.exit(1)
+    }
+
+    const updates: Partial<Omit<Testimonial, 'id'>> = {}
+    if (args['testimonial-author'] !== undefined) updates.author = args['testimonial-author']
+    if (args['testimonial-quote'] !== undefined) updates.quote = args['testimonial-quote']
+    if (args['testimonial-featured'] !== undefined)
+        updates.featured = args['testimonial-featured'] === 'true'
+    if (args['testimonial-role'] !== undefined) updates.role = args['testimonial-role']
+    if (args['testimonial-company'] !== undefined) updates.company = args['testimonial-company']
+    if (args['testimonial-avatarUrl'] !== undefined)
+        updates.avatarUrl = args['testimonial-avatarUrl']
+    if (args['testimonial-twitterHandle'] !== undefined)
+        updates.twitterHandle = args['testimonial-twitterHandle']
+    if (args['testimonial-twitterUrl'] !== undefined)
+        updates.twitterUrl = args['testimonial-twitterUrl']
+    if (args['testimonial-sourceUrl'] !== undefined)
+        updates.sourceUrl = args['testimonial-sourceUrl']
+
+    if (Object.keys(updates).length === 0) {
+        showError('Nothing to update. Pass at least one --testimonial-* field.')
+        process.exit(1)
+    }
+
+    const testimonial = editTestimonialInProduct(PRODUCTS_DIR, product.id, testimonialId, updates)
+    showSuccess(`Updated testimonial "${testimonial.id}" for ${product.id}`)
+}
+
+async function operationTestimonialRemove(args: CliArgs, product: Product): Promise<void> {
+    const testimonialId = args['testimonial-id']
+    if (!testimonialId) {
+        showError('--testimonial-id is required')
+        process.exit(1)
+    }
+
+    removeTestimonialFromProduct(PRODUCTS_DIR, product.id, testimonialId)
+    showSuccess(`Removed testimonial "${testimonialId}" from ${product.id}`)
+}
+
+// ============================================================================
 // Priority Management
 // ============================================================================
 
@@ -5692,6 +5830,8 @@ async function main() {
             // Handle sub-operations (media:*, faq:*, testimonial:*, sales-copy:*)
             if (args.operation.startsWith('sales-copy:')) {
                 await handleSalesCopyOperation(args)
+            } else if (args.operation.startsWith('testimonial:')) {
+                await handleTestimonialOperation(args)
             } else {
                 switch (args.operation) {
                     case 'list':
@@ -5708,7 +5848,7 @@ async function main() {
                         break
                     default:
                         showError(
-                            'Invalid operation. Use: list, add, edit, remove, or sales-copy:*'
+                            'Invalid operation. Use: list, add, edit, remove, testimonial:*, or sales-copy:*'
                         )
                         process.exit(1)
                 }

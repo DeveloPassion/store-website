@@ -15,7 +15,8 @@ import {
     loadFaqs,
     saveFaqs,
     loadTestimonials,
-    saveTestimonials
+    saveTestimonials,
+    addTestimonialToProduct
 } from './update-products.js'
 import type { MediaItem } from '../src/schemas/media.schema.js'
 import type { FAQ } from '../src/types/faq'
@@ -571,8 +572,11 @@ describe('saveTestimonials', () => {
         expect(savedContent.data).toEqual([])
     })
 
-    it('should sort testimonials by featured (featured first), then by author name alphabetically', () => {
-        const productId = 'sort-test'
+    it('should preserve the given order instead of re-sorting', () => {
+        // The product page and the all-testimonials page both sort featured-first at
+        // render time, so the on-disk order is cosmetic. Preserving it keeps the diff
+        // of an `testimonial:add` down to the appended entry.
+        const productId = 'order-test'
         const testimonialData = [
             createValidTestimonial({ id: 'test-3', author: 'Zara Smith', featured: false }),
             createValidTestimonial({ id: 'test-1', author: 'Bob Jones', featured: true }),
@@ -584,13 +588,62 @@ describe('saveTestimonials', () => {
 
         const testimonialPath = join(tempDir, `${productId}-testimonials.json`)
         const savedContent = JSON.parse(readFileSync(testimonialPath, 'utf-8'))
-        const sorted = savedContent.data
 
-        // Featured first (sorted by author name ascending), then non-featured (sorted by author name ascending)
-        expect(sorted[0].id).toBe('test-2') // featured, Alice Brown
-        expect(sorted[1].id).toBe('test-1') // featured, Bob Jones
-        expect(sorted[2].id).toBe('test-4') // not featured, Charlie Davis
-        expect(sorted[3].id).toBe('test-3') // not featured, Zara Smith
+        expect(savedContent.data.map((t: Testimonial) => t.id)).toEqual([
+            'test-3',
+            'test-1',
+            'test-2',
+            'test-4'
+        ])
+    })
+
+    it('should assign sequential testimonial-N ids', () => {
+        const productId = 'sequential-ids'
+        saveTestimonials(tempDir, productId, [
+            createValidTestimonial({ id: 'testimonial-1' }),
+            createValidTestimonial({ id: 'testimonial-7' })
+        ])
+
+        const added = addTestimonialToProduct(tempDir, productId, {
+            author: 'New Author',
+            quote: 'A new quote',
+            featured: false,
+            role: null,
+            company: null,
+            avatarUrl: null,
+            twitterHandle: null,
+            twitterUrl: null,
+            sourceUrl: null
+        })
+
+        // Continues from the highest existing N, not the entry count
+        expect(added.id).toBe('testimonial-8')
+        expect(loadTestimonials(tempDir, productId).map((t) => t.id)).toEqual([
+            'testimonial-1',
+            'testimonial-7',
+            'testimonial-8'
+        ])
+    })
+
+    it('should append rather than reorder when adding a featured testimonial', () => {
+        const productId = 'append-order'
+        saveTestimonials(tempDir, productId, [
+            createValidTestimonial({ id: 'testimonial-1', author: 'Zara', featured: false })
+        ])
+
+        addTestimonialToProduct(tempDir, productId, {
+            author: 'Alice',
+            quote: 'Featured quote',
+            featured: true,
+            role: null,
+            company: null,
+            avatarUrl: null,
+            twitterHandle: null,
+            twitterUrl: null,
+            sourceUrl: null
+        })
+
+        expect(loadTestimonials(tempDir, productId).map((t) => t.author)).toEqual(['Zara', 'Alice'])
     })
 
     it('should throw validation error for invalid testimonial data', () => {
