@@ -3,14 +3,14 @@
         {
             "id": "pablo-mostrous-email",
             "author": "Pablo Mostrous",
-            "quote": "Your Dev concepts bundle is an amazing source of intel, nice work",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Your Dev concepts bundle is an amazing source of intel, nice work",
+            "featured": true
         }
     ]
 }

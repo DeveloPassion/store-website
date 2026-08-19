@@ -3,26 +3,26 @@
         {
             "id": "testimonial-19",
             "author": "Anonymous",
-            "quote": "The perfect tool to start using the full power of Obsidian.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "The perfect tool to start using the full power of Obsidian.",
+            "featured": true
         },
         {
             "id": "testimonial-20",
             "author": "Anonymous",
-            "quote": "Perfect!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Perfect!",
+            "featured": false
         }
     ]
 }

@@ -3,62 +3,62 @@
         {
             "id": "testimonial-20",
             "author": "Sofia",
-            "quote": "You've given me a lot of inspiration in how to actually do that as well simply through everything that you've built! Happy that I found your work and came across this community - such a gold mine 🙏",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "You've given me a lot of inspiration in how to actually do that as well simply through everything that you've built! Happy that I found your work and came across this community - such a gold mine 🙏",
+            "featured": true
         },
         {
             "id": "testimonial-21",
             "author": "Ronny Khalil",
-            "quote": "With Sebastien's plentiful offerings and resources, I feel like there is a light at the end of the tunnel, that I might actually one day soon feel comfortable, energized, inspired to actually dwell in Obsidian and build with more intention and understanding.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "With Sebastien's plentiful offerings and resources, I feel like there is a light at the end of the tunnel, that I might actually one day soon feel comfortable, energized, inspired to actually dwell in Obsidian and build with more intention and understanding.",
+            "featured": false
         },
         {
             "id": "testimonial-22",
             "author": "Jaelyn",
-            "quote": "Everything in this community feels friendly and approachable. I love it! And I can't express just how impressed I am with the PKM system you created. It is beautifully thought-out and crafted. This is exactly what I needed",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Everything in this community feels friendly and approachable. I love it! And I can't express just how impressed I am with the PKM system you created. It is beautifully thought-out and crafted. This is exactly what I needed",
+            "featured": true
         },
         {
             "id": "testimonial-23",
             "author": "Jaelyn",
-            "quote": "What you are doing here is SO useful and helpful, and SO needed in the world. And it's not just the tools and resources you've created, which are amazing, but also that you have created this community for passionate people to come together",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "What you are doing here is SO useful and helpful, and SO needed in the world. And it's not just the tools and resources you've created, which are amazing, but also that you have created this community for passionate people to come together",
+            "featured": true
         },
         {
             "id": "testimonial-24",
             "author": "Filip Colée",
-            "quote": "I've been reading and re-reading a lot of the content here… Clarity 101, the PKM library, the Knowledge Worker Kit and honestly it's a goldmine, thank you so much Sebastien 👏",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I've been reading and re-reading a lot of the content here… Clarity 101, the PKM library, the Knowledge Worker Kit and honestly it's a goldmine, thank you so much Sebastien 👏",
+            "featured": true
         }
     ]
 }

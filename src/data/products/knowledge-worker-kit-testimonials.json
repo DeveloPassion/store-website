@@ -3,74 +3,74 @@
         {
             "id": "testimonial-12",
             "author": "Julien Dambron",
-            "quote": "Superbly crafted material that consistently grows and improves with time, demonstrating a relentless commitment to excellence and constant refinement. The community is still new and not so active, but it will keep improving!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Superbly crafted material that consistently grows and improves with time, demonstrating a relentless commitment to excellence and constant refinement. The community is still new and not so active, but it will keep improving!",
+            "featured": false
         },
         {
             "id": "testimonial-13",
             "author": "Richard Elliott",
-            "quote": "Sebastien's writing is exceptional and I look forward to each new article",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Sebastien's writing is exceptional and I look forward to each new article",
+            "featured": true
         },
         {
             "id": "testimonial-14",
             "author": "Anonymous",
-            "quote": "Thank you for making this available and filling a gap that I think I sorely needed.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Thank you for making this available and filling a gap that I think I sorely needed.",
+            "featured": false
         },
         {
             "id": "testimonial-15",
             "author": "Arnold Kiptoo",
-            "quote": "Thanks for such amazing content",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Thanks for such amazing content",
+            "featured": false
         },
         {
             "id": "testimonial-16",
             "author": "Arlanna Pugh",
-            "quote": "I've barely scratched the surface of everything you've offered in the Knowledge Worker Kit and I've already received so much value!",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I've barely scratched the surface of everything you've offered in the Knowledge Worker Kit and I've already received so much value!",
+            "featured": true
         },
         {
             "id": "testimonial-17",
             "author": "Filip Colée",
-            "quote": "I've been reading and re-reading a lot of the content here… Clarity 101, the PKM library, the Knowledge Worker Kit and honestly it's a goldmine, thank you so much Sebastien 👏",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I've been reading and re-reading a lot of the content here… Clarity 101, the PKM library, the Knowledge Worker Kit and honestly it's a goldmine, thank you so much Sebastien 👏",
+            "featured": true
         }
     ]
 }

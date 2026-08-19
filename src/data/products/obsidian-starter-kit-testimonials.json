@@ -3,566 +3,566 @@
         {
             "id": "testimonial-1",
             "author": "Dwayne Appleby",
-            "quote": "The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for me to use in keeping track of all the details and random happenings in my work. In particular, the templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "The Obsidian Starter Kit has been game changing for me in providing a ready to go framework for me to use in keeping track of all the details and random happenings in my work. In particular, the templates have simplified my tasks, enhanced my efficiency, and even seem to have improved my memory. Overall, this has been a joy to adopt as a work tool.",
+            "featured": true
         },
         {
             "id": "testimonial-2",
             "author": "Cal Desmond-Pearson",
-            "twitterHandle": "CalSocialHermit",
-            "twitterUrl": "https://x.com/CalSocialHermit/status/1527755690894409728",
-            "quote": "Finally clicked how awesome Obsidian is! Thanks to your excellent Obsidian Starter Kit!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
-            "sourceUrl": null
+            "twitterHandle": "CalSocialHermit",
+            "twitterUrl": "https://x.com/CalSocialHermit/status/1527755690894409728",
+            "sourceUrl": null,
+            "quote": "Finally clicked how awesome Obsidian is! Thanks to your excellent Obsidian Starter Kit!",
+            "featured": false
         },
         {
             "id": "testimonial-3",
             "author": "Michael Aaron",
-            "quote": "As someone who has bounced around trying to find the right Knowledge tool, I've realized many of my issues have been related to complexity. The structure, design and explanations in OSK have finally given me the foundation I needed. 100% worth it.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "As someone who has bounced around trying to find the right Knowledge tool, I've realized many of my issues have been related to complexity. The structure, design and explanations in OSK have finally given me the foundation I needed. 100% worth it.",
+            "featured": true
         },
         {
             "id": "testimonial-4",
             "author": "Blake Holder",
-            "quote": "Starting as an absolute beginner, this kit allowed me to jump to what I feel is an intermediate level of Obsidian understanding and effective note taking in the span of 1-2 days, and I am grateful that I found it.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Starting as an absolute beginner, this kit allowed me to jump to what I feel is an intermediate level of Obsidian understanding and effective note taking in the span of 1-2 days, and I am grateful that I found it.",
+            "featured": true
         },
         {
             "id": "testimonial-5",
             "author": "Miriam G",
-            "quote": "Easy, complete and FANTASTIC!!!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Easy, complete and FANTASTIC!!!",
+            "featured": false
         },
         {
             "id": "testimonial-6",
             "author": "Franjo Pehar",
-            "quote": "The Obsidian Starter Kit is an excellent resource for anyone interested in Personal Knowledge Management (PKM) and building their own 'second brain.' A must-have for those looking to take control of their knowledge and productivity!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "The Obsidian Starter Kit is an excellent resource for anyone interested in Personal Knowledge Management (PKM) and building their own 'second brain.' A must-have for those looking to take control of their knowledge and productivity!",
+            "featured": false
         },
         {
             "id": "testimonial-7",
             "author": "Raymond D Sims",
-            "twitterHandle": "rsims",
-            "twitterUrl": "https://x.com/rsims",
-            "quote": "Off and running w/ @obsdmd. I've installed the app & have @dSebastien Starter Kit & my own fresh start Vault open. Learning from former & putting into practice w/ real content in latter. So far, so good",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
-            "sourceUrl": null
+            "twitterHandle": "rsims",
+            "twitterUrl": "https://x.com/rsims",
+            "sourceUrl": null,
+            "quote": "Off and running w/ @obsdmd. I've installed the app & have @dSebastien Starter Kit & my own fresh start Vault open. Learning from former & putting into practice w/ real content in latter. So far, so good",
+            "featured": false
         },
         {
             "id": "testimonial-8",
             "author": "Sam Gonzales",
-            "quote": "Great content - got me up to speed with what I was looking for fast ! Sébastien answered some questions by mail also which was much appreciated ! Thanks",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Great content - got me up to speed with what I was looking for fast ! Sébastien answered some questions by mail also which was much appreciated ! Thanks",
+            "featured": false
         },
         {
             "id": "testimonial-9",
             "author": "Krzysztof Kapcia",
-            "quote": "I'd like to congratulate you on the fantastic product you've created – OSK. I've only spent a few hours with it, but I'm already confident it will meet my information management needs.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I'd like to congratulate you on the fantastic product you've created – OSK. I've only spent a few hours with it, but I'm already confident it will meet my information management needs.",
+            "featured": false
         },
         {
             "id": "testimonial-10",
             "author": "Ashwin Appiah",
-            "quote": "I absolutely love your kit and it has been so immensely helpful",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I absolutely love your kit and it has been so immensely helpful",
+            "featured": false
         },
         {
             "id": "testimonial-11",
             "author": "Ghada",
-            "quote": "This is a practical and well thought out tool for organising Obsidian. It's not flashy, but it doesn't need to be. It's all about function! The kit provided me with a solid framework, some helpful templates, and automations that made it easier to manage my vault without feeling overwhelmed. I tweaked many things to fit my workflow. I just really loved having this quick, straightway that offered me so much value from the app without me needing to spend hours setting things up. Thank you, Sebastian, and best of luck!",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "This is a practical and well thought out tool for organising Obsidian. It's not flashy, but it doesn't need to be. It's all about function! The kit provided me with a solid framework, some helpful templates, and automations that made it easier to manage my vault without feeling overwhelmed. I tweaked many things to fit my workflow. I just really loved having this quick, straightway that offered me so much value from the app without me needing to spend hours setting things up. Thank you, Sebastian, and best of luck!",
+            "featured": true
         },
         {
             "id": "testimonial-12",
             "author": "Liam Weight",
-            "quote": "Thanks for making the product. I'm making efforts to start using Obsidian more in my daily workflow and having a place to start makes the task much less daunting!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Thanks for making the product. I'm making efforts to start using Obsidian more in my daily workflow and having a place to start makes the task much less daunting!",
+            "featured": false
         },
         {
             "id": "testimonial-13",
             "author": "Fredrik Nordström",
-            "quote": "I'm very new to PKM, but the Obsidian Starter Kit has been a tremendous help in getting me started",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I'm very new to PKM, but the Obsidian Starter Kit has been a tremendous help in getting me started",
+            "featured": false
         },
         {
             "id": "testimonial-14",
             "author": "Lubos Kolouch",
-            "quote": "Sebastien's Obsidian Starter Kit is a powerful tool for those looking to dive into the world of Obsidian without being overwhelmed. It's a comprehensive solution that significantly shortens the learning curve, providing an impressively structured way to start capturing notes and facilitating daily journaling. The kit's integration of automated tasks and pre-designed templates are a boon to beginners, alleviating the initial intimidation of starting from scratch. If you're new to Obsidian and need a solid starting point, this starter kit comes highly recommended. It doesn't just help you navigate Obsidian, but also empowers you to harness its full potential right from the get-go.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Sebastien's Obsidian Starter Kit is a powerful tool for those looking to dive into the world of Obsidian without being overwhelmed. It's a comprehensive solution that significantly shortens the learning curve, providing an impressively structured way to start capturing notes and facilitating daily journaling. The kit's integration of automated tasks and pre-designed templates are a boon to beginners, alleviating the initial intimidation of starting from scratch. If you're new to Obsidian and need a solid starting point, this starter kit comes highly recommended. It doesn't just help you navigate Obsidian, but also empowers you to harness its full potential right from the get-go.",
+            "featured": true
         },
         {
             "id": "testimonial-15",
             "author": "Trobrillant",
-            "quote": "Just to thank the work and content that allowed me to discover the background of a custom vault. It was a real boost for me and given the price, it was a real investment of time and learning.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Just to thank the work and content that allowed me to discover the background of a custom vault. It was a real boost for me and given the price, it was a real investment of time and learning.",
+            "featured": false
         },
         {
             "id": "testimonial-16",
             "author": "Henry F.",
-            "quote": "Excellent package to get started with Obsidian or optimize what you already have. The developer has tried it all and distilled a core setup that you can use out-of-the-box or adapt.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Excellent package to get started with Obsidian or optimize what you already have. The developer has tried it all and distilled a core setup that you can use out-of-the-box or adapt.",
+            "featured": false
         },
         {
             "id": "testimonial-17",
             "author": "Naya Moss",
-            "quote": "Great starter kit, love it!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Great starter kit, love it!",
+            "featured": false
         },
         {
             "id": "testimonial-18",
             "author": "Andrew Zavitsanos",
-            "quote": "If you have been wanting to try Obsidian but overwhelmed with options and unsure where to start, Sebastien makes it easy with his 'ready to go' vault.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "If you have been wanting to try Obsidian but overwhelmed with options and unsure where to start, Sebastien makes it easy with his 'ready to go' vault.",
+            "featured": false
         },
         {
             "id": "testimonial-19",
             "author": "Mike Nall",
-            "quote": "Extremely comprehensive and most worthwhile!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Extremely comprehensive and most worthwhile!",
+            "featured": false
         },
         {
             "id": "testimonial-20",
             "author": "Todd Walters",
-            "quote": "I love this product. Obsidian can be overwhelming with all you can do with it. Sebastien has pulled together a great collection of add-ons and templates and is a great starting point to get productive and begin your personal knowledge management journey",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I love this product. Obsidian can be overwhelming with all you can do with it. Sebastien has pulled together a great collection of add-ons and templates and is a great starting point to get productive and begin your personal knowledge management journey",
+            "featured": false
         },
         {
             "id": "testimonial-21",
             "author": "Rick Eliott",
-            "quote": "The Obsidian Starter Kit is a really great way to get going with Obsidian, and Sebastien's writing and knowledge is so insightful and helpful",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "The Obsidian Starter Kit is a really great way to get going with Obsidian, and Sebastien's writing and knowledge is so insightful and helpful",
+            "featured": false
         },
         {
             "id": "testimonial-22",
             "author": "Brenton James",
-            "quote": "Very helpful to give you a framework to develop from",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Very helpful to give you a framework to develop from",
+            "featured": false
         },
         {
             "id": "testimonial-23",
             "author": "Adrian McLachlan",
-            "quote": "Useful learning for Obsidian. Appreciate updates",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Useful learning for Obsidian. Appreciate updates",
+            "featured": false
         },
         {
             "id": "testimonial-24",
             "author": "Edouard Kutter",
-            "quote": "Easy to follow and well done!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Easy to follow and well done!",
+            "featured": false
         },
         {
             "id": "testimonial-25",
             "author": "Yaaqoub Eliyyahu",
-            "quote": "If you have been searching and searching for the right Obsidian Starter Kit??? This is the answer!!! It's a great start to set up the foundation of your system in Obsidian.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "If you have been searching and searching for the right Obsidian Starter Kit??? This is the answer!!! It's a great start to set up the foundation of your system in Obsidian.",
+            "featured": false
         },
         {
             "id": "testimonial-26",
             "author": "Manuel Miguel",
-            "quote": "Extraordinario para comenzar a trabajar con Obsidian",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Extraordinario para comenzar a trabajar con Obsidian",
+            "featured": false
         },
         {
             "id": "testimonial-27",
             "author": "Julien Dambron",
-            "quote": "The Obsidian Starter Kit is the perfect entry point for anyone looking to harness the full potential of Obsidian from day one. It comes with thoughtfully designed default configurations that work seamlessly out of the box, while still offering the flexibility to tailor settings to your personal workflow. Whether you're a beginner or an experienced user, this kit provides a solid foundation, saving you time and effort in setting up your vault. It's an excellent resource for those who want to jump straight into organizing their thoughts, projects, and knowledge without getting bogged down in the initial setup process. Highly recommended for anyone serious about maximizing their productivity with Obsidian.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "The Obsidian Starter Kit is the perfect entry point for anyone looking to harness the full potential of Obsidian from day one. It comes with thoughtfully designed default configurations that work seamlessly out of the box, while still offering the flexibility to tailor settings to your personal workflow. Whether you're a beginner or an experienced user, this kit provides a solid foundation, saving you time and effort in setting up your vault. It's an excellent resource for those who want to jump straight into organizing their thoughts, projects, and knowledge without getting bogged down in the initial setup process. Highly recommended for anyone serious about maximizing their productivity with Obsidian.",
+            "featured": true
         },
         {
             "id": "testimonial-28",
             "author": "Anonymous",
-            "quote": "That is the only way so far that forced me to stick to some kind of knowledge management system for a significant amount of time (over 1 year now). The system is very clear and well thought of, even if way too powerful for my simple use cases. I love that Sebastien is keeping the system alive and evolving, releasing updates to the pack, so by paying once you're getting lots of value out of it!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "That is the only way so far that forced me to stick to some kind of knowledge management system for a significant amount of time (over 1 year now). The system is very clear and well thought of, even if way too powerful for my simple use cases. I love that Sebastien is keeping the system alive and evolving, releasing updates to the pack, so by paying once you're getting lots of value out of it!",
+            "featured": false
         },
         {
             "id": "testimonial-29",
             "author": "Yaaqoub",
-            "quote": "I was a novice to Obsidian & not a techie person. This is one of the best Obsdian Starter kits to get you started with Obsidian. You will not be disappointed.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I was a novice to Obsidian & not a techie person. This is one of the best Obsdian Starter kits to get you started with Obsidian. You will not be disappointed.",
+            "featured": false
         },
         {
             "id": "testimonial-30",
             "author": "Richard Elliott",
-            "quote": "Sebastien's starter kit really kick started my use of Obsidian and is the basis of my vault to this day. No nonsense and accompanied by concise and helpful guidance",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Sebastien's starter kit really kick started my use of Obsidian and is the basis of my vault to this day. No nonsense and accompanied by concise and helpful guidance",
+            "featured": false
         },
         {
             "id": "testimonial-31",
             "author": "M G Zandstra",
-            "quote": "Although I was already using Obsidian in earnest on a day to day basis when I purchased it, I've found this guide / set up invaluable as a way to round out my understanding of features and plugins. It also provides a great overview of knowledge base techniques and theory. Whether you're just starting out or need some guidance taming the data in your vault this kit is a really useful resource.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Although I was already using Obsidian in earnest on a day to day basis when I purchased it, I've found this guide / set up invaluable as a way to round out my understanding of features and plugins. It also provides a great overview of knowledge base techniques and theory. Whether you're just starting out or need some guidance taming the data in your vault this kit is a really useful resource.",
+            "featured": false
         },
         {
             "id": "testimonial-32",
             "author": "Charles F McMaster",
-            "quote": "More intuitive, increased depth of information from Sebastien, growing the Starter Kit product, has expanded my utilization of Obsidian. Better and getting better. Worth the investment in KM.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "More intuitive, increased depth of information from Sebastien, growing the Starter Kit product, has expanded my utilization of Obsidian. Better and getting better. Worth the investment in KM.",
+            "featured": false
         },
         {
             "id": "testimonial-33",
             "author": "Michel Laevens",
-            "quote": "I have known Obsidian since its inception. However, I settled for Logseq at that time. I also tried most km apps in the ecosystem. Noticing that Logseq was no longer updated, I used Obsidian again. However, I was not in the mood to spend hours organizing my system and choosing the plugins. Hence, the Obsidian Starter Kit. It's excellent and covers most of my needs. People starting in knowledge management or with Obsidian could benefit from a course.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I have known Obsidian since its inception. However, I settled for Logseq at that time. I also tried most km apps in the ecosystem. Noticing that Logseq was no longer updated, I used Obsidian again. However, I was not in the mood to spend hours organizing my system and choosing the plugins. Hence, the Obsidian Starter Kit. It's excellent and covers most of my needs. People starting in knowledge management or with Obsidian could benefit from a course.",
+            "featured": false
         },
         {
             "id": "testimonial-34",
             "author": "Anonymous",
-            "quote": "Easy to understand and get up and running!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Easy to understand and get up and running!",
+            "featured": false
         },
         {
             "id": "testimonial-35",
             "author": "Chananan Srasri",
-            "quote": "Flawless design and easy to use with detailed explanations behind every design.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Flawless design and easy to use with detailed explanations behind every design.",
+            "featured": false
         },
         {
             "id": "testimonial-36",
             "author": "Peter Kay",
-            "quote": "Literally cannot thank you enough for this system and process. Just incorporated your advanced tag system and what an incredible feeling doing the freeform tags on what I just clipped/read. Search is now very intuitive.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Literally cannot thank you enough for this system and process. Just incorporated your advanced tag system and what an incredible feeling doing the freeform tags on what I just clipped/read. Search is now very intuitive.",
+            "featured": true
         },
         {
             "id": "testimonial-37",
             "author": "jakmark4",
-            "quote": "Cannot say enough about what you've created - thank you!",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Cannot say enough about what you've created - thank you!",
+            "featured": false
         },
         {
             "id": "testimonial-38",
             "author": "Chris Flanagan",
-            "quote": "Thank you for all the work you have done on this vault",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Thank you for all the work you have done on this vault",
+            "featured": false
         },
         {
             "id": "testimonial-39",
             "author": "Nicolas",
-            "quote": "Started to analyze Obsidian Starter Kit this day. Reverse engineering such a product is a fantastic learning tool, I would recommend it to anyone. I thought initially that I had a good level with Obsidian, ah ah! 🙃 Congrats Sébastien, it's an eye opener",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Started to analyze Obsidian Starter Kit this day. Reverse engineering such a product is a fantastic learning tool, I would recommend it to anyone. I thought initially that I had a good level with Obsidian, ah ah! 🙃 Congrats Sébastien, it's an eye opener",
+            "featured": false
         },
         {
             "id": "testimonial-40",
             "author": "Jaelyn",
-            "quote": "I can't expressed just how impressed I am with the PKM system you created. It is beautifully thought-out and crafter. This is exactly what I needed. You have an amazing system out of the box.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I can't expressed just how impressed I am with the PKM system you created. It is beautifully thought-out and crafter. This is exactly what I needed. You have an amazing system out of the box.",
+            "featured": true
         },
         {
             "id": "testimonial-41",
             "author": "Michael Mindrum, MD",
-            "quote": "I am finding Sébastien as well as his obsidian starter kit extremely helpful. Claude is fantastic but it is the interface with obsidian that makes it so useful. Obsidian is like an external brain and Sébastien has figured out how to keep that brain organized. I feel such relief each time I figure out a way to organize another interest, project, or goal. With it you can do just about anything. Obsidian serves as a place to dump all of your knowledge. Sebastien's starter kit has the architecture to help organize it.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I am finding Sébastien as well as his obsidian starter kit extremely helpful. Claude is fantastic but it is the interface with obsidian that makes it so useful. Obsidian is like an external brain and Sébastien has figured out how to keep that brain organized. I feel such relief each time I figure out a way to organize another interest, project, or goal. With it you can do just about anything. Obsidian serves as a place to dump all of your knowledge. Sebastien's starter kit has the architecture to help organize it.",
+            "featured": true
         },
         {
             "id": "testimonial-42",
             "author": "Thomas Moreau",
-            "quote": "Day 2 after the purchase of the Starter Kit. I already know that the 129.99+ € was really good invested. @Sebastien you made my day... no my month and probably my year!",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Day 2 after the purchase of the Starter Kit. I already know that the 129.99+ € was really good invested. @Sebastien you made my day... no my month and probably my year!",
+            "featured": true
         },
         {
             "id": "testimonial-43",
             "author": "Chris Flanagan",
-            "quote": "Your migration guide is phenomenal. Although I was tempted to feed it to Claude and have it do the file copying (flagging any data-loss risk), going through it manually gave me a much better feel for what is new.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Your migration guide is phenomenal. Although I was tempted to feed it to Claude and have it do the file copying (flagging any data-loss risk), going through it manually gave me a much better feel for what is new.",
+            "featured": true
         },
         {
             "id": "testimonial-44",
             "author": "Breana Nannetti",
-            "quote": "This is incredible! I have been using your OSK since version 1 and currently have a vault on V4 first build. I have the newest version downloaded. This is exactly what's been missing. THANK you for such a tremendous build.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": "https://medium.com/@breanan650/this-is-incredible-0edb0fd6368d"
+            "sourceUrl": "https://medium.com/@breanan650/this-is-incredible-0edb0fd6368d",
+            "quote": "This is incredible! I have been using your OSK since version 1 and currently have a vault on V4 first build. I have the newest version downloaded. This is exactly what's been missing. THANK you for such a tremendous build.",
+            "featured": true
         },
         {
             "id": "testimonial-45",
             "author": "Joe Asante",
-            "quote": "I have been using the Obsidian Starter Kit v4 for the last couple of days, and I must admit I'm really enjoying it—especially the wiki feature. All the wiki skills are fantastic. I've started ingesting a lot of my copywriting and ghostwriting information into several wikis, and interacting with it via AI is working out extremely well. I am very impressed and look forward to your future updates.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I have been using the Obsidian Starter Kit v4 for the last couple of days, and I must admit I'm really enjoying it—especially the wiki feature. All the wiki skills are fantastic. I've started ingesting a lot of my copywriting and ghostwriting information into several wikis, and interacting with it via AI is working out extremely well. I am very impressed and look forward to your future updates.",
+            "featured": true
         },
         {
             "id": "testimonial-46",
             "author": "Steve",
-            "quote": "I've only been using this a couple of days and I'm very impressed. This is an exceptional piece of work. And I'm very excited about where I'm going to take it. I had gone down rabbit holes developing some incredible algorithms and indicators using threat data and dashboards, while at the same time I had an onboarding process I was designing, a separate SaaS product I was working on, and ideas for a b2c product. Too much for me to remember, and I was forgetting the important stuff. This solves that problem.",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I've only been using this a couple of days and I'm very impressed. This is an exceptional piece of work. And I'm very excited about where I'm going to take it. I had gone down rabbit holes developing some incredible algorithms and indicators using threat data and dashboards, while at the same time I had an onboarding process I was designing, a separate SaaS product I was working on, and ideas for a b2c product. Too much for me to remember, and I was forgetting the important stuff. This solves that problem.",
+            "featured": true
         },
         {
             "id": "testimonial-47",
             "author": "Sofia Alfredsson",
-            "quote": "I really appreciate everything that OSK does for me in the current setup, it's definitely a cornerstone in my daily workflow",
-            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "I really appreciate everything that OSK does for me in the current setup, it's definitely a cornerstone in my daily workflow",
+            "featured": true
         }
     ]
 }

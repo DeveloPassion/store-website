@@ -3,14 +3,14 @@
         {
             "id": "testimonial-1",
             "author": "Richard Darnell Williams",
-            "quote": "Really helps me get past the Obsidian learning curve and feel confident in the PKM I'm building.",
-            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "Really helps me get past the Obsidian learning curve and feel confident in the PKM I'm building.",
+            "featured": false
         }
     ]
 }
