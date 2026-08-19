@@ -563,6 +563,18 @@
             "sourceUrl": null,
             "quote": "I really appreciate everything that OSK does for me in the current setup, it's definitely a cornerstone in my daily workflow",
             "featured": true
+        },
+        {
+            "id": "testimonial-48",
+            "author": "John Robison",
+            "quote": "One day in and I can see it's going to outperform my old system which became unmanageable after about 6 months.",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }
