@@ -1,3 +1,12 @@
+## [1.51.0](https://github.com/DeveloPassion/store-website/compare/1.50.0...1.51.0) (2026-08-19)
+
+### Features
+
+* **website:** add Sofia Alfredsson testimonial for the Obsidian Starter Kit ([e5c5d6e](https://github.com/DeveloPassion/store-website/commit/e5c5d6ec5d372a5e7ad7e380e9b6623d591b03d9))
+
+### Bug Fixes
+
+* **tools:** wire testimonial:* operations into the products CLI ([cc68df1](https://github.com/DeveloPassion/store-website/commit/cc68df108448a87a400ce0e9774b47ff70320fc2))
 ## [1.50.0](https://github.com/DeveloPassion/store-website/compare/1.49.0...1.50.0) (2026-08-19)
 
 ### Features
