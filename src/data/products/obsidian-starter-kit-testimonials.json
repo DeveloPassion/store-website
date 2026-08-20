@@ -567,7 +567,19 @@
         {
             "id": "testimonial-48",
             "author": "John Robison",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "One day in and I can see it's going to outperform my old system which became unmanageable after about 6 months.",
+            "featured": false
+        },
+        {
+            "id": "testimonial-49",
+            "author": "Andrey Konev",
+            "quote": "Thanks for the kit. I've been running it since version 2, and it is an incredible help to me.",
             "featured": false,
             "role": null,
             "company": null,
