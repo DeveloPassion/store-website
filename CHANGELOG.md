@@ -1,3 +1,8 @@
+## [1.53.0](https://github.com/DeveloPassion/store-website/compare/1.52.0...1.53.0) (2026-08-20)
+
+### Features
+
+* **website:** add Andrey Konev testimonial for Obsidian Starter Kit ([c62aad9](https://github.com/DeveloPassion/store-website/commit/c62aad956ce56443d04370c7bca2ca154a5fda82))
 ## [1.52.0](https://github.com/DeveloPassion/store-website/compare/1.51.0...1.52.0) (2026-08-19)
 
 ### Features
