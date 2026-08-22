@@ -1,3 +1,8 @@
+## [1.54.0](https://github.com/DeveloPassion/store-website/compare/1.53.0...1.54.0) (2026-08-22)
+
+### Features
+
+* **website:** knowii voice ai 0.8.0 - file transcription and bundled CLI ([76f3522](https://github.com/DeveloPassion/store-website/commit/76f35228ccd35a27b39d1885551e2c6c079251f2))
 ## [1.53.0](https://github.com/DeveloPassion/store-website/compare/1.52.0...1.53.0) (2026-08-20)
 
 ### Features
