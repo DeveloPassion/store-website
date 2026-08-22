@@ -11,6 +11,8 @@
     "tags": ["voice-to-text", "speech-recognition", "ai", "productivity", "privacy", "offline"],
     "contents": [
         "**Press-speak-release** in any application. Works in `Gmail`, `Notion`, `Teams`, `VS Code`, terminal; literally everywhere",
+        "**Transcribe your files too**: drop meeting recordings, interviews, or videos onto the app; batch queues, straight to your history",
+        "**`transcribe` CLI included**: subtitles (`srt`, `vtt`) or text for one file or a whole folder, from the terminal",
         "Multiple AI models: `Whisper`, `Parakeet`, `Moonshine`, `Omnilingual`. Choose speed vs accuracy",
         "**99+ languages** supported with automatic language detection",
         "**Searchable transcription history**. Find what you said weeks ago",

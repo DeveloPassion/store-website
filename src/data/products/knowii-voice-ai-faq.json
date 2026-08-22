@@ -11,6 +11,11 @@
             "answer": "Yes. After one-time AI model download (**2-10 GB**), everything runs on your computer. Laptop in airplane mode? **Still works perfectly**."
         },
         {
+            "id": "faq-23",
+            "question": "Can I transcribe audio and video files I already have?",
+            "answer": "Yes. Drop meeting recordings, interviews, podcasts, or videos onto the app window (or pick them from the tray) and they are transcribed into your searchable history. **Nothing is uploaded anywhere.** The bundled `transcribe` CLI also handles whole folders and produces subtitles (`srt`, `vtt`), plain text, or JSON from the terminal."
+        },
+        {
             "id": "faq-10",
             "question": "How fast is it?",
             "answer": "Depends on computer, model choice, and speech length. Decent laptop with small model: 1-3 seconds for few sentences. With GPU acceleration: near-instant. Larger models take few seconds longer but more accurate."
