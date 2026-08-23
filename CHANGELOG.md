@@ -1,3 +1,8 @@
+## [1.56.0](https://github.com/DeveloPassion/store-website/compare/1.55.0...1.56.0) (2026-08-23)
+
+### Features
+
+* **website:** add Sofia Alfredsson testimonial for Knowii Voice AI ([8f43bd3](https://github.com/DeveloPassion/store-website/commit/8f43bd377809388531e665d74164bf1515351327))
 ## [1.55.0](https://github.com/DeveloPassion/store-website/compare/1.54.0...1.55.0) (2026-08-23)
 
 ### Features
