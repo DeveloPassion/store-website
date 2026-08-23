@@ -1,3 +1,16 @@
 {
-    "data": []
+    "data": [
+        {
+            "id": "testimonial-1",
+            "author": "Sofia Alfredsson",
+            "quote": "The transcription quality is excellent, and I'm especially impressed with how it handles punctuation, capitalisation and sentence structure. It's noticeably better than what I've been using (superwhisper), and much faster now that I'm running everything locally.",
+            "featured": true,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
+        }
+    ]
 }
