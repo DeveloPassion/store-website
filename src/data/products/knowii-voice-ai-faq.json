@@ -18,7 +18,7 @@
         {
             "id": "faq-10",
             "question": "How fast is it?",
-            "answer": "Depends on computer, model choice, and speech length. Decent laptop with small model: 1-3 seconds for few sentences. With GPU acceleration: near-instant. Larger models take few seconds longer but more accurate."
+            "answer": "Depends on computer, model choice, and speech length. Decent laptop with small model: 1-3 seconds for few sentences. With GPU acceleration: near-instant. Larger models take few seconds longer but more accurate. Turn on instant transcription in Advanced settings and the app transcribes at natural pauses while you speak, so only the last few words are left when you stop. Long dictations are ready almost immediately."
         },
         {
             "id": "faq-11",

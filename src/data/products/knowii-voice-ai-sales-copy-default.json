@@ -27,6 +27,7 @@
         "solution": "Voice-to-text that runs entirely on your computer. One keyboard shortcut. Any application. Complete privacy.",
         "solutionPoints": [
             "Press `Ctrl+Space`, speak, release. Words appear",
+            "Stop talking; the text is already there (**instant transcription**, opt-in)",
             "Responses **faster and more thorough**",
             "Clear inbox in **half the time**",
             "Leave work with energy (not drained from typing)",
