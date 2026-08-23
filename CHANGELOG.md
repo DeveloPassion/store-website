@@ -1,3 +1,8 @@
+## [1.55.0](https://github.com/DeveloPassion/store-website/compare/1.54.0...1.55.0) (2026-08-23)
+
+### Features
+
+* **knowii-voice-ai:** add instant transcription to the product copy ([769f1a6](https://github.com/DeveloPassion/store-website/commit/769f1a622b69552b102781cdbf0d1f64eb39b586))
 ## [1.54.0](https://github.com/DeveloPassion/store-website/compare/1.53.0...1.54.0) (2026-08-22)
 
 ### Features
