@@ -1,3 +1,8 @@
+## [1.56.2](https://github.com/DeveloPassion/store-website/compare/1.56.1...1.56.2) (2026-08-28)
+
+### Bug Fixes
+
+* **website:** correct stale platform claim in legacy faqs.json ([09dc078](https://github.com/DeveloPassion/store-website/commit/09dc078560914f5c5d5baad4bbee575b7ced4f20))
 ## [1.56.1](https://github.com/DeveloPassion/store-website/compare/1.56.0...1.56.1) (2026-08-28)
 
 ### Bug Fixes
