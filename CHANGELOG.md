@@ -1,3 +1,8 @@
+## [1.56.1](https://github.com/DeveloPassion/store-website/compare/1.56.0...1.56.1) (2026-08-28)
+
+### Bug Fixes
+
+* **website:** correct Knowii Voice AI platform claims — macOS and Linux ship today ([59fd907](https://github.com/DeveloPassion/store-website/commit/59fd907902f922985bc6bc2a3aae5a919b49e939))
 ## [1.56.0](https://github.com/DeveloPassion/store-website/compare/1.55.0...1.56.0) (2026-08-23)
 
 ### Features
