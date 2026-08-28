@@ -33,7 +33,7 @@
         {
             "id": "faq-13",
             "question": "Will this work on my computer?",
-            "answer": "**Windows 10/11**: yes. macOS and Linux: coming soon. Don't need powerful computer, but GPU acceleration helps (`NVIDIA CUDA`). Works fine on CPU-only, just bit slower."
+            "answer": "**Windows 10/11, macOS, and Linux**: yes, all three. Linux ships as `deb`, `rpm`, and `AppImage`. Don't need powerful computer, but GPU acceleration helps (`Vulkan` on Windows and Linux, `Metal` on macOS — works with NVIDIA, AMD, and Intel). Works fine on CPU-only, just bit slower."
         },
         {
             "id": "faq-14",
