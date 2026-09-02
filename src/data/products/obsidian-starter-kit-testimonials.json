@@ -579,7 +579,19 @@
         {
             "id": "testimonial-49",
             "author": "Andrey Konev",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "Thanks for the kit. I've been running it since version 2, and it is an incredible help to me.",
+            "featured": false
+        },
+        {
+            "id": "testimonial-50",
+            "author": "Darren Williams",
+            "quote": "With OSK I now actually enjoy just opening Obsidian in the morning and getting started, knowing that everything makes its way into its own place",
             "featured": false,
             "role": null,
             "company": null,
