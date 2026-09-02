@@ -1,3 +1,8 @@
+## [1.57.0](https://github.com/DeveloPassion/store-website/compare/1.56.2...1.57.0) (2026-09-02)
+
+### Features
+
+* **website:** add Darren Williams testimonial for Obsidian Starter Kit ([c5ce3b8](https://github.com/DeveloPassion/store-website/commit/c5ce3b85404217ba0e978f45e8dc9085838e1fe3))
 ## [1.56.2](https://github.com/DeveloPassion/store-website/compare/1.56.1...1.56.2) (2026-08-28)
 
 ### Bug Fixes
