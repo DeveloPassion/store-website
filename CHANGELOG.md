@@ -1,3 +1,8 @@
+## [1.58.0](https://github.com/DeveloPassion/store-website/compare/1.57.0...1.58.0) (2026-09-02)
+
+### Features
+
+* **website:** sync Gumroad sales stats ([5b023ff](https://github.com/DeveloPassion/store-website/commit/5b023ff193fe856abba2aee9307943d47d3c6324))
 ## [1.57.0](https://github.com/DeveloPassion/store-website/compare/1.56.2...1.57.0) (2026-09-02)
 
 ### Features
