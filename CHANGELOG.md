@@ -1,3 +1,4 @@
+## [1.58.1](https://github.com/DeveloPassion/store-website/compare/1.58.0...1.58.1) (2026-09-08)
 ## [1.58.0](https://github.com/DeveloPassion/store-website/compare/1.57.0...1.58.0) (2026-09-02)
 
 ### Features
