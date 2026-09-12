@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "id": "cover-1789200000000",
+            "type": "image",
+            "url": "/assets/images/products/obsidian-automation-guide/obsidian-automation-guide-cover.webp",
+            "title": "Complete Guide to Obsidian Automation",
+            "altText": "Free 62-page guide to Obsidian automation, from templates to AI agents on your vault",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "id": "default",
+    "salesCopy": {
+        "tagline": "Your Notes Are Plain Files. Let Them Work For You.",
+        "secondaryTagline": "The **FREE** 62-page guide to Obsidian automation, from your first template to AI agents running on your vault",
+        "problem": "Most guides to Obsidian automation are lists of plugins. Install this, install that. What they never explain is how the pieces fit together, in what order to adopt them, and where it all leads. So people bolt automation onto a vault that has no clear structure, and the automation reproduces the mess, faster.",
+        "problemPoints": [
+            "The same manual steps every day: creating notes, filling frontmatter, moving files",
+            "Notes that drift out of shape because nothing keeps them consistent",
+            "A dozen plugins installed, no idea which ones actually matter",
+            "Scripts and templates that break as soon as the vault grows",
+            "No clear picture of where AI fits without handing your notes to a chatbot",
+            "Automating too early, then maintaining a machine you don't understand"
+        ],
+        "agitate": "The cost compounds. Every hour spent on manual filing is an hour not spent thinking. Every inconsistent note makes queries less trustworthy. And when AI agents finally arrive on your vault, they inherit whatever mess is there. Without a mental model, you keep adding tools instead of building a system.",
+        "agitatePoints": [
+            "Hours lost every week to work a template could have done",
+            "Dataview queries you stop trusting because the data underneath is inconsistent",
+            "Plugin sprawl that slows the app down and nobody can explain",
+            "Backups and sync that were never automated, until the day they were needed",
+            "AI experiments that fail because the vault was never made machine-readable",
+            "Restarting the vault from scratch, again"
+        ],
+        "solution": "This **FREE** guide gives you the complete map. Obsidian automation is three layers stacked on one idea: your notes are plain files, so anything can operate on them. Layer 1 inside Obsidian, Layer 2 around the vault, Layer 3 AI agents on top. The guide covers every plugin and technique that matters, in the order to adopt them, with the safety practices that keep the system trustworthy.",
+        "solutionPoints": [
+            "**A mental model** that tells you what to automate first, and what to leave alone",
+            "**Seven jobs** Layer 1 plugins should do for you, with the plugins that do them",
+            "**Layer 2 and 3 in depth**: Git, CLI, REST and MCP, scheduled jobs, AI agents, hooks, skills",
+            "**A real production setup**: how a 20,000+ note vault runs with an AI assistant inside it"
+        ],
+        "description": "This **FREE** 62-page guide is the written version of years spent automating one large Obsidian vault and helping others do the same. It goes from the very first template to a full AI operating system built on plain files, and it is honest about the risks and the order of operations. Read it offline, annotate it, and come back to it as your vault grows.",
+        "highlights": [
+            "**100% Free**: no strings attached, instant download",
+            "**The Three Layers**: inside Obsidian, around the vault, AI agents on top, explained as one system",
+            "**Adoption Path**: the order that works, and the mistake that wastes months",
+            "**Battle-Tested**: from a 20,000+ note vault running in production",
+            "**Gateway to the System**: everything in the guide is pre-built in the [Obsidian Starter Kit](/product/obsidian-starter-kit)"
+        ],
+        "benefits": {
+            "immediate": [
+                "See the whole map of Obsidian automation in one place",
+                "Know which plugins matter and which to skip",
+                "Pick one job to automate this week"
+            ],
+            "systematic": [
+                "Notes that are born correct, filed and formatted without thinking",
+                "A vault you can query and trust",
+                "Automation adopted in an order that does not break later"
+            ],
+            "longTerm": [
+                "A vault that is ready for AI agents instead of fighting them",
+                "Hours per week returned to thinking instead of filing",
+                "A system that compounds as the vault grows"
+            ]
+        },
+        "targetAudience": [
+            "Obsidian users with a working vault who feel the daily friction",
+            "Knowledge workers curious where AI fits without giving up their notes",
+            "Developers and tinkerers who want the full technical picture",
+            "Anyone who installed too many plugins and wants a system instead"
+        ],
+        "perfectFor": [
+            "Going from manual note-taking to a vault that maintains itself",
+            "Deciding what to automate first, and what not to",
+            "Understanding hooks, skills, MCP and agents before touching them",
+            "Auditing an existing automation setup for gaps and risks"
+        ],
+        "notForYou": [
+            "You are brand new to Obsidian: start with the [Beginner's Guide to Obsidian](/product/beginners-guide-obsidian)",
+            "You want a list of plugins to install without understanding why"
+        ],
+        "trustBadges": [
+            "**100% FREE**; no credit card required",
+            "**62 pages** of practical, tested material",
+            "**Instant Access**; read it today"
+        ],
+        "guarantees": [
+            "**Completely free**; no strings attached",
+            "Based on a **real production vault**, not theory",
+            "Honest about the **risks** and the order of operations"
+        ],
+        "metaTitle": "FREE Complete Guide to Obsidian Automation | From Templates to AI Agents",
+        "metaDescription": "FREE 62-page guide to Obsidian automation. The three layers (inside the app, around the vault, AI agents on top), every plugin that matters, and the order to adopt them.",
+        "keywords": [
+            "obsidian automation",
+            "obsidian templater",
+            "obsidian dataview",
+            "obsidian ai agents",
+            "obsidian mcp",
+            "obsidian scripts",
+            "automate obsidian vault",
+            "free obsidian guide",
+            "obsidian plugins guide",
+            "pkm automation"
+        ],
+        "storytelling": {
+            "originStory": {
+                "title": "Why This Guide Exists",
+                "subtitle": "From one vault, 20,000+ notes, and a lot of broken scripts",
+                "story": "I automated my vault the wrong way first: plugins before structure, scripts before note types. It worked until it did not. The version that lasted started from a simple idea: notes are plain files, so anything can operate on them, as long as the files are consistent.\n\nThis guide is the map I wish I had at the start, including the parts about what not to automate.",
+                "icon": "⚙️",
+                "inspirationPoint": null,
+                "genesisDate": null
+            },
+            "creatorJourney": null,
+            "methodology": {
+                "title": "The Three Layers",
+                "subtitle": "One idea, three places to apply it",
+                "steps": [
+                    {
+                        "title": "Layer 1: inside Obsidian",
+                        "description": "Templates, capture, filing, formatting, queries, state machines in frontmatter, commands and buttons. The seven jobs plugins should do for you.",
+                        "icon": "🧩",
+                        "order": 0
+                    },
+                    {
+                        "title": "Layer 2: around the vault",
+                        "description": "Git, the command line, REST and MCP, URIs, backup and sync, scheduled jobs, publishing pipelines, ingestion, OS-level automation.",
+                        "icon": "🔧",
+                        "order": 1
+                    },
+                    {
+                        "title": "Layer 3: AI agents on the vault",
+                        "description": "Instruction files, skills, hooks, MCP, multi-agent workflows, scheduled agents, self-maintaining vaults, and the risks.",
+                        "icon": "🤖",
+                        "order": 2
+                    },
+                    {
+                        "title": "The adoption path",
+                        "description": "Which layer to build first, when to move up, and the mistake that wastes months: automating too early.",
+                        "icon": "🗺️",
+                        "order": 3
+                    }
+                ],
+                "philosophy": "Automation is what keeps a knowledge system trustworthy. It is not a collection of plugins.",
+                "differentiation": "Most resources list plugins. This guide explains how the layers fit together, in what order to adopt them, and where AI belongs."
+            },
+            "transformationArc": null,
+            "successStories": null,
+            "vision": null
+        },
+        "timeline": null,
+        "courseContent": null,
+        "howItWorks": null,
+        "mediaSections": null
+    }
+}

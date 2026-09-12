@@ -1,0 +1,57 @@
+{
+    "id": "obsidian-automation-guide",
+    "name": "Complete Guide to Obsidian Automation",
+    "gumroadId": "oxy6a03_RZgim5fmQpktWQ==",
+    "isGumroadProduct": true,
+    "gumroadProductSlugs": ["obsidian-automation-guide"],
+    "price": 0,
+    "priceDisplay": "FREE",
+    "priceTier": "free",
+    "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-automation-guide",
+    "tags": [
+        "obsidian",
+        "automation",
+        "ai",
+        "free-guide",
+        "lead-magnet",
+        "pkm",
+        "personal-knowledge-management",
+        "knowledge-management",
+        "templates"
+    ],
+    "contents": [
+        "**62-page PDF** guide, readable offline and annotatable",
+        "**Part I**: the mental model, the four stages of automation, and the biggest mistake (automating too early)",
+        "**Part II, Layer 1**: automation inside `Obsidian`: the seven jobs plugins should do for you (notes born correct, 3-second capture, automatic filing, formatting, queries, state machines in frontmatter, commands and buttons)",
+        "**Part III, Layer 2**: automation around the vault: `Git`, the command line, REST and MCP, URIs, backup and sync, scheduled jobs, publishing pipelines, ingestion, attachments, OS-level automation, mobile, batch operations",
+        "**Part IV, Layer 3**: AI agents on the vault: instruction files, skills, hooks, MCP, multi-agent workflows, scheduled agents, self-maintaining vaults, and the risks",
+        "**Part V**: a production setup running on 20,000+ notes, with an AI assistant living inside the vault",
+        "**Part VI**: the adoption path to start today, plus a FAQ and the full list of plugins and tools mentioned"
+    ],
+    "featured": false,
+    "bestValue": false,
+    "bestseller": false,
+    "crossSellIds": ["obsidian-starter-kit", "obsidian-starter-course", "beginners-guide-obsidian"],
+    "priority": 42,
+    "mainCategory": "free",
+    "secondaryCategories": [
+        {
+            "id": "obsidian",
+            "distant": false
+        },
+        {
+            "id": "knowledge-management",
+            "distant": true
+        }
+    ],
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "variants": null,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "landingPageUrl": "https://www.dsebastien.net/free-complete-guide-to-obsidian-automation",
+    "dsebastienUrl": "https://www.dsebastien.net/the-complete-guide-to-obsidian-automation/",
+    "includedProducts": [],
+    "targetExperienceLevel": "intermediate",
+    "deliveryStyle": "conceptual"
+}

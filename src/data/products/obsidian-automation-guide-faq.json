@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "id": "faq-obsidian-automation-guide-1",
+            "question": "Is this really free?",
+            "answer": "Yes. Completely free, no credit card required. It is the PDF version of a guide I published on my blog, packaged so you can read it offline and keep it."
+        },
+        {
+            "id": "faq-obsidian-automation-guide-2",
+            "question": "What format is the guide?",
+            "answer": "A **62-page PDF** with a table of contents and clickable links. The living version is also published on [dsebastien.net](https://www.dsebastien.net/the-complete-guide-to-obsidian-automation/) and is updated as the tooling evolves."
+        },
+        {
+            "id": "faq-obsidian-automation-guide-3",
+            "question": "I am new to Obsidian. Should I start here?",
+            "answer": "Not yet. Start with the free [Beginner's Guide to Obsidian](/product/beginners-guide-obsidian), get a working vault, then come back to automation."
+        },
+        {
+            "id": "faq-obsidian-automation-guide-4",
+            "question": "Do I need to be a developer?",
+            "answer": "No for Layer 1 (everything inside `Obsidian`). Layer 2 and 3 get more technical (command line, `Git`, MCP, AI agents), and the guide explains each concept before using it."
+        },
+        {
+            "id": "faq-obsidian-automation-guide-5",
+            "question": "Which plugins does it cover?",
+            "answer": "`Templater`, `QuickAdd`, `Dataview`, `Bases`, `Linter`, `Meta Bind`, `Commander`, `Auto Note Mover`, `Obsidian Git`, `Local REST API`, MCP servers, and many more, always tied to the job they do rather than as a list."
+        },
+        {
+            "id": "faq-obsidian-automation-guide-6",
+            "question": "Does it cover AI agents on the vault?",
+            "answer": "Yes, the whole of Layer 3: instruction files, skills, hooks, MCP, multi-agent workflows, scheduled agents, vault maintenance that runs itself, and the risks (including how to keep AI out of your vault when you want to)."
+        },
+        {
+            "id": "faq-obsidian-automation-guide-7",
+            "question": "I want all of this pre-built. Is there a shortcut?",
+            "answer": "That is exactly what the [Obsidian Starter Kit](/product/obsidian-starter-kit) is: the vault structure, note types, templates, automations, and the AI skills library from the guide, ready to use."
+        }
+    ]
+}
