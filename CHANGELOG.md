@@ -1,3 +1,8 @@
+## [1.59.0](https://github.com/DeveloPassion/store-website/compare/1.58.1...1.59.0) (2026-09-12)
+
+### Features
+
+* **website:** add the free Complete Guide to Obsidian Automation ([c5db705](https://github.com/DeveloPassion/store-website/commit/c5db7050c1ca084197cb4897a06e68e9c90b1509))
 ## [1.58.1](https://github.com/DeveloPassion/store-website/compare/1.58.0...1.58.1) (2026-09-08)
 ## [1.58.0](https://github.com/DeveloPassion/store-website/compare/1.57.0...1.58.0) (2026-09-02)
 
