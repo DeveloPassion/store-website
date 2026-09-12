@@ -1,3 +1,8 @@
+## [1.59.1](https://github.com/DeveloPassion/store-website/compare/1.59.0...1.59.1) (2026-09-12)
+
+### Bug Fixes
+
+* **website:** add the /l/obsidian-automation-guide redirect ([1d66198](https://github.com/DeveloPassion/store-website/commit/1d66198bfd40279450d9ebe6a5f8057c3e6c9b9c))
 ## [1.59.0](https://github.com/DeveloPassion/store-website/compare/1.58.1...1.59.0) (2026-09-12)
 
 ### Features
