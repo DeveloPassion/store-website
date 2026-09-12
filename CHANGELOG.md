@@ -1,3 +1,8 @@
+## [1.59.3](https://github.com/DeveloPassion/store-website/compare/1.59.2...1.59.3) (2026-09-12)
+
+### Bug Fixes
+
+* **website:** concepts knowledge base count is 4K+, not 3.8K+ ([dc6058f](https://github.com/DeveloPassion/store-website/commit/dc6058f955c723ef7940e6643472dcbb172bb955))
 ## [1.59.2](https://github.com/DeveloPassion/store-website/compare/1.59.1...1.59.2) (2026-09-12)
 ## [1.59.1](https://github.com/DeveloPassion/store-website/compare/1.59.0...1.59.1) (2026-09-12)
 
