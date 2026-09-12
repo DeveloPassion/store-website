@@ -1,3 +1,4 @@
+## [1.59.2](https://github.com/DeveloPassion/store-website/compare/1.59.1...1.59.2) (2026-09-12)
 ## [1.59.1](https://github.com/DeveloPassion/store-website/compare/1.59.0...1.59.1) (2026-09-12)
 
 ### Bug Fixes
