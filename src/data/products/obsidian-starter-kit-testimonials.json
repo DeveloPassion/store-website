@@ -591,8 +591,20 @@
         {
             "id": "testimonial-50",
             "author": "Darren Williams",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "With OSK I now actually enjoy just opening Obsidian in the morning and getting started, knowing that everything makes its way into its own place",
-            "featured": false,
+            "featured": false
+        },
+        {
+            "id": "testimonial-51",
+            "author": "Chris Flanagan",
+            "quote": "I'd recommend going with Sébastien's OSK vault. OSK is phenomenal.",
+            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
