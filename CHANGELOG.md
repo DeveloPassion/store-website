@@ -1,3 +1,8 @@
+## [1.60.0](https://github.com/DeveloPassion/store-website/compare/1.59.3...1.60.0) (2026-09-22)
+
+### Features
+
+* **website:** add Breana Nannetti (Knowii Voice AI) and Chris Flanagan (OSK) testimonials ([944f221](https://github.com/DeveloPassion/store-website/commit/944f221b6bd01ada9865d781e5b644e3876ea124))
 ## [1.59.3](https://github.com/DeveloPassion/store-website/compare/1.59.2...1.59.3) (2026-09-12)
 
 ### Bug Fixes
