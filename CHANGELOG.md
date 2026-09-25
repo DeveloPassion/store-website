@@ -1,3 +1,8 @@
+## [1.63.0](https://github.com/DeveloPassion/store-website/compare/1.62.1...1.63.0) (2026-09-25)
+
+### Features
+
+* **website:** use the v5 promo as the OSK cover video ([4faeeb6](https://github.com/DeveloPassion/store-website/commit/4faeeb6274e29a46f49c0a60ea2ec655b8217fce))
 ## [1.62.1](https://github.com/DeveloPassion/store-website/compare/1.62.0...1.62.1) (2026-09-25)
 ## [1.62.0](https://github.com/DeveloPassion/store-website/compare/1.61.1...1.62.0) (2026-09-25)
 
