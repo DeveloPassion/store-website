@@ -78,7 +78,7 @@
         {
             "id": "cover-001",
             "type": "image",
-            "url": "/assets/images/products/osk/osk-graph-view.webp",
+            "url": "/assets/images/products/osk/osk-graph-view-v5.webp",
             "title": "Your Whole Vault at a Glance",
             "altText": "The Obsidian graph view, each note colored by what it is: actions, journal, knowledge, people",
             "order": 16,
