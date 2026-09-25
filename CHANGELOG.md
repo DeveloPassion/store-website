@@ -1,3 +1,8 @@
+## [1.62.0](https://github.com/DeveloPassion/store-website/compare/1.61.1...1.62.0) (2026-09-25)
+
+### Features
+
+* **website:** link the OSK v5 launch article and new meta title ([bfcdd34](https://github.com/DeveloPassion/store-website/commit/bfcdd349b3402d38c1e98f43bc3ce3d1331b7476))
 ## [1.61.1](https://github.com/DeveloPassion/store-website/compare/1.61.0...1.61.1) (2026-09-25)
 
 ### Bug Fixes
