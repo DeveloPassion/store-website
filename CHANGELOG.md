@@ -1,3 +1,8 @@
+## [1.61.1](https://github.com/DeveloPassion/store-website/compare/1.61.0...1.61.1) (2026-09-25)
+
+### Bug Fixes
+
+* **website:** serve the new OSK graph view under a new filename ([b98ba77](https://github.com/DeveloPassion/store-website/commit/b98ba77b36b08d78af5b0c412ad2550950e3f579))
 ## [1.61.0](https://github.com/DeveloPassion/store-website/compare/1.60.0...1.61.0) (2026-09-25)
 
 ### Features
