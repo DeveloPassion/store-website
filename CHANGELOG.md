@@ -1,3 +1,8 @@
+## [1.61.0](https://github.com/DeveloPassion/store-website/compare/1.60.0...1.61.0) (2026-09-25)
+
+### Features
+
+* **website:** update Obsidian Starter Kit page for v5 ([c416d18](https://github.com/DeveloPassion/store-website/commit/c416d1872fb92af0b8f4d4b699324ceb3c55b35e))
 ## [1.60.0](https://github.com/DeveloPassion/store-website/compare/1.59.3...1.60.0) (2026-09-22)
 
 ### Features
