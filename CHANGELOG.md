@@ -1,3 +1,4 @@
+## [1.62.1](https://github.com/DeveloPassion/store-website/compare/1.62.0...1.62.1) (2026-09-25)
 ## [1.62.0](https://github.com/DeveloPassion/store-website/compare/1.61.1...1.62.0) (2026-09-25)
 
 ### Features
