@@ -3,12 +3,32 @@
         {
             "id": "faq-1",
             "question": "I'm brand new to Obsidian. Is this too advanced?",
-            "answer": "Not at all. OSK is designed for **beginners**. The **100+ page** user guide explains everything step-by-step. Many users start with OSK on day 1 and reach intermediate level in **1-2 days**. You don't need prior `Obsidian` experience."
+            "answer": "Not at all. OSK is designed for **beginners**. The user guide explains everything step by step, and the Getting Started Roadmap tells you what to learn first. Many people start with OSK on their very first day with `Obsidian`."
         },
         {
             "id": "faq-10",
-            "question": "What's new in v4?",
-            "answer": "v4 is the **AI-native release**: the new OSK plugin (strongly typed notes, CLI, `MCP` server), **~375 AI skills**, dozens of AI agents with persistent memory, LLM Wikis, a Personal Identity System, new plugins (`Journal Bases`, `Life Tracker`, `Time Machine`, `Graph Explorer`, `Expander`), a leaner plugin baseline, and **15+ new tutorials**. Existing customers get it free, like every update."
+            "question": "What's new in v5?",
+            "answer": "v5 brings everything that proved itself in my vault since v4 into yours: **finished work that files itself** (statuses stamp their dates, done actions archive after seven days), **one-click Quick Actions** on your daily note, **Activities and Ideas** in the action system, **time budgets and delivery stats**, refreshed templates and Bases with Kanban boards, new AI skills, agents that remember what they learn, and a **Claude Code setup that finds skills on demand** instead of loading all of them up front. Add nine new plugins (K-Plex, the Kanban Action Planner and the Knowii Community plugin among them) and a much more capable OSK plugin. Everything else (and there's a LOT) is in the [v5.0.0 release notes](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Release+Notes/Obsidian+Starter+Kit+-+Release+Notes+-+v5.0.0)."
+        },
+        {
+            "id": "faq-12",
+            "question": "I'm on v4. How do I upgrade to v5?",
+            "answer": "You don't start over. The [v4 to v5 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v4.x+to+v5.0.0) takes you through it step by step and tells you what to merge where you customized the kit. Back up your vault first: on its first launch, v5 archives finished actions older than seven days."
+        },
+        {
+            "id": "faq-13",
+            "question": "What do I need to run it?",
+            "answer": "`Obsidian` **1.13.7 or newer** (several bundled plugins need a recent version). The AI part is optional; for it, you need an AI coding agent such as `Claude Code`, and the skills that run scripts also need `bun`. Everything else works without any of it."
+        },
+        {
+            "id": "faq-14",
+            "question": "Which AI tools does it work with?",
+            "answer": "`Claude Code` gets everything: the `MCP` servers, on-demand skill search, the slash commands, the output styles and every safety hook. `Codex` gets the `MCP` servers and the hooks. `Gemini CLI` gets the hooks (you add the `MCP` servers yourself). `GitHub Copilot` in your IDE reads the vault rules and the skill files."
+        },
+        {
+            "id": "faq-15",
+            "question": "Where do I download v5?",
+            "answer": "Where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii if you got it through the community. [learn.knowii.net](https://learn.knowii.net) explains both."
         },
         {
             "id": "faq-11",
@@ -18,12 +38,12 @@
         {
             "id": "faq-9",
             "question": "Do I need AI tools to use OSK?",
-            "answer": "No. OSK works great as a \"classic\" PKM system. But when you're ready for AI, **v4 gives you a massive head start**: dozens of AI agents, **~375 AI skills**, LLM Wikis, an identity layer, and the OSK plugin (CLI + `MCP` server) that lets tools like `Claude Code`, `Codex`, or `Gemini CLI` understand your whole vault. Everything is already wired."
+            "answer": "No. OSK works great as a \"classic\" PKM system, and the user guide shows what to switch off if you want AI out of your vault entirely. When you're ready for AI, everything is already wired: agents, AI skills, LLM Wikis, an identity layer, and the OSK plugin (CLI + `MCP` server) that helps AI tools understand your whole vault. `Claude Code` and `Codex` connect to it on first launch."
         },
         {
             "id": "faq-2",
-            "question": "I already have an Obsidian vault. Can I migrate?",
-            "answer": "Yes. I've included detailed migration guides for v2/v3 users and custom setups. The guide walks you through the process step-by-step, so you don't lose your existing work."
+            "question": "I already have an Obsidian vault, or an older version of OSK. Can I migrate?",
+            "answer": "Yes. Each major version of OSK comes with a step-by-step migration guide; the latest one takes you from v4 to v5 and keeps your setup. Starting from a vault of your own? Open OSK next to it and bring your notes in at your own pace; the user guide explains where each kind of note goes."
         },
         {
             "id": "faq-3",
@@ -33,27 +53,27 @@
         {
             "id": "faq-4",
             "question": "How do updates work?",
-            "answer": "**Free lifetime updates**. You'll get access to all future versions at no additional cost. I announce updates via email and in the community."
+            "answer": "**Every update is free, for life**, v5 and every version after it included. You download new versions where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii. I announce every release by email, and the release notes document every change."
         },
         {
             "id": "faq-5",
             "question": "Do I need to pay for Obsidian?",
-            "answer": "No. `Obsidian` is **free for personal use**. OSK is a pre-built vault plus documentation plus community access. The two are separate products."
+            "answer": "No. `Obsidian` is **free**, including for work (the commercial license is optional). OSK is a pre-built vault plus documentation; the two are separate products."
         },
         {
             "id": "faq-6",
             "question": "Is support included?",
-            "answer": "Yes. You get **lifetime community access**, **priority email support**, and migration help. I personally respond to questions and help users get started."
+            "answer": "Yes. Email me your questions; I answer them myself and help people get started. If you're a [Knowii Community](/product/knowii-community) member, you can also ask there, right inside Obsidian with the Knowii Community plugin."
         },
         {
             "id": "faq-7",
             "question": "Can I use OSK for work or commercial purposes?",
-            "answer": "Absolutely. Many consultants, project managers, and knowledge workers use OSK professionally. Just follow Obsidian's licensing (free for personal use, paid license required for commercial use of Obsidian itself)."
+            "answer": "Absolutely. Consultants, project managers and knowledge workers use OSK for their professional work. `Obsidian` itself is free for work too (the commercial license is optional)."
         },
         {
             "id": "faq-8",
             "question": "What's the difference between Essentials and Premium?",
-            "answer": "**Essentials** (**${product.variants.0.price|currency}**) includes the complete vault and the **100+ page** user guide. **Premium** (**${product.variants.1.price|currency}**) adds a **2h20m video course** covering `Obsidian` and PKM fundamentals. Both include **lifetime updates** and community access."
+            "answer": "**Essentials** (**${product.variants.0.price|currency}**) includes the complete vault, the online user guide and every future update. **Premium** (**${product.variants.1.price|currency}**) adds the **2h20m** Obsidian Starter Course, a video course on `Obsidian` and PKM fundamentals. Both are one-time purchases with free updates for life."
         }
     ]
 }
