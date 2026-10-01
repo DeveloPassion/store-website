@@ -603,8 +603,20 @@
         {
             "id": "testimonial-51",
             "author": "Chris Flanagan",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "I'd recommend going with Sébastien's OSK vault. OSK is phenomenal.",
-            "featured": true,
+            "featured": true
+        },
+        {
+            "id": "testimonial-52",
+            "author": "Ralph Mayer",
+            "quote": "After a long journey with Evernote, org-mode and logseq I am now running Obsidian with osk + Claude. Happy user so far.",
+            "featured": false,
             "role": null,
             "company": null,
             "avatarUrl": null,
