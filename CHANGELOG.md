@@ -1,3 +1,8 @@
+## [1.64.0](https://github.com/DeveloPassion/store-website/compare/1.63.0...1.64.0) (2026-10-01)
+
+### Features
+
+* **website:** add Ralph Mayer testimonial for Obsidian Starter Kit ([d4488bf](https://github.com/DeveloPassion/store-website/commit/d4488bff051ea61bbd1b0f481708904b08316e88))
 ## [1.63.0](https://github.com/DeveloPassion/store-website/compare/1.62.1...1.63.0) (2026-09-25)
 
 ### Features
