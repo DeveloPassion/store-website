@@ -1,3 +1,8 @@
+## [1.65.0](https://github.com/DeveloPassion/store-website/compare/1.64.0...1.65.0) (2026-10-05)
+
+### Features
+
+* **website:** sync gumroad stats and add missing gumroad review testimonials ([5ffd796](https://github.com/DeveloPassion/store-website/commit/5ffd79698156e3cc948724d9c91ec786ff4130b7))
 ## [1.64.0](https://github.com/DeveloPassion/store-website/compare/1.63.0...1.64.0) (2026-10-01)
 
 ### Features
