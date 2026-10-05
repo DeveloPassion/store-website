@@ -615,7 +615,43 @@
         {
             "id": "testimonial-52",
             "author": "Ralph Mayer",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "After a long journey with Evernote, org-mode and logseq I am now running Obsidian with osk + Claude. Happy user so far.",
+            "featured": false
+        },
+        {
+            "id": "testimonial-53",
+            "author": "Marcel Grossert",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
+            "quote": "A headstart for PKM with Obsidian, thank you, Sébastien!",
+            "featured": false
+        },
+        {
+            "id": "testimonial-54",
+            "author": "Cal Desmond-Pearson",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
+            "quote": "OSK is brilliant! It has been a real game-changer for me regarding my use of Obsidian. I'm Disabled and Hemiplegic following a massive Stroke. I needed some way to organise not only my day-to-day life but also everything else that goes with being paralysed and also being Autistic/ADHD. Thank you so much, Sebastien, for all your hard work in producing OSK!",
+            "featured": true
+        },
+        {
+            "id": "testimonial-55",
+            "author": "Brigitte Roujol",
+            "quote": "A very good starter kit.",
             "featured": false,
             "role": null,
             "company": null,

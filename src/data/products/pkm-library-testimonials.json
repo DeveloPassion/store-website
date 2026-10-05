@@ -83,6 +83,18 @@
             "sourceUrl": null,
             "quote": "I've been reading and re-reading a lot of the content here… Clarity 101, the PKM library, the Knowledge Worker Kit and honestly it's a goldmine, thank you so much Sebastien 👏",
             "featured": true
+        },
+        {
+            "id": "testimonial-21",
+            "author": "Anonymous",
+            "quote": "Thank you SO much for making this available, great resource!",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }

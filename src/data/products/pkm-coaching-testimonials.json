@@ -23,6 +23,18 @@
             "sourceUrl": null,
             "quote": "Sébastien thinks everything from first principles, the systems and ideas we discussed are well thought from multiple angles and I'm going to integrate them in my own specific setup",
             "featured": true
+        },
+        {
+            "id": "testimonial-1",
+            "author": "Helder Da Costa",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
+            "quote": "The coach is caring, highly competent and super friendly. I recommend him without hesitation. A gem.",
+            "featured": false
         }
     ]
 }
