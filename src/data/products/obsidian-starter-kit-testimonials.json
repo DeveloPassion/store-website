@@ -662,15 +662,15 @@
         },
         {
             "id": "testimonial-56",
-            "author": "Vickie Berg",
-            "quote": "After being introduced to obsidian, I decided to research the different starting packages available. Of the ones I investigated, Sébastien Dubois' was the most complete yet easy to begin using. Do not hesitate to get this package, it will get you started and along the way you can still make your own adjustments if you need to.",
-            "featured": true,
+            "author": "Vicki Berg",
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": null
+            "sourceUrl": null,
+            "quote": "After being introduced to obsidian, I decided to research the different starting packages available. Of the ones I investigated, Sébastien Dubois' was the most complete yet easy to begin using. Do not hesitate to get this package, it will get you started and along the way you can still make your own adjustments if you need to.",
+            "featured": true
         }
     ]
 }
