@@ -1,3 +1,12 @@
+## [1.66.0](https://github.com/DeveloPassion/store-website/compare/1.65.0...1.66.0) (2026-10-16)
+
+### Features
+
+* **website:** add Vickie Berg testimonial for Obsidian Starter Kit ([404a2a8](https://github.com/DeveloPassion/store-website/commit/404a2a8b4a50dc8d4dc72194762cffb0feb91712))
+
+### Bug Fixes
+
+* **website:** correct Vicki Berg testimonial author spelling ([161d0b4](https://github.com/DeveloPassion/store-website/commit/161d0b4d7b4efcb65034a46f47c1ef315af919ce))
 ## [1.65.0](https://github.com/DeveloPassion/store-website/compare/1.64.0...1.65.0) (2026-10-05)
 
 ### Features
