@@ -651,8 +651,20 @@
         {
             "id": "testimonial-55",
             "author": "Brigitte Roujol",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "A very good starter kit.",
-            "featured": false,
+            "featured": false
+        },
+        {
+            "id": "testimonial-56",
+            "author": "Vickie Berg",
+            "quote": "After being introduced to obsidian, I decided to research the different starting packages available. Of the ones I investigated, Sébastien Dubois' was the most complete yet easy to begin using. Do not hesitate to get this package, it will get you started and along the way you can still make your own adjustments if you need to.",
+            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
