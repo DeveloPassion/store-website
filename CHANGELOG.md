@@ -1,3 +1,9 @@
+## [1.67.0](https://github.com/DeveloPassion/store-website/compare/1.66.0...1.67.0) (2026-10-22)
+
+### Features
+
+* **all:** updated stats ([6f52444](https://github.com/DeveloPassion/store-website/commit/6f52444b1ced3822e72d00deb6ca9c2da0329cf8))
+* **website:** add The Obsidian Search Handbook and the free Obsidian Search Cheat Sheet ([722730f](https://github.com/DeveloPassion/store-website/commit/722730fed08b5aba538ffbe4a344493b29de5a14))
 ## [1.66.0](https://github.com/DeveloPassion/store-website/compare/1.65.0...1.66.0) (2026-10-16)
 
 ### Features
