@@ -1,0 +1,78 @@
+{
+    "id": "default",
+    "salesCopy": {
+        "tagline": "Which Obsidian Search Tool, In Which Order.",
+        "secondaryTagline": "The **FREE** Obsidian search cheat sheet and the search escalation ladder",
+        "problem": "Obsidian has several ways to find a note, and each one answers a different question. When you only half remember a note, it's easy to reach for the wrong tool, drown in results, and give up.",
+        "problemPoints": [
+            "Search returns far more results than you can scan",
+            "You can't remember which operator does what",
+            "You don't know when to use Bases, backlinks, the terminal or AI instead of Search",
+            "You search by content when you should search by title, date or property"
+        ],
+        "agitate": "Every failed search costs a few minutes, and it teaches you to trust the vault a little less. The good news is that knowing the right tool for what you remember removes most of that.",
+        "agitatePoints": [
+            "Time lost on searches that were never going to work",
+            "Operators you keep looking up",
+            "Notes you rewrite because you can't find the original"
+        ],
+        "solution": "This **FREE** PDF puts the answer in one place: a cheat sheet of the commands and operators worth remembering, and the search escalation ladder, which tells you which tool to reach for first and when to move up.",
+        "solutionPoints": [
+            "**A cheat sheet** for the quick switcher, Search, Bases, the CLI, `ripgrep`, `fzf` and `qmd`",
+            "**The escalation ladder**: from the cheapest tool to the most powerful",
+            "**One PDF** to keep next to your vault"
+        ],
+        "description": "A free PDF that condenses my series on Obsidian search into a few pages you can keep open while you work. The cheat sheet tells you what to type. The full ebook, [The Obsidian Search Handbook](/product/obsidian-search-handbook), explains why it works, in 254 pages.",
+        "highlights": [
+            "**100% Free**: instant download",
+            "**The Escalation Ladder**: the order in which to reach for tools",
+            "**Built From My Own Vault**: the vault I use every day",
+            "**Gateway To The Book**: the full method is in [The Obsidian Search Handbook](/product/obsidian-search-handbook)"
+        ],
+        "benefits": {
+            "immediate": [
+                "Know which search tool to use for what you remember",
+                "Stop looking up the same operators"
+            ],
+            "systematic": ["A repeatable order for searching: cheapest tool first"],
+            "longTerm": ["Fewer failed searches as your vault grows"]
+        },
+        "targetAudience": [
+            "Obsidian users who find most things but lose time on the rest",
+            "Anyone whose Search results are too long to scan"
+        ],
+        "perfectFor": [
+            "Keeping a reference open next to your vault",
+            "Deciding quickly which tool to try next"
+        ],
+        "notForYou": [
+            "You are brand new to Obsidian: start with the [Beginner's Guide to Obsidian](/product/beginners-guide-obsidian)",
+            "You want the full method with exercises: get [The Obsidian Search Handbook](/product/obsidian-search-handbook)"
+        ],
+        "trustBadges": [
+            "**100% FREE**; no credit card required",
+            "**Instant Access**; read it today"
+        ],
+        "guarantees": [
+            "**Completely free**; no strings attached",
+            "Built from **my own vault of about 30,000 notes**"
+        ],
+        "metaTitle": "FREE Obsidian Search Cheat Sheet | The Search Escalation Ladder",
+        "metaDescription": "A free Obsidian search cheat sheet and the search escalation ladder: which tool to use for what you remember, from the quick switcher to AI search.",
+        "keywords": [
+            "obsidian search cheat sheet",
+            "obsidian search operators",
+            "obsidian search",
+            "find notes in obsidian",
+            "obsidian bases",
+            "obsidian cli",
+            "free obsidian guide",
+            "pkm cheat sheet"
+        ],
+        "storytelling": null,
+        "timeline": null,
+        "courseContent": null,
+        "howItWorks": null,
+        "mediaSections": null
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "id": "faq-obsidian-search-handbook-1",
+            "question": "I read the free series. Is the book worth it?",
+            "answer": "All the text is free on my blog, as a series. The book is the same text assembled into one book, available today, plus a foreword, a \"Try this\" exercise in every chapter, the merged FAQ (38 questions), the cheat sheet appendix, and an offline PDF and EPUB. The **Complete** edition adds the Starter Pack and the worksheets. If the series gave you what you needed, you don't need the book. I mean it."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-2",
+            "question": "What is the difference between Book and Complete?",
+            "answer": "**Complete** is the book plus the **Findability Starter Pack** (5 note templates, 6 Bases, 35 saved searches, `ripgrep` and `fzf` scripts, a `qmd` configuration and an `AGENTS.md` snippet; a small starter set, not the Obsidian Starter Kit) and the **6 worksheets** (20-query test, 30-day makeover tracker, LATCH audit, capture-time checklist, search log and resurfacing routine), for €20 more. Both include the PDF, the EPUB and the free updates."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-3",
+            "question": "Which formats do I get?",
+            "answer": "PDF and EPUB, so you can read it on a computer, a tablet or an e-reader."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-4",
+            "question": "Do I need the Obsidian Starter Kit?",
+            "answer": "No. The book works with any vault. That being said, if you'd rather start from a finished system, the [Obsidian Starter Kit](/product/obsidian-starter-kit) ships the note types, templates, properties and Bases the book describes."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-5",
+            "question": "Do I need AI tools?",
+            "answer": "No. Two chapters cover AI search. The rest of the book works without it."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-6",
+            "question": "How do updates work?",
+            "answer": "Updates are free for the whole 2026 edition (all 1.x versions); the book is written and checked against Obsidian 1.14. New versions appear in your Gumroad library."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-7",
+            "question": "Is there a free sample?",
+            "answer": "Yes. The [Free Obsidian Search Cheat Sheet](/product/obsidian-search-cheat-sheet) is a short reference with the search escalation ladder."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-8",
+            "question": "Is there a discount?",
+            "answer": "During the launch, the code **LAUNCH** gives €10 off either edition until Thursday 29 October, 23:59 CET (one code per order). The Complete edition is also included in the [Everything Knowledge Bundle](/product/everything-knowledge-bundle)."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-9",
+            "question": "What if it's not for me? Can I get a refund?",
+            "answer": "Yes. There's a 30-day money-back guarantee: reply to your receipt email within 30 days and I'll refund you, no hard feelings."
+        },
+        {
+            "id": "faq-obsidian-search-handbook-10",
+            "question": "Is VAT included?",
+            "answer": "Prices are shown before VAT; EU VAT is added at checkout based on your country."
+        }
+    ]
+}

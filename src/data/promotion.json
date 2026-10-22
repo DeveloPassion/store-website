@@ -1,9 +1,9 @@
 {
     "bannerBehavior": "PROMOTIONS",
-    "promoText": "🎉 Summar Sale: -30% on ALL products",
-    "promoLink": null,
-    "promoLinkText": null,
-    "discountCode": "SummerSale2026",
-    "promotionStart": "2026-07-01T00:00:00Z",
-    "promotionEnd": "2026-07-30T10:00:00Z"
+    "promoText": "📕 New: The Obsidian Search Handbook, €10 off until Oct 29.",
+    "promoLink": "https://store.dsebastien.net/product/obsidian-search-handbook",
+    "promoLinkText": "See the book",
+    "discountCode": "LAUNCH",
+    "promotionStart": "2026-10-22T08:53:00Z",
+    "promotionEnd": "2026-10-29T22:59:00Z"
 }

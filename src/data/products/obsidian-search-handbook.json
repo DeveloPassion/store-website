@@ -1,0 +1,89 @@
+{
+    "id": "obsidian-search-handbook",
+    "name": "The Obsidian Search Handbook",
+    "gumroadId": "JLeg7mq4x1bP4anglyyyqQ==",
+    "isGumroadProduct": true,
+    "gumroadProductSlugs": ["obsidian-search-handbook"],
+    "price": 29,
+    "priceDisplay": "€29-€49",
+    "priceTier": "standard",
+    "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-search-handbook",
+    "variants": [
+        {
+            "name": "Complete",
+            "price": 49,
+            "priceDisplay": "€49",
+            "description": "Recommended. The book + the Findability Starter Pack (5 note templates, 6 Bases, 35 saved searches, ripgrep and fzf scripts, a qmd configuration, an AGENTS.md snippet) + 6 printable worksheets, for €20 more than the Book",
+            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-search-handbook?option=Va2eC_sNKzVQhQgFREL6Iw%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null,
+            "includedProducts": []
+        },
+        {
+            "name": "Book",
+            "price": 29,
+            "priceDisplay": "€29",
+            "description": "The ebook: a 254-page PDF and an EPUB, with a \"Try this\" exercise in every chapter and free updates for the whole 2026 edition (all 1.x versions)",
+            "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-search-handbook?option=bngGH2U6SYxTp6OiN2aGmQ%3D%3D",
+            "gumroadVariantId": null,
+            "paymentFrequency": null,
+            "prices": null,
+            "includedProducts": []
+        }
+    ],
+    "tags": [
+        "obsidian",
+        "note-taking",
+        "knowledge-management",
+        "personal-knowledge-management",
+        "pkm",
+        "productivity",
+        "ai",
+        "mcp",
+        "markdown",
+        "reference",
+        "templates",
+        "checklist"
+    ],
+    "contents": [
+        "**Complete edition: the Findability Starter Pack**: 5 note templates, 6 Bases, 35 saved searches, `ripgrep` and `fzf` scripts, a `qmd` configuration and an `AGENTS.md` snippet. A small starter set, not the Obsidian Starter Kit",
+        "**Complete edition: 6 worksheets**: the 20-query test, the 30-day makeover tracker, the LATCH audit, the capture-time checklist, a search log and a resurfacing routine",
+        "**254 pages (PDF)**, plus an EPUB, 2026 edition, with free updates for the whole 2026 edition (all 1.x versions); written and checked against Obsidian 1.14",
+        "**12 chapters with exercises**: note design, vault structure, built-in search, navigation, plugins, the terminal, AI search and resurfacing",
+        "**A foreword and a chapter on how to use the book**, so you know where to start",
+        "**A FAQ with 38 questions**, merged from the whole series",
+        "**Appendix A**: the cheat sheets for built-in search, the CLI, outside search, plugins and AI search, in one place",
+        "**Appendix B**: a comparison of the tools in the book, and my search order",
+        "**One reference list** with the research and the tools mentioned"
+    ],
+    "featured": false,
+    "bestValue": false,
+    "bestseller": false,
+    "crossSellIds": ["obsidian-starter-kit", "knowledge-management-for-beginners"],
+    "priority": 78,
+    "mainCategory": "guides",
+    "secondaryCategories": [
+        {
+            "id": "obsidian",
+            "distant": false
+        },
+        {
+            "id": "knowledge-management",
+            "distant": true
+        },
+        {
+            "id": "productivity",
+            "distant": true
+        }
+    ],
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "landingPageUrl": null,
+    "dsebastienUrl": null,
+    "includedProducts": [],
+    "targetExperienceLevel": "all-levels",
+    "deliveryStyle": "hybrid"
+}

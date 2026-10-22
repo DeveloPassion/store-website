@@ -54,7 +54,8 @@
         "ai-master-prompt",
         "model-context-protocol",
         "beginners-guide-obsidian",
-        "knowledge-system-checklist"
+        "knowledge-system-checklist",
+        "obsidian-search-handbook"
     ],
     "targetExperienceLevel": "all-levels",
     "deliveryStyle": "hybrid"

@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "id": "faq-obsidian-search-cheat-sheet-1",
+            "question": "Is this really free?",
+            "answer": "Yes. Completely free, no credit card required."
+        },
+        {
+            "id": "faq-obsidian-search-cheat-sheet-2",
+            "question": "What is the search escalation ladder?",
+            "answer": "The order in which to reach for search tools, from the cheapest to the most powerful, depending on what you remember: the quick switcher for a title, Search for a phrase, properties and Bases for a date or a status, backlinks and the graph for a related note, and semantic search or an AI agent when you only remember the idea."
+        },
+        {
+            "id": "faq-obsidian-search-cheat-sheet-3",
+            "question": "How is this different from The Obsidian Search Handbook?",
+            "answer": "This is a short reference. [The Obsidian Search Handbook](/product/obsidian-search-handbook) is the full ebook (254 pages) with the whole method, exercises and, in the Complete edition, a starter pack and worksheets."
+        },
+        {
+            "id": "faq-obsidian-search-cheat-sheet-4",
+            "question": "Does it work with any vault?",
+            "answer": "Yes. The cheat sheet applies to any Obsidian vault."
+        }
+    ]
+}

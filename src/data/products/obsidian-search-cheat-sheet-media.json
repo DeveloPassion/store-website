@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "id": "cover-1792000000100",
+            "type": "image",
+            "url": "/assets/images/products/obsidian-search-cheat-sheet/obsidian-search-cheat-sheet-cover.webp",
+            "title": "Obsidian Search Cheat Sheet",
+            "altText": "Free Obsidian search cheat sheet and search escalation ladder",
+            "order": 0,
+            "group": "cover",
+            "width": 800,
+            "height": 450,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
+        },
+        {
+            "id": "main-1792000000101",
+            "type": "image",
+            "url": "/assets/images/products/obsidian-search-cheat-sheet/obsidian-search-cheat-sheet-pages.webp",
+            "title": "13 printable pages",
+            "altText": "Pages of the Obsidian Search Cheat Sheet: the search escalation ladder and search operators",
+            "order": 0,
+            "group": "main",
+            "width": 1200,
+            "height": 882,
+            "description": null,
+            "caption": null,
+            "youtubeId": null,
+            "thumbnailUrl": null
+        }
+    ]
+}

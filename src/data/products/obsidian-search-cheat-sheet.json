@@ -1,0 +1,56 @@
+{
+    "id": "obsidian-search-cheat-sheet",
+    "name": "Obsidian Search Cheat Sheet",
+    "gumroadId": "D3GzPJNEEj7QxTfdLWqh2Q==",
+    "isGumroadProduct": true,
+    "gumroadProductSlugs": ["obsidian-search-cheat-sheet"],
+    "price": 0,
+    "priceDisplay": "FREE",
+    "priceTier": "free",
+    "gumroadUrl": "https://developassion.gumroad.com/l/obsidian-search-cheat-sheet",
+    "tags": [
+        "obsidian",
+        "pkm",
+        "note-taking",
+        "free-guide",
+        "lead-magnet",
+        "reference",
+        "personal-knowledge-management",
+        "knowledge-management"
+    ],
+    "contents": [
+        "**The cheat sheet**: the commands and operators worth remembering for the quick switcher, Search, Bases, the Obsidian CLI, `ripgrep`, `fzf` and `qmd`",
+        "**The search escalation ladder**: the order in which to reach for tools, from the cheapest to the most powerful, depending on what you remember (a title, a phrase, a date or property, a related note, or only the idea)",
+        "**A PDF** you can keep open next to your vault"
+    ],
+    "featured": false,
+    "bestValue": false,
+    "bestseller": false,
+    "crossSellIds": [
+        "obsidian-search-handbook",
+        "obsidian-starter-kit",
+        "obsidian-automation-guide"
+    ],
+    "priority": 43,
+    "mainCategory": "free",
+    "secondaryCategories": [
+        {
+            "id": "obsidian",
+            "distant": false
+        },
+        {
+            "id": "knowledge-management",
+            "distant": true
+        }
+    ],
+    "activeSalesCopyId": "default",
+    "isSubscription": false,
+    "variants": null,
+    "paymentFrequencies": null,
+    "defaultPaymentFrequency": null,
+    "landingPageUrl": null,
+    "dsebastienUrl": null,
+    "includedProducts": [],
+    "targetExperienceLevel": "all-levels",
+    "deliveryStyle": "conceptual"
+}

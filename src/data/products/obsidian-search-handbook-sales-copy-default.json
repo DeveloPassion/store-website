@@ -1,0 +1,109 @@
+{
+    "id": "default",
+    "salesCopy": {
+        "tagline": "Find Any Note When You Need It.",
+        "secondaryTagline": "The **2026 edition** ebook on finding your notes in `Obsidian`, from how you name them to how an AI assistant searches 30,000 of them",
+        "problem": "You know the note exists. You wrote it! But you can't remember its name, and searching for what you think was in it returns far more results than you can scan. Research on how people re-find their own information found that they mostly navigate first and search when that fails. So the problem usually sits in the notes themselves, long before you type anything into the search box.",
+        "problemPoints": [
+            "A note you wrote that you can't find, because you don't remember its name",
+            "Search results by the dozen, and no way to tell which one is the right note",
+            "Notes with no aliases, no type and no properties, so nothing can filter them",
+            "A vault that grew faster than its structure",
+            "Plugins installed to fix search, without knowing which job each one does",
+            "AI search that you can't measure, so you can't tell whether it helps"
+        ],
+        "agitate": "And it gets worse over time. The more you write, the more of your vault you can't reach, and the less you trust it. You end up rewriting notes you already have, or you stop capturing. Adding a tool rarely fixes this, because search tools, AI agents included, can only work with what you put in the note.",
+        "agitatePoints": [
+            "Time lost searching for notes that already exist",
+            "Duplicate notes, because the original can't be found",
+            "A vault you stop trusting, so you stop using it",
+            "A search setup you can't evaluate, so you keep switching tools",
+            "AI agents that guess paths and names instead of asking the vault",
+            "An archive you write into and never read"
+        ],
+        "solution": "This book covers the whole chain in the order that works. First the notes: names, aliases, types, a minimum of metadata, links. Then the tools, from the cheapest to the most powerful: the quick switcher, Search, Bases, backlinks, the terminal, and AI search. The method comes from the vault I use every day (about 30,000 notes), and every chapter ends with an exercise.",
+        "solutionPoints": [
+            "**Notes you can find**: a naming, alias and metadata routine that takes seconds at capture time",
+            "**The right tool for what you remember**: a title, a phrase, a date, a property, a related note or only the idea",
+            "**A makeover for the vault you have**: 15 minutes a day for 30 days, with two scores to compare",
+            "**AI search that you can measure**: a 20-query test, a `qmd` and MCP setup, and the risks",
+            "**Exercises in every chapter**, so you apply it instead of only reading it"
+        ],
+        "description": "The Obsidian Search Handbook is a 254-page ebook (PDF, plus EPUB) on finding the notes you already wrote. All of its text is free on my blog, as a series released over two and a half weeks. The book is that same text assembled into one book, available today, plus a foreword, a \"Try this\" exercise in every chapter, the merged FAQ (38 questions) and the cheat sheet appendix, as an offline PDF and EPUB.\n\nI recommend the **Complete** edition. For €20 more, it adds the Findability Starter Pack (5 note templates, 6 Bases, 35 saved searches, `ripgrep` and `fzf` scripts, a `qmd` configuration and an `AGENTS.md` snippet; a small starter set, not the Obsidian Starter Kit) and 6 printable worksheets.\n\n**Launch price** until Thursday 29 October, 23:59 CET, with the code **LAUNCH** (one code per order): Complete ~~€49~~ **€39**, Book ~~€29~~ **€19**.",
+        "highlights": [
+            "**Complete Edition Recommended**: the Findability Starter Pack and 6 worksheets for €20 more than the Book",
+            "**Notes First**: findability is decided when you write a note, so the book starts there",
+            "**The Tools, In Order**: quick switcher, Search, Bases, the CLI, `ripgrep`, plugins, `qmd` and AI agents, from cheapest to most powerful",
+            "**Built From My Own Vault**: the method comes from the vault I use every day",
+            "**Exercises And Worksheets**: apply each chapter (worksheets in the Complete edition)",
+            "**Free Updates**: for the whole 2026 edition (all 1.x versions)",
+            "**Ecosystem**: the Complete edition is included in the [Everything Knowledge Bundle](/product/everything-knowledge-bundle). The note types, templates and Bases it describes ship in the [Obsidian Starter Kit](/product/obsidian-starter-kit)"
+        ],
+        "benefits": {
+            "immediate": [
+                "A clear order to try search tools in, from the cheapest to the most powerful",
+                "A capture-time checklist for naming, aliases and metadata",
+                "Operators and commands to scope your searches today"
+            ],
+            "systematic": [
+                "A vault where names, types and properties make every tool work better",
+                "A 30-day plan to fix a vault that is already a mess",
+                "A 20-query test to measure any search or AI tool"
+            ],
+            "longTerm": [
+                "A vault that stays findable as it grows",
+                "AI agents that search with rules instead of guessing",
+                "Old notes that come back to you through a resurfacing routine"
+            ]
+        },
+        "targetAudience": [
+            "Obsidian users whose vault has grown to the point where notes get lost",
+            "People who write a lot and re-find their own material every day",
+            "Anyone who wants AI search on a vault and wants to know what works",
+            "Beginners, who get the most from the first chapters"
+        ],
+        "perfectFor": [
+            "Fixing a vault where you can't find what you wrote",
+            "Choosing the right search tool for what you remember",
+            "Setting up `ripgrep`, `fzf` or `qmd` on your vault",
+            "Measuring whether an AI search tool actually finds more"
+        ],
+        "notForYou": [
+            "You want a list of plugins to install: the system comes first in this book, the tools second",
+            "The free series already gave you what you needed: the book is the same text in one place, plus a foreword, exercises, the merged FAQ and the cheat sheet appendix",
+            "You don't use Obsidian: some chapters apply to any Markdown vault, but the examples are Obsidian"
+        ],
+        "trustBadges": [
+            "**254 pages** (PDF), plus EPUB",
+            "**Free updates** for the whole 2026 edition",
+            "**30-day money-back guarantee**",
+            "**Built from my own vault**"
+        ],
+        "guarantees": [
+            "**30-day money-back guarantee**: reply to your receipt email within 30 days for a full refund",
+            "**Free updates** for the whole 2026 edition (all 1.x versions); written and checked against Obsidian 1.14",
+            "Built from **the vault I use every day**"
+        ],
+        "metaTitle": "The Obsidian Search Handbook | Find Any Note When You Need It (2026 edition)",
+        "metaDescription": "A 254-page ebook on finding your notes in Obsidian: note design, vault structure, search operators, Bases, the terminal and AI search. Book or Complete edition.",
+        "keywords": [
+            "obsidian search",
+            "obsidian search operators",
+            "find notes in obsidian",
+            "obsidian bases",
+            "obsidian cli",
+            "obsidian ai search",
+            "obsidian qmd",
+            "obsidian ripgrep",
+            "obsidian ebook",
+            "pkm search",
+            "re-finding information",
+            "obsidian findability"
+        ],
+        "storytelling": null,
+        "timeline": null,
+        "courseContent": null,
+        "howItWorks": null,
+        "mediaSections": null
+    }
+}
