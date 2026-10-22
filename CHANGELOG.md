@@ -1,3 +1,8 @@
+## [1.68.0](https://github.com/DeveloPassion/store-website/compare/1.67.0...1.68.0) (2026-10-22)
+
+### Features
+
+* **website:** add Wendy Anthony testimonial for Obsidian Search Cheat Sheet ([6acb8d8](https://github.com/DeveloPassion/store-website/commit/6acb8d8fe533074336a586656fd4662cdccab00a))
 ## [1.67.0](https://github.com/DeveloPassion/store-website/compare/1.66.0...1.67.0) (2026-10-22)
 
 ### Features
