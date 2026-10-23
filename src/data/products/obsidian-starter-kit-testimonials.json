@@ -671,6 +671,18 @@
             "sourceUrl": null,
             "quote": "After being introduced to obsidian, I decided to research the different starting packages available. Of the ones I investigated, Sébastien Dubois' was the most complete yet easy to begin using. Do not hesitate to get this package, it will get you started and along the way you can still make your own adjustments if you need to.",
             "featured": true
+        },
+        {
+            "id": "testimonial-57",
+            "author": "Jennifer Kettell",
+            "quote": "I'm really enjoying the OSK so far. I used my Daily Note yesterday far more than I ever did under my previous setup, and it already proved its value when I needed to find a bit of info last night. It's also encouraging me to link more, which I've been terribly lax on in the past. So thank you for helping me start to develop better habits! I can't wait to see how my PKM grows over the next several months",
+            "featured": false,
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null
         }
     ]
 }
