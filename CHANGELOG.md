@@ -1,3 +1,8 @@
+## [1.69.0](https://github.com/DeveloPassion/store-website/compare/1.68.0...1.69.0) (2026-10-23)
+
+### Features
+
+* **website:** add Jennifer Kettell testimonial for Obsidian Starter Kit ([1dc3e1c](https://github.com/DeveloPassion/store-website/commit/1dc3e1ccfcad9614f82bb0b2a53d0bbb03c6a859))
 ## [1.68.0](https://github.com/DeveloPassion/store-website/compare/1.67.0...1.68.0) (2026-10-22)
 
 ### Features
