@@ -1,3 +1,8 @@
+## [1.70.0](https://github.com/DeveloPassion/store-website/compare/1.69.0...1.70.0) (2026-10-25)
+
+### Features
+
+* **website:** update vault size, bundle contents and Gumroad stats ([bcf3c1d](https://github.com/DeveloPassion/store-website/commit/bcf3c1d086fae918755758606446e43bc129d797))
 ## [1.69.0](https://github.com/DeveloPassion/store-website/compare/1.68.0...1.69.0) (2026-10-23)
 
 ### Features
