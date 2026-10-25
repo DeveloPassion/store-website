@@ -25,7 +25,7 @@
         "**Part II, Layer 1**: automation inside `Obsidian`: the seven jobs plugins should do for you (notes born correct, 3-second capture, automatic filing, formatting, queries, state machines in frontmatter, commands and buttons)",
         "**Part III, Layer 2**: automation around the vault: `Git`, the command line, REST and MCP, URIs, backup and sync, scheduled jobs, publishing pipelines, ingestion, attachments, OS-level automation, mobile, batch operations",
         "**Part IV, Layer 3**: AI agents on the vault: instruction files, skills, hooks, MCP, multi-agent workflows, scheduled agents, self-maintaining vaults, and the risks",
-        "**Part V**: a production setup running on 20,000+ notes, with an AI assistant living inside the vault",
+        "**Part V**: a production setup running on nearly 30,000 notes, with an AI assistant living inside the vault",
         "**Part VI**: the adoption path to start today, plus a FAQ and the full list of plugins and tools mentioned"
     ],
     "featured": false,
