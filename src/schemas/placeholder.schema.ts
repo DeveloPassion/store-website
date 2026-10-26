@@ -12,12 +12,14 @@ import { ComputedValuesSchema } from './product.schema.js'
  * - stats.*: From {id}-stats.json (userCount, timeSaved, ratings)
  * - product.*: From {id}.json (price, name, discount, variants)
  * - salesCopy.*: From active sales copy (for cross-references)
- * - computed.*: Build-time values (ratingsCount, averageRating, testimonialsCount)
+ * - computed.*: Build-time values (ratingsCount, averageRating, testimonialsCount,
+ *   includedValue, variantIncludedValues)
  *
  * Formatters:
- * - currency: Format as currency using product.currency (e.g., €129.99)
+ * - currency: Format as currency using product.currency (e.g., €129.99; currency:0 → €750)
  * - number: Format with locale-specific thousands separator (e.g., 1,234)
  * - round: Round to N decimal places (e.g., round:1 → 4.9)
+ * - floor: Round down to a multiple of N (e.g., floor:50 → 750)
  * - suffix: Append text (e.g., suffix: users → "1,000+ users")
  * - prefix: Prepend text (e.g., prefix:Only  → "Only €129.99")
  * - default: Fallback value if source is null/undefined
@@ -49,6 +51,7 @@ export const FormatterNameSchema = z.enum([
     'currency',
     'number',
     'round',
+    'floor',
     'suffix',
     'prefix',
     'default'
@@ -73,6 +76,19 @@ export const ParsedPlaceholderSchema = z.object({
 })
 
 /**
+ * Computed values available to placeholders. Extends the aggregated product's
+ * computed fields with placeholder-only values that never reach products.json:
+ * - includedValue: summed price of everything the product includes (root + all
+ *   variants, nested bundles expanded, each product counted once)
+ * - variantIncludedValues: the same sum per variant, cumulative in variant order
+ *   (tier N includes tiers 0..N), mirroring the ProductFeatures "Bonuses" drawer
+ */
+export const PlaceholderComputedValuesSchema = ComputedValuesSchema.extend({
+    includedValue: z.number().nonnegative(),
+    variantIncludedValues: z.array(z.number().nonnegative())
+})
+
+/**
  * Full context available for placeholder resolution
  * Contains all data sources needed to resolve any placeholder
  *
@@ -83,7 +99,7 @@ export const PlaceholderContextSchema = z.object({
     product: z.record(z.string(), z.unknown()),
     stats: z.record(z.string(), z.unknown()).nullable(),
     salesCopy: z.record(z.string(), z.unknown()).nullable(),
-    computed: ComputedValuesSchema
+    computed: PlaceholderComputedValuesSchema
 })
 
 /**
@@ -116,5 +132,6 @@ export type FormatterName = z.infer<typeof FormatterNameSchema>
 export type ParsedFormatter = z.infer<typeof ParsedFormatterSchema>
 export type ParsedPlaceholder = z.infer<typeof ParsedPlaceholderSchema>
 export type PlaceholderContext = z.infer<typeof PlaceholderContextSchema>
+export type PlaceholderComputedValues = z.infer<typeof PlaceholderComputedValuesSchema>
 export type PlaceholderErrorType = z.infer<typeof PlaceholderErrorTypeSchema>
 export type PlaceholderValidationError = z.infer<typeof PlaceholderValidationErrorSchema>

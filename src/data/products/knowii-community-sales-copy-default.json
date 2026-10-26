@@ -33,7 +33,7 @@
         "description": "Knowii brings together knowledge workers, creators, and lifelong learners who want to get better at information management AND AI. It's not a generic productivity community. You get community support, courses, tools, AI training, and direct expert guidance. Whether you're struggling with scattered notes or want to use AI effectively, Knowii meets you where you are.",
         "highlights": [
             "**Integrated System**: Knowledge Management + AI skills in one place",
-            "**€500+ Value**: Courses, tools, and workshops included in higher tiers",
+            "**${computed.includedValue|floor:50|currency:0}+ Value**: Courses, tools, and workshops included in higher tiers",
             "**${stats.userCount} Members**: Active community learning together",
             "**Expert-Led**: 20+ years of IT and Knowledge Management expertise",
             "**Always Growing**: New workshops, tools, and content added regularly",
@@ -84,7 +84,7 @@
         ],
         "trustBadges": [
             "**Integrated System**: Knowledge Management + AI in one place",
-            "**€500+ Value**: Knowledge Master includes courses, tools, and future additions",
+            "**${computed.includedValue|floor:50|currency:0}+ Value**: Knowledge Master includes courses, tools, and future additions",
             "**${stats.userCount} Members**: Active community learning together",
             "**Expert-Led**: 20+ years of IT and KM expertise",
             "**Always Growing**: New workshops, tools, and content added regularly",
@@ -97,7 +97,7 @@
             "Billing period protection; maintain access through end of your quarterly, yearly, or 2-year plan if you cancel"
         ],
         "metaTitle": "Knowii Community - Master Knowledge Management + AI | From €14.99/quarter",
-        "metaDescription": "Join ${stats.userCount} members mastering Knowledge Management AND AI. Community + Courses + Tools integrated. €500+ value in Knowledge Master tier.",
+        "metaDescription": "Join ${stats.userCount} members mastering Knowledge Management AND AI. Community + Courses + Tools integrated. ${computed.includedValue|floor:50|currency:0}+ value in Knowledge Master tier.",
         "keywords": [
             "knowledge management community",
             "ai mastery course",

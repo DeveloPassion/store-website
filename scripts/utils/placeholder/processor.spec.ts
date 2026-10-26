@@ -32,7 +32,9 @@ function createTestContext(overrides: Partial<PlaceholderContext> = {}): Placeho
             ratingsCount: 42,
             averageRating: 4.837,
             testimonialsCount: 10,
-            includedIn: ['bundle-1', 'bundle-2']
+            includedIn: ['bundle-1', 'bundle-2'],
+            includedValue: 789.89,
+            variantIncludedValues: [0, 379.93, 789.89]
         },
         ...overrides
     }
@@ -109,6 +111,18 @@ describe('processString', () => {
     it('should handle salesCopy placeholders', () => {
         const context = createTestContext()
         expect(processString('See: ${salesCopy.tagline}', context)).toBe('See: Best product ever')
+    })
+})
+
+describe('processString with included value placeholders', () => {
+    it('should resolve the total and per-variant included value', () => {
+        const context = createTestContext()
+        expect(
+            processString('**${computed.includedValue|floor:50|currency:0}+ value**', context)
+        ).toBe('**€750+ value**')
+        expect(
+            processString('${computed.variantIncludedValues.1|floor:50|currency:0}+', context)
+        ).toBe('€350+')
     })
 })
 

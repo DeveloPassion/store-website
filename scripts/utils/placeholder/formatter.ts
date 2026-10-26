@@ -59,13 +59,13 @@ function getCurrencySymbol(context: PlaceholderContext): string {
  * @param context - The placeholder context (for currency info)
  * @returns Formatted currency string
  */
-function formatCurrency(value: unknown, context: PlaceholderContext): string {
+function formatCurrency(value: unknown, context: PlaceholderContext, decimals: number = 2): string {
     const symbol = getCurrencySymbol(context)
 
     // Handle numeric values
     if (typeof value === 'number') {
-        // Format with 2 decimal places for currency
-        const formatted = value.toFixed(2)
+        // Format with 2 decimal places for currency (unless overridden)
+        const formatted = value.toFixed(decimals)
         return `${symbol}${formatted}`
     }
 
@@ -73,7 +73,7 @@ function formatCurrency(value: unknown, context: PlaceholderContext): string {
     if (typeof value === 'string') {
         const num = parseFloat(value)
         if (!isNaN(num)) {
-            return `${symbol}${num.toFixed(2)}`
+            return `${symbol}${num.toFixed(decimals)}`
         }
         // Non-numeric string, just prepend symbol
         return `${symbol}${value}`
@@ -129,6 +129,31 @@ function formatRound(value: unknown, decimals: number = 0): string {
 }
 
 /**
+ * Round a numeric value DOWN to a multiple of N (for "€750+"-style claims
+ * that must never overstate)
+ *
+ * @param value - The value to floor
+ * @param step - The multiple to round down to (default: 1)
+ * @returns Floored value as string
+ */
+function formatFloor(value: unknown, step: number = 1): string {
+    let num: number
+
+    if (typeof value === 'number') {
+        num = value
+    } else if (typeof value === 'string') {
+        num = parseFloat(value)
+        if (isNaN(num)) {
+            return value
+        }
+    } else {
+        return String(value)
+    }
+
+    return String(Math.floor(num / step) * step)
+}
+
+/**
  * Append a suffix to the value
  *
  * @param value - The value to suffix
@@ -179,8 +204,10 @@ export function applyFormatter(
     }
 
     switch (formatter) {
-        case 'currency':
-            return formatCurrency(value, context)
+        case 'currency': {
+            const decimals = arg ? parseInt(arg, 10) : 2
+            return formatCurrency(value, context, isNaN(decimals) ? 2 : decimals)
+        }
 
         case 'number':
             return formatNumber(value)
@@ -188,6 +215,11 @@ export function applyFormatter(
         case 'round': {
             const decimals = arg ? parseInt(arg, 10) : 0
             return formatRound(value, isNaN(decimals) ? 0 : decimals)
+        }
+
+        case 'floor': {
+            const step = arg ? parseInt(arg, 10) : 1
+            return formatFloor(value, isNaN(step) || step <= 0 ? 1 : step)
         }
 
         case 'suffix':

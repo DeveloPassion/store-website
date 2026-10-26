@@ -31,7 +31,9 @@ function createTestContext(overrides: Partial<PlaceholderContext> = {}): Placeho
             ratingsCount: 42,
             averageRating: 4.8,
             testimonialsCount: 10,
-            includedIn: ['bundle-1', 'bundle-2']
+            includedIn: ['bundle-1', 'bundle-2'],
+            includedValue: 789.89,
+            variantIncludedValues: [0, 379.93, 789.89]
         },
         ...overrides
     }
@@ -162,7 +164,9 @@ describe('resolvePath', () => {
                     ratingsCount: null,
                     averageRating: null,
                     testimonialsCount: 0,
-                    includedIn: []
+                    includedIn: [],
+                    includedValue: 0,
+                    variantIncludedValues: []
                 }
             })
             const result = resolvePath(context, 'computed', 'ratingsCount')

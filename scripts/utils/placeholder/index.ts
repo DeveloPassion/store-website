@@ -119,12 +119,7 @@ export function createPlaceholderContext(
     product: Record<string, unknown>,
     stats: Record<string, unknown> | null,
     salesCopy: Record<string, unknown> | null,
-    computed: {
-        ratingsCount: number | null
-        averageRating: number | null
-        testimonialsCount: number
-        includedIn: string[]
-    }
+    computed: import('../../../src/schemas/placeholder.schema.js').PlaceholderComputedValues
 ): import('../../../src/schemas/placeholder.schema.js').PlaceholderContext {
     return {
         product,

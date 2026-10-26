@@ -75,23 +75,24 @@ ${source.path|f1|f2:arg}    // Chained: ${product.price|currency|prefix:From }
 
 ### Sources
 
-| Source      | Data From             | Example Paths                                        |
-| ----------- | --------------------- | ---------------------------------------------------- |
-| `stats`     | `{id}-stats.json`     | `userCount`, `timeSaved`, `ratings`                  |
-| `product`   | `{id}.json`           | `price`, `name`, `variants.0.price`                  |
-| `salesCopy` | Active sales copy     | `tagline` (for cross-references)                     |
-| `computed`  | Build-time calculated | `ratingsCount`, `averageRating`, `testimonialsCount` |
+| Source      | Data From             | Example Paths                                                                                    |
+| ----------- | --------------------- | ------------------------------------------------------------------------------------------------ |
+| `stats`     | `{id}-stats.json`     | `userCount`, `timeSaved`, `ratings`                                                              |
+| `product`   | `{id}.json`           | `price`, `name`, `variants.0.price`                                                              |
+| `salesCopy` | Active sales copy     | `tagline` (for cross-references)                                                                 |
+| `computed`  | Build-time calculated | `ratingsCount`, `averageRating`, `testimonialsCount`, `includedValue`, `variantIncludedValues.N` |
 
 ### Formatters
 
-| Formatter  | Example                                    | Result         |
-| ---------- | ------------------------------------------ | -------------- |
-| `currency` | `${product.price\|currency}`               | `€129.99`      |
-| `number`   | `${computed.ratingsCount\|number}`         | `1,234`        |
-| `round`    | `${computed.averageRating\|round:1}`       | `4.9`          |
-| `suffix`   | `${stats.userCount\|suffix: users}`        | `1,000+ users` |
-| `prefix`   | `${product.price\|currency\|prefix:Only }` | `Only €129.99` |
-| `default`  | `${stats.timeSaved\|default:N/A}`          | Value or `N/A` |
+| Formatter  | Example                                              | Result         |
+| ---------- | ---------------------------------------------------- | -------------- |
+| `currency` | `${product.price\|currency}` (`currency:0` → `€750`) | `€129.99`      |
+| `number`   | `${computed.ratingsCount\|number}`                   | `1,234`        |
+| `round`    | `${computed.averageRating\|round:1}`                 | `4.9`          |
+| `floor`    | `${computed.includedValue\|floor:50}`                | `750`          |
+| `suffix`   | `${stats.userCount\|suffix: users}`                  | `1,000+ users` |
+| `prefix`   | `${product.price\|currency\|prefix:Only }`           | `Only €129.99` |
+| `default`  | `${stats.timeSaved\|default:N/A}`                    | Value or `N/A` |
 
 ### Usage Examples
 
@@ -125,6 +126,11 @@ ${source.path|f1|f2:arg}    // Chained: ${product.price|currency|prefix:From }
 
 - Sales copy files (`{id}-sales-copy-*.json`): All string fields
 - FAQ files (`{id}-faq.json`): Question and answer text
+- Product files (`{id}.json`): variant (tier) `description`
+
+### Included value (never hardcode "€X value")
+
+`computed.includedValue` is the summed base `price` of everything a product includes (root + all variants, nested bundles expanded, each product counted once); `computed.variantIncludedValues.N` is the same sum for variant N, cumulative in variant order (tier N includes tiers 0..N), matching the "Bonuses" drawer. Write value claims as `${computed.includedValue|floor:50|currency:0}+` so they follow `includedProducts` automatically and never overstate.
 
 ### Validation
 

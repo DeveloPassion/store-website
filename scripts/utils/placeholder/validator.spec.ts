@@ -32,7 +32,9 @@ function createTestContext(overrides: Partial<PlaceholderContext> = {}): Placeho
             ratingsCount: 42,
             averageRating: 4.8,
             testimonialsCount: 10,
-            includedIn: []
+            includedIn: [],
+            includedValue: 0,
+            variantIncludedValues: []
         },
         ...overrides
     }

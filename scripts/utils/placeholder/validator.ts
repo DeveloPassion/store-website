@@ -307,9 +307,15 @@ export function validatePlaceholders(
 
     // Validate product data (contents field mainly)
     if (validateProduct) {
-        // Only validate string fields that might have placeholders
-        // Product data like contents could have placeholders
-        const productData = { contents: (context.product as Record<string, unknown>).contents }
+        // Only validate string fields that might have placeholders:
+        // contents, and variant (tier) descriptions (processed during aggregation)
+        const product = context.product as Record<string, unknown>
+        const variants = Array.isArray(product.variants)
+            ? (product.variants as Record<string, unknown>[]).map((v) => ({
+                  description: v.description
+              }))
+            : undefined
+        const productData = { contents: product.contents, variants }
         errors.push(...validatePlaceholdersInData(productData, 'product', productId, context))
     }
 

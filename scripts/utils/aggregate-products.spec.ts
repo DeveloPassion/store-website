@@ -22,8 +22,10 @@ import {
     loadTestimonials,
     loadMedia,
     discoverSalesCopyFiles,
-    loadActiveSalesCopy
+    loadActiveSalesCopy,
+    computeIncludedValues
 } from './aggregate-products.js'
+import type { IndividualProduct } from '../../src/schemas/product.schema.js'
 
 // Test fixtures
 const createValidFAQ = (id: string = 'faq-1') => ({
@@ -943,5 +945,77 @@ describe('Error handling consistency', () => {
 
         consoleSpy.mockRestore()
         process.env.STRICT_VALIDATION = 'false'
+    })
+})
+
+describe('computeIncludedValues', () => {
+    const product = (
+        id: string,
+        price: number,
+        includedProducts: string[] = [],
+        variants: { includedProducts: string[] }[] | null = null
+    ) => ({ id, price, includedProducts, variants }) as unknown as IndividualProduct
+
+    const byId = (...products: IndividualProduct[]) => new Map(products.map((p) => [p.id, p]))
+
+    it('should sum root included products for products without variants', () => {
+        const bundle = product('bundle', 99, ['a', 'b'])
+        const result = computeIncludedValues(
+            bundle,
+            byId(bundle, product('a', 10), product('b', 20.5))
+        )
+        expect(result).toEqual({ includedValue: 30.5, variantIncludedValues: [] })
+    })
+
+    it('should make variant values cumulative and include root products in every tier', () => {
+        const tiers = product(
+            'tiers',
+            10,
+            ['free'],
+            [
+                { includedProducts: [] },
+                { includedProducts: ['a', 'b'] },
+                { includedProducts: ['c'] }
+            ]
+        )
+        const result = computeIncludedValues(
+            tiers,
+            byId(
+                tiers,
+                product('free', 0),
+                product('a', 19.99),
+                product('b', 29.99),
+                product('c', 100)
+            )
+        )
+        expect(result.variantIncludedValues).toEqual([0, 49.98, 149.98])
+        expect(result.includedValue).toBe(149.98)
+    })
+
+    it('should count a product once even if listed in several tiers', () => {
+        const tiers = product(
+            'tiers',
+            10,
+            [],
+            [{ includedProducts: ['a'] }, { includedProducts: ['a', 'b'] }]
+        )
+        const result = computeIncludedValues(tiers, byId(tiers, product('a', 50), product('b', 25)))
+        expect(result.variantIncludedValues).toEqual([50, 75])
+    })
+
+    it('should expand nested bundles without double counting', () => {
+        const outer = product('outer', 300, ['inner', 'a'])
+        const inner = product('inner', 100, ['a', 'b'])
+        const result = computeIncludedValues(
+            outer,
+            byId(outer, inner, product('a', 10), product('b', 20))
+        )
+        expect(result.includedValue).toBe(130)
+    })
+
+    it('should skip unknown ids and self references', () => {
+        const self = product('self', 999, ['self', 'missing', 'a'])
+        const result = computeIncludedValues(self, byId(self, product('a', 5)))
+        expect(result.includedValue).toBe(5)
     })
 })

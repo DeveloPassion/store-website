@@ -45,7 +45,8 @@ import {
     validatePlaceholders,
     formatValidationErrors,
     hasBlockingErrors,
-    processObject
+    processObject,
+    processString
 } from './placeholder/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -426,6 +427,47 @@ export function computeIncludedIn(products: IndividualProduct[]): Map<string, st
     return includedInMap
 }
 
+/**
+ * Compute the summed price of everything a product includes, for "€X value
+ * included" claims in sales copy. Mirrors the ProductFeatures "Bonuses" drawer:
+ * root includedProducts apply to every variant, variant includedProducts are
+ * cumulative in variant order (each tier includes the tiers before it), nested
+ * bundles are expanded, and each product is counted once at its base `price`.
+ * Unknown ids and the product itself are skipped.
+ * @internal - Exported for testing purposes only
+ */
+export function computeIncludedValues(
+    product: IndividualProduct,
+    productsById: Map<string, IndividualProduct>
+): { includedValue: number; variantIncludedValues: number[] } {
+    const counted = new Set<string>()
+
+    const collect = (ids: string[]): number => {
+        let sum = 0
+        for (const id of ids) {
+            if (counted.has(id) || id === product.id) continue
+            const included = productsById.get(id)
+            if (!included) continue
+            counted.add(id)
+            sum += included.price
+            sum += collect(included.includedProducts || [])
+            for (const variant of included.variants || []) {
+                sum += collect(variant.includedProducts || [])
+            }
+        }
+        return sum
+    }
+
+    let cumulative = collect(product.includedProducts || [])
+    const variantIncludedValues: number[] = []
+    for (const variant of product.variants || []) {
+        cumulative += collect(variant.includedProducts || [])
+        variantIncludedValues.push(Math.round(cumulative * 100) / 100)
+    }
+
+    return { includedValue: Math.round(cumulative * 100) / 100, variantIncludedValues }
+}
+
 function main() {
     const PRODUCTS_DIR = getProductsDir()
     console.log('🔄 Aggregating product files...\n')
@@ -504,6 +546,7 @@ function main() {
 
     // Phase 2: Compute includedIn reverse lookup map
     const includedInMap = computeIncludedIn(individualProducts)
+    const productsById = new Map(individualProducts.map((p) => [p.id, p]))
 
     // Phase 3: Create aggregated products with all loaded content
     const products: AggregatedProduct[] = []
@@ -533,7 +576,8 @@ function main() {
                 ratingsCount,
                 averageRating,
                 testimonialsCount: testimonials.length,
-                includedIn
+                includedIn,
+                ...computeIncludedValues(product, productsById)
             }
         )
 
@@ -569,6 +613,13 @@ function main() {
         // Note: We update the context with salesCopy before processing for cross-references
         const processedFaqs = processObject(faqs, placeholderContext)
         const processedSalesCopy = processObject(salesCopy, placeholderContext)
+        // Variant (tier) descriptions can carry placeholders too, e.g. included value
+        const processedVariants = product.variants
+            ? product.variants.map((variant) => ({
+                  ...variant,
+                  description: processString(variant.description, placeholderContext)
+              }))
+            : product.variants
 
         // Create aggregated product with proper structure
         // salesCopy is a nested object (not spread into product)
@@ -581,6 +632,7 @@ function main() {
         const testimonialsCount = testimonials.length
         const aggregatedProduct: AggregatedProduct = {
             ...product,
+            variants: processedVariants,
             targetExperienceLevel: product.targetExperienceLevel,
             deliveryStyle: product.deliveryStyle,
             faqs: processedFaqs,

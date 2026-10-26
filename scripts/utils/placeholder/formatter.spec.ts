@@ -20,13 +20,36 @@ function createTestContext(currency: string = 'EUR'): PlaceholderContext {
             ratingsCount: null,
             averageRating: null,
             testimonialsCount: 0,
-            includedIn: []
+            includedIn: [],
+            includedValue: 0,
+            variantIncludedValues: []
         }
     }
 }
 
 describe('applyFormatter', () => {
     describe('currency formatter', () => {
+        it('should accept a decimals argument', () => {
+            const context = createTestContext()
+            expect(applyFormatter(750, 'currency', '0', context)).toBe('€750')
+            expect(applyFormatter('750', 'currency', '0', context)).toBe('€750')
+            expect(applyFormatter(129.99, 'currency', null, context)).toBe('€129.99')
+        })
+
+        it('should chain floor and currency for value claims', () => {
+            const context = createTestContext()
+            expect(
+                applyFormatters(
+                    789.89,
+                    [
+                        { name: 'floor', arg: '50' },
+                        { name: 'currency', arg: '0' }
+                    ],
+                    context
+                )
+            ).toBe('€750')
+        })
+
         it('should format numbers with EUR symbol by default', () => {
             const context = createTestContext()
             expect(applyFormatter(149.99, 'currency', null, context)).toBe('€149.99')
@@ -83,6 +106,33 @@ describe('applyFormatter', () => {
         it('should return non-numeric strings as-is', () => {
             const context = createTestContext()
             expect(applyFormatter('N/A', 'number', null, context)).toBe('N/A')
+        })
+    })
+
+    describe('floor formatter', () => {
+        it('should round down to a multiple of the step', () => {
+            const context = createTestContext()
+            expect(applyFormatter(789.89, 'floor', '50', context)).toBe('750')
+            expect(applyFormatter(379.93, 'floor', '50', context)).toBe('350')
+            expect(applyFormatter(750, 'floor', '50', context)).toBe('750')
+            expect(applyFormatter(49.99, 'floor', '50', context)).toBe('0')
+        })
+
+        it('should default to a step of 1', () => {
+            const context = createTestContext()
+            expect(applyFormatter(789.89, 'floor', null, context)).toBe('789')
+        })
+
+        it('should fall back to a step of 1 for invalid steps', () => {
+            const context = createTestContext()
+            expect(applyFormatter(789.89, 'floor', '0', context)).toBe('789')
+            expect(applyFormatter(789.89, 'floor', 'abc', context)).toBe('789')
+        })
+
+        it('should handle numeric strings and pass through non-numeric strings', () => {
+            const context = createTestContext()
+            expect(applyFormatter('789.89', 'floor', '100', context)).toBe('700')
+            expect(applyFormatter('N/A', 'floor', '50', context)).toBe('N/A')
         })
     })
 
