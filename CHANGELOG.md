@@ -1,3 +1,8 @@
+## [1.72.0](https://github.com/DeveloPassion/store-website/compare/1.71.0...1.72.0) (2026-10-26)
+
+### Features
+
+* **website:** compute "included value" claims instead of hardcoding them ([6ba23a2](https://github.com/DeveloPassion/store-website/commit/6ba23a2733c4509d934f1ac3a2dca5756048f731))
 ## [1.71.0](https://github.com/DeveloPassion/store-website/compare/1.70.0...1.71.0) (2026-10-26)
 
 ### Features
