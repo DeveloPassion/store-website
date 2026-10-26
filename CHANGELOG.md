@@ -1,3 +1,8 @@
+## [1.74.0](https://github.com/DeveloPassion/store-website/compare/1.73.2...1.74.0) (2026-10-26)
+
+### Features
+
+* **website:** bump knowii members from 450+ to 500+ (534 on the community) ([6ec18a3](https://github.com/DeveloPassion/store-website/commit/6ec18a33663555e9324b3c8cf71de916d7929ab2))
 ## [1.73.2](https://github.com/DeveloPassion/store-website/compare/1.73.1...1.73.2) (2026-10-26)
 ## [1.73.1](https://github.com/DeveloPassion/store-website/compare/1.73.0...1.73.1) (2026-10-26)
 ## [1.73.0](https://github.com/DeveloPassion/store-website/compare/1.72.0...1.73.0) (2026-10-26)
