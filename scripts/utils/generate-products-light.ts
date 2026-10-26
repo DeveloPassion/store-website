@@ -13,12 +13,17 @@
  * `priceDisplay`, and per-variant prices (with the frequency matrix for
  * subscriptions). Consumers that follow the "no prices in CTAs" policy can
  * simply ignore the block.
+ *
+ * `includedValue` (product and per variant) is the summed price of what the
+ * product/tier includes, from the same computation as the store's "€X+ value"
+ * copy, so downstream value claims stay in sync as tiers gain products.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import type { AggregatedProduct } from '../../src/schemas/product.schema.js'
+import type { AggregatedProduct, IndividualProduct } from '../../src/schemas/product.schema.js'
+import { computeIncludedValues } from './aggregate-products.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -36,6 +41,10 @@ if (!existsSync(SRC)) {
 }
 
 const products: AggregatedProduct[] = JSON.parse(readFileSync(SRC, 'utf-8'))
+const productsById = new Map(
+    products.map((p) => [p.id, p as unknown as IndividualProduct] as const)
+)
+const nullIfZero = (n: number): number | null => (n > 0 ? n : null)
 
 type LightVariantPrices = {
     monthly?: number
@@ -55,6 +64,9 @@ type LightVariant = {
     // includedProducts are ids that resolve against this same catalog.
     description: string | null
     includedProducts: string[] | null
+    // Summed price of everything this tier includes (cumulative with lower
+    // tiers); null when the tier includes nothing.
+    includedValue: number | null
     // Ready-to-use store deep link for this variant (no hardcoded query strings
     // in consumers).
     url: string | null
@@ -66,6 +78,8 @@ type LightPricing = {
     priceDisplay: string | null
     isSubscription: boolean
     defaultPaymentFrequency: string | null
+    // Summed price of everything the product includes (all tiers); null when none.
+    includedValue: number | null
     variants: LightVariant[] | null
 }
 
@@ -161,6 +175,10 @@ const pickPricing = (p: AggregatedProduct): LightPricing => {
             paymentFrequency?: string | null
         }> | null
     }
+    const { includedValue, variantIncludedValues } = computeIncludedValues(
+        p as unknown as IndividualProduct,
+        productsById
+    )
     const variantSlug = (name: string): string =>
         name
             .toLowerCase()
@@ -170,8 +188,9 @@ const pickPricing = (p: AggregatedProduct): LightPricing => {
             .replace(/[\s_]+/g, '-')
             .replace(/-+/g, '-')
     const variants = (raw.variants ?? [])
-        .filter((v) => v.name)
-        .map((v) => {
+        .map((v, index) => ({ v, includedValue: variantIncludedValues[index] ?? 0 }))
+        .filter(({ v }) => v.name)
+        .map(({ v, includedValue: variantValue }) => {
             const freq = v.paymentFrequency ?? raw.defaultPaymentFrequency ?? 'quarterly'
             return {
                 name: v.name as string,
@@ -183,6 +202,7 @@ const pickPricing = (p: AggregatedProduct): LightPricing => {
                     Array.isArray(v.includedProducts) && v.includedProducts.length
                         ? v.includedProducts
                         : null,
+                includedValue: nullIfZero(variantValue),
                 url: `${STORE_URL}/product/${p.id}?variant=${variantSlug(v.name as string)}&frequency=${freq}`
             }
         })
@@ -192,6 +212,7 @@ const pickPricing = (p: AggregatedProduct): LightPricing => {
         priceDisplay: raw.priceDisplay ?? null,
         isSubscription: Boolean(raw.isSubscription),
         defaultPaymentFrequency: raw.defaultPaymentFrequency ?? null,
+        includedValue: nullIfZero(includedValue),
         variants: variants.length ? variants : null
     }
 }
