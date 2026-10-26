@@ -1,3 +1,8 @@
+## [1.73.0](https://github.com/DeveloPassion/store-website/compare/1.72.0...1.73.0) (2026-10-26)
+
+### Features
+
+* **website:** publish included value per product and tier in products-light.json ([dffe986](https://github.com/DeveloPassion/store-website/commit/dffe986a918a02525767abb50d11603d0e6eb251))
 ## [1.72.0](https://github.com/DeveloPassion/store-website/compare/1.71.0...1.72.0) (2026-10-26)
 
 ### Features
