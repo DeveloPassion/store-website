@@ -1,12 +1,27 @@
 {
     "data": [
         {
+            "id": "cover-video-promo",
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=ZAE7s6X7tFA",
+            "title": "Find any note when you need it: The Obsidian Search Handbook",
+            "altText": "Book trailer for The Obsidian Search Handbook: find any note when you need it",
+            "description": "The book trailer: why notes get lost, and how The Obsidian Search Handbook helps you find any note when you need it",
+            "order": 0,
+            "group": "cover",
+            "youtubeId": "ZAE7s6X7tFA",
+            "caption": null,
+            "thumbnailUrl": null,
+            "width": null,
+            "height": null
+        },
+        {
             "id": "cover-1792000000000",
             "type": "image",
             "url": "/assets/images/products/obsidian-search-handbook/obsidian-search-handbook-cover.webp",
             "title": "The Obsidian Search Handbook",
             "altText": "The Obsidian Search Handbook, 2026 edition: find any note when you need it",
-            "order": 0,
+            "order": 1,
             "group": "cover",
             "width": 800,
             "height": 450,
