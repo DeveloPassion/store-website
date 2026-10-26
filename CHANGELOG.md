@@ -1,3 +1,8 @@
+## [1.71.0](https://github.com/DeveloPassion/store-website/compare/1.70.0...1.71.0) (2026-10-26)
+
+### Features
+
+* **website:** add the book trailer to The Obsidian Search Handbook page ([b6b834a](https://github.com/DeveloPassion/store-website/commit/b6b834a164e348556ed455759e86523b9d89e201))
 ## [1.70.0](https://github.com/DeveloPassion/store-website/compare/1.69.0...1.70.0) (2026-10-25)
 
 ### Features
