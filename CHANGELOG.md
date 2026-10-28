@@ -1,3 +1,4 @@
+## [1.74.1](https://github.com/DeveloPassion/store-website/compare/1.74.0...1.74.1) (2026-10-28)
 ## [1.74.0](https://github.com/DeveloPassion/store-website/compare/1.73.2...1.74.0) (2026-10-26)
 
 ### Features
