@@ -2,8 +2,16 @@
     "data": {
         "userCount": "10+",
         "timeSaved": null,
-        "ratings": null,
+        "ratings": {
+            "gumroad": [
+                {
+                    "id": "yEu0YAHglJBahTXV9iXwJQ==",
+                    "rating": 5,
+                    "date": "2026-10-27"
+                }
+            ]
+        },
         "additionalStats": [],
-        "lastSale": "2026-10-24T20:27:52Z"
+        "lastSale": "2026-10-27T18:15:33Z"
     }
 }
