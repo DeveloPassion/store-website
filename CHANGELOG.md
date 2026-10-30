@@ -1,3 +1,8 @@
+## [1.75.0](https://github.com/DeveloPassion/store-website/compare/1.74.1...1.75.0) (2026-10-30)
+
+### Features
+
+* **website:** end the Obsidian Search Handbook launch offer ([a019153](https://github.com/DeveloPassion/store-website/commit/a019153ab8de978861807f4c7ce68e072f20c4bb))
 ## [1.74.1](https://github.com/DeveloPassion/store-website/compare/1.74.0...1.74.1) (2026-10-28)
 ## [1.74.0](https://github.com/DeveloPassion/store-website/compare/1.73.2...1.74.0) (2026-10-26)
 
