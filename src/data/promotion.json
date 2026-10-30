@@ -1,9 +1,9 @@
 {
-    "bannerBehavior": "PROMOTIONS",
-    "promoText": "📕 New: The Obsidian Search Handbook, €10 off until Oct 29.",
-    "promoLink": "https://store.dsebastien.net/product/obsidian-search-handbook",
-    "promoLinkText": "See the book",
-    "discountCode": "LAUNCH",
-    "promotionStart": "2026-10-22T08:53:00Z",
-    "promotionEnd": "2026-10-29T22:59:00Z"
+    "bannerBehavior": "NEVER",
+    "promoText": "No active promotion",
+    "promoLink": null,
+    "promoLinkText": null,
+    "discountCode": null,
+    "promotionStart": null,
+    "promotionEnd": null
 }
