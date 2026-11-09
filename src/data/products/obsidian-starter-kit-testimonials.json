@@ -675,8 +675,20 @@
         {
             "id": "testimonial-57",
             "author": "Jennifer Kettell",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "I'm really enjoying the OSK so far. I used my Daily Note yesterday far more than I ever did under my previous setup, and it already proved its value when I needed to find a bit of info last night. It's also encouraging me to link more, which I've been terribly lax on in the past. So thank you for helping me start to develop better habits! I can't wait to see how my PKM grows over the next several months",
-            "featured": false,
+            "featured": false
+        },
+        {
+            "id": "testimonial-58",
+            "author": "Trent Strum",
+            "quote": "I have spent months and lots of money to find the right obsidian kit and this is the one. There's more content here than I could have imagined. The kit itself is up and running and works great, but it gets even better the more I dive into the courses, articles, and published vault.",
+            "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
