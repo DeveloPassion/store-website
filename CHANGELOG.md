@@ -1,3 +1,8 @@
+## [1.76.0](https://github.com/DeveloPassion/store-website/compare/1.75.0...1.76.0) (2026-11-09)
+
+### Features
+
+* **website:** add Trent Strum testimonial for Obsidian Starter Kit ([c3b2e9e](https://github.com/DeveloPassion/store-website/commit/c3b2e9ef00515b316df32eb74ed6dfa3e5915b6c))
 ## [1.75.0](https://github.com/DeveloPassion/store-website/compare/1.74.1...1.75.0) (2026-10-30)
 
 ### Features
