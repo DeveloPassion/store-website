@@ -7,18 +7,18 @@
         },
         {
             "id": "faq-10",
-            "question": "What's new in v5?",
-            "answer": "v5 brings everything that proved itself in my vault since v4 into yours: **finished work that files itself** (statuses stamp their dates, done actions archive after seven days), **one-click Quick Actions** on your daily note, **Activities and Ideas** in the action system, **time budgets and delivery stats**, refreshed templates and Bases with Kanban boards, new AI skills, agents that remember what they learn, and a **Claude Code setup that finds skills on demand** instead of loading all of them up front. Add nine new plugins (K-Plex, the Kanban Action Planner and the Knowii Community plugin among them) and a much more capable OSK plugin. Everything else (and there's a LOT) is in the [v5.0.0 release notes](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Release+Notes/Obsidian+Starter+Kit+-+Release+Notes+-+v5.0.0)."
+            "question": "What's new in v6?",
+            "answer": "v6 brings what I added to my vault since v5: a **Media Management System** (movies, shows, anime, manga, comics, video games, board games and albums, with what you own, want, lent and finished), a **Music Learning System** (chords, scales and songs with mastery levels and spaced review), **session notes** that give your activities their time, AI skills for your creations and for the plugins behind the Quick Actions, bundles of notes for a chat AI, **renames that keep your links**, link checks, Kanban boards that handle thousands of cards and work on your phone, a French interface for the OSK plugin, `osk-cli` on macOS, and much faster saves on large vaults. Everything else (and there's a LOT) is in the [v6.0.0 release notes](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Release+Notes/Obsidian+Starter+Kit+-+Release+Notes+-+v6.0.0)."
         },
         {
             "id": "faq-12",
-            "question": "I'm on v4. How do I upgrade to v5?",
-            "answer": "You don't start over. The [v4 to v5 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v4.x+to+v5.0.0) takes you through it step by step and tells you what to merge where you customized the kit. Back up your vault first: on its first launch, v5 archives finished actions older than seven days."
+            "question": "I'm on v5. How do I upgrade to v6?",
+            "answer": "You don't re-import the kit. The [v5 to v6 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v5.0.2+to+v6.0.0) walks you through it step by step: the core update first, then the media, music and session systems if you want them, with a skill that moves your workout history out of your daily notes. Still on v4? Follow the [v4 to v5 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v4.x+to+v5.0.0) with the v6 kit; it already contains these changes."
         },
         {
             "id": "faq-13",
             "question": "What do I need to run it?",
-            "answer": "`Obsidian` **1.13.7 or newer** (several bundled plugins need a recent version). The AI part is optional; for it, you need an AI coding agent such as `Claude Code`, and the skills that run scripts also need `bun`. Everything else works without any of it."
+            "answer": "`Obsidian` **1.15.0 or newer** (several bundled plugins need a recent version). The AI part is optional; for it, you need an AI coding agent such as `Claude Code`, and the skills that run scripts also need `bun`. Movie, comic and board game metadata need your own free API keys (TMDB, Comic Vine, BoardGameGeek), and the sport session notes need a Garmin Connect account or a Strava export. Everything else works without any of it."
         },
         {
             "id": "faq-14",
@@ -27,7 +27,7 @@
         },
         {
             "id": "faq-15",
-            "question": "Where do I download v5?",
+            "question": "Where do I download v6?",
             "answer": "Where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii if you got it through the community. [learn.knowii.net](https://learn.knowii.net) explains both."
         },
         {
@@ -43,7 +43,7 @@
         {
             "id": "faq-2",
             "question": "I already have an Obsidian vault, or an older version of OSK. Can I migrate?",
-            "answer": "Yes. Each major version of OSK comes with a step-by-step migration guide; the latest one takes you from v4 to v5 and keeps your setup. Starting from a vault of your own? Open OSK next to it and bring your notes in at your own pace; the user guide explains where each kind of note goes."
+            "answer": "Yes. Each major version of OSK comes with a step-by-step migration guide; the latest one takes you from v5 to v6 and keeps your setup. Starting from a vault of your own? Open OSK next to it and bring your notes in at your own pace; the user guide explains where each kind of note goes."
         },
         {
             "id": "faq-3",
@@ -53,7 +53,7 @@
         {
             "id": "faq-4",
             "question": "How do updates work?",
-            "answer": "**Every update is free, for life**, v5 and every version after it included. You download new versions where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii. I announce every release by email, and the release notes document every change."
+            "answer": "**Every update is free, for life**, v6 and every version after it included. You download new versions where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii. I announce every release by email, and the release notes document every change."
         },
         {
             "id": "faq-5",
@@ -63,7 +63,7 @@
         {
             "id": "faq-6",
             "question": "Is support included?",
-            "answer": "Yes. Email me your questions; I answer them myself and help people get started. If you're a [Knowii Community](/product/knowii-community) member, you can also ask there, right inside Obsidian with the Knowii Community plugin."
+            "answer": "Yes. Email me your questions, or ask in the [Knowii Community](/product/knowii-community): your purchase gives you access to it, right inside Obsidian with the Knowii Community plugin. I answer questions myself and help people get started."
         },
         {
             "id": "faq-7",
@@ -73,7 +73,7 @@
         {
             "id": "faq-8",
             "question": "What's the difference between Essentials and Premium?",
-            "answer": "**Essentials** (**${product.variants.0.price|currency}**) includes the complete vault, the online user guide and every future update. **Premium** (**${product.variants.1.price|currency}**) adds the **2h20m** Obsidian Starter Course, a video course on `Obsidian` and PKM fundamentals. Both are one-time purchases with free updates for life."
+            "answer": "**Essentials** (**${product.variants.0.price|currency}**) includes the complete vault, the online user guide and every future update. **Premium** (**${product.variants.1.price|currency}**) adds the **Obsidian Starter Course**, a video course of over two hours on `Obsidian` and PKM fundamentals. Both are one-time purchases with free updates for life."
         }
     ]
 }

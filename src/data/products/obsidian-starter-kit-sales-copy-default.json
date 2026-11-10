@@ -1,8 +1,8 @@
 {
     "id": "default",
     "salesCopy": {
-        "tagline": "My Own Obsidian Vault, Ready for You to Start From.",
-        "secondaryTagline": "The Obsidian vault I run my business from, packaged so you can start working the day you open it",
+        "tagline": "My Own Obsidian Vault, Ready to Use.",
+        "secondaryTagline": "The Obsidian vault I run my business from: your notes and your plans, plus what you watch, play, learn and train",
         "problem": "You've heard `Obsidian` is powerful. But every time you try to set it up, you hit the same wall: *where should notes go?* Which plugins matter? How do you structure this thing so it doesn't become another digital junk drawer? I've watched people spend **months** on this. Meanwhile, their ideas stay trapped in their heads or scattered across apps they'll never open again.",
         "problemPoints": [
             "**Weeks spent** on folder structure, only to scrap it when things don't fit",
@@ -12,6 +12,7 @@
             "Watching your vault become **messier as it grows**",
             "Reading books about *Zettelkasten*, *PARA*, *GTD* but **struggling to implement** them in practice",
             "**Juggling multiple apps**: task managers, journaling apps, contact tools and note apps that never talk to each other",
+            "**One app per hobby**: a movie tracker, a board game site, a practice app for your guitar and a running app, none of them linked to your notes",
             "**Finished work piling up** next to what's still open, until your task list is more archive than plan",
             "**AI tools that don't know you**: generic chatbots producing generic output, disconnected from your notes, your projects, and your thinking"
         ],
@@ -25,39 +26,43 @@
             "**Lost connections**: You can't remember who introduced that idea, who you discussed it with, or what you learned from whom",
             "**AI insights evaporating**: brilliant AI conversations lost the moment you close the tab, because they live outside your knowledge base"
         ],
-        "solution": "OSK is the Obsidian vault I run my business from every day, without my personal content. It's **20+ years** of knowledge management trial and error, turned into a system that works **from day one**: journaling, actions, learning and creation, all connected. With **v5**, finished work files itself, the things you do every day are one click away, and you can see where your time really goes. The AI assistant system now looks up the skill it needs instead of loading all of them before you've typed a word, and it follows one rule: **AI augments your thinking; it never replaces it**. Every decision has been made for you, and you can still change any of them.",
+        "solution": "OSK is the Obsidian vault I run my business from every day, without my personal content. It's **20+ years** of knowledge management trial and error, turned into a system that works **from day one**: journaling, actions, learning and creation, all connected. Since **v6**, it also holds the movies you watch, the games you play, the instrument you learn and the workouts you do, each in its own note, linked to everything else. The AI assistant system follows one rule: **AI augments your thinking; it never replaces it**. Every decision has been made for you, and you can still change any of them.",
         "solutionPoints": [
             "**Open it and start working**. No weeks of folder and plugin decisions first.",
             "**Finished work files itself**: statuses stamp their dates, and done actions move to the archive after seven days. Change the delay or switch it off whenever you like",
             "**One click for your daily routines**: buttons and captures on your daily note write to the right section, even when the note isn't open",
             "**Every commitment gets a home**: Activities for the work that never ends, Ideas for what you haven't committed to yet, and Kanban boards for all of it",
+            "**Your life outside work fits in too**: the movies and games you own, the instrument you're learning and the runs you do sit next to your notes and your projects, instead of in one app per hobby",
+            "**Activity time that counts itself**: each workout, practice or game gets a session note, and your activities take their minutes from it. No more logging everything twice",
             "**A full AI assistant inside your vault**: agents with memory, AI skills, LLM Wikis and a Personal Identity System. `Claude Code` gets all of it and finds skills on demand; `Codex`, `Gemini CLI` and `GitHub Copilot` get part of it",
             "**AI that keeps you the thinker**: an identity layer that teaches AI who you are, source provenance for every claim, and review panels that catch generic output. AI does the plumbing; you do the thinking",
-            "**40+ templates** that file notes where they belong, so you stop thinking about organization",
+            "**A template for every kind of note**, filing it where it belongs, so you stop thinking about organization",
             "**Pre-configured plugins** that actually work together",
+            "**Renames that keep your links**: your lists follow the notes you rename, and validation shows you the links that point nowhere",
             "*Zettelkasten*, *PARA*, *Johnny Decimal*, *GTD* built in and explained",
-            "Scales from **10 notes to 30,000**: my own vault runs on the same structure",
+            "Scales from **10 notes to well past 30,000**: my own vault runs on the same structure",
             "**A deep online user guide** covering foundations, systems, theory, step-by-step tutorials and reference. You never get stuck.",
-            "**One system replaces many tools**: journaling, tasks, contacts, meeting notes and content creation, all connected",
+            "**One system replaces many tools**: journaling, tasks, contacts, meeting notes, content creation, media, music practice and sport, all connected",
             "**Visual thinking built in**: Canvas and Excalidraw integration for non-linear thinking and spatial reasoning"
         ],
-        "description": "I've spent **20+ years** figuring out how to capture, organize and actually use knowledge without losing my mind. I've tried every tool, every method, every system, failed a lot and refined relentlessly. The Obsidian Starter Kit is the vault I run my business from every day (writing, the community, plugin development, the lot), minus my personal content. When something proves itself in my daily work, it lands in the next release. That's why the kit keeps getting better: I'm its most demanding user! **Version 5 is here.** Finished work files itself, the things you do every day are one click away, you can see where your time really goes, and the AI assistant looks up the skill it needs instead of loading all of them up front. Already on v4? You upgrade without starting over. Under all of it: proven methods (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*), a structure that scales, and a clear **AI Augmentation Philosophy**: AI augments your thinking; it never replaces it. You can outsource the busywork; you can't outsource your understanding. **${stats.userCount} people** use it. Want proof? My [free public notes](https://notes.dsebastien.net/) are built and shared with OSK. And if you'd rather learn the foundations first, start with my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
+        "description": "I've been passionate about knowledge management for more than **20 years**. I've tried every tool, every method, every system, failed a lot and refined relentlessly. The Obsidian Starter Kit is the vault I run my business from every day (writing, the community, plugin development, the lot), minus my personal content. When something proves itself in my daily work, it lands in the next release. That's why the kit keeps getting better: I'm its most demanding user! **Version 6 is here.** Your movies, shows, games, comics and board games get their own notes, next to your books. Learning an instrument gets a system of its own: every chord, scale and song is a note with a mastery level, and your vault tells you what to practice next. Each workout, practice or game gets a session note, and your activities take their time from those notes. Renames no longer break your links or your lists, the Kanban boards handle thousands of cards (and work on your phone), and the AI assistant now helps with your creations and with the plugins behind your buttons. Already on v5? You upgrade without starting over. Under all of it: proven methods (*PARA*, *Zettelkasten*, *Johnny Decimal*, *GTD*), a structure that scales, and a clear **AI Augmentation Philosophy**: AI augments your thinking; it never replaces it. You can outsource the busywork; you can't outsource your understanding. **${stats.userCount} people** use it. Want proof? My [free public notes](https://notes.dsebastien.net/) are built and shared with OSK. And if you'd rather learn the foundations first, start with my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
         "highlights": [
-            "**New in v5**: finished work that files itself, one-click Quick Actions on your daily note, Activities and Ideas, time budgets, and an AI assistant that finds its skills on demand",
+            "**New in v6**: your movies, shows, games and board games in your vault, a system for learning an instrument, session notes that give your activities their time, AI skills for your creations and your buttons, renames that keep your links, and Kanban boards that handle thousands of cards on your phone too",
+            "**Your Hobbies, Linked**: what you watch, play, collect, learn and train lives next to your notes and your projects, with what you own, want, lent and finished",
             "**Plan the Week You Want**: draw each activity's recurring time blocks on your ideal week and see which weekly targets have real time behind them before the week starts",
             "**AI-Native**: agents with memory, AI skills, LLM Wikis and a Personal Identity System; `Claude Code` and `Codex` connect to your vault on first launch",
             "**AI That Augments, Never Replaces**: a clear AI Augmentation Philosophy with real guardrails (identity layer, source provenance, review panels) that keep you doing the thinking and keep AI slop out",
             "**The OSK Plugin**: strongly typed notes with statuses, automation rules, a CLI and an `MCP` server, so `Claude Code`, `Codex`, `Gemini CLI` and more understand your whole vault",
-            "**Battle-Tested System**: the vault I run my business from, nearly 30,000 notes",
+            "**Battle-Tested System**: the vault I run my business from, well past 30,000 notes",
             "**Productive Day One**: Skip months of setup and configuration",
             "**Methods That Work Together**: *Zettelkasten*, *PARA*, *GTD*, and journaling integrated",
             "**Integrated Systems**: Journaling, task management, learning pipelines, and creation workflows that feed each other",
             "**People System**: Track relationships, interactions, and knowledge connections with contacts, authors, and collaborators",
             "**Meeting Notes System**: Structured capture with agendas, decisions, action items, and participant linking",
-            "**Scales With You**: from 10 notes to 30,000 on the same structure",
+            "**Scales With You**: from 10 notes to well past 30,000 on the same structure",
             "**Expert-Led**: 20+ years of Information and Knowledge Management expertise distilled into one system",
             "**${stats.userCount} Users**: sold and improved since 2022",
-            "**Free Updates for Life**: every future version included, v5 and beyond",
+            "**Free Updates for Life**: every future version included, v6 and beyond",
             "**Knowii Ecosystem**: included in the Knowledge Builder and Knowledge Master tiers of the [Knowii Community](/product/knowii-community), the [Knowledge Worker Kit](/product/knowledge-worker-kit) & the [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
         "benefits": {
@@ -73,12 +78,14 @@
             ],
             "systematic": [
                 "**Find notes fast** with hierarchical tags, Bases and several ways to discover related notes",
-                "Scale from **10 notes to 30,000** without your system breaking down",
+                "Scale from **10 notes to well past 30,000** without your system breaking down",
                 "**Housekeeping on autopilot**: templates file your notes, statuses stamp their dates, finished work archives itself",
                 "**Clear workflows** for every type of information you capture",
                 "**AI-native structure**: agents, skills and LLM Wikis that `Claude Code`, `Codex`, `Gemini CLI` and any `MCP`-capable tool can use",
                 "**See where your time really goes**: target, planned and tracked time per activity and project, plus cycle time, lead time and on-time rate",
                 "**Targets backed by time**: your ideal week gives every activity its blocks, because a target with no blocks behind it is a wish",
+                "**Time that counts itself**: session notes hold the minutes, and your activities and weekly budgets add them up, never twice",
+                "**Practice what matters next**: every chord, scale and song carries a mastery level, and your vault shows what's due for review",
                 "**Sustainable habits** with built-in journaling and review systems",
                 "**Progressive adoption roadmap** guiding you from beginner to power user at your own pace",
                 "**Visual thinking tools** with Canvas and Excalidraw for brainstorming, mapping, and spatial reasoning"
@@ -99,6 +106,7 @@
             "You want to learn PKM methods (Zettelkasten, PARA, GTD) through hands-on examples",
             "You're migrating from another tool and need a solid foundation to build on",
             "You want AI to work with your notes and need a vault it can understand",
+            "You want your hobbies in the same place: what you watch, play, read, learn and train, linked to the rest of your notes",
             "You value your time and prefer learning from 20+ years of refined expertise",
             "You want your knowledge to compound, not just be stored"
         ],
@@ -130,10 +138,11 @@
             "**Free updates for life**. Every future version at no extra cost.",
             "**A user guide that keeps growing**: new tutorials, guides and recommendations with every release",
             "**Release notes and a migration guide** for every major version, so you know what changed and how to upgrade",
-            "**Direct help**: questions come to me, and I answer them myself"
+            "**Direct help**: questions come to me, and I answer them myself",
+            "**The [Knowii Community](/product/knowii-community)**: your purchase gives you access to it, with other OSK and Obsidian users, right inside Obsidian"
         ],
         "metaTitle": "Obsidian Starter Kit - Give Your AI Superpowers | Knowledge Forge",
-        "metaDescription": "My own Obsidian vault, ready for yours: templates, automation, Quick Actions and an AI assistant that finds skills on demand. ${stats.userCount} users.",
+        "metaDescription": "My own Obsidian vault, ready to use: note types, templates, Bases, automation and an AI assistant, plus your movies, games, music practice and workouts. ${stats.userCount} users.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -160,7 +169,11 @@
             "obsidian kanban",
             "obsidian automation",
             "obsidian quick actions",
-            "claude code skills"
+            "claude code skills",
+            "obsidian media tracker",
+            "obsidian board games",
+            "obsidian music practice",
+            "obsidian workout tracking"
         ],
         "storytelling": {
             "originStory": {
@@ -183,7 +196,7 @@
                 ],
                 "achievements": [
                     "20+ years refining Personal Knowledge Management systems",
-                    "Built a vault that runs my business, nearly 30,000 notes and still easy to work in",
+                    "Built a vault that runs my business, well past 30,000 notes and still easy to work in",
                     "Author, blogger, and entrepreneur using this system daily",
                     "Created a system that works well with AI tools",
                     "Helped ${stats.userCount} knowledge workers change their workflows",
@@ -345,7 +358,7 @@
                     },
                     {
                         "title": "One System, Many Tools",
-                        "description": "OSK replaces fragmented apps with one integrated system. Your journaling connects to your tasks connects to your contacts connects to your knowledge. Information flows instead of getting stuck in silos.",
+                        "description": "OSK replaces fragmented apps with one integrated system. Your journaling connects to your tasks connects to your contacts connects to your knowledge, and your movies, games, music practice and workouts sit in the same graph. Information flows instead of getting stuck in silos.",
                         "icon": "🔄",
                         "order": 6
                     }
@@ -375,7 +388,7 @@
                     },
                     {
                         "title": "AI-Native, Human First",
-                        "description": "AI is changing knowledge work. OSK ships a full AI assistant system: agents, skills, LLM Wikis and an identity layer, and since v5 it loads only the skills a task needs. AI does the plumbing so you can do the thinking. Your vault stays yours; your thinking stays yours.",
+                        "description": "AI is changing knowledge work. OSK ships a full AI assistant system: agents, skills, LLM Wikis and an identity layer, and it loads only the skills a task needs. AI does the plumbing so you can do the thinking. Your vault stays yours; your thinking stays yours.",
                         "icon": "🤖"
                     }
                 ],
@@ -459,7 +472,7 @@
             "main": {
                 "show": true,
                 "title": "Your Vault on Day One",
-                "description": "Daily notes, projects, Bases, people, health and an AI assistant system: all configured, all documented.",
+                "description": "Daily notes, projects, Bases, people, health, media, music practice and an AI assistant system: all configured, all documented.",
                 "mediaIds": null
             },
             "secondary": {
