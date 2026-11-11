@@ -21,6 +21,11 @@
             "answer": "`Obsidian` **1.15.0 or newer** (several bundled plugins need a recent version). The AI part is optional; for it, you need an AI coding agent such as `Claude Code`, and the skills that run scripts also need `bun`. Movie, comic and board game metadata need your own free API keys (TMDB, Comic Vine, BoardGameGeek), and the sport session notes need a Garmin Connect account or a Strava export. Everything else works without any of it."
         },
         {
+            "id": "faq-16",
+            "question": "What does \"your AI knows you and your work\" mean?",
+            "answer": "An AI tool without context starts from zero at every prompt. The kit gives it that context once: who you are, what you're working on, how you work and how you write, in notes your AI reads. The structure that keeps your head clear is the same structure your AI reads. `Obsidian` is only where it lives: `Claude Code`, `Codex`, `Gemini` or a chat AI all work from the same notes. With that context, your AI can research, write, plan and run your projects and your business processes. You decide what. Your AI handles how."
+        },
+        {
             "id": "faq-14",
             "question": "Which AI tools does it work with?",
             "answer": "`Claude Code` gets everything: the `MCP` servers, on-demand skill search, the slash commands, the output styles and every safety hook. `Codex` gets the `MCP` servers and the hooks. `Gemini CLI` gets the hooks (you add the `MCP` servers yourself). `GitHub Copilot` in your IDE reads the vault rules and the skill files."
@@ -28,12 +33,12 @@
         {
             "id": "faq-15",
             "question": "Where do I download v6?",
-            "answer": "Where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii if you got it through the community. [learn.knowii.net](https://learn.knowii.net) explains both."
+            "answer": "Where you bought the kit: your Gumroad library, or the OSK space on the Knowii Community. [learn.knowii.net](https://learn.knowii.net) explains both."
         },
         {
             "id": "faq-11",
             "question": "Won't AI just fill my vault with generic content?",
-            "answer": "That's exactly what OSK is designed to prevent. The kit is built on a clear **AI Augmentation Philosophy**: AI augments your thinking; it never replaces it. The **identity layer** calibrates AI to your voice, values, and goals. **LLM Wikis** track sources and confidence for every claim. **Pre-publish review panels** (Editor, Skeptic, Hater, Beginner, Power User) catch generic output before it ships. AI handles the busywork; you stay the author. You can outsource the labor; you can't outsource your understanding."
+            "answer": "That's exactly what OSK is designed to prevent. The kit follows a clear **AI Augmentation Philosophy**: you can hand over the work, not the understanding. Your AI does the work; you choose what gets done, and you stay the one who understands it. The **identity layer** gives AI your voice, values and goals. **LLM Wikis** track sources and confidence for every claim. **Review panels** (Editor, Skeptic, Hater, Beginner, Power User) catch generic output before it lands in your notes."
         },
         {
             "id": "faq-9",
@@ -53,7 +58,7 @@
         {
             "id": "faq-4",
             "question": "How do updates work?",
-            "answer": "**Every update is free, for life**, v6 and every version after it included. You download new versions where you bought the kit: your Gumroad library, or the Obsidian Starter Kit space in Knowii. I announce every release by email, and the release notes document every change."
+            "answer": "**Every update is free, for life**, v6 and every version after it included. You download new versions where you bought the kit: your Gumroad library, or the OSK space on the Knowii Community. I announce every release by email, and the release notes document every change."
         },
         {
             "id": "faq-5",
@@ -63,7 +68,7 @@
         {
             "id": "faq-6",
             "question": "Is support included?",
-            "answer": "Yes. Email me your questions, or ask in the Obsidian Starter Kit space on the [Knowii Community](/product/knowii-community), which comes with your purchase. I answer questions myself and help people get started."
+            "answer": "Yes. Email me your questions, or ask in the OSK space on the [Knowii Community](/product/knowii-community), which comes with your purchase. I answer questions myself and help people get started."
         },
         {
             "id": "faq-7",
