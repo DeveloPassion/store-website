@@ -1,3 +1,8 @@
+## [1.77.0](https://github.com/DeveloPassion/store-website/compare/1.76.0...1.77.0) (2026-11-11)
+
+### Features
+
+* **website:** short links /osk /kwk /ekb /knowii ([84287d5](https://github.com/DeveloPassion/store-website/commit/84287d5a952748146e92d47b472cc0b73000c5c6))
 ## [1.76.0](https://github.com/DeveloPassion/store-website/compare/1.75.0...1.76.0) (2026-11-09)
 
 ### Features
