@@ -92,3 +92,7 @@
 
 # Other redirects
 /affiliates https://developassion.gumroad.com/affiliates 301
+/osk /product/obsidian-starter-kit 301
+/kwk /product/knowledge-worker-kit 301
+/ekb /product/everything-knowledge-bundle 301
+/knowii /product/knowii-community 301
