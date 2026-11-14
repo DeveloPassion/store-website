@@ -312,6 +312,64 @@ describe('ProductFeatures Component', () => {
             expect(getByText('Pro')).toBeInTheDocument()
         })
 
+        it('should show the includedProductsNote of a variant with its bonuses', () => {
+            const note = 'These products come with the yearly plan only.'
+            const variant1 = createMockVariant({
+                name: 'Basic',
+                gumroadVariantId: 'basic',
+                includedProducts: []
+            })
+            const variant2 = createMockVariant({
+                name: 'Pro',
+                gumroadVariantId: 'pro',
+                includedProducts: ['included-product-2'],
+                includedProductsNote: note
+            })
+            const product = createTestProduct({
+                includedProducts: ['included-product-1'],
+                variants: [variant1, variant2]
+            })
+            const { getByText, queryByText } = renderWithRouter(
+                <ProductFeatures
+                    product={product}
+                    selectedVariant={variant2}
+                    setSelectedVariant={mock(() => {})}
+                />
+            )
+
+            expect(getByText(/Some bonuses depend on the billing plan/)).toBeInTheDocument()
+            expect(queryByText(note)).not.toBeInTheDocument()
+            fireEvent.click(getByText(/Additional Products Included/))
+            expect(getByText(note)).toBeInTheDocument()
+        })
+
+        it('should not show the billing plan hint when no selected tier has a note', () => {
+            const variant1 = createMockVariant({
+                name: 'Basic',
+                gumroadVariantId: 'basic',
+                includedProducts: []
+            })
+            const variant2 = createMockVariant({
+                name: 'Pro',
+                gumroadVariantId: 'pro',
+                includedProducts: ['included-product-2'],
+                includedProductsNote: 'Yearly only.'
+            })
+            const product = createTestProduct({
+                includedProducts: ['included-product-1'],
+                variants: [variant1, variant2]
+            })
+            const { queryByText } = renderWithRouter(
+                <ProductFeatures
+                    product={product}
+                    selectedVariant={variant1}
+                    setSelectedVariant={mock(() => {})}
+                />
+            )
+
+            expect(queryByText(/Some bonuses depend on the billing plan/)).not.toBeInTheDocument()
+        })
+
         it('should show Plan label for subscription products', () => {
             const variant1 = createMockVariant({
                 name: 'Monthly',

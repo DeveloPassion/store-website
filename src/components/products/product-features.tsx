@@ -421,6 +421,17 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                         <div className='text-primary/60 text-sm'>
                                             Tap to see everything included
                                         </div>
+                                        {hasVariantSpecific &&
+                                            variantTabs
+                                                .slice(0, selectedVariantIndex + 1)
+                                                .some(
+                                                    (tab) => tab.variant.includedProductsNote
+                                                ) && (
+                                                <div className='text-primary/60 text-sm'>
+                                                    Some bonuses depend on the billing plan: see the
+                                                    notes below
+                                                </div>
+                                            )}
                                     </div>
                                 </div>
                                 <FaChevronDown
@@ -543,6 +554,14 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({
                                                                     </span>
                                                                 </div>
                                                             </div>
+                                                            {tab.variant.includedProductsNote && (
+                                                                <p className='text-primary/70 mb-3 text-sm'>
+                                                                    {
+                                                                        tab.variant
+                                                                            .includedProductsNote
+                                                                    }
+                                                                </p>
+                                                            )}
                                                             <div className='grid gap-3'>
                                                                 {tab.incrementalProducts.map(
                                                                     (includedProduct) => (

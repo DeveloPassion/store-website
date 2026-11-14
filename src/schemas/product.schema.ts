@@ -68,7 +68,9 @@ export const ProductVariantSchema = z.object({
     paymentFrequency: PaymentFrequencySchema.nullable(),
     prices: VariantPricingSchema.nullable(), // Per-frequency pricing for accurate savings calculation
     // Products included in this specific variant (in addition to root includedProducts)
-    includedProducts: z.array(z.string())
+    includedProducts: z.array(z.string()),
+    // Optional condition shown with this variant's bonuses (e.g., which billing plans carry them)
+    includedProductsNote: z.string().optional()
 })
 
 /**

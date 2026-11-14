@@ -25,7 +25,7 @@
         "**Flagship Offer**: Everything keeps growing; join now, get everything added later",
         "**All Tiers**: Private community, live events, expert access, monthly challenges, 4K+ concept knowledge base, [~10K published notes](https://notes.dsebastien.net/)",
         "**Knowledge Builder**: Access to premium spaces + Regular Workshops & Deep Dives",
-        "**Knowledge Master**: Access to ALL past & future courses, products and tools, exclusive events (e.g., AMAs, group coaching, masterminds, etc) . Best value for serious knowledge workers"
+        "**Knowledge Master**: Exclusive events (e.g., AMAs, group coaching, masterminds, etc). On the yearly and two-year plans: ALL past & future courses, products and tools. Best value for serious knowledge workers"
     ],
     "featured": true,
     "bestValue": true,
@@ -57,7 +57,7 @@
             "name": "Knowledge Builder",
             "price": 59.99,
             "priceDisplay": "€59.99/quarter",
-            "description": "Everything from Explorer, plus: [Premium Workshops](/categories/workshops), [Obsidian Starter Kit](/product/obsidian-starter-kit) & [Course](/product/obsidian-starter-course), Expert Access, Monthly Challenges, Newsletter Archives, Early Access. **${computed.variantIncludedValues.1|floor:50|currency:0}+ value included!**",
+            "description": "Everything from Explorer, plus: [Premium Workshops](/categories/workshops), Expert Access, Monthly Challenges, Newsletter Archives, Early Access. **${computed.variantIncludedValues.1|floor:50|currency:0}+ value included!**",
             "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=2cpXpMzvZlAoz_gYEiHCDg%3D%3D",
             "gumroadVariantId": "knowledge-builder",
             "paymentFrequency": "quarterly",
@@ -73,16 +73,14 @@
                 "personal-organization-101",
                 "clarity-101",
                 "ai-master-prompt",
-                "model-context-protocol",
-                "obsidian-starter-kit",
-                "obsidian-starter-course"
+                "model-context-protocol"
             ]
         },
         {
             "name": "Knowledge Master",
             "price": 119.99,
             "priceDisplay": "€119.99/quarter",
-            "description": "Everything in Knowledge Builder, PLUS: Exclusive events (AMAs, group coaching, masterminds), **All Courses** ([KM for Beginners](/product/knowledge-management-for-beginners), [Obsidian Course](/product/obsidian-starter-course) + future), **All Tools** ([Knowledge Worker Kit](/product/knowledge-worker-kit), [Obsidian Starter Kit](/product/obsidian-starter-kit), [PKM Library](/product/pkm-library), [AI Ghostwriter Guide](/product/ai-ghostwriter-guide) + future), Implementation Support, Experimental Content. **${computed.includedValue|floor:50|currency:0}+ value included!**",
+            "description": "Everything in Knowledge Builder, PLUS: Exclusive events (AMAs, group coaching, masterminds). **On the yearly and two-year plans:** **All Courses** ([KM for Beginners](/product/knowledge-management-for-beginners), [Obsidian Course](/product/obsidian-starter-course) + future), **All Tools** ([Knowledge Worker Kit](/product/knowledge-worker-kit), [Obsidian Starter Kit](/product/obsidian-starter-kit), [PKM Library](/product/pkm-library), [AI Ghostwriter Guide](/product/ai-ghostwriter-guide) + future), Implementation Support, Experimental Content. **${computed.includedValue|floor:50|currency:0}+ value included with the yearly and two-year plans!**",
             "gumroadUrl": "https://developassion.gumroad.com/l/knowii?option=NQw4Qu4xyj-5TPRpbbkOAQ%3D%3D",
             "gumroadVariantId": "knowledge-master",
             "paymentFrequency": "quarterly",
@@ -93,7 +91,10 @@
                 "biennial": 699.99,
                 "oneTime": null
             },
+            "includedProductsNote": "The products below come with the yearly and two-year plans of Knowledge Master. Members who join on the quarterly plan get the events, the community and the workshops, not the products.",
             "includedProducts": [
+                "obsidian-starter-kit",
+                "obsidian-starter-course",
                 "knowledge-worker-kit",
                 "knowledge-management-for-beginners",
                 "ai-ghostwriter-guide",
