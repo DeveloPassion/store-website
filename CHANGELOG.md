@@ -1,3 +1,14 @@
+## [1.78.0](https://github.com/DeveloPassion/store-website/compare/1.77.0...1.78.0) (2026-11-14)
+
+### Features
+
+* **website:** add Breana Nannetti testimonial for the Obsidian Search Handbook ([30b2109](https://github.com/DeveloPassion/store-website/commit/30b2109b0e006bc096b4caa44d092ea167ec4dd1))
+* **website:** osk v6 product page copy ([530d6c8](https://github.com/DeveloPassion/store-website/commit/530d6c89beea1a5ccbc05bed9a38d75ba43f44a7))
+* **website:** osk v6 sales copy, a knowledge system for your whole life ([f876947](https://github.com/DeveloPassion/store-website/commit/f876947ed06c9d9141e496b5b3b93140fad43f30))
+
+### Bug Fixes
+
+* **website:** osk buyers get the osk space on knowii ([0fa6bcd](https://github.com/DeveloPassion/store-website/commit/0fa6bcde40ebd0e64d0e40f9c174910c55583f8f))
 ## [1.77.0](https://github.com/DeveloPassion/store-website/compare/1.76.0...1.77.0) (2026-11-11)
 
 ### Features
