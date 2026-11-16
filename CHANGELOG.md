@@ -1,3 +1,12 @@
+## [1.79.0](https://github.com/DeveloPassion/store-website/compare/1.78.0...1.79.0) (2026-11-16)
+
+### Features
+
+* **website:** knowii products come with master yearly or two-year for new members ([4513ab2](https://github.com/DeveloPassion/store-website/commit/4513ab285ee97779db91ea8c0ffbf47629b5da46))
+
+### Bug Fixes
+
+* **website:** kwk comes with knowledge master yearly or two-year ([0b37172](https://github.com/DeveloPassion/store-website/commit/0b3717284e245e7633914e3ab711f34fc41be817))
 ## [1.78.0](https://github.com/DeveloPassion/store-website/compare/1.77.0...1.78.0) (2026-11-14)
 
 ### Features
