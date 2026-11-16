@@ -144,7 +144,7 @@
                     },
                     {
                         "title": "Implementation: Build Your System",
-                        "description": "The [Obsidian Starter Kit](/product/obsidian-starter-kit) gives you a ready-to-use and battle-tested vault that implements what you learned. **40+ auto-filing templates**, pre-configured plugins, proven workflows. The [Obsidian Starter Course](/product/obsidian-starter-course) (**2.5 hours**) shows you how everything connects.",
+                        "description": "The [Obsidian Starter Kit](/product/obsidian-starter-kit) gives you a ready-to-use and battle-tested vault that implements what you learned. **Auto-filing templates**, pre-configured plugins, proven workflows. The [Obsidian Starter Course](/product/obsidian-starter-course) (**2.5 hours**) shows you how everything connects.",
                         "icon": "🏗️",
                         "order": 1
                     },

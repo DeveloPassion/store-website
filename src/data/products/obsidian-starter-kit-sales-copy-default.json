@@ -24,24 +24,23 @@
             "**A three-page prompt** every time you want AI to help with your work, because it knows nothing about you",
             "**AI answers evaporating**: good AI conversations lost the moment you close the tab, because they live outside your notes"
         ],
-        "solution": "The Obsidian Starter Kit is the vault I run my business from every day, without my personal content. It's a knowledge system for your whole life, built in three layers. **The foundation: everything has a place.** Every kind of note has a type, a template, properties and a folder, and automation files and archives your work for you. Nothing to decide, nothing to remember. **The life systems: your whole life in one place.** Your knowledge, your goals and tasks, your journal, the people you know, what you create, who you are, and since **v6**, what you watch, play, practice and train. **The AI layer: your AI knows you and your work.** The structure that keeps your head clear is the same structure your AI reads, so it can do the work for you: research, writing, planning, running your projects and your business processes. You decide what. Your AI handles how.",
+        "solution": "The Obsidian Starter Kit is the vault I run my business from every day, without my personal content. It's a knowledge system for your whole life: your notes and what you learn, your goals, projects and tasks, your journal, the people you know, what you create, and since **v6**, what you watch, play, practice and train. Every kind of note has a type, a template and a place, so you stop carrying it all in your head. And because everything is structured, your AI knows you and your work, and can do the work for you: research, writing, planning, running your projects and your business processes. You decide what. Your AI handles how.",
         "solutionPoints": [
             "**Everything has a place**: every kind of note has a type, a template, properties and a folder. Pick the template and the note files itself",
             "**Finished work files itself**: statuses stamp their dates, and done actions move to the archive on their own, so your lists show what's still open",
             "**Your daily note becomes your cockpit**: buttons for the things you do every day, captures that write to the right section, and Bases that take you to everything else",
             "**Reviews keep it current**: daily, weekly, monthly, quarterly and yearly notes share one shape, so looking back and planning ahead takes minutes",
-            "**New in v6, a sturdier foundation**: renames keep your links and your lists, link checks show what points nowhere, Kanban boards handle thousands of cards (and work on your phone), and large vaults stay fast. In French and on macOS too",
+            "**New in v6, faster**: Kanban boards with thousands of cards (also on your phone), and much faster saves on large vaults. In French and on macOS too",
             "**Your goals and your to-do list finally talk to each other**: ideas, goals, plans, projects, activities and tasks link up, with Kanban boards, an ideal week and time budgets",
             "**Your notes compound**: content curation, *Zettelkasten*, Dots, Maps of Content and LLM Wikis turn what you read into permanent notes you can reuse",
             "**People, creations and identity**: contacts, meetings and interactions, a creation pipeline from idea to published, and notes about who you are, your voice and your routines",
-            "**New in v6, life outside work**: the movies, shows, games and board games you own, the instrument you're learning (with mastery levels and spaced review), and session notes whose minutes count toward your activities on their own",
+            "**New in v6, life outside work**: your movies, shows, anime, manga, comics, games and albums next to your books, a mastery level for every chord, scale and song you learn on guitar or piano, and one session note per practice, workout or game",
             "**Your AI knows you and your work**: your identity, goals, projects, processes and voice live in one place, so it can research, write, plan and run your projects without a three-page prompt",
             "**One context for every AI tool**: `Claude Code`, `Codex`, `Gemini` or a chat AI all work from the same notes. Switch tools and your context stays",
             "**Agents, skills, panels and memory, ready on day one**: the OSK plugin exposes your note types through a CLI and an `MCP` server, and review panels catch generic output before it lands in your notes",
-            "**New in v6, more for your AI to work with**: skills for your creations, skills that change your QuickAdd, Meta Bind, Dataview Serializer and Templater setup without breaking it, and bundles of notes for chat AIs",
             "**You decide what, your AI handles how**: you can hand over the work, not the understanding. And it all stays in plain Markdown files on your machine, with or without AI"
         ],
-        "description": "I've been passionate about knowledge management for more than **20 years**. I run my business from this vault every day (writing, the community, plugin development, the lot), and the Obsidian Starter Kit is that vault without my personal content. When something proves itself in my daily work, it lands in the next release. That's why the kit keeps getting better: I'm its most demanding user! It's built for you AND for your AI. The foundation gives everything a place, so nothing stays in your head. The life systems hold your whole life: notes and learning, goals and tasks, your journal, people, creations and identity. And because all of it is structured, your AI knows you and your work, and can do the work for you. **Version 6 is here**, and each layer got something. The foundation got sturdier: renames no longer break your links or your lists, and the Kanban boards handle thousands of cards (and work on your phone). The system now goes past your work: your movies, shows, games and board games, the instrument you're learning and your workouts get their own notes. And your AI got more to work with: skills for your creations and for the plugins behind your buttons. Already on v5? You upgrade without starting over. The rule behind the AI layer is simple: **you can hand over the work, not the understanding**. Your AI does the work; you choose what gets done, and you stay the one who understands it. **${stats.userCount} people** use the kit, sold and improved since 2022. Want proof? My [free public notes](https://notes.dsebastien.net/) are built and shared with OSK. And if you'd rather learn the foundations first, start with my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
+        "description": "I've been passionate about knowledge management for more than **20 years**. I run my business from this vault every day (writing, the community, plugin development, the lot), and the Obsidian Starter Kit is that vault without my personal content. When something proves itself in my daily work, it lands in the next release. That's why the kit keeps getting better: I'm its most demanding user! **Version 6 is here.** Your movies, shows, games, comics and board games get their own notes, next to your books. Learning an instrument gets a system of its own, and each workout, practice or game gets a session note. Already on v5? You upgrade without starting over. The rule behind the AI part is simple: **you can hand over the work, not the understanding**. Your AI does the work; you choose what gets done, and you stay the one who understands it. I've sold and improved the kit since 2022. Want proof? My [free public notes](https://notes.dsebastien.net/) are built and shared with OSK. And if you'd rather learn the foundations first, start with my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
         "highlights": [
             "**A Knowledge System for Your Whole Life**: less in your head, more done by your AI",
             "**Your Head Gets Lighter**: every note has a type, a template and a place, and finished work files itself, so nothing stays in your head",
@@ -49,13 +48,12 @@
             "**Your AI Does the Work**: it knows who you are, what you're working on and how you write, so it can research, write, plan and run your projects and business processes",
             "**You Decide What, Your AI Handles How**: you can hand over the work, not the understanding",
             "**One Context for Every AI Tool**: `Claude Code`, `Codex`, `Gemini` or a chat AI all work from the same notes",
-            "**v6, Every Layer Got Better**: a sturdier foundation (renames that keep your links, big boards on your phone), life outside work (media, music learning, session notes) and more for your AI (skills for your creations and your buttons)",
+            "**v6, Your Life Outside Work Moves In**: media, music learning and session notes, plus Kanban boards that handle thousands of cards (also on your phone)",
             "**Battle-Tested System**: the vault I run my business from, well past 30,000 notes",
             "**Productive Day One**: skip months of setup and configuration",
             "**Methods That Work Together**: *Zettelkasten*, *PARA*, *GTD*, and journaling integrated",
             "**You Own Everything**: plain Markdown files on your machine, no lock-in, with or without AI",
             "**Expert-Led**: 20+ years of Information and Knowledge Management expertise in one system",
-            "**${stats.userCount} Users**: sold and improved since 2022",
             "**Free Updates for Life**: every future version included, v6 and beyond",
             "**Knowii Ecosystem**: included in the yearly and two-year Knowledge Master plans of the [Knowii Community](/product/knowii-community), the [Knowledge Worker Kit](/product/knowledge-worker-kit) & the [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
@@ -70,7 +68,7 @@
             ],
             "systematic": [
                 "**Your goals and your to-do list finally talk to each other**: goals, plans, projects, tasks, activities and ideas link up and show up on Kanban boards",
-                "**Targets backed by time**: your ideal week gives every activity its blocks, and session notes count the minutes for you",
+                "**Targets backed by time**: your ideal week gives every activity its blocks, next to its weekly target",
                 "**The people you know are part of it**: contacts, meetings and interactions link to your notes and your projects",
                 "**Your life outside work fits in too**: the movies and games you own, the instrument you're learning and the runs you do, linked like everything else instead of in one app per hobby",
                 "**Reviews keep it current**: daily, weekly, monthly, quarterly and yearly notes share one shape",
@@ -116,8 +114,8 @@
         "trustBadges": [
             "**30-Day Money-Back Guarantee**",
             "**Lifetime Updates Included**",
-            "**${stats.userCount} Users** Worldwide",
-            "**${computed.averageRating|round:1}/5 Average Rating**",
+            "**Improved Since 2022**",
+            "**Plain Markdown**, No Lock-In",
             "**20+ Years** PKM Expertise",
             "**Beginner Friendly**"
         ],
@@ -130,7 +128,7 @@
             "**The OSK space on the [Knowii Community](/product/knowii-community)**: your purchase includes it, for the downloads, the updates and your questions"
         ],
         "metaTitle": "Obsidian Starter Kit - A Knowledge System for Your Whole Life | Knowledge Forge",
-        "metaDescription": "My own Obsidian vault, ready to use: a knowledge system for your whole life. Everything has a place, and your AI knows you and your work. ${stats.userCount} users.",
+        "metaDescription": "My own Obsidian vault, ready to use: a knowledge system for your whole life. Everything has a place, and your AI knows you and your work. Free updates for life.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -170,7 +168,7 @@
             "originStory": {
                 "title": "Why I Built the Obsidian Starter Kit",
                 "subtitle": "20+ Years of Knowledge Management, Distilled",
-                "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and use knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly (many times) and refined relentlessly. Eventually, I learned my lessons and ended up with a solid system. A system that scaled from my first notes to 10K+, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome (spending months recreating mistakes I'd already solved) that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
+                "story": "For over two decades, I've been obsessed with one question: How do we capture, organize, and use knowledge without losing our minds? I've tried every tool, every methodology, every system. I've failed spectacularly (many times) and refined relentlessly. Eventually, I learned my lessons and ended up with a solid system. A system that scaled from my first notes to well past 30,000, that grew with my career as an author, blogger, and entrepreneur, that made me more capable every single day. But it wasn't until I watched others struggle with the same chaos I had overcome (spending months recreating mistakes I'd already solved) that I realized this system needed to be shared. The Obsidian Starter Kit isn't a product I built to sell. It's the system I use every day, packaged so you don't have to spend years figuring it out yourself.",
                 "inspirationPoint": "Watching talented people waste months on problems I had already solved",
                 "genesisDate": "Refined over 20+ years, shared since 2022",
                 "icon": "💡"
@@ -190,7 +188,7 @@
                     "Built a vault that runs my business, well past 30,000 notes and still easy to work in",
                     "Author, blogger, and entrepreneur using this system daily",
                     "Created a system that works well with AI tools",
-                    "Helped ${stats.userCount} knowledge workers change their workflows",
+                    "Sold and improved the kit since 2022",
                     "Published a free public knowledge base at notes.dsebastien.net, built with OSK"
                 ],
                 "credentials": "20+ years of Knowledge Management expertise as an author, blogger, entrepreneur, and IT professional",

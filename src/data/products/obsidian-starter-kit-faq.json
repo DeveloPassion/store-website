@@ -8,12 +8,12 @@
         {
             "id": "faq-10",
             "question": "What's new in v6?",
-            "answer": "v6 brings what I added to my vault since v5: a **Media Management System** (movies, shows, anime, manga, comics, video games, board games and albums, with what you own, want, lent and finished), a **Music Learning System** (chords, scales and songs with mastery levels and spaced review), **session notes** that give your activities their time, AI skills for your creations and for the plugins behind the Quick Actions, bundles of notes for a chat AI, **renames that keep your links**, link checks, Kanban boards that handle thousands of cards and work on your phone, a French interface for the OSK plugin, `osk-cli` on macOS, and much faster saves on large vaults. Everything else (and there's a LOT) is in the [v6.0.0 release notes](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Release+Notes/Obsidian+Starter+Kit+-+Release+Notes+-+v6.0.0)."
+            "answer": "A **Media Management System** for your movies, shows, anime, manga, comics, games and albums, a **Music Learning System**, **session notes** for each practice, workout or game, Kanban boards that handle thousands of cards and work on your phone, much faster saves on large vaults, a French interface and `osk-cli` on macOS. The complete list of changes (and there's a LOT) is in the [v6.0.0 release notes](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Release+Notes/Obsidian+Starter+Kit+-+Release+Notes+-+v6.0.0)."
         },
         {
             "id": "faq-12",
             "question": "I'm on v5. How do I upgrade to v6?",
-            "answer": "You don't re-import the kit. The [v5 to v6 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v5.0.2+to+v6.0.0) walks you through it step by step: the core update first, then the media, music and session systems if you want them, with a skill that moves your workout history out of your daily notes. Still on v4? Follow the [v4 to v5 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v4.x+to+v5.0.0) with the v6 kit; it already contains these changes."
+            "answer": "You upgrade without starting over. The update is free, and the [v5 to v6 migration guide](https://notes.dsebastien.net/30+Areas/33+Permanent+notes/33.04+Creations/Products/Obsidian+Starter+Kit/Migration+Guides/Obsidian+Starter+Kit+-+Migration+Guide+-+v5.0.2+to+v6.0.0) walks you through it."
         },
         {
             "id": "faq-13",
