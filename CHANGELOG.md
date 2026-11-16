@@ -1,3 +1,8 @@
+## [1.79.2](https://github.com/DeveloPassion/store-website/compare/1.79.1...1.79.2) (2026-11-16)
+
+### Bug Fixes
+
+* **build:** javascript file names carry a build id so a stale chunk cannot load an old bundle ([0e68183](https://github.com/DeveloPassion/store-website/commit/0e681837806524a03d5479bbcd359d78c143f2e8))
 ## [1.79.1](https://github.com/DeveloPassion/store-website/compare/1.79.0...1.79.1) (2026-11-16)
 
 ### Bug Fixes
