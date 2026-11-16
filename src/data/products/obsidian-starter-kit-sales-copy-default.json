@@ -40,7 +40,7 @@
             "**Agents, skills, panels and memory, ready on day one**: the OSK plugin exposes your note types through a CLI and an `MCP` server, and review panels catch generic output before it lands in your notes",
             "**You decide what, your AI handles how**: you can hand over the work, not the understanding. And it all stays in plain Markdown files on your machine, with or without AI"
         ],
-        "description": "I've been passionate about knowledge management for more than **20 years**. I run my business from this vault every day (writing, the community, plugin development, the lot), and the Obsidian Starter Kit is that vault without my personal content. When something proves itself in my daily work, it lands in the next release. That's why the kit keeps getting better: I'm its most demanding user! **Version 6 is here.** Your movies, shows, games, comics and board games get their own notes, next to your books. Learning an instrument gets a system of its own, and each workout, practice or game gets a session note. Already on v5? You upgrade without starting over. The rule behind the AI part is simple: **you can hand over the work, not the understanding**. Your AI does the work; you choose what gets done, and you stay the one who understands it. I've sold and improved the kit since 2022. Want proof? My [free public notes](https://notes.dsebastien.net/) are built and shared with OSK. And if you'd rather learn the foundations first, start with my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
+        "description": "I've been passionate about knowledge management for more than **20 years**. I run my business from this vault every day (writing, the community, plugin development, the lot), and the Obsidian Starter Kit is that vault without my personal content. When something proves itself in my daily work, it lands in the next release. That's why the kit keeps getting better: I'm its most demanding user! **Version 6 is here.** Your movies, shows, games, comics and board games get their own notes, next to your books. Learning an instrument gets a system of its own, and each workout, practice or game gets a session note. Already on v5? You upgrade without starting over. The rule behind the AI part is simple: **you can hand over the work, not the understanding**. Your AI does the work; you choose what gets done, and you stay the one who understands it. **${stats.userCount} people** use the kit, sold and improved since 2022. Want proof? My [free public notes](https://notes.dsebastien.net/) are built and shared with OSK. And if you'd rather learn the foundations first, start with my [Knowledge Management for Beginners](/product/knowledge-management-for-beginners) course.",
         "highlights": [
             "**A Knowledge System for Your Whole Life**: less in your head, more done by your AI",
             "**Your Head Gets Lighter**: every note has a type, a template and a place, and finished work files itself, so nothing stays in your head",
@@ -54,6 +54,7 @@
             "**Methods That Work Together**: *Zettelkasten*, *PARA*, *GTD*, and journaling integrated",
             "**You Own Everything**: plain Markdown files on your machine, no lock-in, with or without AI",
             "**Expert-Led**: 20+ years of Information and Knowledge Management expertise in one system",
+            "**${stats.userCount} Users**: sold and improved since 2022",
             "**Free Updates for Life**: every future version included, v6 and beyond",
             "**Knowii Ecosystem**: included in the yearly and two-year Knowledge Master plans of the [Knowii Community](/product/knowii-community), the [Knowledge Worker Kit](/product/knowledge-worker-kit) & the [Everything Bundle](/product/everything-knowledge-bundle)"
         ],
@@ -114,8 +115,8 @@
         "trustBadges": [
             "**30-Day Money-Back Guarantee**",
             "**Lifetime Updates Included**",
-            "**Improved Since 2022**",
-            "**Plain Markdown**, No Lock-In",
+            "**${stats.userCount} Users** Worldwide",
+            "**${computed.averageRating|round:1}/5 Average Rating**",
             "**20+ Years** PKM Expertise",
             "**Beginner Friendly**"
         ],
@@ -128,7 +129,7 @@
             "**The OSK space on the [Knowii Community](/product/knowii-community)**: your purchase includes it, for the downloads, the updates and your questions"
         ],
         "metaTitle": "Obsidian Starter Kit - A Knowledge System for Your Whole Life | Knowledge Forge",
-        "metaDescription": "My own Obsidian vault, ready to use: a knowledge system for your whole life. Everything has a place, and your AI knows you and your work. Free updates for life.",
+        "metaDescription": "My own Obsidian vault, ready to use: a knowledge system for your whole life. Everything has a place, and your AI knows you and your work. ${stats.userCount} users.",
         "keywords": [
             "obsidian starter kit",
             "obsidian templates",
@@ -188,7 +189,7 @@
                     "Built a vault that runs my business, well past 30,000 notes and still easy to work in",
                     "Author, blogger, and entrepreneur using this system daily",
                     "Created a system that works well with AI tools",
-                    "Sold and improved the kit since 2022",
+                    "Helped ${stats.userCount} knowledge workers change their workflows",
                     "Published a free public knowledge base at notes.dsebastien.net, built with OSK"
                 ],
                 "credentials": "20+ years of Knowledge Management expertise as an author, blogger, entrepreneur, and IT professional",
