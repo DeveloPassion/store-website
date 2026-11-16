@@ -1,3 +1,9 @@
+## [1.79.1](https://github.com/DeveloPassion/store-website/compare/1.79.0...1.79.1) (2026-11-16)
+
+### Bug Fixes
+
+* **website:** osk keeps its real rating and user count, v6 promo video and cover ([0105b26](https://github.com/DeveloPassion/store-website/commit/0105b26777df5740f264a63dde8f0f4e49000140))
+* **website:** osk sales copy follows the launch copy feedback ([0da89fe](https://github.com/DeveloPassion/store-website/commit/0da89fe4787efb86593e96a818bce4b01db872f8))
 ## [1.79.0](https://github.com/DeveloPassion/store-website/compare/1.78.0...1.79.0) (2026-11-16)
 
 ### Features
