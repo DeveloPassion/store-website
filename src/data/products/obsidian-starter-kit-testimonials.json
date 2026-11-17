@@ -687,7 +687,19 @@
         {
             "id": "testimonial-58",
             "author": "Trent Strum",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": null,
             "quote": "I have spent months and lots of money to find the right obsidian kit and this is the one. There's more content here than I could have imagined. The kit itself is up and running and works great, but it gets even better the more I dive into the courses, articles, and published vault.",
+            "featured": true
+        },
+        {
+            "id": "testimonial-59",
+            "author": "Sean McQuilling",
+            "quote": "I run my Cybersec notes (CTI, threat hunting, AISecOps) in Obsidian, and the Starter Kit gave me the structure to keep it all organized originally (waaay back in 2022). With the 6.0 release, the agentic hooks are making my note-taking life easy peasy. Thanks Sébastien for helping make sense of Obsidian and PKM for all of us.",
             "featured": true,
             "role": null,
             "company": null,
