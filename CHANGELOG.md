@@ -1,3 +1,8 @@
+## [1.80.0](https://github.com/DeveloPassion/store-website/compare/1.79.2...1.80.0) (2026-11-17)
+
+### Features
+
+* **website:** add Sean McQuilling testimonial for Obsidian Starter Kit ([e9d3823](https://github.com/DeveloPassion/store-website/commit/e9d3823aa49422005c896ef9047b81dc430a2dc5))
 ## [1.79.2](https://github.com/DeveloPassion/store-website/compare/1.79.1...1.79.2) (2026-11-16)
 
 ### Bug Fixes
