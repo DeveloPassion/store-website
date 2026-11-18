@@ -1,3 +1,8 @@
+## [1.81.0](https://github.com/DeveloPassion/store-website/compare/1.80.0...1.81.0) (2026-11-18)
+
+### Features
+
+* **website:** add Sebastian Kamilli testimonial for Obsidian Search Handbook ([b98e56f](https://github.com/DeveloPassion/store-website/commit/b98e56f21501e26c30f2bd0c5b62a8c73e3d8b5f))
 ## [1.80.0](https://github.com/DeveloPassion/store-website/compare/1.79.2...1.80.0) (2026-11-17)
 
 ### Features
