@@ -11,6 +11,17 @@ import { z } from 'zod'
 
 export const BannerBehaviorSchema = z.enum(['ALWAYS', 'NEVER', 'PROMOTIONS'])
 
+/**
+ * A product (or some of its variants) that the promotion does not cover.
+ * The buy links of excluded products never carry the discount code.
+ */
+export const PromotionExclusionSchema = z.object({
+    productId: z.string().min(1, 'Product id is required'),
+    // null: the whole product is excluded
+    // array: only these variants (by gumroadVariantId) are excluded
+    variantIds: z.array(z.string().min(1)).nullable()
+})
+
 export const PromotionConfigSchema = z
     .object({
         // Banner visibility control
@@ -24,7 +35,10 @@ export const PromotionConfigSchema = z
         promoText: z.string().min(1, 'Promotion text is required'),
         promoLinkText: z.string().nullable(),
         promoLink: z.string().url('Promotion link must be a valid URL').nullable(),
-        discountCode: z.string().nullable()
+        discountCode: z.string().nullable(),
+
+        // Products not covered by the promotion (no discount code on their buy links)
+        excludedProducts: z.array(PromotionExclusionSchema)
     })
     .refine(
         (data) => {
@@ -56,4 +70,5 @@ export const PromotionConfigSchema = z
 
 // Export TypeScript types derived from Zod schemas
 export type BannerBehavior = z.infer<typeof BannerBehaviorSchema>
+export type PromotionExclusion = z.infer<typeof PromotionExclusionSchema>
 export type PromotionConfig = z.infer<typeof PromotionConfigSchema>

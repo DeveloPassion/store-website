@@ -28,6 +28,7 @@ import type { PromotionConfig } from '../src/types/promotion'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const PROMOTION_FILE = resolve(__dirname, '../src/data/promotion.json')
+const PRODUCTS_DIR = resolve(__dirname, '../src/data/products')
 
 function main() {
     console.log('🔍 Validating promotion configuration...\n')
@@ -56,6 +57,14 @@ function main() {
     const result = PromotionConfigSchema.safeParse(promotionData)
 
     if (result.success) {
+        const exclusionErrors = validateExcludedProducts(result.data)
+        if (exclusionErrors.length > 0) {
+            console.error('❌ Validation failed!\n')
+            exclusionErrors.forEach((message) => console.error(`  • excludedProducts: ${message}`))
+            console.error('')
+            process.exit(1)
+        }
+
         console.log('✅ Promotion configuration is valid!\n')
         displaySummary(result.data)
         process.exit(0)
@@ -78,6 +87,31 @@ function main() {
     process.exit(1)
 }
 
+// Every excluded product (and variant) must exist, else a typo silently puts the code on it
+function validateExcludedProducts(config: PromotionConfig): string[] {
+    const errors: string[] = []
+    for (const exclusion of config.excludedProducts) {
+        const productFile = resolve(PRODUCTS_DIR, `${exclusion.productId}.json`)
+        if (!existsSync(productFile)) {
+            errors.push(`unknown product "${exclusion.productId}"`)
+            continue
+        }
+        if (exclusion.variantIds === null) {
+            continue
+        }
+        const product = JSON.parse(readFileSync(productFile, 'utf-8')) as {
+            variants: { gumroadVariantId: string | null }[] | null
+        }
+        const knownVariantIds = (product.variants ?? []).map((variant) => variant.gumroadVariantId)
+        for (const variantId of exclusion.variantIds) {
+            if (!knownVariantIds.includes(variantId)) {
+                errors.push(`unknown variant "${variantId}" for product "${exclusion.productId}"`)
+            }
+        }
+    }
+    return errors
+}
+
 function displaySummary(config: PromotionConfig) {
     console.log('📊 Promotion Summary:')
     console.log(`   Banner Behavior: ${config.bannerBehavior}`)
@@ -90,6 +124,14 @@ function displaySummary(config: PromotionConfig) {
 
     if (config.discountCode) {
         console.log(`   Discount Code: ${config.discountCode}`)
+    }
+
+    if (config.excludedProducts.length > 0) {
+        console.log(`   Excluded Products:`)
+        config.excludedProducts.forEach((exclusion) => {
+            const scope = exclusion.variantIds ? exclusion.variantIds.join(', ') : 'all variants'
+            console.log(`     - ${exclusion.productId} (${scope})`)
+        })
     }
 
     if (config.promotionStart && config.promotionEnd) {

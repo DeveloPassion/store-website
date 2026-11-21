@@ -1,4 +1,5 @@
 import type { Product, ProductVariant, PaymentFrequency } from '@/schemas/product.schema'
+import { getCurrentPromotionDiscountCode } from '@/lib/promotion'
 
 export interface GumroadUrlOptions {
     variantId?: string | null
@@ -77,17 +78,20 @@ export const buildGumroadUrl = (
  * @param product - The product
  * @param selectedVariant - Optional selected variant
  * @param selectedFrequency - Optional selected payment frequency
+ * @param discountCode - Optional discount code (sent as offer_code)
  * @returns Complete Gumroad URL with appropriate parameters
  */
 export const buildGumroadUrlFromProduct = (
     product: Product,
     selectedVariant?: ProductVariant,
-    selectedFrequency?: PaymentFrequency
+    selectedFrequency?: PaymentFrequency,
+    discountCode?: string
 ): string => {
     const variant = selectedVariant || product.variants?.[0]
     const url = variant?.gumroadUrl || product.gumroadUrl
 
     return buildGumroadUrl(url, {
+        discountCode,
         variantId: variant?.gumroadVariantId,
         paymentFrequency:
             selectedFrequency ||
@@ -97,4 +101,22 @@ export const buildGumroadUrlFromProduct = (
         quantity: 1,
         wanted: true
     })
+}
+
+/**
+ * Buy link for a product: same as buildGumroadUrlFromProduct, plus the discount code of the
+ * current promotion when the promotion window is active and the promotion covers the product/variant
+ */
+export const buildGumroadBuyUrl = (
+    product: Product,
+    selectedVariant?: ProductVariant,
+    selectedFrequency?: PaymentFrequency
+): string => {
+    const variant = selectedVariant || product.variants?.[0] || null
+    return buildGumroadUrlFromProduct(
+        product,
+        selectedVariant,
+        selectedFrequency,
+        getCurrentPromotionDiscountCode(product, variant)
+    )
 }

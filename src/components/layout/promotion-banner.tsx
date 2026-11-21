@@ -1,13 +1,12 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 import { FaTimes, FaCopy, FaCheck } from 'react-icons/fa'
-import promotionConfig from '@/data/promotion.json'
-import type { PromotionConfig } from '@/schemas/promotion.schema'
+import { currentPromotion, isPromotionWindowActive } from '@/lib/promotion'
 
 const STORAGE_KEY = 'promo-banner-dismissed'
 
 const PromotionBanner: React.FC = () => {
-    const config = promotionConfig as PromotionConfig
+    const config = currentPromotion
     // Initialize state from sessionStorage (lazy initialization)
     const [isDismissed, setIsDismissed] = useState(() => {
         return sessionStorage.getItem(STORAGE_KEY) === 'true'
@@ -51,17 +50,7 @@ const PromotionBanner: React.FC = () => {
                     return false
                 }
 
-                const now = new Date()
-                const start = new Date(config.promotionStart)
-                const end = new Date(config.promotionEnd)
-
-                // Check for invalid dates
-                if (isNaN(start.getTime()) || isNaN(end.getTime())) {
-                    console.error('Invalid promotion dates')
-                    return false
-                }
-
-                return now >= start && now <= end
+                return isPromotionWindowActive(config, new Date())
             }
 
             return false

@@ -22,6 +22,7 @@ import type { Category } from '@/schemas/category.schema'
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { getCurrentPromotionDiscountCode } from '@/lib/promotion'
 import { searchProducts } from '@/lib/product-search'
 import type { MediaItem } from '@/schemas/media.schema'
 import { MarkdownContent } from '@/components/ui/markdown-content'
@@ -806,7 +807,13 @@ const ComparePage: React.FC = () => {
                                                 </span>
                                                 <div className='flex flex-shrink-0 items-center gap-2'>
                                                     <a
-                                                        href={buildGumroadUrl(product.gumroadUrl)}
+                                                        href={buildGumroadUrl(product.gumroadUrl, {
+                                                            discountCode:
+                                                                getCurrentPromotionDiscountCode(
+                                                                    product,
+                                                                    null
+                                                                )
+                                                        })}
                                                         target='_blank'
                                                         rel='noopener'
                                                         className='bg-secondary hover:bg-secondary/90 inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-white transition-colors'
@@ -1271,7 +1278,14 @@ const ComparePage: React.FC = () => {
                                                     <div className='flex flex-col gap-2'>
                                                         <a
                                                             href={buildGumroadUrl(
-                                                                product.gumroadUrl
+                                                                product.gumroadUrl,
+                                                                {
+                                                                    discountCode:
+                                                                        getCurrentPromotionDiscountCode(
+                                                                            product,
+                                                                            null
+                                                                        )
+                                                                }
                                                             )}
                                                             target='_blank'
                                                             rel='noopener'

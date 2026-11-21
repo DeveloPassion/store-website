@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaShoppingCart } from 'react-icons/fa'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
-import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { buildGumroadBuyUrl } from '@/lib/gumroad-url'
 import { formatFrequencyPrice, getVariantPriceForFrequency } from '@/lib/variant-pricing'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
@@ -56,7 +56,7 @@ const StickyBuyButton: React.FC<StickyBuyButtonProps> = ({
     const displayPrice = getDisplayPrice()
     const buttonText = isFree ? 'Get Now' : 'Buy Now'
     const buttonTextWithPrice = isFree ? 'Get Now' : `Buy (${displayPrice})`
-    const gumroadUrl = buildGumroadUrlFromProduct(product, selectedVariant, selectedFrequency)
+    const gumroadUrl = buildGumroadBuyUrl(product, selectedVariant, selectedFrequency)
 
     // Calculate current price for analytics
     const getCurrentPrice = (): number => {

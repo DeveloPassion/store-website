@@ -5,5 +5,9 @@
     "promoLinkText": null,
     "discountCode": "BLACKFRIDAY2026",
     "promotionStart": "2026-11-22T23:00:00Z",
-    "promotionEnd": "2026-11-30T22:59:00Z"
+    "promotionEnd": "2026-11-30T22:59:00Z",
+    "excludedProducts": [
+        { "productId": "pkm-coaching", "variantIds": null },
+        { "productId": "knowii-community", "variantIds": ["explorer", "knowledge-builder"] }
+    ]
 }

@@ -41,6 +41,9 @@ The promotion schema is defined in `src/schemas/promotion.schema.ts` using Zod. 
 - `promoLinkText` (string) - Link anchor text (e.g., "Shop Now →")
 - `discountCode` (string) - Discount code to display (e.g., "NY2026")
 
+**Buy links:**
+- `excludedProducts` (array, required, can be empty) - Products the promotion does not cover: `{ "productId": "pkm-coaching", "variantIds": null }` excludes the whole product; `"variantIds": ["explorer"]` excludes only those variants (by `gumroadVariantId`). During the PROMOTIONS window, every other paid product's buy link carries `discountCode` as `offer_code` (`src/lib/promotion.ts`). `validate:promotion` checks that the ids exist.
+
 ### Configuration Examples
 
 **Active Promotion with Dates:**

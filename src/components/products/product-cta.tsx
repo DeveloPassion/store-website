@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { FaShieldAlt, FaCheckCircle, FaLock, FaCreditCard, FaUndo, FaStar } from 'react-icons/fa'
 import Section from '@/components/ui/section'
 import type { Product } from '@/schemas/product.schema'
-import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { buildGumroadBuyUrl } from '@/lib/gumroad-url'
 import { resolveStatItem } from '@/lib/stats-helpers'
 import { Button } from '@/components/ui/button'
 import { MarkdownContent } from '@/components/ui/markdown-content'
@@ -54,7 +54,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({ product }) => {
                     {/* CTA Button */}
                     <Button
                         as='a'
-                        href={buildGumroadUrlFromProduct(product)}
+                        href={buildGumroadBuyUrl(product)}
                         data-gumroad-overlay-checkout='true'
                         size='lg'
                         className='mb-4 shadow-xl hover:shadow-2xl sm:px-12 sm:text-xl'

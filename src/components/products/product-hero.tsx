@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { formatDistanceToNow } from 'date-fns'
 import type { Product, ProductVariant } from '@/schemas/product.schema'
 import type { PaymentFrequency } from '@/schemas/product.schema'
-import { buildGumroadUrlFromProduct } from '@/lib/gumroad-url'
+import { buildGumroadBuyUrl } from '@/lib/gumroad-url'
 import {
     formatFrequencyPrice,
     getVariantFrequencies,
@@ -431,7 +431,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
                             <Button
                                 ref={buyButtonRef}
                                 as='a'
-                                href={buildGumroadUrlFromProduct(
+                                href={buildGumroadBuyUrl(
                                     product,
                                     selectedVariant,
                                     selectedFrequency

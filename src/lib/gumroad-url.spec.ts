@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'bun:test'
-import { buildGumroadUrl, buildGumroadUrlFromProduct } from './gumroad-url'
+import { describe, it, expect, afterEach, setSystemTime } from 'bun:test'
+import { buildGumroadUrl, buildGumroadBuyUrl, buildGumroadUrlFromProduct } from './gumroad-url'
 import type { Product } from '@/schemas/product.schema'
 
 describe('buildGumroadUrl', () => {
@@ -490,6 +490,31 @@ describe('buildGumroadUrlFromProduct', () => {
             expect(result).not.toContain('variant=')
             expect(result).toContain('wanted=true')
             expect(result).toContain('quantity=1')
+        })
+    })
+
+    describe('Discount code', () => {
+        it('should add offer_code when a discount code is given', () => {
+            const result = buildGumroadUrlFromProduct(baseProduct, undefined, undefined, 'SAVE20')
+            expect(result).toContain('offer_code=SAVE20')
+        })
+
+        it('should not add offer_code without a discount code', () => {
+            const result = buildGumroadUrlFromProduct(baseProduct)
+            expect(result).not.toContain('offer_code=')
+        })
+    })
+
+    describe('buildGumroadBuyUrl', () => {
+        afterEach(() => {
+            setSystemTime()
+        })
+
+        it('should not add offer_code outside any promotion window', () => {
+            setSystemTime(new Date('2000-01-01T00:00:00Z'))
+            const result = buildGumroadBuyUrl(baseProduct)
+            expect(result).toContain('wanted=true')
+            expect(result).not.toContain('offer_code=')
         })
     })
 })

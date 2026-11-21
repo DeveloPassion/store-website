@@ -289,7 +289,9 @@ async function interactiveMode() {
         promoLinkText: promoLinkText || null,
         discountCode: discountCode || null,
         promotionStart: promotionStart || null,
-        promotionEnd: promotionEnd || null
+        promotionEnd: promotionEnd || null,
+        // Edited in promotion.json directly; kept as is
+        excludedProducts: currentConfig?.excludedProducts ?? []
     }
 
     return config
@@ -357,7 +359,9 @@ function cliMode(args: CliArgs): PromotionConfig | null {
         promoLinkText: args.linkText || null,
         discountCode: args.code || null,
         promotionStart: promotionStart || null,
-        promotionEnd: promotionEnd || null
+        promotionEnd: promotionEnd || null,
+        // Edited in promotion.json directly; kept as is
+        excludedProducts: loadCurrentConfig()?.excludedProducts ?? []
     }
 
     return config

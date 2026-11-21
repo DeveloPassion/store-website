@@ -29,6 +29,7 @@ import {
 import { useSetBreadcrumbs } from '@/hooks/use-set-breadcrumbs'
 import { updateAllMetaTags } from '@/lib/update-meta-tags'
 import { buildGumroadUrl } from '@/lib/gumroad-url'
+import { getCurrentPromotionDiscountCode } from '@/lib/promotion'
 import type { MediaItem } from '@/schemas/media.schema'
 import {
     trackQuizStarted,
@@ -613,7 +614,14 @@ const QuizPage: React.FC = () => {
                                         <div className='mt-3 flex flex-col gap-2 sm:mt-6 sm:flex-row sm:justify-center sm:gap-3'>
                                             <a
                                                 href={buildGumroadUrl(
-                                                    topRecommendation.product.gumroadUrl
+                                                    topRecommendation.product.gumroadUrl,
+                                                    {
+                                                        discountCode:
+                                                            getCurrentPromotionDiscountCode(
+                                                                topRecommendation.product,
+                                                                null
+                                                            )
+                                                    }
                                                 )}
                                                 target='_blank'
                                                 rel='noopener'

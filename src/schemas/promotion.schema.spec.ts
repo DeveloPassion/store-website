@@ -14,7 +14,8 @@ describe('Promotion Schema Validation', () => {
         promoText: 'New Year Sale - 30% off all products!',
         promoLinkText: 'Shop Now',
         promoLink: 'https://example.com/sale',
-        discountCode: 'NEWYEAR2026'
+        discountCode: 'NEWYEAR2026',
+        excludedProducts: []
     }
 
     // Config with all nullable fields set to null
@@ -25,7 +26,8 @@ describe('Promotion Schema Validation', () => {
         promoText: 'Always visible banner',
         promoLinkText: null,
         promoLink: null,
-        discountCode: null
+        discountCode: null,
+        excludedProducts: []
     }
 
     describe('BannerBehaviorSchema', () => {
@@ -164,7 +166,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Always visible banner',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -178,7 +181,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Always visible banner',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -194,7 +198,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Hidden banner',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -208,7 +213,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Hidden banner',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
@@ -229,7 +235,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Sale',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)
@@ -243,7 +250,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Sale',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)
@@ -257,7 +265,8 @@ describe('Promotion Schema Validation', () => {
                 promoText: 'Sale',
                 promoLink: 'https://example.com',
                 promoLinkText: null,
-                discountCode: null
+                discountCode: null,
+                excludedProducts: []
             }
             const result = PromotionConfigSchema.safeParse(invalid)
             expect(result.success).toBe(false)
@@ -501,6 +510,48 @@ describe('Promotion Schema Validation', () => {
             const valid = { ...validPromotion, promoText: '  Summer  Sale  ' }
             const result = PromotionConfigSchema.safeParse(valid)
             expect(result.success).toBe(true)
+        })
+    })
+
+    describe('PromotionConfigSchema - excludedProducts', () => {
+        it('should accept a whole-product exclusion', () => {
+            const valid = {
+                ...validPromotion,
+                excludedProducts: [{ productId: 'pkm-coaching', variantIds: null }]
+            }
+            expect(PromotionConfigSchema.safeParse(valid).success).toBe(true)
+        })
+
+        it('should accept a variant-level exclusion', () => {
+            const valid = {
+                ...validPromotion,
+                excludedProducts: [
+                    { productId: 'knowii-community', variantIds: ['explorer', 'knowledge-builder'] }
+                ]
+            }
+            expect(PromotionConfigSchema.safeParse(valid).success).toBe(true)
+        })
+
+        it('should reject a missing excludedProducts field', () => {
+            const invalid: Record<string, unknown> = { ...validPromotion }
+            delete invalid['excludedProducts']
+            expect(PromotionConfigSchema.safeParse(invalid).success).toBe(false)
+        })
+
+        it('should reject an exclusion without productId', () => {
+            const invalid = {
+                ...validPromotion,
+                excludedProducts: [{ productId: '', variantIds: null }]
+            }
+            expect(PromotionConfigSchema.safeParse(invalid).success).toBe(false)
+        })
+
+        it('should reject an exclusion with an empty variant id', () => {
+            const invalid = {
+                ...validPromotion,
+                excludedProducts: [{ productId: 'knowii-community', variantIds: [''] }]
+            }
+            expect(PromotionConfigSchema.safeParse(invalid).success).toBe(false)
         })
     })
 })

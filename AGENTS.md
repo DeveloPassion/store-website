@@ -335,6 +335,8 @@ Access: `product.salesCopy.tagline`, `product.faqs`, `product.media`
 
 **Modes**: ALWAYS, NEVER, PROMOTIONS (date-based)
 
+**Buy links**: during the PROMOTIONS window, `discountCode` is added as `offer_code` to every paid product's buy link (`buildGumroadBuyUrl`, `src/lib/promotion.ts`), except products and variants listed in `excludedProducts`.
+
 ## Managing Tags
 
 **CLI**: `bun run update:tags` | **Validate**: `bun run validate:tags`
