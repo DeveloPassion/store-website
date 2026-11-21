@@ -1,9 +1,9 @@
 {
-    "bannerBehavior": "NEVER",
-    "promoText": "No active promotion",
+    "bannerBehavior": "PROMOTIONS",
+    "promoText": "🎉 Black Friday: 20% off all my products until Monday 30 November, 23:59 CET, with the code",
     "promoLink": null,
     "promoLinkText": null,
-    "discountCode": null,
-    "promotionStart": null,
-    "promotionEnd": null
+    "discountCode": "BLACKFRIDAY2026",
+    "promotionStart": "2026-11-22T23:00:00Z",
+    "promotionEnd": "2026-11-30T22:59:00Z"
 }
