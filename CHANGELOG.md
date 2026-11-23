@@ -1,3 +1,9 @@
+## [1.82.0](https://github.com/DeveloPassion/store-website/compare/1.81.0...1.82.0) (2026-11-23)
+
+### Features
+
+* **website:** add the promotion code to buy links during the promotion window ([4267456](https://github.com/DeveloPassion/store-website/commit/426745615f2edd9ea32646b48509153f661cc0cd))
+* **website:** set the Black Friday 2026 promotion banner (code BLACKFRIDAY2026) ([d101162](https://github.com/DeveloPassion/store-website/commit/d1011627207ff2528dac2953e7e71e454c59efc8))
 ## [1.81.0](https://github.com/DeveloPassion/store-website/compare/1.80.0...1.81.0) (2026-11-18)
 
 ### Features
