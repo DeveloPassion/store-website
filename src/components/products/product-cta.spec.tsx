@@ -1,4 +1,13 @@
-import { describe, it, expect, beforeEach, mock } from 'bun:test'
+import {
+    describe,
+    it,
+    expect,
+    beforeEach,
+    beforeAll,
+    afterAll,
+    mock,
+    setSystemTime
+} from 'bun:test'
 import { render } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCTA from './product-cta'
@@ -32,6 +41,16 @@ const renderWithRouter = (component: React.ReactElement) => {
 }
 
 describe('ProductCTA Component', () => {
+    // Buy links get the running promotion's code (src/data/promotion.json).
+    // Pin the clock outside any promotion window so the expected URLs do not depend on the date.
+    beforeAll(() => {
+        setSystemTime(new Date('2000-01-01T00:00:00Z'))
+    })
+
+    afterAll(() => {
+        setSystemTime()
+    })
+
     beforeEach(() => {})
 
     it('should render with product name', () => {

@@ -1,4 +1,15 @@
-import { describe, it, expect, beforeEach, afterEach, mock, spyOn } from 'bun:test'
+import {
+    describe,
+    it,
+    expect,
+    beforeEach,
+    afterEach,
+    beforeAll,
+    afterAll,
+    mock,
+    spyOn,
+    setSystemTime
+} from 'bun:test'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router'
 import ProductCardEcommerce from './product-card-ecommerce'
@@ -10,6 +21,16 @@ const renderWithRouter = (component: React.ReactElement) => {
 }
 
 describe('ProductCardEcommerce Component', () => {
+    // Buy links get the running promotion's code (src/data/promotion.json).
+    // Pin the clock outside any promotion window so the expected URLs do not depend on the date.
+    beforeAll(() => {
+        setSystemTime(new Date('2000-01-01T00:00:00Z'))
+    })
+
+    afterAll(() => {
+        setSystemTime()
+    })
+
     beforeEach(() => {
         localStorage.clear()
     })
