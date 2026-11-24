@@ -26,6 +26,11 @@
             "httpStatusCode": 301
         },
         {
+            "source": "/osh",
+            "destination": "/product/obsidian-search-handbook",
+            "httpStatusCode": 301
+        },
+        {
             "source": "/*",
             "destination": "/index.html",
             "httpStatusCode": 200
