@@ -1,3 +1,9 @@
+## [1.83.0](https://github.com/DeveloPassion/store-website/compare/1.82.0...1.83.0) (2026-11-24)
+
+### Features
+
+* **website:** add Vicki Berg testimonial for Obsidian Search Handbook ([1012ea7](https://github.com/DeveloPassion/store-website/commit/1012ea72605355df361c4bd0a2d1c9900577f9a5))
+* **website:** short link /osh to the Obsidian Search Handbook ([336233d](https://github.com/DeveloPassion/store-website/commit/336233d61ddda122872403c65ac29ac1e8605793))
 ## [1.82.0](https://github.com/DeveloPassion/store-website/compare/1.81.0...1.82.0) (2026-11-23)
 
 ### Features
