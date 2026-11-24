@@ -15,14 +15,26 @@
         {
             "id": "testimonial-2",
             "author": "Sebastian Kamilli",
+            "role": null,
+            "company": null,
+            "avatarUrl": null,
+            "twitterHandle": null,
+            "twitterUrl": null,
+            "sourceUrl": "https://www.linkedin.com/posts/sebastiankamilli_du-findest-deine-eigenen-notizen-nicht-share-7528358781185994752-lOub",
             "quote": "Thanks for your great work! This book is a must read for Obsidian users.",
+            "featured": true
+        },
+        {
+            "id": "testimonial-3",
+            "author": "Vicki Berg",
+            "quote": "You can tell a lot of homework was put into writing this book. He breaks down the steps in a way that they can be followed, especially using the worksheets. This book is full of useful information and definitely worth having.",
             "featured": true,
             "role": null,
             "company": null,
             "avatarUrl": null,
             "twitterHandle": null,
             "twitterUrl": null,
-            "sourceUrl": "https://www.linkedin.com/posts/sebastiankamilli_du-findest-deine-eigenen-notizen-nicht-share-7528358781185994752-lOub"
+            "sourceUrl": null
         }
     ]
 }
